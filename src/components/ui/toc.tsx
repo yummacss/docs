@@ -46,28 +46,28 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d-none bc-border blw-1 @lg:d-b @lg:gc-s-3">
+    <aside className="d:none bc:border blw:1 @lg:d:b @lg:gc-s:3">
       <Scroller
-        className="p-st t-20"
+        className="p:st t:20"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >
-        <div className="px-8 pb-12">
-          <h3 className="mb-4 c-silver-8 fs-xs fw-600 ls-2 tt-u">
+        <div className="px:8 pb:12">
+          <h3 className="mb:4 c:silver-8 fs:xs fw:600 ls:2 tt:u">
             {isBlogIndex ? "Archive" : "On this page"}
           </h3>
-          <ul className="d-f fd-c g-2 fs-sm">
+          <ul className="d:f fd:c g:2 fs:sm">
             {headings.map((heading) => (
               <li key={heading.id}>
                 <Link
                   href={`#${heading.id}`}
-                  className={`c-white/70 h:c-white fv:oc-white fv:ow-2 ${heading.level === 3 ? "ml-4" : ""}`}
+                  className={`c:white/70 h:c:white fv:oc:white fv:ow:2 ${heading.level === 3 ? "ml:4" : ""}`}
                 >
                   {heading.text}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="d-f fd-c g-3 mt-8 pt-8">
+          <div className="d:f fd:c g:3 mt:8 pt:8">
             {isBlogIndex ? (
               <RssLink />
             ) : isBlogPost ? (

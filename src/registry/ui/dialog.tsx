@@ -176,11 +176,11 @@ export default function DialogBase({
   const popup = (
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
-        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
           animated ? "yui-dialog-fade" : ""
         }`}
       />
-      <Dialog.Viewport className="d-f p-f i-0 ai-c jc-c">
+      <Dialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <Dialog.Popup
           className={`${popupClasses} ${animated ? "yui-dialog-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
@@ -198,23 +198,23 @@ export default function DialogBase({
               }
               aria-label="Close"
             >
-              <Xmark aria-hidden className="w-5 h-5" />
+              <Xmark aria-hidden className="w:5 h:5" />
             </Dialog.Close>
           )}
 
           {header && (
-            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5">{header}</div>
+            <div className="d:f fd:c ai:c jc:c g:3 px:4 pt:5">{header}</div>
           )}
 
           <div
-            className={`d-f fd-c g-3 px-4 pb-6 ${header ? "pt-5" : "pt-10"}`}
+            className={`d:f fd:c g:3 px:4 pb:6 ${header ? "pt:5" : "pt:10"}`}
           >
-            <Dialog.Title className="c-slate-10 fs-md fw-500 ta-c">
+            <Dialog.Title className="c:slate-10 fs:md fw:500 ta:c">
               {title}
             </Dialog.Title>
 
             {description && (
-              <Dialog.Description className="m-0 c-slate-7 fs-sm lh-4 ta-c">
+              <Dialog.Description className="m:0 c:slate-7 fs:sm lh:4 ta:c">
                 {description}
               </Dialog.Description>
             )}
@@ -223,7 +223,7 @@ export default function DialogBase({
           </div>
 
           {confirmLabel && (
-            <div className="d-g gtc-2 g-3 px-4 pb-4">
+            <div className="d:g gtc:2 g:3 px:4 pb:4">
               <Dialog.Close render={<Button className={cancelClasses} />}>
                 {cancelLabel}
               </Dialog.Close>

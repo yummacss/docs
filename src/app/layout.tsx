@@ -55,11 +55,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className="cs-d sb-s spt-20 s::bg-accent-dim/10"
+      className="cs:d sb:s spt:20 s::bg:accent-dim/10"
       lang="en"
       data-scroll-behavior="smooth"
     >
-      <body className="bg-page">
+      <body className="bg:page">
         <NuqsAdapter>{children}</NuqsAdapter>
         <Analytics />
         <SpeedInsights />

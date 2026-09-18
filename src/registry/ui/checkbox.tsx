@@ -97,11 +97,11 @@ export default function CheckboxBase({
   };
   return (
     <label
-      className={`d-f fd-c g-1 us-none ${
-        disabled ? "c-slate-5 c-na" : "c-slate-10 c-p"
+      className={`d:f fd:c g:1 us:none ${
+        disabled ? "c:slate-5 c:na" : "c:slate-10 c:p"
       }`}
     >
-      <span className={`d-f ai-c g-2 fw-500 ${LABEL_SIZES[size]}`}>
+      <span className={`d:f ai:c g:2 fw:500 ${LABEL_SIZES[size]}`}>
         <Checkbox.Root
           disabled={disabled}
           checked={checked}
@@ -125,7 +125,7 @@ export default function CheckboxBase({
           {...props}
         >
           <Checkbox.Indicator
-            className={`d-f ${disabled ? "c-slate-4" : "c-white"}`}
+            className={`d:f ${disabled ? "c:slate-4" : "c:white"}`}
             render={(indicatorProps, state) => (
               <span {...indicatorProps}>
                 {state.indeterminate ? (
@@ -141,7 +141,7 @@ export default function CheckboxBase({
       </span>
 
       {description && (
-        <span className={`c-slate-6 fs-xs ${DESCRIPTION_INDENT[size]}`}>
+        <span className={`c:slate-6 fs:xs ${DESCRIPTION_INDENT[size]}`}>
           {description}
         </span>
       )}

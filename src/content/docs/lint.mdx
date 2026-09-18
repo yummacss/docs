@@ -1,13 +1,13 @@
 ---
-title: "@yummacss/canon"
+title: "@yummacss/lint"
 description: "An optional utility class validator for your Yumma CSS project."
 ---
 
 :::note[Optional]
-Yumma CSS generates the same CSS with or without it. Reach for canon when you want the check, not to get started.
+Yumma CSS generates the same CSS with or without it. Reach for it when you want the check, not to get started.
 :::
 
-The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists.
+The `@yummacss/lint` tool reports any class in your project that it does not recognize and suggests a close match when one exists.
 
 It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` & `safelist` entries work without extra configuration.
 
@@ -16,18 +16,18 @@ It works with the generator, so variants, opacity modifiers, negative values, cu
 Run it with no setup:
 
 ```bash
-pnpm dlx @yummacss/canon
+pnpm dlx @yummacss/lint
 ```
 
 ```json title="package.json"
 {
   "scripts": {
-    "validate": "yummacss-canon"
+    "validate": "yummacss-lint"
   }
 }
 ```
 
-The binary is named `yummacss-canon`, not `canon`.
+The binary is named `yummacss-lint`, not `lint`.
 
 ## Output
 
@@ -66,13 +66,13 @@ Canon exits `0` when every class is valid & `1` when any class is unrecognized, 
 Use `--allow` for custom classes defined in your own CSS:
 
 ```bash
-pnpm dlx @yummacss/canon --allow "docs-container,brand-logo"
+pnpm dlx @yummacss/lint --allow "docs-container,brand-logo"
 ```
 
 `--allow` accumulates, so repeating it is equivalent to one comma-separated list:
 
 ```bash
-pnpm dlx @yummacss/canon -a docs-container -a brand-logo
+pnpm dlx @yummacss/lint -a docs-container -a brand-logo
 ```
 
 ## What Gets Scanned
@@ -89,7 +89,7 @@ classnames("...")       cva("...")
 Two limits worth knowing:
 
 :::warning[Runtime classes are invisible]
-Template literal expressions cannot be validated statically. In `` className={`p-4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
+Template literal expressions cannot be validated statically. In `` className={`p:4 ${size}`} `` the `p:4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to it.
 :::
 
 Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behavior rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
@@ -99,7 +99,7 @@ Classes are validated against **your** config. A code example that shows a diffe
 Content files often contain class syntax from older versions that should not be validated. Pass a config inline through the API to scan only your application code:
 
 ```js title="scripts/validate.mjs"
-import { validate } from "@yummacss/canon";
+import { validate } from "@yummacss/lint";
 import config from "../yumma.config.mjs";
 
 const result = await validate({
@@ -118,7 +118,7 @@ if (result.invalid.length > 0) {
 ## API
 
 ```js
-import { validate } from "@yummacss/canon";
+import { validate } from "@yummacss/lint";
 
 const result = await validate({ allowlist: ["docs-container"] });
 ```
@@ -146,17 +146,17 @@ Each entry in `invalid` carries the class name, the absolute paths of every file
 | --- | --- | --- |
 | `className` | `string` | The unrecognized class. |
 | `files` | `string[]` | Absolute paths of the files it appears in. |
-| `suggestion` | `string \| undefined` | The closest valid class, e.g. `g-4` for `gap-4`. |
+| `suggestion` | `string \| undefined` | The closest valid class, e.g. `g:4` for `gap-4`. |
 
 Only `config` is available exclusively through the API. Everything else has a CLI equivalent.
 
 ### extractClasses()
 
-Returns the set of class names found in a string, using the same class attribute contexts as `validate`. Useful for building project-specific rules on top of canon:
+Returns the set of class names found in a string, using the same class attribute contexts as `validate`. Useful for building project-specific rules on top of it:
 
 ```js
 import { readFileSync } from "node:fs";
-import { extractClasses } from "@yummacss/canon";
+import { extractClasses } from "@yummacss/lint";
 
 const classes = extractClasses(readFileSync("src/components/card.tsx", "utf-8"));
 ```
@@ -170,5 +170,5 @@ Canon needs nothing beyond your config & source files, so no build has to run fi
 ```yaml title=".github/workflows/ci.yml"
 - uses: pnpm/action-setup@v6
 - run: pnpm install
-- run: pnpm dlx @yummacss/canon
+- run: pnpm dlx @yummacss/lint
 ```

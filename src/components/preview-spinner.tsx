@@ -23,7 +23,7 @@ export default function PreviewSpinner({
     <div
       role="status"
       aria-label="Loading preview"
-      className={`preview-spinner w-5 h-5 ${visible ? "v-v" : "v-h"}`}
+      className={`preview-spinner w:5 h:5 ${visible ? "v:v" : "v:h"}`}
     />
   );
 }

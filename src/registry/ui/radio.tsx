@@ -81,9 +81,9 @@ export default function RadioBase({
     checked ? `${DOT_SIZES[size]} ${ROUND} bg-white` : "d-none";
 
   return (
-    <div className="d-f fd-c g-2">
+    <div className="d:f fd:c g:2">
       {label && (
-        <div id={labelId} className="fs-xs fw-600 c-slate-5 us-none">
+        <div id={labelId} className="fs:xs fw:600 c:slate-5 us:none">
           {label}
         </div>
       )}
@@ -115,11 +115,11 @@ export default function RadioBase({
           return (
             <label
               key={option.value}
-              className={`d-f fd-c g-1 fw-500 ${LABEL_SIZES[size]} ${
-                disabled ? "o-60 c-na" : "c-slate-10 c-p"
+              className={`d:f fd:c g:1 fw:500 ${LABEL_SIZES[size]} ${
+                disabled ? "o:60 c:na" : "c:slate-10 c:p"
               }`}
             >
-              <div className="d-f ai-c g-2">
+              <div className="d:f ai:c g:2">
                 <Radio.Root
                   value={option.value}
                   className={(state) => rootClasses(state.checked)}
@@ -138,7 +138,7 @@ export default function RadioBase({
                 <span>{option.label}</span>
               </div>
               {option.description && (
-                <p className="pl-6 m-0 c-slate-6 fs-xs fw-400">
+                <p className="pl:6 m:0 c:slate-6 fs:xs fw:400">
                   {option.description}
                 </p>
               )}

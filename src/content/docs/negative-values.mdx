@@ -11,19 +11,19 @@ Yumma CSS supports negative values for specific utilities like margins, position
 
 Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m-`, `mt-`, `mr-`, `mb-`, `ml-`, `mx-` & `my-`).
 
-```tsx "ml--4"
-<div className="z-1 …">A</div>
-<div className="ml--4 z-2 …">B</div>
-<div className="ml--4 z-3 …">C</div>
+```tsx "ml:-4"
+<div className="zi:10 …">A</div>
+<div className="ml:-4 zi:20 …">B</div>
+<div className="ml:-4 zi:30 …">C</div>
 ```
 
 ## Positioning
 
 Apply negative offsets to position elements outside their parents or create overlapping effects. This works with `t-`, `r-`, `b-`, `l-` & `i-` utilities.
 
-```tsx "t--4" "l--4"
-<div className="p-r …">
-  <div className="p-a t--4 l--4 …"></div>
+```tsx "t:-4" "l:-4"
+<div className="p:r …">
+  <div className="p:a t:-4 l:-4 …"></div>
 </div>
 ```
 
@@ -31,9 +31,9 @@ Apply negative offsets to position elements outside their parents or create over
 
 Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--(value)` to target negative stack levels.
 
-```tsx "zi--10"
-<div className="p-r …">
-  <div className="p-a zi--10 …"></div>
+```tsx "zi:-10"
+<div className="p:r …">
+  <div className="p:a zi:-10 …"></div>
   <span>Background Layer</span>
 </div>
 ```
@@ -44,23 +44,23 @@ Specific utilities in Yumma CSS use a sign-toggle behavior. Instead of simply pr
 
 ### Letter Spacing
 
-Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the sign-toggle syntax `ls--1` or `ls--2` flips these to positive values, resulting in wider spacing instead of tighter spacing.
+Utilities like `ls:1` & `ls:2` are defined with negative CSS values. Using the sign-toggle syntax `ls:-1` or `ls:-2` flips these to positive values, resulting in wider spacing instead of tighter spacing.
 
 | Class  | Standard Value | Negated Class | Negated Value |
 | ------ | -------------- | ------------- | ------------- |
-| `ls-0` | `0`            | `ls--0`       | `0`           |
-| `ls-1` | `-0.05 em`     | `ls--1`       | `0.05 em`     |
-| `ls-2` | `-0.025 em`    | `ls--2`       | `0.025 em`    |
-| `ls-3` | `0.025 em`     | `ls--3`       | `-0.025 em`   |
-| `ls-4` | `0.05 em`      | `ls--4`       | `-0.05 em`    |
-| `ls-5` | `0.1 em`       | `ls--5`       | `-0.1 em`     |
+| `ls:0` | `0`            | `ls:-0`       | `0`           |
+| `ls:1` | `-0.05 em`     | `ls:-1`       | `0.05 em`     |
+| `ls:2` | `-0.025 em`    | `ls:-2`       | `0.025 em`    |
+| `ls:3` | `0.025 em`     | `ls:-3`       | `-0.025 em`   |
+| `ls:4` | `0.05 em`      | `ls:-4`       | `-0.05 em`    |
+| `ls:5` | `0.1 em`       | `ls:-5`       | `-0.1 em`     |
 
 <Hint icon="info">
   Sign-toggle behavior applies to any utility where the defined CSS value
   already starts with a negative number.
 </Hint>
 
-```tsx "ls-1" "ls--1"
-<p className="ls-1 …">Standard (Tight)</p>
-<p className="ls--1 …">Negated (Wide)</p>
+```tsx "ls:1" "ls:-1"
+<p className="ls:1 …">Standard (Tight)</p>
+<p className="ls:-1 …">Negated (Wide)</p>
 ```

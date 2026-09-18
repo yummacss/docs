@@ -179,7 +179,7 @@ export default function MenubarBase({
 
       if ("type" in item && item.type === "separator") {
         return (
-          <Menu.Separator key={key} className="my-1 w-100% h-px bg-silver-2" />
+          <Menu.Separator key={key} className="my:1 w:100% h:px bg:silver-2" />
         );
       }
 
@@ -187,7 +187,7 @@ export default function MenubarBase({
         return (
           <Menu.Group key={key}>
             {item.label && (
-              <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+              <div className="px:3 py:1 fs:xs fw:600 c:slate-5 us:none">
                 {item.label}
               </div>
             )}
@@ -205,9 +205,9 @@ export default function MenubarBase({
             disabled={item.disabled}
             className={itemClasses(false, false)}
           >
-            <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-sm bw-1">
+            <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <Menu.CheckboxItemIndicator>
-                <Check className="w-3 h-3 c-slate-12" />
+                <Check className="w:3 h:3 c:slate-12" />
               </Menu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -228,9 +228,9 @@ export default function MenubarBase({
                 value={option.value}
                 className={itemClasses(false, false)}
               >
-                <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
+                <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <Menu.RadioItemIndicator>
-                    <Circle className="w-2 h-2 c-slate-12 f-current" />
+                    <Circle className="w:2 h:2 c:slate-12 f:current" />
                   </Menu.RadioItemIndicator>
                 </span>
                 {option.label}
@@ -245,15 +245,15 @@ export default function MenubarBase({
           <Menu.SubmenuRoot key={key}>
             <Menu.SubmenuTrigger className={itemClasses(false, true)}>
               {item.icon && (
-                <span className="d-f fs-0 c-slate-5">{item.icon}</span>
+                <span className="d:f fs:0 c:slate-5">{item.icon}</span>
               )}
-              <span className="fg-1">{item.label}</span>
-              <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
+              <span className="fg:1">{item.label}</span>
+              <NavArrowRight className="fs:0 w:4 h:4 c:slate-4" />
             </Menu.SubmenuTrigger>
 
             <Menu.Portal container={container}>
               <Menu.Positioner
-                className="ow-0"
+                className="ow:0"
                 sideOffset={-4}
                 alignOffset={-4}
               >
@@ -280,15 +280,15 @@ export default function MenubarBase({
           className={itemClasses(destructive, trailing)}
         >
           {action.icon && iconPosition === "leading" && (
-            <span className="d-f fs-0 c-slate-5">{action.icon}</span>
+            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
           )}
           {trailing ? (
-            <span className="fg-1">{action.label}</span>
+            <span className="fg:1">{action.label}</span>
           ) : (
             action.label
           )}
           {action.icon && iconPosition === "trailing" && (
-            <span className="d-f fs-0 c-slate-5">{action.icon}</span>
+            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
           )}
           {action.shortcut && (
             <span
@@ -299,7 +299,7 @@ export default function MenubarBase({
                 .filter(Boolean)
                 .join(" ")}
             >
-              <KeyCommand className="w-3 h-3" />
+              <KeyCommand className="w:3 h:3" />
               <span>{action.shortcut}</span>
             </span>
           )}
@@ -344,7 +344,7 @@ function MenubarEntry({
 
   const popup = (
     <Menu.Portal container={container} keepMounted>
-      <Menu.Positioner className="ow-0" sideOffset={8}>
+      <Menu.Positioner className="ow:0" sideOffset={8}>
         <Menu.Popup
           className={`${popupClasses} ${animated ? "yui-menubar-pop" : ""}`}
         >

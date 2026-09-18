@@ -16,9 +16,9 @@ Yumma CSS provides {COLOR_FAMILIES.length} color families, each with {SHADE_LABE
 Apply color system utilities to style your elements.
 
 ```tsx
-<div className="bg-red …"></div>
-<div className="bg-green …"></div>
-<div className="bg-blue …"></div>
+<div className="bg:red …"></div>
+<div className="bg:green …"></div>
+<div className="bg:blue …"></div>
 ```
 
 ## Use Color Shades
@@ -34,9 +34,9 @@ Each color family generates 13 values from a single base hex. The base color has
 The step size is controlled by `percentage.light` and `percentage.dark` in your config. Both default to `14`.
 
 ```tsx
-<div className="bg-red-5 …"></div>
-<div className="bg-green-5 …"></div>
-<div className="bg-blue-5 …"></div>
+<div className="bg:red-5 …"></div>
+<div className="bg:green-5 …"></div>
+<div className="bg:blue-5 …"></div>
 ```
 
 ## Use Opacity Modifiers
@@ -44,9 +44,9 @@ The step size is controlled by `percentage.light` and `percentage.dark` in your 
 Target specific opacity values across color utilities. Opacity variants range from `0` to `95` in increments of `5`.
 
 ```tsx
-<div className="bg-indigo-3/80 …"></div>
-<div className="bg-indigo/60 …"></div>
-<div className="bg-indigo-9/40 …"></div>
+<div className="bg:indigo-3/80 …"></div>
+<div className="bg:indigo/60 …"></div>
+<div className="bg:indigo-9/40 …"></div>
 ```
 
 ## Custom Colors
@@ -73,9 +73,9 @@ Extend or override the default palette using the `theme.colors` configuration op
   <Step title="Use Custom Colors">
     The bundler plugins pick up config changes automatically. If you use `yummacss watch`, restart it to see the changes.
 
-    ```tsx "bg-background" "c-blue"
-    <div className="bg-background …">
-      <h1 className="c-blue …">Good evening</h1>
+    ```tsx "bg:background" "c:blue"
+    <div className="bg:background …">
+      <h1 className="c:blue …">Good evening</h1>
     </div>
     ```
 
@@ -113,8 +113,8 @@ Override the default shade percentages using the `theme.colors.percentage` confi
     The bundler plugins pick up config changes automatically. If you use `yummacss watch`, restart it to see the changes.
 
     ```tsx title="page.tsx"
-    <div className="bg-background-6 …">
-      <h1 className="c-blue-5 …">Good evening</h1>
+    <div className="bg:background-6 …">
+      <h1 className="c:blue-5 …">Good evening</h1>
     </div>
     ```
 

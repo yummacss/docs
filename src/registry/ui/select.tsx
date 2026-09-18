@@ -96,25 +96,25 @@ function renderOption(option: SelectOption, shape: Shape) {
         }`
       }
     >
-      <Select.ItemIndicator className="d-f ai-c">
-        <Check className="w-4 h-4" />
+      <Select.ItemIndicator className="d:f ai:c">
+        <Check className="w:4 h:4" />
       </Select.ItemIndicator>
       {option.avatar && (
-        <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
+        <Avatar.Root className="d:if o:h ai:c jc:c w:6 h:6 bc:white br:9999 bw:1 va:m us:none">
           <Avatar.Image
             src={option.avatar}
             alt=""
-            className="of-c w-100% h-100%"
+            className="of:c w:100% h:100%"
           />
-          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
+          <Avatar.Fallback className="d:f ai:c jc:c w:100% h:100% c:slate-8 fs:xs">
             {option.label[0]}
           </Avatar.Fallback>
         </Avatar.Root>
       )}
-      <div className="d-f fd-c">
+      <div className="d:f fd:c">
         <Select.ItemText>{option.label}</Select.ItemText>
         {option.description && (
-          <span className="c-slate-5 fs-xs">{option.description}</span>
+          <span className="c:slate-5 fs:xs">{option.description}</span>
         )}
       </div>
     </Select.Item>
@@ -182,7 +182,7 @@ export default function SelectBase({
   );
 
   const iconEl = icon && (
-    <span className="d-f ai-c c-slate-5" aria-hidden>
+    <span className="d:f ai:c c:slate-5" aria-hidden>
       {icon}
     </span>
   );
@@ -192,7 +192,7 @@ export default function SelectBase({
   const value_ = (
     <Select.Value>
       {(selected: string) => (
-        <span className="min-w-0 o-h to-e ws-nw">
+        <span className="min-w:0 o:h to:e ws:nw">
           {selected
             ? (flatOptions.find((o) => o.value === selected)?.label ?? selected)
             : placeholder}
@@ -202,20 +202,20 @@ export default function SelectBase({
   );
 
   const arrow = (
-    <Select.Icon className="d-f c-slate-8">
-      <ArrowSeparateVertical className="w-4 h-4" />
+    <Select.Icon className="d:f c:slate-8">
+      <ArrowSeparateVertical className="w:4 h:4" />
     </Select.Icon>
   );
 
   const popup = (
     <Select.Popup
-      className={`o-h py-1 bg-white bc-silver-2 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-select-pop" : ""}`}
+      className={`o:h py:1 bg:white bc:silver-2 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-select-pop" : ""}`}
     >
-      <Select.List className="p-r o-auto">
+      <Select.List className="p:r o:auto">
         {options.map((entry) =>
           isGroupEntry(entry) ? (
             <Select.Group key={entry.group}>
-              <Select.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+              <Select.GroupLabel className="px:3 pt:2 pb:1 fs:xs fw:500 c:slate-5 us:none">
                 {entry.group}
               </Select.GroupLabel>
               {entry.items.map((entry) => renderOption(entry, shape))}
@@ -229,14 +229,14 @@ export default function SelectBase({
   );
 
   return (
-    <Field.Root className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}>
+    <Field.Root className={`d:f fd:c g:2 ${disabled ? "o:60 c:na" : ""}`}>
       <style href="yumma-ui-select-motion" precedence="default">
         {SELECT_MOTION}
       </style>
       {label && (
-        <label htmlFor={id} className="c-slate-10 fs-sm fw-500 us-none">
+        <label htmlFor={id} className="c:slate-10 fs:sm fw:500 us:none">
           {label}
-          {required && <span className="c-red-5"> *</span>}
+          {required && <span className="c:red-5"> *</span>}
         </label>
       )}
 
@@ -252,14 +252,14 @@ export default function SelectBase({
       >
         <Select.Trigger id={id} className={triggerClasses}>
           {icon && iconPosition === "leading" && (
-            <span className="d-f ai-c g-2">
+            <span className="d:f ai:c g:2">
               {iconEl}
               {value_}
             </span>
           )}
           {(!icon || iconPosition !== "leading") && value_}
           {icon && iconPosition === "trailing" ? (
-            <span className="d-f ai-c g-1">
+            <span className="d:f ai:c g:1">
               {iconEl}
               {arrow}
             </span>
@@ -271,14 +271,14 @@ export default function SelectBase({
           <Select.Positioner
             sideOffset={8}
             alignItemWithTrigger={false}
-            className="zi-10 p-0 ow-0 us-none"
+            className="zi:10 p:0 ow:0 us:none"
           >
             {popup}
           </Select.Positioner>
         </Select.Portal>
       </Select.Root>
 
-      {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+      {description && <p className="m:0 c:slate-6 fs:xs">{description}</p>}
     </Field.Root>
   );
 }

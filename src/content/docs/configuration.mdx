@@ -89,12 +89,12 @@ export default defineConfig({
 
 <Hint icon="info">
   When a prefix is set, all utilities must include it, including entries in the
-  `safelist`. For example, if your prefix is `ui`, use `ui-bg-red` instead of
-  `bg-red`.
+  `safelist`. For example, if your prefix is `ui`, use `ui-bg:red` instead of
+  `bg:red`.
 </Hint>
 
 ```tsx
-<button className="ui-bg-indigo ui-c-white ui-p-4 ui-br-sm">
+<button className="ui-bg:indigo ui-c:white ui-p:4 ui-br:sm">
   Prefixed Button
 </button>
 ```
@@ -194,7 +194,7 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 ### HTML Input
 
 ```tsx title="index.tsx"
-<button className="bg-white c-black bw-1">Button</button>
+<button className="bg:white c:black bw:1">Button</button>
 ```
 
 ### CSS Output

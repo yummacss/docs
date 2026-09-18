@@ -7,8 +7,8 @@ Variants stack. Chain their prefixes on a single utility & every condition has t
 
 <CodeGroup>
 
-```tsx title="page.tsx" "@sm:h:bg-red"
-<button type="button" className="bg-indigo @sm:h:bg-red">Hover me</button>
+```tsx title="page.tsx" "@sm:h:bg:red"
+<button type="button" className="bg:indigo @sm:h:bg:red">Hover me</button>
 ```
 
 ```css title="output.css"
@@ -25,7 +25,7 @@ The media query wraps the rule & the pseudo class lands on the selector, so the 
 
 ## Order Does Not Matter
 
-`@sm:h:bg-red` & `h:@sm:bg-red` compile to the same rule. Each prefix is resolved by what it is, not by where it sits in the chain.
+`@sm:h:bg:red` & `h:@sm:bg:red` compile to the same rule. Each prefix is resolved by what it is, not by where it sits in the chain.
 
 Pick one order & keep to it. Both class names generate their own rule, so mixing them across a project ships the same declaration twice.
 
@@ -35,22 +35,22 @@ Pick one order & keep to it. Both class names generate their own rule, so mixing
 
 The most valuable pairing. Hover is unreliable on touch, so gating a hover style behind a breakpoint is a normal thing to want.
 
-```tsx "@lg:h:td-u"
-<a href="/docs" className="c-blue @lg:h:td-u">Documentation</a>
+```tsx "@lg:h:td:u"
+<a href="/docs" className="c:blue @lg:h:td:u">Documentation</a>
 ```
 
 `@pc:` composes the same way, which lets you target coarse pointers directly instead of inferring them from width.
 
-```tsx "@pc:a:bg-indigo-7"
-<button type="button" className="p-4 bg-indigo @pc:a:bg-indigo-7">Tap me</button>
+```tsx "@pc:a:bg:indigo-7"
+<button type="button" className="p:4 bg:indigo @pc:a:bg:indigo-7">Tap me</button>
 ```
 
 ### Pseudo Class & Pseudo Element
 
 <CodeGroup>
 
-```tsx title="page.tsx" "h:s::bg-indigo"
-<p className="h:s::bg-indigo">Hover this text, then select it.</p>
+```tsx title="page.tsx" "h:s::bg:indigo"
+<p className="h:s::bg:indigo">Hover this text, then select it.</p>
 ```
 
 ```css title="output.css"
@@ -63,8 +63,8 @@ The most valuable pairing. Hover is unreliable on touch, so gating a hover style
 
 ### Media Query & Pseudo Element
 
-```tsx "@sm:p::c-silver"
-<input className="@sm:p::c-silver" placeholder="Enter your email…" />
+```tsx "@sm:p::c:silver"
+<input className="@sm:p::c:silver" placeholder="Enter your email…" />
 ```
 
 ### Opacity On Top
@@ -73,8 +73,8 @@ An opacity modifier is a suffix rather than a prefix, so it combines with any st
 
 <CodeGroup>
 
-```tsx title="page.tsx" "@sm:h:bg-red/50"
-<div className="@sm:h:bg-red/50 …"></div>
+```tsx title="page.tsx" "@sm:h:bg:red/50"
+<div className="@sm:h:bg:red/50 …"></div>
 ```
 
 ```css title="output.css"
@@ -93,8 +93,8 @@ A breakpoint is a `min-width`, so two of them describe one range with a single l
 
 <CodeGroup>
 
-```tsx title="page.tsx" "@sm:@lg:bg-red"
-<div className="@sm:@lg:bg-red …"></div>
+```tsx title="page.tsx" "@sm:@lg:bg:red"
+<div className="@sm:@lg:bg:red …"></div>
 ```
 
 ```css title="output.css"
@@ -107,15 +107,15 @@ A breakpoint is a `min-width`, so two of them describe one range with a single l
 
 </CodeGroup>
 
-`@sm` is gone & nothing warns you. Write the breakpoint you mean, `@lg:bg-red`.
+`@sm` is gone & nothing warns you. Write the breakpoint you mean, `@lg:bg:red`.
 
 ## Two Pseudo Classes
 
-Two pseudo classes compile to a selector that requires both at once. `f:h:bg-red` produces `:focus:hover`, matching only an element that is focused *and* hovered in the same moment.
+Two pseudo classes compile to a selector that requires both at once, which is rarely the intent. `f:h:bg:red` produces `:focus:hover`, matching only an element that is focused *and* hovered in the same moment.
 
 That is a different rule from styling either state, not a shorter way of writing it. Pick the one that says what you mean.
 
-```tsx
-<button type="button" className="f:h:bg-red">Focused and hovered</button>
-<button type="button" className="f:bg-red h:bg-red">Focused or hovered</button>
+```tsx ins={2} del={1}
+<button type="button" className="f:h:bg:red">Both at once</button>
+<button type="button" className="f:bg:red h:bg:red">Either one</button>
 ```
