@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  134
-    Open    28
-    Done    83%
+    Open    29
+    Done    82%
 
 ---
 
@@ -106,6 +106,14 @@ The Component API rail, from Renildo's pass on 2026-09-18.
       also say that they own the file and can change anything in it.
 - [ ] **A long prop name pushes its control onto the next line.** Keep the name
       and its control inline at every width.
+- [ ] **Search does not know about flags, config keys or component props.**
+      Mayranne typed `--all` into the dialog and got nothing. `SEARCH_DATA` in
+      `src/utils/search-data.ts` carries doc titles, component titles, the CSS
+      properties `extractProperties` finds in page content, and the colour
+      shades. It does not carry CLI commands and flags, `yumma.config.mjs` keys,
+      or the 430 prop names in `src/registry/meta/*.json`, which is the one
+      index that already exists and is not used. Someone looking up a prop or a
+      flag is the likeliest search there is.
 
 
 ## Phase 6 - After v4
