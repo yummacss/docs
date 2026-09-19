@@ -3463,7 +3463,7 @@ standard attributes earn a variant. `[open]`, `[hidden]`, `aria-expanded`,
 `aria-selected`, `aria-current`, `aria-pressed` and `aria-invalid` are HTML and
 W3C, present in vanilla CSS, and nothing to do with any library. The four that
 overlap a pseudo class Yumma already has (`:disabled`, `:checked`, `:required`,
-`:read-only`) are not candidates. This is a 4.1 question at the earliest.
+`:read-only`) are not candidates. This is a 4.2 question at the earliest.
 
 ---
 
@@ -3526,6 +3526,14 @@ hang a comment on it would widen the API to document it.
 
 ## The runtime package is a CDN package
 
+**4.1 shipped the rename and nothing else.** Everything that had been pencilled
+in for it, coloured box-shadows, `theme.fonts`, the `container` config, the
+`gc-s-*` shortening, attribute variants and the lint plugin, moves to 4.2. The
+version was spent on a one-package rename because the rename could not wait for
+them: `@yummacss/runtime` was deleted from npm, so `@yummacss/cdn` had to exist
+before anything could point at it.
+
+
 `@yummacss/runtime` is `@yummacss/cdn`. The name describes what the thing is, a
 script tag served from a CDN, rather than what it is not.
 
@@ -3558,7 +3566,7 @@ later.
 ## Linting: hand the reporting to a real linter
 
 Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
-**Targets 4.1 for Yumma CSS and 0.4.0 for Yumma UI.** Neither gates v4.
+**Targets 4.2 for Yumma CSS and 0.4.0 for Yumma UI.** Neither gates v4.
 
 **The shape: rules are ours, everything around them is not.** `@yummacss/canon`
 today is 166 lines and most of them are a linter nobody asked us to write: its
@@ -3571,7 +3579,7 @@ wrong shape - an allowlist belongs next to the line it excuses, not in a CI
 argument.
 
 **Renamed, 2026-09-16, ahead of the plugin.** Renildo's call: 4.0 is the cheap
-moment for a breaking rename, so it does not wait for 4.1. `@yummacss/canon` is
+moment for a breaking rename, so it did not wait. `@yummacss/canon` is
 `@yummacss/lint`, the binary is `yummacss-lint`, the docs page is `/docs/lint`,
 and the API is unchanged. `canon` still names the concept in prose, the set of
 classes Yumma recognises; it no longer names the tool.
@@ -3618,7 +3626,7 @@ own table has failed the test.
   cannot simply be re-exported from `@yummacss/nitro/browser`. Needs a real
   browser config path: parse a config from a string in memory rather than resolve
   and import a file.
-- **A 4.1, for utilities that are additive rather than breaking.** Renildo's
+- **A 4.2, for utilities that are additive rather than breaking.** Renildo's
   call, 2026-08-31: neither of these gates v4, so neither should delay it.
   - **Colored box-shadows.**
   - **Shorten what `gc-s-*` and `gr-s-*` emit.** `grid-column: span 3 / span 3`
