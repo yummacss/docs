@@ -110,10 +110,10 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 
 ## Phase 6 - After v4
 
-- [ ] **Coloured box-shadow utilities**, 4.1. Renildo's call, 2026-09-16: it
+- [ ] **Coloured box-shadow utilities**, 4.2. Renildo's call, 2026-09-16: it
       does not gate v4. Without them a halo-plus-outline focus treatment cannot
       be written at all.
-- [ ] **Attribute variants**, 4.1 at the earliest, and not for `data-*`.
+- [ ] **Attribute variants**, 4.2 at the earliest, and not for `data-*`.
       Renildo's call, 2026-09-16: `data-starting-style` and `data-ending-style`
       are Base UI's vocabulary, not vanilla CSS, so Yumma CSS will not grow
       variants for them. What is left to decide is whether standard attributes
@@ -124,7 +124,7 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
-- [ ] **A lint plugin for oxlint and biome**, CSS 4.1 and UI 0.4.0. Replaces
+- [ ] **A lint plugin for oxlint and biome**, CSS 4.2 and UI 0.4.0. Replaces
       `canon`'s own CLI and report, and adds the rules a build cannot carry:
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
       should be `d-f`. See NOTES.md under Linting. Rename the package with it.
