@@ -3524,6 +3524,46 @@ hang a comment on it would widen the API to document it.
 
 ---
 
+## Cascade layers: yes for the reset, no for the merge problem
+
+Renildo asked, 2026-09-19. These are two questions and the answer differs.
+
+**The reset outranks the utilities today, and that is a bug.** `normalize.ts`
+carries `:is(a, button, input, select, summary, textarea):focus { outline: 2px
+solid transparent }`. `:is()` takes the highest specificity of its arguments, so
+that selector is **(0,1,1)**, and a plain utility is **(0,1,0)**. Measured in
+Chromium on a focused `<button class="os:s ow:2 oc:red">`: the flat output
+computes `outline-color: rgba(0, 0, 0, 0)`, the same rules with the reset in a
+lower layer compute `rgb(230, 57, 70)`. So `oc:*`, `ow:*` and `os:*` are dead on
+every focused `a`, `button`, `input`, `select`, `summary` and `textarea`, and
+nothing in the class name says so.
+
+**This is why the registry reaches for `fv:` everywhere.** A `fv:` variant emits
+`.fv\:oc\:red:focus-visible`, which is (0,2,0) and clears the reset. The
+workaround is invisible until you ask why the plain utility does nothing. Worth
+checking against the focus-outline flash in TODO's Phase 1 before assuming they
+are the same bug; they may not be.
+
+**Two layers, `reset` then `utilities`, fix it** and cost nothing in browser
+support: `@layer` is baseline since 2022. It **is** a behaviour change, though,
+and in the direction of being breaking: once the utilities sit in a layer, any
+unlayered CSS a user writes beats them, whatever the order. That is the right
+default and it is still a change, so it wants naming in a CHANGELOG rather than
+slipping in.
+
+**A third layer is worth thinking about and is not what the old note refused.**
+`@layer` was ruled out for class merging above, and that refusal stands: two
+colour classes on one element cannot be resolved by layers, because a class is
+defined once and demoting it demotes it everywhere. But shorthand against
+longhand is not arbitrary. `pt:8` should beat `p:4` for **every** element,
+always, which is exactly what a layer expresses. Splitting the utilities into
+`shorthand` then `longhand` would make that true in CSS rather than in
+`merge()`. It does not replace `merge()`, which still has to dedupe for
+class-string output, but it would stop the order of two classes deciding the
+result.
+
+---
+
 ## The runtime package is a CDN package
 
 **4.1 shipped the rename and nothing else.** Everything that had been pencilled
