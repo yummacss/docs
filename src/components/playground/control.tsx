@@ -100,10 +100,14 @@ function Stepper({
   onChange: (value: unknown) => void;
   inert?: boolean;
 }) {
+  // a float step accumulates error, so 0.2 three times is 0.6000000000000001
+  const places = (String(step).split(".")[1] ?? "").length;
   const clamp = (next: number) =>
-    Math.min(
-      max ?? Number.POSITIVE_INFINITY,
-      Math.max(min ?? Number.NEGATIVE_INFINITY, next),
+    Number(
+      Math.min(
+        max ?? Number.POSITIVE_INFINITY,
+        Math.max(min ?? Number.NEGATIVE_INFINITY, next),
+      ).toFixed(places),
     );
 
   const atMin = min !== undefined && value <= min;
