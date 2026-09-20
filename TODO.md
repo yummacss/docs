@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  134
-    Open    28
-    Done    83%
+    Open    29
+    Done    82%
 
 ---
 
@@ -110,6 +110,11 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 
 ## Phase 6 - After v4
 
+- [ ] **Cascade layers for the reset**, 4.2. The reset's `:is(...):focus` rule
+      is (0,1,1) and beats every (0,1,0) outline utility, measured in Chromium,
+      so `oc:*` does nothing on a focused button. Two layers fix it. Decide
+      separately whether the utilities split into shorthand and longhand. See
+      NOTES.md under Cascade layers.
 - [ ] **Coloured box-shadow utilities**, 4.2. Renildo's call, 2026-09-16: it
       does not gate v4. Without them a halo-plus-outline focus treatment cannot
       be written at all.
