@@ -90,17 +90,19 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
-/* The footer's display version: no scale reaches this size, and the negative
-   margins are what the band's overflow crops. */
+/* The footer's display version. No font-size scale reaches this, and the band
+   is its container query so the number sizes to whatever room the band has. */
+.footer-version-band {
+  container-type: inline-size;
+}
+
 .footer-version {
   font-family: "Esteban", serif;
-  font-size: clamp(15.625rem, 28vw, 25rem);
+  font-size: min(25rem, calc(100cqw / (var(--span) * 1.03)));
   line-height: 0.74;
   letter-spacing: -0.04em;
   color: rgb(190 198 242 / 0.07);
   white-space: nowrap;
-  margin-left: -0.085em;
-  margin-bottom: -0.0325em;
   user-select: none;
   pointer-events: none;
 }

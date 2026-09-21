@@ -5,10 +5,11 @@
 allowBuilds:
   esbuild: true
   sharp: true
+# Our own packages, so the release-age wait buys nothing. pnpm takes exact
+# versions only here, no ranges, so every release needs a line.
 minimumReleaseAgeExclude:
-  - '@yummacss/canon@3.31.0'
-  - '@yummacss/core@3.31.0 || 4.0.0'
-  - '@yummacss/nitro@3.31.0 || 4.0.0'
-  - '@yummacss/postcss@3.31.0 || 4.0.0'
-  - yummacss@3.31.0 || 4.0.0
-  - '@yummacss/lint@4.0.0'
+  - '@yummacss/core@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
+  - '@yummacss/lint@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
+  - '@yummacss/nitro@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
+  - '@yummacss/postcss@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
+  - yummacss@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2
