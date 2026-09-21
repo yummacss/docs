@@ -2240,6 +2240,24 @@ declares logical properties: `padding` covers `padding-inline` covers
       only applies it to the dialog. Rejecting a dropped file would need the
       component to raise its own error, and `error` is the caller's prop
       today, so the schema says to check the type in `onFilesChange` instead.
+- [x] **The focus outline flash was `tp:c` animating `outline-color`.** The
+      ring's width and style land instantly and only its colour was
+      transitioned, from the inherited `currentColor` to `silver-3`, so it
+      appeared white and faded over 150ms. `yummacss` 4.1.2 drops
+      `outline-color` from the property list and `tests/outline-transition.ts`
+      in that repo holds it. **Verified on the built docs at 4.1.2**, driven
+      over CDP with real mouse and key events and the computed outline sampled
+      every frame for 900ms: the transition list reads `color,
+      background-color, border-color, text-decoration-color, fill, stroke`,
+      and on Dialog, Command Palette, Empty State and Button the ring goes
+      from absent to `rgba(211, 215, 220, 0.6)` in a single frame. Nothing to
+      fix in this repo; the fix arrived with the dependency bump.
+      **What is left is not a flash.** Closing a dialog with Escape restores
+      focus to the trigger and `:focus-visible` matches, so a mouse-opened
+      dialog leaves a ring behind at about +230ms. That is the keyboard close
+      being honoured, and a mouse close leaves `2px solid transparent`
+      instead, which is the reset's `:is(a, button, ...):focus` rule winning on
+      specificity - the cascade-layers entry above, and 4.2's problem.
 
 ### Phase 7 - One breaking registry release
 
