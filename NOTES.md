@@ -617,6 +617,14 @@ blocks a release.**
       `light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07))`. A plain
       `color` declaration takes `light-dark()` the same way a Yumma class
       does, because the root's `color-scheme` is what resolves it.
+      **Then the whole label shrank.** The cap is `17rem` rather than `25rem`,
+      the closing bar is gone and the marks moved into a Socials column, so
+      the footer measures 592px at 1440 where it measured 692. The licence
+      sits under the description and the utilities/components counter is out:
+      a count is a claim, and it was not carrying one.
+      The three Yumma UI section links are repointed here too, the same three
+      values as docs#249, so whichever merges second is a no-op rather than a
+      conflict.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
