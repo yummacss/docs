@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Github, Twitter } from "@/icons";
 import { registryMeta } from "@/registry";
-import { yummaVersion } from "@/utils/version";
+import { ver } from "@/utils/version";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 
 // A utility page is one that renders a <Reference>; the rest are guides.
@@ -14,7 +14,7 @@ const components = Object.keys(registryMeta).length;
 
 // Esteban's widest digit and its dot, at 1em, so the display version is sized to
 // the band it sits in rather than to a guess that only holds for 4.1.2.
-const span = [...yummaVersion].reduce(
+const span = [...ver].reduce(
   (w, c) => w + (c === "." ? 0.135 : 0.55),
   0,
 );
@@ -35,9 +35,10 @@ const COLUMNS = [
     links: [
       { label: "Installation", href: "/ui/installation" },
       { label: "Forms", href: "/ui/components/autocomplete" },
-      { label: "Overlays", href: "/ui/components/alert-dialog" },
+      { label: "Display", href: "/ui/components/display" },
+      { label: "Interactive", href: "/ui/components/interactive" },
+      { label: "Overlays", href: "/ui/components/overlays" },
       { label: "Application UI", href: "/ui/components/empty-state" },
-      { label: "Playground", href: "https://play.yummacss.com" },
     ],
   },
   {
@@ -114,7 +115,7 @@ export default function Footer() {
           style={{ "--span": span } as CSSProperties}
         >
           <span aria-hidden="true" className="d:b footer-version">
-            {yummaVersion}
+            {ver}
           </span>
         </div>
       </div>
