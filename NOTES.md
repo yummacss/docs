@@ -572,6 +572,31 @@ blocks a release.**
       of that break. Measured at 320, 390, 430, 600, 768, 820, 900, 1024,
       1200, 1440 and 1920, and against `4.10.12`, `10.20.30` and
       `4.1.2-beta.1`: slack on both sides every time, no page scroll.
+- [x] **Light mode is `light-dark()` plus one attribute.** Every colour in
+      `yumma.config.mjs` is a `{ light, dark }` pair now, so **the dark side is
+      byte-identical to what shipped**: `generatePairedShades` builds each
+      side from the same base, and dark mode still computes `rgb(21, 23, 36)`
+      for the page. A new `ink` pair replaced `white` across `src/app`,
+      `src/components` and `src/mdx-components.tsx`, 148 classes in 37 files;
+      `color-mix` carries the `/70` modifiers through a `light-dark()` value,
+      which is what made the sweep a rename rather than a rewrite.
+      **Yumma emits `:root { color-scheme: light dark }`** whenever a pair
+      exists, which would follow the OS, so `globals.css` pins `:root` to
+      `dark` and `:root[data-theme="light"]` to `light`. Dark is therefore the
+      default with nothing stored, and only light writes the attribute.
+      `THEME_SCRIPT` in `src/utils/theme.ts` runs before the body paints.
+      **Code blocks stay eclipsa** by marking every shell `data-code` and
+      giving that subtree `color-scheme: dark`, so `bg:surface` inside it
+      resolves to `#1a1d2e` on both themes and the diff tints come out dark
+      too. No new colour and no class change: one rule does it.
+      `preview.tsx` and `stage.tsx` keep a literal `bg:white`, since a
+      component preview is light whatever the site is doing.
+      **The logomark's disc is `currentColor`** now and its call sites pass
+      `c:ink`; a white disc on `#f7f8fb` had no edge. Dark mode is unchanged,
+      white disc and indigo swoosh.
+      Driven in Chromium on the production build: dark then a click on the
+      toggle then a reload, reading `color-scheme`, the body background, the
+      `h1` and a sidebar link each time, on a docs page and a component page.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active

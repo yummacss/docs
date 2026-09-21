@@ -8,6 +8,22 @@
 /* biome-ignore lint/suspicious/noUnknownAtRules: Yumma CSS is being injected here */
 @yummacss;
 
+/* Yumma emits `color-scheme: light dark` for the paired colours, which would
+   follow the OS. Dark is the default here and `data-theme` is the switch. */
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Code blocks keep the eclipsa theme in either theme, so their subtree stays
+   on the dark side of every pair. */
+[data-code] {
+  color-scheme: dark;
+}
+
 h1,
 h2,
 h3,

@@ -29,7 +29,7 @@ export default function Reference({ category, name, variant }: Props) {
 
   if (!data) {
     return (
-      <div className="p:4 mb:6 bg:surface c:white/60 ta:c">
+      <div className="p:4 mb:6 bg:surface c:ink/60 ta:c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -56,14 +56,14 @@ export default function Reference({ category, name, variant }: Props) {
               render={(triggerProps, { open }) => (
                 <Button
                   {...triggerProps}
-                  className="d:f ai:c jc:sb g:4 w:100% py:3 px:4 m:0 bg:transparent c:white bw:0 ta:l fw:600 fs:sm c:p us:none"
+                  className="d:f ai:c jc:sb g:4 w:100% py:3 px:4 m:0 bg:transparent c:ink bw:0 ta:l fw:600 fs:sm c:p us:none"
                 >
                   <span className="d:f ai:c g:2 fw:w">
                     <code className="c:code ff:m">
                       {data.summary.map((token) => (
                         <span
                           key={token.id}
-                          className={token.punctuation ? "c:white/40" : ""}
+                          className={token.punctuation ? "c:ink/40" : ""}
                         >
                           {token.text}
                         </span>
@@ -77,26 +77,26 @@ export default function Reference({ category, name, variant }: Props) {
                     </span>
                   </span>
                   <Plus
-                    className={`fs:0 w:4 h:4 tp:c tdu:200 ttf:io ${open ? "ro:9 c:white" : "ro:0 c:white/60"}`}
+                    className={`fs:0 w:4 h:4 tp:c tdu:200 ttf:io ${open ? "ro:9 c:ink" : "ro:0 c:ink/60"}`}
                   />
                 </Button>
               )}
             />
           </Accordion.Header>
-          <Accordion.Panel className="o:h c:white/70 fs:sm lh:4">
+          <Accordion.Panel className="o:h c:ink/70 fs:sm lh:4">
             <div className="px:4 pb:4">
               <div className="oy:auto ob:c max-h:52">
                 <div className="d:f p:st t:0 zi:10 ai:c g:2 mb:2 pt:1 pb:2 bc:border bbw:1 bg:surface">
-                  <Search className="fs:0 w:4 h:4 c:white/30" />
+                  <Search className="fs:0 w:4 h:4 c:ink/30" />
                   <Input
                     type="text"
                     placeholder="Filter..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w:100% bg:transparent c:white/70 bw:0 fs:md"
+                    className="w:100% bg:transparent c:ink/70 bw:0 fs:md"
                   />
                   {search && (
-                    <span className="fs:0 c:white/30 fs:xs ws:nw">
+                    <span className="fs:0 c:ink/30 fs:xs ws:nw">
                       {filtered.length}/{data.rows.length}
                     </span>
                   )}
@@ -128,7 +128,7 @@ export default function Reference({ category, name, variant }: Props) {
                       </div>
                     ))
                   ) : (
-                    <div className="py:2 c:white/40 fs:xs ta:c">
+                    <div className="py:2 c:ink/40 fs:xs ta:c">
                       No utilities match "{search}"
                     </div>
                   )}

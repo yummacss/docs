@@ -16,7 +16,7 @@ export default function HintTooltip({
         <Tooltip.Trigger render={children} />
         <Tooltip.Portal>
           <Tooltip.Positioner side="bottom" sideOffset={6}>
-            <Tooltip.Popup className="px:2 py:1 br:md bc:border bg:surface c:white bw:1 fs:xs us:none">
+            <Tooltip.Popup className="px:2 py:1 br:md bc:border bg:surface c:ink bw:1 fs:xs us:none">
               {label}
             </Tooltip.Popup>
           </Tooltip.Positioner>

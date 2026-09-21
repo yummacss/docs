@@ -54,7 +54,7 @@ export default function PlaygroundRail() {
                 <Button
                   type="button"
                   onClick={playground.reset}
-                  className="d:f ai:c g:1 p:0 bg:transparent bw:0 c:silver-8 fs:xs c:p h:c:white fv:oc:accent fv:ow:2"
+                  className="d:f ai:c g:1 p:0 bg:transparent bw:0 c:silver-8 fs:xs c:p h:c:ink fv:oc:accent fv:ow:2"
                 >
                   <Undo className="w:3 h:3" />
                   Reset
@@ -94,7 +94,7 @@ export default function PlaygroundRail() {
                     onChange={(value) => playground?.setValue(prop.name, value)}
                   />
                 ) : (
-                  <code className="fs:0 c:white/70 fs:xs ff:m">
+                  <code className="fs:0 c:ink/70 fs:xs ff:m">
                     {typeOf(prop)}
                   </code>
                 )}
@@ -136,7 +136,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs:0 w:3 h:3 tp:c tdu:150 ${
-                open ? "ro:36 c:accent" : "c:white/25"
+                open ? "ro:36 c:accent" : "c:ink/25"
               }`}
             />
           </Button>
@@ -158,7 +158,7 @@ function Row({
       )}
 
       {open && (
-        <div className="mt:2 c:white/60 fs:sm lh:4">
+        <div className="mt:2 c:ink/60 fs:sm lh:4">
           <PropDescription text={prop.description} />
         </div>
       )}

@@ -60,7 +60,7 @@ export default async function Page({
       {ui && (
         <div className={`my:8 ${stage ? "fs:0" : ""}`} data-meta>
           <div className="d:f ai:c jc:sb mb:2">
-            <h1 className="min-w:0 c:white fs:4xl fw:400 ow:bw">{ui.title}</h1>
+            <h1 className="min-w:0 c:ink fs:4xl fw:400 ow:bw">{ui.title}</h1>
             <div className="d:f fs:0 ai:c g:2">
               {ui.playground && (
                 <Install id={getRegistryTarget(slug).install} />
@@ -72,9 +72,7 @@ export default async function Page({
               />
             </div>
           </div>
-          {ui.description && (
-            <p className="c:white/70 fs:lg">{ui.description}</p>
-          )}
+          {ui.description && <p className="c:ink/70 fs:lg">{ui.description}</p>}
         </div>
       )}
       <div className={stage ? "d:f fd:c f:1 min-h:0" : ""}>

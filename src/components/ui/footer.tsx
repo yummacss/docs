@@ -73,14 +73,14 @@ export default function Footer() {
       <div className="mx:auto px:6 docs-container">
         <div className="d:f fd:c g:12 pt:14 @lg:fd:r @lg:g:18">
           <div className="d:f fd:c g:5 @lg:w:80">
-            <YummaCSSDark className="d:b w:10 h:10" />
+            <YummaCSSDark className="d:b w:10 h:10 c:ink" />
 
             <div className="d:f fd:c g:2">
-              <p className="m:0 c:white/60 fs:sm">
+              <p className="m:0 c:ink/60 fs:sm">
                 An atomic CSS framework with fixed scales for spacing, colors,
                 type and radius. No arbitrary values.
               </p>
-              <p className="m:0 c:white/40 fs:xs">
+              <p className="m:0 c:ink/40 fs:xs">
                 {utilities} utilities &middot; {components} components
               </p>
             </div>
@@ -89,13 +89,13 @@ export default function Footer() {
           <div className="d:g f:1 g:8 gtc:1 @sm:gtc:3">
             {COLUMNS.map((column) => (
               <div key={column.title} className="d:f fd:c g:4">
-                <h3 className="c:white/90 fs:xs ls:5 tt:u">{column.title}</h3>
+                <h3 className="c:ink/90 fs:xs ls:5 tt:u">{column.title}</h3>
                 <ul className="d:f fd:c g:3">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="c:white/60 fs:sm td:none h:c:accent fv:oc:white fv:ow:2"
+                        className="c:ink/60 fs:sm td:none h:c:accent fv:oc:ink fv:ow:2"
                       >
                         {link.label}
                       </Link>
@@ -119,7 +119,7 @@ export default function Footer() {
 
       <div className="btw:1 bc:border">
         <div className="d:f mx:auto ai:c jc:sb g:4 px:6 py:4 docs-container">
-          <span className="c:white/40 fs:xs">
+          <span className="c:ink/40 fs:xs">
             MIT licensed &middot; &copy; {new Date().getFullYear()} Yumma CSS
           </span>
 
@@ -129,7 +129,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="d:f c:white fv:oc:white fv:ow:2"
+                className="d:f c:ink fv:oc:ink fv:ow:2"
               >
                 <Icon className="w:5 h:5" />
               </Link>
