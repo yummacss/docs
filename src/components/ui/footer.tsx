@@ -1,5 +1,6 @@
 import { allDocs } from "content-collections";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { Github, Twitter } from "@/icons";
 import { registryMeta } from "@/registry";
 import { yummaVersion } from "@/utils/version";
@@ -10,6 +11,13 @@ const utilities = allDocs.filter((doc) =>
   doc.content?.includes("<Reference"),
 ).length;
 const components = Object.keys(registryMeta).length;
+
+// Esteban's widest digit and its dot, at 1em, so the display version is sized to
+// the band it sits in rather than to a guess that only holds for 4.1.2.
+const span = [...yummaVersion].reduce(
+  (w, c) => w + (c === "." ? 0.135 : 0.55),
+  0,
+);
 
 const COLUMNS = [
   {
@@ -101,7 +109,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="p:r o:h mt:12">
+        <div
+          className="mt:12 footer-version-band"
+          style={{ "--span": span } as CSSProperties}
+        >
           <span aria-hidden="true" className="d:b footer-version">
             {yummaVersion}
           </span>
