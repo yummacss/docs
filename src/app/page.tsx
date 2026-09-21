@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import SkipLink from "@/components/ui/skip-link";
 import { NavArrowRight } from "@/icons";
@@ -83,8 +82,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
