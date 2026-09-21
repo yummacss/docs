@@ -619,7 +619,7 @@ blocks a release.**
       does, because the root's `color-scheme` is what resolves it.
       **Then the whole label shrank.** The cap is `17rem` rather than `25rem`,
       the closing bar is gone and the marks moved into a Socials column, so
-      the footer measures 592px at 1440 where it measured 692. The licence
+      the footer measures 544px at 1440 where it measured 692. The number sits on the footer's floor: no bottom padding, so its ink ends 1px above the edge, which is the `0.74` line box and not a crop. The licence
       sits under the description and the utilities/components counter is out:
       a count is a claim, and it was not carrying one.
       The three Yumma UI section links are repointed here too, the same three
