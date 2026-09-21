@@ -90,6 +90,21 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
+/* The footer's display version: no scale reaches this size, and the negative
+   margins are what the band's overflow crops. */
+.footer-version {
+  font-family: "Esteban", serif;
+  font-size: clamp(15.625rem, 28vw, 25rem);
+  line-height: 0.74;
+  letter-spacing: -0.04em;
+  color: rgb(190 198 242 / 0.07);
+  white-space: nowrap;
+  margin-left: -0.085em;
+  margin-bottom: -0.0325em;
+  user-select: none;
+  pointer-events: none;
+}
+
 @media (min-width: 64rem) {
   .playground-rail {
     position: sticky;

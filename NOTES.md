@@ -550,6 +550,22 @@ blocks a release.**
       leak, and that was **checked against the production build**: zero `Draft`
       markers in `blog.html`, the 4.0 post absent from the listing, and its
       route not prerendered at all.
+- [x] **The footer's three derived numbers.** **Utilities** is the count of
+      docs pages rendering a `<Reference>`, which is 130, not the 135 the
+      sidebar suggests: its `Utils` section (`cdn`, `core`, `lint`, `postcss`,
+      `vite`) is tooling, not utility classes. **Components** is
+      `Object.keys(registryMeta).length`, 39, which the three UI `Get Started`
+      pages would inflate to 42 if counted from `src/content/ui`. **Version**
+      is the `yummacss` range in `package.json`, so `pnpm upd` moves it; it
+      cannot come from the installed manifest, because naming `yummacss` in a
+      server component pulls `@yummacss/nitro`'s dynamic import into the
+      bundle and `next build` fails on it.
+- [x] **`.footer-version` is CSS, not classes.** No font-size scale reaches
+      400px, and `line-height: 0.74` and `rgb(190 198 242 / 0.07)` are off
+      every scale too, so it lives in `globals.css` and in the validator's
+      allowlist. Its negative margins in `em` are what the band's `o:h` crops,
+      so the left and bottom cuts hold at every size the `clamp()` produces:
+      measured 34px and 11px at 1440, 18px and 5px at 390.
 
 ### Phase 5 - Class merge (`yummacss/merge`)
 
