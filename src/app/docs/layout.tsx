@@ -1,3 +1,4 @@
+import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import Sidebar from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
@@ -24,6 +25,8 @@ export default function DocsLayout({
           <TableOfContents />
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
