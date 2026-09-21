@@ -597,6 +597,26 @@ blocks a release.**
       Driven in Chromium on the production build: dark then a click on the
       toggle then a reload, reading `color-scheme`, the body background, the
       `h1` and a sidebar link each time, on a docs page and a component page.
+- [x] **Phosphor duotone in the chrome, iconoir in the registry.** `@/icons`
+      is `src/icons.tsx` now: it imports from `@phosphor-icons/react/ssr`,
+      the entry with no context or hooks, so the same icon renders in a server
+      and a client component, and wraps each in a `duotone` helper that pins
+      `weight="duotone"`. **The 54 exported names did not change.** They are
+      iconoir's names and they are also values in `src/registry/meta/*.json`
+      (`"BellNotification"` seeds a Field demo), which reach playground URLs,
+      so renaming them to Phosphor's would break saved links. They are aliases
+      now, `StyleBorderSolid` being a `Keyboard` among them.
+      **`iconoir-react` stays a dependency**: `src/registry/ui/*.tsx` is what
+      people install and `ui/installation.mdx` tells them to add it.
+      `tests/icons.test.ts` still holds that line, one import path each way,
+      and reads the new module's `export const X = duotone(` shape.
+      Two names land on one glyph: `Sparks` and `SparksSolid` are both
+      `Sparkle`, since a uniform weight leaves the Solid pair nothing to say.
+- [x] **The version label needed the pair too.** `rgb(190 198 242 / 0.07)` is
+      invisible on `#f7f8fb`, so `.footer-version` is
+      `light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07))`. A plain
+      `color` declaration takes `light-dark()` the same way a Yumma class
+      does, because the root's `color-scheme` is what resolves it.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active

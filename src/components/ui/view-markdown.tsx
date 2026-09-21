@@ -24,7 +24,7 @@ export default function ViewMarkdown() {
       className="d:if ai:c g:2 w:fc c:ink/70 fs:sm td:none h:c:ink fv:oc:ink fv:ow:2"
     >
       <Page className="w:4 h:4" />
-      View markdown
+      View .md
     </Link>
   );
 }
