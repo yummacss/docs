@@ -115,7 +115,7 @@ function Stepper({
 
   const button = (spent: boolean) =>
     `d:f fs:0 ai:c jc:c w:6 h:6 bw:0 bg:transparent ff:m fs:xs fv:oo:-1 fv:oc:accent ${
-      inert || spent ? "c:white/25 c:na" : "c:accent-dim h:c:accent c:p"
+      inert || spent ? "c:ink/25 c:na" : "c:accent-dim h:c:accent c:p"
     }`;
 
   return (
@@ -257,7 +257,7 @@ function Toggle({
     >
       <Switch.Thumb
         className={`d:b w:3 h:2 tp:a tdu:150 ttf:io ${
-          checked ? "ml:2 bg:page" : "ml:0 bg:white/40"
+          checked ? "ml:2 bg:page" : "ml:0 bg:ink/40"
         }`}
       />
     </Switch.Root>

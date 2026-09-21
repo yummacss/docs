@@ -8,6 +8,22 @@
 /* biome-ignore lint/suspicious/noUnknownAtRules: Yumma CSS is being injected here */
 @yummacss;
 
+/* Yumma emits `color-scheme: light dark` for the paired colours, which would
+   follow the OS. Dark is the default here and `data-theme` is the switch. */
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Code blocks keep the eclipsa theme in either theme, so their subtree stays
+   on the dark side of every pair. */
+[data-code] {
+  color-scheme: dark;
+}
+
 h1,
 h2,
 h3,
@@ -98,10 +114,10 @@ body {
 
 .footer-version {
   font-family: "Esteban", serif;
-  font-size: min(25rem, calc(100cqw / (var(--span) * 1.03)));
+  font-size: min(17rem, calc(100cqw / (var(--span) * 1.03)));
   line-height: 0.74;
   letter-spacing: -0.04em;
-  color: rgb(190 198 242 / 0.07);
+  color: light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07));
   white-space: nowrap;
   user-select: none;
   pointer-events: none;

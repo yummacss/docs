@@ -36,8 +36,8 @@ export default async function BlogPage() {
     <>
       <div className="mb:16 pt:12 @lg:gc-s:9">
         <div className="my:8">
-          <h1 className="mb:2 c:white ff-e fs:4xl fw:400">Blog Articles</h1>
-          <p className="c:white/70 fs:lg">
+          <h1 className="mb:2 c:ink ff-e fs:4xl fw:400">Blog Articles</h1>
+          <p className="c:ink/70 fs:lg">
             The latest updates & articles from Yumma CSS.
           </p>
         </div>
@@ -46,10 +46,7 @@ export default async function BlogPage() {
           {years.map((year, yearIndex) => (
             <div key={year}>
               <div className="mb:16">
-                <h2
-                  id={String(year)}
-                  className="mb:8 c:white ff-e fs:4xl fw:400"
-                >
+                <h2 id={String(year)} className="mb:8 c:ink ff-e fs:4xl fw:400">
                   {year}
                 </h2>
 
@@ -57,17 +54,17 @@ export default async function BlogPage() {
                   <article key={post._meta.path} className="mb:12">
                     <Link
                       href={`/blog/${post._meta.path}`}
-                      className="d:b fv:oc:white fv:ow:2"
+                      className="d:b fv:oc:ink fv:ow:2"
                     >
                       <div className="d:f fd:c g:6 @sm:fd:r">
                         <div className="@sm:f:1">
-                          <h3 className="mb:4 c:white fs:xxl fw:400">
+                          <h3 className="mb:4 c:ink fs:xxl fw:400">
                             {post.title}
                           </h3>
-                          <p className="mb:4 max-w:xs c:white/70 lh:5">
+                          <p className="mb:4 max-w:xs c:ink/70 lh:5">
                             {post.description}
                           </p>
-                          <div className="d:f ai:c g:3 c:white/50 fs:sm">
+                          <div className="d:f ai:c g:3 c:ink/50 fs:sm">
                             <span>{formatDate(post.date)}</span>
                             {post.draft && (
                               <span className="c:accent fs:xs ls:2 tt:u">
@@ -78,7 +75,7 @@ export default async function BlogPage() {
                         </div>
                         {post.cover && (
                           <div className="@sm:w:40 @sm:fs:0 @xl:w:56">
-                            <div className="o:h b:1 bc:border bg:white/10">
+                            <div className="o:h b:1 bc:border bg:ink/10">
                               <Image
                                 src={post.cover}
                                 alt={post.title}

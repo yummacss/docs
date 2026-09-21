@@ -29,7 +29,7 @@ export default function Scroller({
           orientation="vertical"
           className="yui-scrollbar d:f w:1 py:1 jc:c"
         >
-          <ScrollArea.Thumb className="w:100% br:9999 bg:white/20" />
+          <ScrollArea.Thumb className="w:100% br:9999 bg:ink/20" />
         </ScrollArea.Scrollbar>
       </ScrollArea.Root>
     </div>

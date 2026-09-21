@@ -8,6 +8,7 @@ import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { Menu, Search, Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
+import ThemeToggle from "./theme-toggle";
 
 const MobileDialog = lazy(() => import("./mobile-dialog"));
 
@@ -64,13 +65,11 @@ export default function Navbar({
       >
         <div className="mx:auto px:3 py:2 docs-container">
           <nav className="d:f ai:c jc:sb">
-            <div className="d:f ai:c g:2">
-              <Link href="/" className="fv:oc:white fv:ow:2">
-                <YummaCSSDark className="d:b h:8 w:auto" />
+            <div className="d:f ai:c g:8">
+              <Link href="/" className="fv:oc:ink fv:ow:2">
+                <YummaCSSDark className="d:b h:8 w:auto c:ink" />
               </Link>
-            </div>
 
-            <div className="d:f ai:c g:2 @sm:g:4">
               {links ? (
                 links
               ) : (
@@ -98,10 +97,10 @@ export default function Navbar({
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className={`fs:sm fv:oc:white fv:ow:2 ${
+                        className={`fs:sm fv:oc:ink fv:ow:2 ${
                           isActive
                             ? "c:accent td:u tds:d"
-                            : "c:white/70 h:c:accent"
+                            : "c:ink/70 h:c:accent"
                         }`}
                       >
                         {link.label}
@@ -110,14 +109,18 @@ export default function Navbar({
                   })}
                 </div>
               )}
+            </div>
+
+            <div className="d:f ai:c g:2 @sm:g:4">
+              <ThemeToggle />
 
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:white bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:white fv:ow:2"
+                className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
               >
                 <Search className="w:4 h:4" />
-                <kbd className="d:none c:white/70 fs:xs us:none @lg:d:b">
+                <kbd className="d:none c:ink/70 fs:xs us:none @lg:d:b">
                   Ctrl + K
                 </kbd>
               </Button>
@@ -126,7 +129,7 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d:f p:r ai:c jc:c h:8 px:3 bc:border bg:surface h:bg:surface-8 c:white bw:1 bf-b:sm @lg:d:none fv:oc:white fv:ow:2"
+                  className="d:f p:r ai:c jc:c h:8 px:3 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm @lg:d:none fv:oc:ink fv:ow:2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d:f p:r ai:c jc:c w:4 h:4">

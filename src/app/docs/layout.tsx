@@ -10,7 +10,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h:dvh c:white">
+    <div className="min-h:dvh c:ink">
       <SkipLink />
       <Navbar showMobileDrawer />
 
