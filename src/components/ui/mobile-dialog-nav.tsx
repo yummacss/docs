@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Scroller from "@/components/ui/scroller";
 import { Xmark } from "@/icons";
+import { useReveal } from "@/utils/reveal";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 
 interface NavItem {
@@ -28,6 +29,7 @@ interface Props {
 
 export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
   const pathname = usePathname();
+  const { viewport, active } = useReveal(pathname);
 
   return (
     <Dialog.Root
@@ -78,6 +80,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 </div>
 
                 <Scroller
+                  viewportRef={viewport}
                   viewportClassName="d:f fd:c g:8 px:4 py:4"
                   style={{ height: "calc(100dvh - 60px)" }}
                 >
@@ -97,7 +100,10 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                           {section.items.map((item) => {
                             const isActive = pathname === item.href;
                             return (
-                              <li key={item.href}>
+                              <li
+                                key={item.href}
+                                ref={isActive ? active : undefined}
+                              >
                                 <Dialog.Close
                                   nativeButton={false}
                                   render={
