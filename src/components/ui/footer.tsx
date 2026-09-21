@@ -55,7 +55,7 @@ const COLUMNS = [
 export default function Footer() {
   return (
     <footer className="btw:1 bc:border bg:page">
-      <div className="mx:auto px:6 pb:12 docs-container">
+      <div className="mx:auto px:6 docs-container">
         <div className="d:f fd:c g:12 pt:14 @lg:fd:r @lg:g:18">
           <div className="d:f fd:c g:5 @lg:w:80">
             <YummaCSSDark className="d:b w:10 h:10 c:ink" />
