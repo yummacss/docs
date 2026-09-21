@@ -7,7 +7,12 @@ import config from "../yumma.config.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
 
-const ALLOWLIST = ["docs-container", "ff-e", "playground-rail"];
+const ALLOWLIST = [
+  "docs-container",
+  "ff-e",
+  "footer-version",
+  "playground-rail",
+];
 
 const UI_SOURCE = [
   "./src/app/**/*.tsx",

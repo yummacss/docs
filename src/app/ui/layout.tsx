@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import UIShell from "@/components/ui/shell";
 import SkipLink from "@/components/ui/skip-link";
@@ -27,6 +28,8 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
       <main id="main" className="zi:0 mx:auto px:6 docs-container">
         <UIShell>{children}</UIShell>
       </main>
+
+      <Footer />
     </div>
   );
 }

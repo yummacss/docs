@@ -45,6 +45,7 @@ export {
   SunLight,
   Trash,
   TriangleFlag,
+  Twitter,
   Underline,
   Undo,
   User,
