@@ -65,13 +65,11 @@ export default function Navbar({
       >
         <div className="mx:auto px:3 py:2 docs-container">
           <nav className="d:f ai:c jc:sb">
-            <div className="d:f ai:c g:2">
+            <div className="d:f ai:c g:8">
               <Link href="/" className="fv:oc:ink fv:ow:2">
                 <YummaCSSDark className="d:b h:8 w:auto c:ink" />
               </Link>
-            </div>
 
-            <div className="d:f ai:c g:2 @sm:g:4">
               {links ? (
                 links
               ) : (
@@ -111,7 +109,9 @@ export default function Navbar({
                   })}
                 </div>
               )}
+            </div>
 
+            <div className="d:f ai:c g:2 @sm:g:4">
               <ThemeToggle />
 
               <Button
