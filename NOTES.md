@@ -2222,6 +2222,27 @@ declares logical properties: `padding` covers `padding-inline` covers
       component to raise its own error, and `error` is the caller's prop
       today, so the schema says to check the type in `onFilesChange` instead.
 
+- [x] **Button Group's "lines on mouse press" are the rules that never drew.**
+      The entry pointed at the pressed state; the pressed state is innocent.
+      `Separator`'s vertical rule was `w:px h:100% as:s`, and **a percentage
+      height defeats `align-self: stretch`**, because stretch only applies when
+      the cross size is `auto`. The wrapper `<div class="d:f">` around each
+      button sizes to its content, so `100%` resolved against an indefinite
+      height and Chromium used 0. Measured in the preview frame: `1px x 0px`,
+      `background-color: rgb(225, 227, 231)`, painting nothing. The rule is
+      `w:px as:s` now and the same separator measures `1px x 37px`.
+      **What was actually being seen** is the ghost button's `h:bg:silver-1/50`
+      tint: a filled rectangle whose two edges read as vertical lines, on
+      hover as much as on press, appearing exactly where the missing rules
+      should have been. Verified at rest, hover and with the button held down;
+      hover and pressed are pixel-identical.
+      Checked in the browser across the four cases: the group draws both rules
+      at full button height, `shape="pill"` keeps its `my:1` inset so the rules
+      sit clear of the capsule, `separated={false}` renders none, and the
+      Separator page is unchanged at `210x1` horizontal and `1x263` vertical,
+      since the preview shell has a definite height and `100%` resolved there
+      all along.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI

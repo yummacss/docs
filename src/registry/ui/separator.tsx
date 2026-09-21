@@ -68,7 +68,9 @@ export default function SeparatorBase({
 
   const vertical = orientation === "vertical";
 
-  const rule = vertical ? "w:px h:100% as:s" : "h:px w:100%";
+  // a percentage height beats align-self: stretch, so a vertical rule in a row
+  // that sizes to its content measures zero
+  const rule = vertical ? "w:px as:s" : "h:px w:100%";
 
   if (!icon && !label) {
     return (

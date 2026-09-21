@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  144
-    Open    28
+    Closed  135
+    Open    27
     Done    83%
 
 ---
@@ -29,8 +29,6 @@ Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
       click of the trigger rather than on the close. Seen on Dialog, Command
       Palette, Empty State and Button, so it is the focus treatment itself, not
       any one component.
-- [ ] **Button Group draws vertical lines on mouse press.** Only on click, so
-      look at the pressed state rather than the borders between items.
 - [ ] **The arrow sits flush against its trigger**, seen on Popover. It also
       wants to be smaller. Both apply to every component using the arrow part.
 - [ ] **Progress: `animated` moves the bar** rather than transitioning its width
