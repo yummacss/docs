@@ -254,8 +254,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       web-features:
-        specifier: ^3.38.0
-        version: 3.38.0
+        specifier: ^3.39.0
+        version: 3.39.0
       yummacss:
         specifier: ^4.1.2
         version: 4.1.2
@@ -2429,8 +2429,8 @@ packages:
       jsdom:
         optional: true
 
-  web-features@3.38.0:
-    resolution: {integrity: sha512-FfexTigrIL9tVr/JgX9kBlzIlMfBG4eD38crZQiJPIo46PJ3Qj8RVUM7zmpsozooq2ImHM7xiUY6gIv5mo/7rQ==}
+  web-features@3.39.0:
+    resolution: {integrity: sha512-4DgSV2sNjlLMZg1XqaKceUhbKfdUPOXQ63v9XdKOv0EOB4zBIfNh16tvrxlTFAL21HIOxtk2/e+49uBK9WF+xg==}
 
   why-is-node-running@2.3.0:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
@@ -4590,7 +4590,7 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  web-features@3.38.0: {}
+  web-features@3.39.0: {}
 
   why-is-node-running@2.3.0:
     dependencies:
