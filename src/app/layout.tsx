@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import JsonLd from "@/components/json-ld";
 
 const description =
-  "Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.";
+  "Fixed scales for spacing, colors, type and radius without arbitrary utilities.";
 
 export const metadata: Metadata = {
   title: {

@@ -14,10 +14,7 @@ const components = Object.keys(registryMeta).length;
 
 // Esteban's widest digit and its dot, at 1em, so the display version is sized to
 // the band it sits in rather than to a guess that only holds for 4.1.2.
-const span = [...ver].reduce(
-  (w, c) => w + (c === "." ? 0.135 : 0.55),
-  0,
-);
+const span = [...ver].reduce((w, c) => w + (c === "." ? 0.135 : 0.55), 0);
 
 const COLUMNS = [
   {
@@ -80,8 +77,8 @@ export default function Footer() {
 
             <div className="d:f fd:c g:2">
               <p className="m:0 c:white/60 fs:sm">
-                An atomic CSS framework. One grammar for every class, and a
-                codemod for the ones you already wrote.
+                An atomic CSS framework with fixed scales for spacing, colors,
+                type and radius. No arbitrary values.
               </p>
               <p className="m:0 c:white/40 fs:xs">
                 {utilities} utilities &middot; {components} components
