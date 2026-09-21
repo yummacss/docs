@@ -30,9 +30,9 @@ export default function Baseline({ path }: Props) {
       <div className="mb:4">
         <div className="d:f ai:c g:2 mb:2">
           <StatusIcon className={`${statusColor} w:5 h:5`} />
-          <h3 className="c:white fs:lg fw:500">{label}</h3>
+          <h3 className="c:ink fs:lg fw:500">{label}</h3>
         </div>
-        <p className="c:white/70">{description}</p>
+        <p className="c:ink/70">{description}</p>
       </div>
 
       <div className="d:g g:4 gtc:1 @sm:gtc:2 @md:gtc:4">
@@ -48,13 +48,11 @@ export default function Baseline({ path }: Props) {
                 <Icon className="w:100% h:100%" />
               </div>
               <div className="d:f fd:c">
-                <span
-                  className={`c:white/80 ${browser.supported ? "" : "o:50"}`}
-                >
+                <span className={`c:ink/80 ${browser.supported ? "" : "o:50"}`}>
                   {browser.name}
                 </span>
                 {browser.desktopOnly && (
-                  <span className="c:white/50 fs:xs">Desktop only</span>
+                  <span className="c:ink/50 fs:xs">Desktop only</span>
                 )}
               </div>
             </div>

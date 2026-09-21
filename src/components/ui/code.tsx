@@ -44,7 +44,7 @@ export default function Code({
 
   if (preview) {
     return (
-      <div ref={ref} className="bg:surface">
+      <div ref={ref} data-code className="bg:surface">
         <TitleBar title={title} action={copyAction} />
         <div className="oy:auto ob:c max-h:80">
           {body ?? (
@@ -57,14 +57,14 @@ export default function Code({
 
   if (grouped) {
     return (
-      <div ref={ref}>
+      <div ref={ref} data-code>
         {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
       </div>
     );
   }
 
   return (
-    <div ref={ref} className="o:h my:4 bc:border bg:surface bw:1">
+    <div ref={ref} data-code className="o:h my:4 bc:border bg:surface bw:1">
       <TitleBar title={title} action={copyAction} />
       {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
     </div>
@@ -113,7 +113,7 @@ export function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d:f ai:c g:1 px:2 py:1 c:accent h:c:accent-4 fv:oc:white fv:ow:2"
+      className="d:f ai:c g:1 px:2 py:1 c:accent h:c:accent-4 fv:oc:ink fv:ow:2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w:4 h:4" /> : <Copy className="w:4 h:4" />}

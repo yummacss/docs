@@ -34,7 +34,7 @@ export default function TokenBlock({
   const action: ReactNode = <CopyButton copied={copied} onCopy={copy} />;
 
   return (
-    <div className={`bg:surface ${className}`}>
+    <div data-code className={`bg:surface ${className}`}>
       <TitleBar title={title} action={action} />
       <pre
         className={`ox:auto px:4 py:3 ff:m lh:5 ws:pw ${
@@ -103,7 +103,7 @@ function Folded({
         onClick={() => toggle(region)}
         style={{ font: "inherit" }}
         className={`d:if p:0 bg:transparent bw:0 va:b c:p a:none fv:oo:2 fv:oc:accent ${
-          isOpen ? "c:white/25 h:c:white/60" : "c:white/40 h:c:white"
+          isOpen ? "c:ink/25 h:c:ink/60" : "c:ink/40 h:c:ink"
         }`}
       >
         ...

@@ -56,7 +56,7 @@ export default async function Page({
       {doc && (
         <div className="my:8" data-meta>
           <div className="d:f ai:c jc:sb mb:2">
-            <h1 className="min-w:0 c:white fs:4xl fw:400 ow:bw">{doc.title}</h1>
+            <h1 className="min-w:0 c:ink fs:4xl fw:400 ow:bw">{doc.title}</h1>
             <Pagination
               previous={navigation.previous}
               next={navigation.next}
@@ -64,7 +64,7 @@ export default async function Page({
             />
           </div>
           {doc.description && (
-            <p className="c:white/70 fs:lg">{doc.description}</p>
+            <p className="c:ink/70 fs:lg">{doc.description}</p>
           )}
         </div>
       )}

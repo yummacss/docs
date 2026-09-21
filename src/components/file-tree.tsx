@@ -22,9 +22,9 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
   return (
     <>
       {isFolder ? (
-        <Folder className={`${ICON} c:white/40`} />
+        <Folder className={`${ICON} c:ink/40`} />
       ) : (
-        <Page className={`${ICON} c:white/40`} />
+        <Page className={`${ICON} c:ink/40`} />
       )}
       <span className="fs:sm ff:m">{entry.name}</span>
     </>
@@ -36,7 +36,7 @@ function Node({ entry }: { entry: Entry }) {
 
   const [open, setOpen] = useState(!entry.collapsed);
   const isFolder = entry.folder || hasChildren;
-  const tone = entry.highlight ? "c:accent" : "c:white/80";
+  const tone = entry.highlight ? "c:accent" : "c:ink/80";
 
   if (!hasChildren) {
     return (
@@ -50,12 +50,12 @@ function Node({ entry }: { entry: Entry }) {
   return (
     <Collapsible.Root open={open} onOpenChange={setOpen}>
       <Collapsible.Trigger
-        className={`d:f ai:c g:2 w:100% py:1 bg:transparent bw:0 ta:l c:p tdu:150 ttf:io h:c:white fv:c:accent ${tone}`}
+        className={`d:f ai:c g:2 w:100% py:1 bg:transparent bw:0 ta:l c:p tdu:150 ttf:io h:c:ink fv:c:accent ${tone}`}
       >
         {open ? (
-          <NavArrowDown className={`${ICON} c:white/40`} />
+          <NavArrowDown className={`${ICON} c:ink/40`} />
         ) : (
-          <NavArrowRight className={`${ICON} c:white/40`} />
+          <NavArrowRight className={`${ICON} c:ink/40`} />
         )}
         <Label entry={entry} isFolder={isFolder} />
       </Collapsible.Trigger>
