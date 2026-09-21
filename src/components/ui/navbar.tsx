@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { Github, Menu, Search, Xmark } from "@/icons";
+import { Menu, Search, Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
 
@@ -139,17 +139,6 @@ export default function Navbar({
                   </div>
                 </Button>
               )}
-
-              <div className="d:none ai:c g:4 ml:2 @md:d:f">
-                <Link
-                  href="https://github.com/yummacss/yummacss"
-                  className="d:f ai:c g:1 c:white/70 fs:xs h:c:white fv:oc:white fv:ow:2"
-                  target="_blank"
-                >
-                  <Github className="w:4 h:4 f:white/70" />
-                  <span>GitHub</span>
-                </Link>
-              </div>
             </div>
           </nav>
         </div>
