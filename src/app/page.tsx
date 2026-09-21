@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="p:r min-h:dvh c:white">
+    <div className="p:r min-h:dvh c:ink">
       <SkipLink />
       <Navbar variant="transparent" />
 
@@ -50,7 +50,7 @@ export default function Home() {
             <div>
               <Link
                 href="/blog/yummacss-4.0.0"
-                className="d:if ai:c g:2 px:3 py:1 mb:6 bc:border bg:surface c:white/70 bw:1 fs:sm us:none h:c:white fv:oc:white fv:ow:2"
+                className="d:if ai:c g:2 px:3 py:1 mb:6 bc:border bg:surface c:ink/70 bw:1 fs:sm us:none h:c:ink fv:oc:ink fv:ow:2"
               >
                 Yumma CSS 4.0 is live!
                 <NavArrowRight className="w:4 h:4" />
@@ -59,7 +59,7 @@ export default function Home() {
               <h1 className="mb:6 fs:4xl fw:400 lh:2 ff-e @md:fs:5xl @lg:fs:6xl">
                 Get faster at CSS while you use it.
               </h1>
-              <p className="mb:8 c:white/70 fs:md lh:5 @md:fs:lg">
+              <p className="mb:8 c:ink/70 fs:md lh:5 @md:fs:lg">
                 Fixed scales for spacing, colors, type and radius without
                 arbitrary utilities.
               </p>
@@ -67,13 +67,13 @@ export default function Home() {
               <div className="d:f fw:w g:4 mb:12">
                 <Link
                   href="/docs/installation"
-                  className="px:6 py:3 bg:white c:black fs:md fw:600 us:none"
+                  className="px:6 py:3 bg:ink c:page fs:md fw:600 us:none"
                 >
                   Get started
                 </Link>
                 <a
                   href="https://play.yummacss.com"
-                  className="px:6 py:3 c:white fw:600 fs:md us:none fv:oc:white fv:ow:2"
+                  className="px:6 py:3 c:ink fw:600 fs:md us:none fv:oc:ink fv:ow:2"
                 >
                   Try now
                 </a>

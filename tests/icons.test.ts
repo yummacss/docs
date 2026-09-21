@@ -19,7 +19,7 @@ function sources(dir: string): string[] {
 describe("icons", () => {
   const src = join(rootDir, "src");
   const registryDir = join(src, "registry/ui");
-  const module = join(src, "icons.ts");
+  const module = join(src, "icons.tsx");
 
   const all = sources(src);
   const registry = all.filter((file) => file.startsWith(registryDir));
@@ -45,9 +45,9 @@ describe("icons", () => {
 
   it("re-exports every icon the site asks for", () => {
     const exported = new Set(
-      readFileSync(module, "utf8")
-        .replace(/\/\*[\s\S]*?\*\//, "")
-        .matchAll(/^\s{2}([A-Z][A-Za-z0-9]*),$/gm),
+      readFileSync(module, "utf8").matchAll(
+        /^export const ([A-Z][A-Za-z0-9]*) = duotone\(/gm,
+      ),
     );
     const names = new Set([...exported].map((match) => match[1]));
 

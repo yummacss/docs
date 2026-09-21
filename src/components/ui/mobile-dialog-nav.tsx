@@ -67,13 +67,13 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
               >
                 <div className="d:f ai:c jc:sb px:3 py:2 bc:border bbw:1">
                   <div className="d:f ai:c g:2">
-                    <Link href="/" className="fv:oc:white fv:ow:2">
-                      <YummaCSSDark className="d:b h:8 w:auto" />
+                    <Link href="/" className="fv:oc:ink fv:ow:2">
+                      <YummaCSSDark className="d:b h:8 w:auto c:ink" />
                     </Link>
                   </div>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d:f ai:c jc:c h:8 px:3 bc:border bg:surface h:bg:surface-8 c:white bw:1 bf-b:sm fv:oc:white fv:ow:2"
+                    className="d:f ai:c jc:c h:8 px:3 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
                   >
                     <Xmark className="w:4 h:4" />
                   </Dialog.Close>
@@ -121,10 +121,10 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                   }
                                   className={[
                                     "d:if ai:c g:3 w:100% py:2 px:3 fs:md us:none",
-                                    "fv:oc:white fv:oo:2 fv:ow:2",
+                                    "fv:oc:ink fv:oo:2 fv:ow:2",
                                     isActive
-                                      ? "c:white bg:border"
-                                      : "c:white/70 h:c:white h:bg:white/5",
+                                      ? "c:ink bg:border"
+                                      : "c:ink/70 h:c:ink h:bg:ink/5",
                                   ].join(" ")}
                                 >
                                   {item.title}

@@ -572,6 +572,59 @@ blocks a release.**
       of that break. Measured at 320, 390, 430, 600, 768, 820, 900, 1024,
       1200, 1440 and 1920, and against `4.10.12`, `10.20.30` and
       `4.1.2-beta.1`: slack on both sides every time, no page scroll.
+- [x] **Light mode is `light-dark()` plus one attribute.** Every colour in
+      `yumma.config.mjs` is a `{ light, dark }` pair now, so **the dark side is
+      byte-identical to what shipped**: `generatePairedShades` builds each
+      side from the same base, and dark mode still computes `rgb(21, 23, 36)`
+      for the page. A new `ink` pair replaced `white` across `src/app`,
+      `src/components` and `src/mdx-components.tsx`, 148 classes in 37 files;
+      `color-mix` carries the `/70` modifiers through a `light-dark()` value,
+      which is what made the sweep a rename rather than a rewrite.
+      **Yumma emits `:root { color-scheme: light dark }`** whenever a pair
+      exists, which would follow the OS, so `globals.css` pins `:root` to
+      `dark` and `:root[data-theme="light"]` to `light`. Dark is therefore the
+      default with nothing stored, and only light writes the attribute.
+      `THEME_SCRIPT` in `src/utils/theme.ts` runs before the body paints.
+      **Code blocks stay eclipsa** by marking every shell `data-code` and
+      giving that subtree `color-scheme: dark`, so `bg:surface` inside it
+      resolves to `#1a1d2e` on both themes and the diff tints come out dark
+      too. No new colour and no class change: one rule does it.
+      `preview.tsx` and `stage.tsx` keep a literal `bg:white`, since a
+      component preview is light whatever the site is doing.
+      **The logomark's disc is `currentColor`** now and its call sites pass
+      `c:ink`; a white disc on `#f7f8fb` had no edge. Dark mode is unchanged,
+      white disc and indigo swoosh.
+      Driven in Chromium on the production build: dark then a click on the
+      toggle then a reload, reading `color-scheme`, the body background, the
+      `h1` and a sidebar link each time, on a docs page and a component page.
+- [x] **Phosphor duotone in the chrome, iconoir in the registry.** `@/icons`
+      is `src/icons.tsx` now: it imports from `@phosphor-icons/react/ssr`,
+      the entry with no context or hooks, so the same icon renders in a server
+      and a client component, and wraps each in a `duotone` helper that pins
+      `weight="duotone"`. **The 54 exported names did not change.** They are
+      iconoir's names and they are also values in `src/registry/meta/*.json`
+      (`"BellNotification"` seeds a Field demo), which reach playground URLs,
+      so renaming them to Phosphor's would break saved links. They are aliases
+      now, `StyleBorderSolid` being a `Keyboard` among them.
+      **`iconoir-react` stays a dependency**: `src/registry/ui/*.tsx` is what
+      people install and `ui/installation.mdx` tells them to add it.
+      `tests/icons.test.ts` still holds that line, one import path each way,
+      and reads the new module's `export const X = duotone(` shape.
+      Two names land on one glyph: `Sparks` and `SparksSolid` are both
+      `Sparkle`, since a uniform weight leaves the Solid pair nothing to say.
+- [x] **The version label needed the pair too.** `rgb(190 198 242 / 0.07)` is
+      invisible on `#f7f8fb`, so `.footer-version` is
+      `light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07))`. A plain
+      `color` declaration takes `light-dark()` the same way a Yumma class
+      does, because the root's `color-scheme` is what resolves it.
+      **Then the whole label shrank.** The cap is `17rem` rather than `25rem`,
+      the closing bar is gone and the marks moved into a Socials column, so
+      the footer measures 544px at 1440 where it measured 692. The number sits on the footer's floor: no bottom padding, so its ink ends 1px above the edge, which is the `0.74` line box and not a crop. The licence
+      sits under the description and the utilities/components counter is out:
+      a count is a claim, and it was not carrying one.
+      The three Yumma UI section links are repointed here too, the same three
+      values as docs#249, so whichever merges second is a no-op rather than a
+      conflict.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
