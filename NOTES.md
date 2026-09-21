@@ -563,9 +563,28 @@ blocks a release.**
 - [x] **`.footer-version` is CSS, not classes.** No font-size scale reaches
       400px, and `line-height: 0.74` and `rgb(190 198 242 / 0.07)` are off
       every scale too, so it lives in `globals.css` and in the validator's
-      allowlist. Its negative margins in `em` are what the band's `o:h` crops,
-      so the left and bottom cuts hold at every size the `clamp()` produces:
-      measured 34px and 11px at 1440, 18px and 5px at 390.
+      allowlist. **It is never cropped.** The band is a `container-type:
+      inline-size` query and the number is `min(25rem, 100cqw / (var(--span) *
+      1.03))`, where `--span` is the string's own width in `em` summed in the
+      component from Esteban's widest digit (0.55) and its dot (0.135). A
+      viewport-based `clamp()` cannot do this: the container is 80vw above
+      800px and the full width below it, so one formula overflows on one side
+      of that break. Measured at 320, 390, 430, 600, 768, 820, 900, 1024,
+      1200, 1440 and 1920, and against `4.10.12`, `10.20.30` and
+      `4.1.2-beta.1`: slack on both sides every time, no page scroll.
+- [x] **`minimumReleaseAgeExclude` is why the deps sat on `4.0.0`.** pnpm holds
+      back a release younger than the default minimum age, and the list that
+      waives it for our own packages named `3.31.0` and `4.0.0` only, so
+      `pnpm upd` walked forward to whatever had aged out and stopped: 4.1.0 on
+      a first run, 4.1.2 only once the list named it. **pnpm rejects a range
+      here** (`ERR_PNPM_INVALID_MINIMUM_RELEASE_AGE_EXCLUDE`, "Use exact
+      versions only"), so `@*` and `>=4.0.0` both fail and every release needs
+      its own entry. The alternative is deleting the list and letting the docs
+      lag each release by the age window, which costs a day and no upkeep.
+      Dependabot's config is not the problem: it allows `yummacss` and
+      `@yummacss/*`, groups them, and polls daily; its last group PR is #214.
+      Whether the same guard is what stalls it is **unverified** - that needs
+      the Dependabot run logs, which are not readable from a checkout.
 
 ### Phase 5 - Class merge (`yummacss/merge`)
 

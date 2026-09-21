@@ -11,6 +11,7 @@ const ALLOWLIST = [
   "docs-container",
   "ff-e",
   "footer-version",
+  "footer-version-band",
   "playground-rail",
 ];
 
