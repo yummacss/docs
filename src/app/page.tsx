@@ -52,7 +52,7 @@ export default function Home() {
                 href="/ui/installation"
                 className="d:if ai:c g:2 px:3 py:1 mb:6 bc:border bg:surface c:white/70 bw:1 fs:sm us:none h:c:white fv:oc:white fv:ow:2"
               >
-                Yumma UI is here
+                Yumma CSS 4.0 is live!
                 <NavArrowRight className="w:4 h:4" />
               </Link>
 
