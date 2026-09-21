@@ -60,7 +60,8 @@ export default function Home() {
                 Get faster at CSS while you use it.
               </h1>
               <p className="mb:8 c:white/70 fs:md lh:5 @md:fs:lg">
-                Fixed scales for spacing, colors, type and radius without arbitrary utilities.
+                Fixed scales for spacing, colors, type and radius without
+                arbitrary utilities.
               </p>
 
               <div className="d:f fw:w g:4 mb:12">
