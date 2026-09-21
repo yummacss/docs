@@ -67,7 +67,7 @@ export default function Footer() {
       <div className="mx:auto px:6 docs-container">
         <div className="d:f fd:c g:12 pt:14 @lg:fd:r @lg:g:18">
           <div className="d:f fd:c g:5 @lg:w:80">
-            <YummaCSSDark className="d:b h:10 w:auto" />
+            <YummaCSSDark className="d:b w:10 h:10" />
 
             <div className="d:f fd:c g:2">
               <p className="m:0 c:white/60 fs:sm">
