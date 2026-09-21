@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  143
-    Open    29
+    Closed  144
+    Open    28
     Done    83%
 
 ---
@@ -25,12 +25,6 @@ than adjusting the numbers by hand:
 
 Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
 
-- [ ] **Play's preview loads nothing.** It points at
-      `unpkg.com/@yummacss/runtime@4.0.2`, which 404s since the package was
-      deleted. Confirmed: npm returns 404 for both the old name and
-      `@yummacss/cdn`, which has never published. Nothing fixes it but shipping
-      `@yummacss/cdn`, then bumping play's `devDependencies.yummacss` to that
-      version, since `next.config.ts` reads the URL's version from it.
 - [ ] **A focus outline flashes after a dialog closes**, and again on the next
       click of the trigger rather than on the close. Seen on Dialog, Command
       Palette, Empty State and Button, so it is the focus treatment itself, not
