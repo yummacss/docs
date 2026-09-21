@@ -572,6 +572,22 @@ blocks a release.**
       of that break. Measured at 320, 390, 430, 600, 768, 820, 900, 1024,
       1200, 1440 and 1920, and against `4.10.12`, `10.20.30` and
       `4.1.2-beta.1`: slack on both sides every time, no page scroll.
+- [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
+      holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
+      `mobile-dialog-nav.tsx`: it keys off the route, and when the active
+      item is outside the scroller it centres it. **`scrollIntoView` is wrong
+      here** because it scrolls every ancestor, the page included; the
+      viewport's own `scrollTop` does not. `Scroller` already took a
+      `viewportRef`, so nothing there changed, and the ref sits on the `<li>`
+      rather than the link, since the mobile item is a `Dialog.Close` with a
+      `render` prop and the geometry is the same either way. One
+      `requestAnimationFrame` defers the measurement, because the mobile
+      dialog mounts mid-animation.
+      Driven in Chromium against the production build: `/docs/z-index` lands
+      with the scroller at 3758 of 5748 and the item 401px down an 820px
+      viewport, **the search dialog** moves it from 4928 to the same 3758, and
+      `/docs/installation` leaves it at 0 because the item was already in
+      view. The guard is what stops an arrival near the top from jumping.
 - [x] **`minimumReleaseAgeExclude` is why the deps sat on `4.0.0`.** pnpm holds
       back a release younger than the default minimum age, and the list that
       waives it for our own packages named `3.31.0` and `4.0.0` only, so

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Scroller from "@/components/ui/scroller";
 import { ArrowUpRight } from "@/icons";
+import { useReveal } from "@/utils/reveal";
 
 interface NavItem {
   slug: string;
@@ -33,10 +34,12 @@ interface Props {
 
 export default function SidebarNav({ sections, basePath, links }: Props) {
   const pathname = usePathname();
+  const { viewport, active } = useReveal(pathname);
 
   return (
     <aside className="d:none @lg:d:b @lg:gc-s:3 @lg:pt:20">
       <Scroller
+        viewportRef={viewport}
         className="p:st t:20"
         viewportClassName="d:f fd:c g:8 px:2 pb:12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
@@ -50,7 +53,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                   const href = `${basePath}/${entry.slug}`;
                   const isActive = pathname === href;
                   return (
-                    <li key={entry.slug}>
+                    <li key={entry.slug} ref={isActive ? active : undefined}>
                       <Link
                         href={href}
                         className={`d:if ai:c g:3 fs:sm us:none fv:oc:white fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:white/70 h:c:accent"}`}
@@ -70,7 +73,10 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                         const href = `${basePath}/${child.slug}`;
                         const isActive = pathname === href;
                         return (
-                          <li key={child.slug}>
+                          <li
+                            key={child.slug}
+                            ref={isActive ? active : undefined}
+                          >
                             <Link
                               href={href}
                               className={`d:if ai:c g:3 fs:sm us:none fv:oc:white fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:white/70 h:c:accent"}`}
