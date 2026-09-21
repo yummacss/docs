@@ -2445,6 +2445,16 @@ written against today's tables.
       of `+` reached `0.6000000000000001` and overflowed the field. It rounds
       to the step's own precision now, one place for `0.2` and none for an
       integer step.
+- [x] **Avatar Stack's cap never showed on its own page.** The entry read as
+      two bugs, a fourth avatar doing nothing and `size` doing nothing. Both
+      were one seed. `seedValues` in `src/utils/demo.tsx` starts the playground
+      from `prop.example ?? prop.default`, and `max`'s example was 4 against
+      exactly four avatars in `childrenExample`, so `hidden` came out zero and
+      the `+N` avatar the component exists for never rendered. `size` styles
+      only that avatar, so it had nothing to change. The example is 3 now and
+      the page opens on three avatars and a `+1`. The component was correct at
+      every value: rendered at `max` 0, 1, 3, 4 and unset, it capped and
+      collapsed exactly as documented.
 
 **`v4` was 49 commits behind `main` and three of main's fixes had been lost on
 it.** The branch was written before the `prm` rename, the `xs` breakpoint, the
