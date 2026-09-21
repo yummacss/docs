@@ -566,6 +566,19 @@ blocks a release.**
       allowlist. Its negative margins in `em` are what the band's `o:h` crops,
       so the left and bottom cuts hold at every size the `clamp()` produces:
       measured 34px and 11px at 1440, 18px and 5px at 390.
+- [x] **`minimumReleaseAgeExclude` is why the deps sat on `4.0.0`.** pnpm holds
+      back a release younger than the default minimum age, and the list that
+      waives it for our own packages named `3.31.0` and `4.0.0` only, so
+      `pnpm upd` walked forward to whatever had aged out and stopped: 4.1.0 on
+      a first run, 4.1.2 only once the list named it. **pnpm rejects a range
+      here** (`ERR_PNPM_INVALID_MINIMUM_RELEASE_AGE_EXCLUDE`, "Use exact
+      versions only"), so `@*` and `>=4.0.0` both fail and every release needs
+      its own entry. The alternative is deleting the list and letting the docs
+      lag each release by the age window, which costs a day and no upkeep.
+      Dependabot's config is not the problem: it allows `yummacss` and
+      `@yummacss/*`, groups them, and polls daily; its last group PR is #214.
+      Whether the same guard is what stalls it is **unverified** - that needs
+      the Dependabot run logs, which are not readable from a checkout.
 
 ### Phase 5 - Class merge (`yummacss/merge`)
 
