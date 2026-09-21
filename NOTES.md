@@ -572,6 +572,19 @@ blocks a release.**
       of that break. Measured at 320, 390, 430, 600, 768, 820, 900, 1024,
       1200, 1440 and 1920, and against `4.10.12`, `10.20.30` and
       `4.1.2-beta.1`: slack on both sides every time, no page scroll.
+- [x] **A sidebar section is not a route, and `tests/links.test.ts` is the
+      guard.** The footer's Yumma UI column names sections, and three of them
+      pointed at `/ui/components/display`, `/ui/components/interactive` and
+      `/ui/components/overlays`. The only UI route is
+      `/ui/components/[slug]` with `dynamicParams = false`, so all three
+      404'd, confirmed against the production build. They point at each
+      section's first page now, the way `Forms` already pointed at
+      `autocomplete`. The test collects every `href="/..."` in `src/app` and
+      `src/components` and resolves it against the docs, UI and blog slugs,
+      the static files, and every `source` in `redirects.ts` - which is what
+      keeps `/ui/installation` passing, since it is a 308 rather than a page.
+      **Checked to bite:** putting `/ui/components/display` back fails it by
+      name.
 - [x] **`minimumReleaseAgeExclude` is why the deps sat on `4.0.0`.** pnpm holds
       back a release younger than the default minimum age, and the list that
       waives it for our own packages named `3.31.0` and `4.0.0` only, so
