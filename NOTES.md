@@ -2439,6 +2439,12 @@ written against today's tables.
       custom-breakpoint examples, which are correct 4.0 and invalid only
       because this project declares none of them.
 - [ ] The config-driven generators, per the Phase 9 answer.
+- [x] **The stepper's float step drifted.** The entry blamed a missing `step`,
+      but `skeleton.json` has carried `"step": 0.2` all along. `clamp` in
+      `src/components/playground/control.tsx` never rounded, so three presses
+      of `+` reached `0.6000000000000001` and overflowed the field. It rounds
+      to the step's own precision now, one place for `0.2` and none for an
+      integer step.
 
 **`v4` was 49 commits behind `main` and three of main's fixes had been lost on
 it.** The branch was written before the `prm` rename, the `xs` breakpoint, the

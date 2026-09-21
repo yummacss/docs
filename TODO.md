@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  134
+    Closed  142
     Open    29
-    Done    82%
+    Done    83%
 
 ---
 
@@ -39,9 +39,6 @@ Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
       avatar does nothing and changing `size` does nothing.
 - [ ] **Button Group draws vertical lines on mouse press.** Only on click, so
       look at the pressed state rather than the borders between items.
-- [ ] **Skeleton's `delay` drifts into `0.6000000000000001`** and overflows the
-      number field. Verified: the meta gives `delay` a `min` and a `max` and no
-      `step`, so the field steps by a float and nothing rounds the result.
 - [ ] **The arrow sits flush against its trigger**, seen on Popover. It also
       wants to be smaller. Both apply to every component using the arrow part.
 - [ ] **Progress: `animated` moves the bar** rather than transitioning its width
