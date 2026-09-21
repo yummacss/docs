@@ -2455,6 +2455,15 @@ written against today's tables.
       the page opens on three avatars and a `+1`. The component was correct at
       every value: rendered at `max` 0, 1, 3, 4 and unset, it capped and
       collapsed exactly as documented.
+- [x] **Play's preview loads again, and not by the route the entry named.** The
+      fix was not a version bump: `play#74` pointed the script tag at
+      `@yummacss/cdn` in place of the deleted `@yummacss/runtime`, and 4.1.0
+      published that package with `unpkg: ./dist/index.iife.js`, so the URL
+      `next.config.ts` builds resolves. Verified through npm metadata rather
+      than by loading the page, since the agent proxy refuses unpkg. Play's
+      `devDependencies.yummacss` is still `^4.1.0`, which pins the CDN URL to
+      4.1.0 rather than the current release; worth a bump, but the preview is
+      not broken without one.
 
 **`v4` was 49 commits behind `main` and three of main's fixes had been lost on
 it.** The branch was written before the `prm` rename, the `xs` breakpoint, the
