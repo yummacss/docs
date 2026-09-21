@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  142
+    Closed  143
     Open    29
     Done    83%
 
@@ -35,8 +35,6 @@ Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
       click of the trigger rather than on the close. Seen on Dialog, Command
       Palette, Empty State and Button, so it is the focus treatment itself, not
       any one component.
-- [ ] **Avatar Stack ignores its 4th value and its `size`.** Passing a fourth
-      avatar does nothing and changing `size` does nothing.
 - [ ] **Button Group draws vertical lines on mouse press.** Only on click, so
       look at the pressed state rather than the borders between items.
 - [ ] **The arrow sits flush against its trigger**, seen on Popover. It also
@@ -98,6 +96,11 @@ The Component API rail, from Renildo's pass on 2026-09-18.
       tooltip, or another Base UI part that fits, rather than an error colour on
       something that is not an error. `isInert` in `src/utils/props.ts` already
       returns the reason string.
+- [ ] **A number control with no example and no default shows `0`.** The
+      Stepper falls back to `prop.default ?? 0` for its display while the
+      component receives `undefined`, so the control states a value the
+      component is not using, and `0` is below the `min` of 1 it declares.
+      `number-field`'s `min` and `max` and `rating`'s `value` are the three.
 - [ ] **Remove the Reset button** from the rail.
 - [ ] **Say that the component is theirs.** The rail shows the API; it should
       also say that they own the file and can change anything in it.
