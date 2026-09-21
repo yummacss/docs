@@ -588,6 +588,19 @@ blocks a release.**
       viewport, **the search dialog** moves it from 4928 to the same 3758, and
       `/docs/installation` leaves it at 0 because the item was already in
       view. The guard is what stops an arrival near the top from jumping.
+- [x] **A sidebar section is not a route, and `tests/links.test.ts` is the
+      guard.** The footer's Yumma UI column names sections, and three of them
+      pointed at `/ui/components/display`, `/ui/components/interactive` and
+      `/ui/components/overlays`. The only UI route is
+      `/ui/components/[slug]` with `dynamicParams = false`, so all three
+      404'd, confirmed against the production build. They point at each
+      section's first page now, the way `Forms` already pointed at
+      `autocomplete`. The test collects every `href="/..."` in `src/app` and
+      `src/components` and resolves it against the docs, UI and blog slugs,
+      the static files, and every `source` in `redirects.ts` - which is what
+      keeps `/ui/installation` passing, since it is a 308 rather than a page.
+      **Checked to bite:** putting `/ui/components/display` back fails it by
+      name.
 - [x] **`minimumReleaseAgeExclude` is why the deps sat on `4.0.0`.** pnpm holds
       back a release younger than the default minimum age, and the list that
       waives it for our own packages named `3.31.0` and `4.0.0` only, so
