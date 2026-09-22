@@ -69,10 +69,7 @@ export default function Reference({ category, name, variant }: Props) {
                         </span>
                       ))}
                     </code>
-                    <span
-                      className="px:2 py:1 bg:border fs:xs fw:600"
-                      style={{ color: "#8892c2" }}
-                    >
+                    <span className="px:2 py:1 bg:border c:accent-dim fs:xs fw:600">
                       {data.rows.length} {data.noun}
                     </span>
                   </span>
