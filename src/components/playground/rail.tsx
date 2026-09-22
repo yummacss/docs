@@ -9,7 +9,7 @@ import Control, { EnumSelect } from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import Scroller from "@/components/ui/scroller";
-import { NavArrowDown, Undo } from "@/icons";
+import { NavArrowDown } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { ACCENTS } from "@/utils/accent";
 import { primitiveSlug } from "@/utils/primitive";
@@ -49,18 +49,6 @@ export default function PlaygroundRail() {
 
           <div className="d:f ai:c jc:sb g:2 mb:3">
             <h3 className="c:silver-8 fs:xs ls:2 tt:u">Component API</h3>
-            {playground?.carried && (
-              <HintTooltip label="Reset the styles carried from the last page">
-                <Button
-                  type="button"
-                  onClick={playground.reset}
-                  className="d:f ai:c g:1 p:0 bg:transparent bw:0 c:silver-8 fs:xs c:p h:c:ink fv:oc:accent fv:ow:2"
-                >
-                  <Undo className="w:3 h:3" />
-                  Reset
-                </Button>
-              </HintTooltip>
-            )}
             {primitive && (
               <HintTooltip label="Base UI reference">
                 <Link
@@ -68,7 +56,7 @@ export default function PlaygroundRail() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Base UI reference"
-                  className="d:f ai:c jc:c fs:0 c:accent td:none h:c:accent-4 fv:oc:accent fv:ow:2"
+                  className="d:f ai:c jc:c fs:0 c:ink/70 td:none h:c:ink fv:oc:accent fv:ow:2"
                 >
                   <BaseUI className="w:4 h:4" />
                 </Link>

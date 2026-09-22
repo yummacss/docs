@@ -16,20 +16,13 @@ import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
-import {
-  carriedFor,
-  clearCarried,
-  readCarried,
-  writeCarried,
-} from "@/utils/sticky";
+import { carriedFor, readCarried, writeCarried } from "@/utils/sticky";
 
 interface Playground {
   id: string;
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
-  carried: boolean;
-  reset: () => void;
   accent: string;
   setAccent: (family: string) => void;
 }
@@ -55,7 +48,6 @@ export function PlaygroundProvider({
   children: ReactNode;
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
-  const [carried, setCarried] = useState(false);
   const [accent, setAccentState] = useState(DEFAULT_ACCENT);
 
   useEffect(() => setAccentState(readAccent()), []);
@@ -111,10 +103,7 @@ export function PlaygroundProvider({
     const pending = carriedFor(seed.meta, readCarried(), (name) =>
       named.has(name),
     );
-    if (Object.keys(pending).length > 0) {
-      setCarried(true);
-      setQuery(pending);
-    }
+    if (Object.keys(pending).length > 0) setQuery(pending);
   }, [seed.meta, setQuery]);
 
   const setValue = useCallback(
@@ -146,24 +135,16 @@ export function PlaygroundProvider({
     [seed.meta, values, setQuery],
   );
 
-  const reset = useCallback(() => {
-    clearCarried();
-    setCarried(false);
-    if (seed.meta) setQuery(queryFor(seed.meta, seed.values));
-  }, [seed.meta, seed.values, setQuery]);
-
   const playground = useMemo(
     () => ({
       id,
       meta: seed.meta,
       values,
       setValue,
-      carried,
-      reset,
       accent,
       setAccent,
     }),
-    [id, seed.meta, values, setValue, carried, reset, accent, setAccent],
+    [id, seed.meta, values, setValue, accent, setAccent],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

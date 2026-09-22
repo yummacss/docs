@@ -59,7 +59,7 @@ export default function Install({ id }: { id: string }) {
     <Menu.Root open={open} onOpenChange={setOpen}>
       <HintTooltip label="Copy install command">
         <Menu.Trigger
-          className="d:f ai:c jc:c fs:0 w:8 h:8 bc:border bg:surface a:bg:surface-7 c:accent bw:1 c:p fv:oc:ink fv:oo:2"
+          className="d:f ai:c jc:c fs:0 w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 c:p fv:oc:ink fv:oo:2"
           aria-label="Copy install command"
         >
           {copied ? (
