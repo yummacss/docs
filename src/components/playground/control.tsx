@@ -198,13 +198,11 @@ export function EnumSelect({
       <Select.Trigger
         aria-label={name}
         className={`d:f fs:0 ai:c jc:sb g:1 px:2 py:1 w:32 bg:transparent bw:1 ff:m fs:xs us:none fv:oo:-1 fv:oc:accent ${
-          inert
-            ? "bc:diff-remove/40 c:diff-remove c:na"
-            : "bc:border c:accent c:p"
+          inert ? "bc:diff-remove/40 c:diff-remove c:na" : "bc:border c:ink c:p"
         }`}
       >
         <Select.Value className="o:h to:e ws:nw" />
-        <NavArrowDown className="fs:0 w:3 h:3 c:accent-dim" aria-hidden />
+        <NavArrowDown className="fs:0 w:3 h:3 c:ink/50" aria-hidden />
       </Select.Trigger>
       <AnimatePresence>
         {open && (
@@ -252,12 +250,12 @@ function Toggle({
       className={`d:f fs:0 ai:c px:1 w:7 h:4 bw:0 tp:c tdu:150 ttf:io fv:oo:2 fv:oc:accent ${
         inert
           ? "bg:diff-remove/30 c:na"
-          : `c-p ${checked ? "bg:accent-dim" : "bg:border"}`
+          : `c-p ${checked ? "bg:ink/80" : "bg:ink/15"}`
       }`}
     >
       <Switch.Thumb
         className={`d:b w:3 h:2 tp:a tdu:150 ttf:io ${
-          checked ? "ml:2 bg:page" : "ml:0 bg:ink/40"
+          checked ? "ml:2 bg:page" : "ml:0 bg:ink/50"
         }`}
       />
     </Switch.Root>
