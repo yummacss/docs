@@ -9,13 +9,18 @@
 @yummacss;
 
 /* Yumma emits `color-scheme: light dark` for the paired colours, which would
-   follow the OS. Dark is the default here and `data-theme` is the switch. */
+   follow the OS. Dark is the default here, and `data-theme` picks light or
+   hands the choice back to the OS with `auto`. */
 :root {
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
+}
+
+:root[data-theme="auto"] {
+  color-scheme: light dark;
 }
 
 /* Code blocks keep the eclipsa theme in either theme, so their subtree stays
