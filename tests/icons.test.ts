@@ -46,7 +46,7 @@ describe("icons", () => {
   it("re-exports every icon the site asks for", () => {
     const exported = new Set(
       readFileSync(module, "utf8").matchAll(
-        /^export const ([A-Z][A-Za-z0-9]*) = duotone\(/gm,
+        /^export const ([A-Z][A-Za-z0-9]*) = (?:duotone|regular)\(/gm,
       ),
     );
     const names = new Set([...exported].map((match) => match[1]));
