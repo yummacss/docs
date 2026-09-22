@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Page } from "@/icons";
+import { FileMd } from "@/icons";
 
 export default function ViewMarkdown() {
   const pathname = usePathname();
@@ -23,8 +23,8 @@ export default function ViewMarkdown() {
       href={mdPath}
       className="d:if ai:c g:2 w:fc c:ink/70 fs:sm td:none h:c:ink fv:oc:ink fv:ow:2"
     >
-      <Page className="w:4 h:4" />
-      View .md
+      <FileMd className="w:4 h:4" />
+      View markdown
     </Link>
   );
 }

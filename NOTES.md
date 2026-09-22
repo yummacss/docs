@@ -625,6 +625,20 @@ blocks a release.**
       The three Yumma UI section links are repointed here too, the same three
       values as docs#249, so whichever merges second is a no-op rather than a
       conflict.
+- [x] **The toggle shows the theme you are in, and has a third state.** Dark
+      draws the moon, light the sun and `auto` a monitor; the button's label
+      names the current theme and the next. `auto` writes
+      `data-theme="auto"`, which sets `color-scheme: light dark` and hands the
+      choice to the OS; dark stays the default with nothing stored. Driven in
+      Chromium with `prefers-color-scheme` emulated: under `auto` the page
+      follows the OS from light to dark without a reload, and survives one.
+- [x] **Stroke-only glyphs are regular weight.** Every Phosphor duotone icon
+      has a 20% layer, and on arrows, carets, X, check, plus and the menu
+      glyph that layer is invented: a rounded square behind X, check and plus,
+      a band behind the menu lines, a filled arrowhead on carets and arrows.
+      `src/icons.tsx` has a `regular` wrapper beside `duotone` for those
+      twelve names. The Reference accordion's rotating plus, which reads as
+      an X when open, was the worst of them.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
@@ -3501,6 +3515,50 @@ starts to *be* the design system rather than configure it. Decide up front wheth
 the answer is four keys or one `theme.extend`-shaped mechanism, because
 retrofitting that is a breaking change and 4.0 is the cheapest moment to get it
 right.
+
+#### The docs go Yumma first, 2026-09-22
+
+Renildo's direction: **the docs site is where Yumma proves itself**, so every
+inline style and custom class in it is a data point. Each one is either a gap
+Yumma should close with something true to CSS, or data that belongs inline, or a
+utility that already exists and was missed. Special-purpose utilities that only
+fit one call site are the wrong answer; `theme.fonts` (#1 above) is the model.
+
+Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
+`src/app`, `src/components` and `src/mdx-components.tsx`, and **187 lines of
+`globals.css`** beyond the `@yummacss` import. Sorted:
+
+- [ ] **Viewport-minus heights: five sites now, not two.** `sidebar-nav.tsx`
+      and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-dialog-nav.tsx`
+      (`calc(100dvh - 60px)`), `search-dialog.tsx` (`70vh` and
+      `calc(70vh - 120px)`), plus `.playground-rail` and `.playground-column`
+      in `globals.css`, which exist only because the cap had to be
+      breakpoint-conditional. That is #3 above, with more evidence.
+- [ ] **One fluid width, written twice.** `.docs-container` and the landing
+      page's inline `maxWidth` both say `clamp(40rem, 80vw, 96rem)`. That is
+      #2, the `container` config.
+- [ ] **A utility that already exists.** Code blocks are held dark with a
+      `[data-code] { color-scheme: dark }` rule, and `cs:d` is that exact
+      declaration as a class. The rule goes and each shell carries `cs:d`.
+- [ ] **Colours that skip the tokens, so they ignore the theme.**
+      `reference.tsx` (`#b9bed5` on the detail column), `tabs.tsx` and
+      `avatar.tsx` (`#989ec2`). Each has a token already: `c:ink/70` and
+      `c:accent-dim` are the likely matches. A fourth, the Reference count
+      chip's `#8892c2`, became `c:accent-dim` with the toggle fixes.
+- [ ] **A display size no scale reaches.** `.footer-version` is `min(17rem,
+      100cqw / span)` inside a `container-type: inline-size` band. Neither a
+      font-size past `3xl` nor a container-relative length has a Yumma form.
+      Worth asking whether container queries are a variant, not a utility.
+- [ ] **State that lives in attributes.** `.yui-scrollbar[data-scrolling]`,
+      `[data-fold]`, `:root[data-theme=...]`. Attribute variants are 4.2's,
+      and the `data-*` limits in "Attribute variants" below still apply.
+
+**Stays inline, correctly.** A value computed at runtime is data, not style:
+the palette's `backgroundColor: shade` and `repeat(${scale.length}, ...)`,
+the search dialog's swatch colour, `token-block.tsx`'s token colours, the
+preview frame's measured height, `tabs.tsx`'s `--active-tab-left` and the
+footer's `--span`. A custom property carrying a runtime number is the CSS-true
+answer and needs nothing from Yumma.
 
 ### The 0-384 scale, the t-shirt aliases, and unbounded values
 
