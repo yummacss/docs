@@ -143,7 +143,7 @@ const BaseUI = (props: SVGProps<SVGSVGElement>) => (
   <svg
     aria-hidden="true"
     {...props}
-    fill="#fff"
+    fill="currentColor"
     aria-label="Base UI"
     viewBox="0 0 17 24"
   >

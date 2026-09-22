@@ -67,7 +67,7 @@ export default function Navbar({
           <nav className="d:f ai:c jc:sb">
             <div className="d:f ai:c g:8">
               <Link href="/" className="fv:oc:ink fv:ow:2">
-                <YummaCSSDark className="d:b h:8 w:auto c:ink" />
+                <YummaCSSDark className="d:b h:8 w:auto" />
               </Link>
 
               {links ? (

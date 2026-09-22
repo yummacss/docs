@@ -76,9 +76,8 @@ export function TabsTab({
   return (
     <BaseTabs.Tab
       value={value}
-      className={`d:f ai:c jc:c bw:0 m:0 px:2 py:0 fs:sm fw:500 us:none ws:nw h:8 a:none os:none bg:transparent ${className}`}
+      className={`d:f ai:c jc:c bw:0 m:0 px:2 py:0 c:ink/80 fs:sm fw:500 us:none ws:nw h:8 a:none os:none bg:transparent ${className}`}
       style={{
-        color: "#989ec2",
         fontFamily: "inherit",
         ...style,
       }}

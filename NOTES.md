@@ -639,6 +639,18 @@ blocks a release.**
       `src/icons.tsx` has a `regular` wrapper beside `duotone` for those
       twelve names. The Reference accordion's rotating plus, which reads as
       an X when open, was the worst of them.
+- [x] **Light-mode polish.** The logomark's disc is
+      `fill="light-dark(transparent, white)"`, a presentation attribute that
+      Chromium resolves against `color-scheme` like any CSS colour, so light
+      mode draws `public/logo.svg`'s bare mark with no CSS at all; the earlier
+      `currentColor` disc drew a dark ring nobody asked for. The install and
+      pagination buttons match the theme toggle and search (`c:ink`,
+      `h:bg:surface-8`), the Component API selects read in `c:ink`, the Base
+      UI mark is `currentColor` rather than a hardcoded `#fff`, and switches
+      are `bg:ink/80` on and `bg:ink/15` off. The Preview and Code tabs lost an
+      inline `#989ec2` for `c:ink/80`. **Reset is gone**, and with it the
+      playground context's `carried` flag and `reset`, which nothing else read;
+      carrying itself is untouched.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
@@ -3523,6 +3535,9 @@ inline style and custom class in it is a data point. Each one is either a gap
 Yumma should close with something true to CSS, or data that belongs inline, or a
 utility that already exists and was missed. Special-purpose utilities that only
 fit one call site are the wrong answer; `theme.fonts` (#1 above) is the model.
+**`globals.css` stays.** It carries the `@yummacss` marker, and a rule that is
+plain CSS with no utility form (a `light-dark()` value, a keyframe) belongs in
+it. The audit shrinks what is in it for want of a utility, not the file.
 
 Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 `src/app`, `src/components` and `src/mdx-components.tsx`, and **187 lines of
@@ -3876,6 +3891,33 @@ own table has failed the test.
 
 ---
 
+## Queue, 2026-09-22
+
+Renildo asked for these in priority order so the release is not starved by
+the interesting work. Top first.
+
+1. **Phase 1's last two**: the arrow flush against its trigger, and Progress
+   `animated`. They block a release; nothing below does.
+2. **Audit quick wins**: `avatar.tsx`'s `#989ec2` and `reference.tsx`'s
+   `#b9bed5` onto tokens, and `[data-code]` onto `cs:d`.
+3. **Icons from Nucleo, as one hand-written `icons.tsx`.** Renildo supplies the
+   SVGs. Open question first: the chrome only (56 names in `src/icons.tsx`),
+   or the registry too (21 iconoir icons across `src/registry/ui`, and the
+   installation page tells users to `pnpm add iconoir-react`, so swapping
+   there changes what every installer depends on).
+4. **Motion out, transitions.dev in: evaluate before deciding.** Not yet read.
+   `motion` is in 11 registry components and 4 chrome files, and it is in the
+   installation command, so the same chrome-or-registry question applies and
+   the registry half is breaking.
+5. **Component API as styles, not knobs.** A style select (working names:
+   Elegant, sharp with an archival serif; Minimal; one on a medium radius; one
+   on a small radius and tighter spacing; one on `corner-shape`), plus an
+   accent colour and a bounded radius. The hard constraint is `corner-shape`:
+   a squircle at a small size reads as a pill, so the radius scale has to stop
+   where the shape still reads, per control size. Read-only props stay; they
+   are the API reference. Mockups first.
+6. **A new logomark.**
+
 ## Parked
 
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives
@@ -3900,27 +3942,6 @@ own table has failed the test.
     gce-4` already does it, both taking 1-16. And `/` is the opacity separator
     (`bg-red/50`), so `gc-2/4` would parse as "gc-2 at 4% opacity" - it would
     cost a delimiter that already means something.
-- **Base UI `ScrollArea` in the docs sidebars.** Worth doing for the look - it
-  hides the native scrollbar and renders its own thumb, which is the difference
-  between the chunky Windows bar and something that matches the site. **It does
-  not fix scroll chaining**: checked `@base-ui/react@1.7.0`, the viewport sets
-  `overflow: scroll` and never touches `overscroll-behavior`, so `ob-c` stays
-  either way. Cost is four more elements per sidebar and a client component.
-  Aesthetics, not correctness - after v4.
-- **Light theme, and possibly no switch at all.** A light palette was drawn by
-  accident in an artifact and looked better than the dark one. The interesting
-  version of this is not "add a switch" but **pick one scheme and commit**, which
-  is what the site already does - the palette is eight semantic colours with no
-  light/dark pairs, so a switch means pairing every one of them. A theme revert
-  has already cost a day once (see the Cursor branches around `#112`), and a
-  second attempt by Cursor was reverted too because it did not resemble the
-  artifact. **Work from the artifact, not from a description of it.**
-  **Whatever happens, code blocks stay dark in the light theme.** The `eclipsa`
-  token colours were picked against `#151724` and eyeballing replacements has
-  already been ruled out (run `codeToTokens`, do not guess by scope name), so a
-  light-mode syntax theme is a whole second colour system to design and verify.
-  Dark code on a light page is also the norm - it reads as deliberate, not as an
-  omission. That makes `surface` the one token that does not flip.
 - **Stop `play` looking like Tailwind Play.** It is close to a clone: same split
   editor, same generated-CSS drawer, same top-left brand and top-right share.
   The reference points are `diffs.com` and `trees.software` - what they get right
