@@ -3925,10 +3925,8 @@ the interesting work. Top first.
    or the registry too (21 iconoir icons across `src/registry/ui`, and the
    installation page tells users to `pnpm add iconoir-react`, so swapping
    there changes what every installer depends on).
-4. **Motion out, transitions.dev in: evaluate before deciding.** Not yet read.
-   `motion` is in 11 registry components and 4 chrome files, and it is in the
-   installation command, so the same chrome-or-registry question applies and
-   the registry half is breaking.
+4. **Motion out of the registry: evaluated, see the section below.** CSS
+   covers all eleven; Onboarding's outgoing slide is the one loss.
 5. **Component API as styles, not knobs.** A style select (working names:
    Elegant, sharp with an archival serif; Minimal; one on a medium radius; one
    on a small radius and tighter spacing; one on `corner-shape`), plus an
@@ -3937,6 +3935,41 @@ the interesting work. Top first.
    where the shape still reads, per control size. Read-only props stay; they
    are the API reference. Mockups first.
 6. **A new logomark.**
+
+## Motion out of the registry, evaluated 2026-09-23
+
+**Verdict: yes, with our own CSS, not transitions.dev's.** transitions.dev is
+copy-paste CSS plus a CLI, which would suit "Yumma CSS and Base UI only", but
+its repository has no license file and part of the set sits behind a sign-in.
+Unlicensed code pasted into an MIT registry that users install is not ours to
+ship, so it is a reference for timings and nothing more.
+
+The pattern already exists: twelve components carry a `*_MOTION` string in a
+`<style href precedence>` tag, keyed off Base UI's `data-starting-style` and
+`data-ending-style`, with a `prefers-reduced-motion` guard. `motion` is the
+exception, in eleven files:
+
+| Component | What `motion` does | CSS replacement | Lost |
+|---|---|---|---|
+| Progress | indeterminate bar slides, looping | `@keyframes` on `translate` | nothing |
+| Skeleton | opacity pulse, per-row delay | `@keyframes`, delay as `animation-delay` | nothing |
+| Autocomplete | loading spinner rotates | `@keyframes` on `rotate` | nothing |
+| Switch | thumb moves `travel` px | `translate` transition on `data-checked` | nothing |
+| Accordion | panel height to `auto`, chevron turns | Base UI's `--accordion-panel-height` with the starting and ending styles; `rotate` transition | nothing |
+| Preview Card | fades in and out | starting and ending styles, as Popover | nothing |
+| Toggle, Rating, Toolbar | `whileTap` scale 0.9, icon pops 0.8 to 1 | `:active` scale transition; a keyframe on the keyed icon | nothing |
+| Radio | nothing: a `motion.span` with no animation props | delete it | nothing |
+| Onboarding | height to the measured px; page slides in and out by direction | `height` transition on the px it already measures; a keyed enter keyframe per direction | the outgoing page no longer slides out, it is replaced as the new one slides in |
+
+Onboarding is the only real decision: accept an enter-only slide, or keep the
+old page mounted for 200ms ourselves, which is the state `AnimatePresence`
+holds today. The prop API does not change anywhere.
+
+Order: one PR for the ten that lose nothing, one for Onboarding, then the four
+docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,
+`search-dialog.tsx`), then `motion` leaves `package.json` and the install
+command. Components installed before that still import `motion`, so the
+install page says to keep it until they are re-added.
 
 ## Parked
 
