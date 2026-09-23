@@ -2370,6 +2370,21 @@ declares logical properties: `padding` covers `padding-inline` covers
       since the preview shell has a definite height and `100%` resolved there
       all along.
 
+- [x] **The arrow sat flush because its height was the whole gap.** Popover
+      and Tooltip default `sideOffset` to 8 and drew a 16x8 arrow outside the
+      popup, so the tip landed on the trigger: measured 1px apart. The arrow is
+      12x6 now and the positioner gets `sideOffset + 6` when `arrow` is on, so
+      `sideOffset` is the gap from the tip. Measured on all four sides: 9px
+      from the trigger, and the arrow's base overlaps the popup's border by
+      1px as before. With `arrow={false}` nothing changes.
+- [x] **Progress `animated` did not reproduce.** Stepping `value` up and down,
+      toggling `animated`, a hard load and a client navigation all left the
+      bar's left edge fixed and moved only its width, over 500ms. The width
+      transition is `tp:w tdu:500 ttf:eo` now rather than `motion`, which
+      measures the same and is how Base UI animates its own indicator. The
+      indeterminate bar still uses `motion`; that goes with the rest of the
+      registry's motion in the Queue.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
@@ -3896,8 +3911,8 @@ own table has failed the test.
 Renildo asked for these in priority order so the release is not starved by
 the interesting work. Top first.
 
-1. **Phase 1's last two**: the arrow flush against its trigger, and Progress
-   `animated`. They block a release; nothing below does.
+1. **Phase 1's last one**: the focus outline that flashes after a dialog
+   closes. It blocks a release; nothing below does.
 2. **Audit quick wins**: `avatar.tsx`'s `#989ec2` and `reference.tsx`'s
    `#b9bed5` onto tokens, and `[data-code]` onto `cs:d`.
 3. **Icons from Nucleo, as one hand-written `icons.tsx`.** Renildo supplies the
