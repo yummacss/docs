@@ -161,6 +161,7 @@ export default function OnboardingBase({
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [open, setOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const [checked, setChecked] = useState<Record<number, Set<string>>>({});
@@ -215,7 +216,7 @@ export default function OnboardingBase({
   );
 
   const popupClasses = [
-    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -308,6 +309,8 @@ export default function OnboardingBase({
       />
       <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
+          ref={popupRef}
+          initialFocus={(type) => type === "keyboard" || popupRef.current}
           className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >

@@ -4,7 +4,7 @@ import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Tone = "danger" | "neutral";
@@ -174,6 +174,7 @@ export default function AlertDialogBase({
     focus && tone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
 
   const [open, setOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   const base = "px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
 
@@ -187,7 +188,7 @@ export default function AlertDialogBase({
   );
 
   const popupClasses = [
-    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -225,6 +226,8 @@ export default function AlertDialogBase({
       />
       <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
+          ref={popupRef}
+          initialFocus={(type) => type === "keyboard" || popupRef.current}
           className={`${popupClasses} ${animated ? "yui-alert-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >

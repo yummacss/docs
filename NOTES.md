@@ -2384,6 +2384,24 @@ declares logical properties: `padding` covers `padding-inline` covers
       measures the same and is how Base UI animates its own indicator. The
       indeterminate bar still uses `motion`; that goes with the rest of the
       registry's motion in the Queue.
+- [x] **The focus flash is `:focus-visible` inherited through programmatic
+      focus.** Open a dialog with the mouse and close it with Escape: the
+      keyboard close returns focus to the trigger as focus-visible, which is
+      right. Click that trigger again and it is already focused, so the click
+      does not clear the state, and the dialog's initial focus moves it on to
+      Close, which inherits it and draws the outline on a pointer open.
+      Dialog, Alert Dialog and Onboarding now pass `initialFocus` a function:
+      a keyboard open keeps Base UI's default (first tabbable), anything else
+      focuses the popup itself, and the popups carry `os:none` so a focused
+      popup draws nothing. Popover already focused its popup; it only needed
+      `os:none`, since the browser's own `auto` outline was drawing there.
+      Traced with real CDP input: the reopen is clean on all four, Tab still
+      lands on the first control with the outline, and the trigger keeps its
+      outline after Escape, which is the one case where it belongs. Command
+      Palette's input is always focus-visible, being a text field, and draws
+      nothing. **Button and Empty State did not reproduce**: a real click, before
+      and after a Tab, never matched `:focus-visible`, so what was seen there
+      was most likely the buttons inside a dialog.
 
 ### Phase 7 - One breaking registry release
 
@@ -3911,8 +3929,7 @@ own table has failed the test.
 Renildo asked for these in priority order so the release is not starved by
 the interesting work. Top first.
 
-1. **Phase 1's last one**: the focus outline that flashes after a dialog
-   closes. It blocks a release; nothing below does.
+1. **Phase 1 is empty.** Nothing below blocks a release.
 2. **Audit quick wins**: `avatar.tsx`'s `#989ec2` and `reference.tsx`'s
    `#b9bed5` onto tokens, and `[data-code]` onto `cs:d`.
 3. **Icons from Nucleo, as one hand-written `icons.tsx`.** Renildo supplies the
