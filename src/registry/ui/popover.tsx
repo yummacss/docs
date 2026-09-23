@@ -191,7 +191,7 @@ export default function PopoverBase({
   );
 
   const popupClasses = [
-    "px:4 py:3 w:56 bg:white bc:silver-2 c:slate-10 bw:1",
+    "px:4 py:3 w:56 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     arrow ? "p:r" : "",

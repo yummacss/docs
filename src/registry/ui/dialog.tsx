@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
@@ -199,6 +199,7 @@ export default function DialogBase({
     focus && confirmTone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
 
   const [open, setOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   const triggerClasses = merge(
     triggerOutline,
@@ -211,7 +212,7 @@ export default function DialogBase({
   );
 
   const popupClasses = [
-    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -243,6 +244,8 @@ export default function DialogBase({
       />
       <Dialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <Dialog.Popup
+          ref={popupRef}
+          initialFocus={(type) => type === "keyboard" || popupRef.current}
           className={`${popupClasses} ${animated ? "yui-dialog-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
