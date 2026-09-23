@@ -57,13 +57,16 @@ const ARROW_TONES: Record<Tone, string> = {
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
-  top: { bottom: -8, rotate: "180deg" },
-  bottom: { top: -8 },
-  left: { right: -12, rotate: "90deg" },
-  right: { left: -12, rotate: "-90deg" },
-  "inline-start": { right: -12, rotate: "90deg" },
-  "inline-end": { left: -12, rotate: "-90deg" },
+  top: { bottom: -6, rotate: "180deg" },
+  bottom: { top: -6 },
+  left: { right: -9, rotate: "90deg" },
+  right: { left: -9, rotate: "-90deg" },
+  "inline-start": { right: -9, rotate: "90deg" },
+  "inline-end": { left: -9, rotate: "-90deg" },
 };
+
+/** Added to `sideOffset`, so the gap is measured from the arrow's tip. */
+const ARROW_HEIGHT = 6;
 
 export interface TooltipProps {
   /**
@@ -89,7 +92,7 @@ export interface TooltipProps {
    * there is no room.
    */
   side?: Side;
-  /** Gap between the trigger and the tooltip, in pixels. */
+  /** Gap between the trigger and the tooltip, or its arrow tip, in pixels. */
   sideOffset?: number;
   /**
    * The tooltip's surface and its trigger together. `light` and `dark` are the
@@ -184,10 +187,10 @@ export default function TooltipBase({
     >
       {arrow && (
         <Tooltip.Arrow
-          className="d:f w:4 h:2"
+          className="d:f"
           style={(state) => ARROW_PLACEMENT[state.side]}
         >
-          <svg viewBox="0 0 10 5" width="16" height="8">
+          <svg viewBox="0 0 10 5" width="12" height="6">
             <title>Arrow</title>
             <path d="M0 5 L5 0 L10 5" strokeWidth="1" className={arrowTone} />
           </svg>
@@ -207,7 +210,10 @@ export default function TooltipBase({
           {trigger}
         </Tooltip.Trigger>
         <Tooltip.Portal container={container}>
-          <Tooltip.Positioner side={side} sideOffset={sideOffset}>
+          <Tooltip.Positioner
+            side={side}
+            sideOffset={sideOffset + (arrow ? ARROW_HEIGHT : 0)}
+          >
             {popup}
           </Tooltip.Positioner>
         </Tooltip.Portal>

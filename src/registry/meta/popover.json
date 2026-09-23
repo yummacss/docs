@@ -44,7 +44,7 @@
       "name": "sideOffset",
       "type": "number",
       "default": 8,
-      "description": "Gap between the trigger and the popup, in pixels.",
+      "description": "Gap between the trigger and the popup, or its arrow tip, in pixels.",
       "min": 0,
       "max": 24,
       "step": 2
