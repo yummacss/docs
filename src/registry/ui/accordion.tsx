@@ -2,7 +2,6 @@
 
 import { Accordion } from "@base-ui/react/accordion";
 import { Lock, Minus, NavArrowDown, Plus } from "iconoir-react";
-import { type HTMLMotionProps, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -10,6 +9,28 @@ import { merge } from "yummacss/merge";
 type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+const TURN = "yui-accordion-turn";
+
+const ACCORDION_MOTION = `
+  .yui-accordion-panel {
+    height: var(--accordion-panel-height);
+    overflow: hidden;
+    transition: height 200ms ease-out, opacity 200ms ease-out;
+  }
+  .yui-accordion-panel[data-starting-style],
+  .yui-accordion-panel[data-ending-style] {
+    height: 0;
+    opacity: 0;
+  }
+  .yui-accordion-turn {
+    transition: rotate 150ms ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-accordion-panel,
+    .yui-accordion-turn { transition: none; }
+  }
+`;
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type Indicator = "chevron" | "plus-minus";
@@ -155,6 +176,9 @@ export default function AccordionBase({
       onValueChange={handleValueChange}
       multiple={multiple}
     >
+      <style href="yumma-ui-accordion-motion" precedence="default">
+        {ACCORDION_MOTION}
+      </style>
       {items.map((item, index) => {
         const isOpen = value.includes(item.value);
         const isLast = index === items.length - 1;
@@ -281,30 +305,12 @@ export default function AccordionBase({
                 )}
               </Accordion.Trigger>
             </Accordion.Header>
-            {animated ? (
-              <Accordion.Panel
-                keepMounted
-                render={(props) => (
-                  <motion.div
-                    {...(props as HTMLMotionProps<"div">)}
-                    initial={false}
-                    animate={
-                      isOpen
-                        ? { height: "auto", opacity: 1 }
-                        : { height: 0, opacity: 0 }
-                    }
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="d:b o:h"
-                  />
-                )}
-              >
-                <p className={panelClasses}>{item.content}</p>
-              </Accordion.Panel>
-            ) : (
-              <Accordion.Panel keepMounted>
-                <p className={panelClasses}>{item.content}</p>
-              </Accordion.Panel>
-            )}
+            <Accordion.Panel
+              keepMounted
+              className={animated ? "yui-accordion-panel" : undefined}
+            >
+              <p className={panelClasses}>{item.content}</p>
+            </Accordion.Panel>
           </Accordion.Item>
         );
       })}
@@ -331,13 +337,9 @@ function ChevronGlyph({
   }
 
   return (
-    <motion.span
-      animate={{ rotate: isOpen ? 180 : 0 }}
-      transition={{ duration: 0.15, ease: "easeInOut" }}
-      className="d:f"
-    >
+    <span className={`d:f ${TURN} ${isOpen ? "ro:36" : "ro:0"}`}>
       <NavArrowDown className={merge("fs:0 w:4 h:4", className)} aria-hidden />
-    </motion.span>
+    </span>
   );
 }
 
@@ -362,13 +364,6 @@ function PlusMinusGlyph({
   }
 
   return (
-    <motion.span
-      initial={false}
-      animate={{ rotate: isOpen ? 90 : 0 }}
-      transition={{ duration: 0.15, ease: "easeInOut" }}
-      className="d:f"
-    >
-      {icon}
-    </motion.span>
+    <span className={`d:f ${TURN} ${isOpen ? "ro:18" : "ro:0"}`}>{icon}</span>
   );
 }
