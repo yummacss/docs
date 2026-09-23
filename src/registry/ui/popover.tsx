@@ -50,13 +50,16 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
-  top: { bottom: -8, rotate: "180deg" },
-  bottom: { top: -8 },
-  left: { right: -12, rotate: "90deg" },
-  right: { left: -12, rotate: "-90deg" },
-  "inline-start": { right: -12, rotate: "90deg" },
-  "inline-end": { left: -12, rotate: "-90deg" },
+  top: { bottom: -6, rotate: "180deg" },
+  bottom: { top: -6 },
+  left: { right: -9, rotate: "90deg" },
+  right: { left: -9, rotate: "-90deg" },
+  "inline-start": { right: -9, rotate: "90deg" },
+  "inline-end": { left: -9, rotate: "-90deg" },
 };
+
+/** Added to `sideOffset`, so the gap is measured from the arrow's tip. */
+const ARROW_HEIGHT = 6;
 
 export interface PopoverProps {
   /**
@@ -93,7 +96,7 @@ export interface PopoverProps {
    * there is no room.
    */
   side?: Side;
-  /** Gap between the trigger and the popup, in pixels. */
+  /** Gap between the trigger and the popup, or its arrow tip, in pixels. */
   sideOffset?: number;
   /**
    * A pointer notched into the popup's edge, aimed back at the trigger. It
@@ -200,10 +203,10 @@ export default function PopoverBase({
     <>
       {arrow && (
         <Popover.Arrow
-          className="d:f w:4 h:2"
+          className="d:f"
           style={(state) => ARROW_PLACEMENT[state.side]}
         >
-          <svg viewBox="0 0 10 5" width="16" height="8">
+          <svg viewBox="0 0 10 5" width="12" height="6">
             <title>Arrow</title>
             <path
               d="M0 5 L5 0 L10 5"
@@ -243,7 +246,10 @@ export default function PopoverBase({
 
   const popup = (
     <Popover.Portal container={container} keepMounted>
-      <Popover.Positioner side={side} sideOffset={sideOffset}>
+      <Popover.Positioner
+        side={side}
+        sideOffset={sideOffset + (arrow ? ARROW_HEIGHT : 0)}
+      >
         <Popover.Popup
           className={`${popupClasses} ${animated ? "yui-popover-pop" : ""}`}
         >

@@ -105,17 +105,10 @@ export default function ProgressBase({
           />
         ) : (
           <Progress.Indicator
-            render={
-              animated ? (
-                <motion.div
-                  animate={{ width: `${value}%` }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                />
-              ) : undefined
-            }
             className={(state) =>
               [
                 "h:100%",
+                animated ? "tp:w tdu:500 ttf:eo" : "",
                 SHAPES[shape],
                 state.status === "complete" ? "bg:green" : "bg:slate-12",
               ]
