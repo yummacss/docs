@@ -3963,7 +3963,21 @@ exception, in eleven files:
 
 Onboarding is the only real decision: accept an enter-only slide, or keep the
 old page mounted for 200ms ourselves, which is the state `AnimatePresence`
-holds today. The prop API does not change anywhere.
+holds today. The prop API does not change anywhere. **Renildo's call: enter-only.**
+
+**Done for the ten, 2026-09-23.** Each carries a `*_MOTION` block with a
+reduced-motion guard, which `motion` never honoured. Measured in the browser
+with real input: Switch travels 12px in 200ms, Toggle, Rating and Toolbar press
+to 0.9 (0.92 on Toolbar) and the icon pops from 0.8, the Accordion panel and
+chevron move together over 200ms, Preview Card fades, the spinner turns once
+per 0.7s, and Progress's indeterminate bar loops at full width. Two changes
+beyond a straight port: **Preview Card now fades out too**, since
+`motion`'s `exit` never ran without `AnimatePresence`; and **Radio's
+`animated` now does something**, a 150ms pop on the dot, where it used to
+wrap the root in a `motion.span` that animated nothing. A `yui-*` class in a
+template literal trips `tests/classes.test.ts`, so Skeleton's and
+Accordion's go through a constant, and `scripts/validate-yummacss.mjs`
+skips `yui-` tokens in its object-literal scan for the same reason.
 
 Order: one PR for the ten that lose nothing, one for Onboarding, then the four
 docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,

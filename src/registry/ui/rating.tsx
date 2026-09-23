@@ -2,13 +2,30 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { Star } from "iconoir-react";
-import type { HTMLMotionProps } from "motion/react";
-import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
+
+const RATING_MOTION = `
+  .yui-rating-press {
+    transition: scale 200ms ease-out;
+  }
+  .yui-rating-press:active {
+    scale: 0.9;
+  }
+  @keyframes yui-rating-pop {
+    from { scale: 0.8; }
+  }
+  .yui-rating-pop {
+    animation: yui-rating-pop 250ms ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-rating-press { transition: none; }
+    .yui-rating-pop { animation: none; }
+  }
+`;
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
@@ -156,6 +173,9 @@ export default function RatingBase({
 
   return (
     <div className={merge("d:f fd:c ai:c jc:c g:4 p:8 h:56", className)}>
+      <style href="yumma-ui-rating-motion" precedence="default">
+        {RATING_MOTION}
+      </style>
       {label && <span className="c:slate-10 fs:sm fw:500">{label}</span>}
 
       <Scored score={score}>
@@ -174,23 +194,16 @@ export default function RatingBase({
                     disabled={disabled}
                     onPressedChange={() => handleChange(active ? -1 : index)}
                     aria-label={option.label}
-                    className={iconClasses(option, active)}
-                    render={
-                      animated && !disabled
-                        ? (props) => (
-                            <motion.button
-                              type="button"
-                              {...(props as HTMLMotionProps<"button">)}
-                              whileTap={{ scale: 0.9 }}
-                              transition={{ duration: 0.2, ease: "easeOut" }}
-                            >
-                              <Pop on={active}>{option.icon}</Pop>
-                            </motion.button>
-                          )
-                        : undefined
+                    className={
+                      iconClasses(option, active) +
+                      (animated && !disabled ? " yui-rating-press" : "")
                     }
                   >
-                    {animated && !disabled ? undefined : option.icon}
+                    {animated && !disabled ? (
+                      <Pop on={active}>{option.icon}</Pop>
+                    ) : (
+                      option.icon
+                    )}
                   </Toggle>
                 );
               })
@@ -222,23 +235,12 @@ export default function RatingBase({
                         handleChange(star === value ? 0 : star)
                       }
                       aria-label={`${star} star${star > 1 ? "s" : ""}`}
-                      className={starClasses(filled)}
-                      render={
-                        animated && !disabled
-                          ? (props) => (
-                              <motion.button
-                                type="button"
-                                {...(props as HTMLMotionProps<"button">)}
-                                whileTap={{ scale: 0.9 }}
-                                transition={{ duration: 0.2, ease: "easeOut" }}
-                              >
-                                {icon}
-                              </motion.button>
-                            )
-                          : undefined
+                      className={
+                        starClasses(filled) +
+                        (animated && !disabled ? " yui-rating-press" : "")
                       }
                     >
-                      {animated && !disabled ? undefined : icon}
+                      {icon}
                     </Toggle>
                   );
                 },
@@ -264,15 +266,9 @@ export default function RatingBase({
 
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
-    <motion.span
-      key={on ? "on" : "off"}
-      className="d:f"
-      initial={{ scale: on ? 0.8 : 1 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-    >
+    <span key={on ? "on" : "off"} className={on ? "d:f yui-rating-pop" : "d:f"}>
       {children}
-    </motion.span>
+    </span>
   );
 }
 

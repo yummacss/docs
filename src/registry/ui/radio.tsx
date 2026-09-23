@@ -2,8 +2,6 @@
 
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
-import type { HTMLMotionProps } from "motion/react";
-import { motion } from "motion/react";
 import { useId } from "react";
 import { merge } from "yummacss/merge";
 
@@ -15,6 +13,18 @@ export interface RadioOption {
   label: string;
   description?: string;
 }
+
+const RADIO_MOTION = `
+  @keyframes yui-radio-pop {
+    from { scale: 0; }
+  }
+  .yui-radio-pop {
+    animation: yui-radio-pop 150ms ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-radio-pop { animation: none; }
+  }
+`;
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
@@ -118,10 +128,15 @@ export default function RadioBase({
   const labelId = useId();
 
   const dotClasses = (checked: boolean) =>
-    checked ? `${DOT_SIZES[size]} ${ROUND} bg:white` : "d:none";
+    checked
+      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "yui-radio-pop" : ""}`
+      : "d:none";
 
   return (
     <div className="d:f fd:c g:2">
+      <style href="yumma-ui-radio-motion" precedence="default">
+        {RADIO_MOTION}
+      </style>
       {label && (
         <div id={labelId} className="fs:xs fw:600 c:slate-5 us:none">
           {label}
@@ -163,17 +178,8 @@ export default function RadioBase({
                 <Radio.Root
                   value={option.value}
                   className={(state) => rootClasses(state.checked)}
-                  render={
-                    animated
-                      ? (props, _) => (
-                          <motion.span {...(props as HTMLMotionProps<"span">)}>
-                            {indicator}
-                          </motion.span>
-                        )
-                      : undefined
-                  }
                 >
-                  {animated ? undefined : indicator}
+                  {indicator}
                 </Radio.Root>
                 <span>{option.label}</span>
               </div>
