@@ -34,7 +34,7 @@ export default function TokenBlock({
   const action: ReactNode = <CopyButton copied={copied} onCopy={copy} />;
 
   return (
-    <div data-code className={`bg:surface ${className}`}>
+    <div className={`cs:d bg:surface ${className}`}>
       <TitleBar title={title} action={action} />
       <pre
         className={`ox:auto px:4 py:3 ff:m lh:5 ws:pw ${

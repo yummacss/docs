@@ -113,11 +113,7 @@ export default function Reference({ category, name, variant }: Props) {
                         </code>
                         <div className="d:f fd:c ai:fe">
                           {row.details.map((detail) => (
-                            <code
-                              key={detail}
-                              className="fs:xs ta:r"
-                              style={{ color: "#b9bed5" }}
-                            >
+                            <code key={detail} className="c:ink/70 fs:xs ta:r">
                               {detail}
                             </code>
                           ))}

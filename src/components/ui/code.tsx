@@ -44,7 +44,7 @@ export default function Code({
 
   if (preview) {
     return (
-      <div ref={ref} data-code className="bg:surface">
+      <div ref={ref} className="cs:d bg:surface">
         <TitleBar title={title} action={copyAction} />
         <div className="oy:auto ob:c max-h:80">
           {body ?? (
@@ -57,14 +57,14 @@ export default function Code({
 
   if (grouped) {
     return (
-      <div ref={ref} data-code>
+      <div ref={ref} className="cs:d">
         {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
       </div>
     );
   }
 
   return (
-    <div ref={ref} data-code className="o:h my:4 bc:border bg:surface bw:1">
+    <div ref={ref} className="o:h my:4 cs:d bc:border bg:surface bw:1">
       <TitleBar title={title} action={copyAction} />
       {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
     </div>
