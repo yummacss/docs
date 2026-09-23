@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  135
-    Open    27
-    Done    83%
+    Closed  137
+    Open    25
+    Done    85%
 
 ---
 
@@ -29,11 +29,6 @@ Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
       click of the trigger rather than on the close. Seen on Dialog, Command
       Palette, Empty State and Button, so it is the focus treatment itself, not
       any one component.
-- [ ] **The arrow sits flush against its trigger**, seen on Popover. It also
-      wants to be smaller. Both apply to every component using the arrow part.
-- [ ] **Progress: `animated` moves the bar** rather than transitioning its width
-      as `value` changes, which is what its description claims. Base UI's own
-      progress animates; match that.
 
 
 ## Phase 2 - Content model
