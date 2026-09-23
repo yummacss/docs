@@ -3567,14 +3567,19 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 - [ ] **One fluid width, written twice.** `.docs-container` and the landing
       page's inline `maxWidth` both say `clamp(40rem, 80vw, 96rem)`. That is
       #2, the `container` config.
-- [ ] **A utility that already exists.** Code blocks are held dark with a
+- [x] **A utility that already exists.** Code blocks are held dark with a
       `[data-code] { color-scheme: dark }` rule, and `cs:d` is that exact
       declaration as a class. The rule goes and each shell carries `cs:d`.
-- [ ] **Colours that skip the tokens, so they ignore the theme.**
+      Done: the five shells in `code.tsx`, `code-group.tsx` and
+      `token-block.tsx` carry `cs:d` and the attribute is gone. Measured in
+      light theme: `color-scheme: dark`, background `#1a1d2e`, as before.
+- [x] **Colours that skip the tokens, so they ignore the theme.**
       `reference.tsx` (`#b9bed5` on the detail column), `tabs.tsx` and
       `avatar.tsx` (`#989ec2`). Each has a token already: `c:ink/70` and
       `c:accent-dim` are the likely matches. A fourth, the Reference count
       chip's `#8892c2`, became `c:accent-dim` with the toggle fixes.
+      Done: Reference's detail column is `c:ink/70` and Avatar's fallback is
+      `c:accent-dim`; `tabs.tsx` had already moved to `c:ink/80`.
 - [ ] **A display size no scale reaches.** `.footer-version` is `min(17rem,
       100cqw / span)` inside a `container-type: inline-size` band. Neither a
       font-size past `3xl` nor a container-relative length has a Yumma form.
