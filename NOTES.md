@@ -3971,6 +3971,16 @@ docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,
 command. Components installed before that still import `motion`, so the
 install page says to keep it until they are re-added.
 
+**Onboarding done, 2026-09-23, enter-only as decided.** The step is a keyed
+`div` with `yui-onboarding-next` or `-prev`, a 200ms keyframe from 40px and
+opacity 0; the popup height is a `tp:h` transition on the px the
+`ResizeObserver` already measured, and the progress bar a `tp:w` transition on
+its inline width. Measured: Next slides in from the right, Previous from the
+left, and the height and bar move together over 200ms. Verifying it found the
+header's Previous, Next and Finish buttons, and the dots row's Finish, with no
+accessible name: icon-only, no `aria-label`. They have one now. The install
+command keeps `motion` until this and the ten both land.
+
 ## Parked
 
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives
