@@ -23,12 +23,6 @@
   color-scheme: light dark;
 }
 
-/* Code blocks keep the eclipsa theme in either theme, so their subtree stays
-   on the dark side of every pair. */
-[data-code] {
-  color-scheme: dark;
-}
-
 h1,
 h2,
 h3,
