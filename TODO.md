@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  137
-    Open    25
+    Closed  138
+    Open    24
     Done    85%
 
 ---
@@ -25,10 +25,7 @@ than adjusting the numbers by hand:
 
 Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
 
-- [ ] **A focus outline flashes after a dialog closes**, and again on the next
-      click of the trigger rather than on the close. Seen on Dialog, Command
-      Palette, Empty State and Button, so it is the focus treatment itself, not
-      any one component.
+Empty.
 
 
 ## Phase 2 - Content model
