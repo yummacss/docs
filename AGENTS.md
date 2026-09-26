@@ -144,3 +144,6 @@ is written.
   that percentage with every PR.
 - Verify a TODO or NOTES entry against the code before acting on it. Most
   entries are right about the symptom and wrong about the cause.
+- A generated file opens with a comment naming the script that writes it.
+  The script writes that comment, so it survives a regeneration; never edit
+  the file or strip the comment by hand.
