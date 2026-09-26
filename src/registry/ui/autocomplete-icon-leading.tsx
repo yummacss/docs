@@ -2,11 +2,11 @@ import {
   BellIcon,
   GlobeIcon,
   KeyIcon,
-  MagnifierIcon,
   QuestionCircleIcon,
   SettingsIcon,
   UserCrossIcon,
-} from "@solar-icons/react/linear";
+} from "@solar-icons/react/bold-duotone";
+import { MagnifierIcon } from "@solar-icons/react/outline";
 import Autocomplete, { type AutocompleteItem } from "./autocomplete";
 
 export default function AutocompleteIconLeading() {

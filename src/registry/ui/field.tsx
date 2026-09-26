@@ -3,11 +3,11 @@
 import { Field } from "@base-ui/react/field";
 import { Toggle } from "@base-ui/react/toggle";
 import {
-  CheckIcon,
   DangerTriangleIcon,
   EyeClosedIcon,
   EyeIcon,
-} from "@solar-icons/react/linear";
+} from "@solar-icons/react/bold-duotone";
+import { CheckIcon } from "@solar-icons/react/outline";
 import { type ComponentProps, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 

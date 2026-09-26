@@ -5,7 +5,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { AddIcon, MinusIcon } from "@solar-icons/react/linear";
+import { AddIcon, MinusIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";

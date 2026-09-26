@@ -1,12 +1,12 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
+import { LockIcon } from "@solar-icons/react/bold-duotone";
 import {
   AddIcon,
   AltArrowDownIcon,
-  LockIcon,
   MinusIcon,
-} from "@solar-icons/react/linear";
+} from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
