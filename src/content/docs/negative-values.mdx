@@ -7,7 +7,7 @@ description: "Apply a negative value with a minus sign after the colon, which to
 
 Put a minus sign in front of the value, after the colon: `ml:-4` is a margin of `-1rem`.
 
-Only properties that accept a negative value take one: margins, positioning, z-index, letter spacing, text indent, order, grid lines, scroll margins, outline & underline offsets, rotate, scale, translate, skew & transition delay. On any other utility the class is refused rather than silently generated, so `p:-4` & `w:-4` produce nothing.
+Only properties that accept a negative value take one: margins, positioning, z-index, letter spacing, text indent, order, grid lines, scroll margins, outline & underline offsets, rotate, scale, translate, skew & transition delay. On any other utility the class is refused, so `p:-4` & `w:-4` produce nothing.
 
 ## Margin
 
@@ -42,7 +42,7 @@ Negative z-index values allow you to place elements behind their siblings or par
 
 ## Sign Toggle
 
-The minus sign flips the sign of the utility's value rather than simply prepending one. That matters for utilities whose value is already negative.
+The minus sign flips the sign of the utility's value, which matters for utilities whose value is already negative.
 
 ### Letter Spacing
 
