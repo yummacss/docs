@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { MagnifierIcon } from "@solar-icons/react/linear";
+import { MagnifierIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";

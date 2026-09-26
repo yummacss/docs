@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { CloseIcon } from "@solar-icons/react/linear";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { CSSProperties, ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";

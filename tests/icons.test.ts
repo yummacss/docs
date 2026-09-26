@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
+import { EXAMPLE_ICON_STYLE } from "../src/utils/icon-style";
 import { rootDir } from "./helpers";
 
 const DIRECT = /from\s+["']@solar-icons\/react/;
@@ -69,5 +70,35 @@ describe("icons", () => {
 
     expect([...wanted].filter((name) => !names.has(name))).toEqual([]);
     expect(wanted.size).toBeGreaterThan(30);
+  });
+
+  it("gives each Solar icon one style everywhere", () => {
+    const styleOf = new Map<string, string>();
+    const clashes: string[] = [];
+    for (const file of [...registry, demos]) {
+      const source = readFileSync(file, "utf8");
+      for (const [, block, style] of source.matchAll(
+        /import\s*\{([^}]*)\}\s*from\s*["']@solar-icons\/react\/([a-z-]+)["']/g,
+      )) {
+        expect(["outline", "bold-duotone"]).toContain(style);
+        for (const name of block.split(",").map((n) => n.trim())) {
+          if (!name) continue;
+          const seen = styleOf.get(name);
+          if (seen && seen !== style)
+            clashes.push(`${name}: ${seen} and ${style}`);
+          styleOf.set(name, style);
+        }
+      }
+    }
+    expect(clashes).toEqual([]);
+
+    for (const [name, style] of Object.entries(EXAMPLE_ICON_STYLE)) {
+      expect(styleOf.get(name), name).toBe(style);
+    }
+    const demoSource = readFileSync(demos, "utf8");
+    const listed = demoSource.slice(demoSource.indexOf("EXAMPLE_ICONS"));
+    for (const [, name] of listed.matchAll(/^\s+([A-Z][A-Za-z0-9]*Icon),$/gm)) {
+      expect(EXAMPLE_ICON_STYLE[name], name).toBeDefined();
+    }
   });
 });

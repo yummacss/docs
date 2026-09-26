@@ -1,7 +1,8 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { CheckIcon, DangerTriangleIcon } from "@solar-icons/react/linear";
+import { DangerTriangleIcon } from "@solar-icons/react/bold-duotone";
+import { CheckIcon } from "@solar-icons/react/outline";
 import type { ChangeEvent, ComponentProps } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
