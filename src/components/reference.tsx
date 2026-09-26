@@ -19,6 +19,14 @@ interface Props {
 const OPEN = ["reference-item"];
 const CLOSED: string[] = [];
 
+const SINGULAR: Record<string, string> = {
+  utilities: "utility",
+  "media queries": "media query",
+  "pseudo classes": "pseudo class",
+  "pseudo elements": "pseudo element",
+  steps: "step",
+};
+
 export default function Reference({ category, name, variant }: Props) {
   const [search, setSearch] = useState("");
 
@@ -70,7 +78,10 @@ export default function Reference({ category, name, variant }: Props) {
                       ))}
                     </code>
                     <span className="px:2 py:1 bg:border c:accent-dim fs:xs fw:600">
-                      {data.rows.length} {data.noun}
+                      {data.rows.length}{" "}
+                      {data.rows.length === 1
+                        ? (SINGULAR[data.noun] ?? data.noun)
+                        : data.noun}
                     </span>
                   </span>
                   <Plus

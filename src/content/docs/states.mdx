@@ -1,0 +1,61 @@
+---
+title: States
+description: Name your own variants for the attributes your components set.
+---
+
+## Define a State
+
+Components mark what they are doing with attributes: a details element is `[open]`, a Base UI popup is `[data-ending-style]` while it closes. Name the attribute once in `theme.states` & it becomes a variant like `h:` or `f:`.
+
+```mjs title="yumma.config.mjs" mark={5-8}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    states: {
+      closing: "[data-ending-style]",
+      open: "[open]",
+    },
+  },
+});
+```
+
+## Use a State
+
+<CodeGroup>
+
+```tsx title="page.tsx" "closing:o:0"
+<div className="tp:o tdu:150 closing:o:0">Rename file</div>
+```
+
+```css title="output.css"
+.closing\:o\:0[data-ending-style] {
+  opacity: 0;
+}
+```
+
+</CodeGroup>
+
+A state is appended to the selector, so it stacks with everything else: `@md:h:open:bg:silver-1` applies on hover, while open, from `48rem` up.
+
+## Animate Out
+
+[Starting Style](/docs/starting-style) covers the way in & a state covers the way out, which together animate a popup both ways with no custom CSS.
+
+```tsx "@st:o:0" "closing:o:0"
+<div className="tp:a tdu:150 @st:o:0 @st:s:90 closing:o:0 closing:s:90">
+  Settings
+</div>
+```
+
+## Rules
+
+- Nothing is built in. Every state is one you name.
+- A name is lower case letters, digits & dashes.
+- A selector starts with `[` or `:`, since it is appended to the class.
+- A name cannot reuse a variant (`h`, `f`) or a utility (`o`, `bg`). The config refuses it when it loads, with a message saying which.
+
+<Hint icon="info">
+  [Class Merge](/docs/class-merge) does not know your states, so two
+  conflicting classes under the same state are both kept.
+</Hint>

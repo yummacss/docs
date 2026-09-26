@@ -4097,6 +4097,26 @@ copied in beside each component.
   Rename and Edit, a keyboard for Shortcuts, a folder for "No files yet". The
   site's own icons stay Phosphor behind `src/icons.tsx`.
 
+## Docs for 4.2, drafted 2026-09-26
+
+Branch `feat/docs-4-2`, merged with the bump to 4.2.0: `src/utils/yummacss.ts`
+and `tests/reference.test.ts` name `core.animationUtils`, which 4.1.2 does not
+export.
+
+New: the five `animation-*` pages, `container-type`, Container Queries, States,
+Starting Style, CSS Functions. Updated: Configuration (`states`, `fonts`,
+`keyframes`), Transition Property (`tp:t`), Font Family (`theme.fonts`), Media
+Queries (`@xs`, `@prm`, a pointer to `@c:`), Nested Variants.
+
+Four stale things found on the way, fixed in the same branch:
+- **Configuration's `prefix` example generated nothing.** `prefix: "ui"` with
+  `ui-bg:red` is refused, because the prefix is prepended as written; it is
+  `"ui-"` now. Its sample output was 3.x (`.bg-white`) too.
+- **Nested Variants documented the `@sm:@lg:` collapse** that 4.2 fixed, and
+  its outputs used 3.x selectors (`bg-red`).
+- **`@xs` and `@prm` were documented nowhere** but the 4.0 post.
+- `Reference` said "1 utilities". It picks the singular now.
+
 ## Parked
 
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives
