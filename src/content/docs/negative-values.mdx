@@ -1,15 +1,17 @@
 ---
 title: Negative Values
-description: "Apply negative values with the double-dash syntax, which toggles the sign."
+description: "Apply a negative value with a minus sign after the colon, which toggles the sign."
 ---
 
 ## Use Negative Values
 
-Yumma CSS supports negative values for specific utilities like margins, positioning & letter spacing. Use the `(prefix)--(value)` syntax to apply a negative value.
+Put a minus sign in front of the value, after the colon: `ml:-4` is a margin of `-1rem`.
+
+Only properties that accept a negative value take one: margins, positioning, z-index, letter spacing, text indent, order, grid lines, scroll margins, outline & underline offsets, rotate, scale, translate, skew & transition delay. On any other utility the class is refused rather than silently generated, so `p:-4` & `w:-4` produce nothing.
 
 ## Margin
 
-Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m-`, `mt-`, `mr-`, `mb-`, `ml-`, `mx-` & `my-`).
+Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m:`, `mt:`, `mr:`, `mb:`, `ml:`, `mx:` & `my:`).
 
 ```tsx "ml:-4"
 <div className="zi:10 …">A</div>
@@ -19,7 +21,7 @@ Use negative margins to overlap elements or create unique layouts. Negative marg
 
 ## Positioning
 
-Apply negative offsets to position elements outside their parents or create overlapping effects. This works with `t-`, `r-`, `b-`, `l-` & `i-` utilities.
+Apply negative offsets to position elements outside their parents or create overlapping effects. This works with the `t:`, `r:`, `b:`, `l:` & `i:` utilities.
 
 ```tsx "t:-4" "l:-4"
 <div className="p:r …">
@@ -29,7 +31,7 @@ Apply negative offsets to position elements outside their parents or create over
 
 ## Z-Index
 
-Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--(value)` to target negative stack levels.
+Negative z-index values allow you to place elements behind their siblings or parents. Use `zi:-(value)` to target negative stack levels.
 
 ```tsx "zi:-10"
 <div className="p:r …">
@@ -40,7 +42,7 @@ Negative z-index values allow you to place elements behind their siblings or par
 
 ## Sign Toggle
 
-Specific utilities in Yumma CSS use a sign-toggle behavior. Instead of simply prepending a negative sign, the double-dash `--` syntax flips the current sign of the utility's value. This is particularly useful for utilities where the default value is already negative.
+The minus sign flips the sign of the utility's value rather than simply prepending one. That matters for utilities whose value is already negative.
 
 ### Letter Spacing
 
