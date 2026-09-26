@@ -29,9 +29,9 @@ const VARIANT_OUTLINE: Partial<Record<Variant, string>> = {
 };
 
 const SIZES: Record<Size, string> = {
-  sm: "px:2 py:1 fs:sm",
-  md: "px:3 py:2 fs:md",
-  lg: "px:4 py:3 fs:lg",
+  sm: "px:3 py:1 fs:xs",
+  md: "px:4 py:2 fs:sm",
+  lg: "px:6 py:3 fs:md",
 };
 
 const ICON_ONLY: Record<Size, string> = {

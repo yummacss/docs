@@ -94,11 +94,11 @@
       "description": "Color of the confirm button: `primary` or `danger`, for a destructive action like a delete."
     },
     {
-      "name": "triggerSize",
+      "name": "size",
       "type": "enum",
-      "values": ["sm", "md"],
+      "values": ["sm", "md", "lg"],
       "default": "md",
-      "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
+      "description": "Padding and text size of the trigger and the popup's buttons, on the same scale as Button, so a dialog matches the buttons beside it."
     },
     {
       "name": "shape",
