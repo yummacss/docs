@@ -52,13 +52,24 @@ Yumma UI components are copied into your project rather than installed as a depe
   </Step>
 
   <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files in the config file.
+    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
 
-    ```js title="yumma.config.mjs" mark={4}
+    ```js title="yumma.config.mjs" mark={4-15}
     import { defineConfig } from "yummacss";
 
     export default defineConfig({
       source: ["./src/**/*.{ts,tsx}"],
+      theme: {
+        states: {
+          opening: "[data-starting-style]",
+          closing: "[data-ending-style]",
+        },
+        keyframes: {
+          pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
+          slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
+          spin: "to { rotate: 360deg; }",
+        },
+      },
     });
     ```
 
@@ -140,13 +151,24 @@ Yumma UI components are copied into your project rather than installed as a depe
   </Step>
 
   <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files in the config file.
+    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
 
-    ```js title="yumma.config.mjs" mark={4}
+    ```js title="yumma.config.mjs" mark={4-15}
     import { defineConfig } from "yummacss";
 
     export default defineConfig({
       source: ["./src/**/*.{ts,tsx}"],
+      theme: {
+        states: {
+          opening: "[data-starting-style]",
+          closing: "[data-ending-style]",
+        },
+        keyframes: {
+          pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
+          slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
+          spin: "to { rotate: 360deg; }",
+        },
+      },
     });
     ```
 

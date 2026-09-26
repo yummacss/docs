@@ -36,20 +36,6 @@ const SIZES: Record<Size, string> = {
   lg: "h:12 w:72 px:4",
 };
 
-const SELECT_MOTION = `
-  .yui-select-pop {
-    transition: opacity 150ms ease-out, scale 150ms ease-out;
-  }
-  .yui-select-pop[data-starting-style],
-  .yui-select-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-select-pop { transition: none; }
-  }
-`;
-
 const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:md",
   square: "",
@@ -271,7 +257,7 @@ export default function SelectBase({
 
   const popup = (
     <Select.Popup
-      className={`o:h py:1 bg:white bc:silver-2 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-select-pop" : ""}`}
+      className={`o:h py:1 bg:white bc:silver-2 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
     >
       <Select.List className="p:r o:auto">
         {options.map((entry) =>
@@ -292,9 +278,6 @@ export default function SelectBase({
 
   return (
     <Field.Root className={`d:f fd:c g:2 ${disabled ? "o:60 c:na" : ""}`}>
-      <style href="yumma-ui-select-motion" precedence="default">
-        {SELECT_MOTION}
-      </style>
       {label && (
         <label htmlFor={id} className="c:slate-10 fs:sm fw:500 us:none">
           {label}

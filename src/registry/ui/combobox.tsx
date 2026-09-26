@@ -39,20 +39,6 @@ const CHIPS_SIZES: Record<Size, string> = {
   lg: "min-h:12 w:72 fs:lg",
 };
 
-const COMBOBOX_MOTION = `
-  .yui-combobox-pop {
-    transition: opacity 150ms ease-out, scale 150ms ease-out;
-  }
-  .yui-combobox-pop[data-starting-style],
-  .yui-combobox-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-combobox-pop { transition: none; }
-  }
-`;
-
 const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:md",
   square: "",
@@ -250,7 +236,7 @@ export default function ComboboxBase({
 
   const popup = (
     <Combobox.Popup
-      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-combobox-pop" : ""}`}
+      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
     >
       {loading ? (
         <div className="py:4 px:4 c:slate-6 fs:sm us:none">Loading...</div>
@@ -289,9 +275,6 @@ export default function ComboboxBase({
       <div
         className={`d:f p:r fd:c g:2 c:slate-10 fs:sm ${disabled ? "o:60 c:na" : ""}`}
       >
-        <style href="yumma-ui-combobox-motion" precedence="default">
-          {COMBOBOX_MOTION}
-        </style>
         {label && (
           <label htmlFor={id} className="fw:500">
             {label}

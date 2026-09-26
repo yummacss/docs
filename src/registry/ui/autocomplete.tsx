@@ -32,26 +32,6 @@ const SIZES: Record<Size, string> = {
   lg: "h:12 w:72",
 };
 
-const AUTOCOMPLETE_MOTION = `
-  .yui-autocomplete-pop {
-    transition: opacity 150ms ease-out, scale 150ms ease-out;
-  }
-  .yui-autocomplete-pop[data-starting-style],
-  .yui-autocomplete-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  @keyframes yui-autocomplete-spin {
-    to { rotate: 360deg; }
-  }
-  .yui-autocomplete-spin {
-    animation: yui-autocomplete-spin 0.7s linear infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-autocomplete-pop { transition: none; }
-  }
-`;
-
 const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:md",
   square: "",
@@ -259,7 +239,7 @@ export default function AutocompleteBase({
 
   const popup = (
     <Autocomplete.Popup
-      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-autocomplete-pop" : ""}`}
+      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
     >
       {loading ? (
         <div
@@ -269,7 +249,7 @@ export default function AutocompleteBase({
           <span
             aria-hidden
             className={`d:b w:4 h:4 bc:silver-3 btc:slate-8 bw:2 br:9999 ${
-              animated ? "yui-autocomplete-spin" : ""
+              animated ? "an:spin adu:700 atf:l aic:inf" : ""
             }`}
           />
           Loading
@@ -322,9 +302,6 @@ export default function AutocompleteBase({
               {icon}
             </span>
           )}
-          <style href="yumma-ui-autocomplete-motion" precedence="default">
-            {AUTOCOMPLETE_MOTION}
-          </style>
           <Autocomplete.Input
             id={id}
             placeholder={placeholder}

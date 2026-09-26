@@ -37,28 +37,6 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const ALERT_MOTION = `
-  .yui-alert-pop {
-    transition: opacity 200ms ease-out, scale 200ms ease-out;
-  }
-  .yui-alert-pop[data-starting-style],
-  .yui-alert-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  .yui-alert-fade {
-    transition: opacity 200ms ease-out;
-  }
-  .yui-alert-fade[data-starting-style],
-  .yui-alert-fade[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-alert-pop,
-    .yui-alert-fade { transition: none; }
-  }
-`;
-
 const CLOSE_SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
@@ -234,14 +212,16 @@ export default function AlertDialogBase({
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
         className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
-          animated ? "yui-alert-fade" : ""
+          animated
+            ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none"
+            : ""
         }`}
       />
       <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
           ref={popupRef}
           initialFocus={(type) => type === "keyboard" || popupRef.current}
-          className={`${popupClasses} ${animated ? "yui-alert-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && (
@@ -289,9 +269,6 @@ export default function AlertDialogBase({
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
-      <style href="yumma-ui-alert-dialog-motion" precedence="default">
-        {ALERT_MOTION}
-      </style>
       <AlertDialog.Trigger render={<Button className={triggerClasses} />}>
         {triggerIcon && triggerIconPosition === "leading" && triggerIcon}
         {trigger}
