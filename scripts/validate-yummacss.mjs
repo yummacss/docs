@@ -108,8 +108,6 @@ function classesInStringLiterals(source) {
   const consider = (literal) => {
     const tokens = literal.split(/\s+/).filter(Boolean);
     for (const token of tokens) {
-      // yui-* hooks are defined by the component's own *_MOTION block.
-      if (token.startsWith("yui-")) continue;
       if (LOOKS_LIKE_CLASS.test(token) && /[-:]/.test(token)) found.add(token);
     }
   };

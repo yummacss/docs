@@ -14,5 +14,16 @@ export default defineConfig({
       page: { light: "#f7f8fb", dark: "#151724" },
       surface: { light: "#ffffff", dark: "#1a1d2e" },
     },
+    states: {
+      closing: "[data-ending-style]",
+      hovering: "[data-hovering]",
+      opening: "[data-starting-style]",
+      scrolling: "[data-scrolling]",
+    },
+    keyframes: {
+      pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
+      slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
+      spin: "to { rotate: 360deg; }",
+    },
   },
 });

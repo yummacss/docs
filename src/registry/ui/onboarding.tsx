@@ -30,42 +30,6 @@ const CONTROL_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const ONBOARDING_MOTION = `
-  .yui-onboarding-pop {
-    transition: opacity 200ms ease-out, scale 200ms ease-out;
-  }
-  .yui-onboarding-pop[data-starting-style],
-  .yui-onboarding-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  .yui-onboarding-fade {
-    transition: opacity 200ms ease-out;
-  }
-  .yui-onboarding-fade[data-starting-style],
-  .yui-onboarding-fade[data-ending-style] {
-    opacity: 0;
-  }
-  @keyframes yui-onboarding-next {
-    from { opacity: 0; translate: 40px 0; }
-  }
-  @keyframes yui-onboarding-prev {
-    from { opacity: 0; translate: -40px 0; }
-  }
-  .yui-onboarding-next {
-    animation: yui-onboarding-next 200ms ease-out;
-  }
-  .yui-onboarding-prev {
-    animation: yui-onboarding-prev 200ms ease-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-onboarding-pop,
-    .yui-onboarding-fade { transition: none; }
-    .yui-onboarding-next,
-    .yui-onboarding-prev { animation: none; }
-  }
-`;
-
 const CLOSE_SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
@@ -317,13 +281,13 @@ export default function OnboardingBase({
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "yui-onboarding-fade" : ""}`}
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
       />
       <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
           ref={popupRef}
           initialFocus={(type) => type === "keyboard" || popupRef.current}
-          className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && indicator === "dots" && closeButton("p:a l:3 t:3")}
@@ -391,8 +355,8 @@ export default function OnboardingBase({
                     key={page}
                     className={`d:f fd:c ai:c g:3 ${
                       direction > 0
-                        ? "yui-onboarding-next"
-                        : "yui-onboarding-prev"
+                        ? "tp:a tdu:200 ttf:eo @st:o:0 @st:ttx:10 @prm:tp:none"
+                        : "tp:a tdu:200 ttf:eo @st:o:0 @st:ttx:-10 @prm:tp:none"
                     }`}
                   >
                     {slide}
@@ -493,10 +457,6 @@ export default function OnboardingBase({
         }
       }}
     >
-      <style href="yumma-ui-onboarding-motion" precedence="default">
-        {ONBOARDING_MOTION}
-      </style>
-
       <AlertDialog.Trigger render={<Button className={triggerClasses} />}>
         {triggerIcon && iconPosition === "leading" && triggerIcon}
         <span>{trigger}</span>

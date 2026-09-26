@@ -13,20 +13,6 @@ type Shadow = "none" | "inset" | "outset";
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type TriggerVariant = "icon" | "label";
 
-const POPOVER_MOTION = `
-  .yui-popover-pop {
-    transition: opacity 150ms ease-out, scale 150ms ease-out;
-  }
-  .yui-popover-pop[data-starting-style],
-  .yui-popover-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-popover-pop { transition: none; }
-  }
-`;
-
 const TRIGGER_VARIANTS: Record<TriggerVariant, string> = {
   icon: "w:10 h:10",
   label: "px:3 py:2 g:2",
@@ -251,7 +237,7 @@ export default function PopoverBase({
         sideOffset={sideOffset + (arrow ? ARROW_HEIGHT : 0)}
       >
         <Popover.Popup
-          className={`${popupClasses} ${animated ? "yui-popover-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
         >
           {body}
         </Popover.Popup>
@@ -261,10 +247,6 @@ export default function PopoverBase({
 
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
-      <style href="yumma-ui-popover-motion" precedence="default">
-        {POPOVER_MOTION}
-      </style>
-
       <Popover.Trigger
         className={triggerClasses}
         aria-label={triggerLabel}

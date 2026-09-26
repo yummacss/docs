@@ -27,7 +27,7 @@ export default function Scroller({
         </ScrollArea.Viewport>
         <ScrollArea.Scrollbar
           orientation="vertical"
-          className="yui-scrollbar d:f w:1 py:1 jc:c"
+          className="d:f w:1 py:1 jc:c o:0 tp:o tdu:150 ttf:io hovering:o:100 scrolling:o:100 @prm:tp:none"
         >
           <ScrollArea.Thumb className="w:100% br:9999 bg:ink/20" />
         </ScrollArea.Scrollbar>

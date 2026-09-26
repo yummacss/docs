@@ -14,19 +14,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const CONTEXT_MENU_MOTION = `
-  .yui-context-menu-pop {
-    transition: opacity 150ms ease-out;
-  }
-  .yui-context-menu-pop[data-starting-style],
-  .yui-context-menu-pop[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-context-menu-pop { transition: none; }
-  }
-`;
-
 const TRIGGER_SHAPES: Record<Shape, string> = {
   rounded: "br:xxl cs:s",
   square: "",
@@ -357,7 +344,7 @@ export default function ContextMenuBase({
     <ContextMenu.Portal container={container} keepMounted>
       <ContextMenu.Positioner className="ow:0">
         <ContextMenu.Popup
-          className={`${popupClasses} ${animated ? "yui-context-menu-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
         >
           {renderItems(items, "item")}
         </ContextMenu.Popup>
@@ -371,9 +358,6 @@ export default function ContextMenuBase({
       onOpenChange={handleOpenChange}
       disabled={disabled}
     >
-      <style href="yumma-ui-context-menu-motion" precedence="default">
-        {CONTEXT_MENU_MOTION}
-      </style>
       <ContextMenu.Trigger className={triggerClasses}>
         {trigger}
       </ContextMenu.Trigger>

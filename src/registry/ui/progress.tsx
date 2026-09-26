@@ -4,16 +4,6 @@ import { Progress } from "@base-ui/react/progress";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
-const PROGRESS_MOTION = `
-  @keyframes yui-progress-slide {
-    from { translate: -100% 0; }
-    to { translate: 100% 0; }
-  }
-  .yui-progress-slide {
-    animation: yui-progress-slide 1s ease-in-out infinite;
-  }
-`;
-
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
@@ -87,9 +77,6 @@ export default function ProgressBase({
 
   return (
     <Progress.Root className={rootClasses} value={value}>
-      <style href="yumma-ui-progress-motion" precedence="default">
-        {PROGRESS_MOTION}
-      </style>
       <div className="d:f jc:sb ai:c">
         <Progress.Label className="c:slate-10 fs:sm fw:500">
           {label}
@@ -100,7 +87,7 @@ export default function ProgressBase({
         {isIndeterminate ? (
           <Progress.Indicator
             className={[
-              "h:100% w:100% bg:slate-12 yui-progress-slide",
+              "h:100% w:100% bg:slate-12 an:slide adu:1000 atf:io aic:inf @prm:an:none",
               SHAPES[shape],
             ]
               .filter(Boolean)

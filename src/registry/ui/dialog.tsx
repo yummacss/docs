@@ -26,28 +26,6 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const DIALOG_MOTION = `
-  .yui-dialog-pop {
-    transition: opacity 200ms ease-out, scale 200ms ease-out;
-  }
-  .yui-dialog-pop[data-starting-style],
-  .yui-dialog-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  .yui-dialog-fade {
-    transition: opacity 200ms ease-out;
-  }
-  .yui-dialog-fade[data-starting-style],
-  .yui-dialog-fade[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-dialog-pop,
-    .yui-dialog-fade { transition: none; }
-  }
-`;
-
 const CLOSE_SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
@@ -240,14 +218,16 @@ export default function DialogBase({
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
         className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
-          animated ? "yui-dialog-fade" : ""
+          animated
+            ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none"
+            : ""
         }`}
       />
       <Dialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <Dialog.Popup
           ref={popupRef}
           initialFocus={(type) => type === "keyboard" || popupRef.current}
-          className={`${popupClasses} ${animated ? "yui-dialog-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && (
@@ -307,9 +287,6 @@ export default function DialogBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <style href="yumma-ui-dialog-motion" precedence="default">
-        {DIALOG_MOTION}
-      </style>
       <Dialog.Trigger
         onClick={onTriggerClick}
         render={<Button className={triggerClasses} />}

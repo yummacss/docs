@@ -26,28 +26,6 @@ const ITEM_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const PALETTE_MOTION = `
-  .yui-palette-pop {
-    transition: opacity 200ms ease-out, scale 200ms ease-out;
-  }
-  .yui-palette-pop[data-starting-style],
-  .yui-palette-pop[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
-  }
-  .yui-palette-fade {
-    transition: opacity 200ms ease-out;
-  }
-  .yui-palette-fade[data-starting-style],
-  .yui-palette-fade[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-palette-pop,
-    .yui-palette-fade { transition: none; }
-  }
-`;
-
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i:3xl",
   outset: "bs-o:sm",
@@ -164,11 +142,11 @@ export default function CommandPaletteBase({
   const popup = (
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
-        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "yui-palette-fade" : ""}`}
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
       />
       <Dialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <Dialog.Popup
-          className={`${popupClasses} ${animated ? "yui-palette-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           <Combobox.Root inline items={groups} autoHighlight>
@@ -251,9 +229,6 @@ export default function CommandPaletteBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <style href="yumma-ui-command-palette-motion" precedence="default">
-        {PALETTE_MOTION}
-      </style>
       <Dialog.Trigger render={<Button className={triggerClasses} />}>
         <MagnifierIcon className="w:4 h:4" />
         <span>{trigger}</span>
