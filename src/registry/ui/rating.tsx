@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Star } from "iconoir-react";
+import { StarIcon } from "@solar-icons/react/bold-duotone";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -160,7 +160,7 @@ export default function RatingBase({
       !disabled && !readOnly ? `c:p ${outline}` : "",
       pressed ? "c:yellow-5" : "c:slate-4",
       !disabled && !readOnly && !pressed ? "h:c:slate-6" : "",
-      shadowClass ? "" : "bg-transparent",
+      shadowClass ? "" : "bg:transparent",
     );
 
   const iconClasses = (option: RatingIcon, active: boolean) =>
@@ -210,12 +210,7 @@ export default function RatingBase({
             : Array.from({ length: max }, (_, index) => index + 1).map(
                 (star) => {
                   const filled = star <= value;
-                  const mark = (
-                    <Star
-                      className={`fs:0 w:6 h:6 ${filled ? "f:current" : ""}`}
-                      fill="none"
-                    />
-                  );
+                  const mark = <StarIcon className="fs:0 w:6 h:6" />;
                   const icon = animated ? <Pop on={filled}>{mark}</Pop> : mark;
 
                   if (readOnly) {

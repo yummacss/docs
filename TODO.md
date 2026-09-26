@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  138
-    Open    24
-    Done    85%
+    Closed  141
+    Open    23
+    Done    86%
 
 ---
 
@@ -35,12 +35,13 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **Dialog has no `size`.** Reported by Mayranne, using it for real: her
-      buttons are 14px and 16px and the dialog's text is 13.33px, which is a
-      browser default rather than a chosen size, and the padding differs too.
-- [ ] **Alert Dialog and Button disagree on sizing.** Same report: the alert
-      dialog has more padding and smaller text than the button it sits beside.
-      She prefers the dialog's, so pick one and make both use it.
+- [ ] **Fifteen more controls have no font size.** A sweep of every preview for
+      buttons at the browser's 13.33px found, beyond the dialogs: Accordion,
+      Combobox, Command Palette, Empty State, Menu, Number Field, Onboarding,
+      Popover, Rating, Select, Tabs, Toggle, Toggle Group, Toolbar and Tooltip.
+      The icon-only ones do not show it; the text ones do. Yumma's normalize
+      inherits the whole font once `fix/controls-inherit-font` ships, which
+      covers them, but a text control should name its size like Button does.
 - [ ] **Meter's `animated` describes an animation Base UI's meter does not
       have.** Remove the prop.
 - [ ] **Preview Card has no arrow** and Base UI supports one. Add it, on by

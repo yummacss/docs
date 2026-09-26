@@ -1,4 +1,5 @@
 import type { RegistryMeta, RegistryProp } from "@/registry";
+import { EXAMPLE_ICON_STYLE } from "@/utils/icon-style";
 import { importPath } from "@/utils/install.mjs";
 
 export type PropValue = string | boolean | number;
@@ -229,19 +230,23 @@ export function buildUsage(
     ]),
   ].sort();
 
-  if (icons.length) {
+  for (const style of ["bold-duotone", "outline"] as const) {
+    const named = icons.filter(
+      (icon) => (EXAMPLE_ICON_STYLE[icon] ?? "outline") === style,
+    );
+    if (!named.length) continue;
     tokens.push(
       { kind: "keyword", text: "import" },
       { kind: "text", text: " " },
       { kind: "brace", text: "{" },
       { kind: "text", text: " " },
-      { kind: "tag", text: icons.join(", ") },
+      { kind: "tag", text: named.join(", ") },
       { kind: "text", text: " " },
       { kind: "brace", text: "}" },
       { kind: "text", text: " " },
       { kind: "keyword", text: "from" },
       { kind: "text", text: " " },
-      { kind: "string", text: '"iconoir-react"' },
+      { kind: "string", text: `"@solar-icons/react/${style}"` },
       { kind: "punctuation", text: ";" },
       { kind: "text", text: "\n" },
     );

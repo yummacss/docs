@@ -3,7 +3,8 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { ArrowSeparateVertical, Check } from "iconoir-react";
+import { SortVerticalIcon } from "@solar-icons/react/bold-duotone";
+import { CheckIcon } from "@solar-icons/react/outline";
 import { type ReactNode, useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -97,7 +98,7 @@ function renderOption(option: SelectOption, shape: Shape) {
       }
     >
       <Select.ItemIndicator className="d:f ai:c">
-        <Check className="w:4 h:4" />
+        <CheckIcon className="w:4 h:4" />
       </Select.ItemIndicator>
       {option.avatar && (
         <Avatar.Root className="d:if o:h ai:c jc:c w:6 h:6 bc:white br:9999 bw:1 va:m us:none">
@@ -264,7 +265,7 @@ export default function SelectBase({
 
   const arrow = (
     <Select.Icon className="d:f c:slate-8">
-      <ArrowSeparateVertical className="w:4 h:4" />
+      <SortVerticalIcon className="w:4 h:4" />
     </Select.Icon>
   );
 

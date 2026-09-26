@@ -45,7 +45,6 @@ export const SHARED_PROP_ORDER = [
   "iconTone",
   "intent",
   "size",
-  "triggerSize",
   "shape",
   "iconShape",
   "shadow",

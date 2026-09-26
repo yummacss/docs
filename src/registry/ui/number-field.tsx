@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { NavArrowDown, NavArrowUp } from "iconoir-react";
+import { AltArrowDownIcon, AltArrowUpIcon } from "@solar-icons/react/outline";
 import type { ComponentProps } from "react";
 import { useId } from "react";
 import { merge } from "yummacss/merge";
@@ -146,12 +146,12 @@ export default function NumberFieldBase({
         <NumberField.Input required={required} className={inputClasses} />
         <span className="d:f fd:c blc:silver-3 blw:1">
           <NumberField.Increment className={stepClasses}>
-            <NavArrowUp className={ICON_SIZES[size]} />
+            <AltArrowUpIcon className={ICON_SIZES[size]} />
           </NumberField.Increment>
           <NumberField.Decrement
             className={`${stepClasses} btc:silver-3 btw:1`}
           >
-            <NavArrowDown className={ICON_SIZES[size]} />
+            <AltArrowDownIcon className={ICON_SIZES[size]} />
           </NumberField.Decrement>
         </span>
       </NumberField.Group>

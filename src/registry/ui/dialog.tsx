@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { Xmark } from "iconoir-react";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 type TriggerTone = "neutral" | "danger";
-type TriggerSize = "sm" | "md";
+type Size = "sm" | "md" | "lg";
 type ConfirmTone = "primary" | "danger";
 
 const POPUP_SHAPES: Record<Shape, string> = {
@@ -79,9 +79,10 @@ const CONFIRM_TONES: Record<ConfirmTone, string> = {
   danger: "bg:red h:bg:red-8 bc:red-7 c:white",
 };
 
-const TRIGGER_SIZES: Record<TriggerSize, string> = {
-  sm: "px:2 py:1 fs:xs",
-  md: "px:3 py:2",
+const SIZES: Record<Size, string> = {
+  sm: "px:3 py:1 fs:xs",
+  md: "px:4 py:2 fs:sm",
+  lg: "px:6 py:3 fs:md",
 };
 
 export interface DialogProps {
@@ -99,11 +100,6 @@ export interface DialogProps {
   triggerIconPosition?: IconPosition;
   /** Color: `neutral` or `danger`, for a destructive confirmation. */
   triggerTone?: TriggerTone;
-  /**
-   * Footprint: `md` or `sm`, for a trigger nested inside other content, like a
-   * row action.
-   */
-  triggerSize?: TriggerSize;
   /**
    * Fires when the trigger is pressed, before the dialog opens, for capturing
    * which row triggered it, say, in a dialog reused across a list.
@@ -141,6 +137,11 @@ export interface DialogProps {
   confirmTone?: ConfirmTone;
   /** The X in the corner. */
   showClose?: boolean;
+  /**
+   * Padding and text size of the trigger and the popup's buttons, on the same
+   * scale as Button, so a dialog matches the buttons beside it.
+   */
+  size?: Size;
   /** Corner radius on the popup and its buttons. */
   shape?: Shape;
   /** Depth on the popup. */
@@ -174,7 +175,7 @@ export default function DialogBase({
   triggerIcon,
   triggerIconPosition = "leading",
   triggerTone = "neutral",
-  triggerSize = "md",
+  size = "md",
   onTriggerClick,
   header,
   title,
@@ -205,7 +206,7 @@ export default function DialogBase({
     triggerOutline,
     "d:if ai:c g:2",
     BUTTON_BASE,
-    TRIGGER_SIZES[triggerSize],
+    SIZES[size],
     BUTTON_SHAPES[shape],
     TRIGGER_TONES[triggerTone],
     className,
@@ -222,7 +223,7 @@ export default function DialogBase({
   const cancelClasses = merge(
     outline,
     BUTTON_BASE,
-    TRIGGER_SIZES.md,
+    SIZES[size],
     BUTTON_SHAPES[shape],
     NEUTRAL_BUTTON,
   );
@@ -230,7 +231,7 @@ export default function DialogBase({
   const confirmClasses = merge(
     confirmOutline,
     BUTTON_BASE,
-    TRIGGER_SIZES.md,
+    SIZES[size],
     BUTTON_SHAPES[shape],
     CONFIRM_TONES[confirmTone],
   );
@@ -262,7 +263,7 @@ export default function DialogBase({
               }
               aria-label="Close"
             >
-              <Xmark aria-hidden className="w:5 h:5" />
+              <CloseIcon aria-hidden className="w:5 h:5" />
             </Dialog.Close>
           )}
 

@@ -654,6 +654,21 @@ blocks a release.**
       inline `#989ec2` for `c:ink/80`. **Reset is gone**, and with it the
       playground context's `carried` flag and `reset`, which nothing else read;
       carrying itself is untouched.
+- [x] **The Component API switches are on in `bg:accent`**, 2026-09-26: the
+      colour of the active navbar link in both themes, `#4c5fc7` and `#bec6f2`.
+      Their `c-p` was a 3.x class that generated nothing, so they showed no
+      pointer; it is `c:p`.
+- [x] **The preview accent reaches the preview**, 2026-09-26. Its rules
+      named `.bg-slate-12`, the 3.x selector, so no v4 class matched and every
+      accent rendered as slate. `accent.ts` derives each selector from the
+      class name, and the guard scans for `bg:slate-12` rather than
+      `bg-slate-12`, which had matched nothing since the codemod.
+
+      **The shade is the lightest that carries white.** Every family's `-12`
+      is near black (indigo `#101027`), so a working accent still looked like
+      slate. `accentShade` takes the lightest shade from 6 up with 4.5:1
+      against white, and hover is one darker: indigo `#5558cf`, mint
+      `#0c855d`.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
@@ -2406,6 +2421,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       and after a Tab, never matched `:focus-visible`, so what was seen there
       was most likely the buttons inside a dialog.
 
+- [x] **Dialog has a `size`, and Button, Dialog & Alert Dialog share one
+      scale.** The report was right about the symptom and the cause was wider:
+      Dialog's `md` and all of Alert Dialog's buttons named no font size, so a
+      `<button>` fell back to the browser's 13.33px, because Yumma's normalize
+      inherited only `font-family`. Mayranne preferred the dialog's proportions
+      (more padding, smaller text), so the shared scale keeps them with a real
+      size: `sm` is `px:3 py:1 fs:xs`, `md` `px:4 py:2 fs:sm`, `lg` `px:6 py:3
+      fs:md`. Dialog's `triggerSize` became `size` and gained `lg`; Alert
+      Dialog gained `size`; Button moved onto the same table. Measured: at
+      `md`, all three render 14px and 34px tall, trigger & actions alike; `sm`
+      24px and `lg` 45px on Dialog. The normalize fix is yummacss
+      `fix/controls-inherit-font`.
+- [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
@@ -3074,6 +3103,19 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**Negative Values taught the 3.x syntax after 4.0 shipped.** The prose said
+`(prefix)--(value)` and listed `m-`, `t-` & `zi--` while its own examples used
+`ml:-4`, and `m--4` is refused by 4.x. Fixed 2026-09-26, with the utilities that
+take a negative listed from `acceptsNegative` and a line on what is refused.
+
+**Docs pages compared with past versions.** Renildo's rule, 2026-09-26: the
+docs document the latest version only, so no page says what used to be true.
+A sweep found five: Naming Convention (`tt-n` & `tl-a`), CDN (the runtime
+rename), UI Customization (what `c:accent` used to do), Lint ("older
+versions") and Negative Values. Configuration's `prefix` example also generated
+nothing on 4.1.2 (`prefix: "ui"` with `ui-bg:red`), and its sample output was
+3.x. The rule is in AGENTS.md.
 
 **`src/registry/index.ts` drifted from its generator.** A comment sweep
 stripped its "generated" header, and later hand edits (`min`, `max`, `step`,
@@ -3960,7 +4002,10 @@ the interesting work. Top first.
    accent colour and a bounded radius. The hard constraint is `corner-shape`:
    a squircle at a small size reads as a pill, so the radius scale has to stop
    where the shape still reads, per control size. Read-only props stay; they
-   are the API reference. Mockups first.
+   are the API reference. Mockups first. **Renildo's calls, 2026-09-26:**
+   Soft (rounded, `br:lg` on controls) is the default, and a style blocks
+   the combinations that make no sense for it, such as Squircle with no
+   radius, rather than letting the rail produce them.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23
@@ -4012,14 +4057,51 @@ docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,
 command. Components installed before that still import `motion`, so the
 install page says to keep it until they are re-added.
 
+**Onboarding done, 2026-09-23, enter-only as decided.** The step is a keyed
+`div` with `yui-onboarding-next` or `-prev`, a 200ms keyframe from 40px and
+opacity 0; the popup height is a `tp:h` transition on the px the
+`ResizeObserver` already measured, and the progress bar a `tp:w` transition on
+its inline width. Measured: Next slides in from the right, Previous from the
+left, and the height and bar move together over 200ms. Verifying it found the
+header's Previous, Next and Finish buttons, and the dots row's Finish, with no
+accessible name: icon-only, no `aria-label`. They have one now. The install
+command keeps `motion` until this and the ten both land.
+
+## Solar icons in the registry, 2026-09-26
+
+The registry draws its icons from Solar through `@solar-icons/react`, one
+barrel import per style. Renildo's call: the package, not an `icons.tsx`
+copied in beside each component.
+
+- **Two styles, by kind.** Outline for marks, arrows and operators: check,
+  close, magnifier, chevrons, arrows, command, plus, minus, text formatting.
+  Bold Duotone for objects: cloud upload, the avatar's badge, rating stars,
+  the alert triangle, the sort arrows, eye, lock, bell and the rest. An icon
+  has one style everywhere, and `src/utils/icon-style.ts` names the style of
+  each demo icon so the Code tab imports from the right barrel;
+  `tests/icons.test.ts` fails on a clash or a missing entry. Renildo's call,
+  2026-09-26.
+
+- **Licence.** The icons are CC BY 4.0 (480 Design); the wrapper is MIT and
+  ships the third-party notice. The Yumma UI installation page credits them.
+  `solar-icon-set` on npm is a different wrapper under GPL-3.0; not that one.
+- **Size.** Without a width, a Solar icon is `1em` of a `24px` font size set
+  inline, so every usage carries `w:`/`h:`. All 66 already did.
+- **Fill.** Both styles set their own `fill`, so Rating's stars differ by
+  colour alone: `c:yellow-5` lit, `c:slate-4` not.
+- **The radio dot** in Menu, Context Menu and Menubar is a span,
+  `d:b w:2 h:2 br:9999 bg:current`: Solar has no plain circle.
+- **Demo icons.** `src/utils/demo.tsx` imports the same package, so the
+  preview draws what the Code tab imports; it used the site's Phosphor module
+  under Iconoir names before. Each demo icon now names its label: a pen for
+  Rename and Edit, a keyboard for Shortcuts, a folder for "No files yet". The
+  site's own icons stay Phosphor behind `src/icons.tsx`.
+
 ## Docs for 4.2, drafted 2026-09-26
 
-Branch `feat/docs-4-2`, written against yummacss `main` and **not mergeable
-until 4.2 is published**: `src/utils/yummacss.ts` and `tests/reference.test.ts`
-name `core.animationUtils`, which 4.1.2 does not export. The branch takes the
-dependency bump before it merges. Verified by copying yummacss `main`'s built
-`dist` folders over the installed 4.1.2 ones, locally only: build, 89 tests and
-every example class valid.
+Branch `feat/docs-4-2`, merged with the bump to 4.2.0: `src/utils/yummacss.ts`
+and `tests/reference.test.ts` name `core.animationUtils`, which 4.1.2 does not
+export.
 
 New: the five `animation-*` pages, `container-type`, Container Queries, States,
 Starting Style, CSS Functions. Updated: Configuration (`states`, `fonts`,

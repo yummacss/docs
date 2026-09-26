@@ -1,4 +1,4 @@
-import { NavArrowRight } from "iconoir-react";
+import { AltArrowRightIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
@@ -136,7 +136,7 @@ export default function BreadcrumbBase({
             )}
             {!isLast &&
               (separator === "chevron" ? (
-                <NavArrowRight
+                <AltArrowRightIcon
                   className={`c:slate-4 ${SEPARATOR_SIZES[size]}`}
                   aria-hidden="true"
                 />
