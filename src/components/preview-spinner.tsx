@@ -23,7 +23,7 @@ export default function PreviewSpinner({
     <div
       role="status"
       aria-label="Loading preview"
-      className={`preview-spinner w:5 h:5 ${visible ? "v:v" : "v:h"}`}
+      className={`w:5 h:5 bw:2 bc:silver-2 btc:silver-7 br:50% an:spin adu:700 atf:l aic:inf ${visible ? "v:v" : "v:h"}`}
     />
   );
 }

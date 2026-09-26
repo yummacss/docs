@@ -81,7 +81,7 @@ export function TitleBar({
   if (!title && !action) return null;
 
   const heightAnchor = (
-    <div className="d:f ai:c py:2 w:0 o:h pe:none invisible" aria-hidden="true">
+    <div className="d:f ai:c py:2 w:0 o:h pe:none v:h" aria-hidden="true">
       <span className="fs:xs ff:m">{"\u200b"}</span>
     </div>
   );

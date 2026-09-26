@@ -36,7 +36,7 @@ export default async function BlogPage() {
     <>
       <div className="mb:16 pt:12 @lg:gc-s:9">
         <div className="my:8">
-          <h1 className="mb:2 c:ink ff-e fs:4xl fw:400">Blog Articles</h1>
+          <h1 className="mb:2 c:ink ff:display fs:4xl fw:400">Blog Articles</h1>
           <p className="c:ink/70 fs:lg">
             The latest updates & articles from Yumma CSS.
           </p>
@@ -46,7 +46,10 @@ export default async function BlogPage() {
           {years.map((year, yearIndex) => (
             <div key={year}>
               <div className="mb:16">
-                <h2 id={String(year)} className="mb:8 c:ink ff-e fs:4xl fw:400">
+                <h2
+                  id={String(year)}
+                  className="mb:8 c:ink ff:display fs:4xl fw:400"
+                >
                   {year}
                 </h2>
 

@@ -157,10 +157,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o:h w:100% max-w:xs bc:border bg:page bw:1 pe:auto"
-                style={{
-                  maxHeight: "70vh",
-                }}
+                className="o:h w:100% max-w:xs max-h:calc(70vh) bc:border bg:page bw:1 pe:auto"
                 onKeyDown={handleKeyDown}
               >
                 <div className="d:f ai:c g:3 px:4 py:3 bc:border bbw:1">
@@ -182,7 +179,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 <Scroller
                   viewportRef={listRef}
                   viewportClassName="px:2 py:2"
-                  style={{ maxHeight: "calc(70vh - 120px)" }}
+                  className="max-h:calc(70vh-120px)"
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {
                     const items = groupedResults[category];

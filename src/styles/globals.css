@@ -37,13 +37,8 @@ article h2,
 article h3,
 article h4,
 article h5,
-article h6,
-.ff-e {
+article h6 {
   font-family: "Esteban", serif;
-}
-
-body {
-  font-family: "iA Writer Quattro", sans-serif;
 }
 
 [data-base-ui-portal] > * {
@@ -101,55 +96,10 @@ body {
   color: HighlightText;
 }
 
-.docs-container {
-  max-width: clamp(40rem, 80vw, 96rem);
-}
-
-/* The footer's display version. No font-size scale reaches this, and the band
-   is its container query so the number sizes to whatever room the band has. */
-.footer-version-band {
-  container-type: inline-size;
-}
-
+/* No line-height step reaches .74, and a theme colour drops its alpha. */
 .footer-version {
-  font-family: "Esteban", serif;
-  font-size: min(17rem, calc(100cqw / (var(--span) * 1.03)));
   line-height: 0.74;
-  letter-spacing: -0.04em;
   color: light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07));
-  white-space: nowrap;
-  user-select: none;
-  pointer-events: none;
-}
-
-@media (min-width: 64rem) {
-  .playground-rail {
-    position: sticky;
-    top: 5rem;
-    max-height: calc(100dvh - 5rem);
-  }
-}
-
-@media (min-width: 64rem) {
-  .playground-column {
-    height: 100dvh;
-    padding-bottom: 1.5rem;
-    overflow: hidden;
-  }
-}
-
-@keyframes preview-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.preview-spinner {
-  box-sizing: border-box;
-  border: 2px solid #e2e5ef;
-  border-top-color: #8b92ad;
-  border-radius: 50%;
-  animation: preview-spin 0.7s linear infinite;
 }
 
 [data-fold] > summary {
