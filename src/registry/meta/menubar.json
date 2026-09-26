@@ -12,21 +12,21 @@
             {
               "label": "New file",
               "icon": {
-                "$icon": "PagePlus",
+                "$icon": "DocumentAddIcon",
                 "size": "w-4 h-4"
               }
             },
             {
               "label": "Import",
               "icon": {
-                "$icon": "Folder",
+                "$icon": "ImportIcon",
                 "size": "w-4 h-4"
               }
             },
             {
               "label": "Export",
               "icon": {
-                "$icon": "Page",
+                "$icon": "ExportIcon",
                 "size": "w-4 h-4"
               }
             }
@@ -38,21 +38,21 @@
             {
               "label": "Rename",
               "icon": {
-                "$icon": "Wrench",
+                "$icon": "PenIcon",
                 "size": "w-4 h-4"
               }
             },
             {
               "label": "Duplicate",
               "icon": {
-                "$icon": "PagePlus",
+                "$icon": "CopyIcon",
                 "size": "w-4 h-4"
               }
             },
             {
               "label": "Move to folder",
               "icon": {
-                "$icon": "Folder",
+                "$icon": "MoveToFolderIcon",
                 "size": "w-4 h-4"
               }
             }

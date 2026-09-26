@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { Search } from "iconoir-react";
+import { MagnifierIcon } from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -173,7 +173,7 @@ export default function CommandPaletteBase({
         >
           <Combobox.Root inline items={groups} autoHighlight>
             <div className="d:f ai:c g:2 px:4 py:1">
-              <Search className="fs:0 w:5 h:5 c:slate-4" />
+              <MagnifierIcon className="fs:0 w:5 h:5 c:slate-4" />
               <Combobox.Input
                 placeholder={placeholder}
                 autoFocus
@@ -255,7 +255,7 @@ export default function CommandPaletteBase({
         {PALETTE_MOTION}
       </style>
       <Dialog.Trigger render={<Button className={triggerClasses} />}>
-        <Search className="w:4 h:4" />
+        <MagnifierIcon className="w:4 h:4" />
         <span>{trigger}</span>
       </Dialog.Trigger>
 

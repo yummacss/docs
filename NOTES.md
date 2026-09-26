@@ -3991,7 +3991,10 @@ the interesting work. Top first.
    accent colour and a bounded radius. The hard constraint is `corner-shape`:
    a squircle at a small size reads as a pill, so the radius scale has to stop
    where the shape still reads, per control size. Read-only props stay; they
-   are the API reference. Mockups first.
+   are the API reference. Mockups first. **Renildo's calls, 2026-09-26:**
+   Soft (rounded, `br:lg` on controls) is the default, and a style blocks
+   the combinations that make no sense for it, such as Squircle with no
+   radius, rather than letting the rail produce them.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23
@@ -4052,6 +4055,28 @@ left, and the height and bar move together over 200ms. Verifying it found the
 header's Previous, Next and Finish buttons, and the dots row's Finish, with no
 accessible name: icon-only, no `aria-label`. They have one now. The install
 command keeps `motion` until this and the ten both land.
+
+## Solar icons in the registry, 2026-09-26
+
+The registry draws its icons from Solar's Linear style through
+`@solar-icons/react`, one barrel import per file:
+`import { CheckIcon } from "@solar-icons/react/linear"`. Renildo's call:
+the package, not an `icons.tsx` copied in beside each component.
+
+- **Licence.** The icons are CC BY 4.0 (480 Design); the wrapper is MIT and
+  ships the third-party notice. The Yumma UI installation page credits them.
+  `solar-icon-set` on npm is a different wrapper under GPL-3.0; not that one.
+- **Size.** Without a width, a Solar icon is `1em` of a `24px` font size set
+  inline, so every usage carries `w:`/`h:`. All 66 already did.
+- **Fill.** Linear paths set no `fill`, so Rating's `f:current` fills the
+  star as it did before.
+- **The radio dot** in Menu, Context Menu and Menubar is a span,
+  `d:b w:2 h:2 br:9999 bg:current`: Solar has no plain circle.
+- **Demo icons.** `src/utils/demo.tsx` imports the same package, so the
+  preview draws what the Code tab imports; it used the site's Phosphor module
+  under Iconoir names before. Each demo icon now names its label: a pen for
+  Rename and Edit, a keyboard for Shortcuts, a folder for "No files yet". The
+  site's own icons stay Phosphor behind `src/icons.tsx`.
 
 ## Parked
 

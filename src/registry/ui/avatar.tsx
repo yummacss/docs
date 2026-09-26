@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CheckCircle, User } from "iconoir-react";
+import { CheckCircleIcon, UserIcon } from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
@@ -147,7 +147,7 @@ export default function AvatarBase({
         )}
         <Avatar.Fallback className={fallbackClasses}>
           {fallback ??
-            (name ? initials(name) : <User className={ICON_SIZES[size]} />)}
+            (name ? initials(name) : <UserIcon className={ICON_SIZES[size]} />)}
         </Avatar.Fallback>
       </Avatar.Root>
 
@@ -165,7 +165,7 @@ export default function AvatarBase({
           aria-label="Verified"
           className={`d:f p:a t:0 r:0 ai:c jc:c bg:white bc:white br:9999 bw:1 ${BADGE_SIZES[size]}`}
         >
-          <CheckCircle className="w:100% h:100% c:slate-12" />
+          <CheckCircleIcon className="w:100% h:100% c:slate-12" />
         </span>
       )}
 

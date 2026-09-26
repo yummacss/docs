@@ -3,7 +3,12 @@
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { Tabs } from "@base-ui/react/tabs";
-import { ArrowLeft, ArrowRight, Check, Xmark } from "iconoir-react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  CloseIcon,
+} from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useCallback, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -278,7 +283,7 @@ export default function OnboardingBase({
                       : "bc:silver-3"
                   }`}
                 >
-                  {isChecked && <Check className="w:3 h:3" />}
+                  {isChecked && <CheckIcon className="w:3 h:3" />}
                 </div>
                 <span className={isChecked ? "c:green-7" : "c:slate-10"}>
                   {task.label}
@@ -305,7 +310,7 @@ export default function OnboardingBase({
       }
       aria-label="Skip"
     >
-      <Xmark aria-hidden className="w:4 h:4" />
+      <CloseIcon aria-hidden className="w:4 h:4" />
     </AlertDialog.Close>
   );
 
@@ -347,7 +352,7 @@ export default function OnboardingBase({
                     className={backClasses}
                     aria-label="Previous"
                   >
-                    <ArrowLeft className="w:4 h:4" />
+                    <ArrowLeftIcon className="w:4 h:4" />
                   </Button>
                 )}
                 {isLast ? (
@@ -355,7 +360,7 @@ export default function OnboardingBase({
                     render={<Button className={forwardClasses} />}
                     aria-label="Finish"
                   >
-                    <Check className="w:4 h:4" />
+                    <CheckIcon className="w:4 h:4" />
                   </AlertDialog.Close>
                 ) : (
                   <Button
@@ -364,7 +369,7 @@ export default function OnboardingBase({
                     className={forwardClasses}
                     aria-label="Next"
                   >
-                    <ArrowRight className="w:4 h:4" />
+                    <ArrowRightIcon className="w:4 h:4" />
                   </Button>
                 )}
               </div>
@@ -424,7 +429,7 @@ export default function OnboardingBase({
                 )}
                 aria-label="Previous"
               >
-                <ArrowLeft className="w:4 h:4" />
+                <ArrowLeftIcon className="w:4 h:4" />
               </Button>
               <Tabs.Root
                 value={String(page)}
@@ -451,7 +456,7 @@ export default function OnboardingBase({
                   render={<Button className={forwardClasses} />}
                   aria-label="Finish"
                 >
-                  <Check className="w:4 h:4" />
+                  <CheckIcon className="w:4 h:4" />
                 </AlertDialog.Close>
               ) : (
                 <Button
@@ -466,7 +471,7 @@ export default function OnboardingBase({
                   )}
                   aria-label="Next"
                 >
-                  <ArrowRight className="w:4 h:4" />
+                  <ArrowRightIcon className="w:4 h:4" />
                 </Button>
               )}
             </div>

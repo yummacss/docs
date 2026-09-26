@@ -241,7 +241,7 @@ export function buildUsage(
       { kind: "text", text: " " },
       { kind: "keyword", text: "from" },
       { kind: "text", text: " " },
-      { kind: "string", text: '"iconoir-react"' },
+      { kind: "string", text: '"@solar-icons/react/linear"' },
       { kind: "punctuation", text: ";" },
       { kind: "text", text: "\n" },
     );

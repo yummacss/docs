@@ -13,7 +13,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "Renders as a clickable button in the middle, sized & shaped to match. Wins over `label` if both are set.",
-      "exampleIcon": "Plus",
+      "exampleIcon": "AddIcon",
       "example": null
     },
     {
