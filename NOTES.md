@@ -2433,6 +2433,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       `md`, all three render 14px and 34px tall, trigger & actions alike; `sm`
       24px and `lg` 45px on Dialog. The normalize fix is yummacss
       `fix/controls-inherit-font`.
+- [x] **The registry animates with Yumma classes, not its own CSS**,
+      2026-09-26. The twenty `*_MOTION` blocks and their `<style>` tags are
+      gone. Two states and three keyframes in `yumma.config.mjs` carry them:
+      `opening` and `closing` for what Base UI marks with
+      `data-starting-style` and `data-ending-style`, and `pulse`, `slide` and
+      `spin` for the loops. `@st:` covers what Base UI does not mark: the
+      re-keyed icons, Onboarding's steps and the radio dot. `@st:` alone
+      failed on Menu, which never faded in, and on Accordion, whose panel
+      height is still `auto` when `@starting-style` resolves. Popups scale
+      from `s:90`, since `s:95` is off the scale. The installation page lists
+      the five names, and `tests/motion.test.ts` holds it, the site config and
+      the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
 
 ### Phase 7 - One breaking registry release

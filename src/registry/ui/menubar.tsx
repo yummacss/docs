@@ -15,19 +15,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const MENUBAR_MOTION = `
-  .yui-menubar-pop {
-    transition: opacity 150ms ease-out;
-  }
-  .yui-menubar-pop[data-starting-style],
-  .yui-menubar-pop[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-menubar-pop { transition: none; }
-  }
-`;
-
 const BAR_SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
@@ -382,7 +369,7 @@ function MenubarEntry({
     <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow:0" sideOffset={8}>
         <Menu.Popup
-          className={`${popupClasses} ${animated ? "yui-menubar-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
         >
           {renderItems(menu.items, menu.label)}
         </Menu.Popup>
@@ -392,9 +379,6 @@ function MenubarEntry({
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen} disabled={disabled}>
-      <style href="yumma-ui-menubar-motion" precedence="default">
-        {MENUBAR_MOTION}
-      </style>
       <Menu.Trigger className={triggerClasses(disabled)}>
         {menu.label}
       </Menu.Trigger>

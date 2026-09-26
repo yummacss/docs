@@ -13,25 +13,6 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const TOOLBAR_MOTION = `
-  .yui-toolbar-press {
-    transition: scale 200ms ease-out;
-  }
-  .yui-toolbar-press:active {
-    scale: 0.92;
-  }
-  @keyframes yui-toolbar-pop {
-    from { scale: 0.8; }
-  }
-  .yui-toolbar-pop {
-    animation: yui-toolbar-pop 250ms ease-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-toolbar-press { transition: none; }
-    .yui-toolbar-pop { animation: none; }
-  }
-`;
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const ROOT_SHAPES: Record<Shape, string> = {
@@ -173,9 +154,6 @@ export default function ToolbarBase({
 
   return (
     <Toolbar.Root className={rootClasses}>
-      <style href="yumma-ui-toolbar-motion" precedence="default">
-        {TOOLBAR_MOTION}
-      </style>
       {items.map((item, index) => {
         const key = `item-${index}`;
 
@@ -238,7 +216,9 @@ export default function ToolbarBase({
               <NumberField.Group className="d:f ai:c">
                 <NumberField.Decrement
                   className={
-                    animated ? `${stepClasses} yui-toolbar-press` : stepClasses
+                    animated
+                      ? `${stepClasses} tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none`
+                      : stepClasses
                   }
                 >
                   <MinusIcon className="w:5 h:5" />
@@ -252,7 +232,9 @@ export default function ToolbarBase({
                 />
                 <NumberField.Increment
                   className={
-                    animated ? `${stepClasses} yui-toolbar-press` : stepClasses
+                    animated
+                      ? `${stepClasses} tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none`
+                      : stepClasses
                   }
                 >
                   <AddIcon className="w:5 h:5" />
@@ -298,7 +280,7 @@ export default function ToolbarBase({
             aria-label={button.iconOnly ? button.label : undefined}
             className={
               animated && !button.disabled
-                ? `${buttonClasses} yui-toolbar-press`
+                ? `${buttonClasses} tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none`
                 : buttonClasses
             }
           >
@@ -315,7 +297,7 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <span
       key={on ? "on" : "off"}
-      className={on ? "d:f yui-toolbar-pop" : "d:f"}
+      className={on ? "d:f tp:t tdu:250 ttf:eo @st:s:80 @prm:tp:none" : "d:f"}
     >
       {children}
     </span>
@@ -371,7 +353,7 @@ function ToolbarToggles({
               {...props}
               className={
                 animated
-                  ? `${toggleClasses(state.pressed)} yui-toolbar-press`
+                  ? `${toggleClasses(state.pressed)} tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none`
                   : toggleClasses(state.pressed)
               }
             >

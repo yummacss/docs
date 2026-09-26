@@ -163,19 +163,3 @@ body {
 [data-fold]:not([open]) > summary {
   display: inline;
 }
-
-.yui-scrollbar {
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
-
-.yui-scrollbar[data-hovering],
-.yui-scrollbar[data-scrolling] {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .yui-scrollbar {
-    transition: none;
-  }
-}

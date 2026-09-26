@@ -14,18 +14,6 @@ export interface RadioOption {
   description?: string;
 }
 
-const RADIO_MOTION = `
-  @keyframes yui-radio-pop {
-    from { scale: 0; }
-  }
-  .yui-radio-pop {
-    animation: yui-radio-pop 150ms ease-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-radio-pop { animation: none; }
-  }
-`;
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const BASE = "d:f ai:c jc:c p:0 m:0";
@@ -129,14 +117,11 @@ export default function RadioBase({
 
   const dotClasses = (checked: boolean) =>
     checked
-      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "yui-radio-pop" : ""}`
+      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "tp:t tdu:150 ttf:eo @st:s:0 @prm:tp:none" : ""}`
       : "d:none";
 
   return (
     <div className="d:f fd:c g:2">
-      <style href="yumma-ui-radio-motion" precedence="default">
-        {RADIO_MOTION}
-      </style>
       {label && (
         <div id={labelId} className="fs:xs fw:600 c:slate-5 us:none">
           {label}

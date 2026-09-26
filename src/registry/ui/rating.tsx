@@ -8,25 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
 
-const RATING_MOTION = `
-  .yui-rating-press {
-    transition: scale 200ms ease-out;
-  }
-  .yui-rating-press:active {
-    scale: 0.9;
-  }
-  @keyframes yui-rating-pop {
-    from { scale: 0.8; }
-  }
-  .yui-rating-pop {
-    animation: yui-rating-pop 250ms ease-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-rating-press { transition: none; }
-    .yui-rating-pop { animation: none; }
-  }
-`;
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 export interface RatingIcon {
@@ -173,9 +154,6 @@ export default function RatingBase({
 
   return (
     <div className={merge("d:f fd:c ai:c jc:c g:4 p:8 h:56", className)}>
-      <style href="yumma-ui-rating-motion" precedence="default">
-        {RATING_MOTION}
-      </style>
       {label && <span className="c:slate-10 fs:sm fw:500">{label}</span>}
 
       <Scored score={score}>
@@ -196,7 +174,9 @@ export default function RatingBase({
                     aria-label={option.label}
                     className={
                       iconClasses(option, active) +
-                      (animated && !disabled ? " yui-rating-press" : "")
+                      (animated && !disabled
+                        ? " tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none"
+                        : "")
                     }
                   >
                     {animated && !disabled ? (
@@ -232,7 +212,9 @@ export default function RatingBase({
                       aria-label={`${star} star${star > 1 ? "s" : ""}`}
                       className={
                         starClasses(filled) +
-                        (animated && !disabled ? " yui-rating-press" : "")
+                        (animated && !disabled
+                          ? " tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none"
+                          : "")
                       }
                     >
                       {icon}
@@ -261,7 +243,10 @@ export default function RatingBase({
 
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
-    <span key={on ? "on" : "off"} className={on ? "d:f yui-rating-pop" : "d:f"}>
+    <span
+      key={on ? "on" : "off"}
+      className={on ? "d:f tp:t tdu:250 ttf:eo @st:s:80 @prm:tp:none" : "d:f"}
+    >
       {children}
     </span>
   );

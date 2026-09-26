@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  140
-    Open    23
-    Done    86%
+    Closed  141
+    Open    22
+    Done    87%
 
 ---
 
@@ -111,14 +111,6 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 - [ ] **Coloured box-shadow utilities**, 4.2. Renildo's call, 2026-09-16: it
       does not gate v4. Without them a halo-plus-outline focus treatment cannot
       be written at all.
-- [ ] **Attribute variants**, 4.2 at the earliest, and not for `data-*`.
-      Renildo's call, 2026-09-16: `data-starting-style` and `data-ending-style`
-      are Base UI's vocabulary, not vanilla CSS, so Yumma CSS will not grow
-      variants for them. What is left to decide is whether standard attributes
-      (`[open]`, `[hidden]`, `aria-expanded`, `aria-selected`) are worth a
-      variant at all. The registry's 185 lines of popup CSS stay hand-written
-      and become a Yumma UI concern. See NOTES.md under Attribute variants.
-      Renildo, 2026-09-16: rarely used, not worth the work.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.

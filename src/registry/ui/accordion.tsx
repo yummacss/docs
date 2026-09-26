@@ -15,27 +15,7 @@ type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const TURN = "yui-accordion-turn";
-
-const ACCORDION_MOTION = `
-  .yui-accordion-panel {
-    height: var(--accordion-panel-height);
-    overflow: hidden;
-    transition: height 200ms ease-out, opacity 200ms ease-out;
-  }
-  .yui-accordion-panel[data-starting-style],
-  .yui-accordion-panel[data-ending-style] {
-    height: 0;
-    opacity: 0;
-  }
-  .yui-accordion-turn {
-    transition: rotate 150ms ease-in-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-accordion-panel,
-    .yui-accordion-turn { transition: none; }
-  }
-`;
+const TURN = "tp:t tdu:150 ttf:io @prm:tp:none";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type Indicator = "chevron" | "plus-minus";
@@ -181,9 +161,6 @@ export default function AccordionBase({
       onValueChange={handleValueChange}
       multiple={multiple}
     >
-      <style href="yumma-ui-accordion-motion" precedence="default">
-        {ACCORDION_MOTION}
-      </style>
       {items.map((item, index) => {
         const isOpen = value.includes(item.value);
         const isLast = index === items.length - 1;
@@ -312,7 +289,11 @@ export default function AccordionBase({
             </Accordion.Header>
             <Accordion.Panel
               keepMounted
-              className={animated ? "yui-accordion-panel" : undefined}
+              className={
+                animated
+                  ? "h:var(--accordion-panel-height) o:h tp:a tdu:200 ttf:eo opening:h:0 opening:o:0 closing:h:0 closing:o:0 @prm:tp:none"
+                  : undefined
+              }
             >
               <p className={panelClasses}>{item.content}</p>
             </Accordion.Panel>
