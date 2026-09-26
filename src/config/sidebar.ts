@@ -28,6 +28,7 @@ export const sidebarConfig = {
         "naming-convention",
         "normalize",
         "negative-values",
+        "css-functions",
         "class-merge",
       ],
     },
@@ -35,9 +36,22 @@ export const sidebarConfig = {
       title: "Variants",
       items: [
         "media-queries",
+        "container-queries",
         "pseudo-classes",
         "pseudo-elements",
+        "states",
+        "starting-style",
         "nested-variants",
+      ],
+    },
+    {
+      title: "Animation",
+      items: [
+        "animation-delay",
+        "animation-duration",
+        "animation-iteration-count",
+        "animation-name",
+        "animation-timing-function",
       ],
     },
     {
@@ -175,7 +189,14 @@ export const sidebarConfig = {
     },
     {
       title: "Layout",
-      items: ["clear", "display", "float", "isolation", "table-layout"],
+      items: [
+        "clear",
+        "container-type",
+        "display",
+        "float",
+        "isolation",
+        "table-layout",
+      ],
     },
     {
       title: "Positioning",

@@ -4012,6 +4012,29 @@ docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,
 command. Components installed before that still import `motion`, so the
 install page says to keep it until they are re-added.
 
+## Docs for 4.2, drafted 2026-09-26
+
+Branch `feat/docs-4-2`, written against yummacss `main` and **not mergeable
+until 4.2 is published**: `src/utils/yummacss.ts` and `tests/reference.test.ts`
+name `core.animationUtils`, which 4.1.2 does not export. The branch takes the
+dependency bump before it merges. Verified by copying yummacss `main`'s built
+`dist` folders over the installed 4.1.2 ones, locally only: build, 89 tests and
+every example class valid.
+
+New: the five `animation-*` pages, `container-type`, Container Queries, States,
+Starting Style, CSS Functions. Updated: Configuration (`states`, `fonts`,
+`keyframes`), Transition Property (`tp:t`), Font Family (`theme.fonts`), Media
+Queries (`@xs`, `@prm`, a pointer to `@c:`), Nested Variants.
+
+Three stale things found on the way, fixed in the same branch:
+- **Configuration's `prefix` example generated nothing.** `prefix: "ui"` with
+  `ui-bg:red` is refused, because the prefix is prepended as written; it is
+  `"ui-"` now. Its sample output was 3.x (`.bg-white`) too.
+- **Nested Variants documented the `@sm:@lg:` collapse** that 4.2 fixed, and
+  its outputs used 3.x selectors (`bg-red`).
+- **`@xs` and `@prm` were documented nowhere** but the 4.0 post.
+- `Reference` said "1 utilities". It picks the singular now.
+
 ## Parked
 
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives

@@ -5,7 +5,7 @@ description: Use media queries to create responsive layouts.
 
 ## Mobile-First Approach
 
-By default, all base utilities support responsive variants. Use breakpoints like `@sm:*`, `@md:*`, `@lg:*`, `@xl:*` & `@xxl:*` to apply specific rules to different screen sizes.
+By default, all base utilities support responsive variants. Use breakpoints like `@xs:*`, `@sm:*`, `@md:*`, `@lg:*`, `@xl:*` & `@xxl:*` to apply specific rules to different screen sizes.
 
 ```tsx ins={2} del={1}
 <h1 className="… @sm:ta:c">Good evening!</h1>
@@ -16,6 +16,7 @@ Yumma CSS breakpoints reference:
 
 | Prefix | Min Width          | CSS Rule                       |
 | ------ | ------------------ | ------------------------------ |
+| `@xs`  | `32 rem` (512 px)  | `@media (min-width: 32 rem)`   |
 | `@sm`  | `40 rem` (640 px)  | `@media (min-width: 40 rem)`   |
 | `@md`  | `48 rem` (768 px)  | `@media (min-width: 48 rem)`   |
 | `@lg`  | `64 rem` (1024 px) | `@media (min-width: 64 rem)`   |
@@ -80,3 +81,15 @@ Touch Device Reference:
 | Prefix | Media Query                | Description   |
 | ------ | -------------------------- | ------------- |
 | `@pc:`  | `@media (pointer: coarse)` | Touch devices |
+
+## Reduced Motion
+
+The `@prm:*` variant applies when someone has asked their system for less motion. Use it to stop an animation or a transition.
+
+```tsx "@prm:tp:none"
+<div className="tp:o tdu:150 @st:o:0 @prm:tp:none">Saved</div>
+```
+
+## Container Queries
+
+To respond to the width of a parent instead of the window, use [Container Queries](/docs/container-queries): `@c:sm:*` & the rest of the breakpoint names.
