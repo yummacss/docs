@@ -120,9 +120,17 @@ is written.
   positioning lives on a wrapper; and every box down to the viewport needs
   `f-1 min-h-0`, because a viewport on `h-100%` under a `max-height` parent
   grows to its content and never scrolls.
-- The scrollbar fades on `data-hovering` and `data-scrolling`, written out in
-  `globals.css` next to the popup animations, since Yumma has no attribute
-  variants until v4.
+- The scrollbar fades with `hovering:` and `scrolling:`, two states in
+  `yumma.config.mjs`.
+
+# Motion
+
+- The registry animates with Yumma classes and ships no CSS of its own.
+  `opening:` and `closing:` for what Base UI marks, `@st:` for an element
+  that is inserted or re-keyed, `an:` for a loop, and `@prm:` to stop each.
+- Every state and keyframe a component uses is one the Yumma UI installation
+  page tells people to add. `tests/motion.test.ts` holds the page, the site
+  config and the registry to the same names.
 
 # Working
 

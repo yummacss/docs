@@ -5,20 +5,7 @@ import { merge } from "yummacss/merge";
 type Shape = "line" | "block" | "circle";
 type Tone = "default" | "subtle";
 
-const SKELETON_MOTION = `
-  @keyframes yui-skeleton-pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-  .yui-skeleton-pulse {
-    animation: yui-skeleton-pulse 1s ease-in-out infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-skeleton-pulse { animation: none; }
-  }
-`;
-
-const PULSE = "yui-skeleton-pulse";
+const PULSE = "an:pulse adu:1000 atf:io aic:inf @prm:an:none";
 
 const RADII: Record<Shape, string> = {
   line: "br:xs",
@@ -93,15 +80,10 @@ export default function SkeletonBase({
   if (!animated) return <div aria-hidden className={classes} />;
 
   return (
-    <>
-      <style href="yumma-ui-skeleton-motion" precedence="default">
-        {SKELETON_MOTION}
-      </style>
-      <div
-        aria-hidden
-        className={`${classes} ${PULSE}`}
-        style={delay ? { animationDelay: `${delay}s` } : undefined}
-      />
-    </>
+    <div
+      aria-hidden
+      className={`${classes} ${PULSE}`}
+      style={delay ? { animationDelay: `${delay}s` } : undefined}
+    />
   );
 }

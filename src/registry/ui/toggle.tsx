@@ -9,25 +9,6 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
 
-const TOGGLE_MOTION = `
-  .yui-toggle-press {
-    transition: scale 200ms ease-out;
-  }
-  .yui-toggle-press:active {
-    scale: 0.9;
-  }
-  @keyframes yui-toggle-pop {
-    from { scale: 0.8; }
-  }
-  .yui-toggle-pop {
-    animation: yui-toggle-pop 250ms ease-out;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-toggle-press { transition: none; }
-    .yui-toggle-pop { animation: none; }
-  }
-`;
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const SHAPES: Record<Shape, string> = {
@@ -98,7 +79,10 @@ export interface ToggleProps
 
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
-    <span key={on ? "on" : "off"} className={on ? "d:f yui-toggle-pop" : "d:f"}>
+    <span
+      key={on ? "on" : "off"}
+      className={on ? "d:f tp:t tdu:250 ttf:eo @st:s:80 @prm:tp:none" : "d:f"}
+    >
       {children}
     </span>
   );
@@ -140,38 +124,36 @@ export default function ToggleBase({
     : { pressed, onPressedChange: handlePressedChange, defaultPressed };
 
   return (
-    <>
-      <style href="yumma-ui-toggle-motion" precedence="default">
-        {TOGGLE_MOTION}
-      </style>
-      <Toggle
-        value={value}
-        disabled={disabled}
-        {...pressedProps}
-        className={(state) =>
-          merge(
-            outline,
-            "d:f ai:c jc:c us:none",
-            disabled ? "c:na" : "c:p",
-            SIZES[size],
-            SHAPES[shape],
-            disabled ? DISABLED : `bw:1 ${state.pressed ? PRESSED : UNPRESSED}`,
-            className,
-          ) + (animated && !disabled ? " yui-toggle-press" : "")
-        }
-        render={(renderProps, state) => (
-          <Button {...(renderProps as ComponentProps<"button">)}>
-            {animated ? (
-              <Pop on={state.pressed}>
-                {(state.pressed && pressedIcon) || icon}
-              </Pop>
-            ) : (
-              (state.pressed && pressedIcon) || icon
-            )}
-          </Button>
-        )}
-        {...props}
-      />
-    </>
+    <Toggle
+      value={value}
+      disabled={disabled}
+      {...pressedProps}
+      className={(state) =>
+        merge(
+          outline,
+          "d:f ai:c jc:c us:none",
+          disabled ? "c:na" : "c:p",
+          SIZES[size],
+          SHAPES[shape],
+          disabled ? DISABLED : `bw:1 ${state.pressed ? PRESSED : UNPRESSED}`,
+          className,
+        ) +
+        (animated && !disabled
+          ? " tp:t tdu:200 ttf:eo a:s:90 @prm:tp:none"
+          : "")
+      }
+      render={(renderProps, state) => (
+        <Button {...(renderProps as ComponentProps<"button">)}>
+          {animated ? (
+            <Pop on={state.pressed}>
+              {(state.pressed && pressedIcon) || icon}
+            </Pop>
+          ) : (
+            (state.pressed && pressedIcon) || icon
+          )}
+        </Button>
+      )}
+      {...props}
+    />
   );
 }

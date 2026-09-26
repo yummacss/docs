@@ -11,20 +11,6 @@ type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const TOOLTIP_MOTION = `
-  .yui-tooltip-pop {
-    transition: opacity 150ms ease-out, translate 150ms ease-out, scale 150ms ease-out;
-  }
-  .yui-tooltip-pop[data-starting-style],
-  .yui-tooltip-pop[data-ending-style] {
-    opacity: 0;
-    translate: 0 4px;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-tooltip-pop { transition: none; }
-  }
-`;
-
 const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
@@ -183,7 +169,7 @@ export default function TooltipBase({
 
   const popup = (
     <Tooltip.Popup
-      className={`${popupClasses} ${animated ? "yui-tooltip-pop" : ""}`}
+      className={`${popupClasses} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:tty:1 closing:o:0 closing:tty:1 @prm:tp:none" : ""}`}
     >
       {arrow && (
         <Tooltip.Arrow
@@ -203,9 +189,6 @@ export default function TooltipBase({
   return (
     <Tooltip.Provider delay={delay}>
       <Tooltip.Root>
-        <style href="yumma-ui-tooltip-motion" precedence="default">
-          {TOOLTIP_MOTION}
-        </style>
         <Tooltip.Trigger className={triggerClasses} aria-label={triggerLabel}>
           {trigger}
         </Tooltip.Trigger>

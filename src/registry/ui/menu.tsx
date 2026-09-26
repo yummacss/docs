@@ -24,19 +24,6 @@ interface SizeSpec {
   text: string;
 }
 
-const MENU_MOTION = `
-  .yui-menu-pop {
-    transition: opacity 150ms ease-out;
-  }
-  .yui-menu-pop[data-starting-style],
-  .yui-menu-pop[data-ending-style] {
-    opacity: 0;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .yui-menu-pop { transition: none; }
-  }
-`;
-
 const SIZES: Record<Size, SizeSpec> = {
   sm: { trigger: "px:2 py:1", popup: "w:44", item: "py:1 px:2", text: "fs:xs" },
   md: {
@@ -402,7 +389,7 @@ export default function MenuBase({
     <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow:0" sideOffset={8}>
         <Menu.Popup
-          className={`${popupClasses} ${animated ? "yui-menu-pop" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
         >
           {renderItems(items, "item")}
         </Menu.Popup>
@@ -412,9 +399,6 @@ export default function MenuBase({
 
   return (
     <Menu.Root open={open} onOpenChange={handleOpenChange} disabled={disabled}>
-      <style href="yumma-ui-menu-motion" precedence="default">
-        {MENU_MOTION}
-      </style>
       <Menu.Trigger className={triggerClasses}>{trigger}</Menu.Trigger>
 
       {popup}
