@@ -3,7 +3,8 @@
 import { Button } from "@base-ui/react/button";
 import { Fieldset } from "@base-ui/react/fieldset";
 import { Input } from "@base-ui/react/input";
-import { CloseIcon, CloudUploadIcon } from "@solar-icons/react/linear";
+import { CloudUploadIcon } from "@solar-icons/react/bold-duotone";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { ChangeEvent, DragEvent, ReactNode } from "react";
 import { useId, useRef, useState } from "react";
 import { merge } from "yummacss/merge";

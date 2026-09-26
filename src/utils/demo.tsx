@@ -1,10 +1,8 @@
 import {
   AddFolderIcon,
-  AddIcon,
   ArchiveIcon,
   BellIcon,
   BookmarkIcon,
-  CheckIcon,
   CopyIcon,
   DocumentAddIcon,
   DocumentIcon,
@@ -13,7 +11,6 @@ import {
   HistoryIcon,
   ImportIcon,
   KeyboardIcon,
-  MagnifierIcon,
   MoonIcon,
   MoveToFolderIcon,
   PaletteIcon,
@@ -23,11 +20,16 @@ import {
   SortIcon,
   StarsIcon,
   SunIcon,
+  TrashBinTrashIcon,
+} from "@solar-icons/react/bold-duotone";
+import {
+  AddIcon,
+  CheckIcon,
+  MagnifierIcon,
   TextBoldIcon,
   TextItalicIcon,
   TextUnderlineIcon,
-  TrashBinTrashIcon,
-} from "@solar-icons/react/linear";
+} from "@solar-icons/react/outline";
 import type { ComponentType, ReactNode } from "react";
 import type { RegistryMeta } from "@/registry";
 import Avatar from "@/registry/ui/avatar";

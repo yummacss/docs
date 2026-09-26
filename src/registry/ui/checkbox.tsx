@@ -1,7 +1,7 @@
 "use client";
 
 import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckIcon, MinusIcon } from "@solar-icons/react/linear";
+import { CheckIcon, MinusIcon } from "@solar-icons/react/outline";
 import type { ComponentProps, ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
