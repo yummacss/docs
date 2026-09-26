@@ -3075,6 +3075,13 @@ only exists where a schema backs it.
 
 The expensive ones, in rough order of how much time they have cost.
 
+**`src/registry/index.ts` drifted from its generator.** A comment sweep
+stripped its "generated" header, and later hand edits (`min`, `max`, `step`,
+`optional`, `handler`, `conflictsWith`, `controlled`) never reached
+`scripts/generate-registry.mjs`, so running the script would have deleted
+them. The script's template is now the committed file verbatim, plus a header
+naming it; `pnpm generate:registry` changes nothing.
+
 **A stacked PR can report itself merged and still never reach `main`.** Three
 PRs each based on the one below it. The bottom two merged, which carried the
 chain to `main`; the top one then merged into a base branch that had already
