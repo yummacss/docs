@@ -16,28 +16,28 @@
         {
           "label": "Edit",
           "icon": {
-            "$icon": "Wrench",
+            "$icon": "PenIcon",
             "size": "w-4 h-4"
           }
         },
         {
           "label": "Duplicate",
           "icon": {
-            "$icon": "PagePlus",
+            "$icon": "CopyIcon",
             "size": "w-4 h-4"
           }
         },
         {
           "label": "Bookmark",
           "icon": {
-            "$icon": "Bookmark",
+            "$icon": "BookmarkIcon",
             "size": "w-4 h-4"
           }
         },
         {
           "label": "Pin to top",
           "icon": {
-            "$icon": "Star",
+            "$icon": "PinIcon",
             "size": "w-4 h-4"
           }
         }

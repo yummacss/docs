@@ -1,5 +1,5 @@
 import { Button } from "@base-ui/react";
-import { Xmark } from "iconoir-react";
+import { CloseIcon } from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
@@ -256,7 +256,7 @@ export default function BadgeBase({
       {count !== undefined && <span className={countClasses}>{count}</span>}
       {onClose && (
         <Button type="button" onClick={onClose} className={closeButtonClasses}>
-          <Xmark className={iconSize} />
+          <CloseIcon className={iconSize} />
         </Button>
       )}
     </span>

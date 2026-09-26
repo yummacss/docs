@@ -6,7 +6,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": null,
-      "exampleIcon": "UserPlus",
+      "exampleIcon": "DocumentAddIcon",
       "description": "A glyph beside the label. Pass the icon and nothing else; the base gap spaces it for you. With `iconOnly` it becomes the whole button, so give that one an `aria-label`."
     },
     {

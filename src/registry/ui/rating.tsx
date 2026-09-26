@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Star } from "iconoir-react";
+import { StarIcon } from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -211,7 +211,7 @@ export default function RatingBase({
                 (star) => {
                   const filled = star <= value;
                   const mark = (
-                    <Star
+                    <StarIcon
                       className={`fs:0 w:6 h:6 ${filled ? "f:current" : ""}`}
                       fill="none"
                     />
