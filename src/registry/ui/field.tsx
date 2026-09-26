@@ -2,7 +2,12 @@
 
 import { Field } from "@base-ui/react/field";
 import { Toggle } from "@base-ui/react/toggle";
-import { Check, Eye, EyeClosed, WarningTriangle } from "iconoir-react";
+import {
+  CheckIcon,
+  DangerTriangleIcon,
+  EyeClosedIcon,
+  EyeIcon,
+} from "@solar-icons/react/linear";
 import { type ComponentProps, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -192,9 +197,9 @@ export default function FieldBase({
       )}
     >
       {revealed ? (
-        <Eye className="w:4 h:4" />
+        <EyeIcon className="w:4 h:4" />
       ) : (
-        <EyeClosed className="w:4 h:4" />
+        <EyeClosedIcon className="w:4 h:4" />
       )}
     </Toggle>
   ) : (
@@ -284,9 +289,9 @@ export default function FieldBase({
           {status !== "default" && (
             <span className={`d:f p:a r:3 ai:c pe:none ${STATUS_ICON[status]}`}>
               {status === "error" ? (
-                <WarningTriangle className="w:4 h:4" />
+                <DangerTriangleIcon className="w:4 h:4" />
               ) : (
-                <Check className="w:4 h:4" />
+                <CheckIcon className="w:4 h:4" />
               )}
             </span>
           )}

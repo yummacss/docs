@@ -12,7 +12,7 @@
       "name": "triggerIcon",
       "type": "none",
       "typeName": "ReactNode",
-      "exampleIcon": "SparksSolid",
+      "exampleIcon": "StarsIcon",
       "description": "A glyph beside the trigger's label."
     },
     {
@@ -29,14 +29,14 @@
       "example": [
         {
           "icon": {
-            "$icon": "SparksSolid"
+            "$icon": "StarsIcon"
           },
           "title": "Welcome",
           "description": "A short tour of what you can do here, three screens long."
         },
         {
           "icon": {
-            "$icon": "Bookmark"
+            "$icon": "DocumentAddIcon"
           },
           "title": "Build your first page",
           "description": "Drop in a component, adjust its props, and watch it update. Everything on the page is a real control, so what you see is what the snippet says.",
@@ -53,7 +53,7 @@
         },
         {
           "icon": {
-            "$icon": "Folder"
+            "$icon": "FolderIcon"
           },
           "title": "Keep it somewhere",
           "description": "Pick the folder your files live in. You can move it later.",

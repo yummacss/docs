@@ -2,7 +2,11 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { ArrowSeparateVertical, Check, Xmark } from "iconoir-react";
+import {
+  CheckIcon,
+  CloseIcon,
+  SortVerticalIcon,
+} from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -193,7 +197,7 @@ function renderItem(item: ComboboxItem, shape: Shape) {
         <span className="fs:0 c:slate-6 fw:400">{item.description}</span>
       )}
       <Combobox.ItemIndicator className="d:f ml:auto c:slate-12">
-        <Check className="w:3 h:3" />
+        <CheckIcon className="w:3 h:3" />
       </Combobox.ItemIndicator>
     </Combobox.Item>
   );
@@ -313,7 +317,7 @@ export default function ComboboxBase({
                           className="d:f b:0 ai:c jc:c p:0 bg:transparent c:slate-6 c:p h:c:slate-10"
                           aria-label={`Remove ${chip}`}
                         >
-                          <Xmark className="w:3 h:3" />
+                          <CloseIcon className="w:3 h:3" />
                         </Combobox.ChipRemove>
                       </Combobox.Chip>
                     ))}
@@ -344,14 +348,14 @@ export default function ComboboxBase({
                 className={merge(outline, ACTION)}
                 aria-label="Clear selection"
               >
-                <Xmark className="w:4 h:4" />
+                <CloseIcon className="w:4 h:4" />
               </Combobox.Clear>
             )}
             <Combobox.Trigger
               className={merge(outline, ACTION)}
               aria-label="Open popup"
             >
-              <ArrowSeparateVertical className="w:4 h:4" />
+              <SortVerticalIcon className="w:4 h:4" />
             </Combobox.Trigger>
           </div>
         </div>

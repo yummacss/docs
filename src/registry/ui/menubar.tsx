@@ -2,7 +2,11 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
+import {
+  AltArrowRightIcon,
+  CheckIcon,
+  CommandIcon,
+} from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -239,7 +243,7 @@ export default function MenubarBase({
           >
             <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <Menu.CheckboxItemIndicator>
-                <Check className="w:3 h:3 c:slate-12" />
+                <CheckIcon className="w:3 h:3 c:slate-12" />
               </Menu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -262,7 +266,7 @@ export default function MenubarBase({
               >
                 <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <Menu.RadioItemIndicator>
-                    <Circle className="w:2 h:2 c:slate-12 f:current" />
+                    <span className="d:b w:2 h:2 br:9999 bg:current c:slate-12" />
                   </Menu.RadioItemIndicator>
                 </span>
                 {option.label}
@@ -280,7 +284,7 @@ export default function MenubarBase({
                 <span className="d:f fs:0 c:slate-5">{item.icon}</span>
               )}
               <span className="fg:1">{item.label}</span>
-              <NavArrowRight className="fs:0 w:4 h:4 c:slate-4" />
+              <AltArrowRightIcon className="fs:0 w:4 h:4 c:slate-4" />
             </Menu.SubmenuTrigger>
 
             <Menu.Portal container={container}>
@@ -331,7 +335,7 @@ export default function MenubarBase({
                 .filter(Boolean)
                 .join(" ")}
             >
-              <KeyCommand className="w:3 h:3" />
+              <CommandIcon className="w:3 h:3" />
               <span>{action.shortcut}</span>
             </span>
           )}

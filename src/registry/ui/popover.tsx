@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { Xmark } from "iconoir-react";
+import { CloseIcon } from "@solar-icons/react/linear";
 import type { CSSProperties, ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -229,7 +229,7 @@ export default function PopoverBase({
             )}
             aria-label="Close"
           >
-            <Xmark aria-hidden className="w:5 h:5" />
+            <CloseIcon aria-hidden className="w:5 h:5" />
           </Popover.Close>
         )}
       </div>

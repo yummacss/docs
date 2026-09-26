@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { Xmark } from "iconoir-react";
+import { CloseIcon } from "@solar-icons/react/linear";
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -263,7 +263,7 @@ export default function DialogBase({
               }
               aria-label="Close"
             >
-              <Xmark aria-hidden className="w:5 h:5" />
+              <CloseIcon aria-hidden className="w:5 h:5" />
             </Dialog.Close>
           )}
 
