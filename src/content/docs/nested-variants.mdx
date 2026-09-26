@@ -13,7 +13,7 @@ Variants stack. Chain their prefixes on a single utility & every condition has t
 
 ```css title="output.css"
 @media (min-width: 40rem) {
-  .\@sm\:h\:bg-red:hover {
+  .\@sm\:h\:bg\:red:hover {
     background-color: #e63946;
   }
 }
@@ -54,7 +54,7 @@ The most valuable pairing. Hover is unreliable on touch, so gating a hover style
 ```
 
 ```css title="output.css"
-.h\:s\:\:bg-indigo:hover::selection {
+.h\:s\:\:bg\:indigo:hover::selection {
   background-color: #6366f1;
 }
 ```
@@ -79,7 +79,7 @@ An opacity modifier is a suffix rather than a prefix, so it combines with any st
 
 ```css title="output.css"
 @media (min-width: 40rem) {
-  .\@sm\:h\:bg-red\/50:hover {
+  .\@sm\:h\:bg\:red\/50:hover {
     background-color: color-mix(in srgb, #e63946 50%, transparent);
   }
 }
@@ -87,27 +87,29 @@ An opacity modifier is a suffix rather than a prefix, so it combines with any st
 
 </CodeGroup>
 
-## Two Media Queries Do Not Stack
+## At-Rules Nest
 
-A breakpoint is a `min-width`, so two of them describe one range with a single lower bound. Yumma CSS keeps the last prefix in the chain & silently drops the rest.
+Breakpoints, [Container Queries](/docs/container-queries), [Starting Style](/docs/starting-style) & `@prm:` are all at-rules, and a class can carry more than one. Each wraps the next.
 
 <CodeGroup>
 
-```tsx title="page.tsx" "@sm:@lg:bg:red"
-<div className="@sm:@lg:bg:red …"></div>
+```tsx title="page.tsx" "@md:@st:o:0"
+<div className="tp:o tdu:150 @md:@st:o:0"></div>
 ```
 
 ```css title="output.css"
-@media (min-width: 64rem) {
-  .\@sm\:\@lg\:bg-red {
-    background-color: #e63946;
+@media (min-width: 48rem) {
+  @starting-style {
+    .\@md\:\@st\:o\:0 {
+      opacity: 0;
+    }
   }
 }
 ```
 
 </CodeGroup>
 
-`@sm` is gone & nothing warns you. Write the breakpoint you mean, `@lg:bg:red`.
+Two breakpoints nest the same way, but `@sm:@lg:bg:red` only ever applies from `64rem`, since both have to hold. Write the one you mean, `@lg:bg:red`.
 
 ## Two Pseudo Classes
 

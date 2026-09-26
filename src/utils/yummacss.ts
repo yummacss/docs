@@ -1,6 +1,7 @@
 import * as core from "@yummacss/core";
 
 export const categoryGetters = {
+  animation: core.animationUtils,
   background: core.backgroundUtils,
   border: core.borderUtils,
   boxModel: core.boxModelUtils,

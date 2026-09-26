@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
 
 const CATEGORIES = {
+  animation: core.animationUtils,
   background: core.backgroundUtils,
   border: core.borderUtils,
   boxModel: core.boxModelUtils,

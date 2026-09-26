@@ -24,3 +24,22 @@ Prefix a class with a state to apply it only while that state matches.
 
 <Reference category="font" name="font-family" variant="pseudo-class" />
 
+## Custom Fonts
+
+Add a font stack in `theme.fonts` & use it by name. A name that matches a built-in family (`d`, `m`, `s`) replaces it.
+
+```mjs title="yumma.config.mjs" mark={4-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    fonts: {
+      display: '"Esteban", serif',
+    },
+  },
+});
+```
+
+```tsx "ff:display"
+<h1 className="ff:display fs:3xl">Documents</h1>
+```

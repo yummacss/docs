@@ -83,14 +83,14 @@ Prepends a custom string to all generated Yumma CSS utility classes, effectively
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  prefix: "ui",
+  prefix: "ui-",
 });
 ```
 
 <Hint icon="info">
   When a prefix is set, all utilities must include it, including entries in the
-  `safelist`. For example, if your prefix is `ui`, use `ui-bg:red` instead of
-  `bg:red`.
+  `safelist`. The prefix is prepended exactly as written, so with `ui-` you
+  write `ui-bg:red` instead of `bg:red`.
 </Hint>
 
 ```tsx
@@ -169,6 +169,54 @@ export default defineConfig({
 });
 ```
 
+#### States
+
+Name your own variants for attributes your components set. Each name becomes a prefix like `h:`. See [States](/docs/states).
+
+```mjs title="yumma.config.mjs" mark={4-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    states: {
+      closing: "[data-ending-style]",
+    },
+  },
+});
+```
+
+#### Fonts
+
+Add font stacks. Each name becomes an `ff:` class, and a name that matches a built-in family replaces it. See [Font Family](/docs/font-family).
+
+```mjs title="yumma.config.mjs" mark={4-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    fonts: {
+      display: '"Esteban", serif',
+    },
+  },
+});
+```
+
+#### Keyframes
+
+Define animations, each written as the body of a CSS `@keyframes` rule. Each name becomes an `an:` class. See [Animation Name](/docs/animation-name).
+
+```mjs title="yumma.config.mjs" mark={4-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    keyframes: {
+      spin: "to { rotate: 360deg; }",
+    },
+  },
+});
+```
+
 ### Safelist
 
 An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files. Use this for classes that are added dynamically via JavaScript.
@@ -202,15 +250,15 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 Running the `build` or `watch` command generates the following CSS:
 
 ```css title="styles.css"
-.bg-white {
+.bg\:white {
   background-color: #ffffff;
 }
 
-.bw-1 {
+.bw\:1 {
   border-width: 1px;
 }
 
-.c-black {
+.c\:black {
   color: #000000;
 }
 ```
