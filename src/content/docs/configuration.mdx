@@ -83,14 +83,14 @@ Prepends a custom string to all generated Yumma CSS utility classes, effectively
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  prefix: "ui",
+  prefix: "ui-",
 });
 ```
 
 <Hint icon="info">
   When a prefix is set, all utilities must include it, including entries in the
-  `safelist`. For example, if your prefix is `ui`, use `ui-bg:red` instead of
-  `bg:red`.
+  `safelist`. The prefix is prepended exactly as written, so with `ui-` a class
+  reads `ui-bg:red`.
 </Hint>
 
 ```tsx
@@ -202,15 +202,15 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 Running the `build` or `watch` command generates the following CSS:
 
 ```css title="styles.css"
-.bg-white {
+.bg\:white {
   background-color: #ffffff;
 }
 
-.bw-1 {
+.bw\:1 {
   border-width: 1px;
 }
 
-.c-black {
+.c\:black {
   color: #000000;
 }
 ```

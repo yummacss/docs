@@ -35,6 +35,9 @@ Short. These were said out loud enough times to belong in a file.
 - **No attribution footers** in commits or PRs. `.claude/settings.json` clears
   them; do not add them by hand either.
 - No em dashes.
+- **Docs describe the current version only.** Present tense, no comparison with
+  a past one: no "now", "no longer", "used to", "still" or "instead of the old".
+  What changed between versions belongs in the CHANGELOG and the blog.
 - Never name another framework to explain a Yumma decision, and do not borrow
   its vocabulary either. Focus draws an **outline**, never a ring: Yumma has
   `os-`, `ow-`, `oo-` and `oc-`, so a box-shadow word for it describes a
