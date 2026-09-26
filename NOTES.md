@@ -658,6 +658,17 @@ blocks a release.**
       colour of the active navbar link in both themes, `#4c5fc7` and `#bec6f2`.
       Their `c-p` was a 3.x class that generated nothing, so they showed no
       pointer; it is `c:p`.
+- [x] **The preview accent reaches the preview**, 2026-09-26. Its rules
+      named `.bg-slate-12`, the 3.x selector, so no v4 class matched and every
+      accent rendered as slate. `accent.ts` derives each selector from the
+      class name, and the guard scans for `bg:slate-12` rather than
+      `bg-slate-12`, which had matched nothing since the codemod.
+
+      **The shade is the lightest that carries white.** Every family's `-12`
+      is near black (indigo `#101027`), so a working accent still looked like
+      slate. `accentShade` takes the lightest shade from 6 up with 4.5:1
+      against white, and hover is one darker: indigo `#5558cf`, mint
+      `#0c855d`.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active
