@@ -3075,6 +3075,19 @@ only exists where a schema backs it.
 
 The expensive ones, in rough order of how much time they have cost.
 
+**Negative Values taught the 3.x syntax after 4.0 shipped.** The prose said
+`(prefix)--(value)` and listed `m-`, `t-` & `zi--` while its own examples used
+`ml:-4`, and `m--4` is refused by 4.x. Fixed 2026-09-26, with the utilities that
+take a negative listed from `acceptsNegative` and a line on what is refused.
+
+**Docs pages compared with past versions.** Renildo's rule, 2026-09-26: the
+docs document the latest version only, so no page says what used to be true.
+A sweep found five: Naming Convention (`tt-n` & `tl-a`), CDN (the runtime
+rename), UI Customization (what `c:accent` used to do), Lint ("older
+versions") and Negative Values. Configuration's `prefix` example also generated
+nothing on 4.1.2 (`prefix: "ui"` with `ui-bg:red`), and its sample output was
+3.x. The rule is in AGENTS.md.
+
 **`src/registry/index.ts` drifted from its generator.** A comment sweep
 stripped its "generated" header, and later hand edits (`min`, `max`, `step`,
 `optional`, `handler`, `conflictsWith`, `controlled`) never reached
