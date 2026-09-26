@@ -34,7 +34,7 @@ export interface SkeletonProps {
   tone?: Tone;
   /**
    * Replaces the shape's default size, as literal width and height utilities:
-   * `"w-9 h-9"`. It replaces rather than adds to them, because a second width
+   * `"w:9 h:9"`. It replaces rather than adds to them, because a second width
    * class would not reliably win: which of two utilities applies is decided by
    * the stylesheet's rule order, not by their order in the attribute. Spelled
    * out in full rather than built from a scale value, so the class scanner can

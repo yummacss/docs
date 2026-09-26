@@ -25,7 +25,7 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
 
       <div
         className={`d:f fd:c pt:12 @lg:gc-s:6 ${
-          playground ? "playground-column" : ""
+          playground ? "@lg:h:dvh @lg:pb:6 @lg:o:h" : ""
         }`}
       >
         <article className="d:f fd:c f:1 min-h:0">{children}</article>

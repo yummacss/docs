@@ -60,7 +60,7 @@ export default function RootLayout({
       lang="en"
       data-scroll-behavior="smooth"
     >
-      <body className="bg:page">
+      <body className="bg:page ff:body">
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: the theme has to land before paint
           dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }}

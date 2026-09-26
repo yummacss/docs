@@ -12,7 +12,10 @@ export default function BlogLayout({
       <SkipLink />
       <Navbar />
 
-      <main id="main" className="is:i mx:auto px:6 docs-container">
+      <main
+        id="main"
+        className="is:i mx:auto px:6 max-w:clamp(40rem,80vw,96rem)"
+      >
         <div className="d:g gtc:1 g:8 @lg:gtc:12">{children}</div>
       </main>
 

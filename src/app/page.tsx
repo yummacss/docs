@@ -39,11 +39,7 @@ export default function Home() {
 
       <main
         id="main"
-        className="d:f p:r ai:fe w:100% mx:auto px:6 pb:16 @md:pb:0"
-        style={{
-          minHeight: "calc(100dvh - 120px)",
-          maxWidth: "clamp(40rem, 80vw, 96rem)",
-        }}
+        className="d:f p:r ai:fe w:100% min-h:calc(100dvh-120px) max-w:clamp(40rem,80vw,96rem) mx:auto px:6 pb:16 @md:pb:0"
       >
         <div className="w:100% max-w:288">
           <div className="d:g g:12 ai:fe @lg:gtc:2">
@@ -56,7 +52,7 @@ export default function Home() {
                 <NavArrowRight className="w:4 h:4" />
               </Link>
 
-              <h1 className="mb:6 fs:4xl fw:400 lh:2 ff-e @md:fs:5xl @lg:fs:6xl">
+              <h1 className="mb:6 fs:4xl fw:400 lh:2 ff:display @md:fs:5xl @lg:fs:6xl">
                 Get faster at CSS while you use it.
               </h1>
               <p className="mb:8 c:ink/70 fs:md lh:5 @md:fs:lg">
