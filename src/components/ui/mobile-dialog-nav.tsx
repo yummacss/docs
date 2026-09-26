@@ -82,7 +82,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 <Scroller
                   viewportRef={viewport}
                   viewportClassName="d:f fd:c g:8 px:4 py:4"
-                  style={{ height: "calc(100dvh - 60px)" }}
+                  className="h:calc(100dvh-60px)"
                 >
                   {sections.map((section) => {
                     const isTopNav = section.title === "__top-nav__";

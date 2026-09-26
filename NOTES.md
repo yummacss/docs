@@ -3640,15 +3640,19 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 `src/app`, `src/components` and `src/mdx-components.tsx`, and **187 lines of
 `globals.css`** beyond the `@yummacss` import. Sorted:
 
-- [ ] **Viewport-minus heights: five sites now, not two.** `sidebar-nav.tsx`
+- [x] **Viewport-minus heights: five sites now, not two.** `sidebar-nav.tsx`
       and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-dialog-nav.tsx`
       (`calc(100dvh - 60px)`), `search-dialog.tsx` (`70vh` and
       `calc(70vh - 120px)`), plus `.playground-rail` and `.playground-column`
       in `globals.css`, which exist only because the cap had to be
       breakpoint-conditional. That is #3 above, with more evidence.
-- [ ] **One fluid width, written twice.** `.docs-container` and the landing
+      Done with 4.2's CSS functions: `max-h:calc(100dvh-5rem)`,
+      `h:calc(100dvh-60px)`, `max-h:calc(70vh-120px)`, and the rail's
+      `@lg:p:st @lg:t:20 @lg:max-h:calc(100dvh-5rem)`.
+- [x] **One fluid width, written twice.** `.docs-container` and the landing
       page's inline `maxWidth` both say `clamp(40rem, 80vw, 96rem)`. That is
       #2, the `container` config.
+      Done without one: `max-w:clamp(40rem,80vw,96rem)` on the five sites.
 - [x] **A utility that already exists.** Code blocks are held dark with a
       `[data-code] { color-scheme: dark }` rule, and `cs:d` is that exact
       declaration as a class. The rule goes and each shell carries `cs:d`.
@@ -3662,13 +3666,21 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
       chip's `#8892c2`, became `c:accent-dim` with the toggle fixes.
       Done: Reference's detail column is `c:ink/70` and Avatar's fallback is
       `c:accent-dim`; `tabs.tsx` had already moved to `c:ink/80`.
-- [ ] **A display size no scale reaches.** `.footer-version` is `min(17rem,
+- [x] **A display size no scale reaches.** `.footer-version` is `min(17rem,
       100cqw / span)` inside a `container-type: inline-size` band. Neither a
       font-size past `3xl` nor a container-relative length has a Yumma form.
       Worth asking whether container queries are a variant, not a utility.
-- [ ] **State that lives in attributes.** `.yui-scrollbar[data-scrolling]`,
+      Done with `ct:is` and `fs:min(17rem,calc(100cqw/(var(--span)*1.03)))`.
+      Two lines stay in `.footer-version`, each a Yumma gap: line height has
+      no step below `lh:1` (it needs `.74`), and a theme colour drops the
+      alpha of an 8-digit hex, so `#4c5fc721` comes out `#4c5fc7`. Also seen:
+      `ls:-1` is `+.05em`, since `ls:1` is already negative.
+- [x] **State that lives in attributes.** `.yui-scrollbar[data-scrolling]`,
       `[data-fold]`, `:root[data-theme=...]`. Attribute variants are 4.2's,
       and the `data-*` limits in "Attribute variants" below still apply.
+      The scrollbar uses `hovering:` and `scrolling:` states. `[data-fold]`
+      and `:root[data-theme]` stay in `globals.css`: one styles a child from
+      its parent's state, the other is the theme itself.
 
 **Stays inline, correctly.** A value computed at runtime is data, not style:
 the palette's `backgroundColor: shade` and `repeat(${scale.length}, ...)`,

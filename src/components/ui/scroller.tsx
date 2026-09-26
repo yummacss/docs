@@ -1,23 +1,21 @@
 "use client";
 
 import { ScrollArea } from "@base-ui/react/scroll-area";
-import type { CSSProperties, ReactNode, RefObject } from "react";
+import type { ReactNode, RefObject } from "react";
 
 export default function Scroller({
   className = "",
   viewportClassName = "",
-  style,
   viewportRef,
   children,
 }: {
   className?: string;
   viewportClassName?: string;
-  style?: CSSProperties;
   viewportRef?: RefObject<HTMLDivElement | null>;
   children: ReactNode;
 }) {
   return (
-    <div className={`d:f fd:c ${className}`} style={style}>
+    <div className={`d:f fd:c ${className}`}>
       <ScrollArea.Root className="d:f f:1 fd:c min-h:0">
         <ScrollArea.Viewport
           ref={viewportRef}

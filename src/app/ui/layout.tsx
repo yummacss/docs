@@ -24,7 +24,10 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
       <SkipLink />
       <Navbar showMobileDrawer />
 
-      <main id="main" className="zi:0 mx:auto px:6 docs-container">
+      <main
+        id="main"
+        className="zi:0 mx:auto px:6 max-w:clamp(40rem,80vw,96rem)"
+      >
         <UIShell>{children}</UIShell>
       </main>
     </div>

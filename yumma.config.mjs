@@ -14,6 +14,10 @@ export default defineConfig({
       page: { light: "#f7f8fb", dark: "#151724" },
       surface: { light: "#ffffff", dark: "#1a1d2e" },
     },
+    fonts: {
+      body: '"iA Writer Quattro", sans-serif',
+      display: '"Esteban", serif',
+    },
     states: {
       closing: "[data-ending-style]",
       hovering: "[data-hovering]",
