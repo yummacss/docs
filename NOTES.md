@@ -654,6 +654,10 @@ blocks a release.**
       inline `#989ec2` for `c:ink/80`. **Reset is gone**, and with it the
       playground context's `carried` flag and `reset`, which nothing else read;
       carrying itself is untouched.
+- [x] **The Component API switches are on in `bg:accent`**, 2026-09-26: the
+      colour of the active navbar link in both themes, `#4c5fc7` and `#bec6f2`.
+      Their `c-p` was a 3.x class that generated nothing, so they showed no
+      pointer; it is `c:p`.
 - [x] **The sidebar reveals the page you landed on.** `src/utils/reveal.ts`
       holds one `useReveal(pathname)` used by `sidebar-nav.tsx` and
       `mobile-dialog-nav.tsx`: it keys off the route, and when the active

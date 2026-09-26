@@ -250,7 +250,7 @@ function Toggle({
       className={`d:f fs:0 ai:c px:1 w:7 h:4 bw:0 tp:c tdu:150 ttf:io fv:oo:2 fv:oc:accent ${
         inert
           ? "bg:diff-remove/30 c:na"
-          : `c-p ${checked ? "bg:ink/80" : "bg:ink/15"}`
+          : `c:p ${checked ? "bg:accent" : "bg:ink/15"}`
       }`}
     >
       <Switch.Thumb
