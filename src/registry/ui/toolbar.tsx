@@ -6,14 +6,31 @@ import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
 import { Minus, Plus } from "iconoir-react";
-import type { HTMLMotionProps } from "motion/react";
-import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+const TOOLBAR_MOTION = `
+  .yui-toolbar-press {
+    transition: scale 200ms ease-out;
+  }
+  .yui-toolbar-press:active {
+    scale: 0.92;
+  }
+  @keyframes yui-toolbar-pop {
+    from { scale: 0.8; }
+  }
+  .yui-toolbar-pop {
+    animation: yui-toolbar-pop 250ms ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-toolbar-press { transition: none; }
+    .yui-toolbar-pop { animation: none; }
+  }
+`;
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
@@ -156,6 +173,9 @@ export default function ToolbarBase({
 
   return (
     <Toolbar.Root className={rootClasses}>
+      <style href="yumma-ui-toolbar-motion" precedence="default">
+        {TOOLBAR_MOTION}
+      </style>
       {items.map((item, index) => {
         const key = `item-${index}`;
 
@@ -217,19 +237,9 @@ export default function ToolbarBase({
             >
               <NumberField.Group className="d:f ai:c">
                 <NumberField.Decrement
-                  render={
-                    animated
-                      ? (props) => (
-                          <motion.button
-                            type="button"
-                            {...(props as HTMLMotionProps<"button">)}
-                            whileTap={{ scale: 0.92 }}
-                            className={stepClasses}
-                          />
-                        )
-                      : undefined
+                  className={
+                    animated ? `${stepClasses} yui-toolbar-press` : stepClasses
                   }
-                  className={animated ? undefined : stepClasses}
                 >
                   <Minus className="w:5 h:5" />
                 </NumberField.Decrement>
@@ -241,19 +251,9 @@ export default function ToolbarBase({
                   )}
                 />
                 <NumberField.Increment
-                  render={
-                    animated
-                      ? (props) => (
-                          <motion.button
-                            type="button"
-                            {...(props as HTMLMotionProps<"button">)}
-                            whileTap={{ scale: 0.92 }}
-                            className={stepClasses}
-                          />
-                        )
-                      : undefined
+                  className={
+                    animated ? `${stepClasses} yui-toolbar-press` : stepClasses
                   }
-                  className={animated ? undefined : stepClasses}
                 >
                   <Plus className="w:5 h:5" />
                 </NumberField.Increment>
@@ -296,19 +296,11 @@ export default function ToolbarBase({
             disabled={button.disabled}
             onClick={button.onClick}
             aria-label={button.iconOnly ? button.label : undefined}
-            render={
+            className={
               animated && !button.disabled
-                ? (props) => (
-                    <motion.button
-                      type="button"
-                      {...(props as HTMLMotionProps<"button">)}
-                      whileTap={{ scale: 0.92 }}
-                      className={buttonClasses}
-                    />
-                  )
-                : undefined
+                ? `${buttonClasses} yui-toolbar-press`
+                : buttonClasses
             }
-            className={animated && !button.disabled ? undefined : buttonClasses}
           >
             {button.icon}
             {!button.iconOnly && button.label}
@@ -321,15 +313,12 @@ export default function ToolbarBase({
 
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
-    <motion.span
+    <span
       key={on ? "on" : "off"}
-      className="d:f"
-      initial={{ scale: on ? 0.8 : 1 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
+      className={on ? "d:f yui-toolbar-pop" : "d:f"}
     >
       {children}
-    </motion.span>
+    </span>
   );
 }
 
@@ -377,26 +366,22 @@ function ToolbarToggles({
           key={option.value}
           value={option.value}
           aria-label={option.label}
-          render={
-            animated
-              ? (props, state) => {
-                  const { children, ...rest } =
-                    props as HTMLMotionProps<"button">;
-                  return (
-                    <motion.button
-                      type="button"
-                      {...rest}
-                      whileTap={{ scale: 0.92 }}
-                      className={toggleClasses(state.pressed)}
-                    >
-                      <Pop on={state.pressed}>{children as ReactNode}</Pop>
-                    </motion.button>
-                  );
-                }
-              : (props, state) => (
-                  <Button {...props} className={toggleClasses(state.pressed)} />
-                )
-          }
+          render={(props, state) => (
+            <Button
+              {...props}
+              className={
+                animated
+                  ? `${toggleClasses(state.pressed)} yui-toolbar-press`
+                  : toggleClasses(state.pressed)
+              }
+            >
+              {animated ? (
+                <Pop on={state.pressed}>{props.children}</Pop>
+              ) : (
+                props.children
+              )}
+            </Button>
+          )}
         >
           {option.icon}
         </Toggle>
