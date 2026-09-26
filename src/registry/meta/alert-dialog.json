@@ -13,7 +13,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": null,
-      "exampleIcon": "Trash",
+      "exampleIcon": "TrashBinTrashIcon",
       "description": "A glyph beside the trigger's label."
     },
     {
@@ -79,6 +79,13 @@
       "values": ["danger", "neutral"],
       "default": "danger",
       "description": "The trigger's own color, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Padding and text size of the trigger and the popup's buttons, on the same scale as Button, so a dialog matches the buttons beside it."
     },
     {
       "name": "shape",

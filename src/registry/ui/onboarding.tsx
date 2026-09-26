@@ -3,8 +3,12 @@
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { Tabs } from "@base-ui/react/tabs";
-import { ArrowLeft, ArrowRight, Check, Xmark } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  CloseIcon,
+} from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useCallback, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -42,9 +46,23 @@ const ONBOARDING_MOTION = `
   .yui-onboarding-fade[data-ending-style] {
     opacity: 0;
   }
+  @keyframes yui-onboarding-next {
+    from { opacity: 0; translate: 40px 0; }
+  }
+  @keyframes yui-onboarding-prev {
+    from { opacity: 0; translate: -40px 0; }
+  }
+  .yui-onboarding-next {
+    animation: yui-onboarding-next 200ms ease-out;
+  }
+  .yui-onboarding-prev {
+    animation: yui-onboarding-prev 200ms ease-out;
+  }
   @media (prefers-reduced-motion: reduce) {
     .yui-onboarding-pop,
     .yui-onboarding-fade { transition: none; }
+    .yui-onboarding-next,
+    .yui-onboarding-prev { animation: none; }
   }
 `;
 
@@ -62,12 +80,6 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const CONTROL_BASE = "d:f ai:c jc:c w:8 h:8 bw:1 tp:c tdu:150 ttf:io us:none";
-
-const slideVariants = {
-  enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
-};
 
 export interface OnboardingTask {
   id: string;
@@ -271,7 +283,7 @@ export default function OnboardingBase({
                       : "bc:silver-3"
                   }`}
                 >
-                  {isChecked && <Check className="w:3 h:3" />}
+                  {isChecked && <CheckIcon className="w:3 h:3" />}
                 </div>
                 <span className={isChecked ? "c:green-7" : "c:slate-10"}>
                   {task.label}
@@ -298,7 +310,7 @@ export default function OnboardingBase({
       }
       aria-label="Skip"
     >
-      <Xmark aria-hidden className="w:4 h:4" />
+      <CloseIcon aria-hidden className="w:4 h:4" />
     </AlertDialog.Close>
   );
 
@@ -335,23 +347,29 @@ export default function OnboardingBase({
               </div>
               <div className="d:f g:2">
                 {!isFirst && (
-                  <Button onClick={() => go(page - 1)} className={backClasses}>
-                    <ArrowLeft className="w:4 h:4" />
+                  <Button
+                    onClick={() => go(page - 1)}
+                    className={backClasses}
+                    aria-label="Previous"
+                  >
+                    <ArrowLeftIcon className="w:4 h:4" />
                   </Button>
                 )}
                 {isLast ? (
                   <AlertDialog.Close
                     render={<Button className={forwardClasses} />}
+                    aria-label="Finish"
                   >
-                    <Check className="w:4 h:4" />
+                    <CheckIcon className="w:4 h:4" />
                   </AlertDialog.Close>
                 ) : (
                   <Button
                     onClick={() => go(page + 1)}
                     disabled={!allTasksDone}
                     className={forwardClasses}
+                    aria-label="Next"
                   >
-                    <ArrowRight className="w:4 h:4" />
+                    <ArrowRightIcon className="w:4 h:4" />
                   </Button>
                 )}
               </div>
@@ -359,49 +377,39 @@ export default function OnboardingBase({
           )}
 
           <div className="px:8 pt:4 pb:10">
-            <motion.div
-              initial={false}
-              animate={
+            <div
+              className={`d:f p:r o:h fd:c jc:c ${resizes ? "tp:h tdu:200 ttf:eo" : ""}`}
+              style={
                 resizes && contentHeight !== null
                   ? { height: contentHeight }
-                  : { height: "auto" }
+                  : undefined
               }
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="d:f p:r o:h fd:c jc:c"
             >
               <div ref={contentRef} className="d:f fd:c ai:c w:100% ta:c">
                 {animated ? (
-                  <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                      key={page}
-                      custom={direction}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="d:f fd:c ai:c g:3"
-                    >
-                      {slide}
-                    </motion.div>
-                  </AnimatePresence>
+                  <div
+                    key={page}
+                    className={`d:f fd:c ai:c g:3 ${
+                      direction > 0
+                        ? "yui-onboarding-next"
+                        : "yui-onboarding-prev"
+                    }`}
+                  >
+                    {slide}
+                  </div>
                 ) : (
                   slide
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {indicator === "progress" && (
             <div className="d:f jc:c pb:6">
               <div className="p:r o:h w:32 h:1 bg:silver-2 br:9999">
-                <motion.div
-                  className="p:a l:0 t:0 h:100% bg:slate-12 br:9999"
-                  initial={false}
-                  animate={{
-                    width: `${((page + 1) / steps.length) * 100}%`,
-                  }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                <div
+                  className="p:a l:0 t:0 h:100% bg:slate-12 br:9999 tp:w tdu:200 ttf:eo"
+                  style={{ width: `${((page + 1) / steps.length) * 100}%` }}
                 />
               </div>
             </div>
@@ -421,7 +429,7 @@ export default function OnboardingBase({
                 )}
                 aria-label="Previous"
               >
-                <ArrowLeft className="w:4 h:4" />
+                <ArrowLeftIcon className="w:4 h:4" />
               </Button>
               <Tabs.Root
                 value={String(page)}
@@ -446,8 +454,9 @@ export default function OnboardingBase({
               {isLast ? (
                 <AlertDialog.Close
                   render={<Button className={forwardClasses} />}
+                  aria-label="Finish"
                 >
-                  <Check className="w:4 h:4" />
+                  <CheckIcon className="w:4 h:4" />
                 </AlertDialog.Close>
               ) : (
                 <Button
@@ -462,7 +471,7 @@ export default function OnboardingBase({
                   )}
                   aria-label="Next"
                 >
-                  <ArrowRight className="w:4 h:4" />
+                  <ArrowRightIcon className="w:4 h:4" />
                 </Button>
               )}
             </div>

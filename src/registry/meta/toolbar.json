@@ -23,7 +23,7 @@
               "value": "bold",
               "label": "Bold",
               "icon": {
-                "$icon": "Bold",
+                "$icon": "TextBoldIcon",
                 "size": "w-4 h-4"
               }
             },
@@ -31,7 +31,7 @@
               "value": "italic",
               "label": "Italic",
               "icon": {
-                "$icon": "Italic",
+                "$icon": "TextItalicIcon",
                 "size": "w-4 h-4"
               }
             }

@@ -96,7 +96,7 @@ Classes are validated against **your** config. A code example that shows a diffe
 
 ## Narrowing the Source
 
-Content files often contain class syntax from older versions that should not be validated. Pass a config inline through the API to scan only your application code:
+Content files, such as a changelog, often contain classes that should not be validated. Pass a config inline through the API to scan only your application code:
 
 ```js title="scripts/validate.mjs"
 import { validate } from "@yummacss/lint";

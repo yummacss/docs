@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { Xmark } from "iconoir-react";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -11,6 +11,13 @@ type Tone = "danger" | "neutral";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
+type Size = "sm" | "md" | "lg";
+
+const SIZES: Record<Size, string> = {
+  sm: "px:3 py:1 fs:xs",
+  md: "px:4 py:2 fs:sm",
+  lg: "px:6 py:3 fs:md",
+};
 
 const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br:xxl",
@@ -117,6 +124,11 @@ export interface AlertDialogProps {
    */
   showClose?: boolean;
   /**
+   * Padding and text size of the trigger and the popup's buttons, on the same
+   * scale as Button, so a dialog matches the buttons beside it.
+   */
+  size?: Size;
+  /**
    * Corner radius on the popup, the badge and the buttons. `square` squares off
    * the badge too.
    */
@@ -160,6 +172,7 @@ export default function AlertDialogBase({
   confirmLabel,
   onConfirm,
   showClose = true,
+  size = "md",
   shape = "square",
   shadow = "none",
   animated = true,
@@ -176,7 +189,7 @@ export default function AlertDialogBase({
   const [open, setOpen] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
 
-  const base = "px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
+  const base = `${SIZES[size]} bw:1 fw:500 tp:c tdu:150 ttf:io us:none`;
 
   const triggerClasses = merge(
     triggerOutline,
@@ -205,14 +218,14 @@ export default function AlertDialogBase({
 
   const cancelClasses = merge(
     outline,
-    "px:4 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none",
+    base,
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
   );
 
   const confirmClasses = merge(
     confirmOutline,
-    "px:4 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none",
+    base,
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
   );
@@ -244,7 +257,7 @@ export default function AlertDialogBase({
               }
               aria-label="Close"
             >
-              <Xmark aria-hidden className="w:5 h:5" />
+              <CloseIcon aria-hidden className="w:5 h:5" />
             </AlertDialog.Close>
           )}
 

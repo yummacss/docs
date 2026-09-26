@@ -31,7 +31,7 @@ That works for adding something the component does not set, like width above, an
 <Button className="c:accent">Save</Button>
 ```
 
-Yumma CSS utilities are all single-class selectors, so they all have the same specificity, and the winner between two of them is whichever comes later **in the generated stylesheet**. Adding `c:accent` to a component that already sets `c:white` used to do nothing at all. Components call [`merge`](/docs/class-merge) instead of appending, which drops the class that loses, so what you pass takes effect.
+Yumma CSS utilities are all single-class selectors, so they all have the same specificity, and the winner between two of them is whichever comes later **in the generated stylesheet**. Components pass your classes through [`merge`](/docs/class-merge), which drops the class yours replaces, so `c:accent` on a component that sets `c:white` takes effect.
 
 Only a class that sets the same property is dropped, so nothing you add goes missing.
 
