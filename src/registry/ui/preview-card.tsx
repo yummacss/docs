@@ -1,12 +1,24 @@
 "use client";
 
 import { PreviewCard } from "@base-ui/react/preview-card";
-import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+const PREVIEW_CARD_MOTION = `
+  .yui-preview-card-fade {
+    transition: opacity 150ms ease-out;
+  }
+  .yui-preview-card-fade[data-starting-style],
+  .yui-preview-card-fade[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-preview-card-fade { transition: none; }
+  }
+`;
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
@@ -100,6 +112,9 @@ export default function PreviewCardBase({
       open={open}
       onOpenChange={onOpenChange}
     >
+      <style href="yumma-ui-preview-card-motion" precedence="default">
+        {PREVIEW_CARD_MOTION}
+      </style>
       <PreviewCard.Trigger
         className={(state) =>
           merge(
@@ -116,17 +131,7 @@ export default function PreviewCardBase({
       <PreviewCard.Portal container={container}>
         <PreviewCard.Positioner sideOffset={8}>
           <PreviewCard.Popup
-            render={
-              animated ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                />
-              ) : undefined
-            }
-            className={popupClasses}
+            className={`${popupClasses} ${animated ? "yui-preview-card-fade" : ""}`}
           >
             {children}
           </PreviewCard.Popup>

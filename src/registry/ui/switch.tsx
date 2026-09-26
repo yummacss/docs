@@ -2,7 +2,6 @@
 
 import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
-import { motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -14,14 +13,13 @@ const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 interface SizeSpec {
   track: string;
   thumb: string;
-  travel: number;
   travelClass: string;
 }
 
 const SIZES: Record<Size, SizeSpec> = {
-  sm: { track: "h:4 w:7", thumb: "w:3 h:2", travel: 8, travelClass: "ml:2" },
-  md: { track: "h:5 w:9", thumb: "w:4 h:3", travel: 12, travelClass: "ml:3" },
-  lg: { track: "h:6 w:11", thumb: "w:5 h:4", travel: 16, travelClass: "ml:4" },
+  sm: { track: "h:4 w:7", thumb: "w:3 h:2", travelClass: "ttx:2" },
+  md: { track: "h:5 w:9", thumb: "w:4 h:3", travelClass: "ttx:3" },
+  lg: { track: "h:6 w:11", thumb: "w:5 h:4", travelClass: "ttx:4" },
 };
 
 const SHAPES: Record<Shape, string> = {
@@ -106,7 +104,7 @@ export default function SwitchBase({
   );
   const checked = controlledChecked ?? internalChecked;
   const id = useId();
-  const { track, thumb, travel, travelClass } = SIZES[size];
+  const { track, thumb, travelClass } = SIZES[size];
 
   const handleChange = (next: boolean) => {
     setInternalChecked(next);
@@ -154,19 +152,11 @@ export default function SwitchBase({
             </span>
           )}
           <Switch.Thumb
-            render={
-              animated ? (
-                <motion.span
-                  animate={{ x: checked ? travel : 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                />
-              ) : undefined
-            }
-            className={
-              animated
-                ? thumbClasses
-                : `${thumbClasses} ${checked ? travelClass : "ml:0"}`
-            }
+            className={merge(
+              thumbClasses,
+              checked ? travelClass : "",
+              animated ? "tp:t tdu:200 ttf:io" : "",
+            )}
           />
         </Switch.Root>
         {label && (

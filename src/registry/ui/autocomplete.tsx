@@ -2,7 +2,6 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
-import { motion } from "motion/react";
 import { type ReactNode, useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -41,6 +40,12 @@ const AUTOCOMPLETE_MOTION = `
   .yui-autocomplete-pop[data-ending-style] {
     opacity: 0;
     scale: 0.95;
+  }
+  @keyframes yui-autocomplete-spin {
+    to { rotate: 360deg; }
+  }
+  .yui-autocomplete-spin {
+    animation: yui-autocomplete-spin 0.7s linear infinite;
   }
   @media (prefers-reduced-motion: reduce) {
     .yui-autocomplete-pop { transition: none; }
@@ -261,15 +266,11 @@ export default function AutocompleteBase({
           className="d:f py:3 px:4 ai:c g:2 c:slate-6 fs:sm us:none"
           role="status"
         >
-          <motion.span
+          <span
             aria-hidden
-            className="d:b w:4 h:4 bc:silver-3 btc:slate-8 bw:2 br:9999"
-            animate={animated ? { rotate: 360 } : undefined}
-            transition={{
-              duration: 0.7,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
+            className={`d:b w:4 h:4 bc:silver-3 btc:slate-8 bw:2 br:9999 ${
+              animated ? "yui-autocomplete-spin" : ""
+            }`}
           />
           Loading
         </div>
