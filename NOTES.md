@@ -2406,6 +2406,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       and after a Tab, never matched `:focus-visible`, so what was seen there
       was most likely the buttons inside a dialog.
 
+- [x] **Dialog has a `size`, and Button, Dialog & Alert Dialog share one
+      scale.** The report was right about the symptom and the cause was wider:
+      Dialog's `md` and all of Alert Dialog's buttons named no font size, so a
+      `<button>` fell back to the browser's 13.33px, because Yumma's normalize
+      inherited only `font-family`. Mayranne preferred the dialog's proportions
+      (more padding, smaller text), so the shared scale keeps them with a real
+      size: `sm` is `px:3 py:1 fs:xs`, `md` `px:4 py:2 fs:sm`, `lg` `px:6 py:3
+      fs:md`. Dialog's `triggerSize` became `size` and gained `lg`; Alert
+      Dialog gained `size`; Button moved onto the same table. Measured: at
+      `md`, all three render 14px and 34px tall, trigger & actions alike; `sm`
+      24px and `lg` 45px on Dialog. The normalize fix is yummacss
+      `fix/controls-inherit-font`.
+- [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
