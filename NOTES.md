@@ -4026,7 +4026,7 @@ Starting Style, CSS Functions. Updated: Configuration (`states`, `fonts`,
 `keyframes`), Transition Property (`tp:t`), Font Family (`theme.fonts`), Media
 Queries (`@xs`, `@prm`, a pointer to `@c:`), Nested Variants.
 
-Three stale things found on the way, fixed in the same branch:
+Four stale things found on the way, fixed in the same branch:
 - **Configuration's `prefix` example generated nothing.** `prefix: "ui"` with
   `ui-bg:red` is refused, because the prefix is prepended as written; it is
   `"ui-"` now. Its sample output was 3.x (`.bg-white`) too.
