@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ver } from "@/utils/version";
-import { YummaCSSDark } from "../icons/yummacss-dark";
+import { Logomark } from "../icons/logomark";
 
 // Esteban's widest digit and its dot, at 1em, so the display version is sized to
 // the band it sits in rather than to a guess that only holds for 4.1.2.
@@ -58,7 +58,7 @@ export default function Footer() {
       <div className="mx:auto px:6 docs-container">
         <div className="d:f fd:c g:12 pt:14 @lg:fd:r @lg:g:18">
           <div className="d:f fd:c g:5 @lg:w:80">
-            <YummaCSSDark className="d:b w:10 h:10" />
+            <Logomark className="d:b w:10 h:10 c:ink" />
 
             <div className="d:f fd:c g:2">
               <p className="m:0 c:ink/60 fs:sm">

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Scroller from "@/components/ui/scroller";
 import { Xmark } from "@/icons";
 import { useReveal } from "@/utils/reveal";
-import { YummaCSSDark } from "../icons/yummacss-dark";
+import { Logomark } from "../icons/logomark";
 
 interface NavItem {
   title: string;
@@ -68,7 +68,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 <div className="d:f ai:c jc:sb px:3 py:2 bc:border bbw:1">
                   <div className="d:f ai:c g:2">
                     <Link href="/" className="fv:oc:ink fv:ow:2">
-                      <YummaCSSDark className="d:b h:8 w:auto" />
+                      <Logomark className="d:b h:8 w:auto c:ink" />
                     </Link>
                   </div>
                   <Dialog.Close

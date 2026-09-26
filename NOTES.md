@@ -4035,6 +4035,26 @@ header's Previous, Next and Finish buttons, and the dots row's Finish, with no
 accessible name: icon-only, no `aria-label`. They have one now. The install
 command keeps `motion` until this and the ten both land.
 
+## The logomark is a Nucleo icon, 2026-09-26
+
+Renildo's pick: a triangle, a circle and a rounded square, one colour. It is
+`currentColor` in `src/components/icons/logomark.tsx` and takes `c:ink`, so it
+is near-black in light mode and white in dark. `favicon.svg` switches with
+`prefers-color-scheme`; `favicon.ico` (16, 32, 48) and `apple-touch-icon.png`
+put the mark on a white tile so it survives a dark tab bar, rendered with the
+`sharp` that ships with Next.
+
+**The license allows it and asks two things.** Nucleo's standard license lists
+"logo design" as a permitted use. An open-source repository may carry up to 100
+Nucleo icons and must include the Nucleo copyright notice, which is
+`NUCLEO-NOTICE.md` at the root, listing the files. **That 100 is shared with any
+Nucleo icons the Yumma UI registry ships**, and a registry that users copy from
+is redistribution, which the notice forbids outright: settle that before the
+icons move into the registry. Variants of the mark are planned, so it does not
+read as lifted.
+
+`og.png` and `ui-og.png` still carry the old mark and need redrawing.
+
 ## Parked
 
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives
