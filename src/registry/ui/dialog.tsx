@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { CloseIcon } from "@solar-icons/react/linear";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";

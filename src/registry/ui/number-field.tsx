@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { AltArrowDownIcon, AltArrowUpIcon } from "@solar-icons/react/linear";
+import { AltArrowDownIcon, AltArrowUpIcon } from "@solar-icons/react/outline";
 import type { ComponentProps } from "react";
 import { useId } from "react";
 import { merge } from "yummacss/merge";

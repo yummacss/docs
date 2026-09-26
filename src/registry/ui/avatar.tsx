@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CheckCircleIcon, UserIcon } from "@solar-icons/react/linear";
+import { CheckCircleIcon, UserIcon } from "@solar-icons/react/bold-duotone";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 

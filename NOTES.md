@@ -4069,18 +4069,26 @@ command keeps `motion` until this and the ten both land.
 
 ## Solar icons in the registry, 2026-09-26
 
-The registry draws its icons from Solar's Linear style through
-`@solar-icons/react`, one barrel import per file:
-`import { CheckIcon } from "@solar-icons/react/linear"`. Renildo's call:
-the package, not an `icons.tsx` copied in beside each component.
+The registry draws its icons from Solar through `@solar-icons/react`, one
+barrel import per style. Renildo's call: the package, not an `icons.tsx`
+copied in beside each component.
+
+- **Two styles, by kind.** Outline for marks, arrows and operators: check,
+  close, magnifier, chevrons, arrows, command, plus, minus, text formatting.
+  Bold Duotone for objects: cloud upload, the avatar's badge, rating stars,
+  the alert triangle, the sort arrows, eye, lock, bell and the rest. An icon
+  has one style everywhere, and `src/utils/icon-style.ts` names the style of
+  each demo icon so the Code tab imports from the right barrel;
+  `tests/icons.test.ts` fails on a clash or a missing entry. Renildo's call,
+  2026-09-26.
 
 - **Licence.** The icons are CC BY 4.0 (480 Design); the wrapper is MIT and
   ships the third-party notice. The Yumma UI installation page credits them.
   `solar-icon-set` on npm is a different wrapper under GPL-3.0; not that one.
 - **Size.** Without a width, a Solar icon is `1em` of a `24px` font size set
   inline, so every usage carries `w:`/`h:`. All 66 already did.
-- **Fill.** Linear paths set no `fill`, so Rating's `f:current` fills the
-  star as it did before.
+- **Fill.** Both styles set their own `fill`, so Rating's stars differ by
+  colour alone: `c:yellow-5` lit, `c:slate-4` not.
 - **The radio dot** in Menu, Context Menu and Menubar is a span,
   `d:b w:2 h:2 br:9999 bg:current`: Solar has no plain circle.
 - **Demo icons.** `src/utils/demo.tsx` imports the same package, so the

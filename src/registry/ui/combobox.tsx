@@ -2,11 +2,8 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import {
-  CheckIcon,
-  CloseIcon,
-  SortVerticalIcon,
-} from "@solar-icons/react/linear";
+import { SortVerticalIcon } from "@solar-icons/react/bold-duotone";
+import { CheckIcon, CloseIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";

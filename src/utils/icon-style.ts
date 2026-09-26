@@ -1,0 +1,33 @@
+// Marks and arrows are Outline; objects are Bold Duotone. See NOTES.md, "Solar icons".
+export type IconStyle = "outline" | "bold-duotone";
+
+export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {
+  AddFolderIcon: "bold-duotone",
+  AddIcon: "outline",
+  ArchiveIcon: "bold-duotone",
+  BellIcon: "bold-duotone",
+  BookmarkIcon: "bold-duotone",
+  CheckIcon: "outline",
+  CopyIcon: "bold-duotone",
+  DocumentAddIcon: "bold-duotone",
+  DocumentIcon: "bold-duotone",
+  ExportIcon: "bold-duotone",
+  FolderIcon: "bold-duotone",
+  HistoryIcon: "bold-duotone",
+  ImportIcon: "bold-duotone",
+  KeyboardIcon: "bold-duotone",
+  MagnifierIcon: "outline",
+  MoonIcon: "bold-duotone",
+  MoveToFolderIcon: "bold-duotone",
+  PaletteIcon: "bold-duotone",
+  PenIcon: "bold-duotone",
+  PinIcon: "bold-duotone",
+  SettingsIcon: "bold-duotone",
+  SortIcon: "bold-duotone",
+  StarsIcon: "bold-duotone",
+  SunIcon: "bold-duotone",
+  TextBoldIcon: "outline",
+  TextItalicIcon: "outline",
+  TextUnderlineIcon: "outline",
+  TrashBinTrashIcon: "bold-duotone",
+};

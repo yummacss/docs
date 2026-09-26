@@ -1,5 +1,5 @@
 import { Button } from "@base-ui/react";
-import { CloseIcon } from "@solar-icons/react/linear";
+import { CloseIcon } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
