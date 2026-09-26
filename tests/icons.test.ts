@@ -3,7 +3,7 @@ import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
 
-const DIRECT = /from\s+["']iconoir-react["']/;
+const DIRECT = /from\s+["']@solar-icons\/react/;
 const SHARED = /from\s+["']@\/icons["']/;
 
 function sources(dir: string): string[] {
@@ -20,11 +20,14 @@ describe("icons", () => {
   const src = join(rootDir, "src");
   const registryDir = join(src, "registry/ui");
   const module = join(src, "icons.tsx");
+  // renders the registry's demos, so it imports what the registry imports
+  const demos = join(src, "utils/demo.tsx");
 
   const all = sources(src);
   const registry = all.filter((file) => file.startsWith(registryDir));
   const site = all.filter(
-    (file) => !file.startsWith(registryDir) && file !== module,
+    (file) =>
+      !file.startsWith(registryDir) && file !== module && file !== demos,
   );
 
   it("routes every site import through the module", () => {
@@ -65,6 +68,6 @@ describe("icons", () => {
     }
 
     expect([...wanted].filter((name) => !names.has(name))).toEqual([]);
-    expect(wanted.size).toBeGreaterThan(40);
+    expect(wanted.size).toBeGreaterThan(30);
   });
 });

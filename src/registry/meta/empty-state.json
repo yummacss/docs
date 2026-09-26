@@ -5,7 +5,7 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "exampleIcon": "User",
+      "exampleIcon": "FolderIcon",
       "description": "The glyph in the badge. No badge renders without one."
     },
     {

@@ -13,7 +13,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": null,
-      "exampleIcon": "PagePlus",
+      "exampleIcon": "PenIcon",
       "description": "A glyph beside the trigger's label."
     },
     {
