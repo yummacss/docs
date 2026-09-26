@@ -5,11 +5,8 @@
 allowBuilds:
   esbuild: true
   sharp: true
-# Our own packages, so the release-age wait buys nothing. pnpm takes exact
-# versions only here, no ranges, so every release needs a line.
+# Our own packages, so the release-age wait buys nothing. A bare name covers
+# every version, so a release needs no new line here.
 minimumReleaseAgeExclude:
-  - '@yummacss/core@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
-  - '@yummacss/lint@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
-  - '@yummacss/nitro@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
-  - '@yummacss/postcss@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2'
-  - yummacss@4.0.0 || 4.1.0 || 4.1.1 || 4.1.2
+  - '@yummacss/*'
+  - yummacss
