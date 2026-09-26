@@ -560,6 +560,9 @@ blocks a release.**
       cannot come from the installed manifest, because naming `yummacss` in a
       server component pulls `@yummacss/nitro`'s dynamic import into the
       bundle and `next build` fails on it.
+- [x] **No footer on `/ui`.** Renildo's call, 2026-09-26: it makes no sense
+      on the component pages. `/docs` and `/blog` keep it; the landing page
+      never had it.
 - [x] **`.footer-version` is CSS, not classes.** No font-size scale reaches
       400px, and `line-height: 0.74` and `rgb(190 198 242 / 0.07)` are off
       every scale too, so it lives in `globals.css` and in the validator's
