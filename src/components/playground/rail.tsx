@@ -31,7 +31,7 @@ export default function PlaygroundRail() {
 
   return (
     <aside className="bc:border btw:1 @lg:btw:0 @lg:blw:1 @lg:gc-s:3">
-      <Scroller className="playground-rail">
+      <Scroller className="@lg:p:st @lg:t:20 @lg:max-h:calc(100dvh-5rem)">
         <div className="pt:8 pb:12 @lg:pt:0 @lg:px:8">
           {playground && (
             <div className="d:f ai:c jc:sb g:2 pb:4 mb:4 bc:border bbw:1">

@@ -40,9 +40,8 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
     <aside className="d:none @lg:d:b @lg:gc-s:3 @lg:pt:20">
       <Scroller
         viewportRef={viewport}
-        className="p:st t:20"
+        className="p:st t:20 max-h:calc(100dvh-5rem)"
         viewportClassName="d:f fd:c g:8 px:2 pb:12"
-        style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >
         {sections.map((section) => (
           <div key={section.title} className="d:f fd:c g:3">

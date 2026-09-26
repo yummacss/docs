@@ -55,7 +55,7 @@ const COLUMNS = [
 export default function Footer() {
   return (
     <footer className="btw:1 bc:border bg:page">
-      <div className="mx:auto px:6 docs-container">
+      <div className="mx:auto px:6 max-w:clamp(40rem,80vw,96rem)">
         <div className="d:f fd:c g:12 pt:14 @lg:fd:r @lg:g:18">
           <div className="d:f fd:c g:5 @lg:w:80">
             <YummaCSSDark className="d:b w:10 h:10" />
@@ -94,10 +94,13 @@ export default function Footer() {
         </div>
 
         <div
-          className="mt:12 footer-version-band"
+          className="mt:12 ct:is"
           style={{ "--span": span } as CSSProperties}
         >
-          <span aria-hidden="true" className="d:b footer-version">
+          <span
+            aria-hidden="true"
+            className="d:b ff:display fs:min(17rem,calc(100cqw/(var(--span)*1.03))) ls:1 ws:nw us:none pe:none footer-version"
+          >
             {ver}
           </span>
         </div>

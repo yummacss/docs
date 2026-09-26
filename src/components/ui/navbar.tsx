@@ -63,7 +63,7 @@ export default function Navbar({
           isLandingPage ? "bg:transparent" : "bg:page",
         )}
       >
-        <div className="mx:auto px:3 py:2 docs-container">
+        <div className="mx:auto px:3 py:2 max-w:clamp(40rem,80vw,96rem)">
           <nav className="d:f ai:c jc:sb">
             <div className="d:f ai:c g:8">
               <Link href="/" className="fv:oc:ink fv:ow:2">
