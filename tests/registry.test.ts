@@ -591,7 +591,9 @@ describe("Yumma UI registry", () => {
         join(rootDir, "src/registry/meta", file),
         "utf8",
       );
-      for (const [, size] of text.matchAll(/"\$icon": "[^"]+",\s*"size": "([^"]+)"/g)) {
+      for (const [, size] of text.matchAll(
+        /"\$icon": "[^"]+",\s*"size": "([^"]+)"/g,
+      )) {
         for (const cls of size.split(/\s+/)) sizes.add(cls);
       }
     }
