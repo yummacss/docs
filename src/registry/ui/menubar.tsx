@@ -303,7 +303,9 @@ export default function MenubarBase({
           className={itemClasses(destructive, trailing)}
         >
           {action.icon && iconPosition === "leading" && (
-            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
+            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+              {action.icon}
+            </span>
           )}
           {trailing ? (
             <span className="fg:1">{action.label}</span>
@@ -311,7 +313,9 @@ export default function MenubarBase({
             action.label
           )}
           {action.icon && iconPosition === "trailing" && (
-            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
+            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+              {action.icon}
+            </span>
           )}
           {action.shortcut && (
             <span
