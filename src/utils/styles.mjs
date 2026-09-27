@@ -41,7 +41,8 @@ const BOUNDS = [
   { from: ["md", "lg"], min: "xs", max: "xl" },
   { from: ["xl", "xxl", "3xl"], min: "sm", max: "3xl" },
 ];
-const SQUIRCLE_BOUNDS = { min: "lg", max: "3xl" };
+// a squircle only ever loses radius: past its own it reads as a pill
+const SQUIRCLE_MIN = "lg";
 
 export function refusal(style, radius) {
   const entry = STYLES[style];
@@ -52,11 +53,10 @@ export function refusal(style, radius) {
 }
 
 function shift(value, radius, bounds) {
-  const i = SCALE.indexOf(value);
-  const next = SCALE[i + SHIFT[radius]] ?? SCALE[0];
+  const next = SCALE.indexOf(value) + SHIFT[radius];
   const lo = SCALE.indexOf(bounds.min);
   const hi = SCALE.indexOf(bounds.max);
-  return SCALE[Math.min(Math.max(SCALE.indexOf(next), lo), hi)];
+  return SCALE[Math.min(Math.max(next, lo), hi)];
 }
 
 function shiftEntry(line, key, radius) {
@@ -64,7 +64,7 @@ function shiftEntry(line, key, radius) {
     if (!SCALE.includes(value)) return whole;
     const bounds =
       key === "squircle"
-        ? SQUIRCLE_BOUNDS
+        ? { min: SQUIRCLE_MIN, max: value }
         : BOUNDS.find((entry) => entry.from.includes(value));
     return bounds ? `br:${shift(value, radius, bounds)}` : whole;
   });
