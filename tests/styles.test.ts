@@ -120,4 +120,46 @@ describe("styles", () => {
       read("dialog"),
     );
   });
+
+  it("keeps a container rounder than what it holds", () => {
+    const scale = ["0", "xs", "sm", "md", "lg", "xl", "xxl", "3xl"];
+    const nested = [
+      ["tabs", "LIST_SHAPES", "TAB_SHAPES"],
+      ["menubar", "BAR_SHAPES", "TRIGGER_SHAPES"],
+      ["menubar", "POPUP_SHAPES", "ITEM_SHAPES"],
+      ["menu", "POPUP_SHAPES", "ITEM_SHAPES"],
+      ["context-menu", "POPUP_SHAPES", "ITEM_SHAPES"],
+      ["command-palette", "POPUP_SHAPES", "ITEM_SHAPES"],
+      ["toolbar", "ROOT_SHAPES", "CONTROL_SHAPES"],
+    ];
+    const step = (source: string, table: string, key: string) => {
+      const body =
+        source.match(
+          new RegExp(`^const ${table}\\b[^=]*= \\{\\n([\\s\\S]*?)^\\};`, "m"),
+        )?.[1] ?? "";
+      const value = body.match(
+        new RegExp(`^\\s*${key}: "br:([a-z0-9]+)`, "m"),
+      )?.[1];
+      return value ? scale.indexOf(value) : -1;
+    };
+    const flat: string[] = [];
+    for (const [id, outer, inner] of nested) {
+      const source = readFileSync(join(registryDir, `${id}.tsx`), "utf8");
+      for (const style of styles) {
+        for (const radius of STYLES[style].allow) {
+          const out = applyStyle(source, style, radius);
+          for (const key of ["rounded", "squircle"]) {
+            const o = step(out, outer, key);
+            const i = step(out, inner, key);
+            expect(o, `${id} ${outer}.${key}`).toBeGreaterThan(-1);
+            if (o <= i)
+              flat.push(
+                `${id} ${style}/${radius} ${key}: ${outer} ${scale[o]} <= ${inner} ${scale[i]}`,
+              );
+          }
+        }
+      }
+    }
+    expect(flat).toEqual([]);
+  });
 });

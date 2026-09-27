@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { MagnifierIcon } from "@solar-icons/react/outline";
+import { MagnifierIcon } from "@solar-icons/react/bold-duotone";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -204,7 +204,7 @@ export default function CommandPaletteBase({
                             </span>
                           )}
                           {item.shortcut && (
-                            <span className="d:f ai:c g:1 px:1 py:1 ml:3 bc:silver-2 bw:1 c:slate-5 br:md fs:xs us:none">
+                            <span className="d:f ai:c g:1 px:1 py:1 ml:3 bg:white bc:silver-2 bw:1 c:slate-5 br:md fs:xs us:none">
                               {item.shortcut}
                             </span>
                           )}

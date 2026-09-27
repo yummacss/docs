@@ -20,7 +20,7 @@ const SIZES: Record<Size, { tab: string; text: string }> = {
 
 const LIST_SHAPES: Record<Shape, string> = {
   pill: "br:9999",
-  rounded: "br:lg",
+  rounded: "br:xl",
   square: "",
   squircle: "br:3xl cs:s",
 };
