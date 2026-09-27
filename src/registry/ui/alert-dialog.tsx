@@ -48,9 +48,9 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
 
-const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
+const DANGER_OUTLINE = "fv:oc:red-7 fv:bc:red-3";
 
 const TONE_BUTTON: Record<Tone, string> = {
   danger: "bg:red h:bg:red-8 bc:red-7 c:white",

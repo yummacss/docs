@@ -25,16 +25,26 @@ const SURFACE: {
     darker: true,
   },
   { name: "f:slate-12", property: "fill" },
+  { name: "c:slate-11", property: "color" },
+  { name: "oc:slate-12", property: "outline-color" },
+  { name: "fv:oc:slate-12", property: "outline-color" },
+  { name: "fw:oc:slate-12", property: "outline-color" },
   {
     name: "s:slate-12",
     property: "stroke",
   },
 ];
 
+const STATES: Record<string, string> = {
+  h: ":hover",
+  fv: ":focus-visible",
+  fw: ":focus-within",
+};
+
 // `h:bg:slate-11` is `.h\:bg\:slate-11:hover`, as the generator writes it.
 function selectorOf(name: string): string {
-  const hover = name.startsWith("h:");
-  return `.${name.replaceAll(":", "\\:")}${hover ? ":hover" : ""}`;
+  const state = STATES[name.split(":")[0]] ?? "";
+  return `.${name.replaceAll(":", "\\:")}${state}`;
 }
 
 export const ACCENT_CLASSES = SURFACE.map((entry) => entry.name);

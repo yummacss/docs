@@ -2451,6 +2451,23 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Focus is visible, and follows the accent**, 2026-09-27. The shared
+      `FOCUS` in 29 components was a 3px `silver-3` outline at 60%, about
+      1.2:1 on white: inputs showed focus only through `fv:bc:silver-5`, and
+      a slider thumb or a switch track, with no border to darken, showed
+      nothing. It is a 2px `slate-12` outline 2px out, the colour primary
+      controls already use, so the accent table recolours it: `oc:`, `fv:oc:`
+      and `fw:oc:slate-12` sit in it now, and `selectorOf` knows `:focus-visible`
+      and `:focus-within`. The danger and error tints are `red-7`, success
+      `green-9`. Slider's thumb takes the same colour through its own state.
+- [x] **Number Field's focus wraps the group**: `fw:` on `NumberField.Group`,
+      so the outline goes round the input and both buttons. Its `focus`
+      string takes `fw:` utilities; Yumma scans class names from source, so
+      rewriting `fv:` to `fw:` at runtime would ship classes with no CSS.
+- [x] **Icons follow the accent**: Rating's active stars and Onboarding's step
+      icon are `c:slate-11`, in the accent table. Rating's stars are slate
+      by default rather than yellow.
+- [x] **Remove the Reset button**: already gone, the rail has none.
 - [x] **Style, Radius and Accent get their own controls**, 2026-09-27. See
       "Look, then the Component API".
 - [x] **Read-only props behind a disclosure**, 2026-09-27: "N more, set in

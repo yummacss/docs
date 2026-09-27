@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Status = "default" | "error" | "success";
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
@@ -33,8 +33,8 @@ const STATUS_BORDER: Record<Status, string> = {
 
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
-  error: "fv:oc:red-2/60 fv:bc:red-3",
-  success: "fv:oc:green-2/60 fv:bc:green-3",
+  error: "fv:oc:red-7 fv:bc:red-3",
+  success: "fv:oc:green-9 fv:bc:green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {
