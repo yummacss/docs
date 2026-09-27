@@ -6,7 +6,11 @@ export function typeOf(prop: RegistryProp): string {
   return prop.type;
 }
 
+// the style writes these defaults, so the rail lists them and never sets them
+export const STYLE_OWNED = ["shape", "iconShape", "size", "shadow"];
+
 export function isControllable(prop: RegistryProp): boolean {
+  if (STYLE_OWNED.includes(prop.name)) return false;
   if (prop.controlled && !prop.handler) return false;
   if (prop.exampleIcon || prop.optional) return true;
   return (

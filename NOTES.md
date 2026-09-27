@@ -4079,6 +4079,20 @@ the interesting work. Top first.
    offering three Fontsource faces or the user's own.
 6. **A new logomark.**
 
+**Styles phase four, the controls, 2026-09-27:** the rail's Style and
+Radius set `style` and `radius` in the URL through nuqs, the same way the
+props are, and `localStorage` carries them to the next page; a blocked pair in
+an address falls back to the nearest allowed step. The preview shows a style
+the way the accent shows a colour: `radiusCss` redefines each `br:` class in
+the preview frame, `:not(.cs\:s)` for rounded and `.cs\:s` for squircle, and
+`styleProps` passes the shape and size defaults the style writes. The install
+command carries `--style` and `--radius`. `size`, `shape`, `iconShape` and
+`shadow` leave the controls and the URL. `applyStyle` shifts every `br:` in
+a component's class strings, not only its `SHAPES` tables, since the preview
+redefines classes by value: the table-only version had also missed
+Accordion's nested table. `tests/styles.test.ts` compares the preview's CSS
+with what `applyStyle` writes, token by token.
+
 **Styles phase three, docs half, 2026-09-27:** `generate-registry-json.mjs`
 writes each allowed style and radius as a folder of the whole registry,
 `r/compact-small/button.json` and so on, plus `r/styles.json`, the table the
