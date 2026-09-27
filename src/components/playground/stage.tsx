@@ -3,11 +3,12 @@
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
+import Install from "@/components/playground/install";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
-import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
+import { accentCss, accentSwatch, DEFAULT_ACCENT } from "@/utils/accent";
 import {
   type DemoProps,
   exampleChildren,
@@ -121,6 +122,7 @@ export default function ComponentPlayground() {
   const usage = buildUsage(getRegistryTarget(id).component, meta, set);
   const Component = ready ?? frame?.Component;
   const style = playground?.style ?? DEFAULT_STYLE;
+  const accent = playground?.accent ?? DEFAULT_ACCENT;
   const radius = playground?.radius ?? STYLES[DEFAULT_STYLE].radius;
 
   const uncontrolled = Object.entries(set)
@@ -129,43 +131,55 @@ export default function ComponentPlayground() {
     .join("|");
 
   return (
-    <Tabs defaultValue="preview" className={FILL}>
-      <TabsList>
-        <TabsTab value="preview">Preview</TabsTab>
-        <TabsTab value="code">Code</TabsTab>
-      </TabsList>
+    // below @lg: the stage is fixed under the navbar, so the controls scroll beneath the preview
+    <div className="p:f t:12 l:0 r:0 zi:10 d:f fd:c h:calc(45dvh) px:4 py:3 bg:page bbw:1 bc:border @lg:p:s @lg:f:1 @lg:min-h:0 @lg:h:auto @lg:px:0 @lg:py:0 @lg:bbw:0">
+      <Tabs defaultValue="preview" className={FILL}>
+        <div className="d:f ai:c g:3 pr:1 bbw:1 bc:border">
+          <TabsList className="f:1 min-w:0 bbw:0">
+            <TabsTab value="preview">Preview</TabsTab>
+            <TabsTab value="code">Code</TabsTab>
+          </TabsList>
+          <span className="d:none @sm:d:f fs:0 ai:c g:2 c:ink/70 fs:xs">
+            <span
+              aria-hidden
+              className="d:b w:3 h:3"
+              style={{ backgroundColor: accentSwatch(accent) }}
+            />
+            {(STYLES as Record<string, { name: string }>)[style].name} ·{" "}
+            {radius}
+          </span>
+          <Install id={getRegistryTarget(id).install} />
+        </div>
 
-      <TabsPanel value="preview" className={FILL}>
-        <PreviewFrame
-          className="f:1 min-h:0"
-          minHeight={0}
-          fill
-          accentCss={[
-            accentCss(playground?.accent ?? DEFAULT_ACCENT),
-            radiusCss(style, radius),
-          ].join("\n")}
-        >
-          {Component && (
-            <Mounted
-              key={`${id}:${uncontrolled}`}
-              Component={Component}
-              props={{
-                ...(resolveIcons(set) as DemoProps),
-                ...styleProps(meta.props, style, radius),
-                ...handlers,
-              }}
-              portals={meta.props.some((prop) => prop.name === "container")}
-            >
-              {exampleChildren(meta)}
-            </Mounted>
-          )}
-        </PreviewFrame>
-      </TabsPanel>
+        <TabsPanel value="preview" className={FILL}>
+          <PreviewFrame
+            className="f:1 min-h:0"
+            minHeight={0}
+            fill
+            accentCss={[accentCss(accent), radiusCss(style, radius)].join("\n")}
+          >
+            {Component && (
+              <Mounted
+                key={`${id}:${uncontrolled}`}
+                Component={Component}
+                props={{
+                  ...(resolveIcons(set) as DemoProps),
+                  ...styleProps(meta.props, style, radius),
+                  ...handlers,
+                }}
+                portals={meta.props.some((prop) => prop.name === "container")}
+              >
+                {exampleChildren(meta)}
+              </Mounted>
+            )}
+          </PreviewFrame>
+        </TabsPanel>
 
-      <TabsPanel value="code" className={FILL}>
-        <TokenBlock tokens={usage} title="page.tsx" className={FILL} fill />
-      </TabsPanel>
-    </Tabs>
+        <TabsPanel value="code" className={FILL}>
+          <TokenBlock tokens={usage} title="page.tsx" className={FILL} fill />
+        </TabsPanel>
+      </Tabs>
+    </div>
   );
 }
 

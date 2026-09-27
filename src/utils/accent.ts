@@ -63,6 +63,18 @@ export function accentCss(family: string): string {
   ).join("\n");
 }
 
+/** The shade the accent paints with, for a swatch that shows it. */
+export function accentSwatch(family: string): string {
+  const shades = generateShades(colorTheme[family as keyof typeof colorTheme]);
+  return shades[accentShade(shades)];
+}
+
+/** Three shades of a family, light, base and dark, as the accent picker draws it. */
+export function accentBars(family: string): string[] {
+  const shades = generateShades(colorTheme[family as keyof typeof colorTheme]);
+  return [shades[3], shades[6], shades[9]];
+}
+
 // The lightest shade from 6 up that keeps white text at 4.5:1.
 export function accentShade(shades: string[]): number {
   let shade = 6;
