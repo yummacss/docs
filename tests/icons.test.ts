@@ -72,33 +72,59 @@ describe("icons", () => {
     expect(wanted.size).toBeGreaterThan(30);
   });
 
-  it("gives each Solar icon one style everywhere", () => {
-    const styleOf = new Map<string, string>();
+  it("gives each Solar icon one style within a file", () => {
     const clashes: string[] = [];
     for (const file of [...registry, demos]) {
+      const styleOf = new Map<string, string>();
       const source = readFileSync(file, "utf8");
       for (const [, block, style] of source.matchAll(
         /import\s*\{([^}]*)\}\s*from\s*["']@solar-icons\/react\/([a-z-]+)["']/g,
       )) {
         expect(["outline", "bold-duotone"]).toContain(style);
-        for (const name of block.split(",").map((n) => n.trim())) {
-          if (!name) continue;
-          const seen = styleOf.get(name);
+        for (const entry of block.split(",").map((n) => n.trim())) {
+          // an alias is a deliberate second style
+          if (!entry || entry.includes(" as ")) continue;
+          const seen = styleOf.get(entry);
           if (seen && seen !== style)
-            clashes.push(`${name}: ${seen} and ${style}`);
-          styleOf.set(name, style);
+            clashes.push(`${relative(rootDir, file)}: ${entry}`);
+          styleOf.set(entry, style);
         }
       }
     }
     expect(clashes).toEqual([]);
+  });
 
-    for (const [name, style] of Object.entries(EXAMPLE_ICON_STYLE)) {
-      expect(styleOf.get(name), name).toBe(style);
-    }
+  it("resolves every demo icon in the style it asks for", () => {
     const demoSource = readFileSync(demos, "utf8");
-    const listed = demoSource.slice(demoSource.indexOf("EXAMPLE_ICONS"));
-    for (const [, name] of listed.matchAll(/^\s+([A-Z][A-Za-z0-9]*Icon),$/gm)) {
-      expect(EXAMPLE_ICON_STYLE[name], name).toBeDefined();
+    const imported = (style: string) => {
+      const block =
+        demoSource.match(
+          new RegExp(`import \\{([^}]*)\\} from "@solar-icons/react/${style}"`),
+        )?.[1] ?? "";
+      return new Set(
+        block
+          .split(",")
+          .map((entry) => entry.trim().split(" as ")[0])
+          .filter(Boolean),
+      );
+    };
+    const missing: string[] = [];
+    for (const [name, style] of Object.entries(EXAMPLE_ICON_STYLE)) {
+      if (!imported(style).has(name)) missing.push(`${name} (${style})`);
     }
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const text = readFileSync(
+        join(rootDir, "src/registry/meta", file),
+        "utf8",
+      );
+      for (const [, name, style] of text.matchAll(
+        /"\$icon": "([A-Za-z0-9]+)",(?:\s*"style": "([a-z-]+)",)?/g,
+      )) {
+        const wanted = style ?? EXAMPLE_ICON_STYLE[name];
+        if (!wanted || !imported(wanted).has(name))
+          missing.push(`${file}: ${name} (${wanted})`);
+      }
+    }
+    expect(missing).toEqual([]);
   });
 });

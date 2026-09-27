@@ -16,9 +16,9 @@ type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const BAR_SHAPES: Record<Shape, string> = {
-  rounded: "br:lg",
+  rounded: "br:xl",
   square: "",
-  squircle: "br:xxl cs:s",
+  squircle: "br:3xl cs:s",
 };
 
 const TRIGGER_SHAPES: Record<Shape, string> = {

@@ -62,13 +62,25 @@
           "label": "View",
           "items": [
             {
-              "label": "List"
+              "label": "List",
+              "icon": {
+                "$icon": "ListIcon",
+                "size": "w:4 h:4"
+              }
             },
             {
-              "label": "Grid"
+              "label": "Grid",
+              "icon": {
+                "$icon": "Grid2x2Icon",
+                "size": "w:4 h:4"
+              }
             },
             {
-              "label": "Columns"
+              "label": "Columns",
+              "icon": {
+                "$icon": "Columns3Icon",
+                "size": "w:4 h:4"
+              }
             }
           ]
         }

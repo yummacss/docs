@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { EXAMPLE_ICON_STYLE } from "../src/utils/icon-style";
 import { rootDir } from "./helpers";
 
 const ORG =
@@ -97,13 +98,7 @@ describe("content model", () => {
   });
 
   it("names icons the demo can render", () => {
-    const known = new Set(
-      readFileSync(join(rootDir, "src/utils/demo.tsx"), "utf8")
-        .split("EXAMPLE_ICONS")[1]
-        ?.split("};")[0]
-        ?.match(/^\s{2}([A-Z][A-Za-z0-9]*),$/gm)
-        ?.map((line) => line.trim().replace(",", "")) ?? [],
-    );
+    const known = new Set(Object.keys(EXAMPLE_ICON_STYLE));
 
     expect(known.size).toBeGreaterThan(15);
 

@@ -52,6 +52,7 @@
               "label": "Search",
               "icon": {
                 "$icon": "MagnifierIcon",
+                "style": "bold-duotone",
                 "size": "w:4 h:4"
               },
               "description": "Look through every file at once"
