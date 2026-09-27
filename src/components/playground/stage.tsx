@@ -4,7 +4,6 @@ import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
-import PreviewSpinner from "@/components/preview-spinner";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
@@ -27,8 +26,6 @@ import {
   styleProps,
 } from "@/utils/styles.mjs";
 
-const PREVIEW_SHELL = "d:f p:r ox:auto ai:c jc:c p:10 bg:white";
-
 const FILL = "d:f fd:c f:1 min-h:0";
 
 interface Frame {
@@ -42,7 +39,18 @@ export default function ComponentPlayground() {
   const playground = usePlayground();
   const playgroundRef = useRef(playground);
   playgroundRef.current = playground;
-  const [frame, setFrame] = useState<Frame | null>(null);
+  const [frame, setFrame] = useState<Frame | null>(() => {
+    const cached =
+      playground?.meta && getCachedRegistryComponent(playground.id);
+    return cached && playground?.meta
+      ? {
+          id: playground.id,
+          meta: playground.meta,
+          values: playground.values,
+          Component: cached as ComponentType<DemoProps>,
+        }
+      : null;
+  });
 
   useEffect(() => {
     const id = playground?.id;
@@ -92,24 +100,26 @@ export default function ComponentPlayground() {
     [handlerProps],
   );
 
-  if (!frame) {
-    return (
-      <div className={`bc:border bw:1 ${FILL}`}>
-        <div data-preview className={`f:1 min-h:0 ${PREVIEW_SHELL}`}>
-          <PreviewSpinner />
-        </div>
-      </div>
-    );
-  }
-
-  const live = frame.id === playground?.id && Boolean(playground?.meta);
-  const values = live && playground ? playground.values : frame.values;
-  const meta = live && playground?.meta ? playground.meta : frame.meta;
+  // a component already loaded swaps in this render; until the first arrives the frame stays empty
+  const ready =
+    playground && frame?.id !== playground.id
+      ? (getCachedRegistryComponent(playground.id) as
+          | ComponentType<DemoProps>
+          | undefined)
+      : undefined;
+  const live =
+    !frame ||
+    Boolean(ready) ||
+    (frame.id === playground?.id && Boolean(playground?.meta));
+  const id = live ? (playground?.id ?? "") : (frame?.id ?? "");
+  const values = live ? (playground?.values ?? {}) : (frame?.values ?? {});
+  const meta = live ? playground?.meta : frame?.meta;
+  if (!id || !meta) return null;
   const set = Object.fromEntries(
     Object.entries(values).filter(([, value]) => value !== ""),
   );
-  const usage = buildUsage(getRegistryTarget(frame.id).component, meta, set);
-  const { Component } = frame;
+  const usage = buildUsage(getRegistryTarget(id).component, meta, set);
+  const Component = ready ?? frame?.Component;
   const style = playground?.style ?? DEFAULT_STYLE;
   const radius = playground?.radius ?? STYLES[DEFAULT_STYLE].radius;
 
@@ -135,18 +145,20 @@ export default function ComponentPlayground() {
             radiusCss(style, radius),
           ].join("\n")}
         >
-          <Mounted
-            key={uncontrolled}
-            Component={Component}
-            props={{
-              ...(resolveIcons(set) as DemoProps),
-              ...styleProps(meta.props, style, radius),
-              ...handlers,
-            }}
-            portals={meta.props.some((prop) => prop.name === "container")}
-          >
-            {exampleChildren(meta)}
-          </Mounted>
+          {Component && (
+            <Mounted
+              key={`${id}:${uncontrolled}`}
+              Component={Component}
+              props={{
+                ...(resolveIcons(set) as DemoProps),
+                ...styleProps(meta.props, style, radius),
+                ...handlers,
+              }}
+              portals={meta.props.some((prop) => prop.name === "container")}
+            >
+              {exampleChildren(meta)}
+            </Mounted>
+          )}
         </PreviewFrame>
       </TabsPanel>
 

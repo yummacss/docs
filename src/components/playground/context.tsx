@@ -17,6 +17,7 @@ import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
+import { getAllUISlugs } from "@/utils/sidebar";
 import { carriedFor, readCarried, writeCarried } from "@/utils/sticky";
 import {
   DEFAULT_STYLE,
@@ -63,13 +64,6 @@ export function usePlayground(): Playground | null {
   return useContext(PlaygroundContext);
 }
 
-interface Seed {
-  meta: RegistryMeta | null;
-  values: DemoProps;
-}
-
-const EMPTY: Seed = { meta: null, values: {} };
-
 export function PlaygroundProvider({
   id,
   children,
@@ -77,7 +71,11 @@ export function PlaygroundProvider({
   id: string;
   children: ReactNode;
 }) {
-  const [seed, setSeed] = useState<Seed>(EMPTY);
+  // synchronous, so the server renders the Component API and a switch never empties it
+  const seed = useMemo(() => {
+    const meta = getRegistryMeta(id);
+    return { meta, values: meta ? seedValues(meta) : {} };
+  }, [id]);
   const [accent, setAccentState] = useState(DEFAULT_ACCENT);
 
   useEffect(() => setAccentState(readAccent()), []);
@@ -137,25 +135,14 @@ export function PlaygroundProvider({
     [commitStyle, style],
   );
 
+  // the neighbours too, so the pagination arrows land on a component that is ready
   useEffect(() => {
-    const importMeta = getRegistryMeta(id);
-    if (!importMeta) {
-      setSeed(EMPTY);
-      return;
-    }
-
-    setSeed(EMPTY);
     prefetchRegistry(id);
-
-    let live = true;
-    importMeta().then((module) => {
-      if (!live) return;
-      setSeed({ meta: module.default, values: seedValues(module.default) });
-    });
-
-    return () => {
-      live = false;
-    };
+    const slugs = getAllUISlugs();
+    const at = slugs.indexOf(id);
+    for (const slug of [slugs[at - 1], slugs[at + 1]]) {
+      if (slug && getRegistryMeta(slug)) prefetchRegistry(slug);
+    }
   }, [id]);
 
   const keyMap = useMemo(
@@ -241,6 +228,38 @@ export function PlaygroundProvider({
       setRadius,
     ],
   );
+
+  return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
+}
+
+const ignore = () => {};
+
+/**
+ * The playground at its defaults, with nothing to change it. The server
+ * renders this while the address is unknown, so the page arrives whole.
+ */
+export function StaticPlayground({
+  id,
+  children,
+}: {
+  id: string;
+  children: ReactNode;
+}) {
+  const playground = useMemo(() => {
+    const meta = getRegistryMeta(id);
+    return {
+      id,
+      meta,
+      values: meta ? seedValues(meta) : {},
+      setValue: ignore,
+      accent: DEFAULT_ACCENT,
+      setAccent: ignore,
+      style: DEFAULT_STYLE,
+      radius: SPECS[DEFAULT_STYLE].radius,
+      setStyle: ignore,
+      setRadius: ignore,
+    };
+  }, [id]);
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
 }

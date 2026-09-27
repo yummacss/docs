@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { getRegistryImport, getRegistryMeta } from "@/registry";
+import { getRegistryImport } from "@/registry";
 
 type RegistryComponent = ComponentType<Record<string, unknown>>;
 
@@ -42,5 +42,4 @@ export function loadRegistryComponent(
 
 export function prefetchRegistry(id: string) {
   void loadRegistryComponent(id);
-  void getRegistryMeta(id)?.();
 }
