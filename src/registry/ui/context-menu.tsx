@@ -15,7 +15,7 @@ type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
-  rounded: "br:xxl cs:s",
+  rounded: "br:xxl",
   square: "",
   squircle: "br:xxl cs:s",
 };
