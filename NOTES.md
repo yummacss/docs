@@ -2797,7 +2797,7 @@ Everything lives under `src/components/playground/` unless noted.
 | `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
 | `rail.tsx` | The right column: Look (`style`, `radius`, `accent`) as rows, then the Component API, with the props it cannot set folded under "N more, set in code". |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
-| `install.tsx` | The "Copy command" menu in the stage's tab bar, one `yummaui add` per package manager. |
+| `install.tsx` | Copy command and Copy code, a button group in the stage's tab bar. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
 | `../../utils/demo.tsx` | `EXAMPLE_ICONS`, `exampleIcon`, `resolveIcons`, `seedValues`. |
 | `../../utils/props.ts` | `typeOf`, `isControllable`. |
@@ -2833,10 +2833,13 @@ and had to be restored.
   props: a select, a stepper that stops at the style's range, and a select
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
-  style-owned ones read as one line under Look.
-- **Copy command, not the file.** The CLI installs `@base-ui/react` and
-  `yummacss`, adds the registry files a component needs and writes the
-  chosen style and radius; a copied file does none of that.
+  style-owned ones and the blocked-radius reasons are not shown.
+- **Copy command and Copy code, no menu.** The command is `yummaui add
+  <id>` with the style flags and no package manager in front: no popup over
+  the preview, no choice to make. Copy code copies the styled file from
+  `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
+  would install. A `ClipboardItem` holds the fetch, so the copy keeps the
+  click's permission while the file loads.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
   controls scroll under the preview.

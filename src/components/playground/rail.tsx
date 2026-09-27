@@ -19,7 +19,7 @@ import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { ACCENTS, accentBars } from "@/utils/accent";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, STYLE_OWNED, typeOf } from "@/utils/props";
-import { RADIUS, STYLES, styleProps } from "@/utils/styles.mjs";
+import { RADIUS, STYLES } from "@/utils/styles.mjs";
 
 export default function PlaygroundRail() {
   const playground = usePlayground();
@@ -172,10 +172,7 @@ function Row({
   );
 }
 
-const SPECS: Record<
-  string,
-  { allow: string[]; refused: Record<string, string> }
-> = STYLES;
+const SPECS: Record<string, { allow: string[] }> = STYLES;
 
 const SWATCHES = ACCENTS.map((family) => ({
   value: family,
@@ -188,18 +185,6 @@ function Look() {
   if (!playground) return null;
   const spec = SPECS[playground.style];
   const allowed = RADIUS.map((step) => spec.allow.includes(step));
-  const blocked = RADIUS.filter((_, step) => !allowed[step]);
-  const reasons = [...new Set(blocked.map((step) => spec.refused[step]))];
-  const props = playground.meta?.props ?? [];
-  const styled: Record<string, unknown> = styleProps(
-    props,
-    playground.style,
-    playground.radius,
-  );
-  const owned = props
-    .filter((prop) => STYLE_OWNED.includes(prop.name))
-    .map((prop) => `${prop.name} ${styled[prop.name] ?? prop.default}`);
-
   const line = (name: string, hint: string, control: React.ReactNode) => (
     <div className="d:f ai:c jc:sb g:2 py:2 bc:border bbw:1">
       <HintTooltip label={hint}>
@@ -243,12 +228,6 @@ function Look() {
           value={playground.accent}
           onChange={playground.setAccent}
         />,
-      )}
-      {owned.length > 0 && (
-        <p className="mt:2 c:silver-8 ff:m fs:xs">{owned.join(" · ")}</p>
-      )}
-      {reasons.length > 0 && (
-        <p className="mt:1 c:silver-8 fs:xs">{reasons.join(" ")}</p>
       )}
     </div>
   );
