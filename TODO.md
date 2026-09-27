@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  141
-    Open    22
-    Done    87%
+    Closed  143
+    Open    23
+    Done    86%
 
 ---
 
@@ -61,15 +61,13 @@ Design decisions. Nothing here starts without them.
 
 - [ ] Replace the stage's tab bar with the **browser window** treatment,
       redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
-- [ ] **A small radius becomes the default shape**, in place of `square`.
-      Renildo's call, 2026-09-18. Touches every component and the `shape`
-      vocabulary in AGENTS.md, where `rounded` is already defined per control,
-      so decide whether this changes the default or the definition.
-- [ ] **Try other icon packs**, Phosphor and Solar among them, nothing
-      overrated. Mockups first: the bar is that they look consistent across the
-      whole site.
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
+- [ ] **Mark what is new in the sidebar.** CSS Functions, Class Merge,
+      States and the rest of 4.2 carry an indicator beside their link, so a
+      returning reader finds them. Decide how long an entry stays new.
+- [ ] **The active link is hard to spot** in the navbar and the sidebar,
+      reported by a friend of Renildo's. Revamp both treatments together.
 
 ## Phase 5 - Infrastructure
 
@@ -118,6 +116,10 @@ The Component API rail, from Renildo's pass on 2026-09-18.
       `canon`'s own CLI and report, and adds the rules a build cannot carry:
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
       should be `d-f`. See NOTES.md under Linting. Rename the package with it.
+
+- [ ] **`play` learns 4.2**: `theme.states`, `theme.keyframes`, `theme.fonts`,
+      CSS function values, container queries and `@st:`. After its redesign,
+      which NOTES.md lists.
 
 ## Decisions
 
