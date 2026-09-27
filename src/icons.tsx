@@ -44,15 +44,8 @@ import {
 
 type Props = Omit<IconProps, "weight">;
 
-/**
- * Icons are duotone, except stroke-only glyphs (arrows, carets, X, check, plus,
- * menu), where duotone invents a square or a filled arrowhead behind the line.
- */
-const duotone = (Glyph: Icon) => {
-  const Duotone = (props: Props) => <Glyph weight="duotone" {...props} />;
-  return Duotone;
-};
-
+// Regular weight: at 16px its 1px strokes sit on the pixel grid, where duotone's
+// fill blurs every edge. See NOTES.md, "Icons at 16px".
 const regular = (Glyph: Icon) => {
   const Regular = (props: Props) => <Glyph weight="regular" {...props} />;
   return Regular;
@@ -60,41 +53,41 @@ const regular = (Glyph: Icon) => {
 
 export const ArrowUpRight = regular(ArrowUpRightIcon);
 export const Check = regular(CheckIcon);
-export const CheckCircle = duotone(CheckCircleIcon);
-export const ComponentSolid = duotone(CubeIcon);
-export const Copy = duotone(CopyIcon);
-export const CursorPointer = duotone(CursorClickIcon);
-export const FileMd = duotone(FileMdIcon);
-export const Folder = duotone(FolderIcon);
-export const Github = duotone(GithubLogoIcon);
-export const HalfMoon = duotone(MoonIcon);
-export const Heart = duotone(HeartIcon);
-export const InfoCircle = duotone(InfoIcon);
-export const InputField = duotone(CursorTextIcon);
-export const LogOut = duotone(SignOutIcon);
+export const CheckCircle = regular(CheckCircleIcon);
+export const ComponentSolid = regular(CubeIcon);
+export const Copy = regular(CopyIcon);
+export const CursorPointer = regular(CursorClickIcon);
+export const FileMd = regular(FileMdIcon);
+export const Folder = regular(FolderIcon);
+export const Github = regular(GithubLogoIcon);
+export const HalfMoon = regular(MoonIcon);
+export const Heart = regular(HeartIcon);
+export const InfoCircle = regular(InfoIcon);
+export const InputField = regular(CursorTextIcon);
+export const LogOut = regular(SignOutIcon);
 export const LongArrowDownLeftSolid = regular(ArrowElbowDownLeftIcon);
 export const Menu = regular(ListIcon);
-export const Monitor = duotone(MonitorIcon);
-export const MouseButtonLeft = duotone(MouseLeftClickIcon);
-export const MouseButtonRight = duotone(MouseRightClickIcon);
-export const MouseScrollWheel = duotone(MouseScrollIcon);
+export const Monitor = regular(MonitorIcon);
+export const MouseButtonLeft = regular(MouseLeftClickIcon);
+export const MouseButtonRight = regular(MouseRightClickIcon);
+export const MouseScrollWheel = regular(MouseScrollIcon);
 export const NavArrowDown = regular(CaretDownIcon);
 export const NavArrowLeft = regular(CaretLeftIcon);
 export const NavArrowRight = regular(CaretRightIcon);
 export const NavArrowUp = regular(CaretUpIcon);
-export const OpenBook = duotone(BookOpenIcon);
-export const OpenSelectHandGesture = duotone(HandPointingIcon);
-export const Page = duotone(FileIcon);
-export const PageEdit = duotone(NotePencilIcon);
+export const OpenBook = regular(BookOpenIcon);
+export const OpenSelectHandGesture = regular(HandPointingIcon);
+export const Page = regular(FileIcon);
+export const PageEdit = regular(NotePencilIcon);
 export const Plus = regular(PlusIcon);
-export const RssFeed = duotone(RssSimpleIcon);
-export const Ruler = duotone(RulerIcon);
-export const RulerCombine = duotone(ResizeIcon);
-export const Search = duotone(MagnifyingGlassIcon);
-export const Sparks = duotone(SparkleIcon);
-export const StyleBorderSolid = duotone(KeyboardIcon);
-export const SunLight = duotone(SunIcon);
-export const Twitter = duotone(TwitterLogoIcon);
+export const RssFeed = regular(RssSimpleIcon);
+export const Ruler = regular(RulerIcon);
+export const RulerCombine = regular(ResizeIcon);
+export const Search = regular(MagnifyingGlassIcon);
+export const Sparks = regular(SparkleIcon);
+export const StyleBorderSolid = regular(KeyboardIcon);
+export const SunLight = regular(SunIcon);
+export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
-export const WarningTriangle = duotone(WarningIcon);
+export const WarningTriangle = regular(WarningIcon);
 export const Xmark = regular(XIcon);
