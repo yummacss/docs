@@ -44,9 +44,9 @@
     {
       "name": "border",
       "type": "enum",
-      "values": ["dashed", "solid"],
+      "values": ["dashed", "solid", "none"],
       "default": "dashed",
-      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
+      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin. `none` leaves the zone to its background."
     },
     {
       "name": "error",

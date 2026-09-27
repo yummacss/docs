@@ -290,7 +290,7 @@ export default function AutocompleteBase({
     >
       <div className={`d:f fd:c g:2 ${disabled ? "o:60 c:na" : ""}`}>
         {label && (
-          <label htmlFor={id} className="c:slate-10 fs:sm fw:500">
+          <label htmlFor={id} className="c:slate-10 fs:sm fw:500 us:none">
             {label}
           </label>
         )}

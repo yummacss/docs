@@ -45,24 +45,25 @@ article h6 {
   z-index: 20;
 }
 
+/* the site's own popups carry data-chrome and follow the site theme */
 [data-preview],
 [data-preview] *,
-[class*="-popup"],
-[class*="-popup"] *,
-[class*="-backdrop"],
-[class*="-backdrop"] *,
-[role="dialog"],
-[role="dialog"] *,
-[role="alertdialog"],
-[role="alertdialog"] *,
-[role="listbox"],
-[role="listbox"] *,
-[role="menu"],
-[role="menu"] *,
-[role="menubar"],
-[role="menubar"] *,
-[role="navigation"],
-[role="navigation"] * {
+[class*="-popup"]:not([data-chrome], [data-chrome] *),
+[class*="-popup"]:not([data-chrome], [data-chrome] *) *,
+[class*="-backdrop"]:not([data-chrome], [data-chrome] *),
+[class*="-backdrop"]:not([data-chrome], [data-chrome] *) *,
+[role="dialog"]:not([data-chrome], [data-chrome] *),
+[role="dialog"]:not([data-chrome], [data-chrome] *) *,
+[role="alertdialog"]:not([data-chrome], [data-chrome] *),
+[role="alertdialog"]:not([data-chrome], [data-chrome] *) *,
+[role="listbox"]:not([data-chrome], [data-chrome] *),
+[role="listbox"]:not([data-chrome], [data-chrome] *) *,
+[role="menu"]:not([data-chrome], [data-chrome] *),
+[role="menu"]:not([data-chrome], [data-chrome] *) *,
+[role="menubar"]:not([data-chrome], [data-chrome] *),
+[role="menubar"]:not([data-chrome], [data-chrome] *) *,
+[role="navigation"]:not([data-chrome], [data-chrome] *),
+[role="navigation"]:not([data-chrome], [data-chrome] *) * {
   color-scheme: light;
   font-family:
     system-ui,
@@ -76,22 +77,22 @@ article h6 {
 
 [data-preview]::selection,
 [data-preview] *::selection,
-[class*="-popup"]::selection,
-[class*="-popup"] *::selection,
-[class*="-backdrop"]::selection,
-[class*="-backdrop"] *::selection,
-[role="dialog"]::selection,
-[role="dialog"] *::selection,
-[role="alertdialog"]::selection,
-[role="alertdialog"] *::selection,
-[role="listbox"]::selection,
-[role="listbox"] *::selection,
-[role="menu"]::selection,
-[role="menu"] *::selection,
-[role="menubar"]::selection,
-[role="menubar"] *::selection,
-[role="navigation"]::selection,
-[role="navigation"] *::selection {
+[class*="-popup"]:not([data-chrome], [data-chrome] *)::selection,
+[class*="-popup"]:not([data-chrome], [data-chrome] *) *::selection,
+[class*="-backdrop"]:not([data-chrome], [data-chrome] *)::selection,
+[class*="-backdrop"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="dialog"]:not([data-chrome], [data-chrome] *)::selection,
+[role="dialog"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="alertdialog"]:not([data-chrome], [data-chrome] *)::selection,
+[role="alertdialog"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="listbox"]:not([data-chrome], [data-chrome] *)::selection,
+[role="listbox"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="menu"]:not([data-chrome], [data-chrome] *)::selection,
+[role="menu"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="menubar"]:not([data-chrome], [data-chrome] *)::selection,
+[role="menubar"]:not([data-chrome], [data-chrome] *) *::selection,
+[role="navigation"]:not([data-chrome], [data-chrome] *)::selection,
+[role="navigation"]:not([data-chrome], [data-chrome] *) *::selection {
   background-color: Highlight;
   color: HighlightText;
 }

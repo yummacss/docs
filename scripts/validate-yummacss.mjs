@@ -120,9 +120,12 @@ function classesInStringLiterals(source) {
     }
   }
 
+  // a quoted object key, like "inline-end":, is not a class
   for (const region of classMapRegions(source)) {
-    for (const [, literal] of region.matchAll(/"([^"\n]*)"/g))
-      consider(literal);
+    for (const [, open, literal, colon] of region.matchAll(
+      /([{,]\s*)?"([^"\n]*)"(\s*:)?/g,
+    ))
+      if (!(open && colon)) consider(literal);
   }
 
   return found;
