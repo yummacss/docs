@@ -9,7 +9,7 @@ type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
@@ -28,7 +28,7 @@ const TONES: Record<Tone, string> = {
   danger: "bg:red-7 c:white",
 };
 
-const DANGER_OUTLINE = "fv:oc:red-7 fv:bc:red-3";
+const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
 
 const TRIGGER_TONES: Record<Tone, string> = {
   light: "c:slate-8 h:c:slate-10",

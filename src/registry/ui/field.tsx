@@ -42,7 +42,7 @@ const ICON_PADDING: Record<IconSide, string> = {
   trailing: "pl:4 pr:10",
 };
 
-const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const STATUS_BORDER: Record<Status, string> = {
   default: "bc:silver-3",
@@ -52,8 +52,8 @@ const STATUS_BORDER: Record<Status, string> = {
 
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
-  error: "fv:oc:red-7 fv:bc:red-3",
-  success: "fv:oc:green-9 fv:bc:green-3",
+  error: "fv:oc:red-2/60 fv:bc:red-3",
+  success: "fv:oc:green-2/60 fv:bc:green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {

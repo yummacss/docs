@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 // the group draws focus, so the outline wraps the input and both buttons
-const GROUP_FOCUS = "fw:os:s fw:ow:2 fw:oo:2 fw:oc:slate-12 fw:bc:silver-5";
+const GROUP_FOCUS = "fw:os:s fw:ow:3 fw:oo:0 fw:oc:slate-4/60 fw:bc:slate-6";
 
 const STEP =
   "d:f ai:c jc:c bg:white c:slate-10 us:none c:p h:bg:silver-1/50 a:bg:silver-2";
