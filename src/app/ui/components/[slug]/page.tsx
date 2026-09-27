@@ -2,9 +2,7 @@ import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
-import Install from "@/components/playground/install";
 import Pagination from "@/components/ui/pagination";
-import { getRegistryTarget } from "@/registry";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -62,9 +60,6 @@ export default async function Page({
           <div className="d:f ai:c jc:sb mb:2">
             <h1 className="min-w:0 c:ink fs:4xl fw:400 ow:bw">{ui.title}</h1>
             <div className="d:f fs:0 ai:c g:2">
-              {ui.playground && (
-                <Install id={getRegistryTarget(slug).install} />
-              )}
               <Pagination
                 previous={navigation.previous}
                 next={navigation.next}

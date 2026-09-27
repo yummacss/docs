@@ -28,8 +28,10 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
       <Sidebar variant="ui" />
 
       <div
-        className={`d:f fd:c pt:12 @lg:gc-s:6 ${
-          playground ? "@lg:h:dvh @lg:pb:6 @lg:o:h" : ""
+        className={`d:f fd:c @lg:gc-s:6 ${
+          playground
+            ? "pt:calc(45dvh+1.5rem) @lg:pt:12 @lg:h:dvh @lg:pb:6 @lg:o:h"
+            : "pt:12"
         }`}
       >
         <article className="d:f fd:c f:1 min-h:0">
