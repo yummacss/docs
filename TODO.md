@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  155
-    Open    35
-    Done    82%
+    Closed  157
+    Open    33
+    Done    83%
 
 ---
 
@@ -85,11 +85,6 @@ Design decisions. Nothing here starts without them.
       returning reader finds them. Decide how long an entry stays new.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
-- [ ] **Style, Radius and Accent get their own controls**, apart from the
-      Component API: swatches for the accent, matching how the docs show a
-      colour, and a slider for the radius. Three selects read as more props.
-- [ ] **Read-only props behind a disclosure.** The rail lists every prop; put
-      the ones it cannot set behind "more" or a dialog, so it reads lighter.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card
       that fills its width, with a strip of activity, is the direction.
 

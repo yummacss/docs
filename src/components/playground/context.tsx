@@ -32,6 +32,7 @@ const STYLE_KEYS = {
   radius: parseAsStringLiteral(RADIUS as [string, ...string[]]),
 };
 const STYLE_STORE = "yui:style";
+const PANEL_STORE = "yui:panel";
 
 function readStyle(): { style?: string; radius?: string } {
   try {
@@ -55,6 +56,8 @@ interface Playground {
   radius: string;
   setStyle: (style: string) => void;
   setRadius: (radius: string) => void;
+  panel: boolean;
+  setPanel: (open: boolean) => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -81,6 +84,23 @@ export function PlaygroundProvider({
   const [accent, setAccentState] = useState(DEFAULT_ACCENT);
 
   useEffect(() => setAccentState(readAccent()), []);
+
+  const [panel, setPanelState] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(PANEL_STORE) === "closed") {
+        setPanelState(false);
+      }
+    } catch {}
+  }, []);
+
+  const setPanel = useCallback((open: boolean) => {
+    setPanelState(open);
+    try {
+      window.localStorage.setItem(PANEL_STORE, open ? "open" : "closed");
+    } catch {}
+  }, []);
 
   const setAccent = useCallback((family: string) => {
     setAccentState(family);
@@ -227,6 +247,8 @@ export function PlaygroundProvider({
       radius,
       setStyle,
       setRadius,
+      panel,
+      setPanel,
     }),
     [
       id,
@@ -239,6 +261,8 @@ export function PlaygroundProvider({
       radius,
       setStyle,
       setRadius,
+      panel,
+      setPanel,
     ],
   );
 

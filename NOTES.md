@@ -2451,6 +2451,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Style, Radius and Accent get their own controls**, 2026-09-27: a
+      toggle group, a slider and square swatches, in a Look section above the
+      Component API. See "The Customize drawer".
+- [x] **Read-only props behind a disclosure**, 2026-09-27: "N more, set in
+      code", closed by default.
 - [x] **Preview Card has an arrow, on by default**, 2026-09-27. The same
       arrow as Popover, behind an `arrow` prop.
 - [x] **The site's own popups follow the site theme.** `globals.css` forces
@@ -2788,7 +2793,8 @@ Everything lives under `src/components/playground/` unless noted.
 | --- | --- |
 | `context.tsx` | `PlaygroundProvider` keyed by slug. Holds `meta` + `values`, seeds from the schema, auto-satisfies `dependsOn` in `setValue`. |
 | `stage.tsx` | `ComponentPlayground`, used from MDX. Live preview + usage snippet. Keeps the last ready frame while the next loads. |
-| `rail.tsx` | The right column, Component API. Reads context; renders nothing when context is null. |
+| `customize.tsx` | The Customize drawer: docked in the right column at `@lg:`, a bottom sheet below. Holds Look and the Component API. |
+| `look.tsx` | Style, Radius and Accent, on Base UI's Toggle Group, Slider and Radio Group. |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
 | `install.tsx` | `yummaui add` copy menu. `prominent` variant for the page header. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
@@ -2802,13 +2808,37 @@ trick in `token-block.tsx` to find the current page's `primitive`.
 
 333 of 407 props across 36 schemas are controllable (82%); no component has zero.
 
+### The Customize drawer
+
+One `Drawer.Root`, keyed on the breakpoint so each layout starts clean.
+
+- **`@lg:` and up** it portals into the third grid column and docks there;
+  closing it gives the stage that column. `modal={false}` and
+  `disablePointerDismissal`, so the preview stays live beside it.
+- **Below `@lg:`** it is a bottom sheet over the page with snap points
+  `12rem`, `0.5` and `1`, sequential, so a flick moves one step. The page
+  ends 12rem early so the resting sheet covers nothing.
+- **`Drawer.Viewport` is required**, and it is what swipes. `Drawer.Content`
+  keeps a mouse drag in the body from swiping, so text selection and the
+  slider work; touch still swipes. The sheet's handle and title sit outside
+  the scroller, because a swipe that starts in scrollable content scrolls it.
+- **The sheet's position is an inline `translate`.** Base UI only sets
+  `--drawer-snap-point-offset` and `--drawer-swipe-movement-y`; Yumma has no
+  way to put a `var()` inside `translateY()`, since a function value
+  replaces the whole value. `tr:calc(...)` sets X alone.
+- **The popups carry `data-chrome`**, or the preview's light-scheme rule
+  catches their `role="dialog"`.
+- Open or closed is remembered in `localStorage` as `yui:panel`.
+
 ### Settled design, do not re-litigate
 
 Each of these was asked for explicitly and at least one was lost once in a merge
 and had to be restored.
 
-- **One rail section.** Not two. Interactive and read-only props mix in the same
-  list.
+- **One drawer, Look then the Component API.** Renildo's call, 2026-09-27,
+  from the rail rework mockups (D+E). The props the drawer cannot set fold
+  under "N more, set in code"; the style-owned ones read as one line under
+  Style instead.
 - **Every enum is a select**, however few values. Segmented controls wrapped in a
   three-column rail and broke the shared right edge.
 - **Switches, not checkboxes.** Docs palette (`bg-accent-dim` on, `bg-border`
