@@ -89,8 +89,8 @@ is written.
   `style` and `radius` in the URL, remembered in `localStorage` for the next
   page, and the address wins. `src/utils/styles.mjs` owns them. A blocked
   pair in an address falls back to the nearest allowed radius.
-- `size`, `shape`, `iconShape` and `shadow` belong to the style: the rail
-  lists them as reference and never sets them.
+- `size`, `shape`, `iconShape` and `shadow` belong to the style: the
+  Customize drawer shows them as one line under Style and never sets them.
 - `animated` and `focus` follow you from one component page to the next.
   `src/utils/sticky.ts` owns that list.
 - `variant`, `tone` and `intent` are deliberately not carried: they share a

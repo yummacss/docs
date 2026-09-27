@@ -3,6 +3,7 @@
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
+import { CustomizeTrigger } from "@/components/playground/customize";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
@@ -120,10 +121,13 @@ export default function ComponentPlayground() {
 
   return (
     <Tabs defaultValue="preview" className={FILL}>
-      <TabsList>
-        <TabsTab value="preview">Preview</TabsTab>
-        <TabsTab value="code">Code</TabsTab>
-      </TabsList>
+      <div className="d:f ai:c bbw:1 bc:border">
+        <TabsList className="f:1 min-w:0 bbw:0">
+          <TabsTab value="preview">Preview</TabsTab>
+          <TabsTab value="code">Code</TabsTab>
+        </TabsList>
+        <CustomizeTrigger />
+      </div>
 
       <TabsPanel value="preview" className={FILL}>
         <PreviewFrame

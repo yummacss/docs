@@ -35,6 +35,7 @@ import {
   RssSimpleIcon,
   RulerIcon,
   SignOutIcon,
+  SlidersHorizontalIcon,
   SparkleIcon,
   SunIcon,
   TwitterLogoIcon,
@@ -91,6 +92,7 @@ export const RssFeed = duotone(RssSimpleIcon);
 export const Ruler = duotone(RulerIcon);
 export const RulerCombine = duotone(ResizeIcon);
 export const Search = duotone(MagnifyingGlassIcon);
+export const Sliders = duotone(SlidersHorizontalIcon);
 export const Sparks = duotone(SparkleIcon);
 export const StyleBorderSolid = duotone(KeyboardIcon);
 export const SunLight = duotone(SunIcon);
