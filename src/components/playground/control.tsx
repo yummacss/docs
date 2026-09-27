@@ -3,7 +3,6 @@
 import { Button } from "@base-ui/react";
 import { Select } from "@base-ui/react/select";
 import { Switch } from "@base-ui/react/switch";
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NavArrowDown } from "@/icons";
 import type { RegistryProp } from "@/registry";
@@ -168,7 +167,7 @@ export function EnumSelect({
   const [open, setOpen] = useState(false);
 
   const popup = (
-    <Select.Popup className="p:1 oy:auto w:32 max-h:40 bc:border bg:surface bw:1">
+    <Select.Popup className="tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none p:1 oy:auto w:32 max-h:40 bc:border bg:surface bw:1">
       <Select.List>
         {values.map((option) => (
           <Select.Item
@@ -204,28 +203,17 @@ export function EnumSelect({
         <Select.Value className="o:h to:e ws:nw" />
         <NavArrowDown className="fs:0 w:3 h:3 c:ink/50" aria-hidden />
       </Select.Trigger>
-      <AnimatePresence>
-        {open && (
-          <Select.Portal>
-            <Select.Positioner
-              side="bottom"
-              sideOffset={4}
-              alignItemWithTrigger={false}
-              collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
-              className="zi:50"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                {popup}
-              </motion.div>
-            </Select.Positioner>
-          </Select.Portal>
-        )}
-      </AnimatePresence>
+      <Select.Portal>
+        <Select.Positioner
+          side="bottom"
+          sideOffset={4}
+          alignItemWithTrigger={false}
+          collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
+          className="zi:50"
+        >
+          {popup}
+        </Select.Positioner>
+      </Select.Portal>
     </Select.Root>
   );
 }
