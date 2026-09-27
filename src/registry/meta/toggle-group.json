@@ -56,7 +56,7 @@
         "aria-label": "Bold",
         "icon": {
           "$icon": "TextBoldIcon",
-          "size": "w-4 h-4"
+          "size": "w:4 h:4"
         }
       }
     },
@@ -67,7 +67,7 @@
         "aria-label": "Italic",
         "icon": {
           "$icon": "TextItalicIcon",
-          "size": "w-4 h-4"
+          "size": "w:4 h:4"
         }
       }
     },
@@ -78,7 +78,7 @@
         "aria-label": "Underline",
         "icon": {
           "$icon": "TextUnderlineIcon",
-          "size": "w-4 h-4"
+          "size": "w:4 h:4"
         }
       }
     }

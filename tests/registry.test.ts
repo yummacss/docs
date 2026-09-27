@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { validateClasses } from "@yummacss/nitro";
 import { describe, expect, it } from "vitest";
 import { SHARED_PROP_ORDER } from "../src/utils/props";
 import { rootDir } from "./helpers";
@@ -581,5 +582,23 @@ describe("Yumma UI registry", () => {
       }
     }
     expect(drift).toEqual([]);
+  });
+
+  it("sizes every demo icon with classes Yumma generates", async () => {
+    const sizes = new Set<string>();
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const text = readFileSync(
+        join(rootDir, "src/registry/meta", file),
+        "utf8",
+      );
+      for (const [, size] of text.matchAll(
+        /"\$icon": "[^"]+",\s*"size": "([^"]+)"/g,
+      )) {
+        for (const cls of size.split(/\s+/)) sizes.add(cls);
+      }
+    }
+    expect(sizes.size).toBeGreaterThan(0);
+    const { invalid } = await validateClasses([...sizes], {});
+    expect(invalid).toEqual([]);
   });
 });

@@ -4136,6 +4136,11 @@ copied in beside each component.
   `solar-icon-set` on npm is a different wrapper under GPL-3.0; not that one.
 - **Size.** Without a width, a Solar icon is `1em` of a `24px` font size set
   inline, so every usage carries `w:`/`h:`. All 66 already did.
+- **Demo icon sizes** in seven schemas were `w-4 h-4`, a 3.x class that
+  generated nothing, so every menu icon drew at Solar's 24px. They are
+  `w:4 h:4`, and `tests/registry.test.ts` validates every marker's size. A
+  destructive item's icon is `c:red` with its label in Menu, Context Menu and
+  Menubar.
 - **Fill.** Both styles set their own `fill`, so Rating's stars differ by
   colour alone: `c:yellow-5` lit, `c:slate-4` not.
 - **The radio dot** in Menu, Context Menu and Menubar is a span,
