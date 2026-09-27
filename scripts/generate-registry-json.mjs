@@ -10,6 +10,7 @@ import {
 } from "node:fs";
 import { basename, join } from "node:path";
 import { targetPath } from "../src/utils/install.mjs";
+import { applyStyle, DEFAULT_STYLE, STYLES } from "../src/utils/styles.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -114,6 +115,24 @@ for (const id of ids) {
     `${JSON.stringify(entry, null, 2)}\n`,
   );
 
+  // one folder per style and radius, so the CLI only swaps its base URL
+  for (const [style, spec] of Object.entries(STYLES)) {
+    for (const radius of spec.allow) {
+      const dir = join(outDir, `${style}-${radius}`);
+      mkdirSync(dir, { recursive: true });
+      const styled = {
+        ...entry,
+        files: [
+          { ...entry.files[0], content: applyStyle(source, style, radius) },
+        ],
+      };
+      writeFileSync(
+        join(dir, `${id}.json`),
+        `${JSON.stringify(styled, null, 2)}\n`,
+      );
+    }
+  }
+
   if (!orphan) {
     if (!components.has(component)) {
       components.set(component, {
@@ -146,10 +165,19 @@ writeFileSync(
   )}\n`,
 );
 
+writeFileSync(
+  join(outDir, "styles.json"),
+  `${JSON.stringify({ default: DEFAULT_STYLE, styles: STYLES }, null, 2)}\n`,
+);
+
 const missingBase = index.filter((g) => !g.base).length;
 const examples = ids.length - index.length - orphans;
+const builds = Object.values(STYLES).reduce(
+  (n, spec) => n + spec.allow.length,
+  0,
+);
 console.log(
-  `registry json: ${index.length} components, ${examples} examples -> public/ui/r/`,
+  `registry json: ${index.length} components, ${examples} examples, ${builds} style builds -> public/ui/r/`,
 );
 if (orphans) console.log(`  ${orphans} file(s) match no /ui page`);
 if (missingBase) console.log(`  ${missingBase} component(s) have no base`);
