@@ -1,5 +1,6 @@
 import { Tabs as BaseTabs } from "@base-ui/react/tabs";
 import type * as React from "react";
+import { merge } from "yummacss/merge";
 
 interface TabsProps extends React.ComponentProps<typeof BaseTabs.Root> {
   defaultValue?: string;
@@ -41,7 +42,10 @@ export function TabsList({
 }: TabsListProps) {
   return (
     <BaseTabs.List
-      className={`d:f p:r zi:0 px:1 cg:1 bbw:1 bc:border ox:auto ${className}`}
+      className={merge(
+        "d:f p:r zi:0 px:1 cg:1 bbw:1 bc:border ox:auto",
+        className,
+      )}
       style={style}
       {...props}
     >

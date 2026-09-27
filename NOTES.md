@@ -2451,6 +2451,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Style, Radius and Accent get their own controls**, 2026-09-27. See
+      "Look, then the Component API".
+- [x] **Read-only props behind a disclosure**, 2026-09-27: "N more, set in
+      code", closed by default.
 - [x] **Moving between component pages flashes**, 2026-09-27. See "No
       flash between pages". The preview still fills in after hydration on a
       hard load, since the frame renders only in the browser.
@@ -2791,9 +2795,9 @@ Everything lives under `src/components/playground/` unless noted.
 | --- | --- |
 | `context.tsx` | `PlaygroundProvider` keyed by slug. Holds `meta` + `values`, seeds from the schema, auto-satisfies `dependsOn` in `setValue`. |
 | `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
-| `rail.tsx` | The right column, Component API. Reads context; renders nothing when context is null. |
+| `rail.tsx` | The right column: Look (`style`, `radius`, `accent`) as rows, then the Component API, with the props it cannot set folded under "N more, set in code". |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
-| `install.tsx` | `yummaui add` copy menu. `prominent` variant for the page header. |
+| `install.tsx` | CLI and File, two copy buttons in the stage's tab bar, set like the tabs beside them. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
 | `../../utils/demo.tsx` | `EXAMPLE_ICONS`, `exampleIcon`, `resolveIcons`, `seedValues`. |
 | `../../utils/props.ts` | `typeOf`, `isControllable`. |
@@ -2824,8 +2828,29 @@ nor the rail's rows, which arrived 500ms later. Four changes, one swap left:
 Each of these was asked for explicitly and at least one was lost once in a merge
 and had to be restored.
 
-- **One rail section.** Not two. Interactive and read-only props mix in the same
-  list.
+- **Look, then the Component API**, Renildo's pick from the rail rework
+  mockups, round 2, option 3 (2026-09-27). Look is three rows that read like
+  props: a select, a stepper that stops at the style's range, and a select
+  whose options are three shades (light, base, dark) of each family. The
+  props the rail cannot set fold under "N more, set in code"; the
+  style-owned ones and the blocked-radius reasons are not shown.
+- **CLI and File, no menu.** Two copy buttons in the tabs' own type and
+  spacing, with the active tab's box on hover. A copy swaps the icon for a
+  check and the accessible name for "Copied the CLI command"; the label
+  stays, so nothing shifts.
+- **Icons land on whole pixels.** A 16px icon centred in a 21px row (`fs:sm`
+  at line height 1.5) sits 2.5px down, and the browser smears it across two
+  pixel rows. Measured on Edit page and View markdown (y .50), fixed with
+  `h:5`, which leaves 2px. The code block's Copy still lands on a fraction
+  when the content above it ends on one. The command is `yummaui add
+  <id>` with the style flags and no package manager in front: no popup over
+  the preview, no choice to make. File copies the styled file from
+  `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
+  would install. A `ClipboardItem` holds the fetch, so the copy keeps the
+  click's permission while the file loads.
+- **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
+  fixed under the navbar at 45dvh and the page starts beneath it, so the
+  controls scroll under the preview.
 - **Every enum is a select**, however few values. Segmented controls wrapped in a
   three-column rail and broke the shared right edge.
 - **Switches, not checkboxes.** Docs palette (`bg-accent-dim` on, `bg-border`
