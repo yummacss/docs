@@ -1,7 +1,7 @@
 "use client";
 
 import { PreviewCard } from "@base-ui/react/preview-card";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
@@ -20,6 +20,17 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o:sm",
 };
 
+const ARROW_PLACEMENT: Record<string, CSSProperties> = {
+  top: { bottom: -6, rotate: "180deg" },
+  bottom: { top: -6 },
+  left: { right: -9, rotate: "90deg" },
+  right: { left: -9, rotate: "-90deg" },
+  "inline-start": { right: -9, rotate: "90deg" },
+  "inline-end": { left: -9, rotate: "-90deg" },
+};
+
+const ARROW_HEIGHT = 6;
+
 export interface PreviewCardProps {
   /**
    * Where the popup is rendered. Defaults to `document.body`, which is right
@@ -27,6 +38,11 @@ export interface PreviewCardProps {
    * frame or a container that owns its own stacking context.
    */
   container?: HTMLElement | null;
+  /**
+   * A pointer notched into the card's edge, aimed back at the trigger. It
+   * re-aims itself when the card flips to fit.
+   */
+  arrow?: boolean;
   /** The inline content that opens the card on hover or focus. */
   trigger: ReactNode;
   /** The card's contents. */
@@ -71,6 +87,7 @@ export interface PreviewCardProps {
 
 /** A hover-triggered card, in three shapes with an optional shadow. */
 export default function PreviewCardBase({
+  arrow = true,
   trigger,
   children,
   defaultOpen,
@@ -87,6 +104,7 @@ export default function PreviewCardBase({
     "d:f fd:c g:3 w:64 p:3 bg:white bc:silver-2 bw:1 c:slate-10 fs:sm",
     SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    arrow ? "p:r" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -113,10 +131,25 @@ export default function PreviewCardBase({
       </PreviewCard.Trigger>
 
       <PreviewCard.Portal container={container}>
-        <PreviewCard.Positioner sideOffset={8}>
+        <PreviewCard.Positioner sideOffset={8 + (arrow ? ARROW_HEIGHT : 0)}>
           <PreviewCard.Popup
             className={`${popupClasses} ${animated ? "tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
           >
+            {arrow && (
+              <PreviewCard.Arrow
+                className="d:f"
+                style={(state) => ARROW_PLACEMENT[state.side]}
+              >
+                <svg viewBox="0 0 10 5" width="12" height="6">
+                  <title>Arrow</title>
+                  <path
+                    d="M0 5 L5 0 L10 5"
+                    strokeWidth="1"
+                    className="f:white s:silver-2"
+                  />
+                </svg>
+              </PreviewCard.Arrow>
+            )}
             {children}
           </PreviewCard.Popup>
         </PreviewCard.Positioner>

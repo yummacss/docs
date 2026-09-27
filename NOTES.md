@@ -2451,6 +2451,34 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Preview Card has an arrow, on by default**, 2026-09-27. The same
+      arrow as Popover, behind an `arrow` prop.
+- [x] **The site's own popups follow the site theme.** `globals.css` forces
+      light on every `role="menu"`, `listbox` and `dialog` so a portalled
+      preview popup stays light; that caught the install menu, the rail's
+      selects, search and the mobile nav too. They carry `data-chrome` and the
+      rule skips it. pnpm and Bun use Renildo's marks, pnpm's grey squares on
+      `light-dark()`.
+- [x] **Combobox shows the same loading row as Autocomplete**: a spinner and
+      "Loading", with `role="status"`.
+- [x] **File Upload's `border` takes `none`.**
+- [x] **One field label**: Radio, Checkbox Group, Combobox and Autocomplete
+      read `c:slate-10 fs:sm fw:500`.
+- [x] **Textarea's counter is off in the demo.** `maxLength` still turns it
+      on.
+- [x] **Avatar's `verified` is `badge`**, with `badgeIcon` for another icon
+      and `badgeLabel` for its name. The default is Solar's verified check.
+- [x] **Avatar Stack's demo has ten avatars**, so every `max` up to 8 shows
+      the `+N`.
+- [x] **Menubar's labels sit centred.** The triggers are `h:8` and inherited
+      8px of vertical padding, which pushed a 21px line 2.5px low. `d:if ai:c
+      py:0`.
+- [x] **Menubar's Import and Export icons are back.** `FileLeftIcon` and
+      `FileRightIcon` moved to Bold Duotone in `icon-style.ts` but not in
+      `demo.tsx`'s tables, so the lookup found nothing.
+- [x] **Empty State's buttons are rounded**, `br:lg`, like Button under Soft.
+- [x] **`validate` skips quoted object keys.** `"inline-end":` in the arrow
+      placement tables read as a class and failed the run on `main`.
 
 ### Phase 7 - One breaking registry release
 

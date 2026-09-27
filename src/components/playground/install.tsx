@@ -76,6 +76,7 @@ export default function Install({ id }: { id: string }) {
       </HintTooltip>
       <Menu.Portal>
         <Menu.Positioner
+          data-chrome
           side="bottom"
           align="end"
           sideOffset={4}

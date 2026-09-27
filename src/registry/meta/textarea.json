@@ -27,7 +27,7 @@
     {
       "name": "maxLength",
       "type": "number",
-      "example": 200,
+      "example": 0,
       "description": "Caps the value and draws the counter under the field. Zero draws neither.",
       "min": 0,
       "max": 400,

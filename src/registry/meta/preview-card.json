@@ -2,6 +2,12 @@
   "summary": "A hover-triggered card, in three shapes with an optional shadow.",
   "props": [
     {
+      "name": "arrow",
+      "type": "boolean",
+      "default": true,
+      "description": "A pointer notched into the card's edge, aimed back at the trigger. It re-aims itself when the card flips to fit."
+    },
+    {
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
