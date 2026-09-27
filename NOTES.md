@@ -4030,6 +4030,11 @@ the interesting work. Top first.
    Soft (rounded, `br:lg` on controls) is the default, and a style blocks
    the combinations that make no sense for it, such as Squircle with no
    radius, rather than letting the rail produce them.
+   **Phase one done, 2026-09-27:** every `shape` and `iconShape` that
+   defaulted to `square` defaults to `rounded`, 31 in code and 32 in the
+   schemas (Separator's schema said `square` while its code said `rounded`).
+   `tests/registry.test.ts` fails when a schema default and a code default
+   disagree.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23

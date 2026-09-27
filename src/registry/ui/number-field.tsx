@@ -103,7 +103,7 @@ export default function NumberFieldBase({
   required = false,
   description,
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   disabled = false,
   className,

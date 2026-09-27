@@ -132,7 +132,7 @@ export interface ToolbarProps {
  */
 export default function ToolbarBase({
   items,
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   animated = true,
   className,

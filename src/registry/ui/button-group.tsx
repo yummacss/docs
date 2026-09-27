@@ -39,7 +39,7 @@ export interface ButtonGroupProps {
 export default function ButtonGroup({
   className,
   children,
-  shape = "square",
+  shape = "rounded",
   separated = true,
   stretch = false,
 }: ButtonGroupProps) {

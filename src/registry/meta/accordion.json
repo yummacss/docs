@@ -93,7 +93,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them.",
       "conflictsWith": [
         {
