@@ -19,14 +19,14 @@
             {
               "label": "Import",
               "icon": {
-                "$icon": "ImportIcon",
+                "$icon": "FileLeftIcon",
                 "size": "w:4 h:4"
               }
             },
             {
               "label": "Export",
               "icon": {
-                "$icon": "ExportIcon",
+                "$icon": "FileRightIcon",
                 "size": "w:4 h:4"
               }
             }

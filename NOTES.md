@@ -2433,6 +2433,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       `md`, all three render 14px and 34px tall, trigger & actions alike; `sm`
       24px and `lg` 45px on Dialog. The normalize fix is yummacss
       `fix/controls-inherit-font`.
+- [x] **A small radius is the default shape**, 2026-09-27: `rounded` on
+      every component, and `square` a choice. See "Component API as styles"
+      in the Queue for the phases that followed.
+- [x] **Other icon packs, tried**, 2026-09-26: Solar, in Outline for marks
+      and Bold Duotone for objects. See "Solar icons in the registry".
 - [x] **The registry animates with Yumma classes, not its own CSS**,
       2026-09-26. The twenty `*_MOTION` blocks and their `<style>` tags are
       gone. Two states and three keyframes in `yumma.config.mjs` carry them:
@@ -4155,7 +4160,8 @@ copied in beside each component.
   close, magnifier, chevrons, arrows, command, plus, minus, text formatting.
   Bold Duotone for objects: cloud upload, the avatar's badge, rating stars,
   the alert triangle, the sort arrows, eye, lock, bell and the rest. Import
-  and Export are Outline too; Command Palette is Bold Duotone throughout,
+  and Export are `FileLeftIcon` and `FileRightIcon`, Outline like Menubar's
+  Grid and Columns; Command Palette is Bold Duotone throughout,
   its own magnifier included. An icon has one style within a file, and
   `src/utils/icon-style.ts` names each demo icon's style so the Code tab
   imports from the right barrel. A demo marker can ask for another with
