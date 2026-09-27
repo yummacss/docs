@@ -56,7 +56,7 @@ export default async function Page({
   const stage = Boolean(ui.playground);
 
   return (
-    <div className={`d:f fd:c f:1 min-h:0 ${stage ? "" : "mb:16"}`}>
+    <div className={stage ? "d:f fd:c fs:0" : "d:f fd:c f:1 min-h:0 mb:16"}>
       {ui && (
         <div className={`my:8 ${stage ? "fs:0" : ""}`} data-meta>
           <div className="d:f ai:c jc:sb mb:2">
@@ -75,7 +75,7 @@ export default async function Page({
           {ui.description && <p className="c:ink/70 fs:lg">{ui.description}</p>}
         </div>
       )}
-      <div className={stage ? "d:f fd:c f:1 min-h:0" : ""}>
+      <div>
         <MDXContent />
       </div>
       <JsonLd
