@@ -25,8 +25,9 @@ describe("install paths", () => {
   it("spells what `yummaui init` defaults to", () => {
     expect(targetPath("button")).toBe("components/ui/button.tsx");
     expect(importPath("button")).toBe("@/components/ui/button");
-    expect(addCommand("pnpm dlx", "button")).toBe(
-      "pnpm dlx yummaui add button",
+    expect(addCommand("button")).toBe("yummaui add button");
+    expect(addCommand("button", "--style compact")).toBe(
+      "yummaui add button --style compact",
     );
   });
 

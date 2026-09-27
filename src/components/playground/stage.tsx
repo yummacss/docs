@@ -8,7 +8,7 @@ import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
-import { accentCss, accentSwatch, DEFAULT_ACCENT } from "@/utils/accent";
+import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
 import {
   type DemoProps,
   exampleChildren,
@@ -139,15 +139,6 @@ export default function ComponentPlayground() {
             <TabsTab value="preview">Preview</TabsTab>
             <TabsTab value="code">Code</TabsTab>
           </TabsList>
-          <span className="d:none @sm:d:f fs:0 ai:c g:2 c:ink/70 fs:xs">
-            <span
-              aria-hidden
-              className="d:b w:3 h:3"
-              style={{ backgroundColor: accentSwatch(accent) }}
-            />
-            {(STYLES as Record<string, { name: string }>)[style].name} ·{" "}
-            {radius}
-          </span>
           <Install id={getRegistryTarget(id).install} />
         </div>
 
