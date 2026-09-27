@@ -2835,7 +2835,14 @@ and had to be restored.
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
 - **CLI and File, no menu.** Two copy buttons in the tabs' own type and
-  spacing, with the active tab's box on hover. The command is `yummaui add
+  spacing, with the active tab's box on hover. A copy swaps the icon for a
+  check and the accessible name for "Copied the CLI command"; the label
+  stays, so nothing shifts.
+- **Icons land on whole pixels.** A 16px icon centred in a 21px row (`fs:sm`
+  at line height 1.5) sits 2.5px down, and the browser smears it across two
+  pixel rows. Measured on Edit page and View markdown (y .50), fixed with
+  `h:5`, which leaves 2px. The code block's Copy still lands on a fraction
+  when the content above it ends on one. The command is `yummaui add
   <id>` with the style flags and no package manager in front: no popup over
   the preview, no choice to make. File copies the styled file from
   `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
