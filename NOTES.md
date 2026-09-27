@@ -4074,6 +4074,13 @@ the interesting work. Top first.
    offering three Fontsource faces or the user's own.
 6. **A new logomark.**
 
+**Styles phase three, docs half, 2026-09-27:** `generate-registry-json.mjs`
+writes each allowed style and radius as a folder of the whole registry,
+`r/compact-small/button.json` and so on, plus `r/styles.json`, the table the
+CLI validates against. The CLI swaps its base URL and nothing else.
+`tests/registry-json.test.ts` builds it and checks every item in every folder
+is `applyStyle` of the default.
+
 ## Motion out of the registry, evaluated 2026-09-23
 
 **Verdict: yes, with our own CSS, not transitions.dev's.** transitions.dev is
