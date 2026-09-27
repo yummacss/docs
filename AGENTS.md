@@ -64,6 +64,8 @@ is written.
 - `square` is no radius, `squircle` is `br-xxl cs-s`, and `rounded` is the
   natural round for that control: `br-sm` on a checkbox, `br-lg` on a panel,
   `br-9999` on a switch or a track, which is already a capsule at that height.
+- `rounded` is the default wherever a component has a shape. `square` is a
+  choice, never the default.
 - `pill` appears only where a smaller `rounded` also makes sense, so a
   component offering both keeps them different. Never add `pill` as a synonym.
 - Shape is not a style axis where it is the affordance. A radio is round

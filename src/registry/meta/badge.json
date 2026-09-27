@@ -66,7 +66,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["square", "rounded", "pill", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {

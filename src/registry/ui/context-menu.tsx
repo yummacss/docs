@@ -144,7 +144,7 @@ export interface ContextMenuProps {
 export default function ContextMenuBase({
   trigger,
   items,
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   iconPosition = "leading",
   disabled = false,

@@ -103,7 +103,7 @@ export default function CommandPaletteBase({
   placeholder = "Search commands…",
   emptyMessage = "No commands found.",
   iconPosition = "leading",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   animated = true,
   className,

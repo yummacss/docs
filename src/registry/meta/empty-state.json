@@ -61,7 +61,7 @@
       "name": "iconShape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius on the badge."
     },
     {
