@@ -21,7 +21,7 @@
               "label": "New file",
               "icon": {
                 "$icon": "DocumentAddIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               },
               "shortcut": "⌘N"
             },
@@ -30,7 +30,7 @@
               "label": "Open recent",
               "icon": {
                 "$icon": "HistoryIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               },
               "shortcut": "⌘O"
             },
@@ -39,7 +39,7 @@
               "label": "New folder",
               "icon": {
                 "$icon": "AddFolderIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               }
             }
           ]
@@ -52,7 +52,7 @@
               "label": "Search",
               "icon": {
                 "$icon": "MagnifierIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               },
               "description": "Look through every file at once"
             },
@@ -61,7 +61,7 @@
               "label": "Appearance",
               "icon": {
                 "$icon": "PaletteIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               },
               "description": "Theme, type size and density"
             },
@@ -70,7 +70,7 @@
               "label": "Shortcuts",
               "icon": {
                 "$icon": "KeyboardIcon",
-                "size": "w-4 h-4"
+                "size": "w:4 h:4"
               },
               "description": "Rebind anything, or clear it"
             }
