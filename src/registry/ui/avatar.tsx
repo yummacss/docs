@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CheckCircleIcon, UserIcon } from "@solar-icons/react/bold-duotone";
+import { UserIcon, VerifiedCheckIcon } from "@solar-icons/react/bold-duotone";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
@@ -79,11 +79,17 @@ export interface AvatarProps {
    */
   status?: Status;
   /**
-   * A verification check in the top right corner. `status` takes the bottom
-   * right, so the two never collide and both can be on at once. The demo starts
-   * with only `status`.
+   * A badge in the top right corner. `status` takes the bottom right, so the
+   * two never collide and both can be on at once.
    */
-  verified?: boolean;
+  badge?: boolean;
+  /**
+   * The badge's icon, in place of the verified check. Give it `w:100% h:100%`
+   * to fill the badge.
+   */
+  badgeIcon?: ReactNode;
+  /** The badge's accessible name. */
+  badgeLabel?: string;
   /**
    * What shows when there is no image, in place of the initials. Leave it empty
    * for the initials, or for the person icon when there is no `name` either.
@@ -105,7 +111,7 @@ export interface AvatarProps {
 
 /**
  * A user's picture, in three sizes and three shapes, falling back to their
- * initials and then to an icon, with optional presence and verification badges.
+ * initials and then to an icon, with an optional presence dot and badge.
  */
 export default function AvatarBase({
   src,
@@ -113,7 +119,9 @@ export default function AvatarBase({
   size = "md",
   shape = "circle",
   status = "none",
-  verified = false,
+  badge = false,
+  badgeIcon,
+  badgeLabel = "Verified",
   fallback,
   tint,
   children,
@@ -159,13 +167,15 @@ export default function AvatarBase({
         />
       )}
 
-      {verified && (
+      {badge && (
         <span
           role="img"
-          aria-label="Verified"
+          aria-label={badgeLabel}
           className={`d:f p:a t:0 r:0 ai:c jc:c bg:white bc:white br:9999 bw:1 ${BADGE_SIZES[size]}`}
         >
-          <CheckCircleIcon className="w:100% h:100% c:slate-12" />
+          {badgeIcon ?? (
+            <VerifiedCheckIcon className="w:100% h:100% c:slate-12" />
+          )}
         </span>
       )}
 

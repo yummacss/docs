@@ -11,7 +11,7 @@ import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
-type Border = "dashed" | "solid";
+type Border = "dashed" | "solid" | "none";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
@@ -26,6 +26,7 @@ const SHAPES: Record<Shape, string> = {
 const BORDERS: Record<Border, string> = {
   dashed: "bw:2 bs:d",
   solid: "bw:1",
+  none: "bw:0",
 };
 
 const SHADOWS: Record<Shadow, string> = {
@@ -92,6 +93,7 @@ export interface FileUploadProps {
   /**
    * `dashed` is the drop-zone convention and carries the extra width it needs
    * to read as one. `solid` is a heavier, more permanent box, so it stays thin.
+   * `none` leaves the zone to its background.
    */
   border?: Border;
   /**

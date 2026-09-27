@@ -212,6 +212,7 @@ export function EnumSelect({
       </Select.Trigger>
       <Select.Portal>
         <Select.Positioner
+          data-chrome
           side="bottom"
           sideOffset={4}
           alignItemWithTrigger={false}
