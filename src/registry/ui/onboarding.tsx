@@ -127,7 +127,7 @@ export default function OnboardingBase({
   indicator = "count",
   showClose = false,
   animatedResize = true,
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   animated = true,
   className,

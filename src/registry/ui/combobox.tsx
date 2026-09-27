@@ -196,7 +196,7 @@ export default function ComboboxBase({
   description,
   placeholder = "Search",
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   multiple = false,
   clearable = true,

@@ -91,7 +91,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius on the popup, the badge and the buttons. `square` squares off the badge too."
     },
     {
