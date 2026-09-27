@@ -79,7 +79,7 @@
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
-      "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+      "description": "The focus outline, drawn around the input and both buttons together. `true` draws it, `false` removes it, and a string of Yumma CSS utilities restyles it; write them with `fw:`, since the group draws it while anything inside has focus. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
   ]
 }

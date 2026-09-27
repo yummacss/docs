@@ -37,7 +37,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
 
 const BUTTON_BASE = "bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
 
@@ -45,7 +45,7 @@ const NEUTRAL_BUTTON = "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50";
 
 const PRIMARY_BUTTON = "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white";
 
-const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
+const DANGER_OUTLINE = "fv:oc:red-7 fv:bc:red-3";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: NEUTRAL_BUTTON,

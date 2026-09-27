@@ -8,7 +8,7 @@ import { merge } from "yummacss/merge";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
 
 interface SizeSpec {
   track: string;

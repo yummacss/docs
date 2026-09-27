@@ -10,9 +10,8 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
-
-const INSET_FOCUS = `${FOCUS} fv:oo:-1`;
+// the group draws focus, so the outline wraps the input and both buttons
+const GROUP_FOCUS = "fw:os:s fw:ow:2 fw:oo:2 fw:oc:slate-12 fw:bc:silver-5";
 
 const STEP =
   "d:f ai:c jc:c bg:white c:slate-10 us:none c:p h:bg:silver-1/50 a:bg:silver-2";
@@ -85,11 +84,10 @@ export interface NumberFieldProps
    */
   className?: string;
   /**
-   * The focus outline. `true` draws it, `false` removes it along with the
-   * danger, error and success tints that ride with it, and a string of Yumma
-   * CSS utilities restyles it on every focusable part of the component, which
-   * is more than `className` reaches. Removing it outright and putting nothing
-   * back fails WCAG 2.4.7.
+   * The focus outline, drawn around the input and both buttons together. `true`
+   * draws it, `false` removes it, and a string of Yumma CSS utilities restyles
+   * it; write them with `fw:`, since the group draws it while anything inside
+   * has focus. Removing it outright and putting nothing back fails WCAG 2.4.7.
    */
   focus?: boolean | string;
 }
@@ -112,13 +110,12 @@ export default function NumberFieldBase({
 }: NumberFieldProps) {
   const id = useId();
 
-  const outline = focus ? merge(INSET_FOCUS, focus === true ? "" : focus) : "";
+  const outline = focus ? merge(GROUP_FOCUS, focus === true ? "" : focus) : "";
 
-  const stepClasses = merge(outline, STEP, STEP_SIZES[size]);
+  const stepClasses = merge("os:none", STEP, STEP_SIZES[size]);
 
   const inputClasses = merge(
-    outline,
-    "bg:white bc:transparent c:slate-10 bw:1 ta:l",
+    "os:none bg:white bc:transparent c:slate-10 bw:1 ta:l",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
@@ -141,7 +138,11 @@ export default function NumberFieldBase({
       )}
 
       <NumberField.Group
-        className={`d:f o:h bc:silver-3 bw:1 ${GROUP_SHAPES[shape]}`}
+        className={merge(
+          "d:f o:h bc:silver-3 bw:1",
+          GROUP_SHAPES[shape],
+          outline,
+        )}
       >
         <NumberField.Input required={required} className={inputClasses} />
         <span className="d:f fd:c blc:silver-3 blw:1">
