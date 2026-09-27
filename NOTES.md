@@ -4050,6 +4050,16 @@ the interesting work. Top first.
    4. The rail's Style and Radius controls, and a Code tab that shows the
       file as it would be copied.
    5. Minimal's filled fields and Elegant's serif, which need new classes.
+   **Phase two done, 2026-09-27:** `src/utils/styles.mjs` holds Soft,
+   Compact and Squircle with their allowed steps and refusals, and
+   `applyStyle`. A step shifts each `rounded:` by -2, -1, 0 or +1 along the
+   scale, bounded by the part (`br:sm` stays within `xs`-`md`, `md`/`lg`
+   within `xs`-`xl`, `xl` and up within `sm`-`3xl`); `squircle:` entries stay
+   within `lg`-`3xl`; `br:9999` never moves. Squircle sets `shape =
+   "squircle"`, Compact `size = "sm"`, and no radius sets `shape = "square"`.
+   `tests/styles.test.ts` runs all 550 file, style and step combinations
+   through the class validator. Context Menu's trigger had `rounded` equal to
+   `squircle`; it is `br:xxl`, and the test holds the two apart.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23
