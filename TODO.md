@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  155
-    Open    35
+    Closed  156
+    Open    34
     Done    82%
 
 ---
@@ -25,10 +25,6 @@ than adjusting the numbers by hand:
 
 Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
 
-- [ ] **Moving between component pages flashes.** The preview, the Code tab
-      and the rail all load again, and the layout shifts. `Preview` imports
-      the component only after mount, so the server renders a spinner first;
-      trace the Code tab and the rail the same way.
 - [ ] **Slider's thumb draws no visible focus.**
 - [ ] **Switch's focus is hard to see.**
 - [ ] **Number Field's focus outlines the input alone.** It should wrap the

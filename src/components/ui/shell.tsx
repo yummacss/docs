@@ -3,8 +3,12 @@
 import { allUis } from "content-collections";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
-import { PlaygroundProvider } from "@/components/playground/context";
+import {
+  PlaygroundProvider,
+  StaticPlayground,
+} from "@/components/playground/context";
 import PlaygroundRail from "@/components/playground/rail";
+import ComponentPlayground from "@/components/playground/stage";
 import Sidebar from "@/components/ui/sidebar";
 import TableOfContents from "@/components/ui/toc";
 import { registryMeta } from "@/registry";
@@ -28,7 +32,10 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
           playground ? "@lg:h:dvh @lg:pb:6 @lg:o:h" : ""
         }`}
       >
-        <article className="d:f fd:c f:1 min-h:0">{children}</article>
+        <article className="d:f fd:c f:1 min-h:0">
+          {children}
+          {playground && <ComponentPlayground />}
+        </article>
       </div>
 
       {playground ? <PlaygroundRail /> : <TableOfContents />}
@@ -38,7 +45,9 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
   if (!playground) return grid;
 
   return (
-    <Suspense fallback={grid}>
+    <Suspense
+      fallback={<StaticPlayground id={playground}>{grid}</StaticPlayground>}
+    >
       <PlaygroundProvider id={playground}>{grid}</PlaygroundProvider>
     </Suspense>
   );
