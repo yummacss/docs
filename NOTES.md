@@ -4091,6 +4091,11 @@ header's Previous, Next and Finish buttons, and the dots row's Finish, with no
 accessible name: icon-only, no `aria-label`. They have one now. The install
 command keeps `motion` until this and the ten both land.
 
+**`motion` is gone, 2026-09-26.** The search and mobile menu dialogs fade
+with `opening:` and `closing:`, the Component API selects and the install
+menu scale in with the registry's popup classes, and `motion` left
+`package.json` and the install command.
+
 ## Solar icons in the registry, 2026-09-26
 
 The registry draws its icons from Solar through `@solar-icons/react`, one

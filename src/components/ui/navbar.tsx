@@ -117,6 +117,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
+                aria-label="Search"
                 className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
               >
                 <Search className="w:4 h:4" />
