@@ -9,8 +9,9 @@ import { styleFlags } from "@/utils/styles.mjs";
 
 type Copied = "command" | "code" | null;
 
+// the tabs' own type and spacing, with their surface box on hover
 const BUTTON =
-  "d:f fs:0 ai:c g:2 h:7 px:3 bc:border bg:surface bw:1 c:ink fs:xs us:none c:p h:bg:surface-8 a:bg:surface-7 fv:oc:ink fv:ow:2 fv:oo:-2";
+  "d:f fs:0 ai:c g:1 h:6 px:2 bw:1 bc:transparent bg:transparent c:ink/80 fs:sm fw:500 us:none ws:nw c:p h:bg:surface h:bc:border fv:oc:accent fv:ow:2 fv:oo:-1";
 
 // the styled file, as `yummaui add` would write it
 async function componentSource(id: string, style: string, radius: string) {
@@ -62,31 +63,30 @@ export default function Install({ id }: { id: string }) {
 
   const icon = (which: Copied) =>
     copied === which ? (
-      <Check className="w:4 h:4" aria-hidden />
+      <Check className="w:3 h:3" aria-hidden />
     ) : (
-      <Copy className="w:4 h:4" aria-hidden />
-    );
-
-  // the short label keeps both buttons beside the tabs on a phone
-  const label = (which: Copied, short: string, full: string) =>
-    copied === which ? (
-      "Copied"
-    ) : (
-      <>
-        <span className="@sm:d:none">{short}</span>
-        <span className="d:none @sm:d:i">{full}</span>
-      </>
+      <Copy className="w:3 h:3" aria-hidden />
     );
 
   return (
-    <div className="d:f fs:0">
-      <Button type="button" onClick={copyCommand} className={BUTTON}>
+    <div className="d:f fs:0 ai:c cg:1">
+      <Button
+        type="button"
+        onClick={copyCommand}
+        aria-label={copied === "command" ? "Copied" : "Copy the CLI command"}
+        className={BUTTON}
+      >
         {icon("command")}
-        {label("command", "Command", "Copy command")}
+        {copied === "command" ? "Copied" : "CLI"}
       </Button>
-      <Button type="button" onClick={copyCode} className={`${BUTTON} blw:0`}>
+      <Button
+        type="button"
+        onClick={copyCode}
+        aria-label={copied === "code" ? "Copied" : "Copy the component file"}
+        className={BUTTON}
+      >
         {icon("code")}
-        {label("code", "Code", "Copy code")}
+        {copied === "code" ? "Copied" : "File"}
       </Button>
     </div>
   );

@@ -2797,7 +2797,7 @@ Everything lives under `src/components/playground/` unless noted.
 | `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
 | `rail.tsx` | The right column: Look (`style`, `radius`, `accent`) as rows, then the Component API, with the props it cannot set folded under "N more, set in code". |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
-| `install.tsx` | Copy command and Copy code, a button group in the stage's tab bar. |
+| `install.tsx` | CLI and File, two copy buttons in the stage's tab bar, set like the tabs beside them. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
 | `../../utils/demo.tsx` | `EXAMPLE_ICONS`, `exampleIcon`, `resolveIcons`, `seedValues`. |
 | `../../utils/props.ts` | `typeOf`, `isControllable`. |
@@ -2834,9 +2834,10 @@ and had to be restored.
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
-- **Copy command and Copy code, no menu.** The command is `yummaui add
+- **CLI and File, no menu.** Two copy buttons in the tabs' own type and
+  spacing, with the active tab's box on hover. The command is `yummaui add
   <id>` with the style flags and no package manager in front: no popup over
-  the preview, no choice to make. Copy code copies the styled file from
+  the preview, no choice to make. File copies the styled file from
   `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
   would install. A `ClipboardItem` holds the fetch, so the copy keeps the
   click's permission while the file loads.
