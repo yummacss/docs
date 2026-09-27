@@ -1,7 +1,6 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { Bun, NPM, Pnpm, Yarn } from "@/components/icons/icons";
 import HintTooltip from "@/components/ui/hint-tooltip";
@@ -34,7 +33,7 @@ export default function Install({ id }: { id: string }) {
   };
 
   const popup = (
-    <Menu.Popup className="p:1 oy:auto w:fc max-w:32 max-h:40 bc:border bg:surface bw:1">
+    <Menu.Popup className="tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none p:1 oy:auto w:fc max-w:32 max-h:40 bc:border bg:surface bw:1">
       {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
         <Menu.Item
           key={manager}
@@ -69,28 +68,17 @@ export default function Install({ id }: { id: string }) {
           )}
         </Menu.Trigger>
       </HintTooltip>
-      <AnimatePresence>
-        {open && (
-          <Menu.Portal>
-            <Menu.Positioner
-              side="bottom"
-              align="end"
-              sideOffset={4}
-              collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
-              className="zi:50"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                {popup}
-              </motion.div>
-            </Menu.Positioner>
-          </Menu.Portal>
-        )}
-      </AnimatePresence>
+      <Menu.Portal>
+        <Menu.Positioner
+          side="bottom"
+          align="end"
+          sideOffset={4}
+          collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
+          className="zi:50"
+        >
+          {popup}
+        </Menu.Positioner>
+      </Menu.Portal>
     </Menu.Root>
   );
 }
