@@ -11,7 +11,6 @@ import {
   Zed,
 } from "@/components/icons/icons";
 import Palette from "@/components/palette";
-import ComponentPlayground from "@/components/playground/stage";
 import Preview from "@/components/preview";
 import Reference from "@/components/reference";
 import Stepper, { Step } from "@/components/stepper";
@@ -39,7 +38,8 @@ const components: MDXComponents = {
   Baseline,
   Code,
   CodeGroup,
-  ComponentPlayground,
+  // the UI shell renders the stage, so it stays mounted from one page to the next
+  ComponentPlayground: () => null,
   Cursor,
   FileTree,
   Hint,

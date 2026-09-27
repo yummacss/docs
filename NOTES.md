@@ -2451,6 +2451,9 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Moving between component pages flashes**, 2026-09-27. See "No
+      flash between pages". The preview still fills in after hydration on a
+      hard load, since the frame renders only in the browser.
 - [x] **Preview Card has an arrow, on by default**, 2026-09-27. The same
       arrow as Popover, behind an `arrow` prop.
 - [x] **The site's own popups follow the site theme.** `globals.css` forces
@@ -2787,7 +2790,7 @@ Everything lives under `src/components/playground/` unless noted.
 | File | Role |
 | --- | --- |
 | `context.tsx` | `PlaygroundProvider` keyed by slug. Holds `meta` + `values`, seeds from the schema, auto-satisfies `dependsOn` in `setValue`. |
-| `stage.tsx` | `ComponentPlayground`, used from MDX. Live preview + usage snippet. Keeps the last ready frame while the next loads. |
+| `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
 | `rail.tsx` | The right column, Component API. Reads context; renders nothing when context is null. |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
 | `install.tsx` | `yummaui add` copy menu. `prominent` variant for the page header. |
@@ -2799,6 +2802,20 @@ Everything lives under `src/components/playground/` unless noted.
 The provider lives in the layout, but **layouts do not re-render on navigation
 in this Next**, so the slug comes from `usePathname` in a Client Component. Same
 trick in `token-block.tsx` to find the current page's `primitive`.
+
+**No flash between pages.** Measured on a production build, 2026-09-27: a
+page change used to empty the rail, drop the stage to a spinner and recreate
+the preview frame, three swaps in 50ms; a hard load sent neither the stage
+nor the rail's rows, which arrived 500ms later. Four changes, one swap left:
+
+- The schemas are imported eagerly (`scripts/generate-registry.mjs`), so the
+  context reads one synchronously and never empties.
+- Reading the address bails the playground out of server rendering. The
+  Suspense fallback is `StaticPlayground`: the same page at its defaults, so
+  the server renders the stage, the Code tab and the rail.
+- The shell renders the stage, so the preview frame survives navigation.
+- A component already loaded swaps in during render, and the previous and
+  next components are loaded ahead.
 
 333 of 407 props across 36 schemas are controllable (82%); no component has zero.
 
