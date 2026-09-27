@@ -61,11 +61,12 @@ export default function Install({ id }: { id: string }) {
     }
   };
 
+  // only the icon changes, so the label never moves; the name says it copied
   const icon = (which: Copied) =>
     copied === which ? (
-      <Check className="w:3 h:3" aria-hidden />
+      <Check className="w:4 h:4" aria-hidden />
     ) : (
-      <Copy className="w:3 h:3" aria-hidden />
+      <Copy className="w:4 h:4" aria-hidden />
     );
 
   return (
@@ -73,20 +74,28 @@ export default function Install({ id }: { id: string }) {
       <Button
         type="button"
         onClick={copyCommand}
-        aria-label={copied === "command" ? "Copied" : "Copy the CLI command"}
+        aria-label={
+          copied === "command"
+            ? "Copied the CLI command"
+            : "Copy the CLI command"
+        }
         className={BUTTON}
       >
         {icon("command")}
-        {copied === "command" ? "Copied" : "CLI"}
+        CLI
       </Button>
       <Button
         type="button"
         onClick={copyCode}
-        aria-label={copied === "code" ? "Copied" : "Copy the component file"}
+        aria-label={
+          copied === "code"
+            ? "Copied the component file"
+            : "Copy the component file"
+        }
         className={BUTTON}
       >
         {icon("code")}
-        {copied === "code" ? "Copied" : "File"}
+        File
       </Button>
     </div>
   );
