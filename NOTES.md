@@ -4035,6 +4035,21 @@ the interesting work. Top first.
    schemas (Separator's schema said `square` while its code said `rounded`).
    `tests/registry.test.ts` fails when a schema default and a code default
    disagree.
+   **Renildo's calls, 2026-09-27:** a style rewrites the component file,
+   its defaults and its `SHAPES` tables, rather than presetting props in the
+   usage; and `size`, `shape` and `shadow` stay as props, with the style
+   setting their defaults. The plan, one PR each:
+   2. `src/utils/styles.ts` holds the styles, their allowed radius steps and
+      the reason for each refusal, and a pure `applyStyle(source, style,
+      radius)`. Each `rounded:` entry moves along the Yumma radius scale from
+      the value it has, which already names the part: `br:sm` a check,
+      `br:md`/`br:lg` a control, `br:xl`/`br:xxl` a panel, `br:9999` a
+      capsule that never moves. Tested on every component and every allowed
+      pair, with every class validated.
+   3. `public/ui/r/<style>/` builds per style, and `yummaui add --style`.
+   4. The rail's Style and Radius controls, and a Code tab that shows the
+      file as it would be copied.
+   5. Minimal's filled fields and Elegant's serif, which need new classes.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23
