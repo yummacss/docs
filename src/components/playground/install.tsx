@@ -4,8 +4,7 @@ import { Menu } from "@base-ui/react/menu";
 import { useState } from "react";
 import { Bun, NPM, Pnpm, Yarn } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
-import HintTooltip from "@/components/ui/hint-tooltip";
-import { Check, Copy } from "@/icons";
+import { Check, Copy, NavArrowDown } from "@/icons";
 import { addCommand } from "@/utils/install.mjs";
 import { styleFlags } from "@/utils/styles.mjs";
 
@@ -39,7 +38,7 @@ export default function Install({ id }: { id: string }) {
   };
 
   const popup = (
-    <Menu.Popup className="tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none p:1 oy:auto w:fc max-w:32 max-h:40 bc:border bg:surface bw:1">
+    <Menu.Popup className="tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none p:1 w:48 bc:border bg:surface bw:1">
       {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
         <Menu.Item
           key={manager}
@@ -57,23 +56,24 @@ export default function Install({ id }: { id: string }) {
           {manager}
         </Menu.Item>
       ))}
+      <p className="mt:1 px:2 pt:2 pb:1 bc:border btw:1 c:diff-add fs:xs">
+        Free and MIT licensed. The file is yours.
+      </p>
     </Menu.Popup>
   );
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <HintTooltip label="Copy install command">
-        <Menu.Trigger
-          className="d:f ai:c jc:c fs:0 w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 c:p fv:oc:ink fv:oo:2"
-          aria-label="Copy install command"
-        >
-          {copied ? (
-            <Check className="w:4 h:4" aria-hidden />
-          ) : (
-            <Copy className="w:4 h:4" aria-hidden />
-          )}
-        </Menu.Trigger>
-      </HintTooltip>
+      <Menu.Trigger className="d:f fs:0 ai:c g:2 h:7 pl:3 pr:2 bw:0 bg:ink c:page fw:600 fs:xs us:none c:p h:bg:ink/85 fv:oc:ink fv:ow:2 fv:oo:2">
+        {copied ? (
+          <Check className="w:4 h:4" aria-hidden />
+        ) : (
+          <Copy className="w:4 h:4" aria-hidden />
+        )}
+        {copied ? "Copied" : "Copy command"}
+        <span className="px:1 bg:page c:diff-add fw:600">Free</span>
+        <NavArrowDown className="w:3 h:3" aria-hidden />
+      </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner
           data-chrome
