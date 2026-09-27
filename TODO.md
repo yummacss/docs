@@ -150,9 +150,10 @@ Blocked on Renildo. Each one holds up the entry beside it.
 Not bugs. Written down so they stop being rediscovered.
 
 - Focus is treatment A and sits below WCAG 2.1 1.4.11. It was 1.21:1 for the
-  outline and 1.80:1 for the border on indigo, and the silver pair that
-  replaced it is no better. Deferred deliberately: no users, and a CSS change
-  is reversible. A darker outline, `slate-4` or lower, would pass.
+  outline and 1.80:1 for the border on indigo. The slate pair is 1.6:1 for
+  the outline and 3.6:1 for the border, so a bordered control passes and
+  a slider thumb or a switch does not. Deferred deliberately: no users, and a
+  CSS change is reversible.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
 - Number Field and Toolbar outline the input, not the group around it, so the

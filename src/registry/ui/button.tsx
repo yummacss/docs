@@ -8,7 +8,7 @@ type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-const FOCUS = "fv:os:s fv:ow:2 fv:oo:2 fv:oc:slate-12 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BASE = "d:if ai:c jc:c g:2 bw:1 fw:500 us:none";
 
@@ -25,7 +25,7 @@ const VARIANTS: Record<Variant, string> = {
 };
 
 const VARIANT_OUTLINE: Partial<Record<Variant, string>> = {
-  danger: "fv:oc:red-7 fv:bc:red-3",
+  danger: "fv:oc:red-2/60 fv:bc:red-3",
 };
 
 const SIZES: Record<Size, string> = {

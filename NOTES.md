@@ -2451,15 +2451,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
-- [x] **Focus is visible, and follows the accent**, 2026-09-27. The shared
-      `FOCUS` in 29 components was a 3px `silver-3` outline at 60%, about
-      1.2:1 on white: inputs showed focus only through `fv:bc:silver-5`, and
-      a slider thumb or a switch track, with no border to darken, showed
-      nothing. It is a 2px `slate-12` outline 2px out, the colour primary
-      controls already use, so the accent table recolours it: `oc:`, `fv:oc:`
-      and `fw:oc:slate-12` sit in it now, and `selectorOf` knows `:focus-visible`
-      and `:focus-within`. The danger and error tints are `red-7`, success
-      `green-9`. Slider's thumb takes the same colour through its own state.
+- [x] **Focus follows the accent**, 2026-09-27. Treatment A keeps its
+      shape, a 3px outline at offset 0 and 60%, and changes hue: `slate-4/60`
+      for the outline, `fv:bc:slate-6` for the border, from `silver-3/60` and
+      `silver-5`. The accent table carries both, with a fixed shade and alpha
+      for the outline; `shade` indexes `generateShades()`, where `slate-4` is
+      `[3]`. Danger, error and success keep their `-2/60` tints.
+      A 2px `slate-12` outline 2px out was tried first and rejected: Renildo
+      wants treatment A's look, only the colour changed.
 - [x] **Number Field's focus wraps the group**: `fw:` on `NumberField.Group`,
       so the outline goes round the input and both buttons. Its `focus`
       string takes `fw:` utilities; Yumma scans class names from source, so

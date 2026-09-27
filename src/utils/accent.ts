@@ -6,6 +6,8 @@ const SURFACE: {
   name: string;
   property: string;
   darker?: boolean;
+  shade?: number;
+  alpha?: number;
 }[] = [
   {
     name: "bg:slate-12",
@@ -26,9 +28,12 @@ const SURFACE: {
   },
   { name: "f:slate-12", property: "fill" },
   { name: "c:slate-11", property: "color" },
-  { name: "oc:slate-12", property: "outline-color" },
-  { name: "fv:oc:slate-12", property: "outline-color" },
-  { name: "fw:oc:slate-12", property: "outline-color" },
+  // `shade` indexes generateShades(), where Yumma's `slate-4` is [3].
+  { name: "oc:slate-4/60", property: "outline-color", shade: 3, alpha: 0.6 },
+  { name: "fv:oc:slate-4/60", property: "outline-color", shade: 3, alpha: 0.6 },
+  { name: "fw:oc:slate-4/60", property: "outline-color", shade: 3, alpha: 0.6 },
+  { name: "fv:bc:slate-6", property: "border-color" },
+  { name: "fw:bc:slate-6", property: "border-color" },
   {
     name: "s:slate-12",
     property: "stroke",
@@ -44,7 +49,7 @@ const STATES: Record<string, string> = {
 // `h:bg:slate-11` is `.h\:bg\:slate-11:hover`, as the generator writes it.
 function selectorOf(name: string): string {
   const state = STATES[name.split(":")[0]] ?? "";
-  return `.${name.replaceAll(":", "\\:")}${state}`;
+  return `.${name.replace(/[:/]/g, "\\$&")}${state}`;
 }
 
 export const ACCENT_CLASSES = SURFACE.map((entry) => entry.name);
@@ -67,10 +72,11 @@ export function accentCss(family: string): string {
   const shades = generateShades(colorTheme[family as keyof typeof colorTheme]);
   const base = accentShade(shades);
 
-  return SURFACE.map(
-    ({ name, property, darker }) =>
-      `${selectorOf(name)} { ${property}: ${shades[darker ? base + 1 : base]}; }`,
-  ).join("\n");
+  return SURFACE.map(({ name, property, darker, shade, alpha }) => {
+    const hex = shades[shade ?? (darker ? base + 1 : base)];
+    const value = alpha ? hex + Math.round(alpha * 255).toString(16) : hex;
+    return `${selectorOf(name)} { ${property}: ${value}; }`;
+  }).join("\n");
 }
 
 /** Three shades of a family, light, base and dark, as the accent picker draws it. */
