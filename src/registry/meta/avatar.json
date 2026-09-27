@@ -1,5 +1,5 @@
 {
-  "summary": "A user's picture, in three sizes and three shapes, falling back to their initials and then to an icon, with optional presence and verification badges.",
+  "summary": "A user's picture, in three sizes and three shapes, falling back to their initials and then to an icon, with an optional presence dot and badge.",
   "props": [
     {
       "name": "src",
@@ -29,11 +29,25 @@
       "description": "A presence dot in the bottom right corner. It carries meaning, so it is labelled for screen readers rather than left decorative."
     },
     {
-      "name": "verified",
+      "name": "badge",
       "type": "boolean",
       "default": false,
+      "description": "A badge in the top right corner. `status` takes the bottom right, so the two never collide and both can be on at once."
+    },
+    {
+      "name": "badgeIcon",
+      "type": "none",
+      "typeName": "ReactNode",
       "example": null,
-      "description": "A verification check in the top right corner. `status` takes the bottom right, so the two never collide and both can be on at once. The demo starts with only `status`."
+      "description": "The badge's icon, in place of the verified check. Give it `w:100% h:100%` to fill the badge.",
+      "dependsOn": "badge"
+    },
+    {
+      "name": "badgeLabel",
+      "type": "string",
+      "default": "Verified",
+      "description": "The badge's accessible name.",
+      "dependsOn": "badge"
     },
     {
       "name": "size",

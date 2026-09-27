@@ -123,7 +123,7 @@ export default function RadioBase({
   return (
     <div className="d:f fd:c g:2">
       {label && (
-        <div id={labelId} className="fs:xs fw:600 c:slate-5 us:none">
+        <div id={labelId} className="c:slate-10 fs:sm fw:500 us:none">
           {label}
         </div>
       )}

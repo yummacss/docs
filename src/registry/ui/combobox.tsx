@@ -239,7 +239,18 @@ export default function ComboboxBase({
       className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
     >
       {loading ? (
-        <div className="py:4 px:4 c:slate-6 fs:sm us:none">Loading...</div>
+        <div
+          className="d:f py:3 px:4 ai:c g:2 c:slate-6 fs:sm us:none"
+          role="status"
+        >
+          <span
+            aria-hidden
+            className={`d:b w:4 h:4 bc:silver-3 btc:slate-8 bw:2 br:9999 ${
+              animated ? "an:spin adu:700 atf:l aic:inf" : ""
+            }`}
+          />
+          Loading
+        </div>
       ) : (
         <>
           <Combobox.List className="oy:auto py:1 max-h:72 ow:0">
@@ -276,7 +287,7 @@ export default function ComboboxBase({
         className={`d:f p:r fd:c g:2 c:slate-10 fs:sm ${disabled ? "o:60 c:na" : ""}`}
       >
         {label && (
-          <label htmlFor={id} className="fw:500">
+          <label htmlFor={id} className="c:slate-10 fs:sm fw:500 us:none">
             {label}
           </label>
         )}

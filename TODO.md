@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  143
-    Open    23
-    Done    86%
+    Closed  155
+    Open    35
+    Done    82%
 
 ---
 
@@ -25,7 +25,17 @@ than adjusting the numbers by hand:
 
 Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
 
-Empty.
+- [ ] **Moving between component pages flashes.** The preview, the Code tab
+      and the rail all load again, and the layout shifts. `Preview` imports
+      the component only after mount, so the server renders a spinner first;
+      trace the Code tab and the rail the same way.
+- [ ] **Slider's thumb draws no visible focus.**
+- [ ] **Switch's focus is hard to see.**
+- [ ] **Number Field's focus outlines the input alone.** It should wrap the
+      group, buttons included.
+- [ ] **The accent misses focus and icons.** Autocomplete's outline and the
+      icons in Onboarding and Rating keep slate. Extend the accent table to
+      both.
 
 
 ## Phase 2 - Content model
@@ -44,8 +54,15 @@ Empty.
       covers them, but a text control should name its size like Button does.
 - [ ] **Meter's `animated` describes an animation Base UI's meter does not
       have.** Remove the prop.
-- [ ] **Preview Card has no arrow** and Base UI supports one. Add it, on by
-      default.
+- [ ] **Focus has no `animated` switch.** The outline's transition should
+      follow a prop, the same way popups do.
+- [ ] **Progress `animated` only eases a value change.** Renildo expects the
+      bar to move on its own; decide whether that is a loop on the bar or a
+      separate prop.
+- [ ] **Button Group has no icon controls.** Its buttons should take an icon
+      like Button does.
+- [ ] **OTP Field**, a new component on Base UI's primitive.
+- [ ] **Drawer**, a new component on Base UI's primitive.
 - [ ] **No way to turn a component's icons off.** There is no `icon` boolean on
       Menu, Menubar, Context Menu or the others that draw one.
 - [ ] **Onboarding: drop the close button.** Esc dismisses, which is the
@@ -68,6 +85,13 @@ Design decisions. Nothing here starts without them.
       returning reader finds them. Decide how long an entry stays new.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
+- [ ] **Style, Radius and Accent get their own controls**, apart from the
+      Component API: swatches for the accent, matching how the docs show a
+      colour, and a slider for the radius. Three selects read as more props.
+- [ ] **Read-only props behind a disclosure.** The rail lists every prop; put
+      the ones it cannot set behind "more" or a dialog, so it reads lighter.
+- [ ] **Preview Card's layout** leaves dead space on the right. A profile card
+      that fills its width, with a strip of activity, is the direction.
 
 ## Phase 5 - Infrastructure
 

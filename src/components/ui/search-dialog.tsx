@@ -136,6 +136,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
         <Dialog.Backdrop className="tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none p:f zi:10 t:0 l:0 r:0 b:0 bg:black/60 bf-b:sm fgr:90" />
         <div className="d:f p:f zi:10 t:0 l:0 r:0 b:0 ai:fs jc:c pt:12 pe:none @md:ai:c @md:pt:0">
           <Dialog.Popup
+            data-chrome
             className="tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none o:h w:100% max-w:xs max-h:calc(70vh) bc:border bg:page bw:1 pe:auto"
             onKeyDown={handleKeyDown}
           >

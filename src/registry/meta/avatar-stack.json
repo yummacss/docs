@@ -66,6 +66,60 @@
         "fallback": "S",
         "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Sam&backgroundColor=FFD5DC"
       }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Leo",
+        "fallback": "L",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Leo&backgroundColor=FFDFBF"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Noor",
+        "fallback": "N",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Noor&backgroundColor=D1D4F9"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Iris",
+        "fallback": "I",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Iris&backgroundColor=C0EBD9"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Kai",
+        "fallback": "K",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Kai&backgroundColor=FFE8A3"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Tomas",
+        "fallback": "T",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Tomas&backgroundColor=F5D0FE"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Ana",
+        "fallback": "A",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ana&backgroundColor=BDE0FE"
+      }
     }
   ]
 }
