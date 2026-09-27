@@ -17,28 +17,28 @@
           "label": "Edit",
           "icon": {
             "$icon": "PenIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         },
         {
           "label": "Duplicate",
           "icon": {
             "$icon": "CopyIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         },
         {
           "label": "Bookmark",
           "icon": {
             "$icon": "BookmarkIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         },
         {
           "label": "Pin to top",
           "icon": {
             "$icon": "PinIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         }
       ],

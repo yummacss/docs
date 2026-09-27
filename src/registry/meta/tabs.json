@@ -11,7 +11,7 @@
           "label": "General",
           "icon": {
             "$icon": "SettingsIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         },
         {
@@ -19,7 +19,7 @@
           "label": "Appearance",
           "icon": {
             "$icon": "PaletteIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         },
         {
@@ -27,7 +27,7 @@
           "label": "Shortcuts",
           "icon": {
             "$icon": "KeyboardIcon",
-            "size": "w-4 h-4"
+            "size": "w:4 h:4"
           }
         }
       ],
