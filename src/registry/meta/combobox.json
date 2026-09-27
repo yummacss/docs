@@ -72,7 +72,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius, applied to the input and the popup together. `squircle` uses `corner-shape`."
     },
     {

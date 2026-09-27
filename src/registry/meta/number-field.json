@@ -52,7 +52,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius on the group's outer edges. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {

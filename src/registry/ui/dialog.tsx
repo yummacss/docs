@@ -164,7 +164,7 @@ export default function DialogBase({
   onConfirm,
   confirmTone = "primary",
   showClose = true,
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   animated = true,
   className,

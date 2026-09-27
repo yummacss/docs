@@ -105,7 +105,7 @@ export default function CheckboxBase({
   label,
   description,
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   disabled = false,
   checked: controlledChecked,

@@ -105,7 +105,7 @@ export default function TabsBase({
   onValueChange,
   orientation = "horizontal",
   size = "md",
-  shape = "square",
+  shape = "rounded",
   iconPosition = "leading",
   animated = true,
   className,

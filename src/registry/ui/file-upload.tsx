@@ -131,7 +131,7 @@ export default function FileUploadBase({
   accept,
   multiple = false,
   onFilesChange,
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   border = "dashed",
   error,

@@ -200,7 +200,7 @@ export default function SelectBase({
   value,
   onValueChange,
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   icon,
   iconPosition = "leading",

@@ -203,7 +203,7 @@ export default function AutocompleteBase({
   description,
   placeholder = "Search",
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   icon,
   iconPosition = "leading",

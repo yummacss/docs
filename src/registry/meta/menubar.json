@@ -86,7 +86,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "square",
+      "default": "rounded",
       "description": "Corner radius on the bar, its buttons, the popups and their items together."
     },
     {

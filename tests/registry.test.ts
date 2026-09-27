@@ -552,4 +552,34 @@ describe("Yumma UI registry", () => {
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });
+
+  it("gives each prop the default its schema documents", () => {
+    const drift: string[] = [];
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const id = file.replace(".json", "");
+      const sourcePath = join(registryDir, `${id}.tsx`);
+      if (!existsSync(sourcePath)) continue;
+      const source = readFileSync(sourcePath, "utf8");
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf8"),
+      );
+      for (const prop of meta.props ?? []) {
+        if (prop.default === undefined || typeof prop.default === "object")
+          continue;
+        const found = source.match(
+          new RegExp(`^\\s+${prop.name} = (.+?),$`, "m"),
+        );
+        if (!found) continue;
+        if (
+          found[1] !== JSON.stringify(prop.default) &&
+          found[1] !== String(prop.default)
+        ) {
+          drift.push(
+            `${id}.${prop.name}: schema ${JSON.stringify(prop.default)}, code ${found[1]}`,
+          );
+        }
+      }
+    }
+    expect(drift).toEqual([]);
+  });
 });

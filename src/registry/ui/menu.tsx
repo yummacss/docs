@@ -181,7 +181,7 @@ export default function MenuBase({
   trigger,
   items,
   size = "md",
-  shape = "square",
+  shape = "rounded",
   shadow = "none",
   iconPosition = "leading",
   disabled = false,
