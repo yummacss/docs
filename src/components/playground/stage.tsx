@@ -20,6 +20,12 @@ import {
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
 import { buildUsage } from "@/utils/snippet";
+import {
+  DEFAULT_STYLE,
+  radiusCss,
+  STYLES,
+  styleProps,
+} from "@/utils/styles.mjs";
 
 const PREVIEW_SHELL = "d:f p:r ox:auto ai:c jc:c p:10 bg:white";
 
@@ -104,6 +110,8 @@ export default function ComponentPlayground() {
   );
   const usage = buildUsage(getRegistryTarget(frame.id).component, meta, set);
   const { Component } = frame;
+  const style = playground?.style ?? DEFAULT_STYLE;
+  const radius = playground?.radius ?? STYLES[DEFAULT_STYLE].radius;
 
   const uncontrolled = Object.entries(set)
     .filter(([name]) => name.startsWith("default"))
@@ -122,12 +130,19 @@ export default function ComponentPlayground() {
           className="f:1 min-h:0"
           minHeight={0}
           fill
-          accentCss={accentCss(playground?.accent ?? DEFAULT_ACCENT)}
+          accentCss={[
+            accentCss(playground?.accent ?? DEFAULT_ACCENT),
+            radiusCss(style, radius),
+          ].join("\n")}
         >
           <Mounted
             key={uncontrolled}
             Component={Component}
-            props={{ ...(resolveIcons(set) as DemoProps), ...handlers }}
+            props={{
+              ...(resolveIcons(set) as DemoProps),
+              ...styleProps(meta.props, style, radius),
+              ...handlers,
+            }}
             portals={meta.props.some((prop) => prop.name === "container")}
           >
             {exampleChildren(meta)}

@@ -14,6 +14,7 @@ import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { ACCENTS } from "@/utils/accent";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, typeOf } from "@/utils/props";
+import { RADIUS, STYLES } from "@/utils/styles.mjs";
 
 export default function PlaygroundRail() {
   const playground = usePlayground();
@@ -33,19 +34,7 @@ export default function PlaygroundRail() {
     <aside className="bc:border btw:1 @lg:btw:0 @lg:blw:1 @lg:gc-s:3">
       <Scroller className="@lg:p:st @lg:t:20 @lg:max-h:calc(100dvh-5rem)">
         <div className="pt:8 pb:12 @lg:pt:0 @lg:px:8">
-          {playground && (
-            <div className="d:f ai:c jc:sb g:2 pb:4 mb:4 bc:border bbw:1">
-              <HintTooltip label="Preview only. The code you copy is unchanged.">
-                <span className="d:f ai:c g:1 c:silver-8 fs:xs">Accent</span>
-              </HintTooltip>
-              <EnumSelect
-                name="accent"
-                values={ACCENTS}
-                value={playground.accent}
-                onChange={(value) => playground.setAccent(String(value))}
-              />
-            </div>
-          )}
+          {playground && <Styling />}
 
           <div className="d:f ai:c jc:sb g:2 mb:3">
             <h3 className="c:silver-8 fs:xs ls:2 tt:u">Component API</h3>
@@ -150,6 +139,59 @@ function Row({
           <PropDescription text={prop.description} />
         </div>
       )}
+    </div>
+  );
+}
+
+const SPECS: Record<
+  string,
+  { allow: string[]; refused: Record<string, string> }
+> = STYLES;
+
+function Styling() {
+  const playground = usePlayground();
+  if (!playground) return null;
+  const spec = SPECS[playground.style];
+  const blocked = RADIUS.filter((step) => !spec.allow.includes(step));
+  const reasons = [...new Set(blocked.map((step) => spec.refused[step]))];
+
+  return (
+    <div className="d:f fd:c g:2 pb:4 mb:4 bc:border bbw:1">
+      <div className="d:f ai:c jc:sb g:2">
+        <HintTooltip label="The style and radius of the code you copy.">
+          <span className="d:f ai:c g:1 c:silver-8 fs:xs">Style</span>
+        </HintTooltip>
+        <EnumSelect
+          name="style"
+          values={Object.keys(STYLES)}
+          value={playground.style}
+          onChange={(value) => playground.setStyle(String(value))}
+        />
+      </div>
+      <div className="d:f ai:c jc:sb g:2">
+        <span className="c:silver-8 fs:xs">Radius</span>
+        <EnumSelect
+          name="radius"
+          values={RADIUS}
+          blocked={blocked}
+          value={playground.radius}
+          onChange={(value) => playground.setRadius(String(value))}
+        />
+      </div>
+      {reasons.length > 0 && (
+        <p className="c:silver-8 fs:xs">{reasons.join(" ")}</p>
+      )}
+      <div className="d:f ai:c jc:sb g:2">
+        <HintTooltip label="Preview only. The code you copy is unchanged.">
+          <span className="d:f ai:c g:1 c:silver-8 fs:xs">Accent</span>
+        </HintTooltip>
+        <EnumSelect
+          name="accent"
+          values={ACCENTS}
+          value={playground.accent}
+          onChange={(value) => playground.setAccent(String(value))}
+        />
+      </div>
     </div>
   );
 }

@@ -59,14 +59,26 @@ function shift(value, radius, bounds) {
   return SCALE[Math.min(Math.max(next, lo), hi)];
 }
 
-function shiftEntry(line, key, radius) {
-  return line.replace(/\bbr:([a-z0-9]+)\b/, (whole, value) => {
-    if (!SCALE.includes(value)) return whole;
-    const bounds =
-      key === "squircle"
-        ? { min: SQUIRCLE_MIN, max: value }
-        : BOUNDS.find((entry) => entry.from.includes(value));
-    return bounds ? `br:${shift(value, radius, bounds)}` : whole;
+function shiftToken(value, radius, squircle) {
+  if (!SCALE.includes(value) || value === "0") return value;
+  const bounds = squircle
+    ? { min: SQUIRCLE_MIN, max: value }
+    : BOUNDS.find((entry) => entry.from.includes(value));
+  return bounds ? shift(value, radius, bounds) : value;
+}
+
+// comments are left alone; a string with cs:s holds a squircle
+const PIECES =
+  /\/\*[\s\S]*?\*\/|\/\/[^\n]*|"(?:[^"\\\n]|\\.)*"|`(?:[^`\\]|\\.)*`/g;
+
+function shiftClasses(source, radius) {
+  return source.replace(PIECES, (piece) => {
+    if (piece.startsWith("/")) return piece;
+    const squircle = /\bcs:s\b/.test(piece);
+    return piece.replace(
+      /\bbr:([a-z0-9]+)\b/g,
+      (_, value) => `br:${shiftToken(value, radius, squircle)}`,
+    );
   });
 }
 
@@ -80,16 +92,7 @@ export function applyStyle(source, style, radius) {
   if (refused) throw new Error(refused);
   const entry = STYLES[style];
 
-  let out = source.replace(
-    /^(const [A-Z_]*SHAPES\b[^=]*= \{\n)([\s\S]*?)(^\};)/gm,
-    (_, open, body, close) =>
-      open +
-      body.replace(
-        /^(\s*)(rounded|squircle): ("[^"]*"),$/gm,
-        (line, _indent, key) => shiftEntry(line, key, radius),
-      ) +
-      close,
-  );
+  let out = shiftClasses(source, radius);
 
   const shapes = unionOf(source, "Shape");
   const shape = radius === "none" ? "square" : (entry.shape ?? "rounded");
@@ -105,4 +108,83 @@ export function applyStyle(source, style, radius) {
   }
 
   return out;
+}
+
+// the step a blocked pair falls back to: the nearest allowed, the default on a tie
+export function nearestRadius(style, radius) {
+  const spec = STYLES[style] ?? STYLES[DEFAULT_STYLE];
+  if (spec.allow.includes(radius)) return radius;
+  const at = RADIUS.indexOf(radius);
+  if (at < 0) return spec.radius;
+  const home = RADIUS.indexOf(spec.radius);
+  return [...spec.allow].sort(
+    (a, b) =>
+      Math.abs(RADIUS.indexOf(a) - at) - Math.abs(RADIUS.indexOf(b) - at) ||
+      Math.abs(RADIUS.indexOf(a) - home) - Math.abs(RADIUS.indexOf(b) - home),
+  )[0];
+}
+
+// the shape and size defaults a style writes, for the props a component has
+export function styleProps(props, style, radius) {
+  const spec = STYLES[style] ?? STYLES[DEFAULT_STYLE];
+  const shape = radius === "none" ? "square" : (spec.shape ?? "rounded");
+  const out = {};
+  for (const prop of props) {
+    const values = prop.values ?? [];
+    if (
+      (prop.name === "shape" || prop.name === "iconShape") &&
+      prop.default === "rounded" &&
+      values.includes(shape)
+    ) {
+      out[prop.name] = shape;
+    }
+    if (
+      prop.name === "size" &&
+      spec.size &&
+      prop.default === "md" &&
+      values.includes(spec.size)
+    ) {
+      out.size = spec.size;
+    }
+  }
+  return out;
+}
+
+const REM = {
+  0: "0",
+  xs: ".125rem",
+  sm: ".25rem",
+  md: ".375rem",
+  lg: ".5rem",
+  xl: ".75rem",
+  xxl: "1rem",
+  "3xl": "1.5rem",
+};
+
+// the preview's version of applyStyle: each radius class, redefined by value
+export function radiusCss(style, radius) {
+  if (refusal(style, radius)) return "";
+  const rules = [];
+  for (const value of SCALE) {
+    const round = shiftToken(value, radius, false);
+    if (round !== value) {
+      rules.push(
+        `.br\\:${value}:not(.cs\\:s) { border-radius: ${REM[round]}; }`,
+      );
+    }
+    const squircle = shiftToken(value, radius, true);
+    if (squircle !== value) {
+      rules.push(`.br\\:${value}.cs\\:s { border-radius: ${REM[squircle]}; }`);
+    }
+  }
+  return rules.join("\n");
+}
+
+// the CLI flags for a pair, empty for the default
+export function styleFlags(style, radius) {
+  const spec = STYLES[style] ?? STYLES[DEFAULT_STYLE];
+  const flags = [];
+  if (style !== DEFAULT_STYLE) flags.push(`--style ${style}`);
+  if (radius !== spec.radius) flags.push(`--radius ${radius}`);
+  return flags.join(" ");
 }

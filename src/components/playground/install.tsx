@@ -3,9 +3,11 @@
 import { Menu } from "@base-ui/react/menu";
 import { useState } from "react";
 import { Bun, NPM, Pnpm, Yarn } from "@/components/icons/icons";
+import { usePlayground } from "@/components/playground/context";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import { Check, Copy } from "@/icons";
 import { addCommand } from "@/utils/install.mjs";
+import { styleFlags } from "@/utils/styles.mjs";
 
 const MANAGERS = {
   pnpm: { runner: "pnpm dlx", Mark: Pnpm },
@@ -19,11 +21,15 @@ type Manager = keyof typeof MANAGERS;
 export default function Install({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState<Manager | null>(null);
+  const playground = usePlayground();
+  const flags = playground
+    ? styleFlags(playground.style, playground.radius)
+    : "";
 
   const copy = async (manager: Manager) => {
     try {
       await navigator.clipboard.writeText(
-        addCommand(MANAGERS[manager].runner, id),
+        addCommand(MANAGERS[manager].runner, id, flags),
       );
     } catch {
       return;

@@ -157,12 +157,14 @@ export function EnumSelect({
   value,
   onChange,
   inert,
+  blocked = [],
 }: {
   name: string;
   values: string[];
   value: string | null;
   onChange: (value: unknown) => void;
   inert?: boolean;
+  blocked?: string[];
 }) {
   const [open, setOpen] = useState(false);
 
@@ -173,9 +175,14 @@ export function EnumSelect({
           <Select.Item
             key={option}
             value={option}
+            disabled={blocked.includes(option)}
             className={(state) =>
-              `d:b px:2 py:1 ff:m fs:xs c:p us:none ${
-                state.highlighted ? "bg:border c:accent" : "c:accent-dim"
+              `d:b px:2 py:1 ff:m fs:xs us:none ${
+                state.disabled
+                  ? "c:ink/30 c:na tdl:lt"
+                  : state.highlighted
+                    ? "bg:border c:accent c:p"
+                    : "c:accent-dim c:p"
               }`
             }
           >
