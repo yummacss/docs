@@ -1,6 +1,6 @@
 "use client";
 
-import { useQueryStates } from "nuqs";
+import { parseAsStringLiteral, useQueryStates } from "nuqs";
 import {
   createContext,
   type ReactNode,
@@ -8,6 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
@@ -17,6 +18,31 @@ import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
 import { carriedFor, readCarried, writeCarried } from "@/utils/sticky";
+import {
+  DEFAULT_STYLE,
+  nearestRadius,
+  RADIUS,
+  STYLES,
+} from "@/utils/styles.mjs";
+
+const SPECS: Record<string, { radius: string }> = STYLES;
+const STYLE_IDS = Object.keys(STYLES) as [string, ...string[]];
+const STYLE_KEYS = {
+  style: parseAsStringLiteral(STYLE_IDS).withDefault(DEFAULT_STYLE),
+  radius: parseAsStringLiteral(RADIUS as [string, ...string[]]),
+};
+const STYLE_STORE = "yui:style";
+
+function readStyle(): { style?: string; radius?: string } {
+  try {
+    const parsed: unknown = JSON.parse(
+      window.localStorage.getItem(STYLE_STORE) ?? "null",
+    );
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
 
 interface Playground {
   id: string;
@@ -25,6 +51,10 @@ interface Playground {
   setValue: (name: string, value: unknown) => void;
   accent: string;
   setAccent: (family: string) => void;
+  style: string;
+  radius: string;
+  setStyle: (style: string) => void;
+  setRadius: (radius: string) => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -56,6 +86,56 @@ export function PlaygroundProvider({
     setAccentState(family);
     writeAccent(family);
   }, []);
+
+  const [styleQuery, setStyleQuery] = useQueryStates(STYLE_KEYS, {
+    history: "replace",
+    clearOnDefault: true,
+    shallow: true,
+  });
+  const style = styleQuery.style;
+  const radius = nearestRadius(style, styleQuery.radius ?? SPECS[style].radius);
+
+  const commitStyle = useCallback(
+    (next: string, step: string) => {
+      const resolved = nearestRadius(next, step);
+      const radiusParam = resolved === SPECS[next].radius ? null : resolved;
+      setStyleQuery({ style: next, radius: radiusParam });
+      try {
+        window.localStorage.setItem(
+          STYLE_STORE,
+          JSON.stringify({ style: next, radius: resolved }),
+        );
+      } catch {}
+    },
+    [setStyleQuery],
+  );
+
+  // the address wins; otherwise the style carried from the last page
+  const arrived = useRef(false);
+  useEffect(() => {
+    if (arrived.current) return;
+    arrived.current = true;
+    const named = new URLSearchParams(window.location.search);
+    if (named.has("style") || named.has("radius")) {
+      if (styleQuery.radius && styleQuery.radius !== radius) {
+        commitStyle(style, radius);
+      }
+      return;
+    }
+    const stored = readStyle();
+    if (stored.style && stored.style in SPECS) {
+      commitStyle(stored.style, stored.radius ?? SPECS[stored.style].radius);
+    }
+  }, [commitStyle, style, radius, styleQuery.radius]);
+
+  const setStyle = useCallback(
+    (next: string) => commitStyle(next, SPECS[next].radius),
+    [commitStyle],
+  );
+  const setRadius = useCallback(
+    (step: string) => commitStyle(style, step),
+    [commitStyle, style],
+  );
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
@@ -143,8 +223,23 @@ export function PlaygroundProvider({
       setValue,
       accent,
       setAccent,
+      style,
+      radius,
+      setStyle,
+      setRadius,
     }),
-    [id, seed.meta, values, setValue, accent, setAccent],
+    [
+      id,
+      seed.meta,
+      values,
+      setValue,
+      accent,
+      setAccent,
+      style,
+      radius,
+      setStyle,
+      setRadius,
+    ],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

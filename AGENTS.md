@@ -85,14 +85,17 @@ is written.
 
 # Carried styles
 
-- `shape`, `size`, `shadow`, `animated` and `focus` follow you from one
-  component page to the next, so trying a shape across the library is one
-  click per page. `src/utils/sticky.ts` owns the list.
+- Style and Radius set the look of every component and of the code copied:
+  `style` and `radius` in the URL, remembered in `localStorage` for the next
+  page, and the address wins. `src/utils/styles.mjs` owns them. A blocked
+  pair in an address falls back to the nearest allowed radius.
+- `size`, `shape`, `iconShape` and `shadow` belong to the style: the rail
+  lists them as reference and never sets them.
+- `animated` and `focus` follow you from one component page to the next.
+  `src/utils/sticky.ts` owns that list.
 - `variant`, `tone` and `intent` are deliberately not carried: they share a
   name across components and nothing else.
-- A value is carried only if the next component declares that prop and names
-  that value. `shape` alone has six vocabularies, so `pill` reaches Button and
-  never reaches Checkbox.
+- A value is carried only if the next component declares that prop.
 - The address wins over what was carried, so a link someone was sent renders
   what it says. Carrying writes into the URL on arrival rather than changing
   what a parser defaults to, which would make a clean address lie.

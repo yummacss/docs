@@ -2,7 +2,7 @@
 
 import type { RegistryMeta, RegistryProp } from "@/registry";
 
-const CARRIED = ["shape", "size", "shadow", "animated", "focus"] as const;
+const CARRIED = ["animated", "focus"] as const;
 
 const KEY = "yui:playground";
 

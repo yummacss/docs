@@ -2,7 +2,16 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateClasses } from "@yummacss/nitro";
 import { describe, expect, it } from "vitest";
-import { applyStyle, RADIUS, refusal, STYLES } from "../src/utils/styles.mjs";
+import {
+  applyStyle,
+  nearestRadius,
+  RADIUS,
+  radiusCss,
+  refusal,
+  STYLES,
+  styleFlags,
+  styleProps,
+} from "../src/utils/styles.mjs";
 import { rootDir } from "./helpers";
 
 const registryDir = join(rootDir, "src/registry/ui");
@@ -162,4 +171,91 @@ describe("styles", () => {
     }
     expect(flat).toEqual([]);
   });
+
+  it("falls back to the nearest allowed radius", () => {
+    expect(nearestRadius("squircle", "none")).toBe("medium");
+    expect(nearestRadius("squircle", "extra")).toBe("large");
+    expect(nearestRadius("soft", "none")).toBe("small");
+    expect(nearestRadius("compact", "medium")).toBe("medium");
+  });
+
+  it("names the defaults a style writes, for the props a component has", () => {
+    const read = (id: string) =>
+      JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", `${id}.json`), "utf8"),
+      ).props;
+    expect(styleProps(read("button"), "compact", "small")).toEqual({
+      shape: "rounded",
+      size: "sm",
+    });
+    expect(styleProps(read("button"), "squircle", "large")).toEqual({
+      shape: "squircle",
+    });
+    expect(styleProps(read("button"), "compact", "none")).toEqual({
+      shape: "square",
+      size: "sm",
+    });
+    expect(styleProps(read("radio"), "squircle", "large")).toEqual({});
+  });
+
+  it("writes only the flags a pair needs", () => {
+    expect(styleFlags("soft", "large")).toBe("");
+    expect(styleFlags("soft", "small")).toBe("--radius small");
+    expect(styleFlags("compact", "small")).toBe("--style compact");
+    expect(styleFlags("squircle", "medium")).toBe(
+      "--style squircle --radius medium",
+    );
+  });
+
+  it("previews exactly what applyStyle writes", () => {
+    const token = /\bbr:([a-z0-9]+)\b/g;
+    const pieces =
+      /\/\*[\s\S]*?\*\/|\/\/[^\n]*|"(?:[^"\\\n]|\\.)*"|`(?:[^`\\]|\\.)*`/g;
+    const classes = (source: string) =>
+      [...source.matchAll(pieces)]
+        .map((m) => m[0])
+        .filter((piece) => !piece.startsWith("/"))
+        .flatMap((piece) =>
+          [...piece.matchAll(token)].map((m) => ({
+            value: m[1],
+            squircle: /\bcs:s\b/.test(piece),
+          })),
+        );
+    const wrong: string[] = [];
+    for (const { file, source } of files) {
+      const before = classes(source);
+      for (const style of styles) {
+        for (const radius of STYLES[style].allow) {
+          const css = radiusCss(style, radius);
+          const after = classes(applyStyle(source, style, radius));
+          before.forEach(({ value, squircle }, i) => {
+            const rule = css.match(
+              new RegExp(
+                `\\.br\\\\:${value}${squircle ? "\\.cs" : ":not\\(\\.cs"}[^{]*\\{ border-radius: ([^;]+);`,
+              ),
+            );
+            const shown = rule ? rule[1] : value;
+            const written = after[i].value;
+            if (rule ? REM[written] !== shown : written !== value) {
+              wrong.push(
+                `${file} ${style}/${radius}: br:${value} previews ${shown}, writes br:${written}`,
+              );
+            }
+          });
+        }
+      }
+    }
+    expect(wrong).toEqual([]);
+  });
 });
+
+const REM: Record<string, string> = {
+  0: "0",
+  xs: ".125rem",
+  sm: ".25rem",
+  md: ".375rem",
+  lg: ".5rem",
+  xl: ".75rem",
+  xxl: "1rem",
+  "3xl": "1.5rem",
+};

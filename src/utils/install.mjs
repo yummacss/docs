@@ -10,6 +10,6 @@ export function importPath(id) {
   return `${ALIAS}/${COMPONENTS_DIR}/${id}`;
 }
 
-export function addCommand(runner, id) {
-  return `${runner} ${CLI} add ${id}`;
+export function addCommand(runner, id, flags = "") {
+  return `${runner} ${CLI} add ${id}${flags ? ` ${flags}` : ""}`;
 }

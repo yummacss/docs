@@ -15,18 +15,19 @@ const unclaimed = () => false;
 
 describe("carried styles", () => {
   it("carries a value the next component shares", () => {
-    expect(
-      carriedFor(meta("button"), { shape: "squircle" }, unclaimed),
-    ).toEqual({ shape: "squircle" });
+    expect(carriedFor(meta("dialog"), { focus: false }, unclaimed)).toEqual({
+      focus: false,
+    });
   });
 
-  it("drops a value the next component has no name for", () => {
-    expect(carriedFor(meta("checkbox"), { shape: "pill" }, unclaimed)).toEqual(
-      {},
-    );
-    expect(carriedFor(meta("badge"), { shape: "pill" }, unclaimed)).toEqual({
-      shape: "pill",
-    });
+  it("leaves shape, size and shadow to the style", () => {
+    expect(
+      carriedFor(
+        meta("button"),
+        { shape: "squircle", size: "lg", shadow: "outset" },
+        unclaimed,
+      ),
+    ).toEqual({});
   });
 
   it("drops a prop the next component does not have", () => {
@@ -36,10 +37,10 @@ describe("carried styles", () => {
   });
 
   it("never carries what the URL already says", () => {
-    const claimed = (name: string) => name === "shape";
+    const claimed = (name: string) => name === "focus";
     expect(
-      carriedFor(meta("button"), { shape: "pill", size: "lg" }, claimed),
-    ).toEqual({ size: "lg" });
+      carriedFor(meta("dialog"), { focus: false, animated: false }, claimed),
+    ).toEqual({ animated: false });
   });
 
   it("carries nothing that is not a style axis", () => {
