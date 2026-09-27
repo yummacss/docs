@@ -2823,6 +2823,25 @@ nor the rail's rows, which arrived 500ms later. Four changes, one swap left:
 
 333 of 407 props across 36 schemas are controllable (82%); no component has zero.
 
+### Icons at 16px
+
+Site icons are Phosphor **regular**, 2026-09-27. Duotone read soft at 16px,
+and the cause is the art, not where the icon lands.
+
+- **Position does not matter in Chrome.** It snaps an SVG to the pixel grid:
+  the code block's Copy icon scored the same at y .25, .50 and .63 and moved
+  by layout to a whole pixel (31% of its painted pixels partly covered). A
+  `translate` nudge made it worse (72%), since a transform resamples.
+  `will-change` changed nothing. The `h:5` on Edit page and View markdown
+  centres their icons on a whole pixel, which may help another engine.
+- **The weight does.** Eight site icons at 16px on the page background, share
+  of painted pixels partly covered: Phosphor regular 63%, bold 66%, duotone
+  79%, light 84%; Solar bold-duotone 71%, outline 82%, linear 87%. Regular's
+  1px strokes fall on the grid; duotone's 20% fill blurs every edge. On the
+  page, Copy went from 31% to 0%.
+- `src/icons.tsx` is the one place site icons come from. The registry's
+  Solar icons are a separate choice, see "Solar icons in the registry".
+
 ### Settled design, do not re-litigate
 
 Each of these was asked for explicitly and at least one was lost once in a merge
@@ -2837,12 +2856,7 @@ and had to be restored.
 - **CLI and File, no menu.** Two copy buttons in the tabs' own type and
   spacing, with the active tab's box on hover. A copy swaps the icon for a
   check and the accessible name for "Copied the CLI command"; the label
-  stays, so nothing shifts.
-- **Icons land on whole pixels.** A 16px icon centred in a 21px row (`fs:sm`
-  at line height 1.5) sits 2.5px down, and the browser smears it across two
-  pixel rows. Measured on Edit page and View markdown (y .50), fixed with
-  `h:5`, which leaves 2px. The code block's Copy still lands on a fraction
-  when the content above it ends on one. The command is `yummaui add
+  stays, so nothing shifts. The command is `yummaui add
   <id>` with the style flags and no package manager in front: no popup over
   the preview, no choice to make. File copies the styled file from
   `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
