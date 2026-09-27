@@ -127,6 +127,8 @@ is written.
   grows to its content and never scrolls.
 - The scrollbar fades with `hovering:` and `scrolling:`, two states in
   `yumma.config.mjs`.
+- Site icons come from `src/icons.tsx`, Phosphor regular. Duotone blurs at
+  16px; NOTES.md, "Icons at 16px", has the measurements.
 
 # Motion
 
