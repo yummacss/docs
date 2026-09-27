@@ -1,5 +1,5 @@
 import type { RegistryMeta, RegistryProp } from "@/registry";
-import { EXAMPLE_ICON_STYLE } from "@/utils/icon-style";
+import { EXAMPLE_ICON_STYLE, type IconStyle } from "@/utils/icon-style";
 import { importPath } from "@/utils/install.mjs";
 
 export type PropValue = string | boolean | number;
@@ -60,21 +60,30 @@ const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
 
 export function iconMarker(
   value: unknown,
-): { name: string; size?: string } | null {
+): { name: string; size?: string; style?: IconStyle } | null {
   if (typeof value !== "object" || value === null || Array.isArray(value)) {
     return null;
   }
   const keys = Object.keys(value);
   if (!keys.includes("$icon")) return null;
-  if (keys.some((key) => key !== "$icon" && key !== "size")) return null;
-  const { $icon: name, size } = value as { $icon: unknown; size?: unknown };
+  if (keys.some((key) => !["$icon", "size", "style"].includes(key)))
+    return null;
+  const { $icon: name, size, style } = value as Record<string, unknown>;
   if (typeof name !== "string") return null;
-  return { name, size: typeof size === "string" ? size : undefined };
+  return {
+    name,
+    size: typeof size === "string" ? size : undefined,
+    style: style === "outline" || style === "bold-duotone" ? style : undefined,
+  };
 }
 
+// "style:name", so one icon in two styles imports from both barrels
 function markedIcons(value: unknown): string[] {
   const marker = iconMarker(value);
-  if (marker) return [marker.name];
+  if (marker) {
+    const style = marker.style ?? EXAMPLE_ICON_STYLE[marker.name] ?? "outline";
+    return [`${style}:${marker.name}`];
+  }
   if (Array.isArray(value)) return value.flatMap(markedIcons);
   if (typeof value === "object" && value !== null) {
     if ("$$typeof" in value) return [];
@@ -221,7 +230,11 @@ export function buildUsage(
   const icons = [
     ...new Set([
       ...props.flatMap((prop) => [
-        ...(prop.exampleIcon ? [prop.exampleIcon] : []),
+        ...(prop.exampleIcon
+          ? [
+              `${EXAMPLE_ICON_STYLE[prop.exampleIcon] ?? "outline"}:${prop.exampleIcon}`,
+            ]
+          : []),
         ...markedIcons(values[prop.name]),
       ]),
       ...(meta.childrenExample ?? []).flatMap((child) =>
@@ -231,9 +244,9 @@ export function buildUsage(
   ].sort();
 
   for (const style of ["bold-duotone", "outline"] as const) {
-    const named = icons.filter(
-      (icon) => (EXAMPLE_ICON_STYLE[icon] ?? "outline") === style,
-    );
+    const named = icons
+      .filter((icon) => icon.startsWith(`${style}:`))
+      .map((icon) => icon.slice(style.length + 1));
     if (!named.length) continue;
     tokens.push(
       { kind: "keyword", text: "import" },

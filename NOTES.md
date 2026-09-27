@@ -4060,6 +4060,18 @@ the interesting work. Top first.
    `tests/styles.test.ts` runs all 550 file, style and step combinations
    through the class validator. Context Menu's trigger had `rounded` equal to
    `squircle`; it is `br:xxl`, and the test holds the two apart.
+   **A container is rounder than what it holds, 2026-09-27.** Tabs' list and
+   Menubar's bar matched their tabs and triggers at `br:lg`, so the outer
+   corner read tighter than the inner one across the 4px padding; they are
+   `br:xl` (and `br:3xl` for Menubar's squircle). The test for it caught a
+   phase-two bug: past `3xl` a shift fell back to `0`, so Extra collapsed
+   every `3xl` to its floor. It clamps now, and a `squircle:` entry only ever
+   loses radius, since past its own it reads as a pill.
+   **Renildo's answers to the mockup's open questions, 2026-09-27:**
+   `size`, `shape` and `shadow` stay props in the installed API but leave the
+   site's rail, which lists them as reference; `yummaui add` takes `--style`;
+   and the Elegant serif comes from `theme.fonts`, which the CLI fills by
+   offering three Fontsource faces or the user's own.
 6. **A new logomark.**
 
 ## Motion out of the registry, evaluated 2026-09-23
@@ -4135,11 +4147,14 @@ copied in beside each component.
 - **Two styles, by kind.** Outline for marks, arrows and operators: check,
   close, magnifier, chevrons, arrows, command, plus, minus, text formatting.
   Bold Duotone for objects: cloud upload, the avatar's badge, rating stars,
-  the alert triangle, the sort arrows, eye, lock, bell and the rest. An icon
-  has one style everywhere, and `src/utils/icon-style.ts` names the style of
-  each demo icon so the Code tab imports from the right barrel;
-  `tests/icons.test.ts` fails on a clash or a missing entry. Renildo's call,
-  2026-09-26.
+  the alert triangle, the sort arrows, eye, lock, bell and the rest. Import
+  and Export are Outline too; Command Palette is Bold Duotone throughout,
+  its own magnifier included. An icon has one style within a file, and
+  `src/utils/icon-style.ts` names each demo icon's style so the Code tab
+  imports from the right barrel. A demo marker can ask for another with
+  `"style"`, which is how Command Palette's Search item is Bold Duotone.
+  `tests/icons.test.ts` fails on a clash inside a file or a marker the demo
+  cannot resolve. Renildo's calls, 2026-09-26 and -27.
 
 - **Licence.** The icons are CC BY 4.0 (480 Design); the wrapper is MIT and
   ships the third-party notice. The Yumma UI installation page credits them.

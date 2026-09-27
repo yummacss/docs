@@ -3,14 +3,16 @@ import {
   ArchiveIcon,
   BellIcon,
   BookmarkIcon,
+  Columns3Icon,
   CopyIcon,
   DocumentAddIcon,
   DocumentIcon,
-  ExportIcon,
   FolderIcon,
+  Grid2x2Icon,
   HistoryIcon,
-  ImportIcon,
   KeyboardIcon,
+  ListIcon,
+  MagnifierIcon as MagnifierDuotoneIcon,
   MoonIcon,
   MoveToFolderIcon,
   PaletteIcon,
@@ -25,6 +27,8 @@ import {
 import {
   AddIcon,
   CheckIcon,
+  ExportIcon,
+  ImportIcon,
   MagnifierIcon,
   TextBoldIcon,
   TextItalicIcon,
@@ -36,46 +40,59 @@ import Avatar from "@/registry/ui/avatar";
 import Button from "@/registry/ui/button";
 import Checkbox from "@/registry/ui/checkbox";
 import Toggle from "@/registry/ui/toggle";
+import { EXAMPLE_ICON_STYLE, type IconStyle } from "@/utils/icon-style";
 import { iconMarker } from "@/utils/snippet";
 
 export type DemoProps = Record<string, unknown>;
 
-export const EXAMPLE_ICONS: Record<
-  string,
-  ComponentType<{ className?: string }>
-> = {
-  AddFolderIcon,
-  AddIcon,
-  ArchiveIcon,
-  BellIcon,
-  BookmarkIcon,
-  CheckIcon,
-  CopyIcon,
-  DocumentAddIcon,
-  DocumentIcon,
-  ExportIcon,
-  FolderIcon,
-  HistoryIcon,
-  ImportIcon,
-  KeyboardIcon,
-  MagnifierIcon,
-  MoonIcon,
-  MoveToFolderIcon,
-  PaletteIcon,
-  PenIcon,
-  PinIcon,
-  SettingsIcon,
-  SortIcon,
-  StarsIcon,
-  SunIcon,
-  TextBoldIcon,
-  TextItalicIcon,
-  TextUnderlineIcon,
-  TrashBinTrashIcon,
+type IconComponent = ComponentType<{ className?: string }>;
+
+export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
+  "bold-duotone": {
+    AddFolderIcon,
+    ArchiveIcon,
+    BellIcon,
+    BookmarkIcon,
+    Columns3Icon,
+    CopyIcon,
+    DocumentAddIcon,
+    DocumentIcon,
+    FolderIcon,
+    Grid2x2Icon,
+    HistoryIcon,
+    KeyboardIcon,
+    ListIcon,
+    MoonIcon,
+    MoveToFolderIcon,
+    PaletteIcon,
+    PenIcon,
+    PinIcon,
+    SettingsIcon,
+    SortIcon,
+    StarsIcon,
+    SunIcon,
+    TrashBinTrashIcon,
+    MagnifierIcon: MagnifierDuotoneIcon,
+  },
+  outline: {
+    AddIcon,
+    CheckIcon,
+    ExportIcon,
+    ImportIcon,
+    MagnifierIcon,
+    TextBoldIcon,
+    TextItalicIcon,
+    TextUnderlineIcon,
+  },
 };
 
+// a marker can ask for a style; otherwise the icon's own
+function iconComponent(name: string, style?: IconStyle) {
+  return EXAMPLE_ICONS[style ?? EXAMPLE_ICON_STYLE[name] ?? "outline"][name];
+}
+
 export function exampleIcon(name: string) {
-  const Icon = EXAMPLE_ICONS[name];
+  const Icon = iconComponent(name);
   return Icon ? <Icon className="w:5 h:5" /> : undefined;
 }
 
@@ -104,7 +121,7 @@ export function seedValues(meta: RegistryMeta): DemoProps {
 export function resolveIcons(value: unknown): unknown {
   const marker = iconMarker(value);
   if (marker) {
-    const Icon = EXAMPLE_ICONS[marker.name];
+    const Icon = iconComponent(marker.name, marker.style);
     return Icon ? <Icon className={marker.size ?? "w:6 h:6"} /> : undefined;
   }
   if (Array.isArray(value)) return value.map(resolveIcons);

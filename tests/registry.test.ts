@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateClasses } from "@yummacss/nitro";
 import { describe, expect, it } from "vitest";
+import { EXAMPLE_ICON_STYLE } from "../src/utils/icon-style";
 import { SHARED_PROP_ORDER } from "../src/utils/props";
 import { rootDir } from "./helpers";
 
@@ -186,16 +187,7 @@ describe("Yumma UI registry", () => {
   });
 
   it("resolves every icon a schema names", () => {
-    const known = new Set(
-      (
-        readFileSync(join(rootDir, "src/utils/demo.tsx"), "utf-8").match(
-          /export const EXAMPLE_ICONS[^{]*\{[^}]*\}[^{]*\{([^}]*)\}/,
-        )?.[1] ?? ""
-      )
-        .split(",")
-        .map((entry) => entry.trim())
-        .filter(Boolean),
-    );
+    const known = new Set(Object.keys(EXAMPLE_ICON_STYLE));
 
     expect(known.size).toBeGreaterThan(0);
 
