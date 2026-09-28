@@ -2479,6 +2479,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       animation Base UI's meter lacks. The transition is the component's own
       `tp:w`, and a value change eases the indicator over 500ms, measured in
       Chromium. The prop stays.
+- [x] **Focus has no `animated` switch: nothing to switch**, 2026-09-28. The
+      outline does not transition, by design: Yumma CSS 4.1.2 took
+      `outline-color` out of `tp:c`, because width and style snap while the
+      colour eased, so the outline flashed in `currentColor` first. The
+      "reaches the docs on the next release" note in TODO was stale and went
+      with it.
+- [x] **Progress `shimmer`**, 2026-09-28. Renildo chose a separate prop over
+      a loop on `animated`, so `animated` means motion on or off everywhere. A
+      30% band of `white/20` sits at the end of a strip that runs the `slide`
+      keyframes, so installers add no new name. It needs `animated`, stops at
+      100 and under `@prm:`, and the rail disables it without `animated` or a
+      value.
+- [x] **Badge's `focus` is right**, 2026-09-28. The close button, rendered
+      when `onClose` is set, is the only focusable part and takes the outline.
+      The description said "every focusable part" and named danger and success
+      tints Badge does not have; it names the close button now.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

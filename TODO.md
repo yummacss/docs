@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  165
-    Open    25
-    Done    87%
+    Closed  168
+    Open    22
+    Done    88%
 
 ---
 
@@ -35,11 +35,6 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **Focus has no `animated` switch.** The outline's transition should
-      follow a prop, the same way popups do.
-- [ ] **Progress `animated` only eases a value change.** Renildo expects the
-      bar to move on its own; decide whether that is a loop on the bar or a
-      separate prop.
 - [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
 - [ ] **No way to turn a component's icons off.** There is no `icon` boolean on
@@ -47,9 +42,6 @@ Empty.
 - [ ] **Onboarding: drop the close button.** Esc dismisses, which is the
       default, with a prop to opt out of it. Under `shape="square"` the icon
       containers stay rounded and should not.
-- [ ] **Does Badge have `focus`?** It declares the prop. Verify what it reaches:
-      the badge itself is not focusable, but its close button renders a Base UI
-      `Button`, so the prop may be right for the wrong reason.
 
 ## Phase 4 - Wants mockups
 
@@ -122,7 +114,9 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 
 - [ ] **`play` learns 4.2**: `theme.states`, `theme.keyframes`, `theme.fonts`,
       CSS function values, container queries and `@st:`. After its redesign,
-      which NOTES.md lists.
+      which NOTES.md lists. **On hold:** [Trellis UI](https://trellisui.com/)
+      as a reference for that redesign, found by Renildo on 2026-09-28. Not
+      reviewed yet.
 
 ## Decisions
 
@@ -152,5 +146,3 @@ Not bugs. Written down so they stop being rediscovered.
 - Number Field and Toolbar outline the input, not the group around it, so the
   steppers sit outside it. Chosen knowingly: `fv:` everywhere is worth more
   than an outline that wraps the whole control, which only `fw:` can draw.
-- The focus outline's transition needs `outline-color` in `tp-c`, which landed in
-  the yummacss repo. It reaches the docs on the next Yumma CSS release.
