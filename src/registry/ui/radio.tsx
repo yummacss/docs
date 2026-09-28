@@ -14,7 +14,7 @@ export interface RadioOption {
   description?: string;
 }
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BASE = "d:f ai:c jc:c p:0 m:0";
 

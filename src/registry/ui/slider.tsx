@@ -20,7 +20,7 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o:sm",
 };
 
-const FOCUS = "os:s ow:3 oo:0 oc:silver-3/60";
+const FOCUS = "os:s ow:3 oo:0 oc:slate-4/60";
 
 const THUMB_BOX = "d:f ai:c jc:c w:6 h:5 p:1";
 const BOX = "1.5rem";

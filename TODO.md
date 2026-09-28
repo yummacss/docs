@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  158
-    Open    32
-    Done    83%
+    Closed  162
+    Open    28
+    Done    85%
 
 ---
 
@@ -25,13 +25,7 @@ than adjusting the numbers by hand:
 
 Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
 
-- [ ] **Slider's thumb draws no visible focus.**
-- [ ] **Switch's focus is hard to see.**
-- [ ] **Number Field's focus outlines the input alone.** It should wrap the
-      group, buttons included.
-- [ ] **The accent misses focus and icons.** Autocomplete's outline and the
-      icons in Onboarding and Rating keep slate. Extend the accent table to
-      both.
+Empty.
 
 
 ## Phase 2 - Content model
@@ -99,7 +93,8 @@ The Component API rail, from Renildo's pass on 2026-09-18.
       component receives `undefined`, so the control states a value the
       component is not using, and `0` is below the `min` of 1 it declares.
       `number-field`'s `min` and `max` and `rating`'s `value` are the three.
-- [ ] **Remove the Reset button** from the rail.
+- [ ] **`doc-comments.mjs` deletes a comment that is not a prop's.** Each run
+      strips the `ARROW_HEIGHT` note in `popover.tsx` and `tooltip.tsx`.
 - [ ] **Say that the component is theirs.** The rail shows the API; it should
       also say that they own the file and can change anything in it.
 - [ ] **A long prop name pushes its control onto the next line.** Keep the name
@@ -155,9 +150,10 @@ Blocked on Renildo. Each one holds up the entry beside it.
 Not bugs. Written down so they stop being rediscovered.
 
 - Focus is treatment A and sits below WCAG 2.1 1.4.11. It was 1.21:1 for the
-  outline and 1.80:1 for the border on indigo, and the silver pair that
-  replaced it is no better. Deferred deliberately: no users, and a CSS change
-  is reversible. A darker outline, `slate-4` or lower, would pass.
+  outline and 1.80:1 for the border on indigo. The slate pair is 1.6:1 for
+  the outline and 3.6:1 for the border, so a bordered control passes and
+  a slider thumb or a switch does not. Deferred deliberately: no users, and a
+  CSS change is reversible.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
 - Number Field and Toolbar outline the input, not the group around it, so the

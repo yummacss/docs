@@ -2451,6 +2451,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       the five names, and `tests/motion.test.ts` holds it, the site config and
       the registry to them.
 - [x] **Alert Dialog and Button agree on sizing.** The same table, above.
+- [x] **Focus follows the accent**, 2026-09-27. Treatment A keeps its
+      shape, a 3px outline at offset 0 and 60%, and changes hue: `slate-4/60`
+      for the outline, `fv:bc:slate-6` for the border, from `silver-3/60` and
+      `silver-5`. The accent table carries both, with a fixed shade and alpha
+      for the outline; `shade` indexes `generateShades()`, where `slate-4` is
+      `[3]`. Danger, error and success keep their `-2/60` tints.
+      A 2px `slate-12` outline 2px out was tried first and rejected: Renildo
+      wants treatment A's look, only the colour changed.
+- [x] **Number Field's focus wraps the group**: `fw:` on `NumberField.Group`,
+      so the outline goes round the input and both buttons. Its `focus`
+      string takes `fw:` utilities; Yumma scans class names from source, so
+      rewriting `fv:` to `fw:` at runtime would ship classes with no CSS.
+- [x] **Icons follow the accent**: Rating's active stars and Onboarding's step
+      icon are `c:slate-11`, in the accent table. Rating's stars are slate
+      by default rather than yellow.
+- [x] **Remove the Reset button**: already gone, the rail has none.
 - [x] **Style, Radius and Accent get their own controls**, 2026-09-27. See
       "Look, then the Component API".
 - [x] **Read-only props behind a disclosure**, 2026-09-27: "N more, set in

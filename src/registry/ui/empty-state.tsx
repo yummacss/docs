@@ -22,7 +22,7 @@ const ICON_TONES: Record<IconTone, string> = {
   neutral: "c:slate-5",
 };
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BUTTON_BASE =
   "d:if ai:c px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none c:p br:lg";
