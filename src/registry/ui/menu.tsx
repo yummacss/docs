@@ -216,6 +216,7 @@ export default function MenuBase({
     outline,
     "d:f ai:c g:2 h:fc bg:white bc:silver-2 bw:1 fw:500 us:none",
     spec.trigger,
+    spec.text,
     TRIGGER_SHAPES[shape],
     shadowClass,
     animated ? "tp:c tdu:150 ttf:io" : "",
