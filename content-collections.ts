@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from "node:fs";
 import {
   createDefaultImport,
   defineCollection,
@@ -5,7 +6,19 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
+import {
+  extractConfigKeys,
+  extractReference,
+} from "./src/utils/search-reference";
 import { badgeFor } from "./src/utils/since";
+
+// prop names only, so search carries a short list rather than the whole meta
+const propsOf = (id: string): string[] => {
+  const file = `src/registry/meta/${id}.json`;
+  if (!existsSync(file)) return [];
+  const meta = JSON.parse(readFileSync(file, "utf8"));
+  return (meta.props ?? []).map((prop: { name: string }) => prop.name);
+};
 
 const docs = defineCollection({
   name: "docs",
@@ -26,6 +39,12 @@ const docs = defineCollection({
     wordCount: doc.content?.split(/\s+/).length ?? 0,
     // worked out here so the client gets a string, not the version lookup behind it
     badge: badgeFor(doc),
+    reference: [
+      ...extractReference(doc.content ?? ""),
+      ...(doc._meta.path === "configuration"
+        ? extractConfigKeys(doc.content ?? "")
+        : []),
+    ],
   }),
 });
 
@@ -50,6 +69,8 @@ const ui = defineCollection({
     slug: doc._meta.path,
     wordCount: doc.content?.split(/\s+/).length ?? 0,
     badge: badgeFor(doc),
+    reference: extractReference(doc.content ?? ""),
+    props: propsOf(doc._meta.path),
   }),
 });
 
