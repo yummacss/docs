@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  162
-    Open    28
-    Done    85%
+    Closed  164
+    Open    26
+    Done    86%
 
 ---
 
@@ -35,15 +35,6 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **Fifteen more controls have no font size.** A sweep of every preview for
-      buttons at the browser's 13.33px found, beyond the dialogs: Accordion,
-      Combobox, Command Palette, Empty State, Menu, Number Field, Onboarding,
-      Popover, Rating, Select, Tabs, Toggle, Toggle Group, Toolbar and Tooltip.
-      The icon-only ones do not show it; the text ones do. Yumma's normalize
-      inherits the whole font once `fix/controls-inherit-font` ships, which
-      covers them, but a text control should name its size like Button does.
-- [ ] **Meter's `animated` describes an animation Base UI's meter does not
-      have.** Remove the prop.
 - [ ] **Focus has no `animated` switch.** The outline's transition should
       follow a prop, the same way popups do.
 - [ ] **Progress `animated` only eases a value change.** Renildo expects the
@@ -66,17 +57,21 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] Replace the stage's tab bar with the **browser window** treatment,
-      redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
+- [ ] Replace the stage's tab bar with an **IDE** treatment: Preview and the
+      file as two editor tabs, Copy component at the end of the strip, a
+      status bar below. Chosen: A on the Phase 4 canvas.
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
 - [ ] **Mark what is new in the sidebar.** CSS Functions, Class Merge,
       States and the rest of 4.2 carry an indicator beside their link, so a
-      returning reader finds them. Decide how long an entry stays new.
+      returning reader finds them. Chosen: a `4.2` badge, C on the Phase 4
+      canvas. A page carries `since` in its frontmatter and is marked while it
+      matches the current minor.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card
-      that fills its width, with a strip of activity, is the direction.
+      that fills its width. Chosen: C on the Phase 4 canvas, a larger avatar
+      over a row of three counts: files, folders, storage used.
 
 ## Phase 5 - Infrastructure
 

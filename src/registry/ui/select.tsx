@@ -31,9 +31,9 @@ const TRIGGER =
   "d:f ai:c jc:sb bw:1 bc:silver-3 bg:white c:slate-10 us:none c:p";
 
 const SIZES: Record<Size, string> = {
-  sm: "h:8 w:56 px:3",
-  md: "h:10 w:64 px:3",
-  lg: "h:12 w:72 px:4",
+  sm: "h:8 w:56 px:3 fs:sm",
+  md: "h:10 w:64 px:3 fs:md",
+  lg: "h:12 w:72 px:4 fs:lg",
 };
 
 const ITEM_SHAPES: Record<Shape, string> = {

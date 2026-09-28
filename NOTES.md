@@ -2467,6 +2467,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       icon are `c:slate-11`, in the accent table. Rating's stars are slate
       by default rather than yellow.
 - [x] **Remove the Reset button**: already gone, the rail has none.
+- [x] **Text controls name their font size**, 2026-09-28. Yumma's normalize
+      makes controls inherit the page font, so nothing renders at 13.33px and
+      the fifteen-component sweep no longer applies. Measured at the text node,
+      six controls still inherited 16px with no `fs:` of their own: the
+      Command Palette, Menu, Onboarding and Select triggers and Empty State's
+      two buttons. The three with no `size` take `fs:sm`, as Button's `md`
+      does. Menu's trigger takes its size's `text`. Select's trigger scales
+      `fs:sm`, `fs:md`, `fs:lg`, as Number Field's input does.
+- [x] **Meter's `animated` works**, 2026-09-28. The entry said it described an
+      animation Base UI's meter lacks. The transition is the component's own
+      `tp:w`, and a value change eases the indicator over 500ms, measured in
+      Chromium. The prop stays.
 - [x] **Style, Radius and Accent get their own controls**, 2026-09-27. See
       "Look, then the Component API".
 - [x] **Read-only props behind a disclosure**, 2026-09-27: "N more, set in
@@ -2813,7 +2825,7 @@ Everything lives under `src/components/playground/` unless noted.
 | `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
 | `rail.tsx` | The right column: Look (`style`, `radius`, `accent`) as rows, then the Component API, with the props it cannot set folded under "N more, set in code". |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
-| `install.tsx` | CLI and File, two copy buttons in the stage's tab bar, set like the tabs beside them. |
+| `install.tsx` | Copy component, one copy button in the stage's tab bar, set like the tabs beside them. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
 | `../../utils/demo.tsx` | `EXAMPLE_ICONS`, `exampleIcon`, `resolveIcons`, `seedValues`. |
 | `../../utils/props.ts` | `typeOf`, `isControllable`. |
@@ -2869,15 +2881,14 @@ and had to be restored.
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
-- **CLI and File, no menu.** Two copy buttons in the tabs' own type and
-  spacing, with the active tab's box on hover. A copy swaps the icon for a
-  check and the accessible name for "Copied the CLI command"; the label
-  stays, so nothing shifts. The command is `yummaui add
-  <id>` with the style flags and no package manager in front: no popup over
-  the preview, no choice to make. File copies the styled file from
-  `/ui/r/<style>-<radius>/<id>.json`; it leaves out the dependencies the CLI
-  would install. A `ClipboardItem` holds the fetch, so the copy keeps the
-  click's permission while the file loads.
+- **One copy button, Copy component.** In the tabs' own type and spacing,
+  with the active tab's box on hover. It copies the styled file from
+  `/ui/r/<style>-<radius>/<id>.json`, which leaves out the dependencies
+  the CLI would install. A copy swaps the icon for a check and the
+  accessible name for "Copy component, copied"; the label stays, so
+  nothing shifts. A `ClipboardItem` holds the fetch, so the copy keeps
+  the click's permission while the file loads. The CLI copy button was
+  dropped on 2026-09-28; `addCommand` and `styleFlags` have no caller now.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
   controls scroll under the preview.
