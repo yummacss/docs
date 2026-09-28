@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  171
-    Open    19
-    Done    90%
+    Closed  172
+    Open    18
+    Done    91%
 
 ---
 
@@ -35,7 +35,8 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **Drawer**, a new component on Base UI's primitive.
+Empty.
+
 
 ## Phase 4 - Wants mockups
 
@@ -50,7 +51,9 @@ Design decisions. Nothing here starts without them.
       States and the rest of 4.2 carry an indicator beside their link, so a
       returning reader finds them. Chosen: a `4.2` badge, C on the Phase 4
       canvas. A page carries `since` in its frontmatter and is marked while it
-      matches the current minor.
+      matches the current minor. The `/ui` sidebar needs the same for
+      components added recently, OTP Field and Drawer first, against Yumma
+      UI's own version rather than Yumma CSS's.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card
