@@ -11,7 +11,7 @@ export default function NewBadge({ since }: { since?: string }) {
   );
 }
 
-/** The badge's words for a screen reader, inside the link it belongs to. */
+/** The badge's words for a screen reader. Absolute, so its link must be `p:r` or it stretches the page. */
 export function NewLabel({ since }: { since?: string }) {
   if (!since) return null;
   return (
