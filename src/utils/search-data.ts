@@ -1,6 +1,4 @@
-import { allDocs, allUis } from "content-collections";
 import { COLOR_FAMILIES, generateShades, SHADE_LABELS } from "./colors";
-import { extractProperties } from "./doc-properties";
 
 export interface SearchItem {
   title: string;
@@ -10,30 +8,27 @@ export interface SearchItem {
   color?: string;
 }
 
-const DOCS_ITEMS: SearchItem[] = allDocs.map((doc) => ({
-  title: doc.title,
-  description: doc.description,
-  path: `/docs/${doc._meta.path}`,
-  category: "docs" as const,
-}));
+/** What `/api/search` serves: the pages, fetched so their collections stay off the client. */
+export interface SearchIndex {
+  docs: SearchItem[];
+  properties: SearchItem[];
+  components: SearchItem[];
+}
 
-const COMPONENT_ITEMS: SearchItem[] = allUis.map((ui) => ({
-  title: ui.title,
-  description: ui.description,
-  path: `/ui/components/${ui._meta.path}`,
-  category: "ui-components" as const,
-}));
+let pending: Promise<SearchIndex> | null = null;
 
-const MERGED_ITEMS: SearchItem[] = allDocs.flatMap((doc) =>
-  extractProperties(doc.content ?? "")
-    .filter((p) => p.name !== doc.slug)
-    .map((p) => ({
-      title: p.title,
-      description: p.name,
-      path: `/docs/${doc.slug}#${p.anchor}`,
-      category: "docs" as const,
-    })),
-);
+export function loadSearchIndex(): Promise<SearchIndex> {
+  pending ??= fetch("/api/search")
+    .then((res) => {
+      if (!res.ok) throw new Error(`/api/search: ${res.status}`);
+      return res.json() as Promise<SearchIndex>;
+    })
+    .catch((error) => {
+      pending = null;
+      throw error;
+    });
+  return pending;
+}
 
 function generateColorItems(): SearchItem[] {
   const items: SearchItem[] = [];
@@ -57,23 +52,22 @@ function generateColorItems(): SearchItem[] {
 
 const COLOR_ITEMS = generateColorItems();
 
-export const SEARCH_DATA: SearchItem[] = [
-  ...DOCS_ITEMS,
-  ...MERGED_ITEMS,
-  ...COMPONENT_ITEMS,
-  ...COLOR_ITEMS,
-];
+function defaultItems(index: SearchIndex | null): SearchItem[] {
+  if (!index) return [];
+  return [...index.components.slice(0, 12), ...index.docs.slice(0, 8)];
+}
 
-export const DEFAULT_ITEMS: SearchItem[] = [
-  ...COMPONENT_ITEMS.slice(0, 12),
-  ...DOCS_ITEMS.slice(0, 8),
-];
-
-export function filterSearchResults(query: string): SearchItem[] {
-  if (!query.trim()) return DEFAULT_ITEMS;
+export function filterSearchResults(
+  query: string,
+  index: SearchIndex | null,
+): SearchItem[] {
+  if (!query.trim()) return defaultItems(index);
 
   const lowerQuery = query.toLowerCase();
-  const matches = SEARCH_DATA.filter(
+  const pages = index
+    ? [...index.docs, ...index.properties, ...index.components]
+    : [];
+  const matches = [...pages, ...COLOR_ITEMS].filter(
     (item) =>
       item.title.toLowerCase().includes(lowerQuery) ||
       item.description?.toLowerCase().includes(lowerQuery),

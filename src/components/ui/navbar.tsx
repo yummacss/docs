@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { Menu, Search, Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
+import type { NavSection } from "./mobile-dialog-nav";
 import { SearchDialog } from "./search-dialog";
 import ThemeToggle from "./theme-toggle";
 
@@ -25,17 +26,17 @@ interface NavbarProps {
   variant?: Variant;
   className?: string;
   links?: ReactNode;
-  showMobileDrawer?: boolean;
+  /** The mobile menu's sections, built on the server; without them there is no menu button. */
+  menu?: NavSection[];
 }
 
 export default function Navbar({
   variant = "default",
   className,
   links,
-  showMobileDrawer = false,
+  menu,
 }: NavbarProps) {
   const pathname = usePathname();
-  const isUI = pathname?.startsWith("/ui");
   const isLandingPage = pathname === "/";
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -126,7 +127,7 @@ export default function Navbar({
                 </kbd>
               </Button>
 
-              {showMobileDrawer && (
+              {menu && (
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -150,12 +151,12 @@ export default function Navbar({
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      {showMobileDrawer && (
+      {menu && (
         <Suspense fallback={null}>
           <MobileDialog
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
-            routeType={isUI ? "ui" : "docs"}
+            sections={menu}
           />
         </Suspense>
       )}

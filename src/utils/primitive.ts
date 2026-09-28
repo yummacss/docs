@@ -1,15 +1,14 @@
-import { allUis } from "content-collections";
 import { getRegistryTarget } from "@/registry";
 
-export function pageSlug(pathname: string) {
-  return pathname
-    .replace(/^\/ui\/components\//, "")
-    .replace(/^\/ui\//, "")
-    .replace(/\/$/, "");
-}
+/** Each component page's `primitive` frontmatter, by slug, so the client gets these and not the collection. */
+export type Primitives = Record<string, boolean | string>;
 
-export function primitiveSlug(slug: string, installId?: string) {
-  const primitive = allUis.find((ui) => ui._meta.path === slug)?.primitive;
+export function primitiveSlug(
+  primitives: Primitives,
+  slug: string,
+  installId?: string,
+) {
+  const primitive = primitives[slug];
   if (!primitive) return null;
 
   return typeof primitive === "string"

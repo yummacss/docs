@@ -1,6 +1,6 @@
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
-import Sidebar from "@/components/ui/sidebar";
+import Sidebar, { menuSections } from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
 import TableOfContents from "@/components/ui/toc";
 
@@ -12,7 +12,7 @@ export default function DocsLayout({
   return (
     <div className="min-h:dvh c:ink">
       <SkipLink />
-      <Navbar showMobileDrawer />
+      <Navbar menu={menuSections("docs")} />
 
       <main
         id="main"

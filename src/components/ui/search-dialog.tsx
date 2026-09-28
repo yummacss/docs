@@ -20,6 +20,8 @@ import {
   CATEGORY_LABELS,
   filterSearchResults,
   groupByCategory,
+  loadSearchIndex,
+  type SearchIndex,
   type SearchItem,
 } from "@/utils/search-data";
 
@@ -33,10 +35,31 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
+  const [index, setIndex] = useState<SearchIndex | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const filteredResults = useMemo(() => filterSearchResults(query), [query]);
+  // fetched on mount so it is there by the first open; a failed load retries on the next open
+  useEffect(() => {
+    loadSearchIndex().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (index || !open) return;
+    let live = true;
+    loadSearchIndex().then(
+      (loaded) => live && setIndex(loaded),
+      () => {},
+    );
+    return () => {
+      live = false;
+    };
+  }, [index, open]);
+
+  const filteredResults = useMemo(
+    () => filterSearchResults(query, index),
+    [query, index],
+  );
   const groupedResults = useMemo(
     () => groupByCategory(filteredResults),
     [filteredResults],
@@ -222,7 +245,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 );
               })}
 
-              {flatResults.length === 0 && (
+              {flatResults.length === 0 && query.trim() !== "" && (
                 <div className="px:4 py:8 c:ink/50 ta:c fs:md">
                   No results found for "{query}"
                 </div>
