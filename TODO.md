@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  187
-    Open    8
-    Done    95%
+    Closed  189
+    Open    6
+    Done    96%
 
 ---
 
@@ -42,7 +42,10 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-Empty.
+- [ ] **A destructive row: the icon or the whole row?** Context Menu, Menu
+      and Menubar paint the whole row red, label, icon and highlight; Command
+      Palette has no destructive item. Four options, A to D, on the Phase 4
+      canvas, 2026-09-28.
 
 ## Phase 5 - Infrastructure
 
@@ -64,10 +67,8 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
       is (0,1,1) and beats every (0,1,0) outline utility, measured in Chromium,
       so `oc:*` does nothing on a focused button. Two layers fix it. Decide
       separately whether the utilities split into shorthand and longhand. See
-      NOTES.md under Cascade layers.
-- [ ] **Coloured box-shadow utilities**, 4.2. Renildo's call, 2026-09-16: it
-      does not gate v4. Without them a halo-plus-outline focus treatment cannot
-      be written at all.
+      NOTES.md under Cascade layers. **On hold:** Renildo wants to learn more
+      about layers before adding them, 2026-09-28.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
@@ -86,15 +87,7 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
-- [ ] **Alphabetical order in the Component API rail?** Renildo asked, and it
-      fights the rule in AGENTS.md: a component's own props come first, then the
-      shared ones in `SHARED_PROP_ORDER`, which puts `variant` above `shape`
-      above `className` on purpose. Alphabetical is easier to scan and loses
-      that grouping. One or the other, not both.
-- [ ] **A destructive action's icon should be red.** Context Menu, Command
-      Palette and anywhere else a delete sits in a list. Decide whether the icon
-      takes the tone or the whole row does.
-
+Empty.
 
 ## Known and accepted
 
@@ -105,8 +98,6 @@ Not bugs. Written down so they stop being rediscovered.
   the outline and 3.6:1 for the border, so a bordered control passes and
   a slider thumb or a switch does not. Deferred deliberately: no users, and a
   CSS change is reversible.
-- Nothing in the playground survives a reload, by design, until the URL entry
-  in Phase 5 lands.
 - Number Field and Toolbar outline the input, not the group around it, so the
   steppers sit outside it. Chosen knowingly: `fv:` everywhere is worth more
   than an outline that wraps the whole control, which only `fw:` can draw.
