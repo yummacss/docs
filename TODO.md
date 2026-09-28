@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  164
-    Open    26
-    Done    86%
+    Closed  165
+    Open    25
+    Done    87%
 
 ---
 
@@ -40,8 +40,6 @@ Empty.
 - [ ] **Progress `animated` only eases a value change.** Renildo expects the
       bar to move on its own; decide whether that is a loop on the bar or a
       separate prop.
-- [ ] **Button Group has no icon controls.** Its buttons should take an icon
-      like Button does.
 - [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
 - [ ] **No way to turn a component's icons off.** There is no `icon` boolean on

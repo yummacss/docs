@@ -14,6 +14,19 @@
       "description": "Buttons share the full width instead of sizing to their labels."
     },
     {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end the icon sits at, on every button that has one. Unset, each button keeps its own."
+    },
+    {
+      "name": "iconOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "Draws each button's icon alone, keeping its label as the accessible name. A button without an icon keeps its label."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle", "pill"],
@@ -31,25 +44,37 @@
       "component": "Button",
       "props": {
         "variant": "ghost",
-        "shape": "square"
+        "shape": "square",
+        "icon": {
+          "$icon": "ListIcon",
+          "size": "w:5 h:5"
+        }
       },
-      "children": "Day"
+      "children": "List"
     },
     {
       "component": "Button",
       "props": {
         "variant": "ghost",
-        "shape": "square"
+        "shape": "square",
+        "icon": {
+          "$icon": "Grid2x2Icon",
+          "size": "w:5 h:5"
+        }
       },
-      "children": "Month"
+      "children": "Grid"
     },
     {
       "component": "Button",
       "props": {
         "variant": "ghost",
-        "shape": "square"
+        "shape": "square",
+        "icon": {
+          "$icon": "Columns3Icon",
+          "size": "w:5 h:5"
+        }
       },
-      "children": "Year"
+      "children": "Columns"
     }
   ]
 }
