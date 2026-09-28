@@ -140,6 +140,11 @@ export interface MenuProps {
   /** Depth on both the trigger and the popup. */
   shadow?: Shadow;
   /**
+   * Draws each item's icon. `false` drops them, so every row shows its label
+   * alone.
+   */
+  icon?: boolean;
+  /**
    * Which end of an item its `icon` sits at. A `shortcut` always trails
    * regardless.
    */
@@ -183,6 +188,7 @@ export default function MenuBase({
   size = "md",
   shape = "rounded",
   shadow = "none",
+  icon = true,
   iconPosition = "leading",
   disabled = false,
   open: controlledOpen,
@@ -323,7 +329,7 @@ export default function MenuBase({
         return (
           <Menu.SubmenuRoot key={key}>
             <Menu.SubmenuTrigger className={itemClasses(false, true)}>
-              {item.icon && (
+              {icon && item.icon && (
                 <span className="d:f fs:0 c:slate-5">{item.icon}</span>
               )}
               <span className="fg:1">{item.label}</span>
@@ -349,7 +355,7 @@ export default function MenuBase({
       const destructive = Boolean(action.destructive);
       const trailing =
         Boolean(action.shortcut) ||
-        (Boolean(action.icon) && iconPosition === "trailing");
+        (icon && Boolean(action.icon) && iconPosition === "trailing");
 
       return (
         <Menu.Item
@@ -358,7 +364,7 @@ export default function MenuBase({
           onClick={action.onClick}
           className={itemClasses(destructive, trailing)}
         >
-          {action.icon && iconPosition === "leading" && (
+          {icon && action.icon && iconPosition === "leading" && (
             <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
               {action.icon}
             </span>
@@ -368,7 +374,7 @@ export default function MenuBase({
           ) : (
             action.label
           )}
-          {action.icon && iconPosition === "trailing" && (
+          {icon && action.icon && iconPosition === "trailing" && (
             <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
               {action.icon}
             </span>
