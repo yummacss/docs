@@ -2600,6 +2600,26 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **The logo is 24px**, 2026-09-28, in the navbar and the mobile menu
       (`h:6`, from `h:8`), a step below the 32px search button beside it. The
       footer's keeps its own size.
+- [x] **A disabled prop explains itself in a muted line**, 2026-09-28.
+      Under the row, "Does nothing while `side` is left.", from `isInert`,
+      and the control dims to `c:ink/40` with no red. Not a tooltip: a
+      disabled control takes no focus, and a focusable wrapper around it is
+      a span with a role, which biome rejects.
+- [x] **An unset number reads "none"**, 2026-09-28. The Stepper shows the
+      value the component receives, `undefined` included, and its first
+      press lands on `min`, or `0` without one.
+- [x] **`doc-comments.mjs` strips only what it writes**: blocks inside the
+      `Props` interface and the one above `export default function`. The
+      `ARROW_HEIGHT` note in `popover.tsx` and `tooltip.tsx` survives a run.
+- [x] **The rail says the file is theirs**, 2026-09-28: "The file you copy
+      is yours. Change anything in it.", under the Component API heading.
+- [x] **A long prop name ends in an ellipsis**, 2026-09-28, with the full
+      name in a `HintTooltip`, and its control stays on the same line. The
+      name keeps at least `min-w:12`: in a rail too narrow for that plus a
+      `w:32` control, around 1100 to 1280px, the control drops under the
+      name rather than squeezing it to nothing. Look's rows wrap the same way.
+- [x] **The active link stays as it is**, 2026-09-28. Two rounds of
+      mockups, A to H, were turned down; the entry is closed without a change.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
