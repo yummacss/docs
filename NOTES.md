@@ -2590,6 +2590,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       blended into the page. The stage copies `code-tabs.tsx` instead,
       `fs:sm`, `accent` open and `accent-dim` closed, with no `bw:0`;
       computed styles match the markdown tabs edge for edge.
+- [x] **Preview Card fills its width**, 2026-09-28, option C on the Phase 4
+      canvas: a centred `lg` Avatar, the name and the join year, then a row
+      of three counts, files, folders and storage used. The layout lives in
+      the demo, so `childrenExample` nodes can be plain elements: `tag`,
+      `className` and nested `children`, rendered by `renderChild` in
+      `demo.tsx` and printed with indentation by `childTokens` in
+      `snippet.ts`. Yumma reads `src/registry/meta/*.json` for their classes.
+- [x] **The logo is 24px**, 2026-09-28, in the navbar and the mobile menu
+      (`h:6`, from `h:8`), a step below the 32px search button beside it. The
+      footer's keeps its own size.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

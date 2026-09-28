@@ -139,12 +139,17 @@ export interface RegistryMeta {
   summary?: string;
   props: RegistryProp[];
   children?: string;
-  childrenExample?: {
-    component?: string;
-    props?: Record<string, unknown>;
-    children?: string;
-    text?: string;
-  }[];
+  childrenExample?: ChildExample[];
+}
+
+/** One node of a demo's children: a registry component, a plain element, or text. */
+export interface ChildExample {
+  component?: string;
+  tag?: "div" | "span";
+  className?: string;
+  props?: Record<string, unknown>;
+  children?: string | ChildExample[];
+  text?: string;
 }
 
 export const registryMeta = {
