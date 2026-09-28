@@ -13,8 +13,7 @@ type ValidationType = "numeric" | "alpha" | "alphanumeric";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
-const SLOT =
-  "p:0 bg:white c:slate-10 bw:1 ta:c fw:500 tp:c tdu:150 ttf:io";
+const SLOT = "p:0 bg:white c:slate-10 bw:1 ta:c fw:500 tp:c tdu:150 ttf:io";
 
 const SLOT_SIZES: Record<Size, string> = {
   sm: "w:8 h:10 fs:md",
