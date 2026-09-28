@@ -150,11 +150,10 @@ export interface BadgeProps {
    */
   className?: string;
   /**
-   * The focus outline. `true` draws it, `false` removes it along with the
-   * danger, error and success tints that ride with it, and a string of Yumma
-   * CSS utilities restyles it on every focusable part of the component, which
-   * is more than `className` reaches. Removing it outright and putting nothing
-   * back fails WCAG 2.4.7.
+   * The close button's focus outline, the only focusable part of a badge, so it
+   * applies when `onClose` is set. `true` draws it, `false` removes it, and a
+   * string of Yumma CSS utilities restyles it. Removing it outright and putting
+   * nothing back fails WCAG 2.4.7.
    */
   focus?: boolean | string;
 }

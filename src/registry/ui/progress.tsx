@@ -30,6 +30,11 @@ export interface ProgressProps {
    * Progress.Label.
    */
   label: ReactNode;
+  /**
+   * A band of light that sweeps along the fill on a loop while the bar is below
+   * 100. Needs `animated`, and stops under reduced motion.
+   */
+  shimmer?: boolean;
   /** Corner radius on both the track and the indicator. */
   shape?: Shape;
   /**
@@ -56,6 +61,7 @@ export interface ProgressProps {
 export default function ProgressBase({
   value,
   label,
+  shimmer = false,
   shape = "rounded",
   shadow = "none",
   animated = true,
@@ -63,6 +69,7 @@ export default function ProgressBase({
 }: ProgressProps) {
   const isCard = shadow !== "none";
   const isIndeterminate = value === null;
+  const sweeps = shimmer && animated && !isIndeterminate && value < 100;
 
   const rootClasses = merge(
     "d:f fd:c g:2 w:64",
@@ -98,6 +105,7 @@ export default function ProgressBase({
             className={(state) =>
               [
                 "h:100%",
+                sweeps ? "o:h" : "",
                 animated ? "tp:w tdu:500 ttf:eo" : "",
                 SHAPES[shape],
                 state.status === "complete" ? "bg:green" : "bg:slate-12",
@@ -105,7 +113,17 @@ export default function ProgressBase({
                 .filter(Boolean)
                 .join(" ")
             }
-          />
+          >
+            {/* `slide` moves the strip its own width, so the band at its end crosses the whole fill */}
+            {sweeps && (
+              <span
+                aria-hidden
+                className="d:f jc:fe h:100% w:100% an:slide adu:1000 atf:io aic:inf @prm:an:none"
+              >
+                <span className="h:100% w:30% bg:white/20" />
+              </span>
+            )}
+          </Progress.Indicator>
         )}
       </Progress.Track>
     </Progress.Root>
