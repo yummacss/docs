@@ -2888,7 +2888,7 @@ and had to be restored.
   accessible name for "Copy component, copied"; the label stays, so
   nothing shifts. A `ClipboardItem` holds the fetch, so the copy keeps
   the click's permission while the file loads. The CLI copy button was
-  dropped on 2026-09-28; `addCommand` and `styleFlags` stay for the CLI.
+  dropped on 2026-09-28; `addCommand` and `styleFlags` have no caller now.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
   controls scroll under the preview.
