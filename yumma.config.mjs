@@ -23,6 +23,7 @@ export default defineConfig({
       hovering: "[data-hovering]",
       opening: "[data-starting-style]",
       scrolling: "[data-scrolling]",
+      swiping: "[data-swiping]",
     },
     keyframes: {
       pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",

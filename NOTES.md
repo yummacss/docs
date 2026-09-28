@@ -2519,6 +2519,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       `bc:silver-5` when filled, `bc:silver-3` otherwise, so the composition
       test sees no dropped class. Measured: letters are refused in numeric
       mode, the sixth digit sets `data-complete`, Backspace clears the last.
+- [x] **Drawer**, 2026-09-28, on Base UI's `Drawer`, from any `side`, with
+      `swipeDirection` following it. Its motion needs `translate` on one axis
+      with a percentage, and neither `tty:calc(100%+2px)` nor `tty:var(...)`
+      works: the first is refused, the second compiles to `transform:
+      var(...)` with no `translateY()` around it. `tr:var(...)` does compile,
+      so the popup sets `--drawer-travel` (the swipe offset Base UI writes,
+      on the right axis) and `--drawer-offstage` inline, and the classes read
+      them: `tr:var(--drawer-travel)`, `opening:` and `closing:` on
+      `--drawer-offstage`. A `swiping` state (`[data-swiping]`) turns the
+      transition off while a finger drags it; the installation page and the
+      site config carry it. Measured in Chromium: it slides in from `100%`
+      to `0px` from both bottom and right, a touch drag reads `0px 100px`
+      halfway with no transition, and letting go closes it, as does Esc.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
