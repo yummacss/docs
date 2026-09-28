@@ -19,6 +19,22 @@
       "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
     },
     {
+      "name": "shimmer",
+      "type": "boolean",
+      "default": false,
+      "description": "A band of light that sweeps along the fill on a loop while the bar is below 100. Needs `animated`, and stops under reduced motion.",
+      "conflictsWith": [
+        {
+          "prop": "animated",
+          "set": false
+        },
+        {
+          "prop": "value",
+          "set": false
+        }
+      ]
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
