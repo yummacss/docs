@@ -1,68 +1,31 @@
-import { allDocs, allUis } from "content-collections";
-import { docsLinks, sidebarConfig } from "@/config/sidebar";
-import MobileDialogNav from "./mobile-dialog-nav";
+import MobileDialogNav, { type NavSection } from "./mobile-dialog-nav";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  routeType: "docs" | "ui";
+  sections: NavSection[];
 }
 
-export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
-  const config = sidebarConfig[routeType];
-  const baseRoute = routeType === "ui" ? "/ui/components" : "/docs";
-  const collection = routeType === "ui" ? allUis : allDocs;
+const topNav: NavSection = {
+  title: "__top-nav__",
+  _key: "__top-nav__",
+  items: [
+    { title: "Home", href: "/" },
+    { title: "Docs", href: "/docs" },
+    { title: "Components", href: "/ui/installation" },
+    { title: "Blog", href: "/blog" },
+    {
+      title: "Playground",
+      href: "https://play.yummacss.com",
+      external: true,
+    },
+  ],
+};
 
-  function entry(slug: string) {
-    const doc = collection.find((c) => c._meta.path === slug);
-    return {
-      title: doc?.title ?? slug,
-      href: `${baseRoute}/${slug}`,
-      since: doc?.badge,
-    };
-  }
-
-  const topNav = {
-    title: "__top-nav__",
-    _key: "__top-nav__",
-    items: [
-      { title: "Home", href: "/" },
-      { title: "Docs", href: "/docs" },
-      { title: "Components", href: "/ui/installation" },
-      { title: "Blog", href: "/blog" },
-      {
-        title: "Playground",
-        href: "https://play.yummacss.com",
-        external: true,
-      },
-    ],
-  };
-
-  const sidebarSections = config.map((section) => ({
-    title: section.title,
-    _key: `${routeType}::${section.title}`,
-    items: section.items
-      .flatMap((item) => {
-        if (typeof item === "string") return entry(item);
-        return item.items.map(entry);
-      })
-      .filter((i) => i.href),
-  }));
-
-  const resourceSection =
-    routeType === "docs"
-      ? [
-          {
-            title: "Resources",
-            _key: "docs::resources",
-            items: docsLinks.map((link) => ({ ...link, external: true })),
-          },
-        ]
-      : [];
-
+export default function MobileDialog({ isOpen, onClose, sections }: Props) {
   return (
     <MobileDialogNav
-      sections={[topNav, ...sidebarSections, ...resourceSection]}
+      sections={[topNav, ...sections]}
       isOpen={isOpen}
       onClose={onClose}
     />

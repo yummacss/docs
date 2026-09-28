@@ -16,7 +16,7 @@ interface NavItem {
   since?: string;
 }
 
-interface NavSection {
+export interface NavSection {
   title: string;
   _key?: string;
   items: NavItem[];

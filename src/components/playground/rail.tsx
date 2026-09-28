@@ -17,11 +17,15 @@ import Scroller from "@/components/ui/scroller";
 import { NavArrowDown } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { ACCENTS, accentBars } from "@/utils/accent";
-import { primitiveSlug } from "@/utils/primitive";
+import { type Primitives, primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, STYLE_OWNED, typeOf } from "@/utils/props";
 import { RADIUS, STYLES } from "@/utils/styles.mjs";
 
-export default function PlaygroundRail() {
+export default function PlaygroundRail({
+  primitives,
+}: {
+  primitives: Primitives;
+}) {
   const playground = usePlayground();
   const [open, setOpen] = useState<string | null>(null);
 
@@ -29,7 +33,7 @@ export default function PlaygroundRail() {
 
   const target = playground ? getRegistryTarget(playground.id) : null;
   const primitive = target
-    ? primitiveSlug(target.component, target.install)
+    ? primitiveSlug(primitives, target.component, target.install)
     : null;
 
   const [more, setMore] = useState(false);
