@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  170
-    Open    20
-    Done    89%
+    Closed  171
+    Open    19
+    Done    90%
 
 ---
 
@@ -35,7 +35,6 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
 
 ## Phase 4 - Wants mockups

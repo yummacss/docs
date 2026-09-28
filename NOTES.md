@@ -2510,6 +2510,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       now: the icon tile and the cards behind it, task rows and checks, the
       dot arrows, the dots and the progress track, which were hardcoded and
       stayed round under `square`.
+- [x] **OTP Field**, 2026-09-28, on Base UI's `OTPField` inside `Field.Root`,
+      so `Field.Label` names every slot through `aria-labelledby` and
+      `Field.Description` describes the group. One `OTPField.Input` per
+      character, a dash (`OTPField.Separator`) every `groupSize` slots, and
+      `validationType` without Base UI's `none`, which would let any
+      character in a slot sized for one. The border is chosen, not merged:
+      `bc:silver-5` when filled, `bc:silver-3` otherwise, so the composition
+      test sees no dropped class. Measured: letters are refused in numeric
+      mode, the sixth digit sets `data-complete`, Backspace clears the last.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
