@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  181
-    Open    14
-    Done    93%
+    Closed  187
+    Open    8
+    Done    95%
 
 ---
 
@@ -42,32 +42,12 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **The active link is hard to spot** in the navbar and the sidebar,
-      reported by a friend of Renildo's. Revamp both treatments together.
-      The canvas's A (accent bar), B (chip) and C (weight) were all turned
-      down on 2026-09-28; it needs a new direction before new mockups.
+Empty.
 
 ## Phase 5 - Infrastructure
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-The Component API rail, from Renildo's pass on 2026-09-18.
-
-- [ ] **A disabled prop explains itself in red.** Say why it is inert in a
-      tooltip, or another Base UI part that fits, rather than an error colour on
-      something that is not an error. `isInert` in `src/utils/props.ts` already
-      returns the reason string.
-- [ ] **A number control with no example and no default shows `0`.** The
-      Stepper falls back to `prop.default ?? 0` for its display while the
-      component receives `undefined`, so the control states a value the
-      component is not using, and `0` is below the `min` of 1 it declares.
-      `number-field`'s `min` and `max` and `rating`'s `value` are the three.
-- [ ] **`doc-comments.mjs` deletes a comment that is not a prop's.** Each run
-      strips the `ARROW_HEIGHT` note in `popover.tsx` and `tooltip.tsx`.
-- [ ] **Say that the component is theirs.** The rail shows the API; it should
-      also say that they own the file and can change anything in it.
-- [ ] **A long prop name pushes its control onto the next line.** Keep the name
-      and its control inline at every width.
 - [ ] **Search does not know about flags, config keys or component props.**
       Mayranne typed `--all` into the dialog and got nothing. `SEARCH_DATA` in
       `src/utils/search-data.ts` carries doc titles, component titles, the CSS

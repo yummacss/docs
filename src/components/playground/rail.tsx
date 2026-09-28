@@ -89,6 +89,10 @@ export default function PlaygroundRail() {
             )}
           </div>
 
+          <p className="m:0 mb:3 c:ink/60 fs:xs lh:4">
+            The file you copy is yours. Change anything in it.
+          </p>
+
           {settable.map((prop) => row(prop))}
 
           {inCode.length > 0 && (
@@ -126,39 +130,40 @@ function Row({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const name = <code className="c:code fs:xs ff:m">{prop.name}</code>;
-  const [attempted, setAttempted] = useState(false);
+  // a long name ends in an ellipsis; the control wraps only when even 3rem of name will not fit
+  const name = (
+    <code className="min-w:0 o:h to:e ws:nw c:code fs:xs ff:m">
+      {prop.name}
+    </code>
+  );
 
   return (
     <div className="py:2 bc:border bbw:1">
-      <div className="d:f ai:c jc:sb g:2 fw:w">
+      <div className="d:f fw:w ai:c jc:sb g:2">
         {prop.description ? (
-          <Button
-            onClick={onToggle}
-            aria-expanded={open}
-            className="d:f ai:c g:1 p:0 bg:transparent bw:0 ta:l c:p fv:oo:-1 fv:oc:accent"
-          >
-            {name}
-            <NavArrowDown
-              aria-hidden
-              className={`fs:0 w:3 h:3 tp:c tdu:150 ${
-                open ? "ro:36 c:accent" : "c:ink/25"
-              }`}
-            />
-          </Button>
+          <HintTooltip label={prop.name}>
+            <Button
+              onClick={onToggle}
+              aria-expanded={open}
+              className="d:f f:1 min-w:12 ai:c g:1 p:0 bg:transparent bw:0 ta:l c:p fv:oo:-1 fv:oc:accent"
+            >
+              {name}
+              <NavArrowDown
+                aria-hidden
+                className={`fs:0 w:3 h:3 tp:c tdu:150 ${
+                  open ? "ro:36 c:accent" : "c:ink/25"
+                }`}
+              />
+            </Button>
+          </HintTooltip>
         ) : (
-          name
+          <span className="d:f f:1 min-w:12">{name}</span>
         )}
-        <span
-          onPointerDownCapture={() => inert && setAttempted(true)}
-          onFocusCapture={() => inert && setAttempted(true)}
-        >
-          {children}
-        </span>
+        {children}
       </div>
 
-      {inert && attempted && (
-        <div className="mt:1 c:diff-remove fs:xs">
+      {inert && (
+        <div className="mt:1 c:ink/50 fs:xs">
           Does nothing while <code className="ff:m">{inert}</code>.
         </div>
       )}
@@ -186,7 +191,7 @@ function Look() {
   const spec = SPECS[playground.style];
   const allowed = RADIUS.map((step) => spec.allow.includes(step));
   const line = (name: string, hint: string, control: React.ReactNode) => (
-    <div className="d:f ai:c jc:sb g:2 py:2 bc:border bbw:1">
+    <div className="d:f fw:w ai:c jc:sb g:2 py:2 bc:border bbw:1">
       <HintTooltip label={hint}>
         <code className="c:code fs:xs ff:m">{name}</code>
       </HintTooltip>
