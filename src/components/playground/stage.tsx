@@ -33,9 +33,9 @@ import {
 
 const FILL = "d:f fd:c f:1 min-h:0";
 
-// an editor's file tab, set like the code blocks' title bar: the open one has no bottom edge
+// the markdown code tabs' own classes (code-tabs.tsx): the open tab has no bottom edge
 const FILE_TAB =
-  "d:f ai:c px:4 py:2 @sm:px:6 m:0 bw:0 brw:1 bc:border fs:xs ff:m us:none ws:nw c:p os:none fv:os:s fv:ow:2 fv:oo:-2 fv:oc:accent";
+  "d:f ai:c px:4 py:2 @sm:px:6 m:0 brw:1 bc:border fs:sm ff:m ws:nw c:p a:none fv:os:s fv:ow:2 fv:oo:-2 fv:oc:accent";
 
 const LANGUAGE: Record<string, string> = {
   preview: "Preview",
@@ -215,7 +215,7 @@ function FileTab({ value, children }: { value: string; children: ReactNode }) {
     <BaseTabs.Tab
       value={value}
       className={(state) =>
-        `${FILE_TAB} ${state.active ? "bg:surface c:accent" : "bg:transparent c:ink/60 bbw:1 h:c:ink"}`
+        `${FILE_TAB} ${state.active ? "c:accent bg:surface" : "c:accent-dim bg:transparent bbw:1"}`
       }
       style={{ fontFamily: "inherit" }}
     >
