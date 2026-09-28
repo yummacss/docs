@@ -1,7 +1,7 @@
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  source: ["./src/**/*.{ts,tsx,mdx,mjs}"],
+  source: ["./src/**/*.{ts,tsx,mdx,mjs}", "./src/registry/meta/*.json"],
   theme: {
     colors: {
       "accent-dim": { light: "#8892c2", dark: "#9aa5ef" },

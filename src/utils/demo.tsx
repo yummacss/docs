@@ -35,7 +35,7 @@ import {
   TextUnderlineIcon,
 } from "@solar-icons/react/outline";
 import type { ComponentType, ReactNode } from "react";
-import type { RegistryMeta } from "@/registry";
+import type { ChildExample, RegistryMeta } from "@/registry";
 import Avatar from "@/registry/ui/avatar";
 import Button from "@/registry/ui/button";
 import Checkbox from "@/registry/ui/checkbox";
@@ -143,19 +143,36 @@ const CHILD_COMPONENTS: Record<string, ComponentType<DemoProps>> = {
 
 export function exampleChildren(meta: RegistryMeta): ReactNode {
   if (!meta.childrenExample) return meta.children;
+  return meta.childrenExample.map(renderChild);
+}
 
-  return meta.childrenExample.map((child, index) => {
-    if (child.text !== undefined) {
-      // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
-      return <span key={index}>{child.text}</span>;
-    }
-    const Child = child.component ? CHILD_COMPONENTS[child.component] : null;
-    if (!Child) return null;
+// position is the identity of a demo's child, so it is the key
+function renderChild(child: ChildExample, index: number): ReactNode {
+  const inner =
+    typeof child.children === "string"
+      ? child.children
+      : child.children?.map(renderChild);
+
+  if (child.text !== undefined) {
     return (
-      // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
-      <Child key={index} {...(resolveIcons(child.props ?? {}) as DemoProps)}>
-        {child.children}
-      </Child>
+      <span key={index} className={child.className}>
+        {child.text}
+      </span>
     );
-  });
+  }
+  if (child.tag) {
+    const Tag = child.tag;
+    return (
+      <Tag key={index} className={child.className}>
+        {inner}
+      </Tag>
+    );
+  }
+  const Child = child.component ? CHILD_COMPONENTS[child.component] : null;
+  if (!Child) return null;
+  return (
+    <Child key={index} {...(resolveIcons(child.props ?? {}) as DemoProps)}>
+      {inner}
+    </Child>
+  );
 }

@@ -1,4 +1,4 @@
-import type { RegistryMeta, RegistryProp } from "@/registry";
+import type { ChildExample, RegistryMeta, RegistryProp } from "@/registry";
 import { EXAMPLE_ICON_STYLE, type IconStyle } from "@/utils/icon-style";
 import { importPath } from "@/utils/install.mjs";
 
@@ -237,7 +237,7 @@ export function buildUsage(
           : []),
         ...markedIcons(values[prop.name]),
       ]),
-      ...(meta.childrenExample ?? []).flatMap((child) =>
+      ...flatChildren(meta.childrenExample).flatMap((child) =>
         markedIcons(child.props ?? {}),
       ),
     ]),
@@ -267,7 +267,7 @@ export function buildUsage(
 
   for (const child of [
     ...new Set(
-      (meta.childrenExample ?? [])
+      flatChildren(meta.childrenExample)
         .map((entry) => entry.component)
         .filter((entry): entry is string => Boolean(entry)),
     ),
@@ -301,45 +301,8 @@ export function buildUsage(
 
   if (meta.childrenExample) {
     tokens.push({ kind: "punctuation", text: ">" });
-    for (const child of meta.childrenExample) {
-      tokens.push({ kind: "text", text: "\n  " });
-      if (child.text !== undefined || !child.component) {
-        tokens.push({ kind: "punctuation", text: "<" });
-        tokens.push({ kind: "tag", text: "span" });
-        tokens.push({ kind: "punctuation", text: ">" });
-        tokens.push({ kind: "text", text: child.text ?? "" });
-        tokens.push({ kind: "punctuation", text: "</" });
-        tokens.push({ kind: "tag", text: "span" });
-        tokens.push({ kind: "punctuation", text: ">" });
-        continue;
-      }
-      tokens.push({ kind: "punctuation", text: "<" });
-      tokens.push({ kind: "tag", text: child.component });
-      for (const [key, value] of Object.entries(child.props ?? {})) {
-        tokens.push({ kind: "text", text: " " });
-        tokens.push({ kind: "attribute", text: key });
-        tokens.push({ kind: "punctuation", text: "=" });
-        const marker = iconMarker(value);
-        if (marker) {
-          tokens.push({ kind: "brace", text: "{" });
-          tokens.push({ kind: "punctuation", text: "<" });
-          tokens.push({ kind: "tag", text: marker.name });
-          tokens.push({ kind: "punctuation", text: " />" });
-          tokens.push({ kind: "brace", text: "}" });
-          continue;
-        }
-        tokens.push({ kind: "string", text: JSON.stringify(String(value)) });
-      }
-      if (child.children === undefined) {
-        tokens.push({ kind: "punctuation", text: " />" });
-      } else {
-        tokens.push({ kind: "punctuation", text: ">" });
-        tokens.push({ kind: "text", text: child.children });
-        tokens.push({ kind: "punctuation", text: "</" });
-        tokens.push({ kind: "tag", text: child.component });
-        tokens.push({ kind: "punctuation", text: ">" });
-      }
-    }
+    for (const child of meta.childrenExample)
+      tokens.push(...childTokens(child, 1));
     tokens.push({ kind: "text", text: "\n" });
     tokens.push({ kind: "punctuation", text: "</" });
     tokens.push({ kind: "tag", text: name });
@@ -458,4 +421,70 @@ export function buildConfig(config: {
   push("punctuation", ");");
 
   return identify(out);
+}
+
+function flatChildren(nodes: ChildExample[] = []): ChildExample[] {
+  return nodes.flatMap((node) => [
+    node,
+    ...(Array.isArray(node.children) ? flatChildren(node.children) : []),
+  ]);
+}
+
+// one demo child as JSX, nested children indented a level deeper
+function childTokens(child: ChildExample, depth: number): Draft[] {
+  const pad = "  ".repeat(depth);
+  const tag = child.component ?? child.tag ?? "span";
+  const out: Draft[] = [
+    { kind: "text", text: `\n${pad}` },
+    { kind: "punctuation", text: "<" },
+    { kind: "tag", text: tag },
+  ];
+
+  if (child.className) {
+    out.push(
+      { kind: "text", text: " " },
+      { kind: "attribute", text: "className" },
+      { kind: "punctuation", text: "=" },
+      { kind: "string", text: JSON.stringify(child.className) },
+    );
+  }
+  for (const [key, value] of Object.entries(child.props ?? {})) {
+    out.push({ kind: "text", text: " " }, { kind: "attribute", text: key });
+    out.push({ kind: "punctuation", text: "=" });
+    const marker = iconMarker(value);
+    if (marker) {
+      out.push(
+        { kind: "brace", text: "{" },
+        { kind: "punctuation", text: "<" },
+        { kind: "tag", text: marker.name },
+        { kind: "punctuation", text: " />" },
+        { kind: "brace", text: "}" },
+      );
+      continue;
+    }
+    out.push({ kind: "string", text: JSON.stringify(String(value)) });
+  }
+
+  const text =
+    child.text ??
+    (typeof child.children === "string" ? child.children : undefined);
+  const nested = Array.isArray(child.children) ? child.children : undefined;
+
+  if (text === undefined && !nested) {
+    out.push({ kind: "punctuation", text: " />" });
+    return out;
+  }
+  out.push({ kind: "punctuation", text: ">" });
+  if (nested) {
+    for (const node of nested) out.push(...childTokens(node, depth + 1));
+    out.push({ kind: "text", text: `\n${pad}` });
+  } else {
+    out.push({ kind: "text", text: text ?? "" });
+  }
+  out.push(
+    { kind: "punctuation", text: "</" },
+    { kind: "tag", text: tag },
+    { kind: "punctuation", text: ">" },
+  );
+  return out;
 }

@@ -235,11 +235,14 @@ describe("Yumma UI registry", () => {
       const meta = JSON.parse(
         readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
       );
-      for (const child of meta.childrenExample ?? []) {
-        if (child.text !== undefined) continue;
-        if (!known.has(child.component))
-          missing.push(`${file}: ${child.component}`);
-      }
+      const walk = (nodes: { component?: string; children?: unknown }[]) => {
+        for (const child of nodes) {
+          if (child.component && !known.has(child.component))
+            missing.push(`${file}: ${child.component}`);
+          if (Array.isArray(child.children)) walk(child.children);
+        }
+      };
+      walk(meta.childrenExample ?? []);
     }
 
     expect(missing).toEqual([]);
