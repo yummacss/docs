@@ -22,7 +22,6 @@ export interface Token {
   kind: TokenKind;
   text: string;
   id: string;
-  fold?: string;
 }
 
 type Draft = Omit<Token, "id">;
@@ -332,7 +331,6 @@ function declarations(
     if (prop.exampleIcon) continue;
 
     const body = literal(value, "");
-    for (const token of body.slice(1, -1)) token.fold = prop.name;
 
     tokens.push(
       { kind: "text", text: "\n\n" },

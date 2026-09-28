@@ -2642,6 +2642,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       "button" does not list Button's props. An exact name ranks first, so
       `--all` puts `-a, --all` above `--allow`. `h4` headings carry ids now,
       which the `theme.*` links need.
+- [x] **The Code tab shows every prop value in full**, 2026-09-28. An object
+      or array prop was folded to a `...` you clicked open; only 3 or 4 of the
+      components are long enough to scroll, so the fold is gone, with `fold`
+      on `Token` and the `Folded` renderer in `token-block.tsx`.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

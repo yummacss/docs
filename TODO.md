@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  191
-    Open    4
+    Closed  192
+    Open    5
     Done    97%
 
 ---
@@ -42,7 +42,9 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-Empty.
+- [ ] **Command Palette gets a new structure and copy.** No shortcuts, no
+      "Open recent". Three options, A to C, on the Phase 4 canvas,
+      2026-09-28.
 
 ## Phase 5 - Infrastructure
 
