@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  179
-    Open    16
-    Done    92%
+    Closed  181
+    Open    14
+    Done    93%
 
 ---
 
@@ -42,13 +42,10 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **The icon is too big**, reported by Mayranne, who does not think it is
-      deliberate.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
-- [ ] **Preview Card's layout** leaves dead space on the right. A profile card
-      that fills its width. Chosen: C on the Phase 4 canvas, a larger avatar
-      over a row of three counts: files, folders, storage used.
+      The canvas's A (accent bar), B (chip) and C (weight) were all turned
+      down on 2026-09-28; it needs a new direction before new mockups.
 
 ## Phase 5 - Infrastructure
 

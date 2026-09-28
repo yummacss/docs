@@ -69,19 +69,75 @@
   ],
   "childrenExample": [
     {
-      "component": "Avatar",
-      "props": {
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
-        "name": "Ada Lovelace",
-        "size": "sm",
-        "status": "online"
-      }
+      "tag": "div",
+      "className": "d:f fd:c ai:c g:1 pt:2 ta:c",
+      "children": [
+        {
+          "component": "Avatar",
+          "props": {
+            "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
+            "name": "Ada Lovelace",
+            "size": "lg",
+            "status": "online"
+          }
+        },
+        {
+          "text": "Ada Lovelace",
+          "className": "mt:2 c:slate-10 fs:md fw:500"
+        },
+        {
+          "text": "Joined in 1843",
+          "className": "c:slate-6 fs:xs"
+        }
+      ]
     },
     {
-      "text": "Ada Lovelace"
-    },
-    {
-      "text": "Joined in 1843"
+      "tag": "div",
+      "className": "d:g gtc:3 pt:3 btw:1 bc:silver-2 ta:c",
+      "children": [
+        {
+          "tag": "div",
+          "className": "d:f fd:c",
+          "children": [
+            {
+              "text": "128",
+              "className": "c:slate-10 fw:500"
+            },
+            {
+              "text": "Files",
+              "className": "c:slate-6 fs:xs"
+            }
+          ]
+        },
+        {
+          "tag": "div",
+          "className": "d:f fd:c",
+          "children": [
+            {
+              "text": "12",
+              "className": "c:slate-10 fw:500"
+            },
+            {
+              "text": "Folders",
+              "className": "c:slate-6 fs:xs"
+            }
+          ]
+        },
+        {
+          "tag": "div",
+          "className": "d:f fd:c",
+          "children": [
+            {
+              "text": "2.4 GB",
+              "className": "c:slate-10 fw:500"
+            },
+            {
+              "text": "Used",
+              "className": "c:slate-6 fs:xs"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
