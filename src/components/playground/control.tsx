@@ -56,7 +56,9 @@ export default function Control({ prop, value, onChange, inert }: Props) {
       <Stepper
         name={prop.name}
         value={
-          typeof value === "number" ? value : ((prop.default as number) ?? 0)
+          typeof value === "number"
+            ? value
+            : (prop.default as number | undefined)
         }
         min={prop.min}
         max={prop.max}
@@ -92,7 +94,7 @@ function Stepper({
   inert,
 }: {
   name: string;
-  value: number;
+  value?: number;
   min?: number;
   max?: number;
   step: number;
@@ -109,8 +111,11 @@ function Stepper({
       ).toFixed(places),
     );
 
-  const atMin = min !== undefined && value <= min;
-  const atMax = max !== undefined && value >= max;
+  // unset means the component picks, so the control says so rather than showing 0
+  const unset = value === undefined;
+  const atMin = !unset && min !== undefined && value <= min;
+  const atMax = !unset && max !== undefined && value >= max;
+  const from = (delta: number) => clamp(unset ? (min ?? 0) : value + delta);
 
   const button = (spent: boolean) =>
     `d:f fs:0 ai:c jc:c w:6 h:6 bw:0 bg:transparent ff:m fs:xs fv:oo:-1 fv:oc:accent ${
@@ -118,31 +123,27 @@ function Stepper({
     }`;
 
   return (
-    <div
-      className={`d:f fs:0 ai:c jc:sb w:32 bw:1 ${
-        inert ? "bc:diff-remove/40" : "bc:border"
-      }`}
-    >
+    <div className={`d:f fs:0 ai:c jc:sb w:32 bw:1 ${"bc:border"}`}>
       <Button
         type="button"
         aria-label={`Decrease ${name}`}
         disabled={inert || atMin}
-        onClick={() => onChange(clamp(value - step))}
+        onClick={() => onChange(from(-step))}
         className={button(atMin)}
       >
         &minus;
       </Button>
       <span
         aria-live="polite"
-        className={`ff:m fs:xs ${inert ? "c:diff-remove" : "c:accent"}`}
+        className={`ff:m fs:xs ${inert ? "c:ink/40" : unset ? "c:ink/40" : "c:accent"}`}
       >
-        {value}
+        {unset ? "none" : value}
       </span>
       <Button
         type="button"
         aria-label={`Increase ${name}`}
         disabled={inert || atMax}
-        onClick={() => onChange(clamp(value + step))}
+        onClick={() => onChange(from(step))}
         className={button(atMax)}
       >
         +
@@ -204,7 +205,7 @@ export function EnumSelect({
       <Select.Trigger
         aria-label={name}
         className={`d:f fs:0 ai:c jc:sb g:1 px:2 py:1 w:32 bg:transparent bw:1 ff:m fs:xs us:none fv:oo:-1 fv:oc:accent ${
-          inert ? "bc:diff-remove/40 c:diff-remove c:na" : "bc:border c:ink c:p"
+          inert ? "bc:border c:ink/40 c:na" : "bc:border c:ink c:p"
         }`}
       >
         <Select.Value className="o:h to:e ws:nw" />
@@ -244,9 +245,7 @@ function Toggle({
       disabled={inert}
       aria-label={label}
       className={`d:f fs:0 ai:c px:1 w:7 h:4 bw:0 tp:c tdu:150 ttf:io fv:oo:2 fv:oc:accent ${
-        inert
-          ? "bg:diff-remove/30 c:na"
-          : `c:p ${checked ? "bg:accent" : "bg:ink/15"}`
+        inert ? "bg:ink/10 c:na" : `c:p ${checked ? "bg:accent" : "bg:ink/15"}`
       }`}
     >
       <Switch.Thumb
