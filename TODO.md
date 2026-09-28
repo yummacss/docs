@@ -44,10 +44,6 @@ Design decisions. Nothing here starts without them.
 
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
-- [ ] **Mark recently added components in the `/ui` sidebar**, OTP Field and
-      Drawer first, with the badge the docs sidebar uses. Components reach
-      people when the registry deploys, not with a `yummaui` release, so the
-      rule for how long one stays new is Renildo's call.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card

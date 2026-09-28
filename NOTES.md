@@ -2555,6 +2555,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       the link, outside it, so an active link's dashed underline does not run
       through it, and a clipped "new in 4.2" inside the link gives it an
       accessible name. The sidebar and the mobile dialog both draw it.
+- [x] **New components are marked**, 2026-09-28, Renildo's option A. A
+      component ships when the registry deploys, not with a `yummaui`
+      release, so a `/ui` page carries `added: "YYYY-MM-DD"` and reads "New"
+      for `NEW_FOR_DAYS`, 30, after it; screen readers hear "new". `badgeFor`
+      in `src/utils/since.ts` picks `since` on a docs page or `added` on a
+      component page. The desktop sidebar renders at build, so a badge stays
+      until the first deploy after its 30 days; the mobile menu renders on the
+      client and drops it on the day. OTP Field and Drawer carry it;
+      `tests/since.test.ts` holds both rules.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
