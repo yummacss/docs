@@ -2624,6 +2624,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       call. A halo-plus-outline focus treatment stays unwritable with them.
 - [x] **The rail keeps its prop order**, 2026-09-28. Alphabetical was dropped:
       a component's own props first, then `SHARED_PROP_ORDER`.
+- [x] **Search finds flags, options, config keys and props**, 2026-09-28.
+      `src/utils/search-reference.ts` reads them at build time inside the
+      content-collections transform: table rows under a Flag, Option or Field
+      column, the headings under Set Up on the configuration page as
+      `yumma.config.mjs` keys (`theme.states`), and each component's prop
+      names from its meta. The client gets short lists, 2.7KB gzipped on the
+      search chunk. A prop row matches on its name only, so typing "button"
+      does not list Button's props. An exact name ranks first, so `--all`
+      puts `-a, --all` above `--allow`. `h4` headings carry ids now, which
+      the `theme.*` links need.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

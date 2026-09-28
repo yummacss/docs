@@ -35,8 +35,10 @@ import {
   RssSimpleIcon,
   RulerIcon,
   SignOutIcon,
+  SlidersHorizontalIcon,
   SparkleIcon,
   SunIcon,
+  TerminalWindowIcon,
   TwitterLogoIcon,
   WarningIcon,
   XIcon,
@@ -84,9 +86,11 @@ export const RssFeed = regular(RssSimpleIcon);
 export const Ruler = regular(RulerIcon);
 export const RulerCombine = regular(ResizeIcon);
 export const Search = regular(MagnifyingGlassIcon);
+export const Sliders = regular(SlidersHorizontalIcon);
 export const Sparks = regular(SparkleIcon);
 export const StyleBorderSolid = regular(KeyboardIcon);
 export const SunLight = regular(SunIcon);
+export const Terminal = regular(TerminalWindowIcon);
 export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
 export const WarningTriangle = regular(WarningIcon);
