@@ -2626,14 +2626,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       a component's own props first, then `SHARED_PROP_ORDER`.
 - [x] **Search finds flags, options, config keys and props**, 2026-09-28.
       `src/utils/search-reference.ts` reads them at build time inside the
-      content-collections transform: table rows under a Flag, Option or Field
-      column, the headings under Set Up on the configuration page as
-      `yumma.config.mjs` keys (`theme.states`), and each component's prop
-      names from its meta. The client gets short lists, 2.7KB gzipped on the
-      search chunk. A prop row matches on its name only, so typing "button"
-      does not list Button's props. An exact name ranks first, so `--all`
-      puts `-a, --all` above `--allow`. `h4` headings carry ids now, which
-      the `theme.*` links need.
+      content-collections transform. Table rows under a Flag, Option or Field
+      column carry what they belong to, from the section's code: a titled
+      block names the file (`yummaui.json`), a shell block the command
+      (`yummaui add`, `@yummacss/lint`), since "CLI" alone does not say
+      which of the two. The headings under Set Up on the configuration page
+      are `yumma.config.mjs` keys (`theme.states`), and each component's prop
+      names come from its meta. The client gets short lists, 2.7KB gzipped
+      on the search chunk. A prop row matches on its name only, so typing
+      "button" does not list Button's props. An exact name ranks first, so
+      `--all` puts `-a, --all` above `--allow`. `h4` headings carry ids now,
+      which the `theme.*` links need.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
