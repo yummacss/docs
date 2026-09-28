@@ -114,7 +114,9 @@ The Component API rail, from Renildo's pass on 2026-09-18.
 
 - [ ] **`play` learns 4.2**: `theme.states`, `theme.keyframes`, `theme.fonts`,
       CSS function values, container queries and `@st:`. After its redesign,
-      which NOTES.md lists.
+      which NOTES.md lists. **On hold:** [Trellis UI](https://trellisui.com/)
+      as a reference for that redesign, found by Renildo on 2026-09-28. Not
+      reviewed yet.
 
 ## Decisions
 
