@@ -112,6 +112,11 @@ export interface ContextMenuProps {
   /** Depth on both the trigger and the popup. */
   shadow?: Shadow;
   /**
+   * Draws each action's icon. `false` drops them, so every row shows its label
+   * alone.
+   */
+  icon?: boolean;
+  /**
    * Which end of an item its `icon` sits at. A `shortcut` always trails
    * regardless.
    */
@@ -146,6 +151,7 @@ export default function ContextMenuBase({
   items,
   shape = "rounded",
   shadow = "none",
+  icon = true,
   iconPosition = "leading",
   disabled = false,
   open: controlledOpen,
@@ -303,7 +309,7 @@ export default function ContextMenuBase({
 
       const trailing =
         Boolean(action.shortcut) ||
-        (Boolean(action.icon) && iconPosition === "trailing");
+        (icon && Boolean(action.icon) && iconPosition === "trailing");
 
       return (
         <ContextMenu.Item
@@ -312,7 +318,7 @@ export default function ContextMenuBase({
           onClick={action.onClick}
           className={itemClasses(destructive, trailing)}
         >
-          {action.icon && iconPosition === "leading" && (
+          {icon && action.icon && iconPosition === "leading" && (
             <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
               {action.icon}
             </span>
@@ -322,7 +328,7 @@ export default function ContextMenuBase({
           ) : (
             action.label
           )}
-          {action.icon && iconPosition === "trailing" && (
+          {icon && action.icon && iconPosition === "trailing" && (
             <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
               {action.icon}
             </span>
