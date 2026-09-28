@@ -14,6 +14,8 @@ import {
   NavArrowUp,
   OpenBook,
   Search,
+  Sliders,
+  Terminal,
 } from "@/icons";
 import { getBorderColor } from "@/utils/colors";
 import {
@@ -124,6 +126,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     }
     if (category === "handbook") {
       return <OpenBook className="w:4 h:4 c:ink/50" />;
+    }
+    if (category === "props") {
+      return <Sliders className="w:4 h:4 c:ink/50" />;
+    }
+    if (category === "reference") {
+      return <Terminal className="w:4 h:4 c:ink/50" />;
     }
     return <ComponentSolid className="w:4 h:4 c:ink/50" />;
   };
