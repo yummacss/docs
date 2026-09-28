@@ -61,7 +61,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                     >
                       <Link
                         href={href}
-                        className={`d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
+                        className={`p:r d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
                       >
                         {entry.title}
                         <NewLabel since={entry.since} />
@@ -87,7 +87,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                           >
                             <Link
                               href={href}
-                              className={`d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
+                              className={`p:r d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
                             >
                               {child.title}
                               <NewLabel since={child.since} />

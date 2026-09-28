@@ -2576,6 +2576,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       three client chunks (2.7KB, 1.1KB gzipped). `badge` is worked out in the
       Content Collections transform instead and the sidebar and the menu read
       it; no client chunk carries `package.json`, measured on the build.
+- [x] **A hidden label scrolled the `/ui` page**, 2026-09-28. The badge's
+      screen-reader text is `p:a`, and the sidebar links were not positioned,
+      so it was placed against the page at its spot in the full sidebar list,
+      1464px down in a 979px window. The document grew to match, and a `/ui`
+      page, built to fit the window, scrolled: the sidebar moved with it and
+      the stage slid under the navbar. The links are `p:r` in the sidebar
+      and the mobile menu; measured at 1920x979 and 1440x900, the document
+      is the window's height and a wheel over the page leaves `scrollY` at 0.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

@@ -98,7 +98,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                 />
                               }
                               className={[
-                                "d:if ai:c g:3 w:100% py:2 px:3 fs:md us:none",
+                                "p:r d:if ai:c g:3 w:100% py:2 px:3 fs:md us:none",
                                 "fv:oc:ink fv:oo:2 fv:ow:2",
                                 isActive
                                   ? "c:ink bg:border"
