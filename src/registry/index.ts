@@ -262,6 +262,31 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "tooltip": { component: "tooltip", variant: "base", kind: "component", install: "tooltip" },
 };
 
+export interface RegistryConfig {
+  states: Record<string, string>;
+  keyframes: Record<string, string>;
+}
+
+export const registryConfig: Record<string, RegistryConfig> = {
+  "accordion": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "alert-dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "autocomplete": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
+  "combobox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
+  "command-palette": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "drawer": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]", "swiping": "[data-swiping]" }, keyframes: {} },
+  "menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "menubar": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "onboarding": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "popover": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "preview-card": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "progress": { states: {}, keyframes: { "slide": "from { translate: -100% 0; } to { translate: 100% 0; }" } },
+  "select": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "skeleton": { states: {}, keyframes: { "pulse": "0%, 100% { opacity: .5; } 50% { opacity: 1; }" } },
+  "tooltip": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+};
+
 export function getRegistryTarget(id: string): RegistryTarget {
   return (
     registryTargets[id] ?? {

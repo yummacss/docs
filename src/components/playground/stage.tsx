@@ -1,13 +1,19 @@
 "use client";
 
+import { Tabs as BaseTabs } from "@base-ui/react/tabs";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import Install from "@/components/playground/install";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
-import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import { Tabs, TabsPanel } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
-import { getRegistryTarget, type RegistryMeta } from "@/registry";
+import { Eye, FileJs, FileTsx } from "@/icons";
+import {
+  getRegistryTarget,
+  type RegistryMeta,
+  registryConfig,
+} from "@/registry";
 import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
 import {
   type DemoProps,
@@ -19,7 +25,7 @@ import {
   getCachedRegistryComponent,
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
-import { buildUsage } from "@/utils/snippet";
+import { buildConfig, buildUsage } from "@/utils/snippet";
 import {
   DEFAULT_STYLE,
   radiusCss,
@@ -28,6 +34,16 @@ import {
 } from "@/utils/styles.mjs";
 
 const FILL = "d:f fd:c f:1 min-h:0";
+
+// an editor's file tab, set like the code blocks' title bar
+const FILE_TAB =
+  "d:f ai:c g:2 h:9 px:3 @sm:px:4 m:0 bw:0 brw:1 bc:border fs:xs ff:m us:none ws:nw c:p os:none fv:os:s fv:ow:2 fv:oo:-2 fv:oc:accent";
+
+const LANGUAGE: Record<string, string> = {
+  preview: "Preview",
+  code: "TSX",
+  config: "JavaScript",
+};
 
 interface Frame {
   id: string;
@@ -40,6 +56,7 @@ export default function ComponentPlayground() {
   const playground = usePlayground();
   const playgroundRef = useRef(playground);
   playgroundRef.current = playground;
+  const [tab, setTab] = useState("preview");
   const [frame, setFrame] = useState<Frame | null>(() => {
     const cached =
       playground?.meta && getCachedRegistryComponent(playground.id);
@@ -130,16 +147,31 @@ export default function ComponentPlayground() {
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
     .join("|");
 
+  const config = registryConfig[getRegistryTarget(id).install];
+  // a page without a config tab falls back to the code it does have
+  const active = tab === "config" && !config ? "code" : tab;
+
   return (
     // below @lg: the stage is fixed under the navbar, so the controls scroll beneath the preview
     <div className="p:f t:12 l:0 r:0 zi:10 d:f fd:c h:calc(45dvh) px:4 py:3 bg:page bbw:1 bc:border @lg:p:s @lg:f:1 @lg:min-h:0 @lg:h:auto @lg:px:0 @lg:py:0 @lg:bbw:0">
-      <Tabs defaultValue="preview" className={FILL}>
-        <div className="d:f ai:c g:3 pr:1 bbw:1 bc:border">
-          <TabsList className="f:1 min-w:0 bbw:0">
-            <TabsTab value="preview">Preview</TabsTab>
-            <TabsTab value="code">Code</TabsTab>
-          </TabsList>
-          <Install id={getRegistryTarget(id).install} />
+      <Tabs value={active} onValueChange={setTab} className={FILL}>
+        <div className="d:f ai:c bbw:1 bc:border bg:page">
+          <BaseTabs.List className="d:f f:1 min-w:0 ox:auto">
+            <FileTab value="preview" icon={<Eye className="w:4 h:4" />}>
+              Preview
+            </FileTab>
+            <FileTab value="code" icon={<FileTsx className="w:4 h:4" />}>
+              page.tsx
+            </FileTab>
+            {config && (
+              <FileTab value="config" icon={<FileJs className="w:4 h:4" />}>
+                yumma.config.mjs
+              </FileTab>
+            )}
+          </BaseTabs.List>
+          <div className="pr:1">
+            <Install id={getRegistryTarget(id).install} />
+          </div>
         </div>
 
         <TabsPanel value="preview" className={FILL}>
@@ -167,10 +199,51 @@ export default function ComponentPlayground() {
         </TabsPanel>
 
         <TabsPanel value="code" className={FILL}>
-          <TokenBlock tokens={usage} title="page.tsx" className={FILL} fill />
+          <TokenBlock tokens={usage} bar={false} className={FILL} fill />
         </TabsPanel>
+
+        {config && (
+          <TabsPanel value="config" className={FILL}>
+            <TokenBlock
+              tokens={buildConfig(config)}
+              bar={false}
+              className={FILL}
+              fill
+            />
+          </TabsPanel>
+        )}
+
+        <div className="d:f ai:c jc:sb h:6 px:3 btw:1 bc:border bg:page c:ink/60 fs:xs ff:m us:none">
+          <span>{getRegistryTarget(id).install}</span>
+          <span>{LANGUAGE[active]}</span>
+        </div>
       </Tabs>
     </div>
+  );
+}
+
+function FileTab({
+  value,
+  icon,
+  children,
+}: {
+  value: string;
+  icon: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <BaseTabs.Tab
+      value={value}
+      className={(state) =>
+        `${FILE_TAB} ${state.active ? "bg:surface c:accent" : "bg:transparent c:ink/60 h:c:ink"}`
+      }
+      style={{ fontFamily: "inherit" }}
+    >
+      <span className="d:none fs:0 @sm:d:f" aria-hidden>
+        {icon}
+      </span>
+      {children}
+    </BaseTabs.Tab>
   );
 }
 

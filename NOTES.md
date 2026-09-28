@@ -2532,6 +2532,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       site config carry it. Measured in Chromium: it slides in from `100%`
       to `0px` from both bottom and right, a touch drag reads `0px 100px`
       halfway with no transition, and letting go closes it, as does Esc.
+- [x] **The stage is an editor**, 2026-09-28, option A on the Phase 4 canvas.
+      File tabs, set like the code blocks' title bar: Preview, `page.tsx`, and
+      `yumma.config.mjs` for a component that names a state or a keyframe.
+      Copy component sits at the end of the strip in the tabs' type, icon only
+      below `@sm`, where the tab icons also drop so three tabs fit at 390px. A
+      status bar under the panels names the component and the open file's
+      language. The config tab holds only what that component uses:
+      `generate-registry.mjs` scans each source for `name:` against
+      `theme.states` and `an:name` against `theme.keyframes` in
+      `yumma.config.mjs` and writes `registryConfig`; `buildConfig` in
+      `snippet.ts` prints it. Drawer shows `opening`, `closing` and
+      `swiping`; Skeleton `pulse`, Progress `slide`, Autocomplete and Combobox
+      `spin`; 17 components have the tab. `TokenBlock` takes `bar={false}`
+      where a tab already names the file, floating its copy button.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

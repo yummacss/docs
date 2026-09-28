@@ -5,9 +5,9 @@ import { useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import { Check, Copy } from "@/icons";
 
-// the tabs' own type and spacing, with their surface box on hover
+// the file tabs' type, with their surface box on hover
 const BUTTON =
-  "d:f fs:0 ai:c g:1 h:6 px:2 bw:1 bc:transparent bg:transparent c:ink/80 fs:sm fw:500 us:none ws:nw c:p h:bg:surface h:bc:border fv:oc:accent fv:ow:2 fv:oo:-1";
+  "d:f fs:0 ai:c g:2 h:7 px:2 bw:1 bc:transparent bg:transparent c:ink/60 fs:xs ff:m us:none ws:nw c:p h:c:ink h:bg:surface h:bc:border fv:oc:accent fv:ow:2 fv:oo:-1";
 
 // the styled file, as `yummaui add` would write it
 async function componentSource(id: string, style: string, radius: string) {
@@ -53,7 +53,7 @@ export default function Install({ id }: { id: string }) {
     <Button
       type="button"
       onClick={copy}
-      aria-label={copied ? "Copy component, copied" : undefined}
+      aria-label={copied ? "Copy component, copied" : "Copy component"}
       className={BUTTON}
     >
       {copied ? (
@@ -61,7 +61,7 @@ export default function Install({ id }: { id: string }) {
       ) : (
         <Copy className="w:4 h:4" aria-hidden />
       )}
-      Copy component
+      <span className="d:none @sm:d:i">Copy component</span>
     </Button>
   );
 }
