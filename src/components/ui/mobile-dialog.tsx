@@ -1,5 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { docsLinks, sidebarConfig } from "@/config/sidebar";
+import { newIn } from "@/utils/since";
 import MobileDialogNav from "./mobile-dialog-nav";
 
 interface Props {
@@ -13,8 +14,13 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
   const baseRoute = routeType === "ui" ? "/ui/components" : "/docs";
   const collection = routeType === "ui" ? allUis : allDocs;
 
-  function getTitle(slug: string) {
-    return collection.find((c) => c._meta.path === slug)?.title ?? slug;
+  function entry(slug: string) {
+    const doc = collection.find((c) => c._meta.path === slug);
+    return {
+      title: doc?.title ?? slug,
+      href: `${baseRoute}/${slug}`,
+      since: newIn(doc?.since),
+    };
   }
 
   const topNav = {
@@ -38,13 +44,8 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
     _key: `${routeType}::${section.title}`,
     items: section.items
       .flatMap((item) => {
-        if (typeof item === "string") {
-          return { title: getTitle(item), href: `${baseRoute}/${item}` };
-        }
-        return item.items.map((slug) => ({
-          title: getTitle(slug),
-          href: `${baseRoute}/${slug}`,
-        }));
+        if (typeof item === "string") return entry(item);
+        return item.items.map(entry);
       })
       .filter((i) => i.href),
   }));

@@ -5,10 +5,12 @@ import { usePathname } from "next/navigation";
 import Scroller from "@/components/ui/scroller";
 import { ArrowUpRight } from "@/icons";
 import { useReveal } from "@/utils/reveal";
+import NewBadge, { NewLabel } from "./new-badge";
 
 interface NavItem {
   slug: string;
   title: string;
+  since?: string;
 }
 
 interface NavLink {
@@ -52,13 +54,19 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                   const href = `${basePath}/${entry.slug}`;
                   const isActive = pathname === href;
                   return (
-                    <li key={entry.slug} ref={isActive ? active : undefined}>
+                    <li
+                      key={entry.slug}
+                      ref={isActive ? active : undefined}
+                      className="d:f ai:c g:3"
+                    >
                       <Link
                         href={href}
                         className={`d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
                       >
                         {entry.title}
+                        <NewLabel since={entry.since} />
                       </Link>
+                      <NewBadge since={entry.since} />
                     </li>
                   );
                 }
@@ -75,13 +83,16 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                           <li
                             key={child.slug}
                             ref={isActive ? active : undefined}
+                            className="d:f ai:c g:3"
                           >
                             <Link
                               href={href}
                               className={`d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2 ${isActive ? "c:accent td:u tds:d" : "c:ink/70 h:c:accent"}`}
                             >
                               {child.title}
+                              <NewLabel since={child.since} />
                             </Link>
+                            <NewBadge since={child.since} />
                           </li>
                         );
                       })}
