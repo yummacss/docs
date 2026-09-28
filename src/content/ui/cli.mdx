@@ -11,7 +11,7 @@ pnpm dlx yummaui <command>
 
 Every example below uses `pnpm dlx`. The runner is `npx`, `yarn dlx` or `bunx` on the other three, and `init` and `add` print whichever one matches the project they find.
 
-## init
+## Set Up a Project
 
 Writes `yummaui.json`. It detects your framework, package manager and import alias first, then asks where components should live.
 
@@ -23,7 +23,7 @@ pnpm dlx yummaui init
 | --------- | ------------------------------ |
 | `--force` | Overwrite an existing config   |
 
-## add
+## Add Components
 
 Copies one or more components in. Name a component, or a block by its own id.
 
@@ -44,7 +44,7 @@ Blocks are not included in `--all`. Each one pulls the components it is built fr
 
 Anything a component needs from npm is listed after the copy, with the option to install it using the package manager the project already uses.
 
-## list
+## List Components
 
 ```bash
 pnpm dlx yummaui list
@@ -53,7 +53,7 @@ pnpm dlx yummaui list button
 
 With no argument, prints every component and block. With a component name, prints that component and the blocks built on it.
 
-## prune
+## Remove Unused Components
 
 Finds component files nothing in your project reaches.
 
@@ -76,7 +76,7 @@ A block imports the component it is built on, so "is anything importing this fil
 
 Listing is the default. Deleting takes `--write` and a confirmation.
 
-## yummaui.json
+## Configuration File
 
 ```json
 {

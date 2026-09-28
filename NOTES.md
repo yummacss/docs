@@ -2532,6 +2532,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       site config carry it. Measured in Chromium: it slides in from `100%`
       to `0px` from both bottom and right, a touch drag reads `0px 100px`
       halfway with no transition, and letting go closes it, as does Esc.
+- [x] **The CLI page reads as tasks**, 2026-09-28: Set Up a Project, Add
+      Components, List Components, Remove Unused Components, Configuration
+      File. The command stays in each section's code block; Customization's
+      link to `#prune` follows the rename. The search dialog's key hints
+      (navigate, select, close) show from `@lg:`, where the navbar's Ctrl K
+      hint does, since a phone has none of those keys.
 - [x] **The stage is an editor**, 2026-09-28, option A on the Phase 4 canvas.
       File tabs set exactly like the code blocks' title bar: `px:6 py:2`,
       mono `fs:xs`, a right edge, and no bottom edge under the open one, so
