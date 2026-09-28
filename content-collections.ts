@@ -5,6 +5,7 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
+import { badgeFor } from "./src/utils/since";
 
 const docs = defineCollection({
   name: "docs",
@@ -23,6 +24,8 @@ const docs = defineCollection({
     ),
     slug: doc._meta.path,
     wordCount: doc.content?.split(/\s+/).length ?? 0,
+    // worked out here so the client gets a string, not the version lookup behind it
+    badge: badgeFor(doc),
   }),
 });
 
@@ -46,6 +49,7 @@ const ui = defineCollection({
     ),
     slug: doc._meta.path,
     wordCount: doc.content?.split(/\s+/).length ?? 0,
+    badge: badgeFor(doc),
   }),
 });
 
