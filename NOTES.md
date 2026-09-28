@@ -2538,6 +2538,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       link to `#prune` follows the rename. The search dialog's key hints
       (navigate, select, close) show from `@lg:`, where the navbar's Ctrl K
       hint does, since a phone has none of those keys.
+- [x] **What is new in 4.2 is marked**, 2026-09-28, option C on the Phase 4
+      canvas. A docs page carries `since: "4.2"` in its frontmatter, and
+      `newIn` in `src/utils/since.ts` returns it while it matches the minor of
+      the `yummacss` the site builds against, so every badge goes when 4.3
+      ships. Ten pages carry it, the ten added with 4.2 on 2026-09-26; Class
+      Merge, which the entry named, arrived with 4.1. The badge sits beside
+      the link, outside it, so an active link's dashed underline does not run
+      through it, and a clipped "new in 4.2" inside the link gives it an
+      accessible name. The sidebar and the mobile dialog both draw it.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
