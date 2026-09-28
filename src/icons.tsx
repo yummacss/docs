@@ -14,8 +14,11 @@ import {
   CubeIcon,
   CursorClickIcon,
   CursorTextIcon,
+  EyeIcon,
   FileIcon,
+  FileJsIcon,
   FileMdIcon,
+  FileTsxIcon,
   FolderIcon,
   GithubLogoIcon,
   HandPointingIcon,
@@ -57,7 +60,10 @@ export const CheckCircle = regular(CheckCircleIcon);
 export const ComponentSolid = regular(CubeIcon);
 export const Copy = regular(CopyIcon);
 export const CursorPointer = regular(CursorClickIcon);
+export const Eye = regular(EyeIcon);
+export const FileJs = regular(FileJsIcon);
 export const FileMd = regular(FileMdIcon);
+export const FileTsx = regular(FileTsxIcon);
 export const Folder = regular(FolderIcon);
 export const Github = regular(GithubLogoIcon);
 export const HalfMoon = regular(MoonIcon);
