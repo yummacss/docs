@@ -41,6 +41,16 @@
                 "$icon": "AddFolderIcon",
                 "size": "w:4 h:4"
               }
+            },
+            {
+              "id": "delete",
+              "label": "Delete file",
+              "destructive": true,
+              "icon": {
+                "$icon": "TrashBinTrashIcon",
+                "size": "w:4 h:4"
+              },
+              "shortcut": "⌘⌫"
             }
           ]
         },
@@ -78,7 +88,7 @@
           ]
         }
       ],
-      "description": "Each group's `label` and its `items`. An item takes `id`, `label`, and optional `description`, `shortcut`, `icon` and `onSelect`. A divider is drawn between groups automatically."
+      "description": "Each group's `label` and its `items`. An item takes `id`, `label`, and optional `description`, `shortcut`, `icon`, `destructive` and `onSelect`. `destructive` paints the row red. A divider is drawn between groups automatically."
     },
     {
       "name": "placeholder",

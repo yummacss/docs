@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  190
-    Open    5
+    Closed  191
+    Open    4
     Done    97%
 
 ---
@@ -42,10 +42,7 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **A destructive row: the icon or the whole row?** Context Menu, Menu
-      and Menubar paint the whole row red, label, icon and highlight; Command
-      Palette has no destructive item. Four options, A to D, on the Phase 4
-      canvas, 2026-09-28.
+Empty.
 
 ## Phase 5 - Infrastructure
 

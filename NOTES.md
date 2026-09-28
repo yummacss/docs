@@ -2624,6 +2624,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       call. A halo-plus-outline focus treatment stays unwritable with them.
 - [x] **The rail keeps its prop order**, 2026-09-28. Alphabetical was dropped:
       a component's own props first, then `SHARED_PROP_ORDER`.
+- [x] **A destructive row is red end to end**, 2026-09-28, option A on the
+      Phase 4 canvas: label, icon and a `bg:red-1/50` highlight, as Context
+      Menu, Menu and Menubar already drew it. Command Palette takes
+      `destructive` on an item and its demo gains "Delete file"; the shortcut
+      chip keeps `bg:white` so it reads on the red highlight.
 - [x] **Search finds flags, options, config keys and props**, 2026-09-28.
       `src/utils/search-reference.ts` reads them at build time inside the
       content-collections transform: table rows under a Flag, Option or Field
