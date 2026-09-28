@@ -2578,6 +2578,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       the stage slid under the navbar. The links are `p:r` in the sidebar
       and the mobile menu; measured at 1920x979 and 1440x900, the document
       is the window's height and a wheel over the page leaves `scrollY` at 0.
+- [x] **The stage's tabs draw their edges**, 2026-09-28. Their class began
+      with `bw:0` to clear the button's border, and `bw` lands after `brw` and
+      `bbw` in the generated CSS, so every tab edge was zero and the strip
+      blended into the page. The stage copies `code-tabs.tsx` instead,
+      `fs:sm`, `accent` open and `accent-dim` closed, with no `bw:0`;
+      computed styles match the markdown tabs edge for edge.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
