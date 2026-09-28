@@ -390,3 +390,72 @@ function declarations(
 export function tokensToText(tokens: Token[]): string {
   return tokens.map((token) => token.text).join("");
 }
+
+/** The `yumma.config.mjs` a component needs: its states and keyframes, nothing else. */
+export function buildConfig(config: {
+  states: Record<string, string>;
+  keyframes: Record<string, string>;
+}): Token[] {
+  const out: Draft[] = [];
+  const push = (kind: TokenKind, text: string) => out.push({ kind, text });
+
+  const table = (name: string, entries: Record<string, string>) => {
+    const keys = Object.keys(entries);
+    if (!keys.length) return;
+    push("text", "    ");
+    push("attribute", name);
+    push("punctuation", ": ");
+    push("brace", "{");
+    push("text", "\n");
+    for (const key of keys) {
+      push("text", "      ");
+      push("attribute", key);
+      push("punctuation", ": ");
+      push("string", JSON.stringify(entries[key]));
+      push("punctuation", ",");
+      push("text", "\n");
+    }
+    push("text", "    ");
+    push("brace", "}");
+    push("punctuation", ",");
+    push("text", "\n");
+  };
+
+  push("keyword", "import");
+  push("text", " ");
+  push("brace", "{");
+  push("text", " defineConfig ");
+  push("brace", "}");
+  push("text", " ");
+  push("keyword", "from");
+  push("text", " ");
+  push("string", '"yummacss"');
+  push("punctuation", ";");
+  push("text", "\n\n");
+  push("keyword", "export default");
+  push("text", " defineConfig");
+  push("punctuation", "(");
+  push("brace", "{");
+  push("text", "\n  ");
+  push("attribute", "source");
+  push("punctuation", ": ");
+  push("brace", "[");
+  push("string", '"./src/**/*.{ts,tsx}"');
+  push("brace", "]");
+  push("punctuation", ",");
+  push("text", "\n  ");
+  push("attribute", "theme");
+  push("punctuation", ": ");
+  push("brace", "{");
+  push("text", "\n");
+  table("states", config.states);
+  table("keyframes", config.keyframes);
+  push("text", "  ");
+  push("brace", "}");
+  push("punctuation", ",");
+  push("text", "\n");
+  push("brace", "}");
+  push("punctuation", ");");
+
+  return identify(out);
+}
