@@ -52,9 +52,21 @@ function block(text, indent) {
 }
 
 // a rerun has to start from the file as it was written, or every pass would
-// nest the comment it added last time
+// nest the comment it added last time; only the comments it writes are removed
+const BLOCK = String.raw`[ \t]*\/\*\*(?:(?!\*\/)[\s\S])*\*\/\n`;
+
 function strip(source) {
-  return source.replace(/^([ \t]*)\/\*\*[\s\S]*?\*\/\n/gm, "");
+  const props = /export interface \w+Props[^{]*\{([\s\S]*?)\n\}/.exec(source);
+  if (props) {
+    source = source.replace(
+      props[1],
+      props[1].replace(new RegExp(`^${BLOCK}`, "gm"), ""),
+    );
+  }
+  return source.replace(
+    new RegExp(`^${BLOCK}(?=export default function)`, "m"),
+    "",
+  );
 }
 
 let documented = 0;
