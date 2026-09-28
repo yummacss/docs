@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  189
-    Open    6
-    Done    96%
+    Closed  190
+    Open    5
+    Done    97%
 
 ---
 
@@ -51,14 +51,7 @@ Design decisions. Nothing here starts without them.
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-- [ ] **Search does not know about flags, config keys or component props.**
-      Mayranne typed `--all` into the dialog and got nothing. `SEARCH_DATA` in
-      `src/utils/search-data.ts` carries doc titles, component titles, the CSS
-      properties `extractProperties` finds in page content, and the colour
-      shades. It does not carry CLI commands and flags, `yumma.config.mjs` keys,
-      or the 430 prop names in `src/registry/meta/*.json`, which is the one
-      index that already exists and is not used. Someone looking up a prop or a
-      flag is the likeliest search there is.
+Empty.
 
 
 ## Phase 6 - After v4
