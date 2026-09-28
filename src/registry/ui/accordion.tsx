@@ -17,7 +17,7 @@ type Shadow = "none" | "inset" | "outset";
 
 const TURN = "tp:t tdu:150 ttf:io @prm:tp:none";
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 type Indicator = "chevron" | "plus-minus";
 type IndicatorPosition = "leading" | "trailing";
 

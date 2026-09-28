@@ -41,7 +41,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const CONTROL_BASE = "d:f ai:c jc:c w:8 h:8 bw:1 tp:c tdu:150 ttf:io us:none";
 
@@ -220,7 +220,7 @@ export default function OnboardingBase({
       <div className="d:ib p:r">
         <div className="p:a l:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:-3 tty:1" />
         <div className="p:a r:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:3 tty:1" />
-        <div className="d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 bw:1 br:xl">
+        <div className="d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 c:slate-11 bw:1 br:xl">
           {step.icon}
         </div>
       </div>

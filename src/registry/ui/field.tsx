@@ -42,7 +42,7 @@ const ICON_PADDING: Record<IconSide, string> = {
   trailing: "pl:4 pr:10",
 };
 
-const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const STATUS_BORDER: Record<Status, string> = {
   default: "bc:silver-3",
