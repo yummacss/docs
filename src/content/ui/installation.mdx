@@ -52,9 +52,9 @@ Yumma UI components are copied into your project rather than installed as a depe
   </Step>
 
   <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
+    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
 
-    ```js title="yumma.config.mjs" mark={4-15}
+    ```js title="yumma.config.mjs" mark={4-16}
     import { defineConfig } from "yummacss";
 
     export default defineConfig({
@@ -63,6 +63,7 @@ Yumma UI components are copied into your project rather than installed as a depe
         states: {
           opening: "[data-starting-style]",
           closing: "[data-ending-style]",
+          swiping: "[data-swiping]",
         },
         keyframes: {
           pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
@@ -151,9 +152,9 @@ Yumma UI components are copied into your project rather than installed as a depe
   </Step>
 
   <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
+    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
 
-    ```js title="yumma.config.mjs" mark={4-15}
+    ```js title="yumma.config.mjs" mark={4-16}
     import { defineConfig } from "yummacss";
 
     export default defineConfig({
@@ -162,6 +163,7 @@ Yumma UI components are copied into your project rather than installed as a depe
         states: {
           opening: "[data-starting-style]",
           closing: "[data-ending-style]",
+          swiping: "[data-swiping]",
         },
         keyframes: {
           pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
