@@ -14,7 +14,6 @@ import meta_button from "./meta/button.json";
 import meta_checkbox_group from "./meta/checkbox-group.json";
 import meta_checkbox from "./meta/checkbox.json";
 import meta_combobox from "./meta/combobox.json";
-import meta_command_palette from "./meta/command-palette.json";
 import meta_context_menu from "./meta/context-menu.json";
 import meta_dialog from "./meta/dialog.json";
 import meta_drawer from "./meta/drawer.json";
@@ -66,7 +65,6 @@ export const registry = {
   "combobox-grouped": () => import("./ui/combobox-grouped"),
   "combobox-helper": () => import("./ui/combobox-helper"),
   "combobox": () => import("./ui/combobox"),
-  "command-palette": () => import("./ui/command-palette"),
   "context-menu": () => import("./ui/context-menu"),
   "dialog": () => import("./ui/dialog"),
   "drawer": () => import("./ui/drawer"),
@@ -165,7 +163,6 @@ export const registryMeta = {
   "checkbox-group": meta_checkbox_group,
   "checkbox": meta_checkbox,
   "combobox": meta_combobox,
-  "command-palette": meta_command_palette,
   "context-menu": meta_context_menu,
   "dialog": meta_dialog,
   "drawer": meta_drawer,
@@ -229,7 +226,6 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "combobox-grouped": { component: "combobox", variant: "grouped", kind: "example", install: "combobox" },
   "combobox-helper": { component: "combobox", variant: "helper", kind: "example", install: "combobox" },
   "combobox": { component: "combobox", variant: "base", kind: "component", install: "combobox" },
-  "command-palette": { component: "command-palette", variant: "base", kind: "component", install: "command-palette" },
   "context-menu": { component: "context-menu", variant: "base", kind: "component", install: "context-menu" },
   "dialog": { component: "dialog", variant: "base", kind: "component", install: "dialog" },
   "drawer": { component: "drawer", variant: "base", kind: "component", install: "drawer" },
@@ -277,7 +273,6 @@ export const registryConfig: Record<string, RegistryConfig> = {
   "alert-dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
   "autocomplete": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
   "combobox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
-  "command-palette": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
   "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
   "dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
   "drawer": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]", "swiping": "[data-swiping]" }, keyframes: {} },
