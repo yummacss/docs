@@ -1,8 +1,9 @@
-import { Children, type ReactNode } from "react";
+import { Children, cloneElement, isValidElement, type ReactNode } from "react";
 import { merge } from "yummacss/merge";
 import Separator from "./separator";
 
 type Shape = "rounded" | "square" | "squircle" | "pill";
+type IconSide = "leading" | "trailing";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
@@ -30,7 +31,23 @@ export interface ButtonGroupProps {
   separated?: boolean;
   /** Buttons share the full width instead of sizing to their labels. */
   stretch?: boolean;
+  /**
+   * Which end the icon sits at, on every button that has one. Unset, each
+   * button keeps its own.
+   */
+  iconPosition?: IconSide;
+  /**
+   * Draws each button's icon alone, keeping its label as the accessible name. A
+   * button without an icon keeps its label.
+   */
+  iconOnly?: boolean;
 }
+
+type IconProps = {
+  icon?: ReactNode;
+  iconPosition?: IconSide;
+  iconOnly?: boolean;
+};
 
 /**
  * A row of related buttons sharing one border, in four shapes, with optional
@@ -42,8 +59,18 @@ export default function ButtonGroup({
   shape = "rounded",
   separated = true,
   stretch = false,
+  iconPosition,
+  iconOnly,
 }: ButtonGroupProps) {
-  const items = Children.toArray(children);
+  // a button with an icon takes the group's icon props; one it sets itself wins
+  const items = Children.toArray(children).map((child) =>
+    isValidElement<IconProps>(child) && child.props.icon
+      ? cloneElement(child, {
+          iconPosition: child.props.iconPosition ?? iconPosition,
+          iconOnly: child.props.iconOnly ?? iconOnly,
+        })
+      : child,
+  );
 
   return (
     <div className={merge(BASE, SHAPES[shape], stretch && "w:100%", className)}>
