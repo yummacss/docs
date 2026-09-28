@@ -1,4 +1,4 @@
-/** The version a page arrived in, drawn beside its link while that version is current. */
+/** The version a page arrived in, or `New`, drawn beside its link while it applies. */
 export default function NewBadge({ since }: { since?: string }) {
   if (!since) return null;
   return (
@@ -16,7 +16,7 @@ export function NewLabel({ since }: { since?: string }) {
   if (!since) return null;
   return (
     <span className="p:a w:px h:px o:h ws:nw" style={{ clip: "rect(0 0 0 0)" }}>
-      , new in {since}
+      {/^\d/.test(since) ? `, new in ${since}` : ", new"}
     </span>
   );
 }
