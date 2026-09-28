@@ -2,7 +2,6 @@
 export type IconStyle = "outline" | "bold-duotone";
 
 export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {
-  AddFolderIcon: "bold-duotone",
   AddIcon: "outline",
   ArchiveIcon: "bold-duotone",
   BellIcon: "bold-duotone",
@@ -16,7 +15,6 @@ export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {
   FileRightIcon: "bold-duotone",
   FolderIcon: "bold-duotone",
   Grid2x2Icon: "outline",
-  HistoryIcon: "bold-duotone",
   KeyboardIcon: "bold-duotone",
   ListIcon: "bold-duotone",
   MagnifierIcon: "outline",

@@ -316,14 +316,7 @@ export const sidebarConfig = {
     { title: "Navigation", items: ["tabs", "toolbar"] },
     {
       title: "Overlays",
-      items: [
-        "alert-dialog",
-        "command-palette",
-        "dialog",
-        "drawer",
-        "popover",
-        "tooltip",
-      ],
+      items: ["alert-dialog", "dialog", "drawer", "popover", "tooltip"],
     },
     {
       title: "Application UI",
