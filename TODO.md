@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  176
-    Open    17
-    Done    91%
+    Closed  177
+    Open    16
+    Done    92%
 
 ---
 
@@ -42,9 +42,6 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] Replace the stage's tab bar with an **IDE** treatment: Preview and the
-      file as two editor tabs, Copy component at the end of the strip, a
-      status bar below. Chosen: A on the Phase 4 canvas.
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,

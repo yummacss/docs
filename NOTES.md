@@ -2538,6 +2538,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       link to `#prune` follows the rename. The search dialog's key hints
       (navigate, select, close) show from `@lg:`, where the navbar's Ctrl K
       hint does, since a phone has none of those keys.
+- [x] **The stage is an editor**, 2026-09-28, option A on the Phase 4 canvas.
+      File tabs set exactly like the code blocks' title bar: `px:6 py:2`,
+      mono `fs:xs`, a right edge, and no bottom edge under the open one, so
+      it runs into its panel; the closed ones and a filler carry the bottom
+      line. Preview, `page.tsx`, and `yumma.config.mjs` for a component that
+      names a state or a keyframe. No icons on the tabs, and no Copy
+      component: the code block's own copy button covers it, floating where a
+      tab already names the file (`TokenBlock` `bar={false}`). A status bar
+      under the panels names the component and the open file's language. The
+      config tab holds only what that component uses: `generate-registry.mjs`
+      scans each source for `name:` against `theme.states` and `an:name`
+      against `theme.keyframes` in `yumma.config.mjs` and writes
+      `registryConfig`; `buildConfig` in `snippet.ts` prints it. 17
+      components have the tab.
 - [x] **What is new in 4.2 is marked**, 2026-09-28, option C on the Phase 4
       canvas. A docs page carries `since: "4.2"` in its frontmatter, and
       `newIn` in `src/utils/since.ts` returns it while it matches the minor of
@@ -2915,7 +2929,6 @@ Everything lives under `src/components/playground/` unless noted.
 | `stage.tsx` | `ComponentPlayground`, rendered by the UI shell, not the page, so it stays mounted across pages. The MDX tag renders nothing and stays for the Markdown export. |
 | `rail.tsx` | The right column: Look (`style`, `radius`, `accent`) as rows, then the Component API, with the props it cannot set folded under "N more, set in code". |
 | `control.tsx` | One widget per prop. Enum -> select, boolean/icon slot -> `Toggle`. |
-| `install.tsx` | Copy component, one copy button in the stage's tab bar, set like the tabs beside them. |
 | `../preview-frame.tsx` | The iframe. Exports `usePreviewContainer()` for portal targets. |
 | `../../utils/demo.tsx` | `EXAMPLE_ICONS`, `exampleIcon`, `resolveIcons`, `seedValues`. |
 | `../../utils/props.ts` | `typeOf`, `isControllable`. |
@@ -2971,14 +2984,10 @@ and had to be restored.
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
-- **One copy button, Copy component.** In the tabs' own type and spacing,
-  with the active tab's box on hover. It copies the styled file from
-  `/ui/r/<style>-<radius>/<id>.json`, which leaves out the dependencies
-  the CLI would install. A copy swaps the icon for a check and the
-  accessible name for "Copy component, copied"; the label stays, so
-  nothing shifts. A `ClipboardItem` holds the fetch, so the copy keeps
-  the click's permission while the file loads. The CLI copy button was
-  dropped on 2026-09-28; `addCommand` and `styleFlags` have no caller now.
+- **No copy button of its own.** The stage's code tabs copy through the code
+  block's button. Copy component, which fetched the styled file from
+  `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
+  2026-09-28; `addCommand` and `styleFlags` have no caller.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
   controls scroll under the preview.
