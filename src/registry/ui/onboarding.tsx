@@ -7,7 +7,6 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
   CheckIcon,
-  CloseIcon,
 } from "@solar-icons/react/outline";
 import type { ReactNode } from "react";
 import { useCallback, useRef, useState } from "react";
@@ -30,10 +29,24 @@ const CONTROL_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const CLOSE_SHAPES: Record<Shape, string> = {
+// the step's icon tile and the two cards fanned behind it
+const TILE_SHAPES: Record<Shape, string> = {
+  rounded: "br:xl",
+  square: "",
+  squircle: "br:xxl cs:s",
+};
+
+const CHECK_SHAPES: Record<Shape, string> = {
+  rounded: "br:sm",
+  square: "",
+  squircle: "br:md cs:s",
+};
+
+// the progress track and the step dots, as Progress draws its track
+const TRACK_SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
-  squircle: "br:lg cs:s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
@@ -83,9 +96,10 @@ export interface OnboardingProps {
    */
   indicator?: Indicator;
   /**
-   * An X in the corner, so the tour can be skipped without walking to the end.
+   * Esc closes the tour, as it does any dialog. Turn it off for a tour that
+   * must be finished or closed from its last step.
    */
-  showClose?: boolean;
+  closeOnEscape?: boolean;
   /**
    * The popup's grow and shrink as steps of different heights come and go. Only
    * steps with `tasks` change height, so this does nothing without them.
@@ -125,7 +139,7 @@ export default function OnboardingBase({
   iconPosition = "leading",
   steps,
   indicator = "count",
-  showClose = false,
+  closeOnEscape = true,
   animatedResize = true,
   shape = "rounded",
   shadow = "none",
@@ -218,9 +232,15 @@ export default function OnboardingBase({
   const slide = (
     <div className="d:f fd:c ai:c g:3">
       <div className="d:ib p:r">
-        <div className="p:a l:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:-3 tty:1" />
-        <div className="p:a r:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:3 tty:1" />
-        <div className="d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 c:slate-11 bw:1 br:xl">
+        <div
+          className={`p:a l:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 ro:-3 tty:1 ${TILE_SHAPES[shape]}`}
+        />
+        <div
+          className={`p:a r:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 ro:3 tty:1 ${TILE_SHAPES[shape]}`}
+        />
+        <div
+          className={`d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 c:slate-11 bw:1 ${TILE_SHAPES[shape]}`}
+        >
           {step.icon}
         </div>
       </div>
@@ -236,12 +256,13 @@ export default function OnboardingBase({
                 onClick={() => toggleTask(task.id)}
                 className={merge(
                   outline,
-                  "d:f ai:c g:2 px:3 py:2 w:100% br:lg bw:0 fs:sm ta:l us:none c:p",
+                  "d:f ai:c g:2 px:3 py:2 w:100% bw:0 fs:sm ta:l us:none c:p",
+                  CONTROL_SHAPES[shape],
                   isChecked ? "bg:green-1/30" : "bg:silver-1/50",
                 )}
               >
                 <div
-                  className={`d:f ai:c jc:c w:4 h:4 br:sm bw:1 fs:0 ${
+                  className={`d:f ai:c jc:c w:4 h:4 bw:1 fs:0 ${CHECK_SHAPES[shape]} ${
                     isChecked
                       ? "bg:green bc:green-5 c:white bw:0"
                       : "bc:silver-3"
@@ -260,24 +281,6 @@ export default function OnboardingBase({
     </div>
   );
 
-  const closeButton = (position: string) => (
-    <AlertDialog.Close
-      render={
-        <Button
-          className={merge(
-            outline,
-            "d:f ai:c jc:c w:7 h:7 p:0 c:slate-6 bw:0 h:bg:silver-1/50 h:c:slate-7",
-            CLOSE_SHAPES[shape],
-            position,
-          )}
-        />
-      }
-      aria-label="Skip"
-    >
-      <CloseIcon aria-hidden className="w:4 h:4" />
-    </AlertDialog.Close>
-  );
-
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
@@ -290,12 +293,9 @@ export default function OnboardingBase({
           className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
-          {showClose && indicator === "dots" && closeButton("p:a l:3 t:3")}
-
           {indicator !== "dots" && (
             <div className="d:f ai:c jc:sb px:8 pt:5">
               <div className="d:f ai:c g:2">
-                {showClose && closeButton("")}
                 {indicator === "count" && (
                   <span className="c:slate-5 fs:xs">
                     {page + 1} / {steps.length}
@@ -370,9 +370,11 @@ export default function OnboardingBase({
 
           {indicator === "progress" && (
             <div className="d:f jc:c pb:6">
-              <div className="p:r o:h w:32 h:1 bg:silver-2 br:9999">
+              <div
+                className={`p:r o:h w:32 h:1 bg:silver-2 ${TRACK_SHAPES[shape]}`}
+              >
                 <div
-                  className="p:a l:0 t:0 h:100% bg:slate-12 br:9999 tp:w tdu:200 ttf:eo"
+                  className={`p:a l:0 t:0 h:100% bg:slate-12 tp:w tdu:200 ttf:eo ${TRACK_SHAPES[shape]}`}
                   style={{ width: `${((page + 1) / steps.length) * 100}%` }}
                 />
               </div>
@@ -386,7 +388,8 @@ export default function OnboardingBase({
                 disabled={isFirst}
                 className={merge(
                   outline,
-                  "d:f ai:c jc:c w:8 h:8 bw:0 br:lg us:none",
+                  "d:f ai:c jc:c w:8 h:8 bw:0 us:none",
+                  CONTROL_SHAPES[shape],
                   isFirst
                     ? "c:slate-3"
                     : "c:slate-6 h:bg:silver-1 h:c:slate-10 c:p",
@@ -407,7 +410,8 @@ export default function OnboardingBase({
                       className={(state) =>
                         merge(
                           outline,
-                          "d:f ai:c jc:c w:4 h:4 br:9999 bw:0 us:none c:p",
+                          "d:f ai:c jc:c w:4 h:4 bw:0 us:none c:p",
+                          TRACK_SHAPES[shape],
                           state.active ? "bg:slate-12" : "bg:silver-2",
                         )
                       }
@@ -428,7 +432,8 @@ export default function OnboardingBase({
                   disabled={!allTasksDone}
                   className={merge(
                     outline,
-                    "d:f ai:c jc:c w:8 h:8 bw:0 br:lg us:none",
+                    "d:f ai:c jc:c w:8 h:8 bw:0 us:none",
+                    CONTROL_SHAPES[shape],
                     allTasksDone
                       ? "c:slate-6 h:bg:silver-1 h:c:slate-10 c:p"
                       : "c:slate-3",
@@ -448,7 +453,11 @@ export default function OnboardingBase({
   return (
     <AlertDialog.Root
       open={open}
-      onOpenChange={(next) => {
+      onOpenChange={(next, details) => {
+        if (!next && !closeOnEscape && details.reason === "escape-key") {
+          details.cancel();
+          return;
+        }
         setOpen(next);
         if (!next) {
           setPage(0);
