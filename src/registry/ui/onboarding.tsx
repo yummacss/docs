@@ -186,7 +186,7 @@ export default function OnboardingBase({
 
   const triggerClasses = merge(
     outline,
-    "bg:white d:if ai:c g:2 px:3 py:2 bc:silver-2 c:slate-10 bw:1 fw:500 tp:c tdu:150 ttf:io us:none h:bg:silver-1/50",
+    "bg:white d:if ai:c g:2 px:3 py:2 bc:silver-2 c:slate-10 bw:1 fs:sm fw:500 tp:c tdu:150 ttf:io us:none h:bg:silver-1/50",
     CONTROL_SHAPES[shape],
     className,
   );
