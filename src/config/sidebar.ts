@@ -320,6 +320,7 @@ export const sidebarConfig = {
         "alert-dialog",
         "command-palette",
         "dialog",
+        "drawer",
         "popover",
         "tooltip",
       ],

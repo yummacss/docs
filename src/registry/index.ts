@@ -17,6 +17,7 @@ import meta_combobox from "./meta/combobox.json";
 import meta_command_palette from "./meta/command-palette.json";
 import meta_context_menu from "./meta/context-menu.json";
 import meta_dialog from "./meta/dialog.json";
+import meta_drawer from "./meta/drawer.json";
 import meta_empty_state from "./meta/empty-state.json";
 import meta_field from "./meta/field.json";
 import meta_file_upload from "./meta/file-upload.json";
@@ -68,6 +69,7 @@ export const registry = {
   "command-palette": () => import("./ui/command-palette"),
   "context-menu": () => import("./ui/context-menu"),
   "dialog": () => import("./ui/dialog"),
+  "drawer": () => import("./ui/drawer"),
   "empty-state": () => import("./ui/empty-state"),
   "field-prefix": () => import("./ui/field-prefix"),
   "field-suffix": () => import("./ui/field-suffix"),
@@ -161,6 +163,7 @@ export const registryMeta = {
   "command-palette": meta_command_palette,
   "context-menu": meta_context_menu,
   "dialog": meta_dialog,
+  "drawer": meta_drawer,
   "empty-state": meta_empty_state,
   "field": meta_field,
   "file-upload": meta_file_upload,
@@ -224,6 +227,7 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "command-palette": { component: "command-palette", variant: "base", kind: "component", install: "command-palette" },
   "context-menu": { component: "context-menu", variant: "base", kind: "component", install: "context-menu" },
   "dialog": { component: "dialog", variant: "base", kind: "component", install: "dialog" },
+  "drawer": { component: "drawer", variant: "base", kind: "component", install: "drawer" },
   "empty-state": { component: "empty-state", variant: "base", kind: "component", install: "empty-state" },
   "field-prefix": { component: "field", variant: "prefix", kind: "example", install: "field" },
   "field-suffix": { component: "field", variant: "suffix", kind: "example", install: "field" },
