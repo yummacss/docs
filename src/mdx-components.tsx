@@ -91,14 +91,18 @@ const components: MDXComponents = {
       </h3>
     );
   },
-  h4: ({ children, ...props }) =>
-    props.className ? (
-      <h4 {...props}>{children}</h4>
-    ) : (
-      <h4 className="mt:6 my:3 c:ink fs:lg fw:500 lh:1" {...props}>
+  h4: ({ children, ...props }) => {
+    const id = props.id || generateId(children);
+    return props.className ? (
+      <h4 id={id} {...props}>
         {children}
       </h4>
-    ),
+    ) : (
+      <h4 id={id} className="mt:6 my:3 c:ink fs:lg fw:500 lh:1" {...props}>
+        {children}
+      </h4>
+    );
+  },
   h5: ({ children, ...props }) =>
     props.className ? (
       <h5 {...props}>{children}</h5>
