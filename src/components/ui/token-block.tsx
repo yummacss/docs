@@ -12,12 +12,15 @@ export default function TokenBlock({
   expanded = false,
   title,
   fill = false,
+  bar = true,
 }: {
   tokens: Token[];
   className?: string;
   expanded?: boolean;
   title?: string;
   fill?: boolean;
+  /** Off where a tab already names the file: the copy button floats instead. */
+  bar?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -34,8 +37,12 @@ export default function TokenBlock({
   const action: ReactNode = <CopyButton copied={copied} onCopy={copy} />;
 
   return (
-    <div className={`cs:d bg:surface ${className}`}>
-      <TitleBar title={title} action={action} />
+    <div className={`cs:d bg:surface ${bar ? "" : "p:r"} ${className}`}>
+      {bar ? (
+        <TitleBar title={title} action={action} />
+      ) : (
+        <div className="p:a t:2 r:3 zi:10">{action}</div>
+      )}
       <pre
         className={`ox:auto px:4 py:3 ff:m lh:5 ws:pw ${
           fill ? "f:1 min-h:0 oy:auto" : ""
