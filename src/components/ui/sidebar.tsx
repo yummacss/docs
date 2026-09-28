@@ -1,6 +1,5 @@
 import { allDocs, allUis } from "content-collections";
 import { docsLinks, sidebarConfig } from "@/config/sidebar";
-import { badgeFor } from "@/utils/since";
 import SidebarNav from "./sidebar-nav";
 
 interface Props {
@@ -20,7 +19,7 @@ export default function Sidebar({ variant }: Props) {
         return {
           slug: item,
           title: doc?.title ?? item,
-          since: badgeFor(doc),
+          since: doc?.badge,
         };
       }
       return {
@@ -30,7 +29,7 @@ export default function Sidebar({ variant }: Props) {
           return {
             slug,
             title: doc?.title ?? slug,
-            since: badgeFor(doc),
+            since: doc?.badge,
           };
         }),
       };

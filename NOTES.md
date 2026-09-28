@@ -2560,10 +2560,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       release, so a `/ui` page carries `added: "YYYY-MM-DD"` and reads "New"
       for `NEW_FOR_DAYS`, 30, after it; screen readers hear "new". `badgeFor`
       in `src/utils/since.ts` picks `since` on a docs page or `added` on a
-      component page. The desktop sidebar renders at build, so a badge stays
-      until the first deploy after its 30 days; the mobile menu renders on the
-      client and drops it on the day. OTP Field and Drawer carry it;
+      component page. Content Collections works it out while it builds the
+      data (`badge` on each doc), so a badge stays until the first build after
+      its 30 days, in the sidebar and the mobile menu alike. OTP Field and Drawer carry it;
       `tests/since.test.ts` holds both rules.
+- [x] **The badge ships as a string**, 2026-09-28. `since.ts` reads the site
+      version from `version.ts`, which imports `package.json`, and the mobile
+      menu is a client module, so the whole file, scripts included, rode into
+      three client chunks (2.7KB, 1.1KB gzipped). `badge` is worked out in the
+      Content Collections transform instead and the sidebar and the menu read
+      it; no client chunk carries `package.json`, measured on the build.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
