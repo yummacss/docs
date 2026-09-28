@@ -21,19 +21,56 @@ const plain = (text: string) => text.replace(/`/g, "").trim();
 
 const heading = (line: string) => /^(#{2,4})\s+(.+?)\s*$/.exec(line);
 
+// what a row belongs to, read from its section's code: a titled block names the
+// file ("yummaui.json"), a shell block the command ("yummaui add")
+function contextOf(open: string, body: string[]): string | undefined {
+  const title = /title="([^"]+)"/.exec(open);
+  if (title) return title[1];
+  for (const line of body) {
+    const run = /(?:dlx|npx|bunx)\s+(\S+)(?:\s+([a-z][\w-]*))?/.exec(line);
+    if (run) return run[2] ? `${run[1]} ${run[2]}` : run[1];
+  }
+  return undefined;
+}
+
 export function extractReference(content: string): ReferenceEntry[] {
   const out: ReferenceEntry[] = [];
-  const lines = content.split("\n");
   let anchor = "";
-  let fence = false;
   let columns: string[] | null = null;
+  let fence: { open: string; body: string[] } | null = null;
+  let section: { rows: ReferenceEntry[]; context?: string } = { rows: [] };
 
-  for (const line of lines) {
-    if (line.trimStart().startsWith("```")) fence = !fence;
-    if (fence) continue;
+  const close = () => {
+    for (const row of section.rows) {
+      out.push(
+        section.context
+          ? { ...row, description: `${row.description} · ${section.context}` }
+          : row,
+      );
+    }
+    section = { rows: [] };
+  };
+
+  for (const line of content.split("\n")) {
+    if (line.trimStart().startsWith("```")) {
+      if (fence) {
+        section.context ??= contextOf(fence.open, fence.body);
+        fence = null;
+      } else {
+        fence = { open: line, body: [] };
+      }
+      continue;
+    }
+    if (fence) {
+      fence.body.push(line);
+      continue;
+    }
 
     const h = heading(line);
-    if (h) anchor = generateId(plain(h[2]));
+    if (h) {
+      close();
+      anchor = generateId(plain(h[2]));
+    }
 
     if (!line.trimStart().startsWith("|")) {
       columns = null;
@@ -50,9 +87,10 @@ export function extractReference(content: string): ReferenceEntry[] {
     if (!row[0].startsWith("`")) continue;
     const description = plain(
       [...row].reverse().find((cell, i) => cell && i < row.length - 1) ?? "",
-    );
-    out.push({ title: plain(row[0]), description, anchor });
+    ).replace(/\.$/, "");
+    section.rows.push({ title: plain(row[0]), description, anchor });
   }
+  close();
 
   return out;
 }

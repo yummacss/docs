@@ -9,10 +9,19 @@ describe("search reference", () => {
     const entries = extractReference(page("ui/cli"));
     expect(entries).toContainEqual({
       title: "-a, --all",
-      description: "Add every component",
+      description: "Add every component · yummaui add",
       anchor: "add-components",
     });
-    expect(entries.map((entry) => entry.title)).toContain("componentsDir");
+    expect(entries).toContainEqual({
+      title: "componentsDir",
+      description:
+        "Where components are written, relative to the project root · yummaui.json",
+      anchor: "configuration-file",
+    });
+    expect(
+      extractReference(page("docs/lint")).find((e) => e.title === "--allow")
+        ?.description,
+    ).toMatch(/· @yummacss\/lint$/);
   });
 
   it("finds the lint flags and the bundler plugins' options", () => {
