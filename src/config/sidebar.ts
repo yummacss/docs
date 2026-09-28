@@ -285,6 +285,7 @@ export const sidebarConfig = {
         "file-upload",
         "field",
         "number-field",
+        "otp-field",
         "radio",
         "select",
         "slider",

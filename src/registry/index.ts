@@ -25,6 +25,7 @@ import meta_menubar from "./meta/menubar.json";
 import meta_meter from "./meta/meter.json";
 import meta_number_field from "./meta/number-field.json";
 import meta_onboarding from "./meta/onboarding.json";
+import meta_otp_field from "./meta/otp-field.json";
 import meta_popover from "./meta/popover.json";
 import meta_preview_card from "./meta/preview-card.json";
 import meta_progress from "./meta/progress.json";
@@ -77,6 +78,7 @@ export const registry = {
   "meter": () => import("./ui/meter"),
   "number-field": () => import("./ui/number-field"),
   "onboarding": () => import("./ui/onboarding"),
+  "otp-field": () => import("./ui/otp-field"),
   "popover": () => import("./ui/popover"),
   "preview-card": () => import("./ui/preview-card"),
   "progress": () => import("./ui/progress"),
@@ -167,6 +169,7 @@ export const registryMeta = {
   "meter": meta_meter,
   "number-field": meta_number_field,
   "onboarding": meta_onboarding,
+  "otp-field": meta_otp_field,
   "popover": meta_popover,
   "preview-card": meta_preview_card,
   "progress": meta_progress,
@@ -231,6 +234,7 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "meter": { component: "meter", variant: "base", kind: "component", install: "meter" },
   "number-field": { component: "number-field", variant: "base", kind: "component", install: "number-field" },
   "onboarding": { component: "onboarding", variant: "base", kind: "component", install: "onboarding" },
+  "otp-field": { component: "otp-field", variant: "base", kind: "component", install: "otp-field" },
   "popover": { component: "popover", variant: "base", kind: "component", install: "popover" },
   "preview-card": { component: "preview-card", variant: "base", kind: "component", install: "preview-card" },
   "progress": { component: "progress", variant: "base", kind: "component", install: "progress" },
