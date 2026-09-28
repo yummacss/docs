@@ -229,7 +229,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               )}
             </Scroller>
 
-            <div className="d:f ai:c jc:sb px:4 py:2 bc:border c:ink/40 btw:1 fs:xs">
+            {/* keys to press, so only where a keyboard is likely: the navbar's Ctrl K hint shows from the same width */}
+            <div className="d:none ai:c jc:sb px:4 py:2 bc:border c:ink/40 btw:1 fs:xs @lg:d:f">
               <div className="d:f ai:c g:4">
                 <span className="d:f ai:c g:1">
                   <kbd className="d:f ai:c p:1 bc:border bg:transparent bw:1">
