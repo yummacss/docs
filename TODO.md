@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  167
-    Open    23
+    Closed  168
+    Open    22
     Done    88%
 
 ---
@@ -35,8 +35,6 @@ Empty.
 
 ## Phase 3 - API changes
 
-- [ ] **Button Group has no icon controls.** Its buttons should take an icon
-      like Button does.
 - [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
 - [ ] **No way to turn a component's icons off.** There is no `icon` boolean on
