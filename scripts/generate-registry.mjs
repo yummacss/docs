@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-import { existsSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
+import config from "../yumma.config.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -45,6 +46,34 @@ const targetLines = uiIds
     const install = kind === "block" ? id : component;
     return `  "${id}": { component: "${component}", variant: "${variant}", kind: "${kind}", install: "${install}" },`;
   })
+  .join("\n");
+
+// the states and keyframes each component names, so its page can show the config it needs
+const { states = {}, keyframes = {} } = config.theme ?? {};
+const STATE_ORDER = ["opening", "closing"];
+const stateNames = Object.keys(states).sort(
+  (a, b) =>
+    (STATE_ORDER.indexOf(a) + 1 || 99) - (STATE_ORDER.indexOf(b) + 1 || 99) ||
+    a.localeCompare(b),
+);
+const configLines = uiIds
+  .map((id) => {
+    const source = readFileSync(join(uiDir, `${id}.tsx`), "utf-8");
+    const used = (names, pattern) =>
+      names.filter((name) => pattern(name).test(source));
+    const s = used(stateNames, (name) => new RegExp(`\\b${name}:`));
+    const k = used(
+      Object.keys(keyframes),
+      (name) => new RegExp(`\\ban:${name}\\b`),
+    );
+    if (!s.length && !k.length) return null;
+    const pick = (table, names) =>
+      names.length
+        ? `{ ${names.map((name) => `${JSON.stringify(name)}: ${JSON.stringify(table[name])}`).join(", ")} }`
+        : "{}";
+    return `  "${id}": { states: ${pick(states, s)}, keyframes: ${pick(keyframes, k)} },`;
+  })
+  .filter(Boolean)
   .join("\n");
 
 const output = `/**
@@ -117,6 +146,15 @@ export interface RegistryTarget {
 
 export const registryTargets: Record<string, RegistryTarget> = {
 ${targetLines}
+};
+
+export interface RegistryConfig {
+  states: Record<string, string>;
+  keyframes: Record<string, string>;
+}
+
+export const registryConfig: Record<string, RegistryConfig> = {
+${configLines}
 };
 
 export function getRegistryTarget(id: string): RegistryTarget {
