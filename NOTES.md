@@ -2502,6 +2502,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       Group and Toolbar are left out, their buttons are icon-only, and so is
       Onboarding: its trigger icon has its own toggle and the step icons are
       the slide's illustration, not a glyph beside a label.
+- [x] **Onboarding has no close button**, 2026-09-28. `showClose` is gone;
+      Esc closes the tour, and `closeOnEscape={false}` cancels that through
+      Base UI's `onOpenChange` details (`reason === "escape-key"`,
+      `cancel()`). Measured: Esc closes and returns focus to the trigger, and
+      with the prop off the popup stays open. Every radius follows `shape`
+      now: the icon tile and the cards behind it, task rows and checks, the
+      dot arrows, the dots and the progress track, which were hardcoded and
+      stayed round under `square`.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets

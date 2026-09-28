@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  169
-    Open    21
+    Closed  170
+    Open    20
     Done    89%
 
 ---
@@ -37,9 +37,6 @@ Empty.
 
 - [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
-- [ ] **Onboarding: drop the close button.** Esc dismisses, which is the
-      default, with a prop to opt out of it. Under `shape="square"` the icon
-      containers stay rounded and should not.
 
 ## Phase 4 - Wants mockups
 
