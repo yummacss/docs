@@ -224,6 +224,11 @@ const removedComponents = [
     destination: "/ui/components/accordion",
     permanent: true,
   },
+  {
+    source: "/ui/components/command-palette",
+    destination: "/ui/components/combobox",
+    permanent: true,
+  },
 ];
 
 export const redirects = [

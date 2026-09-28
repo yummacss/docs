@@ -1,5 +1,4 @@
 import {
-  AddFolderIcon,
   ArchiveIcon,
   BellIcon,
   BookmarkIcon,
@@ -9,7 +8,6 @@ import {
   FileLeftIcon,
   FileRightIcon,
   FolderIcon,
-  HistoryIcon,
   KeyboardIcon,
   ListIcon,
   MagnifierIcon as MagnifierDuotoneIcon,
@@ -49,7 +47,6 @@ type IconComponent = ComponentType<{ className?: string }>;
 
 export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
   "bold-duotone": {
-    AddFolderIcon,
     ArchiveIcon,
     BellIcon,
     BookmarkIcon,
@@ -59,7 +56,6 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     FileLeftIcon,
     FileRightIcon,
     FolderIcon,
-    HistoryIcon,
     KeyboardIcon,
     ListIcon,
     MoonIcon,

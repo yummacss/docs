@@ -2629,6 +2629,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       Menu, Menu and Menubar already drew it. Command Palette takes
       `destructive` on an item and its demo gains "Delete file"; the shortcut
       chip keeps `bg:white` so it reads on the red highlight.
+- [x] **Command Palette is out of Yumma UI**, 2026-09-28, Renildo's call: it
+      added little and was not mature enough. The component, its meta, its
+      page and its sidebar entry are gone, with `AddFolderIcon` and
+      `HistoryIcon`, which only its demo used. 33 components have `shape`.
+      Its address redirects to Combobox, the nearest thing left.
 - [x] **Search finds flags, options, config keys and props**, 2026-09-28.
       `src/utils/search-reference.ts` reads them at build time inside the
       content-collections transform. Table rows under a Flag, Option or Field
