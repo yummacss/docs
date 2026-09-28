@@ -1,5 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { docsLinks, sidebarConfig } from "@/config/sidebar";
+import { newIn } from "@/utils/since";
 import SidebarNav from "./sidebar-nav";
 
 interface Props {
@@ -16,13 +17,17 @@ export default function Sidebar({ variant }: Props) {
     entries: section.items.map((item) => {
       if (typeof item === "string") {
         const doc = collection.find((c) => c._meta.path === item);
-        return { slug: item, title: doc?.title ?? item };
+        return {
+          slug: item,
+          title: doc?.title ?? item,
+          since: newIn(doc?.since),
+        };
       }
       return {
         title: item.title,
         items: item.items.map((slug) => {
           const doc = collection.find((c) => c._meta.path === slug);
-          return { slug, title: doc?.title ?? slug };
+          return { slug, title: doc?.title ?? slug, since: newIn(doc?.since) };
         }),
       };
     }),

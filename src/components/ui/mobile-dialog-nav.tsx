@@ -7,11 +7,13 @@ import Scroller from "@/components/ui/scroller";
 import { Xmark } from "@/icons";
 import { useReveal } from "@/utils/reveal";
 import { YummaCSSDark } from "../icons/yummacss-dark";
+import NewBadge, { NewLabel } from "./new-badge";
 
 interface NavItem {
   title: string;
   href: string;
   external?: boolean;
+  since?: string;
 }
 
 interface NavSection {
@@ -104,6 +106,8 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                               ].join(" ")}
                             >
                               {item.title}
+                              <NewLabel since={item.since} />
+                              <NewBadge since={item.since} />
                             </Dialog.Close>
                           </li>
                         );

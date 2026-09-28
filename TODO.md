@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  173
+    Closed  174
     Open    17
     Done    91%
 
@@ -44,13 +44,10 @@ Design decisions. Nothing here starts without them.
 
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
-- [ ] **Mark what is new in the sidebar.** CSS Functions, Class Merge,
-      States and the rest of 4.2 carry an indicator beside their link, so a
-      returning reader finds them. Chosen: a `4.2` badge, C on the Phase 4
-      canvas. A page carries `since` in its frontmatter and is marked while it
-      matches the current minor. The `/ui` sidebar needs the same for
-      components added recently, OTP Field and Drawer first, against Yumma
-      UI's own version rather than Yumma CSS's.
+- [ ] **Mark recently added components in the `/ui` sidebar**, OTP Field and
+      Drawer first, with the badge the docs sidebar uses. Components reach
+      people when the registry deploys, not with a `yummaui` release, so the
+      rule for how long one stays new is Renildo's call.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card
