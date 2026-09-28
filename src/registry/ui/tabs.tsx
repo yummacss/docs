@@ -72,6 +72,11 @@ export interface TabsProps {
    * is clipped to the curve.
    */
   shape?: Shape;
+  /**
+   * Draws each tab's icon. `false` drops them, so every tab shows its label,
+   * including one set to `iconOnly`.
+   */
+  icon?: boolean;
   /** Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set. */
   iconPosition?: IconPosition;
   /**
@@ -106,6 +111,7 @@ export default function TabsBase({
   orientation = "horizontal",
   size = "md",
   shape = "rounded",
+  icon = true,
   iconPosition = "leading",
   animated = true,
   className,
@@ -154,11 +160,13 @@ export default function TabsBase({
       <Tabs.List className={listClasses}>
         {items.map((item) => {
           const isSelected = value === item.value;
+          const glyph = icon ? item.icon : undefined;
+          const iconOnly = Boolean(glyph) && item.iconOnly;
 
           const tabClasses = merge(
             outline,
             "p:r zi:10 fg:1 d:f ai:c jc:c bg:transparent us:none",
-            item.icon && !item.iconOnly ? "g:2" : "",
+            glyph && !iconOnly ? "g:2" : "",
             item.count !== undefined ? "g:2" : "",
             spec.tab,
             TAB_SHAPES[shape],
@@ -179,16 +187,14 @@ export default function TabsBase({
               value={item.value}
               disabled={item.disabled}
               className={tabClasses}
-              aria-label={item.iconOnly ? item.label : undefined}
+              aria-label={iconOnly ? item.label : undefined}
             >
-              {item.icon && iconPosition === "leading" && (
-                <span className="d:f p:r zi:10">{item.icon}</span>
+              {glyph && iconPosition === "leading" && (
+                <span className="d:f p:r zi:10">{glyph}</span>
               )}
-              {!item.iconOnly && (
-                <span className={labelClasses}>{item.label}</span>
-              )}
-              {item.icon && iconPosition === "trailing" && (
-                <span className="d:f p:r zi:10">{item.icon}</span>
+              {!iconOnly && <span className={labelClasses}>{item.label}</span>}
+              {glyph && iconPosition === "trailing" && (
+                <span className="d:f p:r zi:10">{glyph}</span>
               )}
               {item.count !== undefined && (
                 <span className="d:f p:r zi:10 ai:c jc:c h:5 px:2 br:9999 fs:xs fw:500 bg:silver-8 c:white">

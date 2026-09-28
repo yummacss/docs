@@ -45,11 +45,23 @@
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, icon?, items }` nests, recursively."
     },
     {
+      "name": "icon",
+      "type": "boolean",
+      "default": true,
+      "description": "Draws each item's icon. `false` drops them, so every row shows its label alone."
+    },
+    {
       "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "open",

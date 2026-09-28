@@ -57,11 +57,23 @@
       "description": "`vertical` stacks the tabs and sits any panels beside them rather than below."
     },
     {
+      "name": "icon",
+      "type": "boolean",
+      "default": true,
+      "description": "Draws each tab's icon. `false` drops them, so every tab shows its label, including one set to `iconOnly`."
+    },
+    {
       "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set."
+      "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "size",
