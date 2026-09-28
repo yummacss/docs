@@ -2624,6 +2624,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       call. A halo-plus-outline focus treatment stays unwritable with them.
 - [x] **The rail keeps its prop order**, 2026-09-28. Alphabetical was dropped:
       a component's own props first, then `SHARED_PROP_ORDER`.
+- [x] **A destructive row is red end to end**, 2026-09-28, option A on the
+      Phase 4 canvas: label, icon and a `bg:red-1/50` highlight, as Context
+      Menu, Menu and Menubar already drew it. Command Palette takes
+      `destructive` on an item and its demo gains "Delete file"; the shortcut
+      chip keeps `bg:white` so it reads on the red highlight.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
