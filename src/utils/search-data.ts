@@ -55,9 +55,9 @@ const REFERENCE_ITEMS: SearchItem[] = [
 ].flatMap(({ doc, base }) =>
   doc.reference.map((entry) => ({
     title: entry.title,
-    description: entry.description
-      ? `${entry.description} · ${doc.title}`
-      : doc.title,
+    description: entry.description.includes(" · ")
+      ? entry.description
+      : `${entry.description} · ${doc.title}`,
     path: entry.anchor ? `${base}#${entry.anchor}` : base,
     category: "reference" as const,
   })),
