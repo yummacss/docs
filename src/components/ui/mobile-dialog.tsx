@@ -1,6 +1,5 @@
 import { allDocs, allUis } from "content-collections";
 import { docsLinks, sidebarConfig } from "@/config/sidebar";
-import { badgeFor } from "@/utils/since";
 import MobileDialogNav from "./mobile-dialog-nav";
 
 interface Props {
@@ -19,7 +18,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
     return {
       title: doc?.title ?? slug,
       href: `${baseRoute}/${slug}`,
-      since: badgeFor(doc),
+      since: doc?.badge,
     };
   }
 
