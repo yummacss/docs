@@ -4,11 +4,9 @@ import { Tabs as BaseTabs } from "@base-ui/react/tabs";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
-import Install from "@/components/playground/install";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import { Tabs, TabsPanel } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
-import { Eye, FileJs, FileTsx } from "@/icons";
 import {
   getRegistryTarget,
   type RegistryMeta,
@@ -35,9 +33,9 @@ import {
 
 const FILL = "d:f fd:c f:1 min-h:0";
 
-// an editor's file tab, set like the code blocks' title bar
+// an editor's file tab, set like the code blocks' title bar: the open one has no bottom edge
 const FILE_TAB =
-  "d:f ai:c g:2 h:9 px:3 @sm:px:4 m:0 bw:0 brw:1 bc:border fs:xs ff:m us:none ws:nw c:p os:none fv:os:s fv:ow:2 fv:oo:-2 fv:oc:accent";
+  "d:f ai:c px:4 py:2 @sm:px:6 m:0 bw:0 brw:1 bc:border fs:xs ff:m us:none ws:nw c:p os:none fv:os:s fv:ow:2 fv:oo:-2 fv:oc:accent";
 
 const LANGUAGE: Record<string, string> = {
   preview: "Preview",
@@ -155,23 +153,13 @@ export default function ComponentPlayground() {
     // below @lg: the stage is fixed under the navbar, so the controls scroll beneath the preview
     <div className="p:f t:12 l:0 r:0 zi:10 d:f fd:c h:calc(45dvh) px:4 py:3 bg:page bbw:1 bc:border @lg:p:s @lg:f:1 @lg:min-h:0 @lg:h:auto @lg:px:0 @lg:py:0 @lg:bbw:0">
       <Tabs value={active} onValueChange={setTab} className={FILL}>
-        <div className="d:f ai:c bbw:1 bc:border bg:page">
-          <BaseTabs.List className="d:f f:1 min-w:0 ox:auto">
-            <FileTab value="preview" icon={<Eye className="w:4 h:4" />}>
-              Preview
-            </FileTab>
-            <FileTab value="code" icon={<FileTsx className="w:4 h:4" />}>
-              page.tsx
-            </FileTab>
-            {config && (
-              <FileTab value="config" icon={<FileJs className="w:4 h:4" />}>
-                yumma.config.mjs
-              </FileTab>
-            )}
+        <div className="d:f bg:page">
+          <BaseTabs.List className="d:f min-w:0 ox:auto">
+            <FileTab value="preview">Preview</FileTab>
+            <FileTab value="code">page.tsx</FileTab>
+            {config && <FileTab value="config">yumma.config.mjs</FileTab>}
           </BaseTabs.List>
-          <div className="pr:1">
-            <Install id={getRegistryTarget(id).install} />
-          </div>
+          <div className="f:1 bbw:1 bc:border" />
         </div>
 
         <TabsPanel value="preview" className={FILL}>
@@ -222,26 +210,15 @@ export default function ComponentPlayground() {
   );
 }
 
-function FileTab({
-  value,
-  icon,
-  children,
-}: {
-  value: string;
-  icon: ReactNode;
-  children: ReactNode;
-}) {
+function FileTab({ value, children }: { value: string; children: ReactNode }) {
   return (
     <BaseTabs.Tab
       value={value}
       className={(state) =>
-        `${FILE_TAB} ${state.active ? "bg:surface c:accent" : "bg:transparent c:ink/60 h:c:ink"}`
+        `${FILE_TAB} ${state.active ? "bg:surface c:accent" : "bg:transparent c:ink/60 bbw:1 h:c:ink"}`
       }
       style={{ fontFamily: "inherit" }}
     >
-      <span className="d:none fs:0 @sm:d:f" aria-hidden>
-        {icon}
-      </span>
       {children}
     </BaseTabs.Tab>
   );
