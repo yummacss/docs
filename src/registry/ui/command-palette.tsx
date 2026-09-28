@@ -37,6 +37,7 @@ export interface CommandItem {
   description?: string;
   shortcut?: string;
   icon?: ReactNode;
+  destructive?: boolean;
   onSelect?: () => void;
 }
 
@@ -56,8 +57,9 @@ export interface CommandPaletteProps {
   trigger: ReactNode;
   /**
    * Each group's `label` and its `items`. An item takes `id`, `label`, and
-   * optional `description`, `shortcut`, `icon` and `onSelect`. A divider is
-   * drawn between groups automatically.
+   * optional `description`, `shortcut`, `icon`, `destructive` and `onSelect`.
+   * `destructive` paints the row red. A divider is drawn between groups
+   * automatically.
    */
   groups: CommandGroup[];
   /** The search input's placeholder. */
@@ -135,15 +137,21 @@ export default function CommandPaletteBase({
     .filter(Boolean)
     .join(" ");
 
-  const itemClasses = (spread: boolean) => (state: { highlighted: boolean }) =>
-    [
-      "d:f ai:c g:2 py:2 px:2 mx:2 fs:sm us:none c:p",
-      spread ? "jc:sb" : "",
-      ITEM_SHAPES[shape],
-      state.highlighted ? "bg:silver-2/50" : "bg:transparent",
-    ]
-      .filter(Boolean)
-      .join(" ");
+  const itemClasses =
+    (spread: boolean, destructive: boolean) =>
+    (state: { highlighted: boolean }) =>
+      [
+        "d:f ai:c g:2 py:2 px:2 mx:2 fs:sm us:none c:p",
+        spread ? "jc:sb" : "",
+        ITEM_SHAPES[shape],
+        state.highlighted
+          ? destructive
+            ? "bg:red-1/50"
+            : "bg:silver-2/50"
+          : "bg:transparent",
+      ]
+        .filter(Boolean)
+        .join(" ");
 
   const popup = (
     <Dialog.Portal container={container} keepMounted>
@@ -173,6 +181,7 @@ export default function CommandPaletteBase({
                       {group.label}
                     </div>
                     {group.items.map((item) => {
+                      const tone = item.destructive ? "c:red" : "c:slate-5";
                       const trailing =
                         Boolean(item.shortcut) ||
                         (icon &&
@@ -187,16 +196,21 @@ export default function CommandPaletteBase({
                             item.onSelect?.();
                             setOpen(false);
                           }}
-                          className={itemClasses(trailing)}
+                          className={itemClasses(
+                            trailing,
+                            Boolean(item.destructive),
+                          )}
                         >
                           {icon && item.icon && iconPosition === "leading" && (
-                            <span className="d:f fs:0 c:slate-5">
+                            <span className={`d:f fs:0 ${tone}`}>
                               {item.icon}
                             </span>
                           )}
 
                           <span className="d:f fd:c fg:1">
-                            <span className="c:slate-10 fw:500">
+                            <span
+                              className={`fw:500 ${item.destructive ? "c:red" : "c:slate-10"}`}
+                            >
                               {item.label}
                             </span>
                             {item.description && (
@@ -207,12 +221,14 @@ export default function CommandPaletteBase({
                           </span>
 
                           {icon && item.icon && iconPosition === "trailing" && (
-                            <span className="d:f fs:0 c:slate-5">
+                            <span className={`d:f fs:0 ${tone}`}>
                               {item.icon}
                             </span>
                           )}
                           {item.shortcut && (
-                            <span className="d:f ai:c g:1 px:1 py:1 ml:3 bg:white bc:silver-2 bw:1 c:slate-5 br:md fs:xs us:none">
+                            <span
+                              className={`d:f ai:c g:1 px:1 py:1 ml:3 bg:white bc:silver-2 bw:1 br:md fs:xs us:none ${tone}`}
+                            >
                               {item.shortcut}
                             </span>
                           )}
