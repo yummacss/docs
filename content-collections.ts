@@ -13,6 +13,7 @@ const docs = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    since: z.string().optional(),
     content: z.string().optional(),
   }),
   transform: (doc) => ({
@@ -33,6 +34,7 @@ const ui = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     primitive: z.union([z.boolean(), z.string()]).optional(),
+    since: z.string().optional(),
     playground: z.boolean().optional(),
     content: z.string().optional(),
   }),
