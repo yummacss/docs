@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  168
-    Open    22
-    Done    88%
+    Closed  169
+    Open    21
+    Done    89%
 
 ---
 
@@ -37,8 +37,6 @@ Empty.
 
 - [ ] **OTP Field**, a new component on Base UI's primitive.
 - [ ] **Drawer**, a new component on Base UI's primitive.
-- [ ] **No way to turn a component's icons off.** There is no `icon` boolean on
-      Menu, Menubar, Context Menu or the others that draw one.
 - [ ] **Onboarding: drop the close button.** Esc dismisses, which is the
       default, with a prop to opt out of it. Under `shape="square"` the icon
       containers stay rounded and should not.

@@ -93,11 +93,23 @@
       "description": "Shown when the query matches nothing."
     },
     {
+      "name": "icon",
+      "type": "boolean",
+      "default": true,
+      "description": "Draws each command's icon. `false` drops them, so every row shows its label alone."
+    },
+    {
       "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "shape",

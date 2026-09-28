@@ -65,6 +65,11 @@ export interface CommandPaletteProps {
   /** Shown when the query matches nothing. */
   emptyMessage?: string;
   /**
+   * Draws each command's icon. `false` drops them, so every row shows its label
+   * alone.
+   */
+  icon?: boolean;
+  /**
    * Which end of an item its `icon` sits at. A `shortcut` always trails
    * regardless.
    */
@@ -102,6 +107,7 @@ export default function CommandPaletteBase({
   groups,
   placeholder = "Search commands…",
   emptyMessage = "No commands found.",
+  icon = true,
   iconPosition = "leading",
   shape = "rounded",
   shadow = "none",
@@ -169,7 +175,9 @@ export default function CommandPaletteBase({
                     {group.items.map((item) => {
                       const trailing =
                         Boolean(item.shortcut) ||
-                        (Boolean(item.icon) && iconPosition === "trailing");
+                        (icon &&
+                          Boolean(item.icon) &&
+                          iconPosition === "trailing");
 
                       return (
                         <Combobox.Item
@@ -181,7 +189,7 @@ export default function CommandPaletteBase({
                           }}
                           className={itemClasses(trailing)}
                         >
-                          {item.icon && iconPosition === "leading" && (
+                          {icon && item.icon && iconPosition === "leading" && (
                             <span className="d:f fs:0 c:slate-5">
                               {item.icon}
                             </span>
@@ -198,7 +206,7 @@ export default function CommandPaletteBase({
                             )}
                           </span>
 
-                          {item.icon && iconPosition === "trailing" && (
+                          {icon && item.icon && iconPosition === "trailing" && (
                             <span className="d:f fs:0 c:slate-5">
                               {item.icon}
                             </span>

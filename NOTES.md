@@ -2495,6 +2495,13 @@ declares logical properties: `padding` covers `padding-inline` covers
       when `onClose` is set, is the only focusable part and takes the outline.
       The description said "every focusable part" and named danger and success
       tints Badge does not have; it names the close button now.
+- [x] **Icons turn off**, 2026-09-28. Command Palette, Context Menu, Menu,
+      Menubar and Tabs take `icon`, on by default, as Button Group does;
+      `false` drops every row's icon and `iconPosition` goes inert with it. A
+      tab set to `iconOnly` shows its label instead of going empty. Toggle
+      Group and Toolbar are left out, their buttons are icon-only, and so is
+      Onboarding: its trigger icon has its own toggle and the step icons are
+      the slide's illustration, not a glyph beside a label.
 - [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
       `iconPosition` and `iconOnly` on the group reach every child with an
       `icon`, through `cloneElement`; a position or icon-only the button sets
