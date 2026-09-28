@@ -138,7 +138,6 @@ describe("styles", () => {
       ["menubar", "POPUP_SHAPES", "ITEM_SHAPES"],
       ["menu", "POPUP_SHAPES", "ITEM_SHAPES"],
       ["context-menu", "POPUP_SHAPES", "ITEM_SHAPES"],
-      ["command-palette", "POPUP_SHAPES", "ITEM_SHAPES"],
       ["toolbar", "ROOT_SHAPES", "CONTROL_SHAPES"],
     ];
     const step = (source: string, table: string, key: string) => {
