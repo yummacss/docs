@@ -14,17 +14,35 @@
       "description": "Buttons share the full width instead of sizing to their labels."
     },
     {
+      "name": "icon",
+      "type": "boolean",
+      "default": true,
+      "description": "Draws each button's icon. `false` drops them, so every button shows its label alone."
+    },
+    {
       "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end the icon sits at, on every button that has one. Unset, each button keeps its own."
+      "description": "Which end the icon sits at, on every button that has one. Unset, each button keeps its own.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "iconOnly",
       "type": "boolean",
       "default": false,
-      "description": "Draws each button's icon alone, keeping its label as the accessible name. A button without an icon keeps its label."
+      "description": "Draws each button's icon alone, keeping its label as the accessible name. A button without an icon keeps its label.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "shape",

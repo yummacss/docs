@@ -32,6 +32,11 @@ export interface ButtonGroupProps {
   /** Buttons share the full width instead of sizing to their labels. */
   stretch?: boolean;
   /**
+   * Draws each button's icon. `false` drops them, so every button shows its
+   * label alone.
+   */
+  icon?: boolean;
+  /**
    * Which end the icon sits at, on every button that has one. Unset, each
    * button keeps its own.
    */
@@ -59,18 +64,19 @@ export default function ButtonGroup({
   shape = "rounded",
   separated = true,
   stretch = false,
+  icon = true,
   iconPosition,
   iconOnly,
 }: ButtonGroupProps) {
   // a button with an icon takes the group's icon props; one it sets itself wins
-  const items = Children.toArray(children).map((child) =>
-    isValidElement<IconProps>(child) && child.props.icon
-      ? cloneElement(child, {
-          iconPosition: child.props.iconPosition ?? iconPosition,
-          iconOnly: child.props.iconOnly ?? iconOnly,
-        })
-      : child,
-  );
+  const items = Children.toArray(children).map((child) => {
+    if (!isValidElement<IconProps>(child) || !child.props.icon) return child;
+    if (!icon) return cloneElement(child, { icon: undefined, iconOnly: false });
+    return cloneElement(child, {
+      iconPosition: child.props.iconPosition ?? iconPosition,
+      iconOnly: child.props.iconOnly ?? iconOnly,
+    });
+  });
 
   return (
     <div className={merge(BASE, SHAPES[shape], stretch && "w:100%", className)}>

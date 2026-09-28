@@ -2479,9 +2479,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       animation Base UI's meter lacks. The transition is the component's own
       `tp:w`, and a value change eases the indicator over 500ms, measured in
       Chromium. The prop stays.
-- [x] **Button Group takes icon controls**, 2026-09-28. `iconPosition` and
-      `iconOnly` on the group reach every child with an `icon`, through
-      `cloneElement`; a value the button sets itself wins. The demo is a view
+- [x] **Button Group takes icon controls**, 2026-09-28. `icon`,
+      `iconPosition` and `iconOnly` on the group reach every child with an
+      `icon`, through `cloneElement`; a position or icon-only the button sets
+      itself wins. `icon={false}` drops every icon and forces labels, so
+      `iconOnly` cannot leave a button empty. The demo is a view
       switcher, List, Grid and Columns, with Menubar's three icons. `ListIcon`
       is Bold Duotone and the other two Outline, as in Menubar.
 - [x] **Style, Radius and Accent get their own controls**, 2026-09-27. See
