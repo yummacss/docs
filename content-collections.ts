@@ -35,6 +35,7 @@ const ui = defineCollection({
     description: z.string().optional(),
     primitive: z.union([z.boolean(), z.string()]).optional(),
     since: z.string().optional(),
+    added: z.string().optional(),
     playground: z.boolean().optional(),
     content: z.string().optional(),
   }),

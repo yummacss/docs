@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  173
-    Open    18
+    Closed  174
+    Open    17
     Done    91%
 
 ---
@@ -47,10 +47,6 @@ Design decisions. Nothing here starts without them.
       status bar below. Chosen: A on the Phase 4 canvas.
 - [ ] **The icon is too big**, reported by Mayranne, who does not think it is
       deliberate.
-- [ ] **Mark recently added components in the `/ui` sidebar**, OTP Field and
-      Drawer first, with the badge the docs sidebar uses. Components reach
-      people when the registry deploys, not with a `yummaui` release, so the
-      rule for how long one stays new is Renildo's call.
 - [ ] **The active link is hard to spot** in the navbar and the sidebar,
       reported by a friend of Renildo's. Revamp both treatments together.
 - [ ] **Preview Card's layout** leaves dead space on the right. A profile card
