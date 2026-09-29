@@ -2634,6 +2634,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       page and its sidebar entry are gone, with `AddFolderIcon` and
       `HistoryIcon`, which only its demo used. 33 components have `shape`.
       Its address redirects to Combobox, the nearest thing left.
+- [x] **Blog covers are drawn from frontmatter**, 2026-09-29. `cover` takes
+      a path, as every earlier post has, or a template: `cover: release`, or
+      `{ template, text, theme, logos }`. `release` is the version number,
+      taken from the title, centered in Esteban; `text` is the title bottom
+      left; `logos` is the Yumma mark in a tile, then one tile per name in
+      `logos` (`base-ui` so far). `theme` is `dark` unless it says `light`.
+      `src/app/blog/[slug]/cover.png/route.tsx` draws each one with
+      `ImageResponse` at build time, so nothing is committed, and
+      `content-collections.ts` turns a template into that address, so every
+      reader of `cover` still gets a path. Colours and the 300px size are
+      sampled from the hand-made covers: the 4.2 number is 216px tall where
+      3.29's is 215. The textures on the older covers are not reproduced.
 - [x] **Search finds flags, options, config keys and props**, 2026-09-28.
       `src/utils/search-reference.ts` reads them at build time inside the
       content-collections transform. Table rows under a Flag, Option or Field
