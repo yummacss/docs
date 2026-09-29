@@ -2646,6 +2646,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       reader of `cover` still gets a path. Colours and the 300px size are
       sampled from the hand-made covers: the 4.2 number is 216px tall where
       3.29's is 215. The textures on the older covers are not reproduced.
+- [x] **`play` learns 4.2**, yummacss/play#77, 2026-09-29. The preview runs
+      `@yummacss/nitro/browser` with the project's `yumma.config.mjs`, so
+      states, fonts, keyframes, CSS functions, container queries and `@st:`
+      reach it. See play's NOTES.md for why the config is read as data.
 - [x] **Search finds flags, options, config keys and props**, 2026-09-28.
       `src/utils/search-reference.ts` reads them at build time inside the
       content-collections transform. Table rows under a Flag, Option or Field
