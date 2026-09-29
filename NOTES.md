@@ -4554,3 +4554,9 @@ Four stale things found on the way, fixed in the same branch:
   its own**: Yumma CSS gets compared to Tailwind constantly, and the playground
   is the single most-seen surface, so it is the cheapest place to stop inviting
   the comparison. After v4 and the UI work.
+  **2026-09-29:** diffs.com and trees.software are Pierre's `@pierre/diffs`
+  (Shiki file and diff rendering, React and vanilla) and `@pierre/trees` (a
+  path-first file tree, React and vanilla), both Apache 2.0. The tree renders
+  in a shadow root and themes through CSS variables, so play's own classes
+  cannot leak into it or out of it. Trellis UI has no npm package under
+  `trellisui`, `trellis-ui` or `@trellis/ui`.
