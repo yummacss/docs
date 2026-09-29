@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  193
-    Open    4
-    Done    97%
+    Open    6
+    Done    96%
 
 ---
 
@@ -67,11 +67,19 @@ Empty.
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
       should be `d-f`. See NOTES.md under Linting. Rename the package with it.
 
-- [ ] **`play` learns 4.2**: `theme.states`, `theme.keyframes`, `theme.fonts`,
-      CSS function values, container queries and `@st:`. After its redesign,
-      which NOTES.md lists. **On hold:** [Trellis UI](https://trellisui.com/)
-      as a reference for that redesign, found by Renildo on 2026-09-28. Not
-      reviewed yet.
+- [ ] **`play` learns 4.2.** The preview generates its CSS in the page with
+      `@yummacss/nitro` and an editable `yumma.config.mjs`, so `theme.states`,
+      `theme.fonts`, `theme.keyframes`, CSS function values, container queries
+      and `@st:` all reach it: yummacss/play#77.
+- [ ] **`play` gets its redesign.** Three layouts, A to C, on the Phase 4
+      canvas, 2026-09-28. `@pierre/trees` for the file tree and
+      `@pierre/diffs` for what an edit changed in `out.css`, both from the
+      sites Renildo named. Trellis UI is wanted too, but its package is not on
+      npm under any name tried and the site is out of reach here: needs its
+      package name or repository.
+- [ ] **`play` writes TypeScript as well as HTML, TypeScript by default.**
+      Renildo's call, 2026-09-29. After the redesign, since the file tree is
+      where a `.ts` file lives.
 
 ## Decisions
 
