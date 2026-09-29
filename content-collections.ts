@@ -6,6 +6,7 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
+import { coverSchema, coverSpec, coverUrl } from "./src/utils/cover";
 import {
   extractConfigKeys,
   extractReference,
@@ -83,7 +84,7 @@ const blog = defineCollection({
     description: z.string(),
     date: z.string(),
     authors: z.array(z.string()),
-    cover: z.string().optional(),
+    cover: coverSchema.optional(),
     draft: z.boolean().optional(),
     content: z.string(),
   }),
@@ -92,6 +93,9 @@ const blog = defineCollection({
     mdx: createDefaultImport<ComponentType>(
       `@/content/blog/${doc._meta.path}.mdx`,
     ),
+    // a template becomes the url of the image drawn for it, so readers see a path either way
+    cover: coverUrl(doc.cover, doc._meta.path),
+    coverSpec: coverSpec(doc.cover, doc.title),
   }),
 });
 
