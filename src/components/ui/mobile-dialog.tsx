@@ -30,11 +30,6 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
       { title: "Docs", href: "/docs" },
       { title: "Components", href: "/ui/installation" },
       { title: "Blog", href: "/blog" },
-      {
-        title: "Playground",
-        href: "https://play.yummacss.com",
-        external: true,
-      },
     ],
   };
 
