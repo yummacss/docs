@@ -4,7 +4,7 @@
 
 [Yumma CSS](https://yummacss.com) is a utility framework built on CSS property names. `d-f` is `display: flex`, `jc-sb` is `justify-content: space-between`: initials of the property, initials of the value, drawn from a fixed scale.
 
-[Documentation](https://yummacss.com/docs) • [Playground](https://play.yummacss.com) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
+[Documentation](https://yummacss.com/docs) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
 
 ## Contributing
 
@@ -31,8 +31,6 @@ pnpm build
 Yumma CSS is part of a growing ecosystem of tools and complementary projects:
 
 **[Yumma UI:](https://yummacss.com/ui)** A collection of ready-to-use UI components built with Base UI and styled with Yumma CSS.
-<br/>
-**[Yumma CSS Playground:](https://play.yummacss.com)** An interactive environment to experiment with Yumma CSS utilities right in your browser.
 <br/>
 **[Eclipsa:](https://marketplace.visualstudio.com/items?itemName=yumma-css.eclipsa)** A dark VS Code theme crafted for readability and style.
 

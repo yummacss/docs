@@ -20,7 +20,12 @@ const docsRedirects = [
   },
   {
     source: "/docs/runtime",
-    destination: "/docs/cdn",
+    destination: "/docs/installation",
+    permanent: true,
+  },
+  {
+    source: "/docs/cdn",
+    destination: "/docs/installation",
     permanent: true,
   },
   {
