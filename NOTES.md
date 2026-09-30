@@ -2709,6 +2709,24 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Empty State's buttons are rounded**, `br:lg`, like Button under Soft.
 - [x] **`validate` skips quoted object keys.** `"inline-end":` in the arrow
       placement tables read as a class and failed the run on `main`.
+- [x] **`play` leaves Monaco**, 2026-09-29 (play#78). CodeMirror 6 came
+      first for mobile and a bundled editor; the redesign replaced it with
+      Pierre's editor from `@pierre/diffs`, which looked current where
+      CodeMirror did not. Class smarts come from `@yummacss/nitro/browser`:
+      completion is an inline prediction, warnings are markers. Emmet and the
+      class hover did not survive. play's NOTES.md has the detail.
+- [x] **`play` gets its redesign**, 2026-09-30 (play#79). The draggable
+      panels became a dock, `dockview-react`: tabs in groups with one 8px gap,
+      a tab dropped on a group's middle joins it and on an edge splits it, and
+      an emptied group gives its room to its neighbors. An explorer on
+      `@pierre/trees` adds, renames and deletes pages. Share, the embed page,
+      class search, the About dialog and the out.css diff went with it. The tab
+      strip's look is still open: three mockups, 2026-09-30.
+- [x] **TSX in `play` is dropped for web components**, 2026-09-30 (play#79).
+      A custom element needs nothing but the browser, so the starter defines
+      `<file-card>` in `components.js` and the preview inlines it. It found
+      that nitro's JavaScript lexer dropped a class touching its attribute's
+      quote inside a template literal; fixed in 4.2.1 (yummacss#58).
 
 ### Phase 7 - One breaking registry release
 
