@@ -4582,3 +4582,14 @@ Four stale things found on the way, fixed in the same branch:
   in a shadow root and themes through CSS variables, so play's own classes
   cannot leak into it or out of it. Trellis UI has no npm package under
   `trellisui`, `trellis-ui` or `@trellis/ui`.
+
+## Retired: the playground, `@yummacss/cdn` and `@yummacss/intellisense`
+
+2026-09-30. play.yummacss.com redirects to the site, and the two packages
+leave the Yumma CSS monorepo. The site drops the Playground link from the
+navbar and the mobile menu, the home page's "Try now", the naming-convention
+hint that pointed at the playground's hover, the `@yummacss/cdn` page and the
+installation page's CDN section. `/docs/cdn` and `/docs/runtime` redirect to
+installation. The 4.2.0 post still names `@yummacss/cdn`: a post describes
+its own release. The why is in the Yumma CSS repo's NOTES.md.
+

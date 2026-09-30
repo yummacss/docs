@@ -67,12 +67,6 @@ export default function Home() {
                 >
                   Get started
                 </Link>
-                <a
-                  href="https://play.yummacss.com"
-                  className="px:6 py:3 c:ink fw:600 fs:md us:none fv:oc:ink fv:ow:2"
-                >
-                  Try now
-                </a>
               </div>
             </div>
           </div>
