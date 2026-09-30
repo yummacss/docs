@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  195
-    Open    6
-    Done    97%
+    Closed  198
+    Open    3
+    Done    98%
 
 ---
 
@@ -66,20 +66,6 @@ Empty.
       `canon`'s own CLI and report, and adds the rules a build cannot carry:
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
       should be `d-f`. See NOTES.md under Linting. Rename the package with it.
-
-- [ ] **`play` swaps Monaco for CodeMirror 6.** Monaco does not support
-      mobile browsers and loads from a CDN at runtime. Completions, hovers and
-      class warnings come from `@yummacss/nitro/browser` rather than
-      `@yummacss/intellisense`, and Emmet from `@emmetio/codemirror6-plugin`.
-- [ ] **`play` gets its redesign**, chosen 2026-09-29 from Trellis UI's IDE
-      example: five rounded panels with 6px gaps, each draggable by its tab
-      strip (editor, preview, `yumma.config.mjs`, `package.json`, `out.css`),
-      a top bar with a class search, and a status bar with a light and dark
-      switch. `out.css` shows what the last edit changed with `@pierre/diffs`.
-      On a phone the panels stack. The prototype is on the Phase 4 canvas.
-- [ ] **TSX in `play` is coming soon.** HTML only until there are users:
-      TSX needs a transpiler and React in every preview. The editor shows the
-      option, disabled.
 
 ## Decisions
 
