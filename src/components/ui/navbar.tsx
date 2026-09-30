@@ -82,11 +82,6 @@ export default function Navbar({
                       label: "Components",
                       prefix: "/ui",
                     },
-                    {
-                      href: "https://play.yummacss.com",
-                      label: "Playground",
-                      external: true,
-                    },
                   ].map((link) => {
                     const isActive = link.prefix
                       ? pathname.startsWith(link.prefix)
@@ -95,8 +90,6 @@ export default function Navbar({
                       <Link
                         key={link.href}
                         href={link.href}
-                        target={link.external ? "_blank" : undefined}
-                        rel={link.external ? "noopener noreferrer" : undefined}
                         className={`fs:sm fv:oc:ink fv:ow:2 ${
                           isActive
                             ? "c:accent td:u tds:d"
