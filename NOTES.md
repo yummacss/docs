@@ -5,10 +5,9 @@ time. **Not a session log.** Design decisions go in
 `src/content/blog/yummacss-4.0.0.mdx`; shipped work goes in the monorepo
 `CHANGELOG.md`; live API bugs go in `TODO.md`.
 
-**`TODO.md` is Cursor's lane, not this one.** It holds small per-component API
-fixes that Renildo is having Cursor work through. Do not pick items out of it
-and do not fix them in passing; if something in this file overlaps, say so and
-leave it.
+**`TODO.md` is the plan, this file is the record.** An entry closes in
+`TODO.md` and its finding lands here. The scoreboard under "Where things
+stand" lists everything else still open.
 
 Pruned 2026-08-28 from 2987 lines to this. **The rule that produced the cut:
 an entry earns its place if it changes what someone does next.** A narrative
@@ -24,40 +23,77 @@ clearing; keep this file short.
 
 ## Where things stand
 
-| repo | branch | state |
+Checked against the code, npm and the Actions logs, 2026-10-01.
+
+| repo | `main` | published |
 | --- | --- | --- |
-| `docs` | `main` | still on `3.30.0` |
-| `docs` | `normalize-source` | **13 unmerged commits**, and the base for Phase 5 |
-| `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
-| `yummacss` | `main` | `3.31.0` released and published, with `yummacss/merge` |
-| `yummacss` | `merge-perf` | **1 unmerged commit**: the 14x merge speedup, `3.31.1` |
-| `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
+| `yummacss` | `4.2.2` | `yummacss`, `@yummacss/core`, `nitro`, `lint`, `postcss`, `vite`: six packages |
+| `yummaui` | `0.4.0` | `yummaui` |
+| `docs` | on `4.2.1` | yummacss.com |
 
-Published: `@yummacss/*` at `3.31.0`, `yummaui` at `0.2.1`. There are eight
-packages, not nine; `language-server` was deleted with the extensions.
+The playground (play.yummacss.com and `yummacss/play`) is retired.
+`@yummacss/cdn` is unpublished; `@yummacss/intellisense` is deprecated at
+`4.2.1`. Both left with 4.2.2.
 
-**`docs#150` merged at the branch's third commit** and the other 13 were pushed
-after, with no open PR left to carry them. That is the merge-timing trap below,
-for the third time. The `3.31.0` bump, the phase renumbering and
-`tests/merge-safety.test.ts` are all in those 13, so anything reading this file
-has to branch off `normalize-source`, not `main`, until they land.
+**`docs` updates itself.** Dependabot polls npm daily for `yummacss` and
+`@yummacss/*`, grouped, and `auto-merge.yml` merges the PR. 4.2.2 went out
+2026-09-30 at 20:55 UTC and no PR had opened by 2026-10-01. If none arrives
+after the next daily run, the pipeline is broken rather than slow.
 
-**`3.31.1` is prepared but not published.** `packages/cli/package.json` says
-`3.31.1`; npm's latest is `3.31.0`, which is the merge that scans all 217
-prefixes per class. `docs` runs on the slow one until `merge-perf` merges and
-ships.
+`yummaui` is a **separate repo**, `github.com/yummacss/yummaui` since
+2026-09-18. **`repository.url` must name the repo, and a redirect does not
+count**: the publish workflow fails the release when the two differ. A future
+rename moves the field in the same commit.
 
-`ui` is a **separate repo**, `github.com/yummacss/yummaui` since 2026-09-18. It
-was `ui`, then `yummui`, and the repo name now matches the published npm
-package, which took the extra `a` because `ui` was taken. Both old URLs still
-resolve by redirect.
+### Scoreboard
 
-**`repository.url` must name the repo, and a redirect does not count.** The
-publish workflow compares that field to `GITHUB_REPOSITORY` and fails the
-release before it builds anything when the two differ, which held `0.3.0` back
-twice while the names disagreed. They agree now. The thing to watch is a future
-rename: the field moves in the same commit, or the next release stops.
+Everything still open, each line checked against the code on 2026-10-01.
+`TODO.md` holds the planned work; this holds the rest. Close a line by
+deleting it and recording the finding under its phase.
+
+**Deadline**
+
+- **The npm token dies 2026-11-27, and 4.2.2 still published with it.** npm
+  printed "npm tokens that bypass 2FA are being restricted" for every package
+  in run `36775926217`, which it says only when it authenticates with the
+  token. So OIDC has not been proven, and Phase 9's "drop the secret once a
+  release proves OIDC ran" has not happened. Check each package's trusted
+  publisher form on npmjs before the next release.
+
+**Unmerged work**
+
+- **`fix/menu-bundle`, 2 commits, 2026-09-28.** Keeps page text out of client
+  chunks. `main` still has the bug: `shell.tsx` is a client module and imports
+  `content-collections`, which inlines every page's text. The branch measured
+  that chunk at 1560KB, 230KB gzipped. Re-measure on `main`, then land it.
+- `feat/reset-layer` in `docs` and `yummacss`: the cascade layer work, on hold
+  with its TODO entry.
+- Rejected, keep for reference only: `yummacss` `feat/oklab-shades` (see
+  Rejected) and `docs` `feat/customize-drawer` (the rail stayed).
+
+**Open, in code**
+
+- `merge`: physical longhands (Phase 5) and the narrow `ClassValue` (Phase 6).
+  Both live in `yummacss/packages/cli/src/merge.ts`.
+- Registry: 16 `example` entries unreachable, the empty `blocks` key, and the
+  two renames (Phase 7). One breaking release.
+- Meter and Tabs take an `icon` the rail cannot show: neither schema has an
+  `exampleIcon` (Phase 1). Badge and Separator do.
+- Doc comments in `badge.tsx` and `meter.tsx` spell sizes in the 3.x dash
+  syntax (`w-3 h-3`).
+- Styles phase five: Minimal's filled fields and Elegant's serif (Queue).
+- `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
+  `nitro/src/generator.ts`, and no per-axis `translate` utility.
+- The lint plugin (`TODO.md`).
+
+**Waiting on Renildo**
+
+- Cascade layers and the dark theme across Yumma UI (`TODO.md`).
+- Bounded or unbounded scale (Phase 9).
+- The landing page and the logomark: prototype mockups drafted 2026-10-01,
+  parked.
+- Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
+  in `yummaui`.
 
 ---
 
@@ -98,7 +134,7 @@ PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
 saying it twice reads like a signature on someone else's work.
 
 **NOTES.md is the source of truth, and it is only worth credits if it is
-never wrong.** Every change to any of the four repos updates it in the same
+never wrong.** Every change to any of the three repos updates it in the same
 commit - not just the interesting ones. A stale entry has now cost real time
 three times: `ui/customization.mdx` described sections that no longer existed,
 the `.md` entry named three `.tsx` files that never existed, and the `className`
@@ -158,29 +194,27 @@ that never existed.
 
 ## The plan, in phases
 
-Status: **Phases 1, 2, 3, most of 4 and most of 5 are done.** `3.31.0` is
-published and the `docs` bump to it is on `normalize-source`. `yummaui` is
-published at `0.2.1` with `prune`. Phase 4 has three items left. **Phase 5 has
-one**: the shorthand table misses physical longhands, and that fix lives in
-`yummacss` and needs a release.
+Status, 2026-10-01: **Phases 1 to 4, 6, 8 and 10 are done**; what is left
+of them is on the scoreboard above. Phase 5 has the physical longhands, Phase
+7 is the one breaking registry release, Phase 9 has the scale question and
+publishing, and 9b keeps its mechanical cleanup for last.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
 | 1 | Fix the class scanner | `yummacss`, `docs` | Done. |
 | 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away. |
 | 3 | Yumma UI: `prune` | `ui` | Done. The one thing a real user said she would use. |
-| 4 | Docs debt | `docs` | Nearly done. The corpus the 4.0 codemod runs against first. |
-| **5** | **Class merge (`yummacss/merge`)** | `yummacss`, `ui`, `docs` | **The documented limitation, and the deal-breaker. Shipped and in use.** |
-| 6 | Yumma UI API | `docs`, `ui` | Collapse blocks into components, then work `TODO.md`. Gated on 5: half the fixes are override bugs. |
+| 4 | Docs debt | `docs` | Done but the 16 unreachable examples, which moved to Phase 7. |
+| 5 | Class merge (`yummacss/merge`) | `yummacss`, `ui`, `docs` | Shipped. Physical longhands open. |
+| 6 | Yumma UI API | `docs`, `ui` | Done: blocks collapsed, `TODO.md` worked through. |
 | 7 | One breaking registry release | `docs`, `ui` | `/ui/registry`, `registryDeps`, no `blocks` key, OTP field. Ship together or churn twice. |
-| 8 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
+| 8 | Retire `@yummacss/intellisense` | `yummacss` | Done in 4.2.2, with `play`. |
 | 9 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
 | 9b | Pre-v4 audit | all | Split: the API half gates the build, the cleanup half is genuinely last. |
-| 10 | v4 build | all | The codemod, the canon list, the migration. Gated on 9. |
+| 10 | v4 build | all | Done: 4.0.0 shipped 2026-09-18. |
 
-**`TODO.md` is a phase now** - Phase 6 - and it is yours, not Cursor's. It is a
-bug and API-wish list in Renildo's words, not a plan: verify each item against
-the code first. Several are symptoms, not causes.
+**`TODO.md` grew out of Phase 6.** Verify each item against the code first.
+Several are symptoms, not causes.
 
 ---
 
@@ -239,7 +273,7 @@ any className on the site. 75 previously-dropped classes are now found.
       was left out by accident and nothing said so. One glob cannot be
       accidentally narrow. The config carries this as a comment so it is not
       lost.
-- [ ] `ro-90` is already gone: zero occurrences anywhere in `src` under either
+- [x] `ro-90` is already gone: zero occurrences anywhere in `src` under either
       tokenizer, so it was only ever generating dead CSS.
 
 ### Phase 2 - Fix negative values
@@ -332,7 +366,7 @@ making the id addressable.
       **`<Hint icon="...">` is the callout, not `<Admonition>`** - 26 uses
       against 0, even though both are registered in `mdx-components.tsx`.
       Icons in use: `info`, `heart`, `warning`, `cursor`, `keyboard`.
-- [ ] **A runtime-built specifier - `import(\`./${name}\`)` - cannot be resolved
+- **A runtime-built specifier - `import(\`./${name}\`)` - cannot be resolved
       statically**, so `prune` counts those files and says so rather than
       guessing. If someone reports a wrongly-deleted file, look there first.
 
@@ -364,9 +398,10 @@ blocks does not hold; the ownership argument does.**
 **Polish, after `prune`. `yummaui` is published at `0.1.0`, so none of this
 blocks a release.**
 
-- [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
-      constrain the SVG inside it. Harmless, but a lie in the code. Check
-      Meter's `w-8 h-8` wrapper at the same time.
+- [x] Badge's icon wrapper sets `w:3 h:3`/`w:4 h:4` on a `<span>`, which does not
+      constrain the SVG inside it. **Settled by saying so, 2026-10-01**: the
+      `icon` doc comment tells you to pass a glyph at the badge's size, and
+      Meter's says the same for its `w:8 h:8` slot.
 - [x] **Every code block now names its file, and the drift this entry feared
       cannot happen yet.** Checked all 42 UI pages: the rendered page carries
       exactly one code block, the usage snippet, already titled `page.tsx`. The
@@ -388,7 +423,8 @@ blocks a release.**
       half of this entry about two blocks disagreeing comes back the day variant
       sources are shown, which is the same gap as the 23 undocumented
       `example`-kind previews under Phase 4.
-- [ ] Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
+- [ ] **Half done, 2026-10-01: Badge and Separator have an `exampleIcon`,
+      Meter and Tabs do not.** Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
       an `icon` prop no demo passes, so the feature is invisible outside the
       table. Separator is the one that matters: an icon breaks the rule in half
       and centres the glyph in the gap, which is a spatial fact a type cannot
@@ -456,8 +492,9 @@ blocks a release.**
       `<ComponentPreview>` regex is gone, and the assertion now checks that
       every playground page's slug names a real registry entry - the only link
       between the two, previously checked by nothing. Verified to bite.
-- [ ] 23 `example`-kind previews are undocumented after the MDX migration.
-      **Confirmed 2026-08-30: still exactly 23** in `public/ui/r`.
+- [x] 23 `example`-kind previews were undocumented after the MDX migration.
+      **16 on 2026-10-01**, and the same 16 as Phase 7's unreachable entries,
+      so the work lives there.
 - [x] **`tests/markdown-routes.test.ts` closes the `.md` hole for good.** Two
       assertions: every docs page renders a body above a floor, and every UI
       page renders both a fenced source block and a prop table. Both verified to
@@ -918,7 +955,8 @@ declares logical properties: `padding` covers `padding-inline` covers
       accepts numbers for exactly this reason. Widen to
       `string | number | boolean | null | undefined` in the next patch;
       `.filter(Boolean)` already drops them correctly at runtime.
-- [ ] ~~Collapse the 13 blocks into components, first.~~ The decision is made
+- [x] **Blocks are gone, 2026-10-01: `index.json` has an empty `blocks`
+      array.** ~~Collapse the 13 blocks into components, first.~~ The decision is made
       (see the architecture section): the test is whether a file adds API
       surface or only arranges existing surface. Four `button-group`s are one
       `ButtonGroup` with props; `field-password`, `checkbox-parent` and
@@ -1109,7 +1147,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       20px mark (`w-7 h-7`, `w-5 h-5`); the popover had 20px around 16px, which
       is also under the minimum for a hit target. It matches them now, round
       corner and hover included.
-- [ ] **Should `triggerTone` reach the tooltip popup?** Today `triggerTone`
+- [x] **Answered: one `tone` styles both the tooltip's trigger and its popup.** **Should `triggerTone` reach the tooltip popup?** Today `triggerTone`
       styles the trigger and `tone` styles the popup, so `danger` gives you a
       red bell above a white tooltip, which is the incoherence the report
       names. Two ways out: add `danger` to `tone` and let both be set, or let
@@ -1173,7 +1211,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       a new drop. It also flagged `c-p` against Toggle's `c-na`: unreachable at
       runtime, but the fix is right anyway, one cursor source instead of two
       arguments `merge` has to choose between.
-- [ ] **I was wrong that a disabled Switch and an off Switch were the same
+- [x] **I was wrong that a disabled Switch and an off Switch were the same
       picture.** The mockup sheet drew the disabled one with its thumb on the
       left; the component has always driven thumb position from `checked`, and
       the tracks were different greys (silver-3 disabled, silver-1 off). The
@@ -1195,7 +1233,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       background, border and box-model, and `bs-d` (border-style) sits next to
       `bs-o-sm` (box-shadow) in that very component. `merge` gets it right:
       `bs-d bs-i-md` keeps both, `bs-i-md bs-o-sm` collapses to the last.
-- [ ] **The three `iconSide` entries are not reproducible as written.** The
+- [x] **Closed by `conflictsWith`: the schema greys `iconPosition` out while `icon` is unset.** **The three `iconSide` entries are not reproducible as written.** The
       prop is `iconPosition`, and it moves the icon in **all three** menus:
       measured at 8px from the item's left edge on `leading` and 170px of a
       198px item on `trailing`, in Menu, Menubar and Context Menu alike, with
@@ -1414,7 +1452,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       Along with it, the `getAnimations()` explanation that had been copied
       into twelve component files is one line pointing here: 97 lines out, 12
       in.
-- [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
+- [x] **A standing rule.** **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
       is made open instead. Badge's `color` reaches the container, dot, count
@@ -1728,7 +1766,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       that skips the one colour a focus outline animates. Added in the yummacss
       repo; the smooth focus appears in the docs on the next release, since
       docs installs the published package.
-- [ ] **`fv:` cannot outline a composite control, and `fw:` is not a style
+- [x] **Superseded by the entry below: `fw:` is gone.** **`fv:` cannot outline a composite control, and `fw:` is not a style
       choice.** `focus-visible` matches **the element that has focus**. In
       Number Field and Toolbar the focus lands on the `<input>`; the box that
       should show the outline is the group wrapping the input and both steppers,
@@ -1737,7 +1775,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       alternative is an outline around the bare input with the steppers outside
       it, which is the bug that was just fixed. Renildo asked for `fv:` only;
       this is the reason it is still `fw:` in exactly two places.
-- [ ] **The popup enter and exit CSS cannot become utilities.** Base UI marks
+- [x] **Superseded: `theme.states` gives `opening:` and `closing:`, and the `yui-*-pop` CSS is gone.** **The popup enter and exit CSS cannot become utilities.** Base UI marks
       those states with `data-starting-style` and `data-ending-style`
       **attributes**, and Yumma's variant list is pseudo-classes,
       pseudo-elements, media queries and opacity - **no attribute variants**.
@@ -2105,7 +2143,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       name. It does not touch the tab order; the schema description says so,
       and the docs page shows it next to a replacement.
 
-- [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
+- [x] **Worked through with `TODO.md`, which has no such entry left.** **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
       **wired and ineffective**, which no static check will find. They need the
@@ -2744,7 +2782,7 @@ depends on, so they ship together or the ecosystem churns three times.
       release. **`--all` currently excludes blocks on purpose** - each pulls its
       parents, so a flat `--all` would write `dialog` several times over. That
       guard needs replacing, not deleting.
-- [ ] Add an OTP field component over `@base-ui/react`'s.
+- [x] OTP Field ships, `src/registry/ui/otp-field.tsx`.
 - [ ] **16 `example` entries are still unreachable**: not in `index.json`, not
       referenced by any page, and `resolveNames` rejects their ids. Publish
       them in the index or stop generating them - they cannot stay as they are.
@@ -2758,19 +2796,20 @@ call, 2026-09-16. Until then it stays building: the 4.0 colon syntax reached
 `core.ts`, `hover.ts`, `sort.ts` and `conflicts.ts` on the `v4` branch, which is
 maintenance of a package on its way out, not investment in it.
 
-- [ ] **`play` is the only consumer left**, importing
+- [x] **Done in 4.2.2: the package and `play` are both gone.** **`play` is the only consumer left**, importing
       `@yummacss/intellisense/monaco` from `play/src/utils/providers.ts`. The
       package is 1,243 lines and its **only adapter is Monaco**, which is play's
       own editor, so it has become play's editor logic living in the CSS
       monorepo.
-- [ ] Before moving anything: `validate.ts` is a thin wrapper over
+- [x] Moot with the package gone. Before moving anything: `validate.ts` is a thin wrapper over
       `@yummacss/nitro/browser`, so the real logic is already in nitro. The
       substantial editor-agnostic parts are `sort.ts` (252) and `hover.ts` (251).
       Decide whether those move into `play` or become something nitro exposes.
       `constants.ts`'s `CLASS_ATTR_REGEX` is **not** a third copy of the scanner
       bug - it is anchored on `class=`, so it cannot desync.
 - [ ] What survives of the `any` item afterwards is the colour-merge block
-      (`const { percentage, ...userColors } = ... as any` then `createColors`),
+      (`const { percentage, ...userColors } = ... as any` then `createColors`).
+      **One copy left, 2026-10-01**, in `nitro/src/generator.ts`; it was
       duplicated **five times**. Worth consolidating **only because 4.0 decision
       #16 (OKLCH) rewrites `createColors`** - five call sites, five chances to
       miss one. Do not refactor core/nitro/canon internals; they are clean and
@@ -2951,7 +2990,7 @@ written against today's tables.
 - [x] **The 4.0 codemod.** Wired, and it round-trips: `yummacss migrate` on a
       sample app produces classes that `yummacss build` then compiles, variants,
       opacity suffixes, negatives and template literals included.
-- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 9 settled.
+- [x] Canon is a parser, not a list: `validateClasses` in nitro, used by `@yummacss/lint`.
 - [x] **`docs`: every code example.** Done on `feat/v4-syntax`, which **cannot
       merge until 4.0 is published**: `docs` installs `yummacss@^3.31.0` from
       npm, and 3.x compiles none of what the branch now contains. 3,081 classes
@@ -3134,7 +3173,7 @@ someone: do them together, in one release.
 - [ ] `registryDependencies` to `registryDeps`, in the generator, the JSON, and
       `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON, so
       the field ships in both shapes for one version or the CLI floor moves.
-- [ ] Add an OTP field component, over `@base-ui/react`'s.
+- [x] OTP Field ships, `src/registry/ui/otp-field.tsx`.
 
 **The registry stays in `docs`, at `src/registry/`.** Served as static JSON from
 `public/ui/r/`, generated at build time by `scripts/generate-registry-json.mjs`
