@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  198
+    Closed  206
     Open    3
     Done    98%
 
@@ -62,10 +62,10 @@ Empty.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
-- [ ] **A lint plugin for oxlint and biome**, CSS 4.2 and UI 0.4.0. Replaces
-      `canon`'s own CLI and report, and adds the rules a build cannot carry:
-      `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
-      should be `d-f`. See NOTES.md under Linting. Rename the package with it.
+- [ ] **A lint plugin for oxlint and biome**, the next minor of each. Replaces
+      `yummacss-lint`'s own CLI and report, and adds the rules a build cannot carry:
+      `p:8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
+      should be `d:f`. See NOTES.md under Linting.
 
 ## Decisions
 
