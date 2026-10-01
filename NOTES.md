@@ -4334,8 +4334,10 @@ argument.
 **Renamed, 2026-09-16, ahead of the plugin.** Renildo's call: 4.0 is the cheap
 moment for a breaking rename, so it did not wait. `@yummacss/canon` is
 `@yummacss/lint`, the binary is `yummacss-lint`, the docs page is `/docs/lint`,
-and the API is unchanged. `canon` still names the concept in prose, the set of
-classes Yumma recognises; it no longer names the tool.
+and the API is unchanged. **`canon` is retired as a word too**, Renildo's call,
+2026-10-01: the tool is lint, and its rules are named for what they forbid,
+`no-unknown-classes` and `no-inline-styles` (`yummacss#64`). Older entries
+below still say canon; read it as "a class Yumma generates".
 
 **Two rule families, and the second is the interesting one.**
 
