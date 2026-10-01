@@ -101,4 +101,15 @@ const blog = defineCollection({
 
 export default defineConfig({
   content: [docs, ui, blog],
+  hooks: {
+    // the collections import every page's MDX, so a client import must fail the build (NOTES.md, "Menu bundle")
+    writer: [
+      ({ fileType, content }) => ({
+        content:
+          fileType === "javascript"
+            ? content.replace("\n\n", '\n\nimport "server-only";\n')
+            : content,
+      }),
+    ],
+  },
 });
