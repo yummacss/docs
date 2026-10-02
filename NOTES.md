@@ -4675,11 +4675,12 @@ its frontmatter, and the hand-made PNGs are gone, along with six IntelliSense
 screenshots no page used. Renildo picked option D, "Paper", out of five
 mockups after rejecting a ruler along the bottom edge.
 
-One layout on the site's dark tokens: the headline in Esteban and the dark
-accent (a release's number, or the title), the date in Quattro, and up to
+One layout on `indigo-10` (`#2c2d6a`) from the default scale: the headline
+in Esteban and `indigo-3` (a release's number, or the title), the date in Quattro, and up to
 four feature rows on the right, each with an optional `code` or svgl `logo`.
 Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
-the site's own blog. So `cover.png` has no mark and `og.png`, the link
+the site's own blog. The site's dark page made the cover vanish into it, so
+the ground is indigo rather than any page token. `cover.png` has no mark and `og.png`, the link
 preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
 `release` or `text`, or an object with `text`, `product` and `features`. A
 path to an image is refused, so a post cannot go back to a hand-made cover.
