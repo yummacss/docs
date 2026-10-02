@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  207
-    Open    3
-    Done    98%
+    Open    5
+    Done    97%
 
 ---
 
@@ -42,7 +42,13 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-Empty.
+- [ ] **Redesign the search dialog**, desktop and phone. Renildo, 2026-10-02.
+      Today it is `src/components/ui/search-dialog.tsx`, one dialog at every
+      width; mock both sizes before touching it.
+- [ ] **A real mobile sidebar.** Renildo, 2026-10-02: the menu looks basic.
+      Start from Yumma UI's own Drawer (`src/registry/ui/drawer.tsx`) and
+      Base UI's drawer examples, and design one for the docs. Today it is
+      `mobile-dialog.tsx` and `mobile-dialog-nav.tsx`.
 
 ## Phase 5 - Infrastructure
 
