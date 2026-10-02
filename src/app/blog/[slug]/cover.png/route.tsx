@@ -20,16 +20,19 @@ export async function GET(
   const spec = allBlogs.find((post) => post._meta.path === slug)?.coverSpec;
   if (!spec) return new Response("Not found", { status: 404 });
 
-  const esteban = await readFile(
-    join(
-      process.cwd(),
-      "node_modules/@fontsource/esteban/files/esteban-latin-400-normal.woff",
-    ),
-  );
+  const font = (file: string) =>
+    readFile(join(process.cwd(), "node_modules/@fontsource", file));
+  const [esteban, quattro] = await Promise.all([
+    font("esteban/files/esteban-latin-400-normal.woff"),
+    font("ia-writer-quattro/files/ia-writer-quattro-latin-400-normal.woff"),
+  ]);
 
   return new ImageResponse(<BlogCover spec={spec} />, {
     width: 1200,
     height: 630,
-    fonts: [{ name: "Esteban", data: esteban, weight: 400, style: "normal" }],
+    fonts: [
+      { name: "Esteban", data: esteban, weight: 400, style: "normal" },
+      { name: "Quattro", data: quattro, weight: 400, style: "normal" },
+    ],
   });
 }
