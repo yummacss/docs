@@ -1,31 +1,45 @@
 "use client";
 
-import { allUis } from "content-collections";
 import { usePathname } from "next/navigation";
-import { Suspense } from "react";
+import { type ReactNode, Suspense } from "react";
 import {
   PlaygroundProvider,
   StaticPlayground,
 } from "@/components/playground/context";
 import PlaygroundRail from "@/components/playground/rail";
 import ComponentPlayground from "@/components/playground/stage";
-import Sidebar from "@/components/ui/sidebar";
 import TableOfContents from "@/components/ui/toc";
 import { registryMeta } from "@/registry";
+import type { Primitives } from "@/utils/primitive";
 
-export default function UIShell({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: ReactNode;
+  /** The server-rendered sidebar, so the collections stay out of this client component. */
+  sidebar: ReactNode;
+  /** Slugs of the pages with `playground: true`. */
+  playgrounds: string[];
+  primitives: Primitives;
+}
+
+export default function UIShell({
+  children,
+  sidebar,
+  playgrounds,
+  primitives,
+}: Props) {
   const pathname = usePathname();
   const slug = (pathname || "")
     .replace(/^\/ui\/components\//, "")
     .replace(/^\/ui\//, "")
     .replace(/\/$/, "");
-  const page = allUis.find((ui) => ui._meta.path === slug);
   const playground =
-    page?.playground && Object.hasOwn(registryMeta, slug) ? slug : null;
+    playgrounds.includes(slug) && Object.hasOwn(registryMeta, slug)
+      ? slug
+      : null;
 
   const grid = (
     <div className="d:g gtc:1 g:8 @lg:gtc:12">
-      <Sidebar variant="ui" />
+      {sidebar}
 
       <div
         className={`d:f fd:c @lg:gc-s:6 ${
@@ -40,7 +54,11 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
         </article>
       </div>
 
-      {playground ? <PlaygroundRail /> : <TableOfContents />}
+      {playground ? (
+        <PlaygroundRail primitives={primitives} />
+      ) : (
+        <TableOfContents />
+      )}
     </div>
   );
 
