@@ -62,10 +62,6 @@ deleting it and recording the finding under its phase.
 
 **Unmerged work**
 
-- **`fix/menu-bundle`, 2 commits, 2026-09-28.** Keeps page text out of client
-  chunks. `main` still has the bug: `shell.tsx` is a client module and imports
-  `content-collections`, which inlines every page's text. The branch measured
-  that chunk at 1560KB, 230KB gzipped. Re-measure on `main`, then land it.
 - `feat/reset-layer` in `docs` and `yummacss`: the cascade layer work, on hold
   with its TODO entry.
 - Rejected, keep for reference only: `yummacss` `feat/oklab-shades` (see
@@ -84,7 +80,9 @@ deleting it and recording the finding under its phase.
 - Styles phase five: Minimal's filled fields and Elegant's serif (Queue).
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
-- The lint plugin (`TODO.md`).
+- The lint plugin (`TODO.md`), in review as `yummacss#64`.
+- The largest client chunk is the component previews, 4819KB and 440KB
+  gzipped. Not looked into yet.
 
 **Decided, not built yet**
 
@@ -2626,6 +2624,30 @@ declares logical properties: `padding` covers `padding-inline` covers
       three client chunks (2.7KB, 1.1KB gzipped). `badge` is worked out in the
       Content Collections transform instead and the sidebar and the menu read
       it; no client chunk carries `package.json`, measured on the build.
+- [x] **Menu bundle**, 2026-09-28, landed 2026-10-01 from `fix/menu-bundle`,
+      which never merged. `content-collections` compiles to one
+      module that imports every page's MDX and inlines its raw `content`, so
+      any client import ships the whole site. Five did: the mobile menu
+      (lazy, from the navbar), `shell.tsx` and the `Sidebar` it rendered,
+      `search-data.ts`, the playground context through `utils/sidebar.ts`,
+      and the rail through `utils/primitive.ts`. They shared one chunk of
+      1560KB, 230KB gzipped, holding every docs and component page's text;
+      all chunks came to 8594KB. Now the layouts build what the client needs
+      and pass it down: `menuSections` beside `Sidebar` gives the menu
+      title, href and badge; the UI layout hands the shell the sidebar as a
+      slot, the playground slugs and each page's `primitive`. Search reads
+      `/api/search`, a static route of 38KB, 6KB gzipped, fetched once per
+      load when the navbar mounts. A search index as props would ride in
+      every page's HTML; a generated JSON would mean parsing the MDX twice.
+      After: no client chunk holds page text (`grep` for "Name the attribute
+      once in"), all chunks 7870KB. A writer hook in `content-collections.ts`
+      puts `import "server-only"` in the generated index, so a client import
+      fails `next build` with its import trace; tried on `theme-toggle.tsx`.
+      **Re-measured when it landed:** `main` had the same 1566KB chunk, 231KB
+      gzipped, and 8824KB in all; after, 8152KB and no page text, and the
+      guard still fails the build. The props and reference rows that search
+      gained since moved into `/api/search` with the rest: 94KB, 10KB
+      gzipped, 782 rows.
 - [x] **A hidden label scrolled the `/ui` page**, 2026-09-28. The badge's
       screen-reader text is `p:a`, and the sidebar links were not positioned,
       so it was placed against the page at its spot in the full sidebar list,
@@ -3869,7 +3891,7 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 - **A releases page.** Built and reverted the same day. It re-rendered
   `CHANGELOG.md`, which GitHub already renders, so `/releases.md` was
   byte-identical to GitHub's raw file, and the route was invisible to site search
-  because `search-data.ts` indexes only `allDocs` and `allUis`. **If the itch
+  because `/api/search` indexes only `allDocs` and `allUis`. **If the itch
   returns, build per-utility "added in 3.29" badges or a version switcher
   instead** - those carry information GitHub does not have.
 - **A "For LLMs" docs page.** Replaced by the plain sidebar link to `/llms.txt`,
