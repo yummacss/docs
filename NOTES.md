@@ -86,6 +86,18 @@ deleting it and recording the finding under its phase.
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
 - The lint plugin (`TODO.md`).
 
+**Decided, not built yet**
+
+- Lint, Renildo's call 2026-10-02: `@yummacss/lint` becomes the plugin at its
+  root (no `/plugin` path), the one-off check moves into the CLI as
+  `yummacss lint`, and `yummacss-lint` and `validate()` are deleted outright,
+  no deprecation. Ships as 4.3. `yummacss#64` gets reshaped for it.
+- The release video player: YouTube loaded only on play, under the site's own
+  controls and a chapter bar from the post's headings. Waiting on which
+  releases have videos and their links.
+- `og.png` and `ui-og.png` are the last hand-made images; generate them the
+  way the blog covers are.
+
 **Waiting on Renildo**
 
 - Cascade layers and the dark theme across Yumma UI (`TODO.md`).
@@ -4633,4 +4645,19 @@ hint that pointed at the playground's hover, the `@yummacss/cdn` page and the
 installation page's CDN section. `/docs/cdn` and `/docs/runtime` redirect to
 installation. The 4.2.0 post still names `@yummacss/cdn`: a post describes
 its own release. The why is in the Yumma CSS repo's NOTES.md.
+
+## Blog covers, 2026-10-02
+
+Every post's cover is drawn by `src/app/blog/[slug]/cover.png/route.tsx` from
+its frontmatter, and the hand-made PNGs are gone, along with six IntelliSense
+screenshots no page used. Renildo picked option D, "Paper", out of five
+mockups after rejecting a ruler along the bottom edge.
+
+One light layout: the product mark, the headline in Esteban and indigo (a
+release's number, or the title), the date in Quattro, and up to four feature
+rows on the right, each with an optional `code` or svgl `logo`. `cover` is
+`release` or `text`, or an object with `text`, `product` and `features`. A
+path to an image is refused, so a post cannot go back to a hand-made cover.
+Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
+svgl.app itself is blocked from the agent's network.
 
