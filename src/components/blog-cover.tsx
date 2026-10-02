@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
 import type { CoverFeature, CoverSpec } from "@/utils/cover";
 
-// the site's dark tokens: page, ink, ink/70, accent and border
-const PAGE = "#151724";
+// indigo-10 and its neighbours on the default scale, so a cover stands apart from
+// the site's page in either theme
+const PAGE = "#2c2d6a";
 const INK = "#ffffff";
-const MUTED = "#c3c7d9";
-const ACCENT = "#bec6f2";
-const RULE = "#2e3352";
+const MUTED = "#d0d1fb";
+const ACCENT = "#babcf9";
+const RULE = "#4749ae";
 
 const Yumma = () => (
   <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24">
