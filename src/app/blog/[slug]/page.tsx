@@ -17,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = allBlogs.find((p) => p._meta.path === slug);
   const url = `https://yummacss.com/blog/${slug}`;
-  const image = post?.cover || "/og.png";
+  const image = post?.og || "/og.png";
 
   return {
     title: post?.title || "Blog Post",
