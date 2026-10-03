@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { extractClasses, validate } from "@yummacss/lint";
+import { validateClasses } from "@yummacss/nitro";
 import config from "../yumma.config.mjs";
+import { extractClasses } from "./extract-classes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
@@ -22,13 +23,35 @@ const UI_SOURCE = [
   "./src/mdx-components.tsx",
 ];
 
+const allowed = new Set(ALLOWLIST);
+
+// the unrecognized classes in `owners`, each with the files it appears in
+function invalidClasses(owners) {
+  const candidates = [...owners.keys()].filter((cls) => !allowed.has(cls));
+  return validateClasses(candidates, config)
+    .invalid.sort()
+    .map((className) => ({ className, files: owners.get(className) }));
+}
+
+function addOwner(owners, cls, file) {
+  const entry = owners.get(cls) ?? [];
+  entry.push(file);
+  owners.set(cls, entry);
+}
+
 console.log("🔍 Validating Yumma CSS classes...\n");
 
-const result = await validate({
-  cwd: rootDir,
-  config: { ...config, source: UI_SOURCE },
-  allowlist: ALLOWLIST,
-});
+const uiFiles = fs.globSync(UI_SOURCE, { cwd: rootDir });
+const uiOwners = new Map();
+for (const file of uiFiles) {
+  const source = fs.readFileSync(path.join(rootDir, file), "utf-8");
+  for (const cls of extractClasses(source)) addOwner(uiOwners, cls, file);
+}
+const result = {
+  files: uiFiles.length,
+  classes: uiOwners.size,
+  invalid: invalidClasses(uiOwners),
+};
 
 console.log(
   `📄 Scanned ${result.files} files, found ${result.classes} unique classes\n`,
@@ -39,12 +62,12 @@ let failed = false;
 if (result.invalid.length > 0) {
   failed = true;
   console.log(
-    `❌ Found ${result.invalid.length} classes that are not canon:\n`,
+    `❌ Found ${result.invalid.length} classes Yumma CSS does not recognize:\n`,
   );
   for (const { className, files } of result.invalid) {
     console.log(`  "${className}" found in:`);
     for (const file of files) {
-      console.log(`    - ${path.relative(rootDir, file)}`);
+      console.log(`    - ${file}`);
     }
   }
 }
@@ -140,23 +163,7 @@ for (const file of getAllTsxFiles(path.join(rootDir, "src/registry"))) {
   }
 }
 
-const scratch = path.join(rootDir, ".canon-literals");
-fs.mkdirSync(scratch, { recursive: true });
-fs.writeFileSync(
-  path.join(scratch, "literals.tsx"),
-  `export const x = <div className="${[...literalOwners.keys()].join(" ")}" />;\n`,
-);
-
-let literalResult;
-try {
-  literalResult = await validate({
-    cwd: rootDir,
-    config: { ...config, source: ["./.canon-literals/literals.tsx"] },
-    allowlist: ALLOWLIST,
-  });
-} finally {
-  fs.rmSync(scratch, { recursive: true, force: true });
-}
+const literalResult = { invalid: invalidClasses(literalOwners) };
 
 if (literalResult.invalid.length > 0) {
   failed = true;
