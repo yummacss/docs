@@ -67,7 +67,3 @@ export const coverUrl = (raw: Raw | undefined, slug: string) =>
 /** The link preview: the cover with the product mark. */
 export const ogUrl = (raw: Raw | undefined, slug: string) =>
   raw === undefined ? undefined : `/blog/${slug}/og.png`;
-
-/** The index's thumbnail: the headline alone. */
-export const thumbUrl = (raw: Raw | undefined, slug: string) =>
-  raw === undefined ? undefined : `/blog/${slug}/thumb.png`;
