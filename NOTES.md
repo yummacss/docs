@@ -69,7 +69,7 @@ deleting it and recording the finding under its phase.
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
 - The largest client chunk is the component previews, 4819KB and 440KB
-  gzipped. Not looked into yet.
+  gzipped. First number for the performance entries in `TODO.md` Phase 5.
 
 **Decided, not built yet**
 
