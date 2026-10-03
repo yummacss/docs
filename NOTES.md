@@ -27,9 +27,9 @@ Checked against the code, npm and the Actions logs, 2026-10-01.
 
 | repo | `main` | published |
 | --- | --- | --- |
-| `yummacss` | `4.2.2` | `yummacss`, `@yummacss/core`, `nitro`, `lint`, `postcss`, `vite`: six packages |
+| `yummacss` | `4.3.0` | `yummacss`, `@yummacss/core`, `nitro`, `lint`, `postcss`, `vite`: six packages |
 | `yummaui` | `0.4.0` | `yummaui` |
-| `docs` | on `4.2.1` | yummacss.com |
+| `docs` | on `4.3.0` | yummacss.com |
 
 The playground (play.yummacss.com and `yummacss/play`) is retired.
 `@yummacss/cdn` is unpublished; `@yummacss/intellisense` is deprecated at
@@ -68,17 +68,11 @@ deleting it and recording the finding under its phase.
   syntax (`w-3 h-3`).
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
-- The lint rules, first entry of the AI track (`TODO.md`), in review as
-  `yummacss#64`.
 - The largest client chunk is the component previews, 4819KB and 440KB
   gzipped. Not looked into yet.
 
 **Decided, not built yet**
 
-- Lint, Renildo's call 2026-10-02: `@yummacss/lint` becomes the plugin at its
-  root (no `/plugin` path), the one-off check moves into the CLI as
-  `yummacss lint`, and `yummacss-lint` and `validate()` are deleted outright,
-  no deprecation. Ships as 4.3. `yummacss#64` gets reshaped for it.
 - `og.png` and `ui-og.png` are the last hand-made images; generate them the
   way the blog covers are.
 
@@ -2793,6 +2787,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       `<file-card>` in `components.js` and the preview inlines it. It found
       that nitro's JavaScript lexer dropped a class touching its attribute's
       quote inside a template literal; fixed in 4.2.1 (yummacss#58).
+- [x] **The lint rules ship in 4.3**, 2026-10-03. `@yummacss/lint` is the
+      Oxlint plugin (`no-unknown-classes`, `no-inline-styles`) and the one-off
+      scan is `yummacss lint`; `/docs/lint` documents both, with the plugin's
+      output checked against the published 4.3.0. The docs repo drops
+      `@yummacss/lint`: `scripts/validate-yummacss.mjs` keeps its own checks
+      (registry class maps, docs-only colors) and calls nitro's
+      `validateClasses` directly, same 116 files and 411 classes as before.
+      `yummacss lint` skips CSS function classes such as `w:var(--x)` rather
+      than checking them; the Oxlint rule checks them.
 
 ### Phase 7 - One breaking registry release
 

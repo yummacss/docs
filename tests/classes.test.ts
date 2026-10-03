@@ -1,13 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import type { ValidateOptions } from "@yummacss/lint";
-import { extractClasses, validate } from "@yummacss/lint";
+import { type Config, validateClasses } from "@yummacss/nitro";
 import { describe, expect, it } from "vitest";
+import { extractClasses } from "../scripts/extract-classes.mjs";
 import { rootDir, tsxFilesIn } from "./helpers";
 
-const config = (await import("../yumma.config.mjs")).default as NonNullable<
-  ValidateOptions["config"]
->;
+const config = (await import("../yumma.config.mjs")).default as Config;
 
 const registryDir = join(rootDir, "src/registry");
 
@@ -35,18 +33,17 @@ function usesDocsOnlyColor(className: string): boolean {
 }
 
 describe("Yumma UI classes", () => {
-  it("uses only classes in the canon", async () => {
-    const result = await validate({
-      cwd: rootDir,
-      config: { ...config, source: ["./src/registry/**/*.tsx"] },
-    });
+  it("uses only classes Yumma CSS generates", () => {
+    const owners = new Map<string, string>();
+    for (const file of tsxFilesIn(registryDir)) {
+      for (const className of extractClasses(readFileSync(file, "utf-8"))) {
+        owners.set(className, relative(rootDir, file));
+      }
+    }
 
-    const invalid = result.invalid.map(
-      ({ className, files }) =>
-        `${className} (${files.map((f) => relative(rootDir, f)).join(", ")})`,
-    );
+    const { invalid } = validateClasses(owners.keys(), config);
 
-    expect(invalid).toEqual([]);
+    expect(invalid.map((c) => `${c} (${owners.get(c)})`)).toEqual([]);
   });
 
   it("does not depend on docs-only theme colors", () => {
