@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  207
-    Open    5
-    Done    97%
+    Open    8
+    Done    96%
 
 ---
 
@@ -65,13 +65,30 @@ Empty.
       separately whether the utilities split into shorthand and longhand. See
       NOTES.md under Cascade layers. **On hold:** Renildo wants to learn more
       about layers before adding them, 2026-09-28.
-- [ ] **Dark theme across every component.** Yumma CSS has handled dark since
-      3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
-      under Versioning. Mockups need a theme toggle from the start.
-- [ ] **A lint plugin for oxlint and biome**, the next minor of each. Replaces
-      `yummacss-lint`'s own CLI and report, and adds the rules a build cannot carry:
-      `p:8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
-      should be `d:f`. See NOTES.md under Linting.
+
+## AI track
+
+The main line of work from 2026-10-03: an agent writing Yumma CSS gets it
+right first time, and when it does not, the error tells it the fix. Yumma UI
+is parked meanwhile; see NOTES.md under "Yumma UI parked, AI first".
+
+- [ ] **Ship the lint rules**, 4.3. `no-unknown-classes` and
+      `no-inline-styles` for Oxlint and `yummacss lint` are in review as
+      `yummacss#64`. Closes when 4.3 is out and `/docs/lint` describes them;
+      `lint.mdx` still documents `pnpm dlx @yummacss/lint` and `yummacss-lint`.
+- [ ] **`/llms.txt` teaches 3.x.** Its header explains `jc-sb` and points at
+      `pnpm dlx @yummacss/lint` (`src/app/llms.txt/route.ts`). The first file
+      an agent reads states the colon syntax, the variant prefixes and the
+      check command, and a test fails when it shows a dash class again.
+- [ ] **A rules file to drop into a project**: the syntax, the scale, the
+      colour ramp and "run the linter", short enough for an agent's context.
+      One source, served by the site and linked from `llms.txt`.
+- [ ] **Measure it.** A fixed set of prompts ("a centred card", "a sticky
+      header"), each answer run through `validateClasses`, scored as the
+      share of classes that exist. Run before and after each entry above.
+- [ ] **Yumma UI as the worked examples.** The `/ui/components/<id>.md` twins
+      already carry each component's source in 4.x classes. Point `llms.txt`
+      and the rules file at a handful that show classes combining.
 
 ## Decisions
 

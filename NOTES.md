@@ -71,16 +71,14 @@ deleting it and recording the finding under its phase.
 
 - `merge`: physical longhands (Phase 5) and the narrow `ClassValue` (Phase 6).
   Both live in `yummacss/packages/cli/src/merge.ts`.
-- Registry: 16 `example` entries unreachable, the empty `blocks` key, and the
-  two renames (Phase 7). One breaking release.
 - Meter and Tabs take an `icon` the rail cannot show: neither schema has an
   `exampleIcon` (Phase 1). Badge and Separator do.
 - Doc comments in `badge.tsx` and `meter.tsx` spell sizes in the 3.x dash
   syntax (`w-3 h-3`).
-- Styles phase five: Minimal's filled fields and Elegant's serif (Queue).
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
-- The lint plugin (`TODO.md`), in review as `yummacss#64`.
+- The lint rules, first entry of the AI track (`TODO.md`), in review as
+  `yummacss#64`.
 - The largest client chunk is the component previews, 4819KB and 440KB
   gzipped. Not looked into yet.
 
@@ -93,9 +91,17 @@ deleting it and recording the finding under its phase.
 - `og.png` and `ui-og.png` are the last hand-made images; generate them the
   way the blog covers are.
 
+**Parked with Yumma UI** (see "Yumma UI parked, AI first")
+
+- The dark theme across every component, and the colour palette update after
+  it.
+- Styles phase five: Minimal's filled fields and Elegant's serif (Queue).
+- Registry: 16 `example` entries unreachable, the empty `blocks` key, and the
+  two renames (Phase 7). One breaking release.
+
 **Waiting on Renildo**
 
-- Cascade layers and the dark theme across Yumma UI (`TODO.md`).
+- Cascade layers (`TODO.md`).
 - Bounded or unbounded scale (Phase 9).
 - The landing page and the logomark: prototype mockups drafted 2026-10-01,
   parked.
@@ -4654,6 +4660,24 @@ Four stale things found on the way, fixed in the same branch:
   in a shadow root and themes through CSS variables, so play's own classes
   cannot leak into it or out of it. Trellis UI has no npm package under
   `trellisui`, `trellis-ui` or `@trellis/ui`.
+
+## Yumma UI parked, AI first, 2026-10-03
+
+Renildo weighed deleting Yumma UI: it earns nothing and looks like every other
+component set built on Base UI. It stays, for three reasons. Deleting it felt
+like a loss, where the playground, the CDN and IntelliSense felt like relief.
+A real app depends on it (link.dutfolio.com). And it is the largest body of
+correct 4.x classes anywhere, served as plain text at
+`/ui/components/<id>.md`, which is what an agent needs to learn the syntax.
+
+So it is kept and its roadmap is parked: no dark theme, no palette update, no
+new styles and no breaking registry release. Fixes still land, and anything
+the one app using it needs. The parked items are listed on the scoreboard.
+
+The main line of work is the AI track in `TODO.md`: an agent writes Yumma CSS
+right first time, and the linter's message is enough to fix it when it does
+not. The first finding, while writing the track: `/llms.txt`, the first file
+an agent reads, still explains the 3.x dash syntax.
 
 ## Retired: the playground, `@yummacss/cdn` and `@yummacss/intellisense`
 
