@@ -85,6 +85,11 @@ const blog = defineCollection({
     date: z.string(),
     authors: z.array(z.string()),
     cover: coverSchema.optional(),
+    // a YouTube video id, for a release with its own video
+    video: z
+      .string()
+      .regex(/^[\w-]{11}$/)
+      .optional(),
     draft: z.boolean().optional(),
     content: z.string(),
   }),

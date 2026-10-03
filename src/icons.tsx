@@ -11,6 +11,7 @@ import {
   CheckCircleIcon,
   CheckIcon,
   CopyIcon,
+  CornersOutIcon,
   CubeIcon,
   CursorClickIcon,
   CursorTextIcon,
@@ -30,6 +31,8 @@ import {
   MouseRightClickIcon,
   MouseScrollIcon,
   NotePencilIcon,
+  PauseIcon,
+  PlayIcon,
   PlusIcon,
   ResizeIcon,
   RssSimpleIcon,
@@ -37,6 +40,8 @@ import {
   SignOutIcon,
   SlidersHorizontalIcon,
   SparkleIcon,
+  SpeakerHighIcon,
+  SpeakerXIcon,
   SunIcon,
   TerminalWindowIcon,
   TwitterLogoIcon,
@@ -58,6 +63,7 @@ export const Check = regular(CheckIcon);
 export const CheckCircle = regular(CheckCircleIcon);
 export const ComponentSolid = regular(CubeIcon);
 export const Copy = regular(CopyIcon);
+export const FullScreen = regular(CornersOutIcon);
 export const CursorPointer = regular(CursorClickIcon);
 export const FileMd = regular(FileMdIcon);
 export const Folder = regular(FolderIcon);
@@ -80,6 +86,8 @@ export const NavArrowUp = regular(CaretUpIcon);
 export const OpenBook = regular(BookOpenIcon);
 export const OpenSelectHandGesture = regular(HandPointingIcon);
 export const Page = regular(FileIcon);
+export const Pause = regular(PauseIcon);
+export const Play = regular(PlayIcon);
 export const PageEdit = regular(NotePencilIcon);
 export const Plus = regular(PlusIcon);
 export const RssFeed = regular(RssSimpleIcon);
@@ -88,6 +96,8 @@ export const RulerCombine = regular(ResizeIcon);
 export const Search = regular(MagnifyingGlassIcon);
 export const Sliders = regular(SlidersHorizontalIcon);
 export const Sparks = regular(SparkleIcon);
+export const Sound = regular(SpeakerHighIcon);
+export const SoundOff = regular(SpeakerXIcon);
 export const StyleBorderSolid = regular(KeyboardIcon);
 export const SunLight = regular(SunIcon);
 export const Terminal = regular(TerminalWindowIcon);
