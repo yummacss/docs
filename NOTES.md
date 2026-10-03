@@ -4681,7 +4681,9 @@ four feature rows on the right, each with an optional `code` or svgl `logo`.
 Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
 the site's own blog. The site's dark page made the cover vanish into it, so
 the ground is indigo rather than any page token. `cover.png` has no mark and `og.png`, the link
-preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
+preview, adds it, and `thumb.png`, on the index, is the headline alone: at about
+220px wide the feature rows cannot be read. All three come from
+`src/utils/cover-image.tsx`. `cover` is
 `release` or `text`, or an object with `text`, `product` and `features`. A
 path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since

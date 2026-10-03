@@ -52,25 +52,30 @@ const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   ),
 };
 
-// the headline shrinks with its length so a long title still fits the left column
-function headlineSize(spec: CoverSpec): number {
-  if (spec.template === "release") return 280;
-  if (spec.text.length <= 14) return 120;
-  if (spec.text.length <= 24) return 96;
-  return 76;
+/** `cover` on the post, `og` for link previews with the mark, `thumb` for the index. */
+export type CoverVariant = "cover" | "og" | "thumb";
+
+// the headline shrinks with its length so a long title still fits its column,
+// and a thumb has the whole width and is read at a fifth of the size
+function headlineSize(spec: CoverSpec, thumb: boolean): number {
+  const scale = thumb ? 1.35 : 1;
+  if (spec.template === "release") return 280 * scale;
+  if (spec.text.length <= 14) return 120 * scale;
+  if (spec.text.length <= 24) return 96 * scale;
+  return 76 * scale;
 }
 
-/**
- * A post's cover, drawn by `ImageResponse` at 1200 by 630. `brand` adds the
- * product mark, for a link shared off the site.
- */
+/** A post's cover, drawn by `ImageResponse` at 1200 by 630. */
 export default function BlogCover({
   spec,
-  brand = false,
+  variant = "cover",
 }: {
   spec: CoverSpec;
-  brand?: boolean;
+  variant?: CoverVariant;
 }) {
+  const brand = variant === "og";
+  const thumb = variant === "thumb";
+  const features = thumb ? [] : spec.features;
   return (
     <div
       style={{
@@ -89,7 +94,7 @@ export default function BlogCover({
           display: "flex",
           flexDirection: "column",
           justifyContent: brand ? "space-between" : "flex-end",
-          flex: spec.features.length ? 1.2 : 1,
+          flex: features.length ? 1.2 : 1,
         }}
       >
         {brand && (
@@ -107,19 +112,21 @@ export default function BlogCover({
             style={{
               display: "flex",
               fontFamily: "Esteban",
-              fontSize: headlineSize(spec),
+              fontSize: headlineSize(spec, thumb),
               lineHeight: spec.template === "release" ? 0.8 : 0.95,
               color: ACCENT,
             }}
           >
             {spec.text}
           </div>
-          <div style={{ display: "flex", fontSize: 26, color: MUTED }}>
-            {spec.date}
-          </div>
+          {!thumb && (
+            <div style={{ display: "flex", fontSize: 26, color: MUTED }}>
+              {spec.date}
+            </div>
+          )}
         </div>
       </div>
-      {spec.features.length > 0 && (
+      {features.length > 0 && (
         <div
           style={{
             display: "flex",
@@ -128,7 +135,7 @@ export default function BlogCover({
             flex: 1,
           }}
         >
-          {spec.features.map((feature, i) => (
+          {features.map((feature, i) => (
             <div
               key={feature.label}
               style={{

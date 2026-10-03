@@ -76,15 +76,15 @@ export default async function BlogPage() {
                             )}
                           </div>
                         </div>
-                        {post.cover && (
+                        {post.thumb && (
                           <div className="@sm:w:40 @sm:fs:0 @xl:w:56">
                             <div className="o:h b:1 bc:border bg:ink/10">
                               <Image
-                                src={post.cover}
+                                src={post.thumb}
                                 alt={post.title}
                                 unoptimized
                                 width={1200}
-                                height={675}
+                                height={630}
                                 className="of:c w:100% h:auto us:none"
                               />
                             </div>
