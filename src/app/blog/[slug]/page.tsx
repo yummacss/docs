@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Avatar } from "@/components/avatar";
 import JsonLd from "@/components/json-ld";
+import ReleaseVideo from "@/components/release-video";
 import TableOfContents from "@/components/ui/toc";
 import { getAuthor } from "@/utils/authors";
 import { formatDate, isVisible } from "@/utils/blog";
@@ -91,18 +92,26 @@ export default async function BlogPostPage({
           )}
         </header>
 
-        {post?.cover && (
-          <div className="o:h b:1 mb:12 bc:border">
-            <Image
-              src={post.cover}
-              alt={post.title || "Blog cover"}
-              loading="eager"
-              unoptimized
-              width={1200}
-              height={630}
-              className="w:100% h:auto bg:surface us:none"
-            />
-          </div>
+        {post?.cover && post.video ? (
+          <ReleaseVideo
+            id={post.video}
+            poster={post.cover}
+            title={post.title}
+          />
+        ) : (
+          post?.cover && (
+            <div className="o:h b:1 mb:12 bc:border">
+              <Image
+                src={post.cover}
+                alt={post.title || "Blog cover"}
+                loading="eager"
+                unoptimized
+                width={1200}
+                height={630}
+                className="w:100% h:auto bg:surface us:none"
+              />
+            </div>
+          )
         )}
 
         <div>

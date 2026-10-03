@@ -90,9 +90,6 @@ deleting it and recording the finding under its phase.
   root (no `/plugin` path), the one-off check moves into the CLI as
   `yummacss lint`, and `yummacss-lint` and `validate()` are deleted outright,
   no deprecation. Ships as 4.3. `yummacss#64` gets reshaped for it.
-- The release video player: YouTube loaded only on play, under the site's own
-  controls and a chapter bar from the post's headings. Waiting on which
-  releases have videos and their links.
 - `og.png` and `ui-og.png` are the last hand-made images; generate them the
   way the blog covers are.
 
@@ -4686,4 +4683,19 @@ preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
 path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
 svgl.app itself is blocked from the agent's network.
+
+## Release videos, 2026-10-03
+
+1.0, 2.0, 3.0 and 4.0 have videos, named by `video:` in frontmatter (the
+YouTube id) and played by `src/components/release-video.tsx`. Until someone
+presses play it is the post's cover with a play button in its empty top
+corner; the IFrame API script is fetched only then, from
+`youtube-nocookie.com`, with YouTube's controls off. The controls are the
+site's own: Base UI `Button` and `Slider`, play, a seek bar with the clock,
+mute and full screen. The index tags those posts "Video".
+
+No chapters yet: they need timestamps, which the videos' descriptions would
+have to supply. YouTube is blocked from the agent's network, so the player
+was checked against a stand-in `window.YT` in Chromium (play, the clock,
+pause) and not against a real video.
 
