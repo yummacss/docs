@@ -4710,10 +4710,22 @@ svgl.app itself is blocked from the agent's network.
 1.0, 2.0, 3.0 and 4.0 have videos, named by `video:` in frontmatter (the
 YouTube id) and played by `src/components/release-video.tsx`. Until someone
 presses play it is the post's cover with a play button in its empty top
-corner; the IFrame API script is fetched only then, from
-`youtube-nocookie.com`, with YouTube's controls off. The controls are the
-site's own: Base UI `Button` and `Slider`, play, a seek bar with the clock,
-mute and full screen. The index tags those posts "Video".
+corner; the video is mounted only then, from `youtube-nocookie.com`, with
+YouTube's controls off. The index tags those posts "Video".
+
+**Video.js 10 plays it**, 2026-10-03: `@videojs/react` with
+`@videojs/youtube-video`, no skin. Video.js owns the YouTube API, the store
+and the controls' behaviour (`PlayButton`, `Time`, `TimeSlider`,
+`MuteButton`, `FullscreenButton`); the buttons render Base UI `Button` and
+every part is styled with Yumma classes. The packaged skins are not used:
+their controls are round (`9999px` radii hard-coded in `skin.css`). Vidstack
+was the first candidate; its team moved to Video.js 10 and Vidstack 1.x gets
+security patches only, until January 2028.
+
+Two traps. `play()` before the video is attached throws `NO_TARGET`, which
+takes the page down, so the first play comes from `autoplay` on the embed.
+And the thumb has `role="slider"` too, so a test that clicks "the slider"
+clicks the thumb.
 
 The player is square, like the cover it sits on: no radius on the frame, the
 bar or the controls, and the play button is a white label rather than a
@@ -4723,7 +4735,8 @@ cover. Play then resumes the same player. Full screen skips that, since the
 pointer cannot leave it.
 
 No chapters yet: they need timestamps, which the videos' descriptions would
-have to supply. YouTube is blocked from the agent's network, so the player
-was checked against a stand-in `window.YT` in Chromium (play, the clock,
-pause) and not against a real video.
+have to supply; `TimeSlider.Chapters` draws them once a chapters track
+exists. YouTube is blocked from the agent's network, so the player was
+checked against a stand-in `window.YT` in Chromium (play, the clock, pause on
+leave, resume, mute, seeking to the middle) and not against a real video.
 
