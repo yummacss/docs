@@ -4663,21 +4663,19 @@ Four stale things found on the way, fixed in the same branch:
 
 ## Yumma UI parked, AI first, 2026-10-03
 
-Renildo weighed deleting Yumma UI: it earns nothing and looks like every other
-component set built on Base UI. It stays, for three reasons. Deleting it felt
-like a loss, where the playground, the CDN and IntelliSense felt like relief.
-A real app depends on it (link.dutfolio.com). And it is the largest body of
-correct 4.x classes anywhere, served as plain text at
-`/ui/components/<id>.md`, which is what an agent needs to learn the syntax.
+Yumma UI stays, with its roadmap parked. It has a production user
+(link.dutfolio.com), and it is the largest body of correct 4.x classes
+anywhere, served as plain text at `/ui/components/<id>.md`, which is what an
+agent needs to learn the syntax.
 
-So it is kept and its roadmap is parked: no dark theme, no palette update, no
-new styles and no breaking registry release. Fixes still land, and anything
-the one app using it needs. The parked items are listed on the scoreboard.
+Parked: the dark theme, the palette update, new styles and the breaking
+registry release, listed on the scoreboard. Fixes still land, and so does
+anything that user needs.
 
 The main line of work is the AI track in `TODO.md`: an agent writes Yumma CSS
 right first time, and the linter's message is enough to fix it when it does
-not. The first finding, while writing the track: `/llms.txt`, the first file
-an agent reads, still explains the 3.x dash syntax.
+not. First finding: `/llms.txt`, the first file an agent reads, still
+explains the 3.x dash syntax.
 
 ## Retired: the playground, `@yummacss/cdn` and `@yummacss/intellisense`
 
