@@ -62,9 +62,9 @@ const clock = (seconds: number) => {
 };
 
 const CONTROL =
-  "d:f ai:c jc:c w:9 h:9 br:9999 bw:1 bc:white/30 bg:transparent c:white c:p fv:os:s fv:ow:2 fv:oc:white";
+  "d:f ai:c jc:c w:9 h:9 bg:transparent h:bg:white/15 c:white c:p fv:os:s fv:ow:2 fv:oc:white";
 
-/** A release video: the post's cover until someone presses play, then the video under the site's own controls. */
+/** A release video: the post's cover until someone presses play, and again once the pointer leaves. */
 export default function ReleaseVideo({
   id,
   poster,
@@ -78,12 +78,18 @@ export default function ReleaseVideo({
   const mount = useRef<HTMLDivElement>(null);
   const player = useRef<Player | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "ready">("idle");
+  const [covered, setCovered] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
   const start = useCallback(async () => {
+    if (player.current) {
+      setCovered(false);
+      player.current.playVideo();
+      return;
+    }
     setState("loading");
     const YT = await loadApi();
     if (!mount.current) return;
@@ -103,6 +109,7 @@ export default function ReleaseVideo({
         onReady: () => {
           setDuration(player.current?.getDuration() ?? 0);
           setState("ready");
+          setCovered(false);
           player.current?.playVideo();
         },
         // 1 is playing; everything else reads as paused
@@ -130,6 +137,13 @@ export default function ReleaseVideo({
     setMuted(!muted);
   };
 
+  // leaving the player pauses it under the cover; play picks up where it stopped
+  const leave = () => {
+    if (state !== "ready" || document.fullscreenElement) return;
+    player.current?.pauseVideo();
+    setCovered(true);
+  };
+
   const fullScreen = () =>
     document.fullscreenElement
       ? document.exitFullscreen()
@@ -138,38 +152,35 @@ export default function ReleaseVideo({
   return (
     <div
       ref={frame}
+      onPointerLeave={leave}
       className="p:r o:h mb:12 b:1 bc:border bg:black ar:16/9 us:none"
     >
       <div ref={mount} className="p:a i:0 w:100% h:100%" />
 
-      {state !== "ready" && (
-        <div className="p:a i:0">
-          <Image
-            src={poster}
-            alt=""
-            loading="eager"
-            unoptimized
-            fill
-            className="of:c"
-          />
-          <div className="p:a t:6 r:6 d:f ai:c g:3">
-            <Button
-              onClick={start}
-              disabled={state === "loading"}
-              aria-label={`Play the ${title} release video`}
-              className="d:f ai:c jc:c w:14 h:14 br:9999 bw:1 bc:white/40 bg:white/15 bf-b:md c:white c:p fv:os:s fv:ow:2 fv:oc:white"
-            >
-              <Play className="w:6 h:6" />
-            </Button>
-            <span className="px:3 py:1 br:9999 bg:black/50 bf-b:md c:white fs:sm">
-              {state === "loading" ? "Loading the video" : "Watch the release"}
-            </span>
-          </div>
-        </div>
-      )}
+      <div
+        className={`p:a i:0 zi:10 tp:o tdu:200 ttf:eo @prm:tp:none ${covered ? "o:100" : "o:0 pe:none"}`}
+      >
+        <Image
+          src={poster}
+          alt=""
+          loading="eager"
+          unoptimized
+          fill
+          className="of:c"
+        />
+        <Button
+          onClick={start}
+          disabled={state === "loading"}
+          aria-label={`Play the ${title} release video`}
+          className="p:a t:6 r:6 d:f ai:c g:2 h:10 px:4 bg:white c:indigo-10 fs:sm fw:500 c:p fv:os:s fv:ow:2 fv:oc:white fv:oo:2"
+        >
+          <Play className="w:4 h:4" />
+          {state === "loading" ? "Loading" : "Watch the release"}
+        </Button>
+      </div>
 
       {state === "ready" && (
-        <div className="p:a l:3 r:3 b:3 d:f ai:c g:3 px:3 py:2 br:lg bg:black/60 bf-b:md c:white fs:sm">
+        <div className="p:a l:0 r:0 b:0 d:f ai:c g:2 px:2 py:1 bg:black/70 bf-b:md c:white fs:sm">
           <Button
             onClick={toggle}
             aria-label={playing ? "Pause" : "Play"}
@@ -198,9 +209,9 @@ export default function ReleaseVideo({
             aria-label="Seek"
           >
             <Slider.Control className="d:f ai:c h:6 c:p">
-              <Slider.Track className="p:r w:100% h:1 br:9999 bg:white/25">
-                <Slider.Indicator className="h:100% br:9999 bg:white" />
-                <Slider.Thumb className="w:3 h:3 br:9999 bg:white fv:os:s fv:ow:2 fv:oc:white" />
+              <Slider.Track className="p:r w:100% h:1 bg:white/25">
+                <Slider.Indicator className="h:100% bg:white" />
+                <Slider.Thumb className="w:3 h:3 bg:white fv:os:s fv:ow:2 fv:oc:white" />
               </Slider.Track>
             </Slider.Control>
           </Slider.Root>
