@@ -4683,8 +4683,8 @@ leave the Yumma CSS monorepo. The site drops the Playground link from the
 navbar and the mobile menu, the home page's "Try now", the naming-convention
 hint that pointed at the playground's hover, the `@yummacss/cdn` page and the
 installation page's CDN section. `/docs/cdn` and `/docs/runtime` redirect to
-installation. The 4.2.0 post still names `@yummacss/cdn`: a post describes
-its own release. The why is in the Yumma CSS repo's NOTES.md.
+installation. The 4.2.0 post's line on `@yummacss/cdn` is removed too,
+2026-10-03: posts do not mention retired packages. The why is in the Yumma CSS repo's NOTES.md.
 
 ## Blog covers, 2026-10-02
 
