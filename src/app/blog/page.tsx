@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import TableOfContents from "@/components/ui/toc";
+import { Play } from "@/icons";
 import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 
 export const metadata: Metadata = {
@@ -72,6 +73,12 @@ export default async function BlogPage() {
                             {post.draft && (
                               <span className="c:accent fs:xs ls:2 tt:u">
                                 Draft
+                              </span>
+                            )}
+                            {post.video && (
+                              <span className="d:if ai:c g:1 c:accent fs:xs ls:2 tt:u">
+                                <Play className="w:3 h:3" />
+                                Video
                               </span>
                             )}
                           </div>

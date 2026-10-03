@@ -6,7 +6,7 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
-import { coverSchema, coverSpec, coverUrl } from "./src/utils/cover";
+import { coverSchema, coverSpec, coverUrl, ogUrl } from "./src/utils/cover";
 import {
   extractConfigKeys,
   extractReference,
@@ -85,6 +85,11 @@ const blog = defineCollection({
     date: z.string(),
     authors: z.array(z.string()),
     cover: coverSchema.optional(),
+    // a YouTube video id, for a release with its own video
+    video: z
+      .string()
+      .regex(/^[\w-]{11}$/)
+      .optional(),
     draft: z.boolean().optional(),
     content: z.string(),
   }),
@@ -95,7 +100,8 @@ const blog = defineCollection({
     ),
     // a template becomes the url of the image drawn for it, so readers see a path either way
     cover: coverUrl(doc.cover, doc._meta.path),
-    coverSpec: coverSpec(doc.cover, doc.title),
+    og: ogUrl(doc.cover, doc._meta.path),
+    coverSpec: coverSpec(doc.cover, doc.title, doc.date),
   }),
 });
 
