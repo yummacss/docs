@@ -4705,6 +4705,13 @@ path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
 svgl.app itself is blocked from the agent's network.
 
+## Blog posts for minor releases, 2026-10-03
+
+A minor release gets a post when it changes how people write code: 4.3 is the
+first. Everything smaller goes in a roundup every few months. Posts never
+mention a retired package. Each example's output in the 4.3 post was run
+against the published 4.3.0.
+
 ## Release videos, 2026-10-03
 
 1.0, 2.0, 3.0 and 4.0 have videos, named by `video:` in frontmatter (the
