@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { coverSchema, coverSpec, coverUrl, ogUrl } from "@/utils/cover";
+import {
+  coverSchema,
+  coverSpec,
+  coverUrl,
+  ogUrl,
+  thumbUrl,
+} from "@/utils/cover";
 
 describe("blog covers", () => {
   it("draws every cover at the post's own address", () => {
@@ -8,6 +14,9 @@ describe("blog covers", () => {
     );
     expect(ogUrl("release", "yummacss-4.2.0")).toBe(
       "/blog/yummacss-4.2.0/og.png",
+    );
+    expect(thumbUrl("release", "yummacss-4.2.0")).toBe(
+      "/blog/yummacss-4.2.0/thumb.png",
     );
     expect(coverUrl(undefined, "yummacss-4.2.0")).toBeUndefined();
   });
