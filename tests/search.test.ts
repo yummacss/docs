@@ -21,7 +21,7 @@ describe("search reference", () => {
     expect(
       extractReference(page("docs/lint")).find((e) => e.title === "--allow")
         ?.description,
-    ).toMatch(/· @yummacss\/lint$/);
+    ).toMatch(/· yummacss lint$/);
   });
 
   it("finds the lint flags and the bundler plugins' options", () => {
