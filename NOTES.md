@@ -4694,6 +4694,13 @@ corner; the IFrame API script is fetched only then, from
 site's own: Base UI `Button` and `Slider`, play, a seek bar with the clock,
 mute and full screen. The index tags those posts "Video".
 
+The player is square, like the cover it sits on: no radius on the frame, the
+bar or the controls, and the play button is a white label rather than a
+frosted circle. The cover is never removed: it fades out on play and back in
+when the pointer leaves, which pauses the video, so the post rests on its
+cover. Play then resumes the same player. Full screen skips that, since the
+pointer cannot leave it.
+
 No chapters yet: they need timestamps, which the videos' descriptions would
 have to supply. YouTube is blocked from the agent's network, so the player
 was checked against a stand-in `window.YT` in Chromium (play, the clock,
