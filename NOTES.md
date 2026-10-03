@@ -84,6 +84,15 @@ deleting it and recording the finding under its phase.
 - The largest client chunk is the component previews, 4819KB and 440KB
   gzipped. Not looked into yet.
 
+**Decided, not built yet**
+
+- Lint, Renildo's call 2026-10-02: `@yummacss/lint` becomes the plugin at its
+  root (no `/plugin` path), the one-off check moves into the CLI as
+  `yummacss lint`, and `yummacss-lint` and `validate()` are deleted outright,
+  no deprecation. Ships as 4.3. `yummacss#64` gets reshaped for it.
+- `og.png` and `ui-og.png` are the last hand-made images; generate them the
+  way the blog covers are.
+
 **Waiting on Renildo**
 
 - Cascade layers and the dark theme across Yumma UI (`TODO.md`).
@@ -4655,4 +4664,45 @@ hint that pointed at the playground's hover, the `@yummacss/cdn` page and the
 installation page's CDN section. `/docs/cdn` and `/docs/runtime` redirect to
 installation. The 4.2.0 post still names `@yummacss/cdn`: a post describes
 its own release. The why is in the Yumma CSS repo's NOTES.md.
+
+## Blog covers, 2026-10-02
+
+Every post's cover is drawn by `src/app/blog/[slug]/cover.png/route.tsx` from
+its frontmatter, and the hand-made PNGs are gone, along with six IntelliSense
+screenshots no page used. Renildo picked option D, "Paper", out of five
+mockups after rejecting a ruler along the bottom edge.
+
+One layout on `indigo-10` (`#2c2d6a`) from the default scale: the headline
+in Esteban and `indigo-3` (a release's number, or the title), the date in Quattro, and up to
+four feature rows on the right, each with an optional `code` or svgl `logo`.
+Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
+the site's own blog. The site's dark page made the cover vanish into it, so
+the ground is indigo rather than any page token. `cover.png` has no mark and `og.png`, the link
+preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
+`release` or `text`, or an object with `text`, `product` and `features`. A
+path to an image is refused, so a post cannot go back to a hand-made cover.
+Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
+svgl.app itself is blocked from the agent's network.
+
+## Release videos, 2026-10-03
+
+1.0, 2.0, 3.0 and 4.0 have videos, named by `video:` in frontmatter (the
+YouTube id) and played by `src/components/release-video.tsx`. Until someone
+presses play it is the post's cover with a play button in its empty top
+corner; the IFrame API script is fetched only then, from
+`youtube-nocookie.com`, with YouTube's controls off. The controls are the
+site's own: Base UI `Button` and `Slider`, play, a seek bar with the clock,
+mute and full screen. The index tags those posts "Video".
+
+The player is square, like the cover it sits on: no radius on the frame, the
+bar or the controls, and the play button is a white label rather than a
+frosted circle. The cover is never removed: it fades out on play and back in
+when the pointer leaves, which pauses the video, so the post rests on its
+cover. Play then resumes the same player. Full screen skips that, since the
+pointer cannot leave it.
+
+No chapters yet: they need timestamps, which the videos' descriptions would
+have to supply. YouTube is blocked from the agent's network, so the player
+was checked against a stand-in `window.YT` in Chromium (play, the clock,
+pause) and not against a real video.
 
