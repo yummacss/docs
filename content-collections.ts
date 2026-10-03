@@ -6,13 +6,7 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
-import {
-  coverSchema,
-  coverSpec,
-  coverUrl,
-  ogUrl,
-  thumbUrl,
-} from "./src/utils/cover";
+import { coverSchema, coverSpec, coverUrl, ogUrl } from "./src/utils/cover";
 import {
   extractConfigKeys,
   extractReference,
@@ -102,7 +96,6 @@ const blog = defineCollection({
     // a template becomes the url of the image drawn for it, so readers see a path either way
     cover: coverUrl(doc.cover, doc._meta.path),
     og: ogUrl(doc.cover, doc._meta.path),
-    thumb: thumbUrl(doc.cover, doc._meta.path),
     coverSpec: coverSpec(doc.cover, doc.title, doc.date),
   }),
 });

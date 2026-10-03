@@ -8,5 +8,5 @@ export async function GET(
   _: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
-  return coverImage((await params).slug, "cover");
+  return coverImage((await params).slug, false);
 }
