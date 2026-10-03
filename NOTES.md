@@ -51,15 +51,6 @@ Everything still open, each line checked against the code on 2026-10-01.
 `TODO.md` holds the planned work; this holds the rest. Close a line by
 deleting it and recording the finding under its phase.
 
-**Deadline**
-
-- **The npm token dies 2026-11-27, and 4.2.2 still published with it.** npm
-  printed "npm tokens that bypass 2FA are being restricted" for every package
-  in run `36775926217`, which it says only when it authenticates with the
-  token. So OIDC has not been proven, and Phase 9's "drop the secret once a
-  release proves OIDC ran" has not happened. Check each package's trusted
-  publisher form on npmjs before the next release.
-
 **Unmerged work**
 
 - `feat/reset-layer` in `docs` and `yummacss`: the cascade layer work, on hold
@@ -2922,6 +2913,12 @@ maintenance of a package on its way out, not investment in it.
       **`NODE_AUTH_TOKEN` stays until a release proves OIDC ran**, so there is
       no flag day: npm falls back to the token wherever no trusted publisher is
       configured. Nothing is exercised until a real release.
+
+      **Proven, checked 2026-10-03.** Every `yummacss` package since 4.2.0
+      lists `GitHubActions` as its trusted publisher in `npm view
+      <pkg> _npmUser`, with SLSA provenance. The token notice in the publish
+      log appears whenever the secret is set. `yummaui` 0.4.0 is the one
+      package still published by hand.
 - [x] **`xs` gets the breakpoint**, rather than losing the alias. Renildo's
       call, 2026-09-16, shipped in `yummacss`. Every t-shirt width alias now
       names a query that exists, and the set gains a narrow-screen query.
