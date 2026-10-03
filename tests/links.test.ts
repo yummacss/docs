@@ -10,6 +10,7 @@ const routes = new Set([
   "/",
   "/blog",
   "/blog/rss.xml",
+  "/agents.md",
   "/llms.txt",
   "/robots.txt",
   "/sitemap.xml",

@@ -2806,6 +2806,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       or `llms.txt` whose colon form is a real class, and checks that every
       example in the header exists bar its counterexample `w:37px`. Blog posts
       are skipped: they keep their own release's syntax.
+- [x] **A rules file for coding agents**, 2026-10-03. `/agents.md` is served
+      from `src/utils/agent-rules.ts`: the syntax `llms.txt` shares, then the
+      values, the colors, breakpoints, container queries, states and
+      pseudo-elements, all read from `@yummacss/core` so a release cannot leave
+      it behind, then "run `yummacss lint`". `/docs/agents` says how to add it
+      to `AGENTS.md`, with `www.` in the commands because `curl` without `-L`
+      does not follow the apex redirect. `tests/syntax.test.ts` checks every
+      class and every variant in it, a variant on `d:f`.
 
 ### Phase 7 - One breaking registry release
 

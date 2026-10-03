@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { type Config, validateClasses } from "@yummacss/nitro";
 import { describe, expect, it } from "vitest";
+import { agentRules, SYNTAX } from "@/utils/agent-rules";
 import { rootDir } from "./helpers";
 
 const config = (await import("../yumma.config.mjs")).default as Config;
@@ -46,19 +47,21 @@ describe("Class syntax", () => {
     );
   });
 
-  it("teaches llms.txt only classes that exist, bar its one counterexample", () => {
-    const source = readFileSync(llms, "utf-8");
-    const syntax = source.slice(
-      source.indexOf('"## Syntax"'),
-      source.indexOf("Check your work"),
-    );
-    const examples = [...syntax.matchAll(/`([^`\s]+:[^`\s]+)`/g)]
+  it("teaches agents only classes that exist, bar its one counterexample", () => {
+    const examples = [...agentRules().matchAll(/`([^`\s]+:[^`\s]*)`/g)]
       .map(([, cls]) => cls)
-      .filter((cls) => !cls.includes(": ") && !cls.startsWith(":"));
+      .filter((cls) => !cls.startsWith(":"))
+      // a variant on its own, such as `@md:`, is checked on a utility
+      .map((cls) => (cls.endsWith(":") ? `${cls}d:f` : cls));
 
     const { invalid } = validateClasses(examples, {});
 
-    expect(examples.length).toBeGreaterThan(10);
+    expect(examples.length).toBeGreaterThan(50);
     expect(invalid).toEqual(["w:37px"]);
+  });
+
+  it("gives llms.txt and agents.md the same syntax", () => {
+    expect(readFileSync(llms, "utf-8")).toContain("...SYNTAX");
+    expect(agentRules()).toContain(SYNTAX.join("\n"));
   });
 });
