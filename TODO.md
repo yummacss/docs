@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  207
-    Open    8
-    Done    96%
+    Closed  208
+    Open    7
+    Done    97%
 
 ---
 
@@ -72,10 +72,6 @@ The main line of work from 2026-10-03: an agent writing Yumma CSS gets it
 right first time, and when it does not, the error tells it the fix. Yumma UI
 is parked meanwhile; see NOTES.md under "Yumma UI parked, AI first".
 
-- [ ] **Ship the lint rules**, 4.3. `no-unknown-classes` and
-      `no-inline-styles` for Oxlint and `yummacss lint` are in review as
-      `yummacss#64`. Closes when 4.3 is out and `/docs/lint` describes them;
-      `lint.mdx` still documents `pnpm dlx @yummacss/lint` and `yummacss-lint`.
 - [ ] **`/llms.txt` teaches 3.x.** Its header explains `jc-sb` and points at
       `pnpm dlx @yummacss/lint` (`src/app/llms.txt/route.ts`). The first file
       an agent reads states the colon syntax, the variant prefixes and the
