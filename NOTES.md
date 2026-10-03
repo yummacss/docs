@@ -2796,6 +2796,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       `validateClasses` directly, same 116 files and 411 classes as before.
       `yummacss lint` skips CSS function classes such as `w:var(--x)` rather
       than checking them; the Oxlint rule checks them.
+- [x] **`/llms.txt` teaches 4.x**, 2026-10-03. Its header spells the colon
+      syntax, the scale, variants, opacity, negatives, CSS functions and the
+      lack of arbitrary values, says Yumma is a name with no `yum-` prefix,
+      and points at `yummacss lint` and the Oxlint plugin. Writing it found
+      three docs pages still in the dash form: Naming Convention's own rule,
+      every example on Class Merge, and one focus value in UI Customization.
+      `tests/syntax.test.ts` fails on a dashed class in the docs, the UI pages
+      or `llms.txt` whose colon form is a real class, and checks that every
+      example in the header exists bar its counterexample `w:37px`. Blog posts
+      are skipped: they keep their own release's syntax.
 
 ### Phase 7 - One breaking registry release
 
