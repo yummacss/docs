@@ -23,19 +23,19 @@ That is the whole reason overriding a component from the outside is unreliable. 
 ```tsx
 import { merge } from "yummacss/merge";
 
-merge("c-white", "c-accent"); // "c-accent"
+merge("c:white", "c:accent"); // "c:accent"
 ```
 
 It ships with the `yummacss` package, so nothing extra to install & nothing to keep in step with your stylesheet.
 
 ```tsx
-<span className={merge("c-white", className)}>Accent</span>
+<span className={merge("c:white", className)}>Accent</span>
 ```
 
 Falsy arguments are skipped, which is what makes conditionals readable.
 
 ```tsx
-<div className={merge("d-f ai-c", isOpen && "bg-silver-1", className)}></div>
+<div className={merge("d:f ai:c", isOpen && "bg:silver-1", className)}></div>
 ```
 
 ## What Gets Dropped
@@ -43,8 +43,8 @@ Falsy arguments are skipped, which is what makes conditionals readable.
 A class is dropped only when **everything** it sets is already set by a later class. That is a subset test, not an overlap test, and the difference shows up in shorthands.
 
 ```tsx
-merge("px-8 p-4"); // "p-4"
-merge("p-4 px-8"); // "p-4 px-8"
+merge("px:8 p:4"); // "p:4"
+merge("p:4 px:8"); // "p:4 px:8"
 ```
 
 `p:4` sets both axes, so it covers `px:8` entirely & `px:8` goes. Reverse them and both stay, because `px:8` says nothing about the block axis, so `p:4` is still doing work.
@@ -52,7 +52,7 @@ merge("p-4 px-8"); // "p-4 px-8"
 The same rule keeps a class whose property nobody else touched.
 
 ```tsx
-merge("w-10 h-10", "w-12"); // "h-10 w-12"
+merge("w:10 h:10", "w:12"); // "h:10 w:12"
 ```
 
 ## Shared Prefixes
@@ -60,8 +60,8 @@ merge("w-10 h-10", "w-12"); // "h-10 w-12"
 A few prefixes serve more than one property, and the value tells them apart, exactly as in [Naming Convention](/docs/naming-convention). `merge` reads the value too, so `c:p` is a cursor & `c:slate-10` is a color.
 
 ```tsx
-merge("c-p c-slate-10"); // "c-p c-slate-10"
-merge("p-a p-4"); // "p-a p-4"
+merge("c:p c:slate-10"); // "c:p c:slate-10"
+merge("p:a p:4"); // "p:a p:4"
 ```
 
 Neither pair collides, so neither loses a class.
@@ -71,14 +71,14 @@ Neither pair collides, so neither loses a class.
 Classes are compared inside their own variant. A hover class never covers a base class, & the other way round.
 
 ```tsx
-merge("h:bg-silver-2", "bg-white"); // "h:bg-silver-2 bg-white"
-merge("h:bg-silver-2", "h:bg-indigo-2"); // "h:bg-indigo-2"
+merge("h:bg:silver-2", "bg:white"); // "h:bg:silver-2 bg:white"
+merge("h:bg:silver-2", "h:bg:indigo-2"); // "h:bg:indigo-2"
 ```
 
 Media queries & every other variant work the same way.
 
 ```tsx
-merge("@lg:p-4 p-2", "@lg:p-8"); // "p-2 @lg:p-8"
+merge("@lg:p:4 p:2", "@lg:p:8"); // "p:2 @lg:p:8"
 ```
 
 ## Unknown Classes
@@ -86,7 +86,7 @@ merge("@lg:p-4 p-2", "@lg:p-8"); // "p-2 @lg:p-8"
 Anything `merge` does not recognize passes through untouched & in place.
 
 ```tsx
-merge("card", "bg-white", "card-active"); // "card bg-white card-active"
+merge("card", "bg:white", "card-active"); // "card bg:white card-active"
 ```
 
 <Hint icon="info">
