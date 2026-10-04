@@ -4766,18 +4766,19 @@ svgl.app itself is blocked from the agent's network.
 
 ## Wrap-ups, 2026-10-04
 
-One post per month, "Wrap-up: September '26", holds every release of that
+One post per month, "Wrap-up: Sep '26", holds every release of that
 month, newest first, one heading per version with its date, and a 3.x upgrade
 note. It is rewritten as the month's releases land: `updated` in frontmatter
 shows "Updated …" beside the date and feeds `modifiedTime`, `dateModified`
-and the sitemap. Its address is `/blog/wrap-up-<mon><yy>`. The apostrophe
-keeps "September '26" from reading as the 26th. A major release keeps its own
+and the sitemap. Its address is `/blog/wrap-up-<mon><yy>`. The month is
+abbreviated so the cover headline stays large, and the apostrophe keeps
+"Sep '26" from reading as the 26th. A major release keeps its own
 post (4.0, 5.0); 4.2 and 4.3 had theirs before wrap-ups and the wrap-ups link
 them. Posts never mention a retired package, so 4.1.0's CDN and 4.2.2's
 removals are left out. The cover is the `text` template with the title as its
 headline. A headline holding a short year draws each run between breaks as
-its own no-wrap span, so "'26" never leaves its month, and shrinks until its
-longest run fits the column; a plain non-breaking space drew a double-width
+its own no-wrap span, so "'26" never leaves its month, and is as large as
+its longest run lets it be in the column (about 130px for "Wrap-up:"); a plain non-breaking space drew a double-width
 gap in Satori. Other covers render byte-identical to before. Mockups: claude.ai/artifact/BNcm2bbvcxQWQ9ihotmfrY, option E.
 
 ## Release videos, 2026-10-03

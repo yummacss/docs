@@ -58,12 +58,20 @@ const runs = (spec: CoverSpec) => spec.text.split(/ (?!'\d\d\b)/);
 // the headline shrinks with its length, and until its longest unbreakable run fits the column
 function headlineSize(spec: CoverSpec): number {
   if (spec.template === "release") return 280;
-  const base = spec.text.length <= 14 ? 120 : spec.text.length <= 24 ? 96 : 76;
+  // a dated headline ("Wrap-up: Sep '26") is as large as its column allows
+  const dated = /'\d\d\b/.test(spec.text);
+  const base = dated
+    ? 200
+    : spec.text.length <= 14
+      ? 120
+      : spec.text.length <= 24
+        ? 96
+        : 76;
   // 1200 less 64 of padding each side and the gap, split 1.2 to 1 with the features
   const column = spec.features.length ? 550 : 1072;
   const longest = Math.max(...runs(spec).map((run) => run.length));
-  // Esteban averages about half an em per character
-  return Math.min(base, Math.floor(column / (longest * 0.55)));
+  // Esteban averages a little under half an em per character
+  return Math.min(base, Math.floor(column / (longest * (dated ? 0.52 : 0.55))));
 }
 
 /**
@@ -114,7 +122,12 @@ export default function BlogCover({
               display: "flex",
               fontFamily: "Esteban",
               fontSize: headlineSize(spec),
-              lineHeight: spec.template === "release" ? 0.8 : 0.95,
+              lineHeight:
+                spec.template === "release"
+                  ? 0.8
+                  : /'\d\d\b/.test(spec.text)
+                    ? 1.1
+                    : 0.95,
               color: ACCENT,
               flexWrap: "wrap",
               columnGap: "0.25em",
