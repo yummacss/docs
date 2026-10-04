@@ -83,6 +83,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.string(),
+    // a wrap-up is rewritten as the month's releases land
+    updated: z.string().optional(),
     authors: z.array(z.string()),
     cover: coverSchema.optional(),
     // a YouTube video id, for a release with its own video
