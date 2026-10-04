@@ -68,8 +68,13 @@ deleting it and recording the finding under its phase.
   syntax (`w-3 h-3`).
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
-- The largest client chunk is the component previews, 4819KB and 440KB
-  gzipped. First number for the performance entries in `TODO.md` Phase 5.
+- `/api/search` is fetched on every page load, on mount, so the index is
+  there by the first open: 97KB, 11KB gzipped. Fetching on first hover or
+  focus of the search button would spare pages that never search.
+- `@vercel/analytics` and `@vercel/speed-insights` request their scripts on
+  every page, and the project has no Web Analytics enabled (the API said so,
+  2026-10-03), so both may 404 in production. Enable them or drop the
+  packages.
 
 **Decided, not built yet**
 
@@ -2814,6 +2819,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       to `AGENTS.md`, with `www.` in the commands because `curl` without `-L`
       does not follow the apex redirect. `tests/syntax.test.ts` checks every
       class and every variant in it, a variant on `d:f`.
+- [x] **The site, measured**, 2026-10-04, on a local `next start` with
+      Chromium and Lighthouse (mobile, simulated throttling, one run each).
+      **One chunk was half of every page's JavaScript**: 4.8MB, 439KB gzipped,
+      the whole `web-features` dataset. `components/baseline.tsx` imported it
+      through `utils/baseline.ts` and was marked `"use client"` with no state
+      or handlers; `mdx-components.tsx` registers it, so it shipped on every
+      page, home and blog included. The scoreboard had blamed the component
+      previews for that chunk. Without the directive it renders on the server
+      and the dataset stays there.
+
+      | page | JS gzipped | TBT | score |
+      | --- | --- | --- | --- |
+      | `/` | 898 to 491KB | 520 to 140ms | 81 to 97 |
+      | `/docs/display` | 854 to 447KB | 850 to 180ms | 70 to 90 |
+      | `/ui/components/button` | 857 to 449KB | 710 to 290ms | 59 to 76 |
+      | `/blog/yummacss-4.3.0` | 898 to 491KB | 620 to 200ms | 76 to 87 |
+
+      The component page's 4.9s LCP is its intro paragraph waiting on script
+      under throttling, not a slow element. What remains is about 450KB
+      gzipped in 38 files; the largest are React DOM (70KB) and a Base UI and
+      Solar icons chunk (25KB). A docs page prefetches the RSC payload of
+      every sidebar link in view: 35 requests, 233KB gzipped, in idle time.
+      No page text and no content-collections code reaches the browser.
 
 ### Phase 7 - One breaking registry release
 
