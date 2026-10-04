@@ -3,6 +3,7 @@
 import { Button } from "@base-ui/react";
 import { type ReactNode, useRef, useState } from "react";
 import { Check, Copy } from "@/icons";
+import { PRE_CLASSES } from "@/lib/code-decorate.mjs";
 
 interface Props {
   title?: string;
@@ -36,7 +37,7 @@ export default function Code({
 
   const body = html ? (
     <div
-      className="ox:auto px:4 py:4 ff:m lh:5"
+      className="ff:m lh:5"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
       dangerouslySetInnerHTML={{ __html: html }}
     />
@@ -47,9 +48,7 @@ export default function Code({
       <div ref={ref} className="cs:d bg:surface">
         <TitleBar title={title} action={copyAction} />
         <div className="oy:auto ob:c max-h:80">
-          {body ?? (
-            <pre className="ox:auto px:4 py:4 ff:m lh:5">{children}</pre>
-          )}
+          {body ?? <pre className={`${PRE_CLASSES} ff:m lh:5`}>{children}</pre>}
         </div>
       </div>
     );
@@ -58,7 +57,7 @@ export default function Code({
   if (grouped) {
     return (
       <div ref={ref} className="cs:d">
-        {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
+        {body ?? <pre className={`${PRE_CLASSES} lh:5`}>{children}</pre>}
       </div>
     );
   }
@@ -66,7 +65,7 @@ export default function Code({
   return (
     <div ref={ref} className="o:h my:4 cs:d bc:border bg:surface bw:1">
       <TitleBar title={title} action={copyAction} />
-      {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
+      {body ?? <pre className={`${PRE_CLASSES} lh:5`}>{children}</pre>}
     </div>
   );
 }
