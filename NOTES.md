@@ -4747,6 +4747,11 @@ takes the page down, so the first play comes from `autoplay` on the embed.
 And the thumb has `role="slider"` too, so a test that clicks "the slider"
 clicks the thumb.
 
+Video.js 10.0.1 was a day old when it landed, inside pnpm's 24-hour
+`minimumReleaseAge`, so every deploy stopped at install. Eight
+`@videojs/*@10.0.1` exceptions unblocked it and came out once the release was
+a day old: `minimumReleaseAgeExclude` holds only our own packages.
+
 The player is square, like the cover it sits on: no radius on the frame, the
 bar or the controls, and the play button is a white label rather than a
 frosted circle. The cover is never removed: it fades out on play and back in
