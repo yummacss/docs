@@ -1,0 +1,43 @@
+---
+title: Coding Agents
+description: "A rules file that teaches a coding agent to write Yumma CSS & check its classes."
+since: "4.3"
+---
+
+A coding agent writes the class names it has seen most. [agents.md](/agents.md) gives it the Yumma CSS syntax, the values that exist & the command that checks its work, in one short file it reads before it starts.
+
+## Add It to a Project
+
+Save it as the instructions file your agent reads. Most read `AGENTS.md` at the project root.
+
+```bash
+curl -s https://www.yummacss.com/agents.md >> AGENTS.md
+```
+
+In PowerShell:
+
+```powershell
+irm https://www.yummacss.com/agents.md | Add-Content AGENTS.md
+```
+
+`>>` & `Add-Content` append, so instructions already in the file stay. Some agents read a file of their own name, such as `CLAUDE.md`. Point that file at `AGENTS.md`, or save the rules there instead.
+
+## What It Covers
+
+| Section | Contents |
+| --- | --- |
+| Syntax | Property & value initials joined by a colon, variants, opacity, negatives & CSS functions. |
+| Values | The spacing scale, every color family & its shades, breakpoints, states & pseudo-elements. |
+| Check | Run `yummacss lint` after editing & use its suggestion, plus the Oxlint rules where a project lints. |
+
+The lists come from the same tables the generator reads, so the file always matches the current release.
+
+## Check the Result
+
+The file asks the agent to run the check itself, but it is worth running in CI as well:
+
+```bash
+pnpm dlx yummacss lint
+```
+
+It exits with `1` when a class does not exist. [@yummacss/lint](/docs/lint) covers the command & the Oxlint rules.
