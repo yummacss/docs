@@ -21,7 +21,7 @@ export function Avatar({ src, alt, fallback, className = "", style }: Props) {
 
   return (
     <BaseAvatar.Root
-      className={`d:f jc:c ai:c us:none fw:500 fs:sm lh:1 o:h w:8 h:8 bg:surface c:accent-dim ${className}`}
+      className={`d:f jc:c ai:c us:none fw:500 fs:sm lh:1 o:h w:8 h:8 br:9999 bg:surface c:accent-dim ${className}`}
       style={style}
     >
       <BaseAvatar.Image src={src} alt={alt} className="of:c w:100% h:100%" />
