@@ -6,10 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { Menu, Search, Xmark } from "@/icons";
+import { loadSearchIndex } from "@/utils/search-data";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import type { NavSection } from "./mobile-dialog-nav";
 import { SearchDialog } from "./search-dialog";
 import ThemeToggle from "./theme-toggle";
+
+const preloadSearch = () => {
+  loadSearchIndex().catch(() => {});
+};
 
 const MobileDialog = lazy(() => import("./mobile-dialog"));
 
@@ -111,6 +116,8 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
+                onPointerEnter={preloadSearch}
+                onFocus={preloadSearch}
                 aria-label="Search"
                 className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
               >
