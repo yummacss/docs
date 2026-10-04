@@ -4764,6 +4764,8 @@ path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
 svgl.app itself is blocked from the agent's network.
 
+The author avatar beside a post's byline is a circle (`br:9999`).
+
 ## Blog posts for minor releases, 2026-10-03
 
 A minor release gets a post when it changes how people write code: 4.3 is the
