@@ -27,6 +27,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       publishedTime: post?.date,
+      modifiedTime: post?.updated,
       authors: ["Renildo Pereira"],
       url,
       images: [
@@ -69,6 +70,12 @@ export default async function BlogPostPage({
             </Link>
             <span>/</span>
             <span>{formatDate(post?.date || "")}</span>
+            {post?.updated && (
+              <>
+                <span>·</span>
+                <span>Updated {formatDate(post.updated)}</span>
+              </>
+            )}
           </div>
 
           <h1 className="mb:2 c:ink fs:4xl fw:400 @lg:fs:5xl">{post?.title}</h1>
@@ -128,6 +135,7 @@ export default async function BlogPostPage({
           headline: post?.title,
           description: post?.description,
           datePublished: post?.date,
+          dateModified: post?.updated ?? post?.date,
           author: {
             "@type": "Person",
             name: "Renildo Pereira",

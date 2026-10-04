@@ -51,8 +51,11 @@ function findAll(
 }
 
 describe("copywriting", () => {
+  // a wrap-up's name is the one em dash: "Wrap-up: Oct—26"
   it("uses no em dashes", () => {
-    expect(findAll(allPages, /.{0,30}—.{0,30}/)).toEqual([]);
+    expect(
+      findAll(allPages, /.{0,30}(?:(?<![A-Z][a-z]{2})—|—(?!\d\d\b)).{0,30}/),
+    ).toEqual([]);
   });
 
   it("uses no spaced hyphen as a dash", () => {
