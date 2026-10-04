@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { sidebarConfig } from "@/config/sidebar";
-import { EXAMPLES, SITE, SYNTAX } from "@/utils/agent-rules";
+import { EXAMPLES, LEGACY, SITE, SYNTAX } from "@/utils/agent-rules";
 
 export const dynamic = "force-static";
 
@@ -25,6 +25,10 @@ export function GET() {
     "`@yummacss/lint` plugin reports the same in the editor. Both read the generator",
     "itself, so they are authoritative on whether a class exists. Prefer them over",
     "guessing.",
+    "",
+    `A project whose classes put a dash between property and value (\`${LEGACY[0]}\`, \`${LEGACY[1]}\`)`,
+    "is on 3.x. Run `pnpm dlx yummacss migrate` before writing any class, rather",
+    `than fixing classes by hand: ${BASE}/agents.md has the steps.`,
     "",
     `A rules file for a project's coding agents: ${BASE}/agents.md`,
     "",
