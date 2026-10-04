@@ -52,14 +52,14 @@ const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   ),
 };
 
-// the runs a headline may break between; a short year stays with its month: "September '26"
-const runs = (spec: CoverSpec) => spec.text.split(/ (?!'\d\d\b)/);
+// a wrap-up headline ends in its month and short year: "Wrap-up: Oct—26"
+const isDated = (spec: CoverSpec) => /—\d\d$/.test(spec.text);
 
 // the headline shrinks with its length, and until its longest unbreakable run fits the column
 function headlineSize(spec: CoverSpec): number {
   if (spec.template === "release") return 280;
-  // a dated headline ("Wrap-up: Sep '26") is as large as its column allows
-  const dated = /'\d\d\b/.test(spec.text);
+  // a dated headline is as large as its column allows
+  const dated = isDated(spec);
   const base = dated
     ? 200
     : spec.text.length <= 14
@@ -69,7 +69,7 @@ function headlineSize(spec: CoverSpec): number {
         : 76;
   // 1200 less 64 of padding each side and the gap, split 1.2 to 1 with the features
   const column = spec.features.length ? 550 : 1072;
-  const longest = Math.max(...runs(spec).map((run) => run.length));
+  const longest = Math.max(...spec.text.split(" ").map((run) => run.length));
   // Esteban averages a little under half an em per character
   return Math.min(base, Math.floor(column / (longest * (dated ? 0.52 : 0.55))));
 }
@@ -123,21 +123,18 @@ export default function BlogCover({
               fontFamily: "Esteban",
               fontSize: headlineSize(spec),
               lineHeight:
-                spec.template === "release"
-                  ? 0.8
-                  : /'\d\d\b/.test(spec.text)
-                    ? 1.1
-                    : 0.95,
+                spec.template === "release" ? 0.8 : isDated(spec) ? 1.1 : 0.95,
               color: ACCENT,
               flexWrap: "wrap",
               columnGap: "0.25em",
             }}
           >
-            {/'\d\d\b/.test(spec.text)
-              ? runs(spec).map((run, i) => (
+            {isDated(spec)
+              ? // Satori breaks after a hyphen or a dash, so each word is unbreakable
+                spec.text.split(" ").map((word, i) => (
                   // biome-ignore lint/suspicious/noArrayIndexKey: a headline repeats words
                   <span key={i} style={{ whiteSpace: "nowrap" }}>
-                    {run}
+                    {word}
                   </span>
                 ))
               : spec.text}
