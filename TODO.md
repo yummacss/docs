@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  211
-    Open    7
+    Closed  212
+    Open    6
     Done    97%
 
 ---
@@ -89,10 +89,8 @@ is parked meanwhile; see NOTES.md under "Yumma UI parked, AI first".
 
 - [ ] **Measure it.** A fixed set of prompts ("a centred card", "a sticky
       header"), each answer run through `validateClasses`, scored as the
-      share of classes that exist. Run before and after each entry above.
-- [ ] **Yumma UI as the worked examples.** The `/ui/components/<id>.md` twins
-      already carry each component's source in 4.x classes. Point `llms.txt`
-      and the rules file at a handful that show classes combining.
+      share of classes that exist. Run with and without `agents.md` in the
+      prompt, so the rules file shows what it is worth.
 
 ## Decisions
 

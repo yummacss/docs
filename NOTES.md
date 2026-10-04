@@ -2842,6 +2842,13 @@ declares logical properties: `padding` covers `padding-inline` covers
       Solar icons chunk (25KB). A docs page prefetches the RSC payload of
       every sidebar link in view: 35 requests, 233KB gzipped, in idle time.
       No page text and no content-collections code reaches the browser.
+- [x] **Yumma UI as worked examples**, 2026-10-04. `EXAMPLES` in
+      `src/utils/agent-rules.ts` names Button, Field, Tabs and Dialog, each
+      with what its source shows; `/agents.md` lists them with their `.md`
+      URLs, and `/llms.txt` links them. The file also says `opening:` and
+      `closing:` are states a project declares, so the syntax test validates
+      it against the installation page's `theme.states`, and fails on an
+      example whose page does not exist.
 
 ### Phase 7 - One breaking registry release
 
