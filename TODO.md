@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  208
-    Open    10
-    Done    95%
+    Closed  210
+    Open    8
+    Done    96%
 
 ---
 
@@ -89,13 +89,6 @@ The main line of work from 2026-10-03: an agent writing Yumma CSS gets it
 right first time, and when it does not, the error tells it the fix. Yumma UI
 is parked meanwhile; see NOTES.md under "Yumma UI parked, AI first".
 
-- [ ] **`/llms.txt` teaches 3.x.** Its header explains `jc-sb` and points at
-      `pnpm dlx @yummacss/lint` (`src/app/llms.txt/route.ts`). The first file
-      an agent reads states the colon syntax, the variant prefixes and the
-      check command, and a test fails when it shows a dash class again.
-- [ ] **A rules file to drop into a project**: the syntax, the scale, the
-      colour ramp and "run the linter", short enough for an agent's context.
-      One source, served by the site and linked from `llms.txt`.
 - [ ] **Measure it.** A fixed set of prompts ("a centred card", "a sticky
       header"), each answer run through `validateClasses`, scored as the
       share of classes that exist. Run before and after each entry above.

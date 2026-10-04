@@ -10,13 +10,14 @@ export interface SidebarLink {
 
 export const docsLinks: SidebarLink[] = [
   { title: "llms.txt", href: "/llms.txt" },
+  { title: "agents.md", href: "/agents.md" },
 ];
 
 export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: ["installation", "configuration"],
+      items: ["installation", "configuration", "agents"],
     },
     {
       title: "Customization",

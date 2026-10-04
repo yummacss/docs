@@ -1,9 +1,10 @@
 import { allDocs, allUis } from "content-collections";
 import { sidebarConfig } from "@/config/sidebar";
+import { SITE, SYNTAX } from "@/utils/agent-rules";
 
 export const dynamic = "force-static";
 
-const BASE = "https://yummacss.com";
+const BASE = SITE;
 
 export function GET() {
   const docMap = new Map(allDocs.map((d) => [d._meta.path, d]));
@@ -17,18 +18,15 @@ export function GET() {
     "",
     "## Syntax",
     "",
-    "- A class is property initials, a colon, value initials: `d:f` is `display: flex`, `jc:sb` is `justify-content: space-between`.",
-    "- Numbers and scales keep their position: `p:4` is `padding: 1rem` (one step is 0.25rem), `fs:lg`, `fw:600`. `none` and `auto` stay whole: `d:none`.",
-    "- Variants go first, each followed by a colon: `h:bg:indigo-7` on hover, `@md:d:f` from the md breakpoint, `b::c:indigo` on `::before`. They stack: `@sm:h:bg:red`.",
-    "- Opacity follows a slash: `bg:red-5/50`. A negative value takes a minus after the colon: `ml:-4`.",
-    "- There are no arbitrary values: `w:37px` is not a class. A value off the scale is a CSS function with no spaces: `max-h:calc(100dvh-5rem)`, `w:var(--width)`.",
-    "- Yumma is a name, not a theme. There is no `yum-` prefix and no dash between property and value.",
+    ...SYNTAX,
     "",
     "Check your work: `pnpm dlx yummacss lint` reports every class Yumma CSS does not",
     "generate, with the closest one that exists. In a project that uses Oxlint, the",
     "`@yummacss/lint` plugin reports the same in the editor. Both read the generator",
     "itself, so they are authoritative on whether a class exists. Prefer them over",
     "guessing.",
+    "",
+    `A rules file for a project's coding agents: ${BASE}/agents.md`,
     "",
     `Docs: ${BASE}/docs`,
     `UI Components: ${BASE}/ui`,
