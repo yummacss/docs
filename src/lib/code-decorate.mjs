@@ -82,6 +82,9 @@ function highlightWordsInNode(node, words, classes) {
 }
 
 const LINE_CLASSES = "d:b mx:-4 px:4";
+// the pre is the box that scrolls and takes focus, outlined like Scroller
+export const PRE_CLASSES =
+  "ox:auto px:4 py:4 fv:oc:accent fv:os:s fv:ow:2 fv:oo:-2";
 const WORD_CLASSES = "bg:accent-dim/10 bw:1 bc:accent-dim/50";
 
 function foldRegions(codeEl, foldLines) {
@@ -131,6 +134,10 @@ function foldRegions(codeEl, foldLines) {
 }
 
 export function decorateCodeHast(pre, meta, title) {
+  pre.properties = {
+    ...pre.properties,
+    class: [pre.properties?.class, PRE_CLASSES].filter(Boolean).join(" "),
+  };
   const codeEl = pre.children?.find((c) => c.tagName === "code");
   if (!codeEl) return pre;
 

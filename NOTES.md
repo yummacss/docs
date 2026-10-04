@@ -4764,6 +4764,14 @@ path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
 svgl.app itself is blocked from the agent's network.
 
+## Code block focus, 2026-10-04
+
+Shiki makes each `pre` focusable so a long line can be scrolled from the
+keyboard. The `pre` is the box that scrolls, and on keyboard focus it draws
+the same inset accent outline as `Scroller` (`PRE_CLASSES` in
+`src/lib/code-decorate.mjs`). When the wrapper scrolled instead, the browser's
+default outline traced the overflowing lines and spilled past the box.
+
 The author avatar beside a post's byline is a circle (`br:9999`).
 
 ## Blog posts for minor releases, 2026-10-03
