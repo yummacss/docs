@@ -1,0 +1,62 @@
+---
+authors:
+  - Renildo
+cover:
+  template: text
+  text: "Wrap-up: Oct—26"
+  features:
+    - { label: Lint rules, code: Oxlint }
+    - { label: One-off check, code: yummacss lint }
+    - { label: For coding agents, code: agents.md }
+    - { label: Page weight, code: "-45%" }
+date: 2026-10-04
+description: "Lint rules for Oxlint, a rules file for coding agents & docs pages that load about half the JavaScript."
+title: "Wrap-up: Oct—26"
+---
+
+Every Yumma CSS release in October, newest first, & what changed on this site. This page grows as the month's releases land.
+
+:::note[Upgrading from 3.x?]
+Run `pnpm dlx yummacss migrate --dry-run`, then the same command without the flag, then `pnpm dlx yummacss lint` for anything left over. [Upgrading](#upgrading) has the steps.
+:::
+
+## 4.3
+
+October 3
+
+- Lint rules for Oxlint: `no-unknown-classes` names the class you meant, `no-inline-styles` names the class for a property set in `style`.
+- `yummacss lint` lists every class Yumma CSS does not generate, with no linter to set up.
+- **Breaking:** the `yummacss-lint` command & `validate()` are removed. Use `yummacss lint`.
+
+```text
+card.tsx:1:16: error yummacss(no-unknown-classes): `bg:redd-5` is not a Yumma CSS class, so it generates no CSS. Did you mean `bg:red-5`?
+```
+
+[Yumma CSS 4.3](/blog/yummacss-4.3.0) covers both, & [@yummacss/lint](/docs/lint) has the options.
+
+## On the Site
+
+- [agents.md](/agents.md) is a rules file for a project's coding agents: the syntax, every value that exists, four components to learn from & the command that checks their work. [Coding Agents](/docs/agents) shows how to add it.
+- [llms.txt](/llms.txt) teaches the 4.x syntax, & no docs page shows a 3.x class.
+- Docs pages load about half the JavaScript they did: the browser support box renders on the server, so its data stays there.
+
+| Page | JavaScript, gzipped |
+| --- | --- |
+| Home | 898KB to 491KB |
+| A docs page | 854KB to 447KB |
+| A component page | 857KB to 449KB |
+
+- Search loads its index when you reach for it, not with every page.
+- Release posts play their video in place, & every cover is drawn from the post's own text.
+
+## Upgrading
+
+From 4.2, update the packages & swap `yummacss-lint` for `yummacss lint`. From 3.x, let the codemod rewrite the classes, then check what is left.
+
+```bash
+pnpm dlx yummacss migrate --dry-run
+pnpm dlx yummacss migrate
+pnpm dlx yummacss lint
+```
+
+The full list is in the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md). September's releases are in [Wrap-up: Sep—26](/blog/wrap-up-sep26).
