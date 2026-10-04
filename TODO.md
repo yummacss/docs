@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  210
-    Open    8
-    Done    96%
+    Closed  211
+    Open    7
+    Done    97%
 
 ---
 
@@ -56,22 +56,20 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Performance, Renildo, 2026-10-03. In this order: measure, then decide the
 content pipeline, then decide the framework. Each decision rests on numbers
-from the first entry.
+from "The site, measured" in NOTES.md.
 
-- [ ] **Measure the site.** Per-route JS from `next build` and a bundle
-      analyzer, hydration time, and Lighthouse on four pages: home, a docs
-      page, a component page and a blog post. Known going in: the component
-      previews are the largest client chunk, 4819KB and 440KB gzipped, and 66
-      files are `"use client"`.
 - [ ] **Decide the content pipeline.** Today content-collections reads the
       frontmatter (schemas, computed fields such as the covers) and `@next/mdx`
       compiles the bodies. Weigh Next's MDX alone against what
       content-collections gives: the zod schemas, the search index, the `.md`
-      twins and `llms.txt`.
+      twins and `llms.txt`. Measured 2026-10-04: none of it reaches the
+      browser, so this is a build-time question, not a page-weight one.
 - [ ] **Spike TanStack Start.** Vite-based, with MDX support. On a branch, one
       docs page and one component page, compared on build time, bundle and
       hydration against the numbers above. What a move costs: the routes,
       `next/og` covers, `next/image`, the Vercel setup and the redirects.
+      Measured 2026-10-04: the weight was one misplaced `"use client"`, which
+      a framework move would have carried along.
 
 
 ## Phase 6 - After v4
