@@ -52,12 +52,18 @@ const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   ),
 };
 
-// the headline shrinks with its length so a long title still fits the left column
+// the runs a headline may break between; a short year stays with its month: "September '26"
+const runs = (spec: CoverSpec) => spec.text.split(/ (?!'\d\d\b)/);
+
+// the headline shrinks with its length, and until its longest unbreakable run fits the column
 function headlineSize(spec: CoverSpec): number {
   if (spec.template === "release") return 280;
-  if (spec.text.length <= 14) return 120;
-  if (spec.text.length <= 24) return 96;
-  return 76;
+  const base = spec.text.length <= 14 ? 120 : spec.text.length <= 24 ? 96 : 76;
+  // 1200 less 64 of padding each side and the gap, split 1.2 to 1 with the features
+  const column = spec.features.length ? 550 : 1072;
+  const longest = Math.max(...runs(spec).map((run) => run.length));
+  // Esteban averages about half an em per character
+  return Math.min(base, Math.floor(column / (longest * 0.55)));
 }
 
 /**
@@ -110,9 +116,18 @@ export default function BlogCover({
               fontSize: headlineSize(spec),
               lineHeight: spec.template === "release" ? 0.8 : 0.95,
               color: ACCENT,
+              flexWrap: "wrap",
+              columnGap: "0.25em",
             }}
           >
-            {spec.text}
+            {/'\d\d\b/.test(spec.text)
+              ? runs(spec).map((run, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: a headline repeats words
+                  <span key={i} style={{ whiteSpace: "nowrap" }}>
+                    {run}
+                  </span>
+                ))
+              : spec.text}
           </div>
           <div style={{ display: "flex", fontSize: 26, color: MUTED }}>
             {spec.date}
