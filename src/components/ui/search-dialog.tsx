@@ -41,11 +41,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  // fetched on mount so it is there by the first open; a failed load retries on the next open
-  useEffect(() => {
-    loadSearchIndex().catch(() => {});
-  }, []);
-
+  // the navbar starts the fetch on hover or focus; opening loads it otherwise, and retries a failure
   useEffect(() => {
     if (index || !open) return;
     let live = true;
