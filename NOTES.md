@@ -2845,6 +2845,13 @@ declares logical properties: `padding` covers `padding-inline` covers
       dialog loads it otherwise, so a touch tap or Ctrl+K on a fresh page
       still finds results. Checked in Chromium: no request on load, one on
       hover, results after Ctrl+K on a cold page.
+- [x] **Yumma UI as worked examples**, 2026-10-04. `EXAMPLES` in
+      `src/utils/agent-rules.ts` names Button, Field, Tabs and Dialog, each
+      with what its source shows; `/agents.md` lists them with their `.md`
+      URLs, and `/llms.txt` links them. The file also says `opening:` and
+      `closing:` are states a project declares, so the syntax test validates
+      it against the installation page's `theme.states`, and fails on an
+      example whose page does not exist.
 
 ### Phase 7 - One breaking registry release
 
