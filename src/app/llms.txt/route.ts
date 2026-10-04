@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { sidebarConfig } from "@/config/sidebar";
-import { SITE, SYNTAX } from "@/utils/agent-rules";
+import { EXAMPLES, SITE, SYNTAX } from "@/utils/agent-rules";
 
 export const dynamic = "force-static";
 
@@ -27,6 +27,8 @@ export function GET() {
     "guessing.",
     "",
     `A rules file for a project's coding agents: ${BASE}/agents.md`,
+    "",
+    `Worked examples, real components in these classes: ${EXAMPLES.map(({ id }) => `${BASE}/ui/components/${id}.md`).join(", ")}`,
     "",
     `Docs: ${BASE}/docs`,
     `UI Components: ${BASE}/ui`,

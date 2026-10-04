@@ -17,6 +17,30 @@ export const SYNTAX = [
   "- Yumma is a name, not a theme. There is no `yum-` prefix and no dash between property and value.",
 ];
 
+/** Yumma UI components whose source shows classes combining, each at `/ui/components/<id>.md`. */
+export const EXAMPLES = [
+  {
+    id: "button",
+    shows:
+      "variants, sizes and shapes as class maps, hover, a focus outline, opacity, and `merge` for overrides",
+  },
+  {
+    id: "field",
+    shows:
+      "a label, input and message stacked with flex, with border, outline and icon colors for its error and success states",
+  },
+  {
+    id: "tabs",
+    shows:
+      "a sliding indicator positioned under the selected tab, with a transition that can be turned off",
+  },
+  {
+    id: "dialog",
+    shows:
+      "an overlay and a popup that animate with `opening:` and `closing:`, and `@prm:tp:none` for reduced motion",
+  },
+];
+
 const list = (
   items: readonly { prefix: string; value: string }[],
   before: string,
@@ -57,6 +81,16 @@ export function agentRules(): string {
     `- States: ${list(pseudoClasses, "", ":")}.`,
     `- Pseudo-elements: ${list(pseudoElements, "", "::")}.`,
     "- Colors, breakpoints and states the project adds live in `yumma.config.mjs` under `theme`. Read it before using a name that is not listed here.",
+    "",
+    "## Examples",
+    "",
+    "Yumma UI components are written in these classes. Read one before building something similar:",
+    "",
+    ...EXAMPLES.map(
+      ({ id, shows }) => `- ${SITE}/ui/components/${id}.md: ${shows}.`,
+    ),
+    "",
+    "`opening:` and `closing:` are states a project declares under `theme.states`, as the Yumma UI installation page shows. Check `yumma.config.mjs` before using them.",
     "",
     "## Check",
     "",
