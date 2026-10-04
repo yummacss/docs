@@ -68,9 +68,6 @@ deleting it and recording the finding under its phase.
   syntax (`w-3 h-3`).
 - `yummacss`: CHANGELOG headings, `scroll-*` slugs, the one `as any` left in
   `nitro/src/generator.ts`, and no per-axis `translate` utility.
-- `/api/search` is fetched on every page load, on mount, so the index is
-  there by the first open: 97KB, 11KB gzipped. Fetching on first hover or
-  focus of the search button would spare pages that never search.
 - `@vercel/analytics` and `@vercel/speed-insights` request their scripts on
   every page, and the project has no Web Analytics enabled (the API said so,
   2026-10-03), so both may 404 in production. Enable them or drop the
@@ -2842,6 +2839,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       Solar icons chunk (25KB). A docs page prefetches the RSC payload of
       every sidebar link in view: 35 requests, 233KB gzipped, in idle time.
       No page text and no content-collections code reaches the browser.
+- [x] **The search index loads on intent**, 2026-10-04. `/api/search` (97KB,
+      11KB gzipped) was fetched on every page as the dialog mounted. The
+      navbar's search button starts it on hover or focus, and opening the
+      dialog loads it otherwise, so a touch tap or Ctrl+K on a fresh page
+      still finds results. Checked in Chromium: no request on load, one on
+      hover, results after Ctrl+K on a cold page.
 - [x] **Yumma UI as worked examples**, 2026-10-04. `EXAMPLES` in
       `src/utils/agent-rules.ts` names Button, Field, Tabs and Dialog, each
       with what its source shows; `/agents.md` lists them with their `.md`
