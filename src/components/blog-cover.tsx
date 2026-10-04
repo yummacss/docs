@@ -52,12 +52,26 @@ const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   ),
 };
 
-// the headline shrinks with its length so a long title still fits the left column
+// a wrap-up headline ends in its month and short year: "Wrap-up: Oct—26"
+const isDated = (spec: CoverSpec) => /—\d\d$/.test(spec.text);
+
+// the headline shrinks with its length, and until its longest unbreakable run fits the column
 function headlineSize(spec: CoverSpec): number {
   if (spec.template === "release") return 280;
-  if (spec.text.length <= 14) return 120;
-  if (spec.text.length <= 24) return 96;
-  return 76;
+  // a dated headline is as large as its column allows
+  const dated = isDated(spec);
+  const base = dated
+    ? 200
+    : spec.text.length <= 14
+      ? 120
+      : spec.text.length <= 24
+        ? 96
+        : 76;
+  // 1200 less 64 of padding each side and the gap, split 1.2 to 1 with the features
+  const column = spec.features.length ? 550 : 1072;
+  const longest = Math.max(...spec.text.split(" ").map((run) => run.length));
+  // Esteban averages a little under half an em per character
+  return Math.min(base, Math.floor(column / (longest * (dated ? 0.52 : 0.55))));
 }
 
 /**
@@ -108,11 +122,22 @@ export default function BlogCover({
               display: "flex",
               fontFamily: "Esteban",
               fontSize: headlineSize(spec),
-              lineHeight: spec.template === "release" ? 0.8 : 0.95,
+              lineHeight:
+                spec.template === "release" ? 0.8 : isDated(spec) ? 1.1 : 0.95,
               color: ACCENT,
+              flexWrap: "wrap",
+              columnGap: "0.25em",
             }}
           >
-            {spec.text}
+            {isDated(spec)
+              ? // Satori breaks after a hyphen or a dash, so each word is unbreakable
+                spec.text.split(" ").map((word, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: a headline repeats words
+                  <span key={i} style={{ whiteSpace: "nowrap" }}>
+                    {word}
+                  </span>
+                ))
+              : spec.text}
           </div>
           <div style={{ display: "flex", fontSize: 26, color: MUTED }}>
             {spec.date}
