@@ -2860,6 +2860,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       leftovers, the packages and lint, in the order the 4.0 changelog gives.
       `llms.txt` says the same in three lines. Both take their dash examples
       from `LEGACY`, so the dash-form test still reads their prose.
+      Tested on the 3.29 portfolio, 2026-10-05. A session that started before
+      `AGENTS.md` existed never read it and wrote 3.x classes. A fresh one
+      with `CLAUDE.md` holding `@AGENTS.md` stopped, named both signs and
+      migrated in the file's order; it worked out the `yummacss-canon` script
+      by itself, so the package step names it. `/docs/agents` gives the
+      `CLAUDE.md` line.
 
 ### Phase 7 - One breaking registry release
 
