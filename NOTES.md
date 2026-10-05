@@ -2852,6 +2852,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       `closing:` are states a project declares, so the syntax test validates
       it against the installation page's `theme.states`, and fails on an
       example whose page does not exist.
+- [x] **Agents migrate a 3.x project first**, 2026-10-04. An agent on a
+      3.x portfolio installed the 4.3 linter beside 3.29 `yummacss`, read the
+      errors as wrong classes and never ran `yummacss migrate`. `/agents.md`
+      opens with "Migrating From 3.x": the signs (`package.json` below 4, dash
+      classes), stop and tell the user, no hand fixes, then migrate, the
+      leftovers, the packages and lint, in the order the 4.0 changelog gives.
+      `llms.txt` says the same in three lines. Both take their dash examples
+      from `LEGACY`, so the dash-form test still reads their prose.
 
 ### Phase 7 - One breaking registry release
 
