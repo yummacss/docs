@@ -507,6 +507,12 @@ and `resolveRegistryMeta` are **injected** into it rather than imported by it. A
 playground down and failed the first OOM fix. Same rule for the Shiki theme:
 module import, never `readFileSync`.
 
+**`mdxToMarkdown` parses with remark and prints with remark-stringify.** Each
+component is swapped for Markdown; what we build ourselves (reference tables,
+props tables, registry source) goes into the tree as a raw node, as written.
+Parsing a built table only to print it back cost about a second on `margin`.
+A `<Palette data={...}>` renders the colors it lists, not the current palette.
+
 **Tests:** `tests/copywriting.test.ts` bans em dashes, contractions and first
 person outside the blog, trailing whitespace, and British spelling; headings are
 Title Case; descriptions are one sentence, 120 chars max, ending in punctuation.
