@@ -78,7 +78,7 @@ export function agentRules(): string {
     `Check the version before anything else. The project is on 3.x if \`yummacss\` in \`package.json\` is below \`4\`, or if its classes put a dash between property and value: ${code(LEGACY)}.`,
     "",
     "- Stop before the task and tell the user. A 3.x build generates no 4.x class, so nothing below works until the project is migrated.",
-    "- Do not rewrite classes by hand, and do not take `yummacss lint` suggestions one at a time: on a 3.x project it reports nearly every class. The codemod rewrites them all, reading `yumma.config.mjs` for custom colors, breakpoints and a `prefix`.",
+    "- Do not rewrite classes by hand, and do not take `yummacss lint` suggestions one at a time: on a 3.x project it reports nearly every class. The codemod rewrites them all, reading `yumma.config.mjs` for custom colors and breakpoints.",
     "- Migrate as its own change, in this order:",
     "  1. `pnpm dlx yummacss migrate --dry-run`, then `pnpm dlx yummacss migrate`.",
     '  2. Rewrite by hand only what it lists under "Left alone": classes built at runtime, and the same classes in a `safelist`.',
