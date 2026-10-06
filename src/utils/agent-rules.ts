@@ -82,7 +82,7 @@ export function agentRules(): string {
     "- Migrate as its own change, in this order:",
     "  1. `pnpm dlx yummacss migrate --dry-run`, then `pnpm dlx yummacss migrate`.",
     '  2. Rewrite by hand only what it lists under "Left alone": classes built at runtime, and the same classes in a `safelist`.',
-    "  3. Update `yummacss` and its `@yummacss/` packages to the latest version, all the same. `@yummacss/canon` is `@yummacss/lint`; remove a package that has no 4.x release.",
+    "  3. Update `yummacss` and its `@yummacss/` packages to the latest version, all the same. `@yummacss/canon` is `@yummacss/lint`, so a script that runs `yummacss-canon` runs `yummacss lint`. Remove a package that has no 4.x release.",
     "  4. Build, then `pnpm dlx yummacss lint`.",
     "",
     "## Syntax",

@@ -20,7 +20,15 @@ In PowerShell:
 irm https://www.yummacss.com/agents.md | Add-Content AGENTS.md
 ```
 
-`>>` & `Add-Content` append, so instructions already in the file stay. Some agents read a file of their own name, such as `CLAUDE.md`. Point that file at `AGENTS.md`, or save the rules there instead.
+`>>` & `Add-Content` append, so instructions already in the file stay.
+
+Claude Code reads `CLAUDE.md`. A `CLAUDE.md` holding this one line brings the rules in:
+
+```md title="CLAUDE.md"
+@AGENTS.md
+```
+
+Other agents that read a file of their own name take the same pointer, or the rules saved there instead.
 
 ## What It Covers
 
