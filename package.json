@@ -21,8 +21,7 @@
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
-    "upd": "pnpm up yummacss \"@yummacss/*\" --latest",
-    "validate": "node scripts/validate-yummacss.mjs"
+    "upd": "pnpm up yummacss \"@yummacss/*\" --latest"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

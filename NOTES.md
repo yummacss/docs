@@ -3281,7 +3281,7 @@ someone: do them together, in one release.
 (gitignored output). The CLI **fetches it over HTTP** and imports nothing. Six
 things in `docs` need those files on disk: the `yumma.config.mjs` source glob
 (CSS generation), `src/registry/index.ts`'s dynamic import map (bundling),
-`rehype-registry.mjs`, both generators, and `validate-yummacss.mjs`. Moving the
+`rehype-registry.mjs`, both generators, and `tests/classes.test.ts`. Moving the
 registry to `ui` optimises for the consumer that does not need it. shadcn keeps
 its registry in the docs site with the CLI separate over HTTP, which is the shape
 we already have. **If one repo is ever wanted, bring the CLI into `docs` as a
@@ -3707,7 +3707,7 @@ is what a user receives - `grep` the `dist` bundle, or diff its size both ways.
 **A class can be canon-valid and still generate no CSS.** `c-slate-12` is a real
 token in `@yummacss/core` (`#101316`) but nothing is emitted for it, so four
 popups inherited the page's own white text and Onboarding's step icon rendered
-white on white. `validate-yummacss.mjs` will not catch this - it checks whether a
+white on white. `tests/classes.test.ts` will not catch this - it checks whether a
 class is *canon*, which `c-slate-12` is. **`getComputedStyle` on the real element
 is the only way to tell.** Same family as the two scanner bugs below.
 
@@ -3769,7 +3769,7 @@ leaves unset.
 **Canon is blind to class maps** - it reads `className` attributes, which is
 useless for a prop-driven component where classes live in
 `const SHAPES = { rounded: "br-lg", square: "br-none" }`. `br-none` does not
-exist and canon reported clean. `validate-yummacss.mjs` now also scans string
+exist and canon reported clean. `tests/classes.test.ts` also scans string
 literals inside `UPPER_SNAKE` class maps plus any multi-token string whose tokens
 *all* look like classes. Valid `br-` values: `0, xs, sm, md, lg, xl, xxl, 3xl,
 100%, 50%, 9999, px`. Opacity is percentage-based, so `o-1` means 1%, not 1.
@@ -3797,7 +3797,7 @@ not.** Fixed with `min-w-0` plus `ow-bw` on the `h1` and `fs-0` on the actions.
 Note `ow-bw` alone does nothing here - `overflow-wrap: break-word` does not
 reduce min-content size, so it cannot rescue a flex item that is not already
 allowed to shrink. **`mw-0` is not a class**; it was sitting in `admonition.tsx`
-doing nothing, which `validate-yummacss.mjs` had been reporting all along. The
+doing nothing, which the class check had been reporting all along. The
 min-width prefix is `min-w`.
 
 **Base UI portals escape the iframe.** They resolve against the top-level
@@ -4601,8 +4601,7 @@ beyond a straight port: **Preview Card now fades out too**, since
 `animated` now does something**, a 150ms pop on the dot, where it used to
 wrap the root in a `motion.span` that animated nothing. A `yui-*` class in a
 template literal trips `tests/classes.test.ts`, so Skeleton's and
-Accordion's go through a constant, and `scripts/validate-yummacss.mjs`
-skips `yui-` tokens in its object-literal scan for the same reason.
+Accordion's go through a constant.
 
 Order: one PR for the ten that lose nothing, one for Onboarding, then the four
 docs chrome files (`control.tsx`, `install.tsx`, `mobile-dialog-nav.tsx`,
