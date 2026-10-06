@@ -7,17 +7,7 @@ One list, ordered by what blocks what. Phase 1 is what stops a release; Phase
 about the symptom and wrong about the cause, and several have turned out to
 be already fixed.
 
-When an entry is done it leaves this file and the finding goes in NOTES.md,
-so the open count alone would flatter the progress. `Closed` is the number of
-`- [x]` findings under **Phase 6** in NOTES.md, which is the record of the
-work actually finished; `Open` is the `- [ ]` count here. Recount both rather
-than adjusting the numbers by hand:
-
-    grep -c '^- \[ \]' TODO.md
-
-    Closed  214
-    Open    6
-    Done    97%
+When an entry is done it leaves this file.
 
 ---
 
