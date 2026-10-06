@@ -15,7 +15,7 @@ Checked 2026-10-06.
 
 | repo | `main` | published |
 | --- | --- | --- |
-| `yummacss` | `4.3.0` | `yummacss`, `@yummacss/core`, `nitro`, `lint`, `postcss`, `vite`: six packages |
+| `yummacss` | `4.4.0` | `yummacss`, `@yummacss/core`, `nitro`, `lint`, `postcss`, `vite`: six packages |
 | `yummaui` | `0.4.0` | `yummaui` |
 | `docs` | on `4.3.0` | yummacss.com |
 
