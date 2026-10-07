@@ -486,6 +486,9 @@ library can do to someone who has not committed yet. The playground rail has
 since taken that job; the density complaint that prompted a redesign ("it's
 throwing way too many info in less than 3s") is what the rail answers.
 
+A page with a playground renders the rail in place of the TOC, so the rail ends
+with the TOC's Edit page and View markdown links.
+
 **The "Base UI primitive" sidebar link is a different thing from the page's own
 API reference**: ours documents what Yumma UI adds, theirs documents the
 primitive underneath, which is what you need the moment you edit the file you

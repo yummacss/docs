@@ -12,8 +12,10 @@ import Control, {
   SwatchSelect,
 } from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
+import EditPage from "@/components/ui/edit-page";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import Scroller from "@/components/ui/scroller";
+import ViewMarkdown from "@/components/ui/view-markdown";
 import { NavArrowDown } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { ACCENTS, accentBars } from "@/utils/accent";
@@ -115,6 +117,11 @@ export default function PlaygroundRail({
               </Collapsible.Panel>
             </Collapsible.Root>
           )}
+
+          <div className="d:f fd:c g:3 mt:8 pt:8">
+            <EditPage />
+            <ViewMarkdown />
+          </div>
         </div>
       </Scroller>
     </aside>
