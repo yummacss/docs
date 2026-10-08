@@ -19,14 +19,14 @@ Initialize a configuration file in your project.
 pnpm dlx yummacss init
 ```
 
-This creates a `yumma.config.mjs` file at your project root. The same configuration file powers the CLI & the bundler plugins (`@yummacss/vite` & `@yummacss/postcss`).
+This creates a `yumma.config.mjs` file at your project root, pointing at your project's own folders. The same configuration file powers the CLI & the bundler plugins (`@yummacss/vite` & `@yummacss/postcss`).
 
 ```mjs title="yumma.config.mjs" mark={4-5}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  source: [""],
-  output: "",
+  source: ["./src/**/*.{js,jsx,ts,tsx,mdx,html}"],
+  output: "./src/styles.css",
 });
 ```
 
