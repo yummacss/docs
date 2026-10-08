@@ -14,9 +14,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: pnpm
@@ -35,7 +35,7 @@ jobs:
         run: pnpm test
 
       - if: steps.version.outputs.version
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/yummacss-${{ steps.version.outputs.version }}
           commit-message: Docs on Yumma CSS ${{ steps.version.outputs.version }}
