@@ -23,8 +23,10 @@ The playground (play.yummacss.com and `yummacss/play`) is retired.
 `@yummacss/cdn` is unpublished; `@yummacss/intellisense` is deprecated at
 `4.2.1`. Both left with 4.2.2.
 
-**`docs` updates itself.** Dependabot polls npm daily for `yummacss` and
-`@yummacss/*`, grouped, and `auto-merge.yml` merges the PR.
+**`docs` opens its own Yumma CSS PR.** `yummacss.yml` runs daily and on
+demand: `pnpm upd`, the tests against the new version, then a PR named after
+it. Merging it is a person's call. Dependabot keeps `web-features` and the
+actions current.
 
 `yummaui` is a **separate repo**, `github.com/yummacss/yummaui`. **`repository.url`
 must name the repo, and a redirect does not count**: the publish workflow fails
@@ -629,19 +631,14 @@ missed. With `gh` present it creates the draft; without it, it prints a
 prefilled `releases/new` URL. **Nothing about the release is typed by hand.**
 
 
-**The downstream sites update by Dependabot, not by the release.** The dispatch
-chain - `notify-downstream.yml` to a `repository_dispatch` to each site's
-`update-yummacss.yml` - had four failure points and had been dead for three
-months with nothing to say so. `docs` failed every run since 2026-06-27 at
-`pnpm/action-setup` (`No pnpm version is specified`: no `packageManager` in its
-`package.json`) and so never opened a single PR; `play` opened its PR and then
-died on `gh pr merge --auto`, which needs "Allow auto-merge" on in repo
-settings, so `play#61` just sat there. Both workflows also only ever named two
-of the four `@yummacss` packages, so `canon` and `postcss` drifted behind even
-on a green run. All three workflows are deleted. **Dependabot does it now**,
-which is what has always kept `web-features` current here: the packages sit in
-the `allow` list, grouped into one PR, and `auto-merge.yml` merges it. Cost is
-latency - it polls npm daily rather than firing on the release.
+**Yumma CSS updates come from a workflow in this repo, not from the release or
+Dependabot.** A dispatch from the release had four failure points and sat dead
+for three months; Dependabot then stopped opening Yumma CSS PRs after 4.0 with
+nothing to say so, while it still opened `web-features` ones. `yummacss.yml`
+does the same job as a plain Actions run, so a failure is a red run in the
+Actions tab. It reads the version from `node_modules/yummacss/package.json`,
+because the package's `exports` do not include `./package.json`. A PR opened
+with `GITHUB_TOKEN` starts no other workflow, so nothing merges it by itself.
 
 
 **"Is it in the repo" and "is it in the package" are different questions.**
