@@ -1,0 +1,44 @@
+# Opens a PR moving the docs to the latest Yumma CSS. Dependabot stopped
+# opening these, and a run here fails in plain sight; see NOTES.md.
+name: Yumma CSS updates
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm upd
+
+      - name: Read the new version
+        id: version
+        run: |
+          if git diff --quiet; then exit 0; fi
+          echo "version=$(node -p 'require("./node_modules/yummacss/package.json").version')" >> "$GITHUB_OUTPUT"
+
+      # the class tests check the site against the new version before the PR opens
+      - if: steps.version.outputs.version
+        run: pnpm test
+
+      - if: steps.version.outputs.version
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/yummacss-${{ steps.version.outputs.version }}
+          commit-message: Docs on Yumma CSS ${{ steps.version.outputs.version }}
+          title: Docs on Yumma CSS ${{ steps.version.outputs.version }}
+          body: Moves the docs to Yumma CSS ${{ steps.version.outputs.version }}. The class tests pass on it.
+          labels: dependencies
