@@ -10,7 +10,7 @@ cover:
     - { label: For coding agents, code: agents.md }
     - { label: Page weight, code: "-45%" }
 date: 2026-10-04
-updated: 2026-10-06
+updated: 2026-10-08
 description: "Lint rules for Oxlint, a rules file for coding agents & docs pages that load about half the JavaScript."
 title: "Wrap-up: Oct—26"
 ---
@@ -20,6 +20,16 @@ Every Yumma CSS release in October, newest first, & what changed on this site. T
 :::note[Upgrading from 3.x?]
 Run `pnpm dlx yummacss migrate --dry-run`, then the same command without the flag, then `pnpm dlx yummacss lint` for anything left over. [Upgrading](#upgrading) has the steps.
 :::
+
+## 4.5
+
+October 8
+
+- `@yummacss/vite` works with Vite 8.
+- The CLI prints one line per step, in this site's colors. `build` reports the files it read & the classes it generated.
+- `yummacss watch` picks up files created after it starts, & rebuilds when the config changes.
+- `yummacss init` writes a config that points at your own folders.
+- `yummacss migrate` leaves classes already in the 4.x syntax out of its report.
 
 ## 4.4
 
@@ -58,7 +68,7 @@ card.tsx:1:16: error yummacss(no-unknown-classes): `bg:redd-5` is not a Yumma CS
 
 ## Upgrading
 
-From 4.3, update the packages & take `prefix` out of `yumma.config.mjs`. From 4.2, also swap `yummacss-lint` for `yummacss lint`. From 3.x, let the codemod rewrite the classes, then check what is left.
+From 4.4, update the packages. From 4.3, also take `prefix` out of `yumma.config.mjs`. From 4.2, also swap `yummacss-lint` for `yummacss lint`. From 3.x, let the codemod rewrite the classes, then check what is left.
 
 ```bash
 pnpm dlx yummacss migrate --dry-run

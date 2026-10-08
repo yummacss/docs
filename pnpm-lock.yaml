@@ -221,11 +221,11 @@ importers:
         specifier: 10.0.1
         version: 10.0.1
       '@yummacss/core':
-        specifier: ^4.3.0
-        version: 4.3.0
+        specifier: ^4.5.0
+        version: 4.5.0
       '@yummacss/nitro':
-        specifier: ^4.3.0
-        version: 4.3.0
+        specifier: ^4.5.0
+        version: 4.5.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -275,8 +275,8 @@ importers:
         specifier: ^3.40.0
         version: 3.40.1
       yummacss:
-        specifier: ^4.3.0
-        version: 4.3.0
+        specifier: ^4.5.0
+        version: 4.5.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.14
@@ -312,8 +312,8 @@ importers:
         specifier: ^1.4.6
         version: 1.4.6
       '@yummacss/postcss':
-        specifier: ^4.3.0
-        version: 4.3.0(postcss@8.5.28)
+        specifier: ^4.5.0
+        version: 4.5.0(postcss@8.5.28)
       mdast-util-mdx-jsx:
         specifier: ^3.2.0
         version: 3.2.0
@@ -1564,14 +1564,14 @@ packages:
   '@vitest/spy@5.0.3':
     resolution: {integrity: sha512-XhFysQTB8AZ+P4gMi+Lpo99vg2AZi0qKpaB9yXQl37+CaMEAPO3iH/wGVnSyL5MPERiLezpqTVtrR6UZH5GCXg==}
 
-  '@yummacss/core@4.3.0':
-    resolution: {integrity: sha512-X0wQwbvEVDtgC7eOaJk+A+NlNlYvqEZZmj2C5infKjgM8c5RzSJBOl8zp+OakRdXk737rZbVwSfdI4qAxh9Mhw==}
+  '@yummacss/core@4.5.0':
+    resolution: {integrity: sha512-bjuqHQohdMUUQhvKFQFoAinfb04WlAn2pD5cVGj5rj0NrQ/KfWtTsGJE3FNTfoO9rWRSiBOZPL/11r++urZ3IQ==}
 
-  '@yummacss/nitro@4.3.0':
-    resolution: {integrity: sha512-Y4YGT9KzjoW+5AsfA3OUcAgKKXkyz1RTsBk+OYCUaIhr5GEMKcZ+hUcm6hEyk38F5bU6FDKpg+/yoHLJfSZ6zQ==}
+  '@yummacss/nitro@4.5.0':
+    resolution: {integrity: sha512-5K8nnI42UL1haW7cBhMFnIxbxQXC2/pZXg4sWvrkHY3/hvarD5q72U5o8bf39Hydi69BCwI+gnHmn+wGHSj1AQ==}
 
-  '@yummacss/postcss@4.3.0':
-    resolution: {integrity: sha512-cdG1nc7j2mBIKqVRVGQqEJD5rVOT62aZCuIkipEq8N/aDhbLSjLmkxG1yEXsWJjU/3raWJ0CrvWH9a4TLSbc/A==}
+  '@yummacss/postcss@4.5.0':
+    resolution: {integrity: sha512-+KtYUUrhcMUbhxHHeDzupVIscYP5zgmwLZD4bq+gwXj2RrNJbpqSH8bcRypyDL4zIENHt2OEEKsYQVpg9UbBTA==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -1742,6 +1742,10 @@ packages:
 
   extend@3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
+
+  fastest-levenshtein@1.0.16:
+    resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
+    engines: {node: '>= 4.9.1'}
 
   fault@2.0.1:
     resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
@@ -2535,8 +2539,8 @@ packages:
     resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
 
-  yummacss@4.3.0:
-    resolution: {integrity: sha512-LjSEakYq+VtyThenWbNnmrh7vuwQYBTLkLHjWTgCjPHthBTBwCWChzPnRUuqh7B8kZwO1mdGtJ2oo6+aKYiddg==}
+  yummacss@4.5.0:
+    resolution: {integrity: sha512-MTO5J7ihmlrRJLJALF1TLsyIii+z4T9AUqYSnMeEF7VE9t6glv02ZssdilRUaP8JYcsbls6o1G3C3cF1JZqSvQ==}
     hasBin: true
 
   zod@4.6.5:
@@ -3373,17 +3377,18 @@ snapshots:
 
   '@vitest/spy@5.0.3': {}
 
-  '@yummacss/core@4.3.0': {}
+  '@yummacss/core@4.5.0': {}
 
-  '@yummacss/nitro@4.3.0':
+  '@yummacss/nitro@4.5.0':
     dependencies:
-      '@yummacss/core': 4.3.0
+      '@yummacss/core': 4.5.0
+      fastest-levenshtein: 1.0.16
       tinyglobby: 0.2.17
       zod: 4.6.5
 
-  '@yummacss/postcss@4.3.0(postcss@8.5.28)':
+  '@yummacss/postcss@4.5.0(postcss@8.5.28)':
     dependencies:
-      '@yummacss/nitro': 4.3.0
+      '@yummacss/nitro': 4.5.0
       postcss: 8.5.28
 
   acorn-jsx@5.3.2(acorn@8.18.0):
@@ -3574,6 +3579,8 @@ snapshots:
       is-extendable: 0.1.1
 
   extend@3.0.2: {}
+
+  fastest-levenshtein@1.0.16: {}
 
   fault@2.0.1:
     dependencies:
@@ -4747,10 +4754,10 @@ snapshots:
 
   yocto-queue@1.2.2: {}
 
-  yummacss@4.3.0:
+  yummacss@4.5.0:
     dependencies:
-      '@yummacss/core': 4.3.0
-      '@yummacss/nitro': 4.3.0
+      '@yummacss/core': 4.5.0
+      '@yummacss/nitro': 4.5.0
 
   zod@4.6.5: {}
 
