@@ -243,16 +243,6 @@ function Home({ spec }: { spec: Extract<OgSpec, { kind: "home" }> }) {
           opacity: 0.4,
         })}
       />
-      <div style={box(132, 184, 3, 36, { background: ACCENT })} />
-      <div
-        style={box(144, 190, 60, 24, {
-          color: ACCENT,
-          fontFamily: "Quattro",
-          fontSize: 18,
-        })}
-      >
-        40
-      </div>
       <div
         style={{
           position: "absolute",
