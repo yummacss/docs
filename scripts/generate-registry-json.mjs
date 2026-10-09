@@ -11,6 +11,7 @@ import {
 import { basename, join } from "node:path";
 import { targetPath } from "../src/utils/install.mjs";
 import { applyStyle, DEFAULT_STYLE, STYLES } from "../src/utils/styles.mjs";
+import config from "../yumma.config.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -54,6 +55,25 @@ function registryDependenciesOf(source, id, allIds) {
   return [...found].sort();
 }
 
+// the states and keyframes the components use, for yummaui to add to a project's config
+function themeOf(sources) {
+  const { states = {}, keyframes = {} } = config.theme ?? {};
+  const used = (pattern) =>
+    new Set(
+      sources.flatMap((source) =>
+        [...source.matchAll(pattern)].map(([, name]) => name),
+      ),
+    );
+  const pick = (table, names) =>
+    Object.fromEntries(
+      Object.entries(table).filter(([name]) => names.has(name)),
+    );
+  return {
+    states: pick(states, used(/(?<![\w:@-])([a-z]+):[a-z@]/g)),
+    keyframes: pick(keyframes, used(/\ban:([a-z]+)/g)),
+  };
+}
+
 const slugs = componentSlugs(contentDir);
 
 function metaOf(id) {
@@ -81,7 +101,6 @@ mkdirSync(outDir, { recursive: true });
 
 const idSet = new Set(ids);
 const components = new Map();
-const blocks = [];
 let orphans = 0;
 
 for (const id of ids) {
@@ -157,7 +176,9 @@ writeFileSync(
   `${JSON.stringify(
     {
       components: index,
-      blocks: blocks.sort((a, b) => a.id.localeCompare(b.id)),
+      theme: themeOf(
+        ids.map((id) => readFileSync(join(uiDir, `${id}.tsx`), "utf8")),
+      ),
       generated: ids.length,
     },
     null,
