@@ -99,12 +99,6 @@ function Rulers() {
         })}
       />
       {ticks}
-      <div
-        style={box(58, BAR, 1.5, 630 - BAR, {
-          background: ACCENT,
-          opacity: 0.4,
-        })}
-      />
     </>
   );
 }
@@ -237,12 +231,6 @@ const titleSize = (text: string, width: number, max: number) =>
 function Home({ spec }: { spec: Extract<OgSpec, { kind: "home" }> }) {
   return (
     <>
-      <div
-        style={box(BAR, 222, 1200 - BAR, 1.5, {
-          background: ACCENT,
-          opacity: 0.4,
-        })}
-      />
       <div
         style={{
           position: "absolute",
