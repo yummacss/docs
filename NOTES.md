@@ -60,11 +60,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
   every page, and the project has no Web Analytics enabled, so both may 404 in
   production. Enable them or drop the packages.
 
-**Decided, not built yet**
-
-- `og.png` and `ui-og.png` are the last hand-made images; generate them the
-  way the blog covers are.
-
 **Parked with Yumma UI** (see "Yumma UI parked, AI first")
 
 - The dark theme across every component, and the colour palette update after
@@ -1800,4 +1795,26 @@ the front faces. Light and dark differ in colour only, never in geometry.
   which reads on light and dark tabs alike.
 - One version at every size, glass included: there is no flat or one-colour
   variant.
+
+## OG images
+
+Every page's link preview is drawn by `ImageResponse` from
+`src/components/og-image.tsx`, light only: a canvas with rulers, the product's
+mark, and one selected layer with handles and a tag. Nothing is hand-made.
+
+- `/og.png` and `/ui-og.png` are the two homes: two lines, one word selected.
+- `/docs/[slug]/og.png` selects the page title, with its description and, on a
+  utility page, the first five classes of its first `<Reference>`.
+- `/ui/components/[slug]/og.png` selects the component itself, from
+  `public/og/ui/<slug>.png`. A component without a screenshot falls back to
+  the docs layout.
+- The scale in the corner tells the products apart: indigo for Yumma CSS,
+  five default colours for Yumma UI.
+- `src/components/og-marks.tsx` holds the light marks as plain SVG, since
+  `ImageResponse` has no `light-dark()`.
+- `pnpm og:components [url] [slug ...]` writes the screenshots from a running
+  site, at 2x. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
+  `SKIP` leaves out components too thin or too wide to read small. The
+  previews draw in `system-ui`, so the images carry the font of the machine
+  that ran it; rerun them all on one machine.
 
