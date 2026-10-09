@@ -9,9 +9,9 @@ const MUTED = "#d0d1fb";
 const ACCENT = "#babcf9";
 const RULE = "#4749ae";
 
-// the dark logo, public/logo-dark.svg
+// the dark mark without its tile, as in the navbar
 const Yumma = () => (
-  <svg aria-hidden="true" width="40" height="40" viewBox="0 0 100 100">
+  <svg aria-hidden="true" width="40" height="45" viewBox="18 14 64 72">
     <defs>
       <linearGradient id="cover-dW0" x1="0" y1="0" x2="0.4" y2="1">
         <stop offset="0" stopColor="#3c4796" />
@@ -30,7 +30,6 @@ const Yumma = () => (
         <stop offset="1" stopColor="#ffffff" stopOpacity="0.15" />
       </linearGradient>
     </defs>
-    <rect width="100" height="100" rx="23" fill="#0d0f22" />
     <polygon points="50,19 23.2,34.5 23.2,65.5 50,50" fill="url(#cover-dW0)" />
     <polygon points="50,19 76.8,34.5 76.8,65.5 50,50" fill="url(#cover-dW1)" />
     <polygon points="23.2,65.5 50,81 76.8,65.5 50,50" fill="url(#cover-dW2)" />

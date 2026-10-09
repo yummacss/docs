@@ -73,7 +73,7 @@ export default function Navbar({
           <nav className="d:f ai:c jc:sb">
             <div className="d:f ai:c g:8">
               <Link href="/" className="fv:oc:ink fv:ow:2">
-                <YummaCSSMark className="d:b h:6 w:auto" />
+                <YummaCSSMark className="d:b h:8 w:auto" />
               </Link>
 
               {links ? (
