@@ -1,6 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
 import { OG_MARKS } from "./og-marks";
-import { PLACEHOLDERS, type Placeholder } from "./og-placeholders";
 
 // The link preview for every page: a light canvas, the product's mark, and one
 // selected layer. Drawn by ImageResponse at 1200 by 630. NOTES.md, "OG images".
@@ -46,11 +45,13 @@ export type OgSpec =
       title: string;
     }
   | {
-      // a wireframe of the component, selected
+      // the component itself selected, from its screenshot
       kind: "component";
       title: string;
       description?: string;
-      placeholder: Placeholder;
+      image: string;
+      width: number;
+      height: number;
     };
 
 const box = (
@@ -242,6 +243,16 @@ function Home({ spec }: { spec: Extract<OgSpec, { kind: "home" }> }) {
           opacity: 0.4,
         })}
       />
+      <div style={box(132, 184, 3, 36, { background: ACCENT })} />
+      <div
+        style={box(144, 190, 60, 24, {
+          color: ACCENT,
+          fontFamily: "Quattro",
+          fontSize: 18,
+        })}
+      >
+        40
+      </div>
       <div
         style={{
           position: "absolute",
@@ -344,7 +355,10 @@ function Title({ spec }: { spec: Extract<OgSpec, { kind: "title" }> }) {
 }
 
 function Component({ spec }: { spec: Extract<OgSpec, { kind: "component" }> }) {
-  const Shape = PLACEHOLDERS[spec.placeholder];
+  // the screenshot fills at most a 400 by 290 box on the right
+  const scale = Math.min(400 / spec.width, 290 / spec.height, 2.2);
+  const width = Math.round(spec.width * scale);
+  const height = Math.round(spec.height * scale);
   return (
     <>
       <div
@@ -384,17 +398,14 @@ function Component({ spec }: { spec: Extract<OgSpec, { kind: "component" }> }) {
       <div
         style={{
           position: "absolute",
-          left: 660,
-          top: 100,
-          width: 456,
-          height: 440,
+          left: 1116 - width - 34,
+          top: Math.max(110, 340 - height / 2),
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
       >
-        <Selected tag={spec.title} kind="component" pad={20}>
-          <Shape />
+        <Selected tag={spec.title} kind="component" pad={14}>
+          {/* biome-ignore lint/performance/noImgElement: ImageResponse draws a plain img */}
+          <img src={spec.image} width={width} height={height} alt="" />
         </Selected>
       </div>
     </>
