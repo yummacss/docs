@@ -16,31 +16,31 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
         <linearGradient id={`${id}-w0`} x1="0" y1="0" x2="0.4" y2="1">
           <stop
             offset="0"
-            style={{ stopColor: "light-dark(#e4e8fa, #3c4796)" }}
+            style={{ stopColor: "light-dark(#c9cff3, #3c4796)" }}
           />
           <stop
             offset="1"
-            style={{ stopColor: "light-dark(#bcc4ef, #141836)" }}
+            style={{ stopColor: "light-dark(#8f9be0, #141836)" }}
           />
         </linearGradient>
         <linearGradient id={`${id}-w1`} x1="1" y1="0" x2="0.6" y2="1">
           <stop
             offset="0"
-            style={{ stopColor: "light-dark(#d3d9f6, #29316e)" }}
+            style={{ stopColor: "light-dark(#b4bdee, #29316e)" }}
           />
           <stop
             offset="1"
-            style={{ stopColor: "light-dark(#a9b2e8, #0f1230)" }}
+            style={{ stopColor: "light-dark(#7d8ad6, #0f1230)" }}
           />
         </linearGradient>
         <linearGradient id={`${id}-w2`} x1="0.5" y1="0" x2="0.5" y2="1">
           <stop
             offset="0"
-            style={{ stopColor: "light-dark(#c5ccf2, #161a3c)" }}
+            style={{ stopColor: "light-dark(#a9b3ea, #161a3c)" }}
           />
           <stop
             offset="1"
-            style={{ stopColor: "light-dark(#e8ebf9, #333d85)" }}
+            style={{ stopColor: "light-dark(#dfe3f9, #333d85)" }}
           />
         </linearGradient>
         <linearGradient id={`${id}-rim`} x1="0" y1="0" x2="0" y2="1">
@@ -81,11 +81,11 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
       />
       <polygon
         points="37,42.4942 50,50 50,65.0115 37,57.5058"
-        style={{ fill: "light-dark(#4c5fc7, #bec6f2)" }}
+        style={{ fill: "light-dark(#3f51c0, #bec6f2)" }}
       />
       <polygon
         points="63,42.4942 63,57.5058 50,65.0115 50,50"
-        style={{ fill: "light-dark(#2f3c8f, #7f8bd6)" }}
+        style={{ fill: "light-dark(#27348a, #7f8bd6)" }}
       />
       <polygon
         points="50,34.9885 63,42.4942 50,50 37,42.4942"
@@ -97,19 +97,19 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
       <polygon
         points="50,19 76.8,34.5 50,50 23.2,34.5"
         style={{
-          fill: "light-dark(rgb(255 255 255 / 0.3), rgb(255 255 255 / 0.18))",
+          fill: "light-dark(rgb(255 255 255 / 0.22), rgb(255 255 255 / 0.18))",
         }}
       />
       <polygon
         points="23.2,34.5 50,50 50,81 23.2,65.5"
         style={{
-          fill: "light-dark(rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.06))",
+          fill: "light-dark(rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.06))",
         }}
       />
       <polygon
         points="76.8,34.5 76.8,65.5 50,81 50,50"
         style={{
-          fill: "light-dark(rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03))",
+          fill: "light-dark(rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.03))",
         }}
       />
       <polygon
@@ -124,7 +124,8 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
         fill="none"
         strokeWidth="0.45"
         style={{
-          stroke: "light-dark(rgb(255 255 255 / 0.5), rgb(255 255 255 / 0.18))",
+          stroke:
+            "light-dark(rgb(255 255 255 / 0.55), rgb(255 255 255 / 0.18))",
         }}
       />
     </svg>
