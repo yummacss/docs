@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { allBlogs, allDocs, allUis } from "content-collections";
 import { ImageResponse } from "next/og";
 import OgImage, { type OgSpec } from "@/components/og-image";
+import { placeholderFor } from "@/components/og-placeholders";
 import { type Category, getReferenceData } from "@/utils/yummacss";
 
 export const HOME_OG: Record<"css" | "ui", OgSpec> = {
@@ -52,14 +53,11 @@ export function blogOg(slug: string): OgSpec | null {
   return { kind: "post", product, title: post.title };
 }
 
-// scripts/og-components.mjs writes these at twice their size
-const SHOTS = join(process.cwd(), "public/og/ui");
-
-export async function uiOg(slug: string): Promise<OgSpec | null> {
+export function uiOg(slug: string): OgSpec | null {
   const ui = allUis.find((u) => u._meta.path === slug);
   if (!ui) return null;
-  const file = join(SHOTS, `${slug}.png`);
-  if (!existsSync(file)) {
+  // a guide page, not a component, keeps the title layout
+  if (!existsSync(join(process.cwd(), "src/registry/meta", `${slug}.json`))) {
     return {
       kind: "title",
       product: "ui",
@@ -67,14 +65,11 @@ export async function uiOg(slug: string): Promise<OgSpec | null> {
       description: ui.description,
     };
   }
-  const png = await readFile(file);
   return {
     kind: "component",
     title: ui.title,
     description: ui.description,
-    image: `data:image/png;base64,${png.toString("base64")}`,
-    width: png.readUInt32BE(16) / 2,
-    height: png.readUInt32BE(20) / 2,
+    placeholder: placeholderFor(slug),
   };
 }
 
