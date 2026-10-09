@@ -7,6 +7,9 @@ import { chromium } from "playwright";
 
 const [BASE = "http://localhost:3000", ...ONLY] = process.argv.slice(2);
 const OUT = "public/og/ui";
+// the OG image's own page colour, so a component sits on it rather than on a
+// white preview box; src/components/og-image.tsx, PAGE
+const PAGE = "#f7f8fb";
 
 // what a preview needs before it shows the component at its best: popups open
 const first = (frame) =>
@@ -61,6 +64,9 @@ for (const slug of slugs) {
   if (!(await iframe.count())) continue;
   await iframe.scrollIntoViewIfNeeded();
   const frame = await (await iframe.elementHandle()).contentFrame();
+  await frame.addStyleTag({
+    content: `html, body, #root { background: ${PAGE} !important; }`,
+  });
   await ACTIONS[slug]?.(frame);
   await page.waitForTimeout(ACTIONS[slug] ? 1500 : 300);
 
