@@ -24,7 +24,7 @@ export async function generateMetadata({
       url,
       images: [
         {
-          url: "/og.png",
+          url: `/docs/${slug}/og.png`,
           width: 1200,
           height: 630,
           alt: doc?.title || "Yumma CSS Documentation",
@@ -35,7 +35,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: doc?.title,
       description: doc?.description,
-      images: ["/og.png"],
+      images: [`/docs/${slug}/og.png`],
     },
   };
 }

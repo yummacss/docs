@@ -9,16 +9,6 @@ const MUTED = "#d0d1fb";
 const ACCENT = "#babcf9";
 const RULE = "#4749ae";
 
-const Yumma = () => (
-  <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="11" fill="#ffffff" />
-    <path
-      fill="#413cb8"
-      d="M3 12C3 7 7 3 12 3C17 3 21 7 21 12C21 17 17 21 12 21C7 21 3 17 3 12ZM12 4.64C7.91 4.64 4.64 7.91 4.64 12C4.64 16.09 7.91 19.36 12 19.36C16.09 19.36 19.36 16.09 19.36 12C19.36 7.91 16.09 4.64 12 4.64ZM15.44 7.91C15.11 7.91 14.78 8.07 14.54 8.32L8.24 14.62C8.07 14.78 7.91 15.11 7.91 15.44C7.91 15.76 8.07 16.17 8.4 16.42C9.38 17.24 10.69 17.73 12 17.73C13.55 17.73 14.95 17.15 16.01 16.01C17.07 14.95 17.73 13.47 17.73 12C17.73 10.69 17.24 9.38 16.42 8.4C16.17 8.07 15.85 7.91 15.44 7.91Z"
-    />
-  </svg>
-);
-
 // marks from svgl.app
 const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   "base-ui": () => (
@@ -74,17 +64,8 @@ function headlineSize(spec: CoverSpec): number {
   return Math.min(base, Math.floor(column / (longest * (dated ? 0.52 : 0.55))));
 }
 
-/**
- * A post's cover, drawn by `ImageResponse` at 1200 by 630. `brand` adds the
- * product mark, for a link shared off the site.
- */
-export default function BlogCover({
-  spec,
-  brand = false,
-}: {
-  spec: CoverSpec;
-  brand?: boolean;
-}) {
+/** A post's cover, drawn by `ImageResponse` at 1200 by 630. */
+export default function BlogCover({ spec }: { spec: CoverSpec }) {
   return (
     <div
       style={{
@@ -102,20 +83,10 @@ export default function BlogCover({
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: brand ? "space-between" : "flex-end",
+          justifyContent: "flex-end",
           flex: spec.features.length ? 1.2 : 1,
         }}
       >
-        {brand && (
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <Yumma />
-            <div
-              style={{ display: "flex", fontFamily: "Esteban", fontSize: 30 }}
-            >
-              {spec.product}
-            </div>
-          </div>
-        )}
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div
             style={{

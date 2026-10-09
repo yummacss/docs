@@ -64,6 +64,5 @@ export function coverSpec(
 export const coverUrl = (raw: Raw | undefined, slug: string) =>
   raw === undefined ? undefined : `/blog/${slug}/cover.png`;
 
-/** The link preview: the cover with the product mark. */
-export const ogUrl = (raw: Raw | undefined, slug: string) =>
-  raw === undefined ? undefined : `/blog/${slug}/og.png`;
+/** The link preview, which every post has: its mark and its title. */
+export const ogUrl = (slug: string) => `/blog/${slug}/og.png`;
