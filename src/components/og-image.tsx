@@ -39,6 +39,12 @@ export type OgSpec =
       classes?: string[];
     }
   | {
+      // a blog post: the mark and its title, nothing else
+      kind: "post";
+      product: OgProduct;
+      title: string;
+    }
+  | {
       // the component itself selected, from its screenshot
       kind: "component";
       title: string;
@@ -406,7 +412,48 @@ function Component({ spec }: { spec: Extract<OgSpec, { kind: "component" }> }) {
   );
 }
 
+function Post({ spec }: { spec: Extract<OgSpec, { kind: "post" }> }) {
+  // one line when it fits at 96 or more, else words wrapped at 96. The words
+  // are their own boxes, since the renderer would break after a dash
+  const one = Math.floor(1032 / (spec.title.length * 0.58));
+  const size = Math.min(140, Math.max(96, one));
+  return (
+    <div
+      style={{
+        display: "flex",
+        position: "relative",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        width: 1200,
+        height: 630,
+        padding: LEFT,
+        background: PAGE,
+      }}
+    >
+      <div style={{ display: "flex" }}>{OG_MARKS[spec.product](120)}</div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          columnGap: "0.25em",
+          maxWidth: 1032,
+          fontFamily: "Esteban",
+          fontSize: size,
+          lineHeight: 1.05,
+          color: INK,
+        }}
+      >
+        {spec.title.split(" ").map((word, i) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: a title repeats words
+          <span key={i}>{word}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function OgImage({ spec }: { spec: OgSpec }) {
+  if (spec.kind === "post") return <Post spec={spec} />;
   const product = spec.kind === "component" ? "ui" : spec.product;
   return (
     <div

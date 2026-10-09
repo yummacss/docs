@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { allDocs, allUis } from "content-collections";
+import { allBlogs, allDocs, allUis } from "content-collections";
 import { ImageResponse } from "next/og";
 import OgImage, { type OgSpec } from "@/components/og-image";
 import { type Category, getReferenceData } from "@/utils/yummacss";
@@ -43,6 +43,13 @@ export function docsOg(slug: string): OgSpec | null {
     description: doc.description,
     classes: pageClasses(doc.content),
   };
+}
+
+export function blogOg(slug: string): OgSpec | null {
+  const post = allBlogs.find((p) => p._meta.path === slug);
+  if (!post) return null;
+  const product = post.coverSpec?.product === "Yumma UI" ? "ui" : "css";
+  return { kind: "post", product, title: post.title };
 }
 
 // scripts/og-components.mjs writes these at twice their size
