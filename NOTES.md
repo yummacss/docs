@@ -24,8 +24,8 @@ The playground (play.yummacss.com and `yummacss/play`) is retired.
 `4.2.1`. Both left with 4.2.2.
 
 **`docs` opens its own Yumma CSS PR.** `yummacss.yml` runs daily and on
-demand: `pnpm upd`, the tests against the new version, then a PR named after
-it. Merging it is a person's call. Dependabot keeps `web-features` and the
+demand: `pnpm upd`, the type check and tests against the new version, then a
+PR named after it, which it merges itself. Dependabot keeps `web-features` and the
 actions current.
 
 `yummaui` is a **separate repo**, `github.com/yummacss/yummaui`. **`repository.url`
@@ -638,7 +638,7 @@ nothing to say so, while it still opened `web-features` ones. `yummacss.yml`
 does the same job as a plain Actions run, so a failure is a red run in the
 Actions tab. It reads the version from `node_modules/yummacss/package.json`,
 because the package's `exports` do not include `./package.json`. A PR opened
-with `GITHUB_TOKEN` starts no other workflow, so nothing merges it by itself.
+with `GITHUB_TOKEN` starts no other workflow, so the same run merges it.
 
 
 **"Is it in the repo" and "is it in the package" are different questions.**
