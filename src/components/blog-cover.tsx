@@ -9,12 +9,77 @@ const MUTED = "#d0d1fb";
 const ACCENT = "#babcf9";
 const RULE = "#4749ae";
 
+// the dark logo, public/logo-dark.svg
 const Yumma = () => (
-  <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="11" fill="#ffffff" />
+  <svg aria-hidden="true" width="40" height="40" viewBox="0 0 100 100">
+    <defs>
+      <linearGradient id="cover-dW0" x1="0" y1="0" x2="0.4" y2="1">
+        <stop offset="0" stopColor="#3c4796" />
+        <stop offset="1" stopColor="#141836" />
+      </linearGradient>
+      <linearGradient id="cover-dW1" x1="1" y1="0" x2="0.6" y2="1">
+        <stop offset="0" stopColor="#29316e" />
+        <stop offset="1" stopColor="#0f1230" />
+      </linearGradient>
+      <linearGradient id="cover-dW2" x1="0.5" y1="0" x2="0.5" y2="1">
+        <stop offset="0" stopColor="#161a3c" />
+        <stop offset="1" stopColor="#333d85" />
+      </linearGradient>
+      <linearGradient id="cover-dRim" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#ffffff" stopOpacity="0.55" />
+        <stop offset="1" stopColor="#ffffff" stopOpacity="0.15" />
+      </linearGradient>
+    </defs>
+    <rect width="100" height="100" rx="23" fill="#0d0f22" />
+    <polygon points="50,19 23.2,34.5 23.2,65.5 50,50" fill="url(#cover-dW0)" />
+    <polygon points="50,19 76.8,34.5 76.8,65.5 50,50" fill="url(#cover-dW1)" />
+    <polygon points="23.2,65.5 50,81 76.8,65.5 50,50" fill="url(#cover-dW2)" />
     <path
-      fill="#413cb8"
-      d="M3 12C3 7 7 3 12 3C17 3 21 7 21 12C21 17 17 21 12 21C7 21 3 17 3 12ZM12 4.64C7.91 4.64 4.64 7.91 4.64 12C4.64 16.09 7.91 19.36 12 19.36C16.09 19.36 19.36 16.09 19.36 12C19.36 7.91 16.09 4.64 12 4.64ZM15.44 7.91C15.11 7.91 14.78 8.07 14.54 8.32L8.24 14.62C8.07 14.78 7.91 15.11 7.91 15.44C7.91 15.76 8.07 16.17 8.4 16.42C9.38 17.24 10.69 17.73 12 17.73C13.55 17.73 14.95 17.15 16.01 16.01C17.07 14.95 17.73 13.47 17.73 12C17.73 10.69 17.24 9.38 16.42 8.4C16.17 8.07 15.85 7.91 15.44 7.91Z"
+      d="M50 50 L50 19 M50 50 L23.2 65.5 M50 50 L76.8 65.5"
+      fill="none"
+      stroke="#ffffff"
+      strokeOpacity="0.12"
+      strokeWidth="0.5"
+    />
+    <polygon points="50,34.9885 63,42.4942 50,50 37,42.4942" fill="#ffffff" />
+    <polygon points="37,42.4942 50,50 50,65.0115 37,57.5058" fill="#bec6f2" />
+    <polygon points="63,42.4942 63,57.5058 50,65.0115 50,50" fill="#7f8bd6" />
+    <polygon
+      points="50,34.9885 63,42.4942 50,50 37,42.4942"
+      fill="none"
+      stroke="#ffffff"
+      strokeOpacity="0"
+      strokeWidth="0.4"
+      strokeLinejoin="round"
+    />
+    <polygon
+      points="50,19 76.8,34.5 50,50 23.2,34.5"
+      fill="#ffffff"
+      fillOpacity="0.18"
+    />
+    <polygon
+      points="23.2,34.5 50,50 50,81 23.2,65.5"
+      fill="#ffffff"
+      fillOpacity="0.06"
+    />
+    <polygon
+      points="76.8,34.5 76.8,65.5 50,81 50,50"
+      fill="#ffffff"
+      fillOpacity="0.03"
+    />
+    <polygon
+      points="50,19 76.8,34.5 76.8,65.5 50,81 23.2,65.5 23.2,34.5"
+      fill="none"
+      stroke="url(#cover-dRim)"
+      strokeWidth="0.65"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M23.2 34.5 L50 50 L76.8 34.5 M50 50 L50 81"
+      fill="none"
+      stroke="#ffffff"
+      strokeOpacity="0.18"
+      strokeWidth="0.45"
     />
   </svg>
 );

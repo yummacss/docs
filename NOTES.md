@@ -79,7 +79,7 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 
 - Cascade layers (`TODO.md`).
 - Bounded or unbounded scale (see "The 0-384 scale").
-- The landing page and the logomark.
+- The landing page.
 - Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
   in `yummaui`.
 
@@ -398,7 +398,7 @@ change.** Stay on patches until then.
 **Sharp angles only. No cards, no rails, no rounded corners, no framed images.**
 `src/app`, `src/components` and `src/styles` contain **zero** `br-*` utilities
 and zero `border-radius`; every route is plain typography grouped by whitespace.
-The only circle in the repo is the logo. **Run that grep before proposing any new
+**Run that grep before proposing any new
 visual structure.** (The 1690 `br-*` uses all live in `src/registry`, including
 384 `br-9999` across 149 files - if "sharp only" ever becomes a brand rule rather
 than a page preference, that is where the decision lands, and it is a large job.)
@@ -924,16 +924,14 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
   the opposite on purpose: every migrated component is a single default-exported
   props-driven unit whose only other exports are TypeScript interfaces. An
   Anatomy tree would document an API surface the consumer does not have.
-- **Landing page and logo redesign.** Both attempted, both dropped. **Do not
-  restart unprompted.** Four landing directions (Specimen, Index, Mechanism,
+- **Landing page redesign.** Attempted and dropped. **Do not restart
+  unprompted.** Four landing directions (Specimen, Index, Mechanism,
   Marginalia) were rejected as "messy, hard to scan, overwhelming", and a calmer
   rebuild was dropped too; explicitly ruled out as too generic are a centred
   heading over centred buttons, and a code block comparing Yumma CSS to other
-  frameworks. The logo brief sharpened to **one circle, one square and one
-  triangle, white, sharp angles only**, eight arrangements were drawn, none
-  chosen, and then it was shelved. Method note: mockups live at
-  `public/mockups/` (gitignored) served by `next dev`, with real fonts copied out
-  of `node_modules/@fontsource/*` so type is faithful.
+  frameworks. Method note: mockups live at `public/mockups/` (gitignored)
+  served by `next dev`, with real fonts copied out of `node_modules/@fontsource/*`
+  so type is faithful.
 
 ---
 
@@ -1488,7 +1486,6 @@ the interesting work. Top first.
    site's rail, which lists them as reference; `yummaui add` takes `--style`;
    and the Elegant serif comes from `theme.fonts`, which the CLI fills by
    offering three Fontsource faces or the user's own.
-6. **A new logomark.**
 
 **Styles phase four, the controls, 2026-09-27:** the rail's Style and
 Radius set `style` and `radius` in the URL through nuqs, the same way the
@@ -1786,4 +1783,21 @@ have to supply; `TimeSlider.Chapters` draws them once a chapters track
 exists. YouTube is blocked from the agent's network, so the player was
 checked against a stand-in `window.YT` in Chromium (play, the clock, pause on
 leave, resume, mute, seeking to the middle) and not against a real video.
+
+## Logomark
+
+A glass cube with a solid cube inside it, in the accent. The glass is three
+inner walls under three faint white faces; the solid sits at the centre, behind
+the front faces. Light and dark differ in colour only, never in geometry.
+
+- `src/components/icons/yummacss-mark.tsx` draws it for the navbar, the mobile
+  nav and the footer, with no tile. Every colour is a `light-dark()` pair, so it
+  follows `data-theme`; gradient ids come from `useId`, since the mark renders
+  more than once a page.
+- `public/logo.svg` and `public/logo-dark.svg` are the mark on its rounded tile
+  (`rx` 23 of 100). `favicon.svg`, `favicon.ico` (16, 32, 48) and
+  `apple-touch-icon.png` (180, square, for iOS to round) use the dark tile,
+  which reads on light and dark tabs alike.
+- One version at every size, glass included: there is no flat or one-colour
+  variant.
 
