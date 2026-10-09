@@ -1808,12 +1808,16 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
   utility page, the first five classes of its first `<Reference>`.
 - `/blog/[slug]/og.png` is the mark and the post's title, nothing else, for
   every post whether or not it has a cover. Yumma UI posts get the Layers mark.
-- `/ui/components/[slug]/og.png` selects a wireframe of the component, one of
-  a few shapes in `src/components/og-placeholders.tsx` (a button, a field, a
-  list, a dialog and so on). A component without an entry draws the card; a
-  guide page, one with no registry meta, keeps the docs layout.
+- `/ui/components/[slug]/og.png` selects the component itself, from
+  `public/og/ui/<slug>.png`. A component without a screenshot falls back to
+  the docs layout.
 - The scale in the corner tells the products apart: indigo for Yumma CSS,
   five default colours for Yumma UI.
 - `src/components/og-marks.tsx` holds the light marks as plain SVG, since
   `ImageResponse` has no `light-dark()`.
+- `pnpm og:components [url] [slug ...]` writes the screenshots from a running
+  site, at 2x, on the OG page colour rather than the preview's white. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
+  `SKIP` leaves out components too thin or too wide to read small. The
+  previews draw in `system-ui`, so the images carry the font of the machine
+  that ran it; rerun them all on one machine.
 
