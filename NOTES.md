@@ -1816,7 +1816,7 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
 - `src/components/og-marks.tsx` holds the light marks as plain SVG, since
   `ImageResponse` has no `light-dark()`.
 - `pnpm og:components [url] [slug ...]` writes the screenshots from a running
-  site, at 2x. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
+  site, at 2x, on the OG page colour rather than the preview's white. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
   `SKIP` leaves out components too thin or too wide to read small. The
   previews draw in `system-ui`, so the images carry the font of the machine
   that ran it; rerun them all on one machine.
