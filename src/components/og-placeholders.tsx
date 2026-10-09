@@ -116,9 +116,13 @@ export const PLACEHOLDERS = {
   ),
   choice: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 27 }}>
-      {[true, false, true].map((on, i) => (
+      {[
+        { on: true, width: 216 },
+        { on: false, width: 176 },
+        { on: true, width: 256 },
+      ].map(({ on, width }) => (
         <div
-          key={`${i}${on}`}
+          key={width}
           style={{ display: "flex", alignItems: "center", gap: 22 }}
         >
           <div
@@ -130,7 +134,7 @@ export const PLACEHOLDERS = {
               border: on ? "none" : `2px solid ${BORDER}`,
             }}
           />
-          <div style={bar([216, 176, 256][i])} />
+          <div style={bar(width)} />
         </div>
       ))}
     </div>
