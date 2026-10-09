@@ -60,11 +60,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
   every page, and the project has no Web Analytics enabled, so both may 404 in
   production. Enable them or drop the packages.
 
-**Decided, not built yet**
-
-- `og.png` and `ui-og.png` are the last hand-made images; generate them the
-  way the blog covers are.
-
 **Parked with Yumma UI** (see "Yumma UI parked, AI first")
 
 - The dark theme across every component, and the colour palette update after
@@ -79,7 +74,7 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 
 - Cascade layers (`TODO.md`).
 - Bounded or unbounded scale (see "The 0-384 scale").
-- The landing page and the logomark.
+- The landing page.
 - Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
   in `yummaui`.
 
@@ -398,7 +393,7 @@ change.** Stay on patches until then.
 **Sharp angles only. No cards, no rails, no rounded corners, no framed images.**
 `src/app`, `src/components` and `src/styles` contain **zero** `br-*` utilities
 and zero `border-radius`; every route is plain typography grouped by whitespace.
-The only circle in the repo is the logo. **Run that grep before proposing any new
+**Run that grep before proposing any new
 visual structure.** (The 1690 `br-*` uses all live in `src/registry`, including
 384 `br-9999` across 149 files - if "sharp only" ever becomes a brand rule rather
 than a page preference, that is where the decision lands, and it is a large job.)
@@ -924,16 +919,14 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
   the opposite on purpose: every migrated component is a single default-exported
   props-driven unit whose only other exports are TypeScript interfaces. An
   Anatomy tree would document an API surface the consumer does not have.
-- **Landing page and logo redesign.** Both attempted, both dropped. **Do not
-  restart unprompted.** Four landing directions (Specimen, Index, Mechanism,
+- **Landing page redesign.** Attempted and dropped. **Do not restart
+  unprompted.** Four landing directions (Specimen, Index, Mechanism,
   Marginalia) were rejected as "messy, hard to scan, overwhelming", and a calmer
   rebuild was dropped too; explicitly ruled out as too generic are a centred
   heading over centred buttons, and a code block comparing Yumma CSS to other
-  frameworks. The logo brief sharpened to **one circle, one square and one
-  triangle, white, sharp angles only**, eight arrangements were drawn, none
-  chosen, and then it was shelved. Method note: mockups live at
-  `public/mockups/` (gitignored) served by `next dev`, with real fonts copied out
-  of `node_modules/@fontsource/*` so type is faithful.
+  frameworks. Method note: mockups live at `public/mockups/` (gitignored)
+  served by `next dev`, with real fonts copied out of `node_modules/@fontsource/*`
+  so type is faithful.
 
 ---
 
@@ -1488,7 +1481,6 @@ the interesting work. Top first.
    site's rail, which lists them as reference; `yummaui add` takes `--style`;
    and the Elegant serif comes from `theme.fonts`, which the CLI fills by
    offering three Fontsource faces or the user's own.
-6. **A new logomark.**
 
 **Styles phase four, the controls, 2026-09-27:** the rail's Style and
 Radius set `style` and `radius` in the URL through nuqs, the same way the
@@ -1714,8 +1706,9 @@ in Esteban and `indigo-3` (a release's number, or the title), the date in Quattr
 four feature rows on the right, each with an optional `code` or svgl `logo`.
 Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
 the site's own blog. The site's dark page made the cover vanish into it, so
-the ground is indigo rather than any page token. `cover.png` has no mark and `og.png`, the link
-preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
+the ground is indigo rather than any page token. `cover.png` comes from
+`src/utils/cover-image.tsx` and has no mark; the link preview is separate (see
+"OG images"). `cover` is
 `release` or `text`, or an object with `text`, `product` and `features`. A
 path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
@@ -1786,4 +1779,45 @@ have to supply; `TimeSlider.Chapters` draws them once a chapters track
 exists. YouTube is blocked from the agent's network, so the player was
 checked against a stand-in `window.YT` in Chromium (play, the clock, pause on
 leave, resume, mute, seeking to the middle) and not against a real video.
+
+## Logomark
+
+A glass cube with a solid cube inside it, in the accent. The glass is three
+inner walls under three faint white faces; the solid sits at the centre, behind
+the front faces. Light and dark differ in colour only, never in geometry.
+
+- `src/components/icons/yummacss-mark.tsx` draws it for the navbar, the mobile
+  nav and the footer, with no tile. Every colour is a `light-dark()` pair, so it
+  follows `data-theme`; gradient ids come from `useId`, since the mark renders
+  more than once a page.
+- `public/logo.svg` and `public/logo-dark.svg` are the mark on its rounded tile
+  (`rx` 23 of 100). `favicon.svg`, `favicon.ico` (16, 32, 48) and
+  `apple-touch-icon.png` (180, square, for iOS to round) use the dark tile,
+  which reads on light and dark tabs alike.
+- One version at every size, glass included: there is no flat or one-colour
+  variant.
+
+## OG images
+
+Every page's link preview is drawn by `ImageResponse` from
+`src/components/og-image.tsx`, light only: a canvas with rulers, the product's
+mark, and one selected layer with handles and a tag. Nothing is hand-made.
+
+- `/og.png` and `/ui-og.png` are the two homes: two lines, one word selected.
+- `/docs/[slug]/og.png` selects the page title, with its description and, on a
+  utility page, the first five classes of its first `<Reference>`.
+- `/blog/[slug]/og.png` is the mark and the post's title, nothing else, for
+  every post whether or not it has a cover. Yumma UI posts get the Layers mark.
+- `/ui/components/[slug]/og.png` selects the component itself, from
+  `public/og/ui/<slug>.png`. A component without a screenshot falls back to
+  the docs layout.
+- The scale in the corner tells the products apart: indigo for Yumma CSS,
+  indigo into violet for Yumma UI.
+- `src/components/og-marks.tsx` holds the light marks as plain SVG, since
+  `ImageResponse` has no `light-dark()`.
+- `pnpm og:components [url] [slug ...]` writes the screenshots from a running
+  site, at 2x, on the OG page colour rather than the preview's white. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
+  `SKIP` leaves out components too thin or too wide to read small. The
+  previews draw in `system-ui`, so the images carry the font of the machine
+  that ran it; rerun them all on one machine.
 
