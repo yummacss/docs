@@ -1,5 +1,5 @@
-# Opens a PR moving the docs to the latest Yumma CSS. Dependabot stopped
-# opening these, and a run here fails in plain sight; see NOTES.md.
+# Moves the docs to the latest Yumma CSS and merges it once the checks pass.
+# Dependabot stopped opening these; a run here fails in plain sight. NOTES.md.
 name: Yumma CSS updates
 on:
   schedule:
@@ -30,15 +30,22 @@ jobs:
           if git diff --quiet; then exit 0; fi
           echo "version=$(node -p 'require("./node_modules/yummacss/package.json").version')" >> "$GITHUB_OUTPUT"
 
-      # the class tests check the site against the new version before the PR opens
+      # the types and the class tests check the site against the new version
       - if: steps.version.outputs.version
-        run: pnpm test
+        run: pnpm check-types && pnpm test
 
       - if: steps.version.outputs.version
+        id: pr
         uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/yummacss-${{ steps.version.outputs.version }}
           commit-message: Docs on Yumma CSS ${{ steps.version.outputs.version }}
           title: Docs on Yumma CSS ${{ steps.version.outputs.version }}
-          body: Moves the docs to Yumma CSS ${{ steps.version.outputs.version }}. The class tests pass on it.
+          body: Moves the docs to Yumma CSS ${{ steps.version.outputs.version }}. The type check and the class tests pass on it.
           labels: dependencies
+
+      - if: steps.pr.outputs.pull-request-number
+        run: gh pr merge --squash --delete-branch "$PR"
+        env:
+          PR: ${{ steps.pr.outputs.pull-request-number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
