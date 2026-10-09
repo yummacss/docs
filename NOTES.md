@@ -1812,7 +1812,7 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
   `public/og/ui/<slug>.png`. A component without a screenshot falls back to
   the docs layout.
 - The scale in the corner tells the products apart: indigo for Yumma CSS,
-  five default colours for Yumma UI.
+  indigo into violet for Yumma UI.
 - `src/components/og-marks.tsx` holds the light marks as plain SVG, since
   `ImageResponse` has no `light-dark()`.
 - `pnpm og:components [url] [slug ...]` writes the screenshots from a running

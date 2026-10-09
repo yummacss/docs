@@ -16,7 +16,7 @@ const LEFT = 84;
 
 const SCALES = {
   css: ["#dfe3f9", "#9aa6ec", "#4c5fc7", "#3a4aa6", "#1d2152"],
-  ui: ["#e63946", "#ffb81c", "#06d6a0", "#2563eb", "#8b5cf6"],
+  ui: ["#c7d2fe", "#a5b4fc", "#818cf8", "#a78bfa", "#c084fc"],
 };
 
 export type OgProduct = keyof typeof SCALES;
