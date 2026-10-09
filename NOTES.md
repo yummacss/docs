@@ -261,6 +261,11 @@ yummaui list [component]         browse what is available
   -y, --yes              skip prompts
 ```
 
+`index.json` also carries `theme`: the states and keyframes the components use,
+copied from this site's `yumma.config.mjs`. `yummaui` writes them into the
+config it creates and names any an existing config lacks, so the list lives in
+one place.
+
 `add` resolves its argument against `index.components[].component` in
 `/ui/r/index.json`, which holds the **36 component names**, never the flat ids.
 So `add button` works, `add button-pill` exits 1. The registry id is only how
