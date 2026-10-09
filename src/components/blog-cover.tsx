@@ -9,80 +9,6 @@ const MUTED = "#d0d1fb";
 const ACCENT = "#babcf9";
 const RULE = "#4749ae";
 
-// the dark mark without its tile, as in the navbar
-const Yumma = () => (
-  <svg aria-hidden="true" width="40" height="45" viewBox="18 14 64 72">
-    <defs>
-      <linearGradient id="cover-dW0" x1="0" y1="0" x2="0.4" y2="1">
-        <stop offset="0" stopColor="#3c4796" />
-        <stop offset="1" stopColor="#141836" />
-      </linearGradient>
-      <linearGradient id="cover-dW1" x1="1" y1="0" x2="0.6" y2="1">
-        <stop offset="0" stopColor="#29316e" />
-        <stop offset="1" stopColor="#0f1230" />
-      </linearGradient>
-      <linearGradient id="cover-dW2" x1="0.5" y1="0" x2="0.5" y2="1">
-        <stop offset="0" stopColor="#161a3c" />
-        <stop offset="1" stopColor="#333d85" />
-      </linearGradient>
-      <linearGradient id="cover-dRim" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#ffffff" stopOpacity="0.55" />
-        <stop offset="1" stopColor="#ffffff" stopOpacity="0.15" />
-      </linearGradient>
-    </defs>
-    <polygon points="50,19 23.2,34.5 23.2,65.5 50,50" fill="url(#cover-dW0)" />
-    <polygon points="50,19 76.8,34.5 76.8,65.5 50,50" fill="url(#cover-dW1)" />
-    <polygon points="23.2,65.5 50,81 76.8,65.5 50,50" fill="url(#cover-dW2)" />
-    <path
-      d="M50 50 L50 19 M50 50 L23.2 65.5 M50 50 L76.8 65.5"
-      fill="none"
-      stroke="#ffffff"
-      strokeOpacity="0.12"
-      strokeWidth="0.5"
-    />
-    <polygon points="50,34.9885 63,42.4942 50,50 37,42.4942" fill="#ffffff" />
-    <polygon points="37,42.4942 50,50 50,65.0115 37,57.5058" fill="#bec6f2" />
-    <polygon points="63,42.4942 63,57.5058 50,65.0115 50,50" fill="#7f8bd6" />
-    <polygon
-      points="50,34.9885 63,42.4942 50,50 37,42.4942"
-      fill="none"
-      stroke="#ffffff"
-      strokeOpacity="0"
-      strokeWidth="0.4"
-      strokeLinejoin="round"
-    />
-    <polygon
-      points="50,19 76.8,34.5 50,50 23.2,34.5"
-      fill="#ffffff"
-      fillOpacity="0.18"
-    />
-    <polygon
-      points="23.2,34.5 50,50 50,81 23.2,65.5"
-      fill="#ffffff"
-      fillOpacity="0.06"
-    />
-    <polygon
-      points="76.8,34.5 76.8,65.5 50,81 50,50"
-      fill="#ffffff"
-      fillOpacity="0.03"
-    />
-    <polygon
-      points="50,19 76.8,34.5 76.8,65.5 50,81 23.2,65.5 23.2,34.5"
-      fill="none"
-      stroke="url(#cover-dRim)"
-      strokeWidth="0.65"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M23.2 34.5 L50 50 L76.8 34.5 M50 50 L50 81"
-      fill="none"
-      stroke="#ffffff"
-      strokeOpacity="0.18"
-      strokeWidth="0.45"
-    />
-  </svg>
-);
-
 // marks from svgl.app
 const LOGOS: Record<NonNullable<CoverFeature["logo"]>, () => ReactNode> = {
   "base-ui": () => (
@@ -138,17 +64,8 @@ function headlineSize(spec: CoverSpec): number {
   return Math.min(base, Math.floor(column / (longest * (dated ? 0.52 : 0.55))));
 }
 
-/**
- * A post's cover, drawn by `ImageResponse` at 1200 by 630. `brand` adds the
- * product mark, for a link shared off the site.
- */
-export default function BlogCover({
-  spec,
-  brand = false,
-}: {
-  spec: CoverSpec;
-  brand?: boolean;
-}) {
+/** A post's cover, drawn by `ImageResponse` at 1200 by 630. */
+export default function BlogCover({ spec }: { spec: CoverSpec }) {
   return (
     <div
       style={{
@@ -166,20 +83,10 @@ export default function BlogCover({
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: brand ? "space-between" : "flex-end",
+          justifyContent: "flex-end",
           flex: spec.features.length ? 1.2 : 1,
         }}
       >
-        {brand && (
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <Yumma />
-            <div
-              style={{ display: "flex", fontFamily: "Esteban", fontSize: 30 }}
-            >
-              {spec.product}
-            </div>
-          </div>
-        )}
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div
             style={{

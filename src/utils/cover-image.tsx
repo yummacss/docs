@@ -11,8 +11,8 @@ export function coverParams() {
     .map((post) => ({ slug: post._meta.path }));
 }
 
-/** A post's cover as a PNG. `brand` adds the product mark for link previews. */
-export async function coverImage(slug: string, brand: boolean) {
+/** A post's cover as a PNG. */
+export async function coverImage(slug: string) {
   const spec = allBlogs.find((post) => post._meta.path === slug)?.coverSpec;
   if (!spec) return new Response("Not found", { status: 404 });
 
@@ -23,7 +23,7 @@ export async function coverImage(slug: string, brand: boolean) {
     font("ia-writer-quattro/files/ia-writer-quattro-latin-400-normal.woff"),
   ]);
 
-  return new ImageResponse(<BlogCover spec={spec} brand={brand} />, {
+  return new ImageResponse(<BlogCover spec={spec} />, {
     width: 1200,
     height: 630,
     fonts: [

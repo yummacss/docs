@@ -1706,8 +1706,9 @@ in Esteban and `indigo-3` (a release's number, or the title), the date in Quattr
 four feature rows on the right, each with an optional `code` or svgl `logo`.
 Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
 the site's own blog. The site's dark page made the cover vanish into it, so
-the ground is indigo rather than any page token. `cover.png` has no mark and `og.png`, the link
-preview, adds it; both come from `src/utils/cover-image.tsx`. `cover` is
+the ground is indigo rather than any page token. `cover.png` comes from
+`src/utils/cover-image.tsx` and has no mark; the link preview is separate (see
+"OG images"). `cover` is
 `release` or `text`, or an object with `text`, `product` and `features`. A
 path to an image is refused, so a post cannot go back to a hand-made cover.
 Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
@@ -1805,6 +1806,8 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
 - `/og.png` and `/ui-og.png` are the two homes: two lines, one word selected.
 - `/docs/[slug]/og.png` selects the page title, with its description and, on a
   utility page, the first five classes of its first `<Reference>`.
+- `/blog/[slug]/og.png` is the mark and the post's title, nothing else, for
+  every post whether or not it has a cover. Yumma UI posts get the Layers mark.
 - `/ui/components/[slug]/og.png` selects the component itself, from
   `public/og/ui/<slug>.png`. A component without a screenshot falls back to
   the docs layout.

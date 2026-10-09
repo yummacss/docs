@@ -6,10 +6,11 @@ describe("blog covers", () => {
     expect(coverUrl("release", "yummacss-4.2.0")).toBe(
       "/blog/yummacss-4.2.0/cover.png",
     );
-    expect(ogUrl("release", "yummacss-4.2.0")).toBe(
-      "/blog/yummacss-4.2.0/og.png",
-    );
     expect(coverUrl(undefined, "yummacss-4.2.0")).toBeUndefined();
+  });
+
+  it("gives every post a link preview, cover or not", () => {
+    expect(ogUrl("yummacss-4.2.0")).toBe("/blog/yummacss-4.2.0/og.png");
   });
 
   it("shows a release's number, a post's title and a long date by default", () => {

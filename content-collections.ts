@@ -102,7 +102,7 @@ const blog = defineCollection({
     ),
     // a template becomes the url of the image drawn for it, so readers see a path either way
     cover: coverUrl(doc.cover, doc._meta.path),
-    og: ogUrl(doc.cover, doc._meta.path),
+    og: ogUrl(doc._meta.path),
     coverSpec: coverSpec(doc.cover, doc.title, doc.date),
   }),
 });
