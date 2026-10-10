@@ -127,15 +127,15 @@ const removedReleasePosts = [
   "3.26.0",
 ];
 
+const RELEASES = "https://github.com/yummacss/yummacss/releases";
+
+// the blog is gone; until /releases exists its addresses go to GitHub. Not
+// permanent, so they can move there without browsers holding the old target.
+// NOTES.md, "Releases".
 const blogRedirects = [
   {
     source: "/blog/v0",
     destination: `${RELEASE_TAG}/v0.1.0`,
-    permanent: true,
-  },
-  {
-    source: "/blog/yummacss-1.0",
-    destination: "/blog/yummacss-1.0.0",
     permanent: true,
   },
   {
@@ -144,23 +144,8 @@ const blogRedirects = [
     permanent: true,
   },
   {
-    source: "/blog/yummacss-2.0",
-    destination: "/blog/yummacss-2.0.0",
-    permanent: true,
-  },
-  {
     source: "/blog/v2",
     destination: `${RELEASE_TAG}/v2.1.0`,
-    permanent: true,
-  },
-  {
-    source: "/blog/v3",
-    destination: "/blog/yummacss-3.0.0",
-    permanent: true,
-  },
-  {
-    source: "/blog/yummacss-3.0",
-    destination: "/blog/yummacss-3.0.0",
     permanent: true,
   },
   ...removedReleasePosts.map((version) => ({
@@ -168,6 +153,29 @@ const blogRedirects = [
     destination: `${RELEASE_TAG}/v${version}`,
     permanent: true,
   })),
+  ...[
+    ["/blog/yummacss-1.0", "1.0.0"],
+    ["/blog/yummacss-2.0", "2.0.0"],
+    ["/blog/v3", "3.0.0"],
+    ["/blog/yummacss-3.0", "3.0.0"],
+    ...["1.0.0", "2.0.0", "3.0.0", "3.29.0", "4.0.0", "4.2.0", "4.3.0"].map(
+      (version) => [`/blog/yummacss-${version}`, version],
+    ),
+  ].map(([source, version]) => ({
+    source,
+    destination: `${RELEASE_TAG}/v${version}`,
+    permanent: false,
+  })),
+  {
+    source: "/blog/hello-yumma-ui",
+    destination: "https://github.com/yummacss/yummaui/releases",
+    permanent: false,
+  },
+  {
+    source: "/blog/:path*",
+    destination: RELEASES,
+    permanent: false,
+  },
 ];
 
 const uiRedirects = [
