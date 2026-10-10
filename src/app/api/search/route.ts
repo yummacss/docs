@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { allDocs, allUis } from "content-collections";
 import { extractProperties } from "@/utils/doc-properties";
 import type { SearchIndex } from "@/utils/search-data";
@@ -27,6 +29,12 @@ export function GET() {
       description: ui.description,
       path: `/ui/components/${ui._meta.path}`,
       category: "ui-components",
+      // the link preview's screenshot, scripts/og-components.mjs
+      preview: existsSync(
+        join(process.cwd(), `public/og/ui/${ui._meta.path}.png`),
+      )
+        ? `/og/ui/${ui._meta.path}.png`
+        : undefined,
     })),
     // one row per component that has the prop, matched on the name alone so that
     // typing a component's name does not list every prop it has
