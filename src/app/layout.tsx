@@ -24,7 +24,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     apple: "/apple-touch-icon.png",
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "48x48" },
+    ],
     shortcut: "/favicon.ico",
   },
   metadataBase: new URL("https://yummacss.com"),
