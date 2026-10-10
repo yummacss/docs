@@ -1727,7 +1727,9 @@ inner walls under three faint white faces; the solid sits at the centre, behind
 the front faces. Light and dark differ in colour only, never in geometry.
 
 - `src/components/icons/yummacss-mark.tsx` draws it for the navbar, the mobile
-  nav and the footer, with no tile. Every colour is a `light-dark()` pair, so it
+  nav and the footer, with no tile. `HomeMark` (`src/components/ui/home-mark.tsx`)
+  links each one home; a right-click opens `/docs/brand` instead of the browser's
+  menu. Every colour is a `light-dark()` pair, so it
   follows `data-theme`; gradient ids come from `useId`, since the mark renders
   more than once a page.
 - `public/logo.svg` and `public/logo-dark.svg` are the mark on its rounded tile
