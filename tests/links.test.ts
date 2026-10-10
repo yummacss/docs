@@ -8,15 +8,12 @@ import { contentPages, rootDir, tsxFilesIn } from "./helpers";
 // heading, and only the pages under it exist
 const routes = new Set([
   "/",
-  "/blog",
-  "/blog/rss.xml",
   "/agents.md",
   "/llms.txt",
   "/robots.txt",
   "/sitemap.xml",
   ...contentPages("docs").map(({ slug }) => `/docs/${slug}`),
   ...contentPages("ui").map(({ slug }) => `/ui/components/${slug}`),
-  ...contentPages("blog").map(({ slug }) => `/blog/${slug}`),
   ...redirects.map(({ source }) => source),
 ]);
 

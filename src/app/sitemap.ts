@@ -1,7 +1,6 @@
 import { statSync } from "node:fs";
-import { allBlogs, allDocs, allUis } from "content-collections";
+import { allDocs, allUis } from "content-collections";
 import type { MetadataRoute } from "next";
-import { isVisible } from "@/utils/blog";
 
 function getFileDate(slug: string, collection: string): Date {
   try {
@@ -30,13 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  const blogUrls = allBlogs.filter(isVisible).map((post) => ({
-    url: `${baseUrl}/blog/${post._meta.path}`,
-    lastModified: new Date(post.updated ?? post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
   const staticPages = [
     {
       url: baseUrl,
@@ -44,13 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 1,
     },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    },
   ];
 
-  return [...staticPages, ...docUrls, ...uiUrls, ...blogUrls];
+  return [...staticPages, ...docUrls, ...uiUrls];
 }

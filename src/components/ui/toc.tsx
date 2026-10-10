@@ -3,9 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ChangelogLink from "@/components/ui/changelog-link";
 import EditPage from "@/components/ui/edit-page";
-import RssLink from "@/components/ui/rss-link";
 import Scroller from "@/components/ui/scroller";
 import ViewMarkdown from "@/components/ui/view-markdown";
 
@@ -18,8 +16,6 @@ interface TocItem {
 export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
-  const isBlogIndex = pathname === "/blog";
-  const isBlogPost = pathname?.startsWith("/blog/");
   // biome-ignore lint/correctness/useExhaustiveDependencies: need this useEffect to re-run this on route change to update the headings
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -50,7 +46,7 @@ export default function TableOfContents() {
       <Scroller className="p:st t:20 max-h:calc(100dvh-5rem)">
         <div className="px:8 pb:12">
           <h3 className="mb:4 c:silver-8 fs:xs fw:600 ls:2 tt:u">
-            {isBlogIndex ? "Archive" : "On this page"}
+            On this page
           </h3>
           <ul className="d:f fd:c g:2 fs:sm">
             {headings.map((heading) => (
@@ -65,16 +61,8 @@ export default function TableOfContents() {
             ))}
           </ul>
           <div className="d:f fd:c g:3 mt:8 pt:8">
-            {isBlogIndex ? (
-              <RssLink />
-            ) : isBlogPost ? (
-              <ChangelogLink />
-            ) : (
-              <>
-                <EditPage />
-                <ViewMarkdown />
-              </>
-            )}
+            <EditPage />
+            <ViewMarkdown />
           </div>
         </div>
       </Scroller>
