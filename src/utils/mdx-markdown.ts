@@ -9,6 +9,7 @@ import remarkStringify from "remark-stringify";
 import { unified } from "unified";
 import type { RegistryMeta } from "@/registry";
 import { baselineFor } from "@/utils/baseline";
+import { BRAND_COLORS, type BrandProduct, brandFiles } from "@/utils/brand";
 import { COLOR_FAMILIES, SHADE_LABELS } from "@/utils/colors";
 import { targetPath } from "@/utils/install.mjs";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
@@ -214,6 +215,21 @@ function component(
           ]
         : buildPalette(),
     );
+  }
+  if (name === "BrandMarks" && a.product) {
+    return markdown(
+      brandFiles(a.product as BrandProduct).map(
+        ({ label, base }) =>
+          `- ${label}: [SVG](/brand/${base}.svg), [PNG](/brand/${base}.png)`,
+      ),
+    );
+  }
+  if (name === "BrandColors") {
+    return markdown([
+      "| Color | Value |",
+      "|-------|-------|",
+      ...BRAND_COLORS.map(({ name, hex }) => `| ${name} | \`${hex}\` |`),
+    ]);
   }
   if (name === "Reference") {
     return a.category && a.name
