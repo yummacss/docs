@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { Menu, Search, Xmark } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
-import { YummaCSSMark } from "../icons/yummacss-mark";
+import HomeMark from "./home-mark";
 import type { NavSection } from "./mobile-dialog-nav";
 import { SearchDialog } from "./search-dialog";
 import ThemeToggle from "./theme-toggle";
@@ -72,9 +72,7 @@ export default function Navbar({
         <div className="mx:auto px:3 py:2 max-w:clamp(40rem,80vw,96rem)">
           <nav className="d:f ai:c jc:sb">
             <div className="d:f ai:c g:8">
-              <Link href="/" className="fv:oc:ink fv:ow:2">
-                <YummaCSSMark className="d:b h:8 w:auto" />
-              </Link>
+              <HomeMark className="d:b h:8 w:auto" />
 
               {links ? (
                 links
