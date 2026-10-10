@@ -21,7 +21,7 @@ export const sidebarConfig = {
     },
     {
       title: "Customization",
-      items: ["colors", "dark-mode"],
+      items: ["color-system", "dark-mode"],
     },
     {
       title: "Handbook",
