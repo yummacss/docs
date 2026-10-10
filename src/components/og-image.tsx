@@ -408,7 +408,7 @@ function Post({ spec }: { spec: Extract<OgSpec, { kind: "post" }> }) {
         background: PAGE,
       }}
     >
-      <div style={{ display: "flex" }}>{OG_MARKS[spec.product](120)}</div>
+      <div style={{ display: "flex" }}>{OG_MARKS[spec.product](160)}</div>
       <div
         style={{
           display: "flex",
@@ -447,7 +447,7 @@ export default function OgImage({ spec }: { spec: OgSpec }) {
       <div
         style={{ position: "absolute", left: LEFT, top: 64, display: "flex" }}
       >
-        {OG_MARKS[product](100)}
+        {OG_MARKS[product](140)}
       </div>
       {spec.kind === "home" && <Home spec={spec} />}
       {spec.kind === "title" && <Title spec={spec} />}

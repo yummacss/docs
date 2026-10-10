@@ -11,16 +11,16 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
     >
       <defs>
         <linearGradient id="og-css-lW0" x1="0" y1="0" x2="0.4" y2="1">
-          <stop offset="0" stopColor="#e4e8fa" />
-          <stop offset="1" stopColor="#bcc4ef" />
+          <stop offset="0" stopColor="#c9cff3" />
+          <stop offset="1" stopColor="#8f9be0" />
         </linearGradient>
         <linearGradient id="og-css-lW1" x1="1" y1="0" x2="0.6" y2="1">
-          <stop offset="0" stopColor="#d3d9f6" />
-          <stop offset="1" stopColor="#a9b2e8" />
+          <stop offset="0" stopColor="#b4bdee" />
+          <stop offset="1" stopColor="#7d8ad6" />
         </linearGradient>
         <linearGradient id="og-css-lW2" x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="0" stopColor="#c5ccf2" />
-          <stop offset="1" stopColor="#e8ebf9" />
+          <stop offset="0" stopColor="#a9b3ea" />
+          <stop offset="1" stopColor="#dfe3f9" />
         </linearGradient>
         <linearGradient id="og-css-lRim" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
@@ -47,8 +47,8 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
         strokeWidth="0.5"
       />
       <polygon points="50,34.9885 63,42.4942 50,50 37,42.4942" fill="#8796e4" />
-      <polygon points="37,42.4942 50,50 50,65.0115 37,57.5058" fill="#4c5fc7" />
-      <polygon points="63,42.4942 63,57.5058 50,65.0115 50,50" fill="#2f3c8f" />
+      <polygon points="37,42.4942 50,50 50,65.0115 37,57.5058" fill="#3f51c0" />
+      <polygon points="63,42.4942 63,57.5058 50,65.0115 50,50" fill="#27348a" />
       <polygon
         points="50,34.9885 63,42.4942 50,50 37,42.4942"
         fill="none"
@@ -60,17 +60,17 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
       <polygon
         points="50,19 76.8,34.5 50,50 23.2,34.5"
         fill="#ffffff"
-        fillOpacity="0.3"
+        fillOpacity="0.22"
       />
       <polygon
         points="23.2,34.5 50,50 50,81 23.2,65.5"
         fill="#ffffff"
-        fillOpacity="0.16"
+        fillOpacity="0.1"
       />
       <polygon
         points="76.8,34.5 76.8,65.5 50,81 50,50"
         fill="#ffffff"
-        fillOpacity="0.08"
+        fillOpacity="0.05"
       />
       <polygon
         points="50,19 76.8,34.5 76.8,65.5 50,81 23.2,65.5 23.2,34.5"
@@ -83,7 +83,7 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
         d="M23.2 34.5 L50 50 L76.8 34.5 M50 50 L50 81"
         fill="none"
         stroke="#ffffff"
-        strokeOpacity="0.5"
+        strokeOpacity="0.55"
         strokeWidth="0.45"
       />
     </svg>
@@ -97,16 +97,16 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
     >
       <defs>
         <linearGradient id="og-ui-lW0" x1="0" y1="0" x2="0.4" y2="1">
-          <stop offset="0" stopColor="#e4e8fa" />
-          <stop offset="1" stopColor="#bcc4ef" />
+          <stop offset="0" stopColor="#c9cff3" />
+          <stop offset="1" stopColor="#8f9be0" />
         </linearGradient>
         <linearGradient id="og-ui-lW1" x1="1" y1="0" x2="0.6" y2="1">
-          <stop offset="0" stopColor="#d3d9f6" />
-          <stop offset="1" stopColor="#a9b2e8" />
+          <stop offset="0" stopColor="#b4bdee" />
+          <stop offset="1" stopColor="#7d8ad6" />
         </linearGradient>
         <linearGradient id="og-ui-lW2" x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="0" stopColor="#c5ccf2" />
-          <stop offset="1" stopColor="#e8ebf9" />
+          <stop offset="0" stopColor="#a9b3ea" />
+          <stop offset="1" stopColor="#dfe3f9" />
         </linearGradient>
         <linearGradient id="og-ui-lRim" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.95" />
@@ -133,8 +133,8 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
         strokeWidth="0.5"
       />
       <polygon points="50,43.7 65.59,52.7 50,61.7 34.41,52.7" fill="#8796e4" />
-      <polygon points="34.41,52.7 50,61.7 50,65.3 34.41,56.3" fill="#4c5fc7" />
-      <polygon points="65.59,52.7 50,61.7 50,65.3 65.59,56.3" fill="#2f3c8f" />
+      <polygon points="34.41,52.7 50,61.7 50,65.3 34.41,56.3" fill="#3f51c0" />
+      <polygon points="65.59,52.7 50,61.7 50,65.3 65.59,56.3" fill="#27348a" />
       <polygon
         points="50,43.7 65.59,52.7 50,61.7 34.41,52.7"
         fill="none"
@@ -144,8 +144,8 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
         strokeLinejoin="round"
       />
       <polygon points="50,34.7 65.59,43.7 50,52.7 34.41,43.7" fill="#8796e4" />
-      <polygon points="34.41,43.7 50,52.7 50,56.3 34.41,47.3" fill="#4c5fc7" />
-      <polygon points="65.59,43.7 50,52.7 50,56.3 65.59,47.3" fill="#2f3c8f" />
+      <polygon points="34.41,43.7 50,52.7 50,56.3 34.41,47.3" fill="#3f51c0" />
+      <polygon points="65.59,43.7 50,52.7 50,56.3 65.59,47.3" fill="#27348a" />
       <polygon
         points="50,34.7 65.59,43.7 50,52.7 34.41,43.7"
         fill="none"
@@ -157,17 +157,17 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
       <polygon
         points="50,19 76.8,34.5 50,50 23.2,34.5"
         fill="#ffffff"
-        fillOpacity="0.3"
+        fillOpacity="0.22"
       />
       <polygon
         points="23.2,34.5 50,50 50,81 23.2,65.5"
         fill="#ffffff"
-        fillOpacity="0.16"
+        fillOpacity="0.1"
       />
       <polygon
         points="76.8,34.5 76.8,65.5 50,81 50,50"
         fill="#ffffff"
-        fillOpacity="0.08"
+        fillOpacity="0.05"
       />
       <polygon
         points="50,19 76.8,34.5 76.8,65.5 50,81 23.2,65.5 23.2,34.5"
@@ -180,7 +180,7 @@ export const OG_MARKS: Record<"css" | "ui", (size: number) => ReactNode> = {
         d="M23.2 34.5 L50 50 L76.8 34.5 M50 50 L50 81"
         fill="none"
         stroke="#ffffff"
-        strokeOpacity="0.5"
+        strokeOpacity="0.55"
         strokeWidth="0.45"
       />
     </svg>
