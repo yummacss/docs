@@ -14,7 +14,7 @@ const COLUMNS = [
     links: [
       { label: "Installation", href: "/docs/installation" },
       { label: "Configuration", href: "/docs/configuration" },
-      { label: "Customization", href: "/docs/colors" },
+      { label: "Customization", href: "/docs/color-system" },
       { label: "Handbook", href: "/docs/naming-convention" },
       { label: "Variants", href: "/docs/media-queries" },
     ],

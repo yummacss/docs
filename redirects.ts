@@ -55,7 +55,17 @@ const docsRedirects = [
   },
   {
     source: "/docs/colours",
-    destination: "/docs/colors",
+    destination: "/docs/color-system",
+    permanent: true,
+  },
+  {
+    source: "/docs/colors",
+    destination: "/docs/color-system",
+    permanent: true,
+  },
+  {
+    source: "/docs/colors.md",
+    destination: "/docs/color-system.md",
     permanent: true,
   },
   {
