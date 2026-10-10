@@ -8,6 +8,8 @@ export interface SearchItem {
   color?: string;
   /** What a query is matched against, when that is not the title and description. */
   terms?: string;
+  /** A component's screenshot, shown beside the results. */
+  preview?: string;
 }
 
 /** What `/api/search` serves: the pages, fetched so their collections stay off the client. */
@@ -56,9 +58,27 @@ function generateColorItems(): SearchItem[] {
 
 const COLOR_ITEMS = generateColorItems();
 
+/** Where someone new starts, shown before anything is typed. */
+const STARTERS = [
+  "/docs/installation",
+  "/docs/configuration",
+  "/docs/colors",
+  "/ui/components/installation",
+];
+
+/** Searches that show what the dialog finds: a utility, a color, a component, a variant, a flag. */
+export const SUGGESTIONS = [
+  "flex",
+  "indigo",
+  "dialog",
+  "@container",
+  "--watch",
+];
+
 function defaultItems(index: SearchIndex | null): SearchItem[] {
   if (!index) return [];
-  return [...index.components.slice(0, 12), ...index.docs.slice(0, 8)];
+  const pages = [...index.docs, ...index.components];
+  return STARTERS.flatMap((path) => pages.filter((p) => p.path === path));
 }
 
 export function filterSearchResults(
@@ -125,9 +145,9 @@ export function groupByCategory(
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  docs: "Documentation",
-  colors: "Colors",
-  "ui-components": "Components",
+  docs: "Yumma CSS",
+  "ui-components": "Yumma UI",
   props: "Props",
-  reference: "Flags and Options",
+  reference: "Options",
+  colors: "Colors",
 };

@@ -1692,6 +1692,23 @@ default outline traced the overflowing lines and spilled past the box.
 
 
 
+## Search
+
+`src/components/ui/search-dialog.tsx`, one Base UI dialog in two shapes. From
+`@md` it is a 56rem panel: the results on the left, a preview of the
+highlighted one on the right, and the keys along the bottom from `@lg`. Below
+`@md` it fills the screen, the field on top with Cancel beside it, no preview.
+
+- Empty, it lists four places to start (`STARTERS` in `src/utils/search-data.ts`)
+  under their product, and five searches to try (`SUGGESTIONS`).
+- Results have no icons: the title, with the typed text in the accent, and the
+  description beside it. Groups read Yumma CSS, Yumma UI, Props, Options,
+  Colors.
+- A color family is a grid of swatches; Enter or a click copies the hex, and
+  the preview shows the shade large with a Copy hex button.
+- A component's preview is its link preview screenshot, `public/og/ui/<slug>.png`.
+  `/api/search` sets `preview` only when that file exists.
+
 ## Footer
 
 The columns are Yumma CSS, Yumma UI, Updates and Socials. Under the mark, the
