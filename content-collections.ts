@@ -6,7 +6,6 @@ import {
 } from "@content-collections/core";
 import type { ComponentType } from "react";
 import { z } from "zod";
-import { coverSchema, coverSpec, coverUrl, ogUrl } from "./src/utils/cover";
 import {
   extractConfigKeys,
   extractReference,
@@ -75,40 +74,8 @@ const ui = defineCollection({
   }),
 });
 
-const blog = defineCollection({
-  name: "blog",
-  directory: "src/content/blog",
-  include: "**/*.mdx",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.string(),
-    // a wrap-up is rewritten as the month's releases land
-    updated: z.string().optional(),
-    authors: z.array(z.string()),
-    cover: coverSchema.optional(),
-    // a YouTube video id, for a release with its own video
-    video: z
-      .string()
-      .regex(/^[\w-]{11}$/)
-      .optional(),
-    draft: z.boolean().optional(),
-    content: z.string(),
-  }),
-  transform: (doc) => ({
-    ...doc,
-    mdx: createDefaultImport<ComponentType>(
-      `@/content/blog/${doc._meta.path}.mdx`,
-    ),
-    // a template becomes the url of the image drawn for it, so readers see a path either way
-    cover: coverUrl(doc.cover, doc._meta.path),
-    og: ogUrl(doc._meta.path),
-    coverSpec: coverSpec(doc.cover, doc.title, doc.date),
-  }),
-});
-
 export default defineConfig({
-  content: [docs, ui, blog],
+  content: [docs, ui],
   hooks: {
     // the collections import every page's MDX, so a client import must fail the build (NOTES.md, "Menu bundle")
     writer: [

@@ -9,7 +9,7 @@ const config = (await import("../yumma.config.mjs")).default as Config;
 
 const llms = join(rootDir, "src/app/llms.txt/route.ts");
 
-// the docs describe 4.x; blog posts keep the syntax of their own release
+// the docs describe 4.x
 const files = [
   ...["src/content/docs", "src/content/ui"].flatMap((dir) =>
     readdirSync(join(rootDir, dir), { recursive: true })

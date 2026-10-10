@@ -13,7 +13,6 @@ const topNav: NavSection = {
     { title: "Home", href: "/" },
     { title: "Docs", href: "/docs" },
     { title: "Components", href: "/ui/installation" },
-    { title: "Blog", href: "/blog" },
   ],
 };
 

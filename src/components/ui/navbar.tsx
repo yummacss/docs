@@ -82,7 +82,6 @@ export default function Navbar({
                 <div className="d:none ai:c g:8 @lg:d:f">
                   {[
                     { href: "/docs", label: "Docs", prefix: "/docs" },
-                    { href: "/blog", label: "Blog", prefix: "/blog" },
                     {
                       href: "/ui/installation",
                       label: "Components",
