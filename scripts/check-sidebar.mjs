@@ -39,6 +39,9 @@ const collections = [
   { name: "ui", dir: "src/content/ui", slugs: slugsFor(config, "ui", null) },
 ];
 
+// pages reached from the footer rather than the reading order
+const UNLISTED = new Set(["docs/brand"]);
+
 const problems = [];
 
 for (const { name, dir, slugs } of collections) {
@@ -46,7 +49,7 @@ for (const { name, dir, slugs } of collections) {
   const listed = new Set(slugs);
 
   for (const page of pages) {
-    if (!listed.has(page)) {
+    if (!listed.has(page) && !UNLISTED.has(`${name}/${page}`)) {
       problems.push(
         `${name}: "${page}" exists in ${dir} but is not in the sidebar.`,
       );
