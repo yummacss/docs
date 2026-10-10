@@ -418,9 +418,8 @@ a library change and needs the registry regenerated, so it was left alone.
 
 **Containment is not the same as having something to scroll.** A scroller shorter
 than its `max-height` is not a scroll container at all, so `overscroll-behavior`
-does not apply and the wheel goes to the page - correct behaviour, not a bug. On
-`/blog` the sidebar is 246px in an 820px column, so the empty space under it
-scrolls the page. Nothing to fix; do not "fix" it by making the column a scroller.
+does not apply and the wheel goes to the page - correct behaviour, not a bug.
+Nothing to fix; do not "fix" it by making the column a scroller.
 
 **Fonts: Esteban for headings, iA Writer Quattro for body**, and there is an open
 design decision here. Measured by rasterising text and counting ink pixels:
@@ -449,8 +448,7 @@ built from `<section>`/`<header>` gets system-ui headings silently.
 **pnpm only.** Renildo's call, 2026-08-31, replacing the old two-tab rule:
 every install or CLI command is a plain fence with the pnpm form, no
 `<CodeGroup>` and no `title="pnpm"` label - a single tab labels nothing. `pnpm
-add X -D`, `pnpm dlx X`. This holds in blog posts too, which is how the old rule
-worked.
+add X -D`, `pnpm dlx X`.
 **`pnpx` DOES exist and the old note here was wrong.** Checked on pnpm 10.33:
 `bin/pnpx.cjs` is four lines that splice `dlx` into argv and call pnpm, it is
 shipped with pnpm, and it prints no deprecation warning. The five uses in
@@ -518,8 +516,8 @@ props tables, registry source) goes into the tree as a raw node, as written.
 Parsing a built table only to print it back cost about a second on `margin`.
 A `<Palette data={...}>` renders the colors it lists, not the current palette.
 
-**Tests:** `tests/copywriting.test.ts` bans em dashes, contractions and first
-person outside the blog, trailing whitespace, and British spelling; headings are
+**Tests:** `tests/copywriting.test.ts` bans em dashes, contractions, first
+person, trailing whitespace, and British spelling; headings are
 Title Case; descriptions are one sentence, 120 chars max, ending in punctuation.
 `tests/content.test.ts` checks that a playground is flagged in frontmatter and
 only exists where a schema backs it.
@@ -894,12 +892,6 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
   imported it, and where `play` gets its class list from once it does. This also
   closes most of the `any` density item in the small-monorepo list.
 
-- **The blog timeline**, after ten mockups. Rejected because it introduces a
-  rail, marker blocks and bordered thumbs - three pieces of visual vocabulary
-  that exist nowhere else on the site. Two findings worth keeping: a staggered
-  timeline scans *worse* (3 posts above the fold versus 5, because the eye
-  zigzags), and a snake weave cannot carry year headings without breaking the
-  line.
 - **A releases page.** Built and reverted the same day. It re-rendered
   `CHANGELOG.md`, which GitHub already renders, so `/releases.md` was
   byte-identical to GitHub's raw file, and the route was invisible to site search
@@ -1141,7 +1133,7 @@ generators above, and 4.0 is equally the cheapest moment for both.
 **Do not rename `yumma.config.mjs`.** The asymmetry with the `yummacss` package
 looks like a mistake and is the convention: `tailwindcss` ships
 `tailwind.config.js`. The cost is not cosmetic either - 15 files in `docs` and 3
-in the monorepo name it, plus every docs example, the blog posts and `play` - and
+in the monorepo name it, plus every docs example and `play` - and
 decision #15 rules out a compat mode, so `loadConfig` would hard-break rather
 than accept both. Nothing is gained that a reader was confused by.
 
@@ -1174,10 +1166,6 @@ does not touch, three of them found only by reading the diff:
   codemod rewrote the old line, so the post demonstrated a class becoming
   itself. Anywhere the docs teach the migration, the codemod erases the lesson.
 
-**The release announcements keep the syntax they shipped with.** Rewriting
-`yummacss-1.0.0.mdx` to 4.0 makes it claim a syntax that did not exist when it
-was published. They are a record, so they are excluded, and they are why the
-canon count above is quoted outside the blog.
 
 **Three bugs it found in itself**, all the same shape: the codemod read core's
 defaults where it should have read the project's config.
@@ -1691,28 +1679,8 @@ leave the Yumma CSS monorepo. The site drops the Playground link from the
 navbar and the mobile menu, the home page's "Try now", the naming-convention
 hint that pointed at the playground's hover, the `@yummacss/cdn` page and the
 installation page's CDN section. `/docs/cdn` and `/docs/runtime` redirect to
-installation. The 4.2.0 post's line on `@yummacss/cdn` is removed too,
-2026-10-03: posts do not mention retired packages. The why is in the Yumma CSS repo's NOTES.md.
+installation. The why is in the Yumma CSS repo's NOTES.md.
 
-## Blog covers, 2026-10-02
-
-Every post's cover is drawn by `src/app/blog/[slug]/cover.png/route.tsx` from
-its frontmatter, and the hand-made PNGs are gone, along with six IntelliSense
-screenshots no page used. Renildo picked option D, "Paper", out of five
-mockups after rejecting a ruler along the bottom edge.
-
-One layout on `indigo-10` (`#2c2d6a`) from the default scale: the headline
-in Esteban and `indigo-3` (a release's number, or the title), the date in Quattro, and up to
-four feature rows on the right, each with an optional `code` or svgl `logo`.
-Renildo, 2026-10-02: light read wrong, and the product mark is redundant on
-the site's own blog. The site's dark page made the cover vanish into it, so
-the ground is indigo rather than any page token. `cover.png` comes from
-`src/utils/cover-image.tsx` and has no mark; the link preview is separate (see
-"OG images"). `cover` is
-`release` or `text`, or an object with `text`, `product` and `features`. A
-path to an image is refused, so a post cannot go back to a hand-made cover.
-Logos come from svgl's GitHub repo, `pheralb/svgl` `static/library/`, since
-svgl.app itself is blocked from the agent's network.
 
 ## Code block focus, 2026-10-04
 
@@ -1722,63 +1690,26 @@ the same inset accent outline as `Scroller` (`PRE_CLASSES` in
 `src/lib/code-decorate.mjs`). When the wrapper scrolled instead, the browser's
 default outline traced the overflowing lines and spilled past the box.
 
-The author avatar beside a post's byline is a circle (`br:9999`).
 
-## Wrap-ups, 2026-10-04
 
-One post per month, "Wrap-up: Sep—26", holds every release of that
-month, newest first, one heading per version with its date, and a 3.x upgrade
-note. It is rewritten as the month's releases land: `updated` in frontmatter
-shows "Updated …" beside the date and feeds `modifiedTime`, `dateModified`
-and the sitemap. Its address is `/blog/wrap-up-<mon><yy>`. The month is
-abbreviated so the cover headline stays large, and the em dash keeps
-"Sep—26" from reading as the 26th; it is the one em dash the copy allows. A major release keeps its own
-post (4.0, 5.0); 4.2 and 4.3 had theirs before wrap-ups and the wrap-ups link
-them. Posts never mention a retired package, so 4.1.0's CDN and 4.2.2's
-removals are left out. The cover is the `text` template with the title as its
-headline. Satori breaks after a hyphen or a dash, so each word of a
-dated headline is its own no-wrap span, and the headline is as large as its longest word lets it be
-in the column (about 130px for "Wrap-up:"). Other covers render byte-identical to before. Mockups: claude.ai/artifact/BNcm2bbvcxQWQ9ihotmfrY, option E.
+## Releases, no blog
 
-## Release videos, 2026-10-03
+There is no blog. Release notes live in the GitHub releases of `yummacss` and
+`yummaui`, which the footer's Releases link opens. Every old `/blog` address
+redirects there from `redirects.ts`: a release post to its version's tag,
+Hello Yumma UI to Yumma UI's releases, everything else (wrap-ups, Behind the
+Scenes, the index, the RSS feed) to Yumma CSS's releases. These redirects are
+**temporary on purpose**: a site `/releases` page is parked, not dropped, and a
+permanent redirect would stay cached in browsers after it moves. The older
+aliases that already pointed at a tag stay permanent.
 
-1.0, 2.0, 3.0 and 4.0 have videos, named by `video:` in frontmatter (the
-YouTube id) and played by `src/components/release-video.tsx`. Until someone
-presses play it is the post's cover with a play button in its empty top
-corner; the video is mounted only then, from `youtube-nocookie.com`, with
-YouTube's controls off. The index tags those posts "Video".
-
-**Video.js 10 plays it**, 2026-10-03: `@videojs/react` with
-`@videojs/youtube-video`, no skin. Video.js owns the YouTube API, the store
-and the controls' behaviour (`PlayButton`, `Time`, `TimeSlider`,
-`MuteButton`, `FullscreenButton`); the buttons render Base UI `Button` and
-every part is styled with Yumma classes. The packaged skins are not used:
-their controls are round (`9999px` radii hard-coded in `skin.css`). Vidstack
-was the first candidate; its team moved to Video.js 10 and Vidstack 1.x gets
-security patches only, until January 2028.
-
-Two traps. `play()` before the video is attached throws `NO_TARGET`, which
-takes the page down, so the first play comes from `autoplay` on the embed.
-And the thumb has `role="slider"` too, so a test that clicks "the slider"
-clicks the thumb.
-
-Video.js 10.0.1 was a day old when it landed, inside pnpm's 24-hour
-`minimumReleaseAge`, so every deploy stopped at install. Eight
-`@videojs/*@10.0.1` exceptions unblocked it and came out once the release was
-a day old: `minimumReleaseAgeExclude` holds only our own packages.
-
-The player is square, like the cover it sits on: no radius on the frame, the
-bar or the controls, and the play button is a white label rather than a
-frosted circle. The cover is never removed: it fades out on play and back in
-when the pointer leaves, which pauses the video, so the post rests on its
-cover. Play then resumes the same player. Full screen skips that, since the
-pointer cannot leave it.
-
-No chapters yet: they need timestamps, which the videos' descriptions would
-have to supply; `TimeSlider.Chapters` draws them once a chapters track
-exists. YouTube is blocked from the agent's network, so the player was
-checked against a stand-in `window.YT` in Chromium (play, the clock, pause on
-leave, resume, mute, seeking to the middle) and not against a real video.
+The parked page reads both repos' releases from the GitHub API at build time,
+one page per release at `/releases/v4-5-0` and `/releases/ui-v0-5-0` (both
+products have a `v0.1.0`). Thirteen rounds of index mockups were rejected as
+too basic or too busy: claude.ai/artifact/YaNZLfDDd9wgxkyLaRYKtB. What held up:
+a release page titled "Yumma CSS v4.5.0" with the date alone under it, package
+names as a bright `cli:` prefix, and a diff bar of added (solid `diff-add`)
+and removed (striped `diff-remove`) on that page only.
 
 ## Logomark
 
@@ -1815,8 +1746,6 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
 - `/og.png` and `/ui-og.png` are the two homes: two lines, one word selected.
 - `/docs/[slug]/og.png` selects the page title, with its description and, on a
   utility page, the first five classes of its first `<Reference>`.
-- `/blog/[slug]/og.png` is the mark and the post's title, nothing else, for
-  every post whether or not it has a cover. Yumma UI posts get the Layers mark.
 - `/ui/components/[slug]/og.png` selects the component itself, from
   `public/og/ui/<slug>.png`. A component without a screenshot falls back to
   the docs layout.

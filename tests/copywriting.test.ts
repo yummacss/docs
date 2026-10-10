@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { contentPages, rootDir } from "./helpers";
 
-const collections = ["docs", "ui", "blog"] as const;
+const collections = ["docs", "ui"] as const;
 
 const allPages = collections.flatMap((collection) =>
   contentPages(collection).map(({ slug, source }) => ({
@@ -11,8 +11,6 @@ const allPages = collections.flatMap((collection) =>
     source,
   })),
 );
-
-const sitePages = allPages.filter(({ page }) => !page.startsWith("blog/"));
 
 function prose(source: string): string[] {
   const withoutFrontmatter = source.replace(/^---\n[\s\S]*?\n---/, (block) =>
@@ -51,20 +49,17 @@ function findAll(
 }
 
 describe("copywriting", () => {
-  // a wrap-up's name is the one em dash: "Wrap-up: Oct—26"
   it("uses no em dashes", () => {
-    expect(
-      findAll(allPages, /.{0,30}(?:(?<![A-Z][a-z]{2})—|—(?!\d\d\b)).{0,30}/),
-    ).toEqual([]);
+    expect(findAll(allPages, /.{0,30}—.{0,30}/)).toEqual([]);
   });
 
   it("uses no spaced hyphen as a dash", () => {
     expect(findAll(allPages, /\w\s+-\s+(?!>)\w.{0,20}/)).toEqual([]);
   });
 
-  it("uses no contractions outside the blog", () => {
+  it("uses no contractions", () => {
     expect(
-      findAll(sitePages, /\b\w+(?:n't|'re|'ll|'ve|'d)\b|\bit's\b/i),
+      findAll(allPages, /\b\w+(?:n't|'re|'ll|'ve|'d)\b|\bit's\b/i),
     ).toEqual([]);
   });
 
@@ -85,8 +80,8 @@ describe("copywriting", () => {
     expect(findAll(allPages, /\btailwind\b/i)).toEqual([]);
   });
 
-  it("uses no first person outside the blog", () => {
-    expect(findAll(sitePages, /\b(?:we|we're|our|ours)\b/i)).toEqual([]);
+  it("uses no first person", () => {
+    expect(findAll(allPages, /\b(?:we|we're|our|ours)\b/i)).toEqual([]);
   });
 
   it("leaves no trailing whitespace", () => {

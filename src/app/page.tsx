@@ -45,7 +45,7 @@ export default function Home() {
           <div className="d:g g:12 ai:fe @lg:gtc:2">
             <div>
               <Link
-                href="/blog/yummacss-4.0.0"
+                href="https://github.com/yummacss/yummacss/releases/tag/v4.0.0"
                 className="d:if ai:c g:2 px:3 py:1 mb:6 bc:border bg:surface c:ink/70 bw:1 fs:sm us:none h:c:ink fv:oc:ink fv:ow:2"
               >
                 Yumma CSS 4.0 is live!
