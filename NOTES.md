@@ -1791,9 +1791,10 @@ the front faces. Light and dark differ in colour only, never in geometry.
   follows `data-theme`; gradient ids come from `useId`, since the mark renders
   more than once a page.
 - `public/logo.svg` and `public/logo-dark.svg` are the mark on its rounded tile
-  (`rx` 23 of 100). `favicon.svg`, `favicon.ico` (16, 32, 48) and
-  `apple-touch-icon.png` (180, square, for iOS to round) use the dark tile,
-  which reads on light and dark tabs alike.
+  (`rx` 23 of 100). `apple-touch-icon.png` (180, square, for iOS to round) uses the dark tile.
+  The favicon is the mark without a tile, cropped to the hexagon so it fills
+  the tab: `favicon.svg` switches light and dark with the browser's scheme,
+  `favicon.ico` (16, 32, 48) is the light mark, which reads on either.
 - One version at every size, glass included: there is no flat or one-colour
   variant.
 - `/docs/brand` (`src/content/docs/brand.mdx`, with `BrandMarks` and
