@@ -1796,7 +1796,9 @@ the front faces. Light and dark differ in colour only, never in geometry.
   which reads on light and dark tabs alike.
 - One version at every size, glass included: there is no flat or one-colour
   variant.
-- `/brand` (`src/app/brand/page.tsx`) offers both marks for download from
+- `/docs/brand` (`src/content/docs/brand.mdx`, with `BrandMarks` and
+  `BrandColors` from `src/components/brand.tsx`; `/brand` redirects to it)
+  offers both marks for download from
   `public/brand/`: `yummacss` and `yummaui`, light and `-dark`, on the tile
   and as `-mark` without it, each as SVG and a 512 px PNG. Yumma UI's mark is
   the same glass with two stacked panels inside instead of the cube.

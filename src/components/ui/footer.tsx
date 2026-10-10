@@ -41,7 +41,7 @@ const COLUMNS = [
         href: "https://github.com/yummacss/yummacss/releases",
       },
       { label: "Blog", href: "/blog" },
-      { label: "Brand", href: "/brand" },
+      { label: "Brand", href: "/docs/brand" },
     ],
   },
   {
