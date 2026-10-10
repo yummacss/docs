@@ -100,7 +100,7 @@ article h6 {
 /* No line-height step reaches .74, and a theme colour drops its alpha. */
 .footer-version {
   line-height: 0.74;
-  color: light-dark(rgb(76 95 199 / 0.13), rgb(190 198 242 / 0.07));
+  color: light-dark(rgb(76 95 199 / 0.45), rgb(190 198 242 / 0.32));
 }
 
 [data-fold] > summary {
