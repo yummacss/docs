@@ -11,208 +11,77 @@ A set of ready-to-use UI components based on [Base UI](https://base-ui.com/) for
 
 ## Getting Started
 
-Yumma UI components are copied into your project rather than installed as a dependency. Once a component is in your codebase, it is yours to edit. Set up Yumma CSS first, then use the CLI to copy in whatever you need.
-
----
-
-### Vite (React)
+Yumma UI components are copied into your project rather than installed as a dependency. Once a component is in your codebase, it is yours to edit. `init` sets up Yumma CSS for you, in a Vite or a Next.js project.
 
 <Stepper>
   <Step title="Create Project">
-    Initialize a new React project with Vite.
+    Start a React project with Vite, or with Next.js.
 
-    ```bash
+    <CodeGroup>
+
+    ```bash title="Vite"
     pnpm create vite my-app --template react-ts
     ```
 
-  </Step>
-
-  <Step title="Install Dependencies">
-    Install the core dependencies for Yumma UI.
-
-    ```bash
-    pnpm add yummacss @yummacss/vite @base-ui/react @solar-icons/react
-    ```
-
-  </Step>
-
-  <Step title="Add the Plugin">
-    Register the Yumma CSS plugin in your Vite configuration.
-
-    ```ts title="vite.config.ts" mark={3,6}
-    import react from "@vitejs/plugin-react";
-    import { defineConfig } from "vite";
-    import yummacss from "@yummacss/vite";
-
-    export default defineConfig({
-      plugins: [react(), yummacss()],
-    });
-    ```
-
-  </Step>
-
-  <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
-
-    ```js title="yumma.config.mjs" mark={4-16}
-    import { defineConfig } from "yummacss";
-
-    export default defineConfig({
-      source: ["./src/**/*.{ts,tsx}"],
-      theme: {
-        states: {
-          opening: "[data-starting-style]",
-          closing: "[data-ending-style]",
-          swiping: "[data-swiping]",
-        },
-        keyframes: {
-          pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
-          slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
-          spin: "to { rotate: 360deg; }",
-        },
-      },
-    });
-    ```
-
-  </Step>
-
-  <Step title="Import Styles">
-    Create a CSS file containing the `@yummacss;` marker & import it in your root entry file. The plugin replaces the marker with generated CSS.
-
-    <CodeGroup>
-
-    ```css title="src/styles.css"
-    @yummacss;
-    ```
-
-    ```tsx title="src/main.tsx" mark={1}
-    import "./styles.css";
-    import React from "react";
-    import ReactDOM from "react-dom/client";
-    import App from "./App";
-
-    ReactDOM.createRoot(document.getElementById("root")).render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
-    ```
-
-    </CodeGroup>
-
-  </Step>
-
-  <Step title="Add Components">
-    Set up `yummaui.json`, then copy in whatever you need. `init` detects your framework, package manager & import alias, and asks where components should live.
-
-    ```bash
-    pnpm dlx yummaui init
-    pnpm dlx yummaui add button
-    ```
-
-    Each component lands as a single file you own. Run `yummaui list` to see everything available.
-
-  </Step>
-</Stepper>
-
----
-
-### Next.js (App Router)
-
-<Stepper>
-  <Step title="Create Project">
-    Initialize a new Next.js project if you do not have one already.
-
-    ```bash
+    ```bash title="Next.js"
     pnpm create next-app@latest my-app
     ```
 
-  </Step>
-
-  <Step title="Install Dependencies">
-    Install the core dependencies for Yumma UI.
-
-    ```bash
-    pnpm add yummacss @yummacss/postcss @base-ui/react @solar-icons/react
-    ```
-
-  </Step>
-
-  <Step title="Configure PostCSS">
-    Register the Yumma CSS plugin in your PostCSS configuration. It works with both Turbopack & Webpack.
-
-    ```js title="postcss.config.mjs" mark={3}
-    export default {
-      plugins: {
-        "@yummacss/postcss": {},
-      },
-    };
-    ```
-
-  </Step>
-
-  <Step title="Configure Yumma CSS">
-    Specify the locations of all your project files, and the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
-
-    ```js title="yumma.config.mjs" mark={4-16}
-    import { defineConfig } from "yummacss";
-
-    export default defineConfig({
-      source: ["./src/**/*.{ts,tsx}"],
-      theme: {
-        states: {
-          opening: "[data-starting-style]",
-          closing: "[data-ending-style]",
-          swiping: "[data-swiping]",
-        },
-        keyframes: {
-          pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
-          slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
-          spin: "to { rotate: 360deg; }",
-        },
-      },
-    });
-    ```
-
-  </Step>
-
-  <Step title="Import Styles">
-    Create a global CSS file containing the `@yummacss;` marker & import it in your root layout. The plugin replaces the marker with generated CSS.
-
-    <CodeGroup>
-
-    ```css title="globals.css"
-    @yummacss;
-    ```
-
-    ```tsx title="layout.tsx" mark={1}
-    import "./globals.css";
-
-    export default function RootLayout({ children }) {
-      return (
-        <html lang="en">
-          <body>{children}</body>
-        </html>
-      );
-    }
-    ```
-
     </CodeGroup>
 
   </Step>
 
-  <Step title="Add Components">
-    Set up `yummaui.json`, then copy in whatever you need. `init` detects your framework, package manager & import alias, and asks where components should live.
+  <Step title="Run init">
+    `init` detects your framework, package manager & import alias, asks where components should live, then sets up Yumma CSS: it installs `yummacss` & the plugin for your framework, registers the plugin, writes `yumma.config.mjs` & adds `@yummacss;` to the stylesheet your app loads.
 
     ```bash
     pnpm dlx yummaui init
+    ```
+
+  </Step>
+
+  <Step title="Add Components">
+    Name a component, or run `add` on its own to search the list. Anything a component needs from npm, such as `@base-ui/react`, is installed with it.
+
+    ```bash
     pnpm dlx yummaui add button
     ```
 
-    Each component lands as a single file you own. Run `yummaui list` to see everything available.
+    Each component lands as a single file you own.
 
   </Step>
 </Stepper>
+
+## The Config It Writes
+
+`yumma.config.mjs` points at your project files and holds the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
+
+```js title="yumma.config.mjs"
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  source: ["./src/**/*.{js,jsx,ts,tsx,mdx}"],
+  theme: {
+    states: {
+      closing: "[data-ending-style]",
+      opening: "[data-starting-style]",
+      swiping: "[data-swiping]",
+    },
+    keyframes: {
+      pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
+      slide: "from { translate: -100% 0; } to { translate: 100% 0; }",
+      spin: "to { rotate: 360deg; }",
+    },
+  },
+});
+```
+
+<Hint icon="info">
+  A project that already has a `yumma.config.mjs` keeps it. `init` & `add` name any of these it lacks, for you to add to its `theme`.
+</Hint>
+
+To set up the plugin by hand instead, follow [Installation](/docs/installation), then add the `theme` above.
+
 ## Icons
 
 Components draw their icons from [Solar](https://github.com/480-Design/Solar-Icon-Set) by 480 Design, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), through `@solar-icons/react`: Outline for checks, arrows and operators, Bold Duotone for objects.
