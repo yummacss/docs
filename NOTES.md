@@ -1692,6 +1692,15 @@ default outline traced the overflowing lines and spilled past the box.
 
 
 
+## Footer
+
+The columns are Yumma CSS, Yumma UI, Updates and Socials. Under the mark, the
+licence line reads "MIT licensed · © 2026 Yumma CSS · Brand"; its dots are
+`aria-hidden` and `us:none`, so a copy of the line and a screen reader skip
+them. The large version along the bottom reads `v4.5.0` in `.footer-version`,
+at 45% of the accent in light and 32% in dark: bright enough to read, quiet
+enough to stay behind the links.
+
 ## Releases, no blog
 
 There is no blog. Release notes live in the GitHub releases of `yummacss` and
@@ -1730,9 +1739,9 @@ the front faces. Light and dark differ in colour only, never in geometry.
   variant.
 - `/docs/brand` (`src/content/docs/brand.mdx`, with `BrandMarks` and
   `BrandColors` from `src/components/brand.tsx`; `/brand` redirects to it)
-  is linked from the footer only. It stays out of the sidebar, so it has no
-  previous or next page; `UNLISTED` in `scripts/check-sidebar.mjs` allows it.
-  offers both marks for download from
+  is linked only from the footer's licence line, after the MIT and copyright
+  notes. It stays out of the sidebar, so it has no previous or next page;
+  `UNLISTED` in `scripts/check-sidebar.mjs` allows it. It offers both marks for download from
   `public/brand/`: `yummacss` and `yummaui`, light and `-dark`, on the tile
   and as `-mark` without it, each as SVG and a 512 px PNG. Yumma UI's mark is
   the same glass with two stacked panels inside instead of the cube.

@@ -3,13 +3,14 @@ import type { CSSProperties } from "react";
 import { ver } from "@/utils/version";
 import { YummaCSSMark } from "../icons/yummacss-mark";
 
-// Esteban's widest digit and its dot, at 1em, so the display version is sized to
+// Esteban's widest glyph and its dot, at 1em, so the display version is sized to
 // the band it sits in rather than to a guess that only holds for 4.1.2.
-const span = [...ver].reduce((w, c) => w + (c === "." ? 0.135 : 0.55), 0);
+const label = `v${ver}`;
+const span = [...label].reduce((w, c) => w + (c === "." ? 0.135 : 0.55), 0);
 
 const COLUMNS = [
   {
-    title: "Docs",
+    title: "Yumma CSS",
     links: [
       { label: "Installation", href: "/docs/installation" },
       { label: "Configuration", href: "/docs/configuration" },
@@ -40,7 +41,6 @@ const COLUMNS = [
         label: "Releases",
         href: "https://github.com/yummacss/yummacss/releases",
       },
-      { label: "Brand", href: "/docs/brand" },
     ],
   },
   {
@@ -51,6 +51,15 @@ const COLUMNS = [
     ],
   },
 ];
+
+/** A separator that is neither selected with the text nor read aloud. */
+function Dot() {
+  return (
+    <span aria-hidden="true" className="mx:1 us:none">
+      &middot;
+    </span>
+  );
+}
 
 export default function Footer() {
   return (
@@ -66,8 +75,16 @@ export default function Footer() {
                 type and radius. No arbitrary values.
               </p>
               <p className="m:0 c:ink/40 fs:xs">
-                MIT licensed &middot; &copy; {new Date().getFullYear()} Yumma
-                CSS
+                MIT licensed
+                <Dot />
+                &copy; {new Date().getFullYear()} Yumma CSS
+                <Dot />
+                <Link
+                  href="/docs/brand"
+                  className="c:ink/60 td:u h:c:accent fv:oc:ink fv:ow:2"
+                >
+                  Brand
+                </Link>
               </p>
             </div>
           </div>
@@ -101,7 +118,7 @@ export default function Footer() {
             aria-hidden="true"
             className="d:b ff:display fs:min(17rem,calc(100cqw/(var(--span)*1.03))) ls:1 ws:nw us:none pe:none footer-version"
           >
-            {ver}
+            {label}
           </span>
         </div>
       </div>
