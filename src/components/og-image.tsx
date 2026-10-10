@@ -14,12 +14,7 @@ const ACCENT = "#4c5fc7";
 const BAR = 28;
 const LEFT = 84;
 
-const SCALES = {
-  css: ["#dfe3f9", "#9aa6ec", "#4c5fc7", "#3a4aa6", "#1d2152"],
-  ui: ["#c7d2fe", "#a5b4fc", "#818cf8", "#a78bfa", "#c084fc"],
-};
-
-export type OgProduct = keyof typeof SCALES;
+export type OgProduct = "css" | "ui";
 
 export type OgSpec =
   | {
@@ -100,28 +95,6 @@ function Rulers() {
       />
       {ticks}
     </>
-  );
-}
-
-function Scale({ product }: { product: OgProduct }) {
-  const colors = SCALES[product];
-  return (
-    <div
-      style={{
-        position: "absolute",
-        right: 84,
-        top: 566,
-        display: "flex",
-        gap: 8,
-      }}
-    >
-      {colors.map((color) => (
-        <div
-          key={color}
-          style={{ width: 34, height: 34, borderRadius: 7, background: color }}
-        />
-      ))}
-    </div>
   );
 }
 
@@ -452,7 +425,6 @@ export default function OgImage({ spec }: { spec: OgSpec }) {
       {spec.kind === "home" && <Home spec={spec} />}
       {spec.kind === "title" && <Title spec={spec} />}
       {spec.kind === "component" && <Component spec={spec} />}
-      <Scale product={product} />
     </div>
   );
 }
