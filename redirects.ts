@@ -4,6 +4,11 @@ import { extractProperties } from "./src/utils/doc-properties";
 
 const docsRedirects = [
   {
+    source: "/brand",
+    destination: "/docs/brand",
+    permanent: true,
+  },
+  {
     source: "/docs",
     destination: "/docs/installation",
     permanent: true,

@@ -2,6 +2,7 @@ import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Admonition from "@/components/admonition";
 import Baseline from "@/components/baseline";
+import { BrandColors, BrandMarks } from "@/components/brand";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
 import {
@@ -36,6 +37,8 @@ function generateId(children: React.ReactNode): string {
 const components: MDXComponents = {
   Admonition,
   Baseline,
+  BrandColors,
+  BrandMarks,
   Code,
   CodeGroup,
   // the UI shell renders the stage, so it stays mounted from one page to the next
