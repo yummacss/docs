@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
 import Pagination from "@/components/ui/pagination";
+import ViewMarkdown from "@/components/ui/view-markdown";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -68,6 +69,7 @@ export default async function Page({
             </div>
           </div>
           {ui.description && <p className="c:ink/70 fs:lg">{ui.description}</p>}
+          <ViewMarkdown />
         </div>
       )}
       <div>
