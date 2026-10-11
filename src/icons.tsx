@@ -21,7 +21,6 @@ import {
   HeartIcon,
   InfoIcon,
   KeyboardIcon,
-  ListIcon,
   MagnifyingGlassIcon,
   MouseLeftClickIcon,
   MouseRightClickIcon,
@@ -35,7 +34,6 @@ import {
   TerminalWindowIcon,
   TwitterLogoIcon,
   WarningIcon,
-  XIcon,
 } from "@phosphor-icons/react/ssr";
 
 type Props = Omit<IconProps, "weight">;
@@ -60,7 +58,6 @@ export const InfoCircle = regular(InfoIcon);
 export const InputField = regular(CursorTextIcon);
 export const LogOut = regular(SignOutIcon);
 export const LongArrowDownLeftSolid = regular(ArrowElbowDownLeftIcon);
-export const Menu = regular(ListIcon);
 export const MouseButtonLeft = regular(MouseLeftClickIcon);
 export const MouseButtonRight = regular(MouseRightClickIcon);
 export const MouseScrollWheel = regular(MouseScrollIcon);
@@ -82,4 +79,3 @@ export const Terminal = regular(TerminalWindowIcon);
 export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
 export const WarningTriangle = regular(WarningIcon);
-export const Xmark = regular(XIcon);
