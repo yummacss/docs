@@ -28,7 +28,6 @@ import {
   MouseLeftClickIcon,
   MouseRightClickIcon,
   MouseScrollIcon,
-  NotePencilIcon,
   PaletteIcon,
   PlusIcon,
   ResizeIcon,
@@ -78,7 +77,6 @@ export const NavArrowUp = regular(CaretUpIcon);
 export const OpenBook = regular(BookOpenIcon);
 export const OpenSelectHandGesture = regular(HandPointingIcon);
 export const Page = regular(FileIcon);
-export const PageEdit = regular(NotePencilIcon);
 export const Palette = regular(PaletteIcon);
 export const Plus = regular(PlusIcon);
 export const Ruler = regular(RulerIcon);
