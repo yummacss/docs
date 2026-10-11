@@ -1771,7 +1771,8 @@ magnifier: no search button and no bottom line, as on Base UI's docs. The
 button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`), Base UI's
 Drawer from the bottom, its look and motion taken from Base UI's docs menu
 with square corners. The search field inside it is the phone's search; the
-search dialog is for desktop. The home page has the menu too.
+search dialog is for desktop. The home page has the menu too. Below `@lg` the navbar's gutter is `px:6`,
+the page's, so the logo and the button line up with the content.
 
 - A bordered search field over a divider, as the site's controls are, then
   the area's sections as plain grey headings and 40px links: no tabs, no
