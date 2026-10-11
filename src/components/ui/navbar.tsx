@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Search } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
-import HintTooltip from "./hint-tooltip";
 import HomeMark from "./home-mark";
 import type { Menus } from "./mobile-sheet";
 import { SearchDialog } from "./search-dialog";
@@ -72,19 +71,17 @@ export default function Navbar({
             <HomeMark className="d:b h:8 w:auto" />
 
             <div className="d:f ai:c g:2 @sm:g:4">
-              <HintTooltip label="Search">
-                <Button
-                  type="button"
-                  onClick={() => setSearchOpen(true)}
-                  onPointerEnter={preloadSearch}
-                  onFocus={preloadSearch}
-                  aria-label="Search"
-                  className="d:none ai:c jc:c g:2 h:8 px:4 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:d:f fv:oc:ink fv:ow:2"
-                >
-                  <Search className="w:4 h:4" />
-                  <kbd className="c:ink/70 fs:xs us:none">Ctrl + K</kbd>
-                </Button>
-              </HintTooltip>
+              <Button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                onPointerEnter={preloadSearch}
+                onFocus={preloadSearch}
+                aria-label="Search"
+                className="d:none ai:c jc:c g:2 h:8 px:4 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:d:f fv:oc:ink fv:ow:2"
+              >
+                <Search className="w:4 h:4" />
+                <kbd className="c:ink/70 fs:xs us:none">Ctrl + K</kbd>
+              </Button>
 
               {menu && (
                 <Button

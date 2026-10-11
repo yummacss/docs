@@ -59,12 +59,11 @@ from "The site, measured" in NOTES.md.
 
 ## Phase 6 - After v4
 
-- [ ] **Cascade layers for the reset**, 4.2. The reset's `:is(...):focus` rule
-      is (0,1,1) and beats every (0,1,0) outline utility, measured in Chromium,
-      so `oc:*` does nothing on a focused button. Two layers fix it. Decide
-      separately whether the utilities split into shorthand and longhand. See
-      NOTES.md under Cascade layers. **On hold:** Renildo wants to learn more
-      about layers before adding them, 2026-09-28.
+- [ ] **Let utilities beat the reset's focus rule**, in `yummacss`. The
+      reset's `:is(a, button, ...):focus` is (0,1,1) and beats every (0,1,0)
+      outline utility, so `oc:*` does nothing on a focused button. Wrapping it
+      in `:where()` drops it to (0,0,0) with no layers. See NOTES.md under
+      Cascade layers.
 
 ## AI track
 

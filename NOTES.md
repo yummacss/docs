@@ -72,7 +72,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 
 **Waiting on Renildo**
 
-- Cascade layers (`TODO.md`).
 - Bounded or unbounded scale (see "The 0-384 scale").
 - The landing page.
 - Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
@@ -171,6 +170,10 @@ and had to be restored.
 - **The rail's controls wear the search trigger's colours.** Selects and
   steppers sit on `bg:surface` inside `bc:border`, their values in `c:ink`,
   pressed to `bg:surface-7`; a stepper's minus and plus are `c:ink/50`.
+- **No tooltips.** A prop's truncated name shows in full on its own line while
+  the prop is open, and Look carries one line saying the accent tints the
+  preview only. The Color System swatches show a check while a copied hex is
+  on the clipboard.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
   `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
@@ -1289,7 +1292,12 @@ hang a comment on it would widen the API to document it.
 
 ---
 
-## Cascade layers: yes for the reset, no for the merge problem
+## Cascade layers: no
+
+**Decided, Renildo, 2026-10-11: no layers.** The one conflict below is fixed
+with `:where()` on the reset's focus rule (`TODO.md`). The analysis that
+follows is kept for the specificity numbers.
+
 
 Renildo asked, 2026-09-19. These are two questions and the answer differs.
 
@@ -1813,17 +1821,6 @@ overshoot shows no gap. The computed values ride in custom properties on the
 popup and backdrop, since a class cannot spell `calc()` over Base UI's
 variables.
 
-## Hints
-
-`HintTooltip` (`src/components/ui/hint-tooltip.tsx`) is the site's one
-tooltip: square, in the page arrows' colours (`bc:border`, `bg:surface`,
-`c:ink`). The arrow is an 8px square turned 45deg with only its top and left
-borders, so its fill covers the popup's border under it and the two read as
-one outline. The popup sits 18px below its control, clear of the navbar's
-bottom border, which would otherwise run through the arrow. The search button
-reads Search, and the page arrows name the page they open. The control keeps
-its own `aria-label`; the hint is for the eye.
-
 ## Footer
 
 The columns are Yumma CSS, Yumma UI, Updates and Socials. Under the mark, the
@@ -1835,22 +1832,13 @@ enough to stay behind the links.
 
 ## Releases, no blog
 
-There is no blog. Release notes live in the GitHub releases of `yummacss` and
-`yummaui`, which the footer's Releases link opens. Every old `/blog` address
-redirects there from `redirects.ts`: a release post to its version's tag,
-Hello Yumma UI to Yumma UI's releases, everything else (wrap-ups, Behind the
-Scenes, the index, the RSS feed) to Yumma CSS's releases. These redirects are
-**temporary on purpose**: a site `/releases` page is parked, not dropped, and a
-permanent redirect would stay cached in browsers after it moves. The older
-aliases that already pointed at a tag stay permanent.
-
-The parked page reads both repos' releases from the GitHub API at build time,
-one page per release at `/releases/v4-5-0` and `/releases/ui-v0-5-0` (both
-products have a `v0.1.0`). Thirteen rounds of index mockups were rejected as
-too basic or too busy: claude.ai/artifact/YaNZLfDDd9wgxkyLaRYKtB. What held up:
-a release page titled "Yumma CSS v4.5.0" with the date alone under it, package
-names as a bright `cli:` prefix, and a diff bar of added (solid `diff-add`)
-and removed (striped `diff-remove`) on that page only.
+There is no blog and no releases page. Release notes live in the GitHub
+releases of `yummacss` and `yummaui`, which the footer's Releases link opens;
+GitHub is where a reader can also star, watch or contribute. Renildo,
+2026-10-11. Every old `/blog` address redirects there permanently from
+`redirects.ts`: a release post to its version's tag, Hello Yumma UI to Yumma
+UI's releases, everything else (wrap-ups, Behind the Scenes, the index, the
+RSS feed) to Yumma CSS's releases.
 
 ## Logomark
 
