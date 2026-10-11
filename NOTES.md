@@ -440,9 +440,10 @@ call.** Esteban ships 400 only, so display headings can never have weight
 contrast without changing the face. Docs `h1` is `fs-4xl fw-400` = 36px on 54px
 leading, loose for display type.
 
-**Esteban only applies inside `<article>` or via `.ff-e`.** `globals.css` sets
-`h1..h6` to `system-ui` and overrides only `article h1..h6, .ff-e`. Any new page
-built from `<section>`/`<header>` gets system-ui headings silently.
+**Every heading names its family.** `ff:display` (Esteban) on content: the MDX
+headings, the page titles, Baseline, the Reference header. `ff:system`
+(`system-ui`, from `theme.fonts`) on chrome: sidebar, TOC, footer, rail, the
+error pages. A heading with neither gets the body font, iA Writer Quattro.
 
 **pnpm only.** Renildo's call, 2026-08-31, replacing the old two-tab rule:
 every install or CLI command is a plain fence with the pnpm form, no
@@ -1031,9 +1032,26 @@ inline style and custom class in it is a data point. Each one is either a gap
 Yumma should close with something true to CSS, or data that belongs inline, or a
 utility that already exists and was missed. Special-purpose utilities that only
 fit one call site are the wrong answer; `theme.fonts` (#1 above) is the model.
-**`globals.css` stays.** It carries the `@yummacss` marker, and a rule that is
-plain CSS with no utility form (a `light-dark()` value, a keyframe) belongs in
-it. The audit shrinks what is in it for want of a utility, not the file.
+**`globals.css` aims at the marker alone**, Renildo, 2026-10-11. A rule left in
+it is a Yumma gap or a selector no class can reach, and is listed below.
+
+What moved out, 2026-10-11:
+
+- The `@fontsource` imports are in `src/app/layout.tsx`.
+- The heading families are `ff:display` and `ff:system` classes (above, under
+  "Every heading names its family").
+- The theme's `color-scheme` is `cs:d light:cs:l auto:cs:ld` on `<html>`, with
+  `light` and `auto` as `theme.states` for `[data-theme=...]`.
+
+What stays, and why:
+
+- **The preview reset** (system font, light scheme, `Highlight` selection) and
+  **the portal `z-index`**. Both match Base UI portals in `<body>` by role and
+  attribute: a selector problem, not a value.
+- **`.footer-version`**: no line height below `lh:1`, and a theme colour drops
+  the alpha of its value.
+- **`[data-fold]`**: a summary styled from its `<details>`'s `open`, and the
+  `::-webkit-details-marker` pseudo-element, which has no variant.
 
 Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 `src/app`, `src/components` and `src/mdx-components.tsx`, and **187 lines of
@@ -1078,8 +1096,8 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
       `[data-fold]`, `:root[data-theme=...]`. Attribute variants are 4.2's,
       and the `data-*` limits in "Attribute variants" below still apply.
       The scrollbar uses `hovering:` and `scrolling:` states. `[data-fold]`
-      and `:root[data-theme]` stay in `globals.css`: one styles a child from
-      its parent's state, the other is the theme itself.
+      stays in `globals.css`, since it styles a child from its parent's state.
+      `:root[data-theme]` became `light:` and `auto:` states on `<html>`.
 
 **Stays inline, correctly.** A value computed at runtime is data, not style:
 the palette's `backgroundColor: shade` and `repeat(${scale.length}, ...)`,
@@ -1137,11 +1155,10 @@ in the monorepo name it, plus every docs example and `play` - and
 decision #15 rules out a compat mode, so `loadConfig` would hard-break rather
 than accept both. Nothing is gained that a reader was confused by.
 
-**The honest ceiling on the whole idea:** `globals.css` today has two custom
-classes (`docs-container`, `ff-e`), which #1 and #2 would remove entirely, plus
-one selector-scoped rule no utility can replace - the preview reset, which matches
-Base UI portals in `<body>` by role and attribute. **Some CSS is a *selector*
-problem, not a value problem.** Aim at the value problems and say so.
+**The honest ceiling on the whole idea:** some CSS is a *selector* problem, not
+a value problem. The preview reset matches Base UI portals in `<body>` by role
+and attribute, which no class on an element the site renders can reach. Aim at
+the value problems and say so.
 
 ---
 

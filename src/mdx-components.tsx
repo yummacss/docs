@@ -61,11 +61,15 @@ const components: MDXComponents = {
   h1: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
-      <h1 id={id} {...props}>
+      <h1 id={id} {...props} className={`ff:display ${props.className}`}>
         {children}
       </h1>
     ) : (
-      <h1 id={id} className="mb:4 c:ink fs:4xl fw:400 lh:1" {...props}>
+      <h1
+        id={id}
+        className="ff:display mb:4 c:ink fs:4xl fw:400 lh:1"
+        {...props}
+      >
         {children}
       </h1>
     );
@@ -73,11 +77,15 @@ const components: MDXComponents = {
   h2: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
-      <h2 id={id} {...props}>
+      <h2 id={id} {...props} className={`ff:display ${props.className}`}>
         {children}
       </h2>
     ) : (
-      <h2 id={id} className="mt:12 mb:4 c:ink fs:xxl fw:400 lh:1" {...props}>
+      <h2
+        id={id}
+        className="ff:display mt:12 mb:4 c:ink fs:xxl fw:400 lh:1"
+        {...props}
+      >
         {children}
       </h2>
     );
@@ -85,11 +93,15 @@ const components: MDXComponents = {
   h3: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
-      <h3 id={id} {...props}>
+      <h3 id={id} {...props} className={`ff:display ${props.className}`}>
         {children}
       </h3>
     ) : (
-      <h3 id={id} className="mt:8 mb:4 c:ink fs:xl fw:400 lh:1" {...props}>
+      <h3
+        id={id}
+        className="ff:display mt:8 mb:4 c:ink fs:xl fw:400 lh:1"
+        {...props}
+      >
         {children}
       </h3>
     );
@@ -97,28 +109,36 @@ const components: MDXComponents = {
   h4: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
-      <h4 id={id} {...props}>
+      <h4 id={id} {...props} className={`ff:display ${props.className}`}>
         {children}
       </h4>
     ) : (
-      <h4 id={id} className="mt:6 my:3 c:ink fs:lg fw:500 lh:1" {...props}>
+      <h4
+        id={id}
+        className="ff:display mt:6 my:3 c:ink fs:lg fw:500 lh:1"
+        {...props}
+      >
         {children}
       </h4>
     );
   },
   h5: ({ children, ...props }) =>
     props.className ? (
-      <h5 {...props}>{children}</h5>
+      <h5 {...props} className={`ff:display ${props.className}`}>
+        {children}
+      </h5>
     ) : (
-      <h5 className="mt:4 my:3 c:ink fs:md fw:500 lh:1" {...props}>
+      <h5 className="ff:display mt:4 my:3 c:ink fs:md fw:500 lh:1" {...props}>
         {children}
       </h5>
     ),
   h6: ({ children, ...props }) =>
     props.className ? (
-      <h6 {...props}>{children}</h6>
+      <h6 {...props} className={`ff:display ${props.className}`}>
+        {children}
+      </h6>
     ) : (
-      <h6 className="mt:4 my:2 c:ink fs:sm fw:500 lh:1" {...props}>
+      <h6 className="ff:display mt:4 my:2 c:ink fs:sm fw:500 lh:1" {...props}>
         {children}
       </h6>
     ),
