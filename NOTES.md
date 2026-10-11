@@ -1770,7 +1770,8 @@ On a tablet it centres at `max-w:sm`.
 - Docs and Components are Tabs over both menus, so either is a tap away from
   any page. The navbar gets both from `menus()` in `sidebar.tsx`.
 - Sections are an Accordion. Each opening starts on the tab and the section
-  holding the current page, scrolled to that page (`useReveal`).
+  holding the current page, scrolled to that page (`useReveal`). The current page is marked as on
+  the desktop sidebar: the accent with a dashed underline.
 - The filter narrows the active tab's pages, opens every section with a
   match, and marks the match in the accent (`Match`, shared with search).
 - Focus lands on the active tab, not the filter, so a phone does not raise

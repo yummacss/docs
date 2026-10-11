@@ -231,10 +231,10 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
                                           }
                                         />
                                       }
-                                      className={`p:r d:f ai:c g:2 py:2 pr:4 pl:7 blw:2 fs:md us:none fv:oc:ink fv:oo:-2 fv:ow:2 ${
+                                      className={`p:r d:f ai:c g:2 py:2 pr:4 pl:7 fs:md us:none fv:oc:ink fv:oo:-2 fv:ow:2 ${
                                         isActive
-                                          ? "bc:accent bg:border c:ink"
-                                          : "bc:transparent c:ink/70"
+                                          ? "c:accent td:u tds:d"
+                                          : "c:ink/70 h:c:accent"
                                       }`}
                                     >
                                       <Match text={item.title} query={typed} />
