@@ -197,41 +197,39 @@ const titleSize = (text: string, width: number, max: number) =>
 
 function Home({ spec }: { spec: Extract<OgSpec, { kind: "home" }> }) {
   return (
-    <>
-      <div
-        style={{
-          position: "absolute",
-          left: LEFT,
-          top: 306,
-          display: "flex",
-          flexDirection: "column",
-          fontFamily: "Esteban",
-          fontSize: 124,
-          lineHeight: 1.02,
-          color: INK,
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <span>{spec.before}</span>
-          <div style={{ display: "flex", position: "relative" }}>
-            <Selected tag={spec.word} pad={0}>
-              <span style={{ padding: "0 8px" }}>{spec.word}</span>
-            </Selected>
-            <div
-              style={{
-                position: "absolute",
-                right: -26,
-                bottom: -30,
-                display: "flex",
-              }}
-            >
-              {cursor}
-            </div>
+    <div
+      style={{
+        position: "absolute",
+        left: LEFT,
+        top: 306,
+        display: "flex",
+        flexDirection: "column",
+        fontFamily: "Esteban",
+        fontSize: 124,
+        lineHeight: 1.02,
+        color: INK,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <span>{spec.before}</span>
+        <div style={{ display: "flex", position: "relative" }}>
+          <Selected tag={spec.word} pad={0}>
+            <span style={{ padding: "0 8px" }}>{spec.word}</span>
+          </Selected>
+          <div
+            style={{
+              position: "absolute",
+              right: -26,
+              bottom: -30,
+              display: "flex",
+            }}
+          >
+            {cursor}
           </div>
         </div>
-        <span>{spec.second}</span>
       </div>
-    </>
+      <span>{spec.second}</span>
+    </div>
   );
 }
 
