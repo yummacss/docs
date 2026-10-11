@@ -16,7 +16,7 @@ const siteFiles = [
 ];
 
 // a class the site's own stylesheet defines
-const ALLOWED = new Set(["footer-version", "palette-edge"]);
+const ALLOWED = new Set(["footer-version"]);
 
 const docsOnlyColors = Object.keys(config.theme?.colors ?? {}).filter(
   (color) => color !== "percentage",
