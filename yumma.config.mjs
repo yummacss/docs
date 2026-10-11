@@ -22,8 +22,6 @@ export default defineConfig({
     states: {
       closing: "[data-ending-style]",
       hovering: "[data-hovering]",
-      light: '[data-theme="light"]',
-      auto: '[data-theme="auto"]',
       opening: "[data-starting-style]",
       scrolling: "[data-scrolling]",
       swiping: "[data-swiping]",

@@ -11,7 +11,6 @@ import HintTooltip from "./hint-tooltip";
 import HomeMark from "./home-mark";
 import type { Menus } from "./mobile-sheet";
 import { SearchDialog } from "./search-dialog";
-import ThemeToggle from "./theme-toggle";
 
 const preloadSearch = () => {
   loadSearchIndex().catch(() => {});
@@ -110,8 +109,6 @@ export default function Navbar({
             </div>
 
             <div className="d:f ai:c g:2 @sm:g:4">
-              <ThemeToggle />
-
               <HintTooltip label="Search">
                 <Button
                   type="button"
