@@ -70,7 +70,7 @@ export default function Navbar({
           isLandingPage ? "bg:transparent" : "bg:page",
         )}
       >
-        <div className="mx:auto px:3 py:2 max-w:clamp(40rem,80vw,96rem)">
+        <div className="mx:auto px:6 py:2 max-w:clamp(40rem,80vw,96rem) @lg:px:3">
           <nav className="d:f ai:c jc:sb">
             <div className="d:f ai:c g:8">
               <HomeMark className="d:b h:8 w:auto" />
