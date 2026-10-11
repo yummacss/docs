@@ -1699,6 +1699,10 @@ The palette page is Color System, `/docs/color-system`, under Customization.
 inside it, and readers looking for the palette did not find it. `/docs/colors` and
 `/docs/colours` redirect there.
 
+The navbar has a palette button beside the theme toggle that opens it, with
+a "Color System" hint, at every width. The page keeps its name: `/docs/color`
+is the text-color utility, so "Color" would collide again.
+
 A swatch gets an edge only where it would melt into the page: a pale one on
 the light theme, a dark one on the dark theme (`getBorderColor`, a
 `light-dark()` pair, in `src/utils/colors.ts`).
