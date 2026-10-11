@@ -1,4 +1,4 @@
-[![Yumma CSS](./public/og.png)](https://yummacss.com)
+[![Yumma CSS](/og.png)](https://yummacss.com)
 
 # Yumma CSS Docs
 
