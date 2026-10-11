@@ -101,12 +101,12 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
             style={MOTION}
             className="p:r d:f fd:c o:h w:100% max-w:sm h:calc(100dvh-4rem+3rem) mb:-12 bc:border bg:page c:ink btw:1 os:none ta:none tp:t tdu:300 ttf:var(--sheet-ease) opening:tr:var(--sheet-offstage) closing:tr:var(--sheet-offstage) closing:tdu:var(--sheet-close) swiping:tdu:0 swiping:us:none @prm:tp:none @sm:blw:1 @sm:brw:1"
           >
-            <div className="p:r fs:0 px:4 pt:6 pb:3 bc:border bbw:1 ta:none us:none">
+            <div className="p:r fs:0 px:4 pt:6 pb:1 ta:none us:none">
               <div
                 aria-hidden
-                className="p:a t:2 l:0 r:0 w:12 h:1 mx:auto bg:border"
+                className="p:a t:2 l:0 r:0 w:14 h:1 mx:auto bg:border"
               />
-              <div className="d:f ai:c g:3 h:10 px:3 bc:border bg:surface c:ink/50 bw:1 fw:oc:ink fw:ow:2">
+              <div className="d:f ai:c g:3 h:10 px:3 bg:surface c:ink/50 fw:oc:ink fw:ow:2">
                 <Search className="fs:0 w:4 h:4" />
                 <Input
                   type="text"
@@ -135,7 +135,7 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
                     key={`${section.title}-${section._key ?? ""}`}
                     className="d:f fd:c"
                   >
-                    <h3 className="ff:system mb:1 px:4 c:silver-8 fs:xs fw:600 ls:2 tt:u">
+                    <h3 className="mb:2 px:7 c:ink/50 fs:sm fw:400">
                       {section.title}
                     </h3>
                     <ul>
@@ -159,10 +159,10 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
                                   }
                                 />
                               }
-                              className={`p:r d:f ai:c g:2 h:10 px:4 fs:md us:none a:bg:surface fv:oc:ink fv:oo:-2 fv:ow:2 ${
+                              className={`p:r d:f ai:c g:2 h:10 px:7 fs:md us:none a:bg:surface fv:oc:ink fv:oo:-2 fv:ow:2 ${
                                 isActive
                                   ? "c:accent td:u tds:d"
-                                  : "c:ink/70 h:c:accent"
+                                  : "c:ink/80 h:td:u"
                               }`}
                             >
                               <Match text={item.title} query={typed} />
