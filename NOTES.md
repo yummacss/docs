@@ -1040,8 +1040,8 @@ What moved out, 2026-10-11:
 - The `@fontsource` imports are in `src/app/layout.tsx`.
 - The heading families are `ff:display` and `ff:system` classes (above, under
   "Every heading names its family").
-- The theme's `color-scheme` is `cs:d light:cs:l auto:cs:ld` on `<html>`, with
-  `light` and `auto` as `theme.states` for `[data-theme=...]`.
+- The theme is the reader's system: `cs:ld` on `<html>`, so every
+  `light-dark()` pair follows the OS. There is no theme switch.
 
 What stays, and why:
 
@@ -1097,7 +1097,7 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
       and the `data-*` limits in "Attribute variants" below still apply.
       The scrollbar uses `hovering:` and `scrolling:` states. `[data-fold]`
       stays in `globals.css`, since it styles a child from its parent's state.
-      `:root[data-theme]` became `light:` and `auto:` states on `<html>`.
+      `:root[data-theme]` is gone: the site follows the OS with `cs:ld`.
 
 **Stays inline, correctly.** A value computed at runtime is data, not style:
 the palette's `backgroundColor: shade` and `repeat(${scale.length}, ...)`,
@@ -1768,10 +1768,9 @@ tooltip: square, in the page arrows' colours (`bc:border`, `bg:surface`,
 `c:ink`). The arrow is an 8px square turned 45deg with only its top and left
 borders, so its fill covers the popup's border under it and the two read as
 one outline. The popup sits 18px below its control, clear of the navbar's
-bottom border, which would otherwise run through the arrow. The theme toggle
-names the theme a press switches to, the search button reads Search, and the
-page arrows name the page they open. The control keeps its own `aria-label`;
-the hint is for the eye.
+bottom border, which would otherwise run through the arrow. The search button
+reads Search, and the page arrows name the page they open. The control keeps
+its own `aria-label`; the hint is for the eye.
 
 ## Footer
 
@@ -1811,7 +1810,7 @@ the front faces. Light and dark differ in colour only, never in geometry.
   nav and the footer, with no tile. `HomeMark` (`src/components/ui/home-mark.tsx`)
   links each one home; a right-click opens `/docs/brand` instead of the browser's
   menu. Every colour is a `light-dark()` pair, so it
-  follows `data-theme`; gradient ids come from `useId`, since the mark renders
+  follows the OS theme; gradient ids come from `useId`, since the mark renders
   more than once a page.
 - `public/logo.svg` and `public/logo-dark.svg` are the mark on its rounded tile
   (`rx` 23 of 100). `apple-touch-icon.png` (180, square, for iOS to round) uses the dark tile.
