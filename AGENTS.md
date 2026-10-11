@@ -119,8 +119,8 @@ is written.
 
 - Every page opens with `SkipLink` and has one `<main id="main">`, so the first
   Tab skips the navbar and the sidebar.
-- No `title` attributes for tooltips. `HintTooltip` wraps the control and the
-  accessible name stays on its `aria-label`. An `<iframe title>` is that
+- No tooltips on the site's own controls, and no `title` attributes for them.
+  A control's accessible name is its `aria-label`. An `<iframe title>` is that
   frame's accessible name, not a tooltip, and stays.
 - Bounded scrolling goes through `Scroller`, which is Base UI's Scroll Area
   with the site's own scrollbar. Two traps it works around: the scroll area's

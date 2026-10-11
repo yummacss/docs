@@ -1,8 +1,9 @@
 "use client";
 
-import { Tooltip } from "@base-ui/react";
+import { Button } from "@base-ui/react";
 import { useState } from "react";
 import tinycolor from "tinycolor2";
+import { Check } from "@/icons";
 import { generateShades, getBorderColor, SHADE_LABELS } from "@/utils/colors";
 
 interface ColorItem {
@@ -86,74 +87,29 @@ function ColorSwatch({
   shade: string;
   label: string;
 }) {
-  const [showCopied, setShowCopied] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleClick = async () => {
-    const hex = tinycolor(shade).toHexString().toUpperCase();
-    await navigator.clipboard.writeText(hex);
-
-    setShowCopied(true);
-    setTooltipOpen(true);
-    setTimeout(() => {
-      setShowCopied(false);
-      setTooltipOpen(false);
-    }, 1500);
-  };
-
-  const handleMouseEnter = () => {
-    setTooltipOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!showCopied) {
-      setTooltipOpen(false);
-    }
+    await navigator.clipboard.writeText(
+      tinycolor(shade).toHexString().toUpperCase(),
+    );
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (
-    <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
-      <Tooltip.Trigger
-        className="p:r w:100% ar:1/1 c:p os:none"
-        style={{
-          backgroundColor: shade,
-          border: getBorderColor(shade),
-        }}
-        onClick={handleClick}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        aria-label={`${name} ${label}: ${shade}`}
-      />
-      <Tooltip.Portal>
-        <Tooltip.Positioner sideOffset={10}>
-          <Tooltip.Popup
-            className="d:f p:r fd:c px:2 py:1 bc:border bg:surface c:ink bw:1 fs:xs"
-            style={{
-              transformOrigin: "bottom center",
-              transition: !showCopied
-                ? "transform 200ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms cubic-bezier(0.4, 0, 0.2, 1)"
-                : "none",
-              opacity: tooltipOpen ? 1 : 0,
-              transform: tooltipOpen ? "scale(1)" : "scale(0.9)",
-              pointerEvents: tooltipOpen ? "auto" : "none",
-            }}
-          >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 10 5"
-              className="p:a b:-2 l:50% ml:-2 w:4 h:2 f:surface"
-            >
-              <path
-                d="M0 0 L5 5 L10 0"
-                className="f:surface"
-                stroke="#232741"
-                strokeWidth="1"
-              />
-            </svg>
-            {showCopied ? "Copied!" : `${name} ${label}`}
-          </Tooltip.Popup>
-        </Tooltip.Positioner>
-      </Tooltip.Portal>
-    </Tooltip.Root>
+    <Button
+      onClick={handleClick}
+      aria-label={`${name} ${label}: ${shade}${copied ? ", copied" : ""}`}
+      className="d:f ai:c jc:c w:100% ar:1/1 p:0 c:p fv:oc:ink fv:oo:2 fv:ow:2"
+      style={{ backgroundColor: shade, border: getBorderColor(shade) }}
+    >
+      {copied && (
+        <Check
+          aria-hidden
+          className={`w:4 h:4 ${tinycolor(shade).isLight() ? "c:black" : "c:white"}`}
+        />
+      )}
+    </Button>
   );
 }
