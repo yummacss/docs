@@ -2,7 +2,7 @@ import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import Navbar from "@/components/ui/navbar";
 import UIShell from "@/components/ui/shell";
-import Sidebar, { menuSections } from "@/components/ui/sidebar";
+import Sidebar, { menus } from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
 import type { Primitives } from "@/utils/primitive";
 
@@ -33,7 +33,7 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h:dvh">
       <SkipLink />
-      <Navbar menu={menuSections("ui")} />
+      <Navbar menu={menus()} />
 
       <main
         id="main"
