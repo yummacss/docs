@@ -2,7 +2,6 @@
 
 import { Button } from "@base-ui/react";
 import { clsx } from "clsx";
-import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Search } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
@@ -16,30 +15,16 @@ const preloadSearch = () => {
 
 const MobileSheet = lazy(() => import("./mobile-sheet"));
 
-type Variant = "default" | "transparent";
-
 // below @lg the page runs up to the navbar with no line between
-const BASE = "p:f ix:0 t:0 @lg:bbw:1";
-
-const VARIANTS: Record<Variant, string> = {
-  default: "@lg:bf-b:md bc:border",
-  transparent: "bc:transparent",
-};
+const BASE = "p:f ix:0 t:0 zi:10 bg:page bc:border @lg:bbw:1 @lg:bf-b:md";
 
 interface NavbarProps {
-  variant?: Variant;
   className?: string;
   /** The phone menu's sections, built on the server; without them there is no menu button. */
   menu?: Menus;
 }
 
-export default function Navbar({
-  variant = "default",
-  className,
-  menu,
-}: NavbarProps) {
-  const pathname = usePathname();
-  const isLandingPage = pathname === "/";
+export default function Navbar({ className, menu }: NavbarProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -57,15 +42,7 @@ export default function Navbar({
 
   return (
     <>
-      <header
-        className={clsx(
-          BASE,
-          VARIANTS[variant],
-          className,
-          "zi:10",
-          isLandingPage ? "bg:transparent" : "bg:page",
-        )}
-      >
+      <header className={clsx(BASE, className)}>
         <div className="mx:auto px:6 py:2 max-w:clamp(40rem,80vw,96rem)">
           <nav className="d:f ai:c jc:sb">
             <HomeMark className="d:b h:8 w:auto" />
