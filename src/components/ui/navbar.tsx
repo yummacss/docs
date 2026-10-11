@@ -2,9 +2,8 @@
 
 import { Button } from "@base-ui/react";
 import { clsx } from "clsx";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Search } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
 import HintTooltip from "./hint-tooltip";
@@ -20,18 +19,17 @@ const MobileSheet = lazy(() => import("./mobile-sheet"));
 
 type Variant = "default" | "transparent";
 
-// below @lg the page runs up to the navbar with no line between
-const BASE = "p:f ix:0 t:0 @lg:bbw:1";
+// no line under the navbar: the page runs up to it
+const BASE = "p:f ix:0 t:0";
 
 const VARIANTS: Record<Variant, string> = {
-  default: "@lg:bf-b:md bc:border",
-  transparent: "bc:transparent",
+  default: "@lg:bf-b:md",
+  transparent: "",
 };
 
 interface NavbarProps {
   variant?: Variant;
   className?: string;
-  links?: ReactNode;
   /** The phone menu's sections, built on the server; without them there is no menu button. */
   menu?: Menus;
 }
@@ -39,7 +37,6 @@ interface NavbarProps {
 export default function Navbar({
   variant = "default",
   className,
-  links,
   menu,
 }: NavbarProps) {
   const pathname = usePathname();
@@ -72,41 +69,7 @@ export default function Navbar({
       >
         <div className="mx:auto px:6 py:2 max-w:clamp(40rem,80vw,96rem)">
           <nav className="d:f ai:c jc:sb">
-            <div className="d:f ai:c g:8">
-              <HomeMark className="d:b h:8 w:auto" />
-
-              {links ? (
-                links
-              ) : (
-                <div className="d:none ai:c g:8 @lg:d:f">
-                  {[
-                    { href: "/docs", label: "Docs", prefix: "/docs" },
-                    {
-                      href: "/ui/installation",
-                      label: "Components",
-                      prefix: "/ui",
-                    },
-                  ].map((link) => {
-                    const isActive = link.prefix
-                      ? pathname.startsWith(link.prefix)
-                      : pathname === link.href;
-                    return (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`fs:sm fv:oc:ink fv:ow:2 ${
-                          isActive
-                            ? "c:accent td:u tds:d"
-                            : "c:ink/70 h:c:accent"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+            <HomeMark className="d:b h:8 w:auto" />
 
             <div className="d:f ai:c g:2 @sm:g:4">
               <HintTooltip label="Search">

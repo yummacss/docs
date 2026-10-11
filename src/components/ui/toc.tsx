@@ -40,7 +40,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d:none bc:border blw:1 @lg:d:b @lg:gc-s:3">
+    <aside className="d:none @lg:d:b @lg:gc-s:3">
       <Scroller className="p:st t:20 max-h:calc(100dvh-5rem)">
         <div className="px:8 pb:12">
           <h3 className="ff:system mb:4 c:silver-8 fs:xs fw:600 ls:2 tt:u">
