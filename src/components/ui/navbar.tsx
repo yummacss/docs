@@ -9,7 +9,7 @@ import { Menu, Search, Xmark } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
 import HintTooltip from "./hint-tooltip";
 import HomeMark from "./home-mark";
-import type { NavSection } from "./mobile-dialog-nav";
+import type { Menus } from "./mobile-sheet";
 import { SearchDialog } from "./search-dialog";
 import ThemeToggle from "./theme-toggle";
 
@@ -17,7 +17,7 @@ const preloadSearch = () => {
   loadSearchIndex().catch(() => {});
 };
 
-const MobileDialog = lazy(() => import("./mobile-dialog"));
+const MobileSheet = lazy(() => import("./mobile-sheet"));
 
 type Variant = "default" | "transparent";
 
@@ -32,8 +32,8 @@ interface NavbarProps {
   variant?: Variant;
   className?: string;
   links?: ReactNode;
-  /** The mobile menu's sections, built on the server; without them there is no menu button. */
-  menu?: NavSection[];
+  /** The phone menu's sections, built on the server; without them there is no menu button. */
+  menu?: Menus;
 }
 
 export default function Navbar({
@@ -153,10 +153,10 @@ export default function Navbar({
 
       {menu && (
         <Suspense fallback={null}>
-          <MobileDialog
+          <MobileSheet
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
-            sections={menu}
+            menus={menu}
           />
         </Suspense>
       )}

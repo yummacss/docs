@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { docsLinks, sidebarConfig } from "@/config/sidebar";
-import type { NavSection } from "./mobile-dialog-nav";
+import type { Menus, NavSection } from "./mobile-sheet";
 import SidebarNav from "./sidebar-nav";
 
 type Variant = "docs" | "ui";
@@ -64,4 +64,9 @@ export function menuSections(variant: Variant): NavSection[] {
       items: docsLinks.map((link) => ({ ...link, external: true })),
     },
   ];
+}
+
+/** Both menus, so the phone sheet can switch between Docs and Components anywhere. */
+export function menus(): Menus {
+  return { docs: menuSections("docs"), ui: menuSections("ui") };
 }

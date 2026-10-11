@@ -1058,8 +1058,8 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 `globals.css`** beyond the `@yummacss` import. Sorted:
 
 - [x] **Viewport-minus heights: five sites now, not two.** `sidebar-nav.tsx`
-      and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-dialog-nav.tsx`
-      (`calc(100dvh - 60px)`), `search-dialog.tsx` (`70vh` and
+      and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-sheet.tsx`
+      (`calc(100dvh - 4rem)`), `search-dialog.tsx` (`70vh` and
       `calc(70vh - 120px)`), plus `.playground-rail` and `.playground-column`
       in `globals.css`, which exist only because the cap had to be
       breakpoint-conditional. That is #3 above, with more evidence.
@@ -1760,6 +1760,22 @@ shows.
 - The highlighted row's title is set huge at the foot of the right side, cut
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
+
+## Phone menu
+
+Below `@lg` the menu button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`),
+Base UI's Drawer from the bottom, 4rem short of the top, swiped down to close.
+On a tablet it centres at `max-w:sm`.
+
+- Docs and Components are Tabs over both menus, so either is a tap away from
+  any page. The navbar gets both from `menus()` in `sidebar.tsx`.
+- Sections are an Accordion. Each opening starts on the tab and the section
+  holding the current page, scrolled to that page (`useReveal`).
+- The filter narrows the active tab's pages, opens every section with a
+  match, and marks the match in the accent (`Match`, shared with search).
+- Focus lands on the active tab, not the filter, so a phone does not raise
+  its keyboard on opening.
+- Home is the logo; the menu holds no Home link.
 
 ## Hints
 
