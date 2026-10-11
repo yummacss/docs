@@ -114,7 +114,7 @@ export default function Navbar({
                   nativeButton={false}
                   render={<Link href="/docs/color-system" />}
                   aria-label="Color System"
-                  className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
+                  className="palette-edge p:r d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
                 >
                   <Palette className="w:4 h:4" />
                 </Button>
