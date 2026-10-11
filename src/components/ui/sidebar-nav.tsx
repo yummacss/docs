@@ -6,6 +6,7 @@ import Scroller from "@/components/ui/scroller";
 import { ArrowUpRight } from "@/icons";
 import { useReveal } from "@/utils/reveal";
 import NewBadge, { NewLabel } from "./new-badge";
+import ProductLinks from "./product-links";
 
 interface NavItem {
   slug: string;
@@ -45,6 +46,11 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
         className="p:st t:20 max-h:calc(100dvh-5rem)"
         viewportClassName="d:f fd:c g:8 mx:-2 px:2 pb:12"
       >
+        <ProductLinks
+          heading="ff:system mb:3 c:silver-8 fs:xs ls:2 tt:u"
+          list="d:f fd:c g:2"
+          link="p:r d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2"
+        />
         {sections.map((section) => (
           <div key={section.title} className="d:f fd:c g:3">
             <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">
