@@ -1,9 +1,13 @@
 "use client";
 
-import { type ComponentProps, useId } from "react";
+import { type ComponentProps, type ReactNode, useId } from "react";
 
-// the glass cube with a solid cube inside; follows the page's colour scheme
-export function YummaCSSMark(props: ComponentProps<"svg">) {
+// The glass cube both marks share, with each product's solid inside; every
+// colour is a light-dark() pair, so it follows the page's colour scheme.
+function Glass({
+  children,
+  ...props
+}: ComponentProps<"svg"> & { children: ReactNode }) {
   const id = useId().replace(/[^\w-]/g, "");
   return (
     <svg
@@ -75,25 +79,7 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
             "light-dark(rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.12))",
         }}
       />
-      <polygon
-        points="50,34.9885 63,42.4942 50,50 37,42.4942"
-        style={{ fill: "light-dark(#8796e4, #ffffff)" }}
-      />
-      <polygon
-        points="37,42.4942 50,50 50,65.0115 37,57.5058"
-        style={{ fill: "light-dark(#3f51c0, #bec6f2)" }}
-      />
-      <polygon
-        points="63,42.4942 63,57.5058 50,65.0115 50,50"
-        style={{ fill: "light-dark(#27348a, #7f8bd6)" }}
-      />
-      <polygon
-        points="50,34.9885 63,42.4942 50,50 37,42.4942"
-        fill="none"
-        strokeWidth="0.4"
-        strokeLinejoin="round"
-        style={{ stroke: "light-dark(rgb(255 255 255 / 0.6), transparent)" }}
-      />
+      {children}
       <polygon
         points="50,19 76.8,34.5 50,50 23.2,34.5"
         style={{
@@ -129,5 +115,78 @@ export function YummaCSSMark(props: ComponentProps<"svg">) {
         }}
       />
     </svg>
+  );
+}
+
+/** Yumma CSS: a solid cube inside the glass. */
+export function YummaCSSMark(props: ComponentProps<"svg">) {
+  return (
+    <Glass {...props}>
+      <polygon
+        points="50,34.9885 63,42.4942 50,50 37,42.4942"
+        style={{ fill: "light-dark(#8796e4, #ffffff)" }}
+      />
+      <polygon
+        points="37,42.4942 50,50 50,65.0115 37,57.5058"
+        style={{ fill: "light-dark(#3f51c0, #bec6f2)" }}
+      />
+      <polygon
+        points="63,42.4942 63,57.5058 50,65.0115 50,50"
+        style={{ fill: "light-dark(#27348a, #7f8bd6)" }}
+      />
+      <polygon
+        points="50,34.9885 63,42.4942 50,50 37,42.4942"
+        fill="none"
+        strokeWidth="0.4"
+        strokeLinejoin="round"
+        style={{ stroke: "light-dark(rgb(255 255 255 / 0.6), transparent)" }}
+      />
+    </Glass>
+  );
+}
+
+/** Yumma UI: two stacked slabs inside the glass. */
+export function YummaUIMark(props: ComponentProps<"svg">) {
+  return (
+    <Glass {...props}>
+      <polygon
+        points="50,43.7 65.59,52.7 50,61.7 34.41,52.7"
+        style={{ fill: "light-dark(#8796e4, #ffffff)" }}
+      />
+      <polygon
+        points="34.41,52.7 50,61.7 50,65.3 34.41,56.3"
+        style={{ fill: "light-dark(#3f51c0, #bec6f2)" }}
+      />
+      <polygon
+        points="65.59,52.7 50,61.7 50,65.3 65.59,56.3"
+        style={{ fill: "light-dark(#27348a, #7f8bd6)" }}
+      />
+      <polygon
+        points="50,43.7 65.59,52.7 50,61.7 34.41,52.7"
+        fill="none"
+        strokeWidth="0.4"
+        strokeLinejoin="round"
+        style={{ stroke: "light-dark(rgb(255 255 255 / 0.6), transparent)" }}
+      />
+      <polygon
+        points="50,34.7 65.59,43.7 50,52.7 34.41,43.7"
+        style={{ fill: "light-dark(#8796e4, #ffffff)" }}
+      />
+      <polygon
+        points="34.41,43.7 50,52.7 50,56.3 34.41,47.3"
+        style={{ fill: "light-dark(#3f51c0, #bec6f2)" }}
+      />
+      <polygon
+        points="65.59,43.7 50,52.7 50,56.3 65.59,47.3"
+        style={{ fill: "light-dark(#27348a, #7f8bd6)" }}
+      />
+      <polygon
+        points="50,34.7 65.59,43.7 50,52.7 34.41,43.7"
+        fill="none"
+        strokeWidth="0.4"
+        strokeLinejoin="round"
+        style={{ stroke: "light-dark(rgb(255 255 255 / 0.6), transparent)" }}
+      />
+    </Glass>
   );
 }

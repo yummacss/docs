@@ -1764,10 +1764,19 @@ shows.
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
 
+## Products and dividers
+
+The navbar holds the logo and search, with no links and no line under it.
+Yumma CSS and Yumma UI are `ProductLinks` (`src/components/ui/product-links.tsx`),
+each beside its mark at 24px, the brand page's smallest size without a tile.
+They open the left sidebar and the phone sheet, and the one the route is in
+is marked as a current page is: the accent with a dashed underline. The right
+column (TOC or component rail) has no line on its left either.
+
 ## Phone menu
 
 Below `@lg` the navbar holds the logo and a Navigation button with a
-magnifier: no search button and no bottom line, as on Base UI's docs. The
+magnifier: no search button, as on Base UI's docs. The
 button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`), Base UI's
 Drawer from the bottom, its look and motion taken from Base UI's docs menu
 with square corners. The search field inside it is the phone's search; the
@@ -1777,8 +1786,8 @@ sidebar's scroll viewport keeps `px:2` for its focus outlines and pulls
 back with `mx:-2`, so its text starts on the same line as the logo.
 
 - A bordered search field over a divider, as the site's controls are, then
-  the area's sections as plain grey headings and 40px links: no tabs, no
-  folds. The other area's Get Started closes the list under its product name.
+  the product links and the area's sections as plain grey headings and 40px
+  links: no tabs, no folds.
 - Typing searches both areas and marks the match in the accent (`Match`,
   shared with search). The current page is marked as on the desktop
   sidebar, and each opening scrolls to it (`useReveal`).
@@ -1849,7 +1858,8 @@ inner walls under three faint white faces; the solid sits at the centre, behind
 the front faces. Light and dark differ in colour only, never in geometry.
 
 - `src/components/icons/yummacss-mark.tsx` draws it for the navbar, the mobile
-  nav and the footer, with no tile. `HomeMark` (`src/components/ui/home-mark.tsx`)
+  nav and the footer, with no tile. The same file draws Yumma UI's mark, two
+  slabs in the same glass, for the product links. `HomeMark` (`src/components/ui/home-mark.tsx`)
   links each one home; a right-click opens `/docs/brand` instead of the browser's
   menu. Every colour is a `light-dark()` pair, so it
   follows the OS theme; gradient ids come from `useId`, since the mark renders

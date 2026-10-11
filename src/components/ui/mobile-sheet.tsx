@@ -10,6 +10,7 @@ import { Search } from "@/icons";
 import { useReveal } from "@/utils/reveal";
 import Match from "./match";
 import NewBadge, { NewLabel } from "./new-badge";
+import ProductLinks from "./product-links";
 
 interface NavItem {
   title: string;
@@ -56,12 +57,7 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
 
   const typed = query.trim();
   const sections = useMemo(() => {
-    // unfiltered, the other area shows its way in: its first section
-    if (!typed)
-      return [
-        ...menus[here],
-        { ...menus[there][0], title: PRODUCT[there], _key: there },
-      ];
+    if (!typed) return menus[here];
     const needle = typed.toLowerCase();
     // a filter reaches both areas, the other one's sections named by product
     return [
@@ -125,6 +121,12 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
                 viewportClassName="d:f fd:c g:6 pt:4 pb:16"
                 className="f:1 min-h:0 min-w:0"
               >
+                {!typed && (
+                  <ProductLinks
+                    link="d:f ai:c g:3 h:10 px:7 fs:md us:none a:bg:surface fv:oc:ink fv:oo:-2 fv:ow:2"
+                    onNavigate={onClose}
+                  />
+                )}
                 {sections.length === 0 && (
                   <p className="px:4 py:8 c:ink/50 ta:c">
                     No pages match "{typed}"
