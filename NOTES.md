@@ -169,7 +169,7 @@ and had to be restored.
   style-owned ones and the blocked-radius reasons are not shown.
 - **The rail's controls wear the search trigger's colours.** Selects and
   steppers sit on `bg:surface` inside `bc:border`, their values in `c:ink`,
-  pressed to `bg:surface-7`; a stepper's minus and plus are `c:ink/50`.
+  pressed to `bg:press`; a stepper's minus and plus are `c:ink/50`.
 - **No tooltips.** A prop's truncated name shows in full on its own line while
   the prop is open, and Look carries one line saying the accent tints the
   preview only. The Color System swatches show a check while a copied hex is
@@ -1771,6 +1771,13 @@ shows.
 - The highlighted row's title is set huge at the foot of the right side, cut
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
+
+## Hover and press
+
+Controls on the surface hover to `bg:hover` and press to `bg:press`, two
+theme colours in `yumma.config.mjs`. Yumma's generated shades of `surface`
+do not serve: white's shade 8 is a flat `#b8b8b8`, and no shade 7 is
+generated at all, so `a:bg:surface-7` drew nothing.
 
 ## Home page
 
