@@ -72,7 +72,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 
 **Waiting on Renildo**
 
-- Cascade layers (`TODO.md`).
 - Bounded or unbounded scale (see "The 0-384 scale").
 - The landing page.
 - Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
@@ -171,6 +170,10 @@ and had to be restored.
 - **The rail's controls wear the search trigger's colours.** Selects and
   steppers sit on `bg:surface` inside `bc:border`, their values in `c:ink`,
   pressed to `bg:surface-7`; a stepper's minus and plus are `c:ink/50`.
+- **No tooltips.** A prop's truncated name shows in full on its own line while
+  the prop is open, and Look carries one line saying the accent tints the
+  preview only. The Color System swatches show a check while a copied hex is
+  on the clipboard.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
   `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
@@ -1289,7 +1292,12 @@ hang a comment on it would widen the API to document it.
 
 ---
 
-## Cascade layers: yes for the reset, no for the merge problem
+## Cascade layers: no
+
+**Decided, Renildo, 2026-10-11: no layers.** The one conflict below is fixed
+with `:where()` on the reset's focus rule (`TODO.md`). The analysis that
+follows is kept for the specificity numbers.
+
 
 Renildo asked, 2026-09-19. These are two questions and the answer differs.
 
@@ -1812,17 +1820,6 @@ close timed by `--drawer-swipe-strength`, a backdrop that fades with
 overshoot shows no gap. The computed values ride in custom properties on the
 popup and backdrop, since a class cannot spell `calc()` over Base UI's
 variables.
-
-## Hints
-
-`HintTooltip` (`src/components/ui/hint-tooltip.tsx`) is the site's one
-tooltip: square, in the page arrows' colours (`bc:border`, `bg:surface`,
-`c:ink`). The arrow is an 8px square turned 45deg with only its top and left
-borders, so its fill covers the popup's border under it and the two read as
-one outline. The popup sits 18px below its control, clear of the navbar's
-bottom border, which would otherwise run through the arrow. The search button
-reads Search, and the page arrows name the page they open. The control keeps
-its own `aria-label`; the hint is for the eye.
 
 ## Footer
 
