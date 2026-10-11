@@ -9,7 +9,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import JsonLd from "@/components/json-ld";
-import { THEME_SCRIPT } from "@/utils/theme";
 
 const description =
   "Fixed scales for spacing, colors, type and radius without arbitrary utilities.";
@@ -64,15 +63,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className="sb:s spt:20 cs:d light:cs:l auto:cs:ld s::bg:accent-dim/10"
+      className="sb:s spt:20 cs:ld s::bg:accent-dim/10"
       lang="en"
       data-scroll-behavior="smooth"
     >
       <body className="bg:page ff:body">
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: the theme has to land before paint
-          dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }}
-        />
         <NuqsAdapter>{children}</NuqsAdapter>
         <Analytics />
         <SpeedInsights />

@@ -23,8 +23,6 @@ import {
   KeyboardIcon,
   ListIcon,
   MagnifyingGlassIcon,
-  MonitorIcon,
-  MoonIcon,
   MouseLeftClickIcon,
   MouseRightClickIcon,
   MouseScrollIcon,
@@ -34,7 +32,6 @@ import {
   SignOutIcon,
   SlidersHorizontalIcon,
   SparkleIcon,
-  SunIcon,
   TerminalWindowIcon,
   TwitterLogoIcon,
   WarningIcon,
@@ -58,14 +55,12 @@ export const Copy = regular(CopyIcon);
 export const CursorPointer = regular(CursorClickIcon);
 export const FileMd = regular(FileMdIcon);
 export const Folder = regular(FolderIcon);
-export const HalfMoon = regular(MoonIcon);
 export const Heart = regular(HeartIcon);
 export const InfoCircle = regular(InfoIcon);
 export const InputField = regular(CursorTextIcon);
 export const LogOut = regular(SignOutIcon);
 export const LongArrowDownLeftSolid = regular(ArrowElbowDownLeftIcon);
 export const Menu = regular(ListIcon);
-export const Monitor = regular(MonitorIcon);
 export const MouseButtonLeft = regular(MouseLeftClickIcon);
 export const MouseButtonRight = regular(MouseRightClickIcon);
 export const MouseScrollWheel = regular(MouseScrollIcon);
@@ -83,7 +78,6 @@ export const Search = regular(MagnifyingGlassIcon);
 export const Sliders = regular(SlidersHorizontalIcon);
 export const Sparks = regular(SparkleIcon);
 export const StyleBorderSolid = regular(KeyboardIcon);
-export const SunLight = regular(SunIcon);
 export const Terminal = regular(TerminalWindowIcon);
 export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
