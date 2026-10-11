@@ -1736,6 +1736,15 @@ shows.
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
 
+## Hints
+
+`HintTooltip` (`src/components/ui/hint-tooltip.tsx`) is the site's one
+tooltip: square, `bc:ink/20` on `bg:surface`, with an arrow drawn as an SVG
+chevron in the same two colours, overlapping the popup by a pixel so the two
+read as one shape. The theme toggle names the theme a press switches to, the
+search button reads Search, and the page arrows name the page they open. The
+control keeps its own `aria-label`; the hint is for the eye.
+
 ## Footer
 
 The columns are Yumma CSS, Yumma UI, Updates and Socials. Under the mark, the
