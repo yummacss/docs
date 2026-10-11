@@ -5,11 +5,11 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { Menu, Search, Xmark } from "@/icons";
+import { Search } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
 import HintTooltip from "./hint-tooltip";
 import HomeMark from "./home-mark";
-import type { NavSection } from "./mobile-dialog-nav";
+import type { Menus } from "./mobile-sheet";
 import { SearchDialog } from "./search-dialog";
 import ThemeToggle from "./theme-toggle";
 
@@ -17,11 +17,12 @@ const preloadSearch = () => {
   loadSearchIndex().catch(() => {});
 };
 
-const MobileDialog = lazy(() => import("./mobile-dialog"));
+const MobileSheet = lazy(() => import("./mobile-sheet"));
 
 type Variant = "default" | "transparent";
 
-const BASE = "p:f ix:0 t:0 bbw:1";
+// below @lg the page runs up to the navbar with no line between
+const BASE = "p:f ix:0 t:0 @lg:bbw:1";
 
 const VARIANTS: Record<Variant, string> = {
   default: "@lg:bf-b:md bc:border",
@@ -32,8 +33,8 @@ interface NavbarProps {
   variant?: Variant;
   className?: string;
   links?: ReactNode;
-  /** The mobile menu's sections, built on the server; without them there is no menu button. */
-  menu?: NavSection[];
+  /** The phone menu's sections, built on the server; without them there is no menu button. */
+  menu?: Menus;
 }
 
 export default function Navbar({
@@ -118,30 +119,22 @@ export default function Navbar({
                   onPointerEnter={preloadSearch}
                   onFocus={preloadSearch}
                   aria-label="Search"
-                  className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
+                  className="d:none ai:c jc:c g:2 h:8 px:4 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:d:f fv:oc:ink fv:ow:2"
                 >
                   <Search className="w:4 h:4" />
-                  <kbd className="d:none c:ink/70 fs:xs us:none @lg:d:b">
-                    Ctrl + K
-                  </kbd>
+                  <kbd className="c:ink/70 fs:xs us:none">Ctrl + K</kbd>
                 </Button>
               </HintTooltip>
 
               {menu && (
                 <Button
                   type="button"
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d:f p:r ai:c jc:c h:8 px:3 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm @lg:d:none fv:oc:ink fv:ow:2"
-                  aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+                  onClick={() => setIsSidebarOpen(true)}
+                  aria-expanded={isSidebarOpen}
+                  className="d:if ai:c g:2 h:8 px:2 bg:transparent bw:0 c:ink/80 fs:sm us:none h:bg:surface a:bg:surface-8 @lg:d:none fv:oc:ink fv:ow:2"
                 >
-                  <div className="d:f p:r ai:c jc:c w:4 h:4">
-                    <Menu
-                      className={`p:a w:4 h:4 ${isSidebarOpen ? "o:0" : "o:100"}`}
-                    />
-                    <Xmark
-                      className={`p:a w:4 h:4 ${isSidebarOpen ? "o:100" : "o:0"}`}
-                    />
-                  </div>
+                  <Search className="fs:0 w:4 h:4" />
+                  Navigation
                 </Button>
               )}
             </div>
@@ -153,10 +146,10 @@ export default function Navbar({
 
       {menu && (
         <Suspense fallback={null}>
-          <MobileDialog
+          <MobileSheet
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
-            sections={menu}
+            menus={menu}
           />
         </Suspense>
       )}

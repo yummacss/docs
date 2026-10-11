@@ -32,10 +32,8 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **A real mobile sidebar.** Renildo, 2026-10-02: the menu looks basic.
-      Start from Yumma UI's own Drawer (`src/registry/ui/drawer.tsx`) and
-      Base UI's drawer examples, and design one for the docs. Today it is
-      `mobile-dialog.tsx` and `mobile-dialog-nav.tsx`.
+Empty.
+
 
 ## Phase 5 - Infrastructure
 

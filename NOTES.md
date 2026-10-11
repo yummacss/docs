@@ -1058,8 +1058,8 @@ Measured on `main` at `bcf4ea4d5`: **24 inline `style=` in 13 files** under
 `globals.css`** beyond the `@yummacss` import. Sorted:
 
 - [x] **Viewport-minus heights: five sites now, not two.** `sidebar-nav.tsx`
-      and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-dialog-nav.tsx`
-      (`calc(100dvh - 60px)`), `search-dialog.tsx` (`70vh` and
+      and `toc.tsx` (`calc(100dvh - 5rem)`), `mobile-sheet.tsx`
+      (`calc(100dvh - 4rem)`), `search-dialog.tsx` (`70vh` and
       `calc(70vh - 120px)`), plus `.playground-rail` and `.playground-column`
       in `globals.css`, which exist only because the cap had to be
       breakpoint-conditional. That is #3 above, with more evidence.
@@ -1760,6 +1760,41 @@ shows.
 - The highlighted row's title is set huge at the foot of the right side, cut
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
+
+## Phone menu
+
+Below `@lg` the navbar holds the logo and a Navigation button with a
+magnifier: no search button and no bottom line, as on Base UI's docs. The
+button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`), Base UI's
+Drawer from the bottom, its look and motion taken from Base UI's docs menu
+with square corners. The search field inside it is the phone's search; the
+search dialog is for desktop. The home page has the menu too.
+
+- A filled search field, then the area's sections as plain grey headings and
+  40px links: no tabs, no folds. The other area's Get Started closes the list under its product name.
+- Typing searches both areas and marks the match in the accent (`Match`,
+  shared with search). The current page is marked as on the desktop
+  sidebar, and each opening scrolls to it (`useReveal`).
+- Focus lands on the popup, not the field, so a phone keeps its keyboard down.
+
+**Following the thumb.** Two rules carry it, both from Base UI's docs:
+
+- The viewport, popup and header are `ta:none` and the list sits in
+  `Drawer.Content` with `ta:auto`. Without that the browser takes the drag as
+  a pan, cancels the pointer, and the Drawer reads the cancelled flick as a
+  dismissal: the sheet closes after a few pixels.
+- During a swipe Base UI moves the popup with an inline `transform`. A
+  `translate` class on top of it moves the sheet twice the finger's distance,
+  so the popup translates only for opening and closing
+  (`--sheet-offstage`). Measured: 1:1 with the finger after Base UI's 20px
+  threshold, back in place on a short release.
+
+The rest is Base UI's curve, `cubic-bezier(0.32, 0.72, 0, 1)` over 300ms, a
+close timed by `--drawer-swipe-strength`, a backdrop that fades with
+`--drawer-swipe-progress`, and a 3rem bleed below the screen so an
+overshoot shows no gap. The computed values ride in custom properties on the
+popup and backdrop, since a class cannot spell `calc()` over Base UI's
+variables.
 
 ## Hints
 
