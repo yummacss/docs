@@ -1744,11 +1744,13 @@ shows.
 
 `HintTooltip` (`src/components/ui/hint-tooltip.tsx`) is the site's one
 tooltip: square, in the page arrows' colours (`bc:border`, `bg:surface`,
-`c:ink`), with an arrow drawn as an SVG chevron in the same border and
-surface, overlapping the popup by a pixel so the two read as one shape. The
-theme toggle names the theme a press switches to, the search button reads
-Search, and the page arrows name the page they open. The control keeps its own
-`aria-label`; the hint is for the eye.
+`c:ink`). The arrow is an 8px square turned 45deg with only its top and left
+borders, so its fill covers the popup's border under it and the two read as
+one outline. The popup sits 18px below its control, clear of the navbar's
+bottom border, which would otherwise run through the arrow. The theme toggle
+names the theme a press switches to, the search button reads Search, and the
+page arrows name the page they open. The control keeps its own `aria-label`;
+the hint is for the eye.
 
 ## Footer
 
