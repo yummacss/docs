@@ -1699,6 +1699,10 @@ The palette page is Color System, `/docs/color-system`, under Customization.
 inside it, and readers looking for the palette did not find it. `/docs/colors` and
 `/docs/colours` redirect there.
 
+A swatch gets an edge only where it would melt into the page: a pale one on
+the light theme, a dark one on the dark theme (`getBorderColor`, a
+`light-dark()` pair, in `src/utils/colors.ts`).
+
 ## Search
 
 `src/components/ui/search-dialog.tsx`, one Base UI dialog in two shapes. From
