@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { Menu, Palette, Search, Xmark } from "@/icons";
+import { Menu, Search, Xmark } from "@/icons";
 import { loadSearchIndex } from "@/utils/search-data";
 import HintTooltip from "./hint-tooltip";
 import HomeMark from "./home-mark";
@@ -109,16 +109,6 @@ export default function Navbar({
             </div>
 
             <div className="d:f ai:c g:2 @sm:g:4">
-              <HintTooltip label="Color System">
-                <Button
-                  nativeButton={false}
-                  render={<Link href="/docs/color-system" />}
-                  aria-label="Color System"
-                  className="palette-edge p:r d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
-                >
-                  <Palette className="w:4 h:4" />
-                </Button>
-              </HintTooltip>
               <ThemeToggle />
 
               <HintTooltip label="Search">
