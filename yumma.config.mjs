@@ -11,7 +11,9 @@ export default defineConfig({
       border: { light: "#dde1eb", dark: "#232741" },
       code: { light: "#3e4a80", dark: "#dda2f6" },
       ink: { light: "#14171f", dark: "#ffffff" },
+      hover: { light: "#eef0f6", dark: "#131521" },
       page: { light: "#f7f8fb", dark: "#151724" },
+      press: { light: "#e5e8f0", dark: "#0f111b" },
       surface: { light: "#ffffff", dark: "#1a1d2e" },
     },
     fonts: {

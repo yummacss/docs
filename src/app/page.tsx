@@ -61,7 +61,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/ui/components/installation"
-                  className="px:6 py:3 bc:border bg:surface c:ink bw:1 fs:md fw:600 us:none h:bg:surface-8 fv:oc:ink fv:ow:2"
+                  className="px:6 py:3 bc:border bg:surface c:ink bw:1 fs:md fw:600 us:none h:bg:hover fv:oc:ink fv:ow:2"
                 >
                   Yumma UI
                 </Link>

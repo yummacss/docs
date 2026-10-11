@@ -77,7 +77,7 @@ export default function Navbar({
                 onPointerEnter={preloadSearch}
                 onFocus={preloadSearch}
                 aria-label="Search"
-                className="d:none ai:c jc:c g:2 h:8 px:4 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:d:f fv:oc:ink fv:ow:2"
+                className="d:none ai:c jc:c g:2 h:8 px:4 bc:border bg:surface a:bg:press c:ink bw:1 fs:sm bf-b:sm @lg:d:f fv:oc:ink fv:ow:2"
               >
                 <Search className="w:4 h:4" />
                 <kbd className="c:ink/70 fs:xs us:none">Ctrl + K</kbd>
@@ -88,7 +88,7 @@ export default function Navbar({
                   type="button"
                   onClick={() => setIsSidebarOpen(true)}
                   aria-expanded={isSidebarOpen}
-                  className="d:if ai:c g:2 h:8 px:2 bg:transparent bw:0 c:ink/80 fs:sm us:none h:bg:surface a:bg:surface-8 @lg:d:none fv:oc:ink fv:ow:2"
+                  className="d:if ai:c g:2 h:8 px:2 bg:transparent bw:0 c:ink/80 fs:sm us:none h:bg:surface a:bg:hover @lg:d:none fv:oc:ink fv:ow:2"
                 >
                   <Search className="fs:0 w:4 h:4" />
                   Navigation

@@ -66,7 +66,7 @@ function Details({
         <Button
           type="button"
           onClick={() => onCopy(item)}
-          className="d:if ai:c h:8 px:3 w:fc bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 fs:sm fv:oc:ink fv:ow:2"
+          className="d:if ai:c h:8 px:3 w:fc bc:border bg:surface h:bg:hover a:bg:press c:ink bw:1 fs:sm fv:oc:ink fv:ow:2"
         >
           {copied ? "Copied" : "Copy hex"}
         </Button>
@@ -281,7 +281,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   const highlighted = current;
   const rowClass = (selected: boolean) =>
-    `d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${selected ? "bg:surface-8" : "bg:transparent"}`;
+    `d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${selected ? "bg:hover" : "bg:transparent"}`;
 
   // the word set huge at the foot of the right side
   const wash = highlighted?.title;
@@ -341,7 +341,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   type="button"
                   onClick={leave}
                   aria-label={`Back from ${category.title}`}
-                  className="d:if fs:0 ai:c g:1 h:6 px:2 bc:border bg:transparent h:bg:surface-8 c:ink/80 bw:1 fs:sm fv:oc:ink fv:ow:2"
+                  className="d:if fs:0 ai:c g:1 h:6 px:2 bc:border bg:transparent h:bg:hover c:ink/80 bw:1 fs:sm fv:oc:ink fv:ow:2"
                 >
                   <NavArrowLeft className="w:3 h:3" />
                   {category.title}
