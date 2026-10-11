@@ -1713,7 +1713,11 @@ the rows carry their description, which on a wide screen only the right side
 shows.
 
 - The Esc key at the end of the field is a button too, at every width: it
-  closes the dialog when clicked, so a phone has the same control.
+  closes the dialog when clicked, so a phone has the same control. It stays a
+  key label: no hover fill, no transition.
+- Ctrl+A or Cmd+A anywhere in the dialog selects the field's text. Base UI's
+  modal traps focus but leaves select-all to the browser, which would select
+  the page behind it.
 - Empty, it browses: the sidebar's sections with their page counts
   (`searchCategories` in `src/utils/search-data.ts`), the right side listing
   the highlighted section's pages. Right arrow, Enter or a click opens one: it
@@ -1723,6 +1727,9 @@ shows.
   results come first, anywhere else Yumma CSS's (`categoryOrder`).
 - Results show the title alone, the typed text in the accent. Groups read
   Yumma CSS, Options, Yumma UI, Props, Colors, in that order on a docs page.
+- A query that starts a color family's name (three letters or more, "red",
+  "indi") puts the swatches first. Props match from the start of their name, so
+  "red" does not list every component's `required`.
 - A color family is a grid of swatches; Enter or a click copies the hex, and
   the right side shows the shade large with a Copy hex button.
 - The highlighted row's title is set huge at the foot of the right side, cut
