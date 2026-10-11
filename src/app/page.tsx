@@ -3,7 +3,6 @@ import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 import { menus } from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
-import { NavArrowRight } from "@/icons";
 
 const title = "Yumma CSS - Get faster at CSS while you use it";
 const description =
@@ -45,14 +44,6 @@ export default function Home() {
         <div className="w:100% max-w:288">
           <div className="d:g g:12 ai:fe @lg:gtc:2">
             <div>
-              <Link
-                href="https://github.com/yummacss/yummacss/releases/tag/v4.0.0"
-                className="d:if ai:c g:2 px:3 py:1 mb:6 bc:border bg:surface c:ink/70 bw:1 fs:sm us:none h:c:ink fv:oc:ink fv:ow:2"
-              >
-                Yumma CSS 4.0 is live!
-                <NavArrowRight className="w:4 h:4" />
-              </Link>
-
               <h1 className="mb:6 fs:4xl fw:400 lh:2 ff:display @md:fs:5xl @lg:fs:6xl">
                 Get faster at CSS while you use it.
               </h1>
@@ -67,6 +58,12 @@ export default function Home() {
                   className="px:6 py:3 bg:ink c:page fs:md fw:600 us:none"
                 >
                   Get started
+                </Link>
+                <Link
+                  href="/ui/components/installation"
+                  className="px:6 py:3 bc:border bg:surface c:ink bw:1 fs:md fw:600 us:none h:bg:surface-8 fv:oc:ink fv:ow:2"
+                >
+                  Yumma UI
                 </Link>
               </div>
             </div>
