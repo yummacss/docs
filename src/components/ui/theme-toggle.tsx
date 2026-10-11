@@ -4,6 +4,7 @@ import { Button } from "@base-ui/react";
 import { useEffect, useState } from "react";
 import { HalfMoon, Monitor, SunLight } from "@/icons";
 import { THEME_KEY, THEMES, type Theme } from "@/utils/theme";
+import HintTooltip from "./hint-tooltip";
 
 const ICONS = { dark: HalfMoon, light: SunLight, auto: Monitor };
 
@@ -35,13 +36,15 @@ export default function ThemeToggle() {
   const Icon = ICONS[theme];
 
   return (
-    <Button
-      type="button"
-      onClick={apply}
-      aria-label={`Theme: ${LABELS[theme]}. Switch to ${LABELS[next]}`}
-      className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
-    >
-      <Icon className="w:4 h:4" />
-    </Button>
+    <HintTooltip label={`Switch to ${LABELS[next]} theme`}>
+      <Button
+        type="button"
+        onClick={apply}
+        aria-label={`Theme: ${LABELS[theme]}. Switch to ${LABELS[next]}`}
+        className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 c:ink bw:1 bf-b:sm fv:oc:ink fv:ow:2"
+      >
+        <Icon className="w:4 h:4" />
+      </Button>
+    </HintTooltip>
   );
 }

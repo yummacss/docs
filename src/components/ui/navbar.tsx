@@ -121,19 +121,21 @@ export default function Navbar({
               </HintTooltip>
               <ThemeToggle />
 
-              <Button
-                type="button"
-                onClick={() => setSearchOpen(true)}
-                onPointerEnter={preloadSearch}
-                onFocus={preloadSearch}
-                aria-label="Search"
-                className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
-              >
-                <Search className="w:4 h:4" />
-                <kbd className="d:none c:ink/70 fs:xs us:none @lg:d:b">
-                  Ctrl + K
-                </kbd>
-              </Button>
+              <HintTooltip label="Search">
+                <Button
+                  type="button"
+                  onClick={() => setSearchOpen(true)}
+                  onPointerEnter={preloadSearch}
+                  onFocus={preloadSearch}
+                  aria-label="Search"
+                  className="d:f ai:c jc:c g:2 h:8 px:3 bc:border bg:surface a:bg:surface-7 c:ink bw:1 fs:sm bf-b:sm @lg:px:4 fv:oc:ink fv:ow:2"
+                >
+                  <Search className="w:4 h:4" />
+                  <kbd className="d:none c:ink/70 fs:xs us:none @lg:d:b">
+                    Ctrl + K
+                  </kbd>
+                </Button>
+              </HintTooltip>
 
               {menu && (
                 <Button
