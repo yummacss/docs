@@ -139,9 +139,7 @@ const removedReleasePosts = [
 
 const RELEASES = "https://github.com/yummacss/yummacss/releases";
 
-// the blog is gone; until /releases exists its addresses go to GitHub. Not
-// permanent, so they can move there without browsers holding the old target.
-// NOTES.md, "Releases".
+// the blog is gone and release notes live on GitHub; NOTES.md, "Releases".
 const blogRedirects = [
   {
     source: "/blog/v0",
@@ -174,17 +172,17 @@ const blogRedirects = [
   ].map(([source, version]) => ({
     source,
     destination: `${RELEASE_TAG}/v${version}`,
-    permanent: false,
+    permanent: true,
   })),
   {
     source: "/blog/hello-yumma-ui",
     destination: "https://github.com/yummacss/yummaui/releases",
-    permanent: false,
+    permanent: true,
   },
   {
     source: "/blog/:path*",
     destination: RELEASES,
-    permanent: false,
+    permanent: true,
   },
 ];
 

@@ -1832,22 +1832,13 @@ enough to stay behind the links.
 
 ## Releases, no blog
 
-There is no blog. Release notes live in the GitHub releases of `yummacss` and
-`yummaui`, which the footer's Releases link opens. Every old `/blog` address
-redirects there from `redirects.ts`: a release post to its version's tag,
-Hello Yumma UI to Yumma UI's releases, everything else (wrap-ups, Behind the
-Scenes, the index, the RSS feed) to Yumma CSS's releases. These redirects are
-**temporary on purpose**: a site `/releases` page is parked, not dropped, and a
-permanent redirect would stay cached in browsers after it moves. The older
-aliases that already pointed at a tag stay permanent.
-
-The parked page reads both repos' releases from the GitHub API at build time,
-one page per release at `/releases/v4-5-0` and `/releases/ui-v0-5-0` (both
-products have a `v0.1.0`). Thirteen rounds of index mockups were rejected as
-too basic or too busy: claude.ai/artifact/YaNZLfDDd9wgxkyLaRYKtB. What held up:
-a release page titled "Yumma CSS v4.5.0" with the date alone under it, package
-names as a bright `cli:` prefix, and a diff bar of added (solid `diff-add`)
-and removed (striped `diff-remove`) on that page only.
+There is no blog and no releases page. Release notes live in the GitHub
+releases of `yummacss` and `yummaui`, which the footer's Releases link opens;
+GitHub is where a reader can also star, watch or contribute. Renildo,
+2026-10-11. Every old `/blog` address redirects there permanently from
+`redirects.ts`: a release post to its version's tag, Hello Yumma UI to Yumma
+UI's releases, everything else (wrap-ups, Behind the Scenes, the index, the
+RSS feed) to Yumma CSS's releases.
 
 ## Logomark
 
