@@ -47,7 +47,9 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
       >
         {sections.map((section) => (
           <div key={section.title} className="d:f fd:c g:3">
-            <h3 className="c:silver-8 fs:xs ls:2 tt:u">{section.title}</h3>
+            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">
+              {section.title}
+            </h3>
             <ul className="d:f fd:c g:2">
               {section.entries.map((entry) => {
                 if ("slug" in entry) {
@@ -106,7 +108,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
 
         {links && links.length > 0 && (
           <div className="d:f fd:c g:3">
-            <h3 className="c:silver-8 fs:xs ls:2 tt:u">Resources</h3>
+            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">Resources</h3>
             <ul className="d:f fd:c g:2">
               {links.map((link) => (
                 <li key={link.href}>

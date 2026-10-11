@@ -71,7 +71,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
 
                 return (
                   <div key={reactKey} className="d:f fd:c g:3">
-                    <h3 className="c:silver-8 fs:xs fw:600 ls:2 tt:u">
+                    <h3 className="ff:system c:silver-8 fs:xs fw:600 ls:2 tt:u">
                       {displayTitle}
                     </h3>
                     <ul className="d:f fd:c g:1">

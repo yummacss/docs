@@ -28,7 +28,7 @@ export default function Baseline({ path }: Props) {
       <div className="mb:4">
         <div className="d:f ai:c g:2 mb:2">
           <StatusIcon className={`${statusColor} w:5 h:5`} />
-          <h3 className="c:ink fs:lg fw:500">{label}</h3>
+          <h3 className="ff:display c:ink fs:lg fw:500">{label}</h3>
         </div>
         <p className="c:ink/70">{description}</p>
       </div>

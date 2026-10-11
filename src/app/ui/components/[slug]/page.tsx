@@ -59,7 +59,9 @@ export default async function Page({
       {ui && (
         <div className={`my:8 ${stage ? "fs:0" : ""}`} data-meta>
           <div className="d:f ai:c jc:sb mb:2">
-            <h1 className="min-w:0 c:ink fs:4xl fw:400 ow:bw">{ui.title}</h1>
+            <h1 className="ff:display min-w:0 c:ink fs:4xl fw:400 ow:bw">
+              {ui.title}
+            </h1>
             <div className="d:f fs:0 ai:c g:2">
               <Pagination
                 previous={navigation.previous}

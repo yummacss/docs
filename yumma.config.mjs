@@ -17,10 +17,13 @@ export default defineConfig({
     fonts: {
       body: '"iA Writer Quattro", sans-serif',
       display: '"Esteban", serif',
+      system: "system-ui, sans-serif",
     },
     states: {
       closing: "[data-ending-style]",
       hovering: "[data-hovering]",
+      light: '[data-theme="light"]',
+      auto: '[data-theme="auto"]',
       opening: "[data-starting-style]",
       scrolling: "[data-scrolling]",
       swiping: "[data-swiping]",
