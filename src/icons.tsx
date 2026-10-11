@@ -1,5 +1,4 @@
 import type { Icon, IconProps } from "@phosphor-icons/react";
-import type { SVGProps } from "react";
 import {
   ArrowCounterClockwiseIcon,
   ArrowElbowDownLeftIcon,
@@ -41,6 +40,7 @@ import {
   WarningIcon,
   XIcon,
 } from "@phosphor-icons/react/ssr";
+import type { SVGProps } from "react";
 
 type Props = Omit<IconProps, "weight">;
 
