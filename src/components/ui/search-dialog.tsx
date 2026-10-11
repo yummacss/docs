@@ -3,24 +3,29 @@
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import { Input } from "@base-ui/react/input";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Scroller from "@/components/ui/scroller";
 import {
   LongArrowDownLeftSolid,
   NavArrowDown,
+  NavArrowLeft,
+  NavArrowRight,
   NavArrowUp,
   Search,
 } from "@/icons";
 import { getBorderColor } from "@/utils/colors";
 import {
   CATEGORY_LABELS,
+  categoryOrder,
   filterSearchResults,
   groupByCategory,
   loadSearchIndex,
+  type Product,
+  type SearchCategory,
   type SearchIndex,
   type SearchItem,
-  SUGGESTIONS,
+  searchCategories,
 } from "@/utils/search-data";
 
 interface SearchDialogProps {
@@ -29,6 +34,8 @@ interface SearchDialogProps {
 }
 
 const KBD = "d:if ai:c jc:c h:5 px:1 bc:border bw:1 c:ink/60 fs:xs";
+const LABEL = "px:3 py:1 c:ink/50 fs:xs ls:2 tt:u";
+const PRODUCT: Record<Product, string> = { css: "Yumma CSS", ui: "Yumma UI" };
 
 /** The title with the typed text in the accent. */
 function Match({ text, query }: { text: string; query: string }) {
@@ -43,17 +50,16 @@ function Match({ text, query }: { text: string; query: string }) {
   );
 }
 
-/** The highlighted result, larger: a component's screenshot, a color's swatch. */
-function Preview({
+/** The highlighted page's details, shown once, on the right. */
+function Details({
   item,
   copied,
   onCopy,
 }: {
-  item?: SearchItem;
+  item: SearchItem;
   copied: boolean;
   onCopy: (item: SearchItem) => void;
 }) {
-  if (!item) return null;
   if (item.category === "colors" && item.color) {
     return (
       <div className="d:f fd:c g:4 p:5">
@@ -87,14 +93,6 @@ function Preview({
       {item.description && (
         <span className="c:ink/70 fs:sm lh:5">{item.description}</span>
       )}
-      {item.preview && (
-        // biome-ignore lint/performance/noImgElement: a static screenshot at its own size
-        <img
-          src={item.preview}
-          alt=""
-          className="mt:2 w:100% h:auto bc:border bw:1 bg:silver-1"
-        />
-      )}
       <span className="mt:2 c:ink/40 fs:xs">{item.path}</span>
     </div>
   );
@@ -102,12 +100,17 @@ function Preview({
 
 export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState<SearchCategory | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+
+  // the page you are on decides which product comes first
+  const first: Product = pathname?.startsWith("/ui") ? "ui" : "css";
 
   // the navbar starts the fetch on hover or focus; opening loads it otherwise, and retries a failure
   useEffect(() => {
@@ -122,33 +125,45 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     };
   }, [index, open]);
 
-  const filteredResults = useMemo(
-    () => filterSearchResults(query, index),
-    [query, index],
+  const categories = useMemo(
+    () => searchCategories(index, first),
+    [index, first],
   );
-  const groupedResults = useMemo(
-    () => groupByCategory(filteredResults),
-    [filteredResults],
-  );
-  const flatResults = useMemo(() => {
-    const ordered: SearchItem[] = [];
-    for (const category of Object.keys(CATEGORY_LABELS)) {
-      const items = groupedResults[category];
-      if (items) {
-        ordered.push(...items);
-      }
-    }
-    return ordered;
-  }, [groupedResults]);
+
+  const searching = query.trim() !== "";
+  const browsing = !searching && !category;
+
+  // inside a category, typing searches its pages only
+  const results = useMemo(() => {
+    const found = filterSearchResults(query, index);
+    if (!category) return found;
+    const paths = new Set(category.pages.map((page) => page.path));
+    return found.filter((item) => paths.has(item.path.split("#")[0]));
+  }, [query, index, category]);
+
+  const groupedResults = useMemo(() => groupByCategory(results), [results]);
+  const order = categoryOrder(first);
+
+  // what the arrow keys walk through, in the order it is drawn
+  const rows: (SearchItem | SearchCategory)[] = useMemo(() => {
+    if (browsing) return categories;
+    if (!searching && category) return category.pages;
+    return order.flatMap((group) => groupedResults[group] ?? []);
+  }, [browsing, searching, category, categories, groupedResults, order]);
+
+  const reset = useCallback(() => {
+    setQuery("");
+    setCategory(null);
+    setSelectedIndex(0);
+    setCopiedColor(null);
+  }, []);
 
   useEffect(() => {
     if (open) {
-      setQuery("");
-      setSelectedIndex(0);
-      setCopiedColor(null);
+      reset();
       setTimeout(() => inputRef.current?.focus(), 50);
     }
-  }, [open]);
+  }, [open, reset]);
 
   const copy = useCallback((item: SearchItem) => {
     if (!item.color) return;
@@ -157,16 +172,30 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     setTimeout(() => setCopiedColor(null), 1500);
   }, []);
 
+  const enter = useCallback((next: SearchCategory) => {
+    setCategory(next);
+    setQuery("");
+    setSelectedIndex(0);
+    inputRef.current?.focus();
+  }, []);
+
+  const leave = useCallback(() => {
+    if (!category) return;
+    const at = categories.indexOf(category);
+    setCategory(null);
+    setQuery("");
+    setSelectedIndex(Math.max(at, 0));
+    inputRef.current?.focus();
+  }, [category, categories]);
+
   const choose = useCallback(
-    (item: SearchItem) => {
-      if (item.category === "colors") {
-        copy(item);
-      } else {
-        router.push(item.path);
-        onClose();
-      }
+    (row: SearchItem | SearchCategory) => {
+      if ("pages" in row) return enter(row);
+      if (row.category === "colors") return copy(row);
+      router.push(row.path);
+      onClose();
     },
-    [copy, router, onClose],
+    [enter, copy, router, onClose],
   );
 
   const handleKeyDown = useCallback(
@@ -174,18 +203,35 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
       switch (e.key) {
         case "ArrowDown":
           e.preventDefault();
-          setSelectedIndex((prev) =>
-            Math.min(prev + 1, flatResults.length - 1),
-          );
+          setSelectedIndex((prev) => Math.min(prev + 1, rows.length - 1));
           break;
         case "ArrowUp":
           e.preventDefault();
           setSelectedIndex((prev) => Math.max(prev - 1, 0));
           break;
+        case "ArrowRight":
+          if (browsing) {
+            e.preventDefault();
+            const row = rows[selectedIndex];
+            if (row && "pages" in row) enter(row);
+          }
+          break;
+        case "ArrowLeft":
+          if (category && !searching) {
+            e.preventDefault();
+            leave();
+          }
+          break;
+        case "Backspace":
+          if (category && query === "") {
+            e.preventDefault();
+            leave();
+          }
+          break;
         case "Enter": {
           e.preventDefault();
-          const selected = flatResults[selectedIndex];
-          if (selected) choose(selected);
+          const row = rows[selectedIndex];
+          if (row) choose(row);
           break;
         }
         case "Escape":
@@ -194,19 +240,71 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           break;
       }
     },
-    [flatResults, selectedIndex, choose, onClose],
+    [
+      rows,
+      selectedIndex,
+      browsing,
+      category,
+      searching,
+      query,
+      enter,
+      leave,
+      choose,
+      onClose,
+    ],
   );
 
   useEffect(() => {
-    if (listRef.current && flatResults.length > 0) {
+    if (listRef.current && rows.length > 0) {
       const items = listRef.current.querySelectorAll("[data-search-item]");
       const selected = items[selectedIndex] as HTMLElement | undefined;
       selected?.scrollIntoView({ block: "nearest" });
     }
-  }, [selectedIndex, flatResults.length]);
+  }, [selectedIndex, rows.length]);
 
-  const empty = query.trim() === "";
-  let globalIndex = -1;
+  const highlighted = rows[selectedIndex];
+  const rowClass = (selected: boolean) =>
+    `d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${selected ? "bg:surface-8" : "bg:transparent"}`;
+
+  // the word set huge at the foot of the right side
+  const wash = highlighted?.title;
+
+  let rowIndex = -1;
+  const row = (
+    item: SearchItem,
+    { description }: { description: boolean } = { description: true },
+  ) => {
+    rowIndex++;
+    const current = rowIndex;
+    const selected = selectedIndex === current;
+    return (
+      <Button
+        key={`${item.path}-${item.title}`}
+        data-search-item
+        type="button"
+        onClick={() => {
+          setSelectedIndex(current);
+          choose(item);
+        }}
+        onMouseEnter={() => setSelectedIndex(current)}
+        className={rowClass(selected)}
+      >
+        <span className="d:f f:1 min-w:0 ai:b g:3">
+          <span className="fs:0 c:ink fs:md ws:nw">
+            <Match text={item.title} query={query} />
+          </span>
+          {description && item.description && (
+            <span className="o:h c:ink/50 fs:sm to:e ws:nw @md:d:none">
+              {item.description}
+            </span>
+          )}
+        </span>
+        {selected && (
+          <LongArrowDownLeftSolid className="fs:0 w:4 h:4 c:ink/50" />
+        )}
+      </Button>
+    );
+  };
 
   return (
     <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
@@ -216,16 +314,31 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           <Dialog.Popup
             data-chrome
             aria-label="Search"
-            className="tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none d:f fd:c o:h w:100% h:dvh bg:page pe:auto @md:w:224 @md:max-w:calc(100vw-4rem) @md:h:auto @md:max-h:calc(70vh) @md:bc:border @md:bw:1"
+            className="tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none d:f fd:c o:h w:100% h:dvh bg:page pe:auto @md:w:224 @md:max-w:calc(100vw-4rem) @md:h:144 @md:max-h:calc(100dvh-8rem) @md:bc:border @md:bw:1"
             onKeyDown={handleKeyDown}
           >
             <div className="d:f fs:0 ai:c g:3 px:4 h:14 bc:border bbw:1">
               <Search className="fs:0 w:5 h:5 c:ink/60" />
+              {category && (
+                <Button
+                  type="button"
+                  onClick={leave}
+                  aria-label={`Back from ${category.title}`}
+                  className="d:if fs:0 ai:c g:1 h:6 px:2 bc:border bg:transparent h:bg:surface-8 c:ink/80 bw:1 fs:sm fv:oc:ink fv:ow:2"
+                >
+                  <NavArrowLeft className="w:3 h:3" />
+                  {category.title}
+                </Button>
+              )}
               <Input
                 ref={inputRef}
                 type="text"
                 aria-label="Search the docs"
-                placeholder="Search classes, components, colors"
+                placeholder={
+                  category
+                    ? `Search ${category.title}`
+                    : "Search classes, components, colors"
+                }
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
@@ -234,9 +347,11 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 autoFocus
                 className="f:1 min-w:0 bg:transparent c:ink os:none fs:md"
               />
-              <kbd className={`${KBD} d:none @md:d:if`}>Esc</kbd>
-              <Dialog.Close className="c:accent fs:md bg:transparent b:0 fv:oc:ink fv:ow:2 @md:d:none">
-                Cancel
+              <Dialog.Close
+                aria-label="Close search"
+                className="d:if fs:0 ai:c jc:c h:6 px:2 bc:border bg:transparent h:bg:surface-8 a:bg:surface-7 c:ink/60 h:c:ink bw:1 fs:xs fv:oc:ink fv:ow:2"
+              >
+                Esc
               </Dialog.Close>
             </div>
 
@@ -244,137 +359,153 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               <Scroller
                 viewportRef={listRef}
                 viewportClassName="px:2 py:2"
-                className="f:1 min-h:0 min-w:0 @md:max-h:calc(70vh-6.5rem)"
+                className="f:1 min-h:0 min-w:0"
               >
-                {Object.entries(CATEGORY_LABELS).map(([category, label]) => {
-                  const items = groupedResults[category];
-                  if (!items || items.length === 0) return null;
-
-                  if (category === "colors") {
+                {browsing &&
+                  categories.map((section, at) => {
+                    const selected = selectedIndex === at;
+                    const head =
+                      at === 0 ||
+                      categories[at - 1].product !== section.product;
                     return (
-                      <div key={category} className="mb:2">
-                        <div className="px:3 py:1 c:ink/50 fs:xs ls:2 tt:u">
-                          {label}
-                        </div>
-                        <div className="d:g g:1 px:1 gtc:6 @sm:gtc:8">
-                          {items.map((item) => {
-                            globalIndex++;
-                            const currentIndex = globalIndex;
-                            const isSelected = selectedIndex === currentIndex;
-                            return (
-                              <Button
-                                key={item.title}
-                                data-search-item
-                                type="button"
-                                aria-label={`${item.title}, ${item.description}`}
-                                onClick={() => {
-                                  setSelectedIndex(currentIndex);
-                                  copy(item);
-                                }}
-                                onMouseEnter={() =>
-                                  setSelectedIndex(currentIndex)
-                                }
-                                className={`d:f fd:c g:1 p:1 bw:1 bg:transparent c:p ${isSelected ? "bc:ink/60" : "bc:transparent"}`}
-                              >
-                                <span
-                                  className="d:b h:8"
-                                  style={{
-                                    backgroundColor: item.color,
-                                    border: getBorderColor(item.color ?? ""),
-                                  }}
-                                />
-                                <span className="c:ink/60 fs:xs">
-                                  {copiedColor === item.title
-                                    ? "Copied"
-                                    : item.title.replace(/^.*\s(?=\d+$)/, "")}
-                                </span>
-                              </Button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <div key={category} className="mb:2">
-                      <div className="px:3 py:1 c:ink/50 fs:xs ls:2 tt:u">
-                        {label}
-                      </div>
-                      {items.map((item) => {
-                        globalIndex++;
-                        const currentIndex = globalIndex;
-                        const isSelected = selectedIndex === currentIndex;
-
-                        return (
-                          <Button
-                            key={`${item.path}-${item.title}`}
-                            data-search-item
-                            type="button"
-                            onClick={() => {
-                              setSelectedIndex(currentIndex);
-                              choose(item);
-                            }}
-                            onMouseEnter={() => setSelectedIndex(currentIndex)}
-                            className={`d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${
-                              isSelected ? "bg:surface-8" : "bg:transparent"
-                            }`}
-                          >
-                            <span className="d:f f:1 min-w:0 ai:b g:3">
-                              <span className="fs:0 c:ink fs:md ws:nw">
-                                <Match text={item.title} query={query} />
-                              </span>
-                              {item.description && (
-                                <span className="o:h c:ink/50 fs:sm to:e ws:nw">
-                                  {item.description}
-                                </span>
-                              )}
-                            </span>
-                            {isSelected && (
-                              <LongArrowDownLeftSolid className="fs:0 w:4 h:4 c:ink/50" />
-                            )}
-                          </Button>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-
-                {empty && (
-                  <div className="px:3 pt:3 pb:2">
-                    <div className="pb:3 c:ink/50 fs:xs ls:2 tt:u">Try</div>
-                    <div className="d:f fw:w g:2">
-                      {SUGGESTIONS.map((suggestion) => (
+                      <div key={`${section.product}-${section.title}`}>
+                        {head && (
+                          <div className={`${LABEL} ${at ? "mt:3" : ""}`}>
+                            {PRODUCT[section.product]}
+                          </div>
+                        )}
                         <Button
-                          key={suggestion}
+                          data-search-item
                           type="button"
                           onClick={() => {
-                            setQuery(suggestion);
-                            setSelectedIndex(0);
-                            inputRef.current?.focus();
+                            setSelectedIndex(at);
+                            enter(section);
                           }}
-                          className="px:2 py:1 bc:border bg:transparent h:bg:surface-8 c:ink/80 bw:1 fs:sm fv:oc:ink fv:ow:2"
+                          onMouseEnter={() => setSelectedIndex(at)}
+                          className={rowClass(selected)}
                         >
-                          {suggestion}
+                          <span className="f:1 c:ink fs:md">
+                            {section.title}
+                          </span>
+                          <span className="d:f ai:c g:2 c:ink/40 fs:sm">
+                            {section.pages.length}
+                            <NavArrowRight
+                              className={`w:4 h:4 ${selected ? "" : "@md:o:0"}`}
+                            />
+                          </span>
                         </Button>
-                      ))}
+                      </div>
+                    );
+                  })}
+
+                {!searching && category && (
+                  <>
+                    <div className={LABEL}>
+                      {category.title} · {category.pages.length}
                     </div>
-                  </div>
+                    {category.pages.map((page) => row(page))}
+                  </>
                 )}
 
-                {flatResults.length === 0 && !empty && (
+                {searching &&
+                  order.map((group) => {
+                    const items = groupedResults[group];
+                    if (!items || items.length === 0) return null;
+
+                    if (group === "colors") {
+                      return (
+                        <div key={group} className="mb:2">
+                          <div className={LABEL}>{CATEGORY_LABELS[group]}</div>
+                          <div className="d:g g:1 px:1 gtc:6 @sm:gtc:8">
+                            {items.map((item) => {
+                              rowIndex++;
+                              const current = rowIndex;
+                              const selected = selectedIndex === current;
+                              return (
+                                <Button
+                                  key={item.title}
+                                  data-search-item
+                                  type="button"
+                                  aria-label={`${item.title}, ${item.description}`}
+                                  onClick={() => {
+                                    setSelectedIndex(current);
+                                    copy(item);
+                                  }}
+                                  onMouseEnter={() => setSelectedIndex(current)}
+                                  className={`d:f fd:c g:1 p:1 bw:1 bg:transparent c:p ${selected ? "bc:ink/60" : "bc:transparent"}`}
+                                >
+                                  <span
+                                    className="d:b h:8"
+                                    style={{
+                                      backgroundColor: item.color,
+                                      border: getBorderColor(item.color ?? ""),
+                                    }}
+                                  />
+                                  <span className="c:ink/60 fs:xs">
+                                    {copiedColor === item.title
+                                      ? "Copied"
+                                      : item.title.replace(/^.*\s(?=\d+$)/, "")}
+                                  </span>
+                                </Button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div key={group} className="mb:2">
+                        <div className={LABEL}>{CATEGORY_LABELS[group]}</div>
+                        {items.map((item) => row(item))}
+                      </div>
+                    );
+                  })}
+
+                {searching && rows.length === 0 && (
                   <div className="px:4 py:8 c:ink/50 ta:c fs:md">
                     No results for "{query}"
+                    {category ? ` in ${category.title}` : ""}
                   </div>
                 )}
               </Scroller>
 
-              <div className="d:none w:40% fs:0 bc:border blw:1 oy:auto @md:d:b">
-                <Preview
-                  item={flatResults[selectedIndex]}
-                  copied={copiedColor === flatResults[selectedIndex]?.title}
-                  onCopy={copy}
-                />
+              <div className="d:none p:r w:40% fs:0 o:h bc:border blw:1 @md:d:b">
+                <div className="p:r zi:10 h:100% oy:auto">
+                  {highlighted && "pages" in highlighted ? (
+                    <div className="py:2 px:2">
+                      <div className={LABEL}>
+                        {highlighted.title} · {highlighted.pages.length}
+                      </div>
+                      {highlighted.pages.slice(0, 12).map((page) => (
+                        <div key={page.path} className="px:3 py:2 c:ink">
+                          {page.title}
+                        </div>
+                      ))}
+                      {highlighted.pages.length > 12 && (
+                        <div className="px:3 py:1 c:ink/50 fs:sm">
+                          {highlighted.pages.length - 12} more
+                        </div>
+                      )}
+                    </div>
+                  ) : highlighted ? (
+                    <Details
+                      item={highlighted}
+                      copied={copiedColor === highlighted.title}
+                      onCopy={copy}
+                    />
+                  ) : null}
+                </div>
+                {wash && (
+                  // the footer's version treatment: huge, dim, cut off by the edge
+                  <span
+                    aria-hidden="true"
+                    className="p:a l:5 ff:display ws:nw us:none pe:none footer-version"
+                    style={{ bottom: "-0.18em", fontSize: "9rem" }}
+                  >
+                    {wash}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -389,12 +520,30 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 </kbd>
                 <span className="ml:1">to move</span>
               </span>
-              <span className="d:f ai:c g:1">
-                <kbd className={KBD}>
-                  <LongArrowDownLeftSolid className="w:3 h:3" />
-                </kbd>
-                <span className="ml:1">to open, or copy a color</span>
-              </span>
+              {browsing && (
+                <span className="d:f ai:c g:1">
+                  <kbd className={KBD}>
+                    <NavArrowRight className="w:3 h:3" />
+                  </kbd>
+                  <span className="ml:1">to open a category</span>
+                </span>
+              )}
+              {category && !searching && (
+                <span className="d:f ai:c g:1">
+                  <kbd className={KBD}>
+                    <NavArrowLeft className="w:3 h:3" />
+                  </kbd>
+                  <span className="ml:1">to go back</span>
+                </span>
+              )}
+              {!browsing && (
+                <span className="d:f ai:c g:1">
+                  <kbd className={KBD}>
+                    <LongArrowDownLeftSolid className="w:3 h:3" />
+                  </kbd>
+                  <span className="ml:1">to open, or copy a color</span>
+                </span>
+              )}
             </div>
           </Dialog.Popup>
         </div>
