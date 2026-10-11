@@ -77,7 +77,9 @@ export default function PlaygroundRail({
           {playground && <Look />}
 
           <div className="d:f ai:c jc:sb g:2 mb:3">
-            <h3 className="c:silver-8 fs:xs ls:2 tt:u">Component API</h3>
+            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">
+              Component API
+            </h3>
             {primitive && (
               <HintTooltip label="Base UI reference">
                 <Link
@@ -205,7 +207,7 @@ function Look() {
 
   return (
     <div className="d:f fd:c pb:4 mb:4">
-      <h3 className="mb:1 c:silver-8 fs:xs ls:2 tt:u">Look</h3>
+      <h3 className="ff:system mb:1 c:silver-8 fs:xs ls:2 tt:u">Look</h3>
       {line(
         "style",
         "The style of the code you copy.",
