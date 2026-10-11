@@ -1764,19 +1764,34 @@ shows.
 ## Phone menu
 
 Below `@lg` the menu button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`),
-Base UI's Drawer from the bottom, 4rem short of the top, swiped down to close.
-On a tablet it centres at `max-w:sm`.
+Base UI's Drawer from the bottom with square corners, its motion taken from
+Base UI's own docs menu.
 
-- Docs and Components are Tabs over both menus, so either is a tap away from
-  any page. The navbar gets both from `menus()` in `sidebar.tsx`.
-- Sections are an Accordion. Each opening starts on the tab and the section
-  holding the current page, scrolled to that page (`useReveal`). The current page is marked as on
-  the desktop sidebar: the accent with a dashed underline.
-- The filter narrows the active tab's pages, opens every section with a
-  match, and marks the match in the accent (`Match`, shared with search).
-- Focus lands on the active tab, not the filter, so a phone does not raise
-  its keyboard on opening.
-- Home is the logo; the menu holds no Home link.
+- A search field, then the area's sections as headings and links: no tabs, no
+  folds. The other area's Get Started closes the list under its product name.
+- Typing searches both areas and marks the match in the accent (`Match`,
+  shared with search). The current page is marked as on the desktop
+  sidebar, and each opening scrolls to it (`useReveal`).
+- Focus lands on the popup, not the field, so a phone keeps its keyboard down.
+
+**Following the thumb.** Two rules carry it, both from Base UI's docs:
+
+- The viewport, popup and header are `ta:none` and the list sits in
+  `Drawer.Content` with `ta:auto`. Without that the browser takes the drag as
+  a pan, cancels the pointer, and the Drawer reads the cancelled flick as a
+  dismissal: the sheet closes after a few pixels.
+- During a swipe Base UI moves the popup with an inline `transform`. A
+  `translate` class on top of it moves the sheet twice the finger's distance,
+  so the popup translates only for opening and closing
+  (`--sheet-offstage`). Measured: 1:1 with the finger after Base UI's 20px
+  threshold, back in place on a short release.
+
+The rest is Base UI's curve, `cubic-bezier(0.32, 0.72, 0, 1)` over 300ms, a
+close timed by `--drawer-swipe-strength`, a backdrop that fades with
+`--drawer-swipe-progress`, and a 3rem bleed below the screen so an
+overshoot shows no gap. The computed values ride in custom properties on the
+popup and backdrop, since a class cannot spell `calc()` over Base UI's
+variables.
 
 ## Hints
 
