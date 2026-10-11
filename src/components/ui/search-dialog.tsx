@@ -27,6 +27,7 @@ import {
   type SearchItem,
   searchCategories,
 } from "@/utils/search-data";
+import Match from "./match";
 
 interface SearchDialogProps {
   open: boolean;
@@ -38,18 +39,6 @@ const LABEL = "px:3 py:1 c:ink/50 fs:xs ls:2 tt:u";
 const PRODUCT: Record<Product, string> = { css: "Yumma CSS", ui: "Yumma UI" };
 
 /** The title with the typed text in the accent. */
-function Match({ text, query }: { text: string; query: string }) {
-  const at = query ? text.toLowerCase().indexOf(query.toLowerCase()) : -1;
-  if (at < 0) return <>{text}</>;
-  return (
-    <>
-      {text.slice(0, at)}
-      <span className="c:accent">{text.slice(at, at + query.length)}</span>
-      {text.slice(at + query.length)}
-    </>
-  );
-}
-
 /** The highlighted page's details, shown once, on the right. */
 function Details({
   item,
