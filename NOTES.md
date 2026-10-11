@@ -1763,12 +1763,15 @@ shows.
 
 ## Phone menu
 
-Below `@lg` the menu button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`),
-Base UI's Drawer from the bottom with square corners, its motion taken from
-Base UI's own docs menu.
+Below `@lg` the navbar holds the logo and a Navigation button with a
+magnifier: no search button and no bottom line, as on Base UI's docs. The
+button opens `MobileSheet` (`src/components/ui/mobile-sheet.tsx`), Base UI's
+Drawer from the bottom, its look and motion taken from Base UI's docs menu
+with square corners. The search field inside it is the phone's search; the
+search dialog is for desktop. The home page has the menu too.
 
-- A search field, then the area's sections as headings and links: no tabs, no
-  folds. The other area's Get Started closes the list under its product name.
+- A filled search field, then the area's sections as plain grey headings and
+  40px links: no tabs, no folds. The other area's Get Started closes the list under its product name.
 - Typing searches both areas and marks the match in the accent (`Match`,
   shared with search). The current page is marked as on the desktop
   sidebar, and each opening scrolls to it (`useReveal`).

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
+import { menus } from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
 import { NavArrowRight } from "@/icons";
 
@@ -35,7 +36,7 @@ export default function Home() {
   return (
     <div className="p:r min-h:dvh c:ink">
       <SkipLink />
-      <Navbar variant="transparent" />
+      <Navbar variant="transparent" menu={menus()} />
 
       <main
         id="main"
