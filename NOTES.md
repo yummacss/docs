@@ -168,6 +168,9 @@ and had to be restored.
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
+- **The rail's controls wear the search trigger's colours.** Selects and
+  steppers sit on `bg:surface` inside `bc:border`, their values in `c:ink`,
+  pressed to `bg:surface-7`; a stepper's minus and plus are `c:ink/50`.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
   `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
