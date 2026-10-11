@@ -119,11 +119,11 @@ function Stepper({
 
   const button = (spent: boolean) =>
     `d:f fs:0 ai:c jc:c w:6 h:6 bw:0 bg:transparent ff:m fs:xs fv:oo:-1 fv:oc:accent ${
-      inert || spent ? "c:ink/25 c:na" : "c:accent-dim h:c:accent c:p"
+      inert || spent ? "c:ink/25 c:na" : "c:ink/50 h:c:ink a:bg:surface-7 c:p"
     }`;
 
   return (
-    <div className={`d:f fs:0 ai:c jc:sb w:32 bw:1 ${"bc:border"}`}>
+    <div className="d:f fs:0 ai:c jc:sb w:32 bc:border bg:surface bw:1">
       <Button
         type="button"
         aria-label={`Decrease ${name}`}
@@ -135,7 +135,7 @@ function Stepper({
       </Button>
       <span
         aria-live="polite"
-        className={`ff:m fs:xs ${inert ? "c:ink/40" : unset ? "c:ink/40" : "c:accent"}`}
+        className={`ff:m fs:xs ${inert || unset ? "c:ink/40" : "c:ink"}`}
       >
         {unset ? "none" : value}
       </span>
@@ -204,7 +204,7 @@ export function EnumSelect({
     >
       <Select.Trigger
         aria-label={name}
-        className={`d:f fs:0 ai:c jc:sb g:1 px:2 py:1 w:32 bg:transparent bw:1 ff:m fs:xs us:none fv:oo:-1 fv:oc:accent ${
+        className={`d:f fs:0 ai:c jc:sb g:1 px:2 py:1 w:32 bg:surface a:bg:surface-7 bw:1 ff:m fs:xs us:none fv:oo:-1 fv:oc:accent ${
           inert ? "bc:border c:ink/40 c:na" : "bc:border c:ink c:p"
         }`}
       >
@@ -276,11 +276,11 @@ export function StepSelect({
   const index = values.indexOf(value);
   const button = (spent: boolean) =>
     `d:f fs:0 ai:c jc:c w:6 h:6 bw:0 bg:transparent ff:m fs:xs fv:oo:-1 fv:oc:accent ${
-      spent ? "c:ink/25 c:na" : "c:accent-dim h:c:accent c:p"
+      spent ? "c:ink/25 c:na" : "c:ink/50 h:c:ink a:bg:surface-7 c:p"
     }`;
 
   return (
-    <div className="d:f fs:0 ai:c jc:sb w:32 bc:border bw:1">
+    <div className="d:f fs:0 ai:c jc:sb w:32 bc:border bg:surface bw:1">
       <Button
         type="button"
         aria-label={`Smaller ${name}`}
@@ -290,7 +290,7 @@ export function StepSelect({
       >
         &minus;
       </Button>
-      <span aria-live="polite" className="ff:m fs:xs c:accent">
+      <span aria-live="polite" className="ff:m fs:xs c:ink">
         {value}
       </span>
       <Button
@@ -344,7 +344,7 @@ export function SwatchSelect({
     >
       <Select.Trigger
         aria-label={name}
-        className="d:f fs:0 ai:c g:2 px:2 py:1 w:32 bg:transparent bw:1 bc:border c:ink c:p ff:m fs:xs us:none fv:oo:-1 fv:oc:accent"
+        className="d:f fs:0 ai:c g:2 px:2 py:1 w:32 bg:surface a:bg:surface-7 bw:1 bc:border c:ink c:p ff:m fs:xs us:none fv:oo:-1 fv:oc:accent"
       >
         {current && <Bars colors={current.colors} />}
         <Select.Value className="f:1 o:h to:e ws:nw ta:l" />

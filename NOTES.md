@@ -168,6 +168,9 @@ and had to be restored.
   whose options are three shades (light, base, dark) of each family. The
   props the rail cannot set fold under "N more, set in code"; the
   style-owned ones and the blocked-radius reasons are not shown.
+- **The rail's controls wear the search trigger's colours.** Selects and
+  steppers sit on `bg:surface` inside `bc:border`, their values in `c:ink`,
+  pressed to `bg:surface-7`; a stepper's minus and plus are `c:ink/50`.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
   `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
@@ -1770,8 +1773,9 @@ Drawer from the bottom, its look and motion taken from Base UI's docs menu
 with square corners. The search field inside it is the phone's search; the
 search dialog is for desktop. The home page has the menu too.
 
-- A filled search field, then the area's sections as plain grey headings and
-  40px links: no tabs, no folds. The other area's Get Started closes the list under its product name.
+- A bordered search field over a divider, as the site's controls are, then
+  the area's sections as plain grey headings and 40px links: no tabs, no
+  folds. The other area's Get Started closes the list under its product name.
 - Typing searches both areas and marks the match in the accent (`Match`,
   shared with search). The current page is marked as on the desktop
   sidebar, and each opening scrolls to it (`useReveal`).
