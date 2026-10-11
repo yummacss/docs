@@ -39,19 +39,12 @@ Empty.
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-Performance, Renildo, 2026-10-03. In this order: measure, then decide the
-content pipeline, then decide the framework. Each decision rests on numbers
-from "The site, measured" in NOTES.md.
+Performance, Renildo, 2026-10-03. The content pipeline stays (NOTES.md,
+"Content pipeline: content-collections stays"); the framework is next.
 
-- [ ] **Decide the content pipeline.** Today content-collections reads the
-      frontmatter (schemas, computed fields such as the covers) and `@next/mdx`
-      compiles the bodies. Weigh Next's MDX alone against what
-      content-collections gives: the zod schemas, the search index, the `.md`
-      twins and `llms.txt`. Measured 2026-10-04: none of it reaches the
-      browser, so this is a build-time question, not a page-weight one.
 - [ ] **Spike TanStack Start.** Vite-based, with MDX support. On a branch, one
       docs page and one component page, compared on build time, bundle and
-      hydration against the numbers above. What a move costs: the routes,
+      hydration against a 48.7s clean `next build`. What a move costs: the routes,
       `next/og` covers, `next/image`, the Vercel setup and the redirects.
       Measured 2026-10-04: the weight was one misplaced `"use client"`, which
       a framework move would have carried along.

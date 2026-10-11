@@ -1904,3 +1904,14 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
   previews draw in `system-ui`, so the images carry the font of the machine
   that ran it; rerun them all on one machine.
 
+## Content pipeline: content-collections stays
+
+Decided 2026-10-11 on a clean `next build` of 48.7s: content-collections
+builds both collections, 201 documents, in 161ms, and loading
+`next.config.ts` around it takes 1.2s. The rest is the compile (23.1s),
+TypeScript (5.6s) and 411 static pages (12.4s), and `@next/mdx` compiles the
+bodies either way. Dropping it saves at most 3% of the build and means
+rewriting what 13 files read from it: the zod schemas, the search index, the
+`.md` twins, `llms.txt`, the sitemap and the covers. Its known cost is in
+`next dev`, under Traps. It also has a Vite adapter, so it does not decide the
+TanStack Start spike either way.
