@@ -47,7 +47,7 @@ function generateColorItems(): SearchItem[] {
       items.push({
         title: displayName,
         description: shade.toUpperCase(),
-        path: "/docs/colors",
+        path: "/docs/color-system",
         category: "colors",
         color: shade,
       });
@@ -62,7 +62,7 @@ const COLOR_ITEMS = generateColorItems();
 const STARTERS = [
   "/docs/installation",
   "/docs/configuration",
-  "/docs/colors",
+  "/docs/color-system",
   "/ui/components/installation",
 ];
 

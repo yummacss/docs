@@ -1618,7 +1618,7 @@ Four stale things found on the way, fixed in the same branch:
 - **Inspect mode**: overlay dimensions and the box model on a preview. Survives
   the `/ui` layout revert because it does not depend on any of it; attach it to
   the preview and leave the page structure alone.
-- **Interactive palette on `colors.mdx`**: type a hex, see the 13 generated
+- **Interactive palette on `color-system.mdx`**: type a hex, see the 13 generated
   shades. Same blocker as exposing `yumma.config.mjs` in `play` - `loadConfig`
   genuinely reads from disk (`node:fs`, `node:crypto`, `tinyglobby`), so it
   cannot simply be re-exported from `@yummacss/nitro/browser`. Needs a real
@@ -1691,6 +1691,13 @@ the same inset accent outline as `Scroller` (`PRE_CLASSES` in
 default outline traced the overflowing lines and spilled past the box.
 
 
+
+## Color System, not Colors
+
+The palette page is Color System, `/docs/color-system`, under Customization.
+"Colors" collides with the Colors section of utilities and the Color page
+inside it, and readers looking for the palette did not find it. `/docs/colors` and
+`/docs/colours` redirect there.
 
 ## Search
 
