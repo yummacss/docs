@@ -95,11 +95,25 @@ export function searchCategories(
     : [...build("ui"), ...build("css")];
 }
 
-/** The result groups in order, the current product's first. */
-export function categoryOrder(first: Product): SearchItem["category"][] {
-  return first === "css"
-    ? ["docs", "reference", "ui-components", "props", "colors"]
-    : ["ui-components", "props", "docs", "reference", "colors"];
+/** Whether the query names a color family, like "red" or "indi". */
+function namesColor(query: string): boolean {
+  const lower = query.trim().toLowerCase();
+  return (
+    lower.length >= 3 &&
+    COLOR_FAMILIES.some((family) => family.name.toLowerCase().startsWith(lower))
+  );
+}
+
+/** The result groups in order: the current product's first, colors first when the query names one. */
+export function categoryOrder(
+  first: Product,
+  query = "",
+): SearchItem["category"][] {
+  const groups: SearchItem["category"][] =
+    first === "css"
+      ? ["docs", "reference", "ui-components", "props"]
+      : ["ui-components", "props", "docs", "reference"];
+  return namesColor(query) ? ["colors", ...groups] : [...groups, "colors"];
 }
 
 export function filterSearchResults(
@@ -122,7 +136,8 @@ export function filterSearchResults(
     item.terms === undefined
       ? item.title.toLowerCase().includes(lowerQuery) ||
         item.description?.toLowerCase().includes(lowerQuery)
-      : item.terms.toLowerCase().includes(lowerQuery),
+      : // a prop matches from its start, so "red" is not every `required`
+        item.terms.toLowerCase().startsWith(lowerQuery),
   );
 
   const colors = matches.filter((item) => item.category === "colors");
