@@ -19,12 +19,12 @@ const MobileSheet = lazy(() => import("./mobile-sheet"));
 
 type Variant = "default" | "transparent";
 
-// no line under the navbar: the page runs up to it
-const BASE = "p:f ix:0 t:0";
+// below @lg the page runs up to the navbar with no line between
+const BASE = "p:f ix:0 t:0 @lg:bbw:1";
 
 const VARIANTS: Record<Variant, string> = {
-  default: "@lg:bf-b:md",
-  transparent: "",
+  default: "@lg:bf-b:md bc:border",
+  transparent: "bc:transparent",
 };
 
 interface NavbarProps {
