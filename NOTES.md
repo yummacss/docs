@@ -1764,6 +1764,12 @@ shows.
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
 
+## Home page
+
+The hero is the title, the line under it, and two buttons: Get started
+(`bg:ink`) and Yumma UI, the secondary, bordered on the surface. There is no
+release badge; releases live on GitHub.
+
 ## Products
 
 The navbar holds the logo and search, with no Docs or Components links.
