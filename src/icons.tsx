@@ -40,7 +40,6 @@ import {
   WarningIcon,
   XIcon,
 } from "@phosphor-icons/react/ssr";
-import type { SVGProps } from "react";
 
 type Props = Omit<IconProps, "weight">;
 
@@ -90,20 +89,3 @@ export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
 export const WarningTriangle = regular(WarningIcon);
 export const Xmark = regular(XIcon);
-
-// Phosphor's regular palette outline, with the four dots in colour.
-const dots = [
-  [128, 76, "#e63946"],
-  [84, 100, "#ffb81c"],
-  [84, 156, "#06d6a0"],
-  [172, 100, "#2563eb"],
-] as const;
-
-export const Palette = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M200.77,53.89A103.27,103.27,0,0,0,128,24h-1.07A104,104,0,0,0,24,128c0,43,26.58,79.06,69.36,94.17A32,32,0,0,0,136,192a16,16,0,0,1,16-16h46.21a31.81,31.81,0,0,0,31.2-24.88,104.43,104.43,0,0,0,2.59-24A103.28,103.28,0,0,0,200.77,53.89Zm13,93.71A15.89,15.89,0,0,1,198.21,160H152a32,32,0,0,0-32,32,16,16,0,0,1-21.31,15.07C62.49,194.3,40,164,40,128a88,88,0,0,1,87.09-88h.9a88.35,88.35,0,0,1,88,87.25A88.86,88.86,0,0,1,213.81,147.6Z" />
-    {dots.map(([cx, cy, fill]) => (
-      <circle key={fill} cx={cx} cy={cy} r={12} fill={fill} />
-    ))}
-  </svg>
-);

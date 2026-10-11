@@ -1699,15 +1699,9 @@ The palette page is Color System, `/docs/color-system`, under Customization.
 inside it, and readers looking for the palette did not find it. `/docs/colors` and
 `/docs/colours` redirect there.
 
-The navbar has a palette button beside the theme toggle that opens it, with
-a "Color System" hint, at every width. The page keeps its name: `/docs/color`
-is the text-color utility, so "Color" would collide again.
-
-That button is the one place the navbar shows colour. Its icon is Phosphor's
-regular palette outline drawn by hand in `src/icons.tsx`, with the four dots
-coloured, and its 1px edge is the palette as a conic gradient at 45% opacity
-that turns once every 10s (`.palette-edge` in `src/styles/globals.css`). The
-edge stays the same on hover and holds still for reduced motion.
+The page keeps its name: `/docs/color` is the text-color utility, so "Color"
+would collide again. The navbar has no shortcut to it; search and the sidebar
+reach it.
 
 A swatch gets an edge only where it would melt into the page: a pale one on
 the light theme, a dark one on the dark theme (`getBorderColor`, a
