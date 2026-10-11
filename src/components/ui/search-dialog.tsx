@@ -198,26 +198,45 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     [enter, copy, router, onClose],
   );
 
+  const current = rows[selectedIndex];
+  const onSwatch =
+    searching && !!current && "color" in current && !!current.color;
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       switch (e.key) {
         case "ArrowDown":
+        case "ArrowUp": {
           e.preventDefault();
-          setSelectedIndex((prev) => Math.min(prev + 1, rows.length - 1));
+          const next = step(listRef.current, selectedIndex, e.key);
+          setSelectedIndex(
+            next ??
+              Math.min(
+                Math.max(selectedIndex + (e.key === "ArrowDown" ? 1 : -1), 0),
+                rows.length - 1,
+              ),
+          );
           break;
-        case "ArrowUp":
-          e.preventDefault();
-          setSelectedIndex((prev) => Math.max(prev - 1, 0));
-          break;
+        }
         case "ArrowRight":
-          if (browsing) {
+          if (onSwatch) {
+            e.preventDefault();
+            setSelectedIndex(
+              step(listRef.current, selectedIndex, e.key) ?? selectedIndex,
+            );
+          } else if (browsing) {
             e.preventDefault();
             const row = rows[selectedIndex];
             if (row && "pages" in row) enter(row);
           }
           break;
         case "ArrowLeft":
-          if (category && !searching) {
+          if (onSwatch) {
+            e.preventDefault();
+            setSelectedIndex(
+              step(listRef.current, selectedIndex, e.key) ?? selectedIndex,
+            );
+          } else if (category && !searching) {
             e.preventDefault();
             leave();
           }
@@ -251,6 +270,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     [
       rows,
       selectedIndex,
+      onSwatch,
       browsing,
       category,
       searching,
@@ -270,7 +290,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     }
   }, [selectedIndex, rows.length]);
 
-  const highlighted = rows[selectedIndex];
+  const highlighted = current;
   const rowClass = (selected: boolean) =>
     `d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${selected ? "bg:surface-8" : "bg:transparent"}`;
 
@@ -526,6 +546,16 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 <kbd className={KBD}>
                   <NavArrowDown className="w:3 h:3" />
                 </kbd>
+                {onSwatch && (
+                  <>
+                    <kbd className={KBD}>
+                      <NavArrowLeft className="w:3 h:3" />
+                    </kbd>
+                    <kbd className={KBD}>
+                      <NavArrowRight className="w:3 h:3" />
+                    </kbd>
+                  </>
+                )}
                 <span className="ml:1">to move</span>
               </span>
               {browsing && (
@@ -558,4 +588,49 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
       </Dialog.Portal>
     </Dialog.Root>
   );
+}
+
+// The item an arrow key lands on, found by where the items sit, so the
+// swatch grid moves like a grid and the lists like lists.
+function step(list: HTMLElement | null, from: number, key: string) {
+  const items = list?.querySelectorAll<HTMLElement>("[data-search-item]");
+  const here = items?.[from]?.getBoundingClientRect();
+  if (!items || !here) return null;
+  const boxes = [...items].map((item, at) => ({
+    at,
+    box: item.getBoundingClientRect(),
+  }));
+  const centre = (box: DOMRect) => box.left + box.width / 2;
+  const row = (box: DOMRect) => Math.abs(box.top - here.top) < 2;
+
+  if (key === "ArrowLeft" || key === "ArrowRight") {
+    const left = key === "ArrowLeft";
+    const side = boxes.filter(
+      ({ box }) =>
+        row(box) && (left ? box.left < here.left : box.left > here.left),
+    );
+    if (side.length === 0) return from;
+    return side.reduce((best, item) =>
+      Math.abs(centre(item.box) - centre(here)) <
+      Math.abs(centre(best.box) - centre(here))
+        ? item
+        : best,
+    ).at;
+  }
+
+  const down = key === "ArrowDown";
+  const beyond = boxes.filter(({ box }) =>
+    down ? box.top > here.top + 2 : box.top < here.top - 2,
+  );
+  if (beyond.length === 0) return from;
+  const edge = down
+    ? Math.min(...beyond.map(({ box }) => box.top))
+    : Math.max(...beyond.map(({ box }) => box.top));
+  const line = beyond.filter(({ box }) => Math.abs(box.top - edge) < 2);
+  return line.reduce((best, item) =>
+    Math.abs(centre(item.box) - centre(here)) <
+    Math.abs(centre(best.box) - centre(here))
+      ? item
+      : best,
+  ).at;
 }
