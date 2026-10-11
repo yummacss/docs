@@ -12,7 +12,6 @@ import Control, {
   SwatchSelect,
 } from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
-import HintTooltip from "@/components/ui/hint-tooltip";
 import Scroller from "@/components/ui/scroller";
 import { NavArrowDown } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
@@ -81,17 +80,15 @@ export default function PlaygroundRail({
               Component API
             </h3>
             {primitive && (
-              <HintTooltip label="Base UI reference">
-                <Link
-                  href={`https://base-ui.com/react/components/${primitive}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Base UI reference"
-                  className="d:f ai:c jc:c fs:0 c:ink/70 td:none h:c:ink fv:oc:accent fv:ow:2"
-                >
-                  <BaseUI className="w:4 h:4" />
-                </Link>
-              </HintTooltip>
+              <Link
+                href={`https://base-ui.com/react/components/${primitive}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Base UI reference"
+                className="d:f ai:c jc:c fs:0 c:ink/70 td:none h:c:ink fv:oc:accent fv:ow:2"
+              >
+                <BaseUI className="w:4 h:4" />
+              </Link>
             )}
           </div>
 
@@ -138,7 +135,10 @@ function Row({
 }) {
   // a long name ends in an ellipsis; the control wraps only when even 3rem of name will not fit
   const name = (
-    <code className="min-w:0 o:h to:e ws:nw c:code fs:xs ff:m">
+    // open, a truncated name wraps to show in full
+    <code
+      className={`min-w:0 c:code fs:xs ff:m ${open ? "ow:ba" : "o:h to:e ws:nw"}`}
+    >
       {prop.name}
     </code>
   );
@@ -147,21 +147,19 @@ function Row({
     <div className="py:2 bc:border bbw:1">
       <div className="d:f fw:w ai:c jc:sb g:2">
         {prop.description ? (
-          <HintTooltip label={prop.name}>
-            <Button
-              onClick={onToggle}
-              aria-expanded={open}
-              className="d:f f:1 min-w:12 ai:c g:1 p:0 bg:transparent bw:0 ta:l c:p fv:oo:-1 fv:oc:accent"
-            >
-              {name}
-              <NavArrowDown
-                aria-hidden
-                className={`fs:0 w:3 h:3 tp:c tdu:150 ${
-                  open ? "ro:36 c:accent" : "c:ink/25"
-                }`}
-              />
-            </Button>
-          </HintTooltip>
+          <Button
+            onClick={onToggle}
+            aria-expanded={open}
+            className={`d:f f:1 min-w:12 ai:c g:1 p:0 bg:transparent bw:0 ta:l c:p fv:oo:-1 fv:oc:accent ${open ? "fb:100%" : ""}`}
+          >
+            {name}
+            <NavArrowDown
+              aria-hidden
+              className={`fs:0 w:3 h:3 tp:c tdu:150 ${
+                open ? "ro:36 c:accent" : "c:ink/25"
+              }`}
+            />
+          </Button>
         ) : (
           <span className="d:f f:1 min-w:12">{name}</span>
         )}
@@ -196,11 +194,9 @@ function Look() {
   if (!playground) return null;
   const spec = SPECS[playground.style];
   const allowed = RADIUS.map((step) => spec.allow.includes(step));
-  const line = (name: string, hint: string, control: React.ReactNode) => (
+  const line = (name: string, control: React.ReactNode) => (
     <div className="d:f fw:w ai:c jc:sb g:2 py:2 bc:border bbw:1">
-      <HintTooltip label={hint}>
-        <code className="c:code fs:xs ff:m">{name}</code>
-      </HintTooltip>
+      <code className="c:code fs:xs ff:m">{name}</code>
       {control}
     </div>
   );
@@ -208,9 +204,11 @@ function Look() {
   return (
     <div className="d:f fd:c pb:4 mb:4">
       <h3 className="ff:system mb:1 c:silver-8 fs:xs ls:2 tt:u">Look</h3>
+      <p className="m:0 mb:1 c:ink/60 fs:xs lh:4">
+        The accent tints the preview only.
+      </p>
       {line(
         "style",
-        "The style of the code you copy.",
         <EnumSelect
           name="style"
           values={Object.keys(STYLES)}
@@ -220,7 +218,6 @@ function Look() {
       )}
       {line(
         "radius",
-        "The radius of the code you copy.",
         <StepSelect
           name="radius"
           values={RADIUS}
@@ -232,7 +229,6 @@ function Look() {
       )}
       {line(
         "accent",
-        "Preview only. The code you copy is unchanged.",
         <SwatchSelect
           name="accent"
           options={SWATCHES}

@@ -3,7 +3,6 @@
 import { Button } from "@base-ui/react/button";
 import Link from "next/link";
 import { NavArrowLeft, NavArrowRight } from "@/icons";
-import HintTooltip from "./hint-tooltip";
 
 interface Props {
   previous: { slug: string; title: string } | null;
@@ -19,29 +18,25 @@ export default function Pagination({ previous, next, basePath }: Props) {
   return (
     <div className="d:f fs:0 ai:c g:2">
       {previous && (
-        <HintTooltip label={previous.title}>
-          <Button
-            nativeButton={false}
-            render={<Link href={`${basePath}/${previous.slug}`} />}
-            aria-label={`Previous: ${previous.title}`}
-            className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 fv:oc:ink fv:oo:2"
-          >
-            <NavArrowLeft className="w:4 h:4" />
-          </Button>
-        </HintTooltip>
+        <Button
+          nativeButton={false}
+          render={<Link href={`${basePath}/${previous.slug}`} />}
+          aria-label={`Previous: ${previous.title}`}
+          className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 fv:oc:ink fv:oo:2"
+        >
+          <NavArrowLeft className="w:4 h:4" />
+        </Button>
       )}
 
       {next && (
-        <HintTooltip label={next.title}>
-          <Button
-            nativeButton={false}
-            render={<Link href={`${basePath}/${next.slug}`} />}
-            aria-label={`Next: ${next.title}`}
-            className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 fv:oc:ink fv:oo:2"
-          >
-            <NavArrowRight className="w:4 h:4" />
-          </Button>
-        </HintTooltip>
+        <Button
+          nativeButton={false}
+          render={<Link href={`${basePath}/${next.slug}`} />}
+          aria-label={`Next: ${next.title}`}
+          className="d:f ai:c jc:c w:8 h:8 bc:border bg:surface h:bg:surface-8 a:bg:surface-7 c:ink bw:1 fv:oc:ink fv:oo:2"
+        >
+          <NavArrowRight className="w:4 h:4" />
+        </Button>
       )}
     </div>
   );
