@@ -142,7 +142,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   }, [query, index, category]);
 
   const groupedResults = useMemo(() => groupByCategory(results), [results]);
-  const order = categoryOrder(first);
+  const order = useMemo(() => categoryOrder(first, query), [first, query]);
 
   // what the arrow keys walk through, in the order it is drawn
   const rows: (SearchItem | SearchCategory)[] = useMemo(() => {
@@ -234,6 +234,14 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           if (row) choose(row);
           break;
         }
+        case "a":
+          // select-all belongs to the field, not to the page behind the dialog
+          if ((e.ctrlKey || e.metaKey) && e.target !== inputRef.current) {
+            e.preventDefault();
+            inputRef.current?.focus();
+            inputRef.current?.select();
+          }
+          break;
         case "Escape":
           e.preventDefault();
           onClose();
@@ -349,7 +357,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               />
               <Dialog.Close
                 aria-label="Close search"
-                className="d:if fs:0 ai:c jc:c h:6 px:2 bc:border bg:transparent h:bg:surface-8 a:bg:surface-7 c:ink/60 h:c:ink bw:1 fs:xs fv:oc:ink fv:ow:2"
+                className="d:if fs:0 ai:c jc:c h:6 px:2 bc:border bg:transparent c:ink/60 bw:1 fs:xs fv:oc:ink fv:ow:2"
               >
                 Esc
               </Dialog.Close>
