@@ -101,12 +101,12 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
             style={MOTION}
             className="p:r d:f fd:c o:h w:100% max-w:sm h:calc(100dvh-4rem+3rem) mb:-12 bc:border bg:page c:ink btw:1 os:none ta:none tp:t tdu:300 ttf:var(--sheet-ease) opening:tr:var(--sheet-offstage) closing:tr:var(--sheet-offstage) closing:tdu:var(--sheet-close) swiping:tdu:0 swiping:us:none @prm:tp:none @sm:blw:1 @sm:brw:1"
           >
-            <div className="p:r fs:0 px:4 pt:6 pb:1 ta:none us:none">
+            <div className="p:r fs:0 px:4 pt:6 pb:3 bc:border bbw:1 ta:none us:none">
               <div
                 aria-hidden
                 className="p:a t:2 l:0 r:0 w:14 h:1 mx:auto bg:border"
               />
-              <div className="d:f ai:c g:3 h:10 px:3 bg:surface c:ink/50 fw:oc:ink fw:ow:2">
+              <div className="d:f ai:c g:3 h:10 px:3 bc:border bg:surface c:ink/50 bw:1 fw:oc:ink fw:ow:2">
                 <Search className="fs:0 w:4 h:4" />
                 <Input
                   type="text"
