@@ -347,9 +347,11 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 autoFocus
                 className="f:1 min-w:0 bg:transparent c:ink os:none fs:md"
               />
-              <kbd className={`${KBD} d:none @md:d:if`}>Esc</kbd>
-              <Dialog.Close className="c:accent fs:md bg:transparent b:0 fv:oc:ink fv:ow:2 @md:d:none">
-                Cancel
+              <Dialog.Close
+                aria-label="Close search"
+                className="d:if fs:0 ai:c jc:c h:6 px:2 bc:border bg:transparent h:bg:surface-8 a:bg:surface-7 c:ink/60 h:c:ink bw:1 fs:xs fv:oc:ink fv:ow:2"
+              >
+                Esc
               </Dialog.Close>
             </div>
 

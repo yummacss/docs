@@ -1704,10 +1704,12 @@ inside it, and readers looking for the palette did not find it. `/docs/colors` a
 `src/components/ui/search-dialog.tsx`, one Base UI dialog in two shapes. From
 `@md` it is a 56rem panel, the list on the left and the highlighted row's
 details on the right, the keys along the bottom from `@lg`. Below `@md` it
-fills the screen, the field on top with Cancel beside it, no right side; there
+fills the screen, the field on top, no right side; there
 the rows carry their description, which on a wide screen only the right side
 shows.
 
+- The Esc key at the end of the field is a button too, at every width: it
+  closes the dialog when clicked, so a phone has the same control.
 - Empty, it browses: the sidebar's sections with their page counts
   (`searchCategories` in `src/utils/search-data.ts`), the right side listing
   the highlighted section's pages. Right arrow, Enter or a click opens one: it
