@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { YummaCSSMark } from "../icons/yummacss-mark";
 
-/** The mark links home; a right-click opens the brand page, which is what someone right-clicking a logo is after. */
+/** The mark links to Installation, where the site opens; a right-click opens the brand page, which is what someone right-clicking a logo is after. */
 export default function HomeMark({ className }: { className: string }) {
   const router = useRouter();
   return (
     <Link
-      href="/"
+      href="/docs/installation"
       onContextMenu={(event) => {
         event.preventDefault();
         router.push("/docs/brand");

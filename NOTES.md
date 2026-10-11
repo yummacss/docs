@@ -73,7 +73,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 **Waiting on Renildo**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
-- The landing page.
 - Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
   in `yummaui`.
 
@@ -918,8 +917,8 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
   the opposite on purpose: every migrated component is a single default-exported
   props-driven unit whose only other exports are TypeScript interfaces. An
   Anatomy tree would document an API surface the consumer does not have.
-- **Landing page redesign.** Attempted and dropped. **Do not restart
-  unprompted.** Four landing directions (Specimen, Index, Mechanism,
+- **Landing page redesign.** Attempted twice and dropped, then the page itself
+  was removed (see "No landing page"). **Do not restart unprompted.** Four landing directions (Specimen, Index, Mechanism,
   Marginalia) were rejected as "messy, hard to scan, overwhelming", and a calmer
   rebuild was dropped too; explicitly ruled out as too generic are a centred
   heading over centred buttons, and a code block comparing Yumma CSS to other
@@ -1779,11 +1778,13 @@ theme colours in `yumma.config.mjs`. Yumma's generated shades of `surface`
 do not serve: white's shade 8 is a flat `#b8b8b8`, and no shade 7 is
 generated at all, so `a:bg:surface-7` drew nothing.
 
-## Home page
+## No landing page
 
-The hero is the title, the line under it, and two buttons: Get started
-(`bg:ink`) and Yumma UI, the secondary, bordered on the surface. There is no
-release badge; releases live on GitHub.
+The site has no home page. `/` is a temporary redirect to `/docs/installation`
+(`redirects.ts`), and the logo links there too. Installation's first paragraph
+says what Yumma CSS is, which is the one thing a landing page had to say.
+Temporary, so a landing page can come back without browsers holding on to the
+redirect.
 
 ## Products
 
