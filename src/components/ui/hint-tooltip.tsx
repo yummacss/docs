@@ -16,22 +16,14 @@ export default function HintTooltip({
       <Tooltip.Root>
         <Tooltip.Trigger render={children} />
         <Tooltip.Portal>
-          <Tooltip.Positioner side="bottom" sideOffset={10}>
+          <Tooltip.Positioner side="bottom" sideOffset={18}>
             <Tooltip.Popup className="p:r px:2 py:1 bc:border bg:surface c:ink bw:1 fs:xs us:none">
-              <Tooltip.Arrow className="d:f" style={{ top: -5 }}>
-                <svg
-                  viewBox="0 0 10 5"
-                  width="12"
-                  height="6"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M0 5 L5 0 L10 5"
-                    strokeWidth="1"
-                    className="f:surface s:border"
-                  />
-                </svg>
-              </Tooltip.Arrow>
+              {/* A square turned 45deg: its top and left edges are the chevron,
+                  and its fill covers the popup's border underneath. */}
+              <Tooltip.Arrow
+                className="w:2 h:2 bc:border bg:surface btw:1 blw:1"
+                style={{ top: -5, transform: "rotate(45deg)" }}
+              />
               {label}
             </Tooltip.Popup>
           </Tooltip.Positioner>
