@@ -43,7 +43,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
       <Scroller
         viewportRef={viewport}
         className="p:st t:20 max-h:calc(100dvh-5rem)"
-        viewportClassName="d:f fd:c g:8 px:2 pb:12"
+        viewportClassName="d:f fd:c g:8 mx:-2 px:2 pb:12"
       >
         {sections.map((section) => (
           <div key={section.title} className="d:f fd:c g:3">
