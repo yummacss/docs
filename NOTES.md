@@ -1764,6 +1764,16 @@ shows.
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
 
+## Products
+
+The navbar holds the logo and search, with no Docs or Components links.
+Yumma CSS and Yumma UI are a Products section (`ProductLinks`,
+`src/components/ui/product-links.tsx`) at the top of the left sidebar and
+the phone sheet, styled as each menu's other sections: the same heading, the
+same rows, the label on the same line as every other link, no mark. The
+product the route is in is marked as a current page is. The navbar's line
+and the right column's line stay.
+
 ## Phone menu
 
 Below `@lg` the navbar holds the logo and a Navigation button with a
@@ -1777,8 +1787,8 @@ sidebar's scroll viewport keeps `px:2` for its focus outlines and pulls
 back with `mx:-2`, so its text starts on the same line as the logo.
 
 - A bordered search field over a divider, as the site's controls are, then
-  the area's sections as plain grey headings and 40px links: no tabs, no
-  folds. The other area's Get Started closes the list under its product name.
+  the Products section and the area's sections as plain grey headings and
+  40px links: no tabs, no folds.
 - Typing searches both areas and marks the match in the accent (`Match`,
   shared with search). The current page is marked as on the desktop
   sidebar, and each opening scrolls to it (`useReveal`).
