@@ -59,7 +59,7 @@ export default function Reference({ category, name, variant }: Props) {
         className="d:f fd:c w:100%"
       >
         <Accordion.Item value="reference-item" className="bw:0">
-          <Accordion.Header className="m:0">
+          <Accordion.Header className="m:0 ff:display">
             <Accordion.Trigger
               render={(triggerProps, { open }) => (
                 <Button
