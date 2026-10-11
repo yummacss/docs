@@ -1702,19 +1702,28 @@ inside it, and readers looking for the palette did not find it. `/docs/colors` a
 ## Search
 
 `src/components/ui/search-dialog.tsx`, one Base UI dialog in two shapes. From
-`@md` it is a 56rem panel: the results on the left, a preview of the
-highlighted one on the right, and the keys along the bottom from `@lg`. Below
-`@md` it fills the screen, the field on top with Cancel beside it, no preview.
+`@md` it is a 56rem panel, the list on the left and the highlighted row's
+details on the right, the keys along the bottom from `@lg`. Below `@md` it
+fills the screen, the field on top, no right side; there
+the rows carry their description, which on a wide screen only the right side
+shows.
 
-- Empty, it lists four places to start (`STARTERS` in `src/utils/search-data.ts`)
-  under their product, and five searches to try (`SUGGESTIONS`).
-- Results have no icons: the title, with the typed text in the accent, and the
-  description beside it. Groups read Yumma CSS, Yumma UI, Props, Options,
-  Colors.
+- The Esc key at the end of the field is a button too, at every width: it
+  closes the dialog when clicked, so a phone has the same control.
+- Empty, it browses: the sidebar's sections with their page counts
+  (`searchCategories` in `src/utils/search-data.ts`), the right side listing
+  the highlighted section's pages. Right arrow, Enter or a click opens one: it
+  becomes a chip in the field, typing then searches its pages only, and Left,
+  Backspace on an empty field or the chip go back.
+- The page you are on decides the order: on `/ui` Yumma UI's sections and
+  results come first, anywhere else Yumma CSS's (`categoryOrder`).
+- Results show the title alone, the typed text in the accent. Groups read
+  Yumma CSS, Options, Yumma UI, Props, Colors, in that order on a docs page.
 - A color family is a grid of swatches; Enter or a click copies the hex, and
-  the preview shows the shade large with a Copy hex button.
-- A component's preview is its link preview screenshot, `public/og/ui/<slug>.png`.
-  `/api/search` sets `preview` only when that file exists.
+  the right side shows the shade large with a Copy hex button.
+- The highlighted row's title is set huge at the foot of the right side, cut
+  off by its edge, in `.footer-version`'s tone: the same treatment as the
+  footer's version. It fills the space a short description leaves.
 
 ## Footer
 

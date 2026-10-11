@@ -1,3 +1,4 @@
+import { sidebarConfig } from "@/config/sidebar";
 import { COLOR_FAMILIES, generateShades, SHADE_LABELS } from "./colors";
 
 export interface SearchItem {
@@ -58,34 +59,54 @@ function generateColorItems(): SearchItem[] {
 
 const COLOR_ITEMS = generateColorItems();
 
-/** Where someone new starts, shown before anything is typed. */
-const STARTERS = [
-  "/docs/installation",
-  "/docs/configuration",
-  "/docs/color-system",
-  "/ui/components/installation",
-];
+/** A product's sidebar section, as a place to browse when nothing is typed. */
+export interface SearchCategory {
+  product: Product;
+  title: string;
+  pages: SearchItem[];
+}
 
-/** Searches that show what the dialog finds: a utility, a color, a component, a variant, a flag. */
-export const SUGGESTIONS = [
-  "flex",
-  "indigo",
-  "dialog",
-  "@container",
-  "--watch",
-];
+export type Product = "css" | "ui";
 
-function defaultItems(index: SearchIndex | null): SearchItem[] {
+/** The sidebar's sections with their pages, the current product's first. */
+export function searchCategories(
+  index: SearchIndex | null,
+  first: Product,
+): SearchCategory[] {
   if (!index) return [];
-  const pages = [...index.docs, ...index.components];
-  return STARTERS.flatMap((path) => pages.filter((p) => p.path === path));
+  const pages = new Map(
+    [...index.docs, ...index.components].map((page) => [page.path, page]),
+  );
+  const build = (product: Product): SearchCategory[] =>
+    sidebarConfig[product === "css" ? "docs" : "ui"].map((section) => ({
+      product,
+      title: section.title,
+      pages: section.items
+        .flatMap((item) => (typeof item === "string" ? [item] : item.items))
+        .map((slug) =>
+          pages.get(
+            product === "css" ? `/docs/${slug}` : `/ui/components/${slug}`,
+          ),
+        )
+        .filter((page): page is SearchItem => page !== undefined),
+    }));
+  return first === "css"
+    ? [...build("css"), ...build("ui")]
+    : [...build("ui"), ...build("css")];
+}
+
+/** The result groups in order, the current product's first. */
+export function categoryOrder(first: Product): SearchItem["category"][] {
+  return first === "css"
+    ? ["docs", "reference", "ui-components", "props", "colors"]
+    : ["ui-components", "props", "docs", "reference", "colors"];
 }
 
 export function filterSearchResults(
   query: string,
   index: SearchIndex | null,
 ): SearchItem[] {
-  if (!query.trim()) return defaultItems(index);
+  if (!query.trim()) return [];
 
   const lowerQuery = query.toLowerCase();
   const pages = index
