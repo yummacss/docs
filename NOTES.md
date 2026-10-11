@@ -1742,6 +1742,10 @@ shows.
   "red" does not list every component's `required`.
 - A color family is a grid of swatches; Enter or a click copies the hex, and
   the right side shows the shade large with a Copy hex button.
+- The arrow keys move by where the items sit (`step` in `search-dialog.tsx`):
+  Up and Down go to the row above or below, keeping the column in the swatch
+  grid, and Left and Right walk along a row of swatches. At an edge they stay
+  put. On a swatch, Left and Right belong to the grid, not the field's caret.
 - The highlighted row's title is set huge at the foot of the right side, cut
   off by its edge, in `.footer-version`'s tone: the same treatment as the
   footer's version. It fills the space a short description leaves.
