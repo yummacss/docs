@@ -29,14 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 1,
-    },
-  ];
-
-  return [...staticPages, ...docUrls, ...uiUrls];
+  return [...docUrls, ...uiUrls];
 }

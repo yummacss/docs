@@ -3,6 +3,12 @@ import { join } from "node:path";
 import { extractProperties } from "./src/utils/doc-properties";
 
 const docsRedirects = [
+  // no landing page: the site opens on Installation
+  {
+    source: "/",
+    destination: "/docs/installation",
+    permanent: false,
+  },
   {
     source: "/brand",
     destination: "/docs/brand",
