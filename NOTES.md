@@ -148,8 +148,7 @@ and the cause is the art, not where the icon lands.
   the code block's Copy icon scored the same at y .25, .50 and .63 and moved
   by layout to a whole pixel (31% of its painted pixels partly covered). A
   `translate` nudge made it worse (72%), since a transform resamples.
-  `will-change` changed nothing. The `h:5` on Edit page and View markdown
-  centres their icons on a whole pixel, which may help another engine.
+  `will-change` changed nothing.
 - **The weight does.** Eight site icons at 16px on the page background, share
   of painted pixels partly covered: Phosphor regular 63%, bold 66%, duotone
   79%, light 84%; Solar bold-duotone 71%, outline 82%, linear 87%. Regular's
@@ -486,8 +485,9 @@ library can do to someone who has not committed yet. The playground rail has
 since taken that job; the density complaint that prompted a redesign ("it's
 throwing way too many info in less than 3s") is what the rail answers.
 
-A page with a playground renders the rail in place of the TOC, so the rail ends
-with the TOC's Edit page and View markdown links.
+A page with a playground renders the rail in place of the TOC. Neither carries
+page links: View as Markdown sits under every docs and component page's
+description, and there is no Edit page link.
 
 **The "Base UI primitive" sidebar link is a different thing from the page's own
 API reference**: ours documents what Yumma UI adds, theirs documents the
