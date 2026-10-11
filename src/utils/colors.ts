@@ -45,12 +45,14 @@ export const COLOR_FAMILIES: { name: string; color: string }[] = Object.entries(
 export function getBorderColor(color: string): string {
   const luminance = tinycolor(color).getLuminance();
 
+  // an edge only where the swatch would melt into the page: a pale one on the
+  // light theme, a dark one on the dark theme
   if (luminance > 0.9) {
-    return "1px solid rgba(0, 0, 0, 0.25)";
+    return "1px solid light-dark(rgb(0 0 0 / 0.15), transparent)";
   }
 
   if (luminance < 0.1) {
-    return "1px solid rgba(255, 255, 255, 0.25)";
+    return "1px solid light-dark(transparent, rgb(255 255 255 / 0.15))";
   }
 
   return "none";
