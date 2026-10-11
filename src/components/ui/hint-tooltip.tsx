@@ -17,7 +17,7 @@ export default function HintTooltip({
         <Tooltip.Trigger render={children} />
         <Tooltip.Portal>
           <Tooltip.Positioner side="bottom" sideOffset={10}>
-            <Tooltip.Popup className="p:r px:2 py:1 bc:ink/20 bg:surface c:ink bw:1 fs:xs us:none">
+            <Tooltip.Popup className="p:r px:2 py:1 bc:border bg:surface c:ink bw:1 fs:xs us:none">
               <Tooltip.Arrow className="d:f" style={{ top: -5 }}>
                 <svg
                   viewBox="0 0 10 5"
@@ -28,7 +28,7 @@ export default function HintTooltip({
                   <path
                     d="M0 5 L5 0 L10 5"
                     strokeWidth="1"
-                    className="f:surface s:ink/20"
+                    className="f:surface s:border"
                   />
                 </svg>
               </Tooltip.Arrow>
