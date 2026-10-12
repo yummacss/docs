@@ -1872,7 +1872,10 @@ the front faces. Light and dark differ in colour only, never in geometry.
   (`rx` 23 of 100). `apple-touch-icon.png` (180, square, for iOS to round) uses the dark tile.
   The favicon is the mark without a tile, cropped to the hexagon so it fills
   the tab: `favicon.svg` switches light and dark with the browser's scheme,
-  `favicon.ico` (16, 32, 48) is the light mark, which reads on either.
+  `favicon.ico` (16, 32, 48) is the light mark, which reads on either. The
+  `.ico` is listed first and the SVG last, with no `shortcut` link: browsers
+  take the last icon they can use, so with the `.ico` last the tab never
+  followed the theme.
 - One version at every size, glass included: there is no flat or one-colour
   variant.
 - `/docs/brand` (`src/content/docs/brand.mdx`, with `BrandMarks` and

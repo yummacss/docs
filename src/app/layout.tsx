@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   ],
   icons: {
     apple: "/apple-touch-icon.png",
+    // the .ico first, for browsers without SVG icons; the SVG last, so the rest pick it and follow the theme
     icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "48x48" },
     ],
-    shortcut: "/favicon.ico",
   },
   metadataBase: new URL("https://yummacss.com"),
   openGraph: {
