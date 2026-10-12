@@ -3,6 +3,7 @@ import Image from "next/image";
 import Admonition from "@/components/admonition";
 import Baseline from "@/components/baseline";
 import { BrandColors, BrandMarks } from "@/components/brand";
+import Cover from "@/components/cover";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
 import {
@@ -41,6 +42,7 @@ const components: MDXComponents = {
   BrandMarks,
   Code,
   CodeGroup,
+  Cover,
   // the UI shell renders the stage, so it stays mounted from one page to the next
   ComponentPlayground: () => null,
   Cursor,

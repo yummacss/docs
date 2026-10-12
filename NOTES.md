@@ -1887,10 +1887,15 @@ the front faces. Light and dark differ in colour only, never in geometry.
 ## OG images
 
 Every page's link preview is drawn by `ImageResponse` from
-`src/components/og-image.tsx`, light only: a canvas with rulers, the product's
-mark, and one selected layer with handles and a tag. Nothing is hand-made.
+`src/components/og-image.tsx`: a canvas with rulers, the product's mark, and
+one selected layer with handles and a tag. Nothing is hand-made. Link previews
+are light; a dark palette from the site's dark tokens draws the two homes again
+for the installation pages.
 
 - `/og.png` and `/ui-og.png` are the two homes: two lines, one word selected.
+  `/og-dark.png` and `/ui-og-dark.png` are the same in the dark palette, and
+  `<Cover product>` (`src/components/cover.tsx`) shows whichever matches the
+  reader's colour scheme at the top of each installation page.
 - `/docs/[slug]/og.png` selects the page title, with its description and, on a
   utility page, the first five classes of its first `<Reference>`.
 - `/ui/components/[slug]/og.png` selects the component itself, from
@@ -1898,8 +1903,8 @@ mark, and one selected layer with handles and a tag. Nothing is hand-made.
   the docs layout.
 - The mark tells the products apart: the cube for Yumma CSS, the stacked panels
   for Yumma UI.
-- `src/components/og-marks.tsx` holds the light marks as plain SVG, since
-  `ImageResponse` has no `light-dark()`.
+- The mark is the brand file from `public/brand/`, light or `-dark`, read as
+  an image, since `ImageResponse` has no `light-dark()`.
 - `pnpm og:components [url] [slug ...]` writes the screenshots from a running
   site, at 2x, on the OG page colour rather than the preview's white. `ACTIONS` opens a popup first (a dialog, a menu, a tooltip);
   `SKIP` leaves out components too thin or too wide to read small. The
