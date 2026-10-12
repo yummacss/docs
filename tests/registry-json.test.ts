@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import { applyStyle, DEFAULT_STYLE, STYLES } from "../src/utils/styles.mjs";
 import { rootDir } from "./helpers";
 
-const out = join(rootDir, "public/ui/r");
+const out = join(rootDir, "public/ui/registry");
 const read = (path: string) =>
   JSON.parse(readFileSync(join(out, path), "utf8"));
 

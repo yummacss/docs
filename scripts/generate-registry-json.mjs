@@ -18,7 +18,7 @@ const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
 const metaDir = join(cwd, "src/registry/meta");
 const contentDir = join(cwd, "src/content/ui");
-const outDir = join(cwd, "public/ui/r");
+const outDir = join(cwd, "public/ui/registry");
 
 const pkg = JSON.parse(readFileSync(join(cwd, "package.json"), "utf8"));
 const versions = { ...pkg.dependencies, ...pkg.devDependencies };
@@ -45,7 +45,7 @@ function dependenciesOf(source) {
   }));
 }
 
-function registryDependenciesOf(source, id, allIds) {
+function registryDepsOf(source, id, allIds) {
   const found = new Set();
   for (const [, spec] of source.matchAll(/from\s+["']([^"']+)["']/g)) {
     if (!spec.startsWith("./")) continue;
@@ -101,6 +101,7 @@ mkdirSync(outDir, { recursive: true });
 
 const idSet = new Set(ids);
 const components = new Map();
+const entries = new Map();
 let orphans = 0;
 
 for (const id of ids) {
@@ -119,7 +120,7 @@ for (const id of ids) {
     ...(metaOf(id) ?? {}),
     useClient: /^\s*["']use client["']/.test(source),
     dependencies: dependenciesOf(source),
-    registryDependencies: registryDependenciesOf(source, id, idSet),
+    registryDeps: registryDepsOf(source, id, idSet),
     files: [
       {
         path: `${id}.tsx`,
@@ -129,6 +130,38 @@ for (const id of ids) {
     ],
   };
 
+  entries.set(id, { entry, source });
+
+  if (!orphan) {
+    if (!components.has(component)) {
+      components.set(component, {
+        component,
+        title: titleOf(component),
+        base: null,
+        fallback: null,
+      });
+    }
+    const group = components.get(component);
+    if (variant === "base") group.base = id;
+    else if (!group.fallback) group.fallback = id;
+  }
+}
+
+const index = [...components.values()]
+  .sort((a, b) => a.component.localeCompare(b.component))
+  .map(({ fallback, ...g }) => ({ ...g, base: g.base ?? fallback }));
+
+// only what the index reaches: each component's base and what it depends on
+const published = new Set();
+const reach = (id) => {
+  if (published.has(id)) return;
+  published.add(id);
+  for (const dep of entries.get(id).entry.registryDeps) reach(dep);
+};
+for (const group of index) if (group.base) reach(group.base);
+
+for (const id of published) {
+  const { entry, source } = entries.get(id);
   writeFileSync(
     join(outDir, `${id}.json`),
     `${JSON.stringify(entry, null, 2)}\n`,
@@ -151,25 +184,7 @@ for (const id of ids) {
       );
     }
   }
-
-  if (!orphan) {
-    if (!components.has(component)) {
-      components.set(component, {
-        component,
-        title: titleOf(component),
-        base: null,
-        fallback: null,
-      });
-    }
-    const group = components.get(component);
-    if (variant === "base") group.base = id;
-    else if (!group.fallback) group.fallback = id;
-  }
 }
-
-const index = [...components.values()]
-  .sort((a, b) => a.component.localeCompare(b.component))
-  .map(({ fallback, ...g }) => ({ ...g, base: g.base ?? fallback }));
 
 writeFileSync(
   join(outDir, "index.json"),
@@ -192,13 +207,13 @@ writeFileSync(
 );
 
 const missingBase = index.filter((g) => !g.base).length;
-const examples = ids.length - index.length - orphans;
+const unpublished = ids.length - published.size;
 const builds = Object.values(STYLES).reduce(
   (n, spec) => n + spec.allow.length,
   0,
 );
 console.log(
-  `registry json: ${index.length} components, ${examples} examples, ${builds} style builds -> public/ui/r/`,
+  `registry json: ${index.length} components, ${published.size} items (${unpublished} kept to the site), ${builds} style builds -> public/ui/registry/`,
 );
 if (orphans) console.log(`  ${orphans} file(s) match no /ui page`);
 if (missingBase) console.log(`  ${missingBase} component(s) have no base`);
