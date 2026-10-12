@@ -48,9 +48,9 @@ Empty.
 
 ## AI track
 
-The main line of work from 2026-10-03: an agent writing Yumma CSS gets it
-right first time, and when it does not, the error tells it the fix. Yumma UI
-is parked meanwhile; see NOTES.md under "Yumma UI parked, AI first".
+An agent writing Yumma CSS gets it right first time, and when it does not,
+the error tells it the fix. Behind adoption (NOTES.md, "Focus: adoption"):
+the measurement is worth running when its number can be published.
 
 - [ ] **Measure it.** A fixed set of prompts ("a centred card", "a sticky
       header"), each answer run through `validateClasses`, scored as the

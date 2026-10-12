@@ -36,13 +36,6 @@ the release when the two differ.
 
 Everything open that `TODO.md` does not hold. Delete a line when it is done.
 
-**Unmerged work**
-
-- `feat/reset-layer` in `docs` and `yummacss`: the cascade layer work, on hold
-  with its TODO entry.
-- Rejected, kept for reference: `yummacss` `feat/oklab-shades` (see Rejected)
-  and `docs` `feat/customize-drawer`.
-
 **In code**
 
 - `merge` (`yummacss/packages/cli/src/merge.ts`) expands only the logical
@@ -50,28 +43,23 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
   `padding`, `margin`, `border-width`, `border-color` and `border-radius` to
   their physical edges too, but not `padding-inline` or `padding-block`, which
   depend on the writing mode.
-- `merge`'s `ClassValue` rejects the `0` that `count && "ml:6"` can produce.
-  Widen it to `string | number | boolean | null | undefined`.
 - Meter and Tabs take an `icon` the rail cannot show: neither schema has an
   `exampleIcon`. Badge and Separator do.
-- Doc comments in `badge.tsx` and `meter.tsx` spell sizes in the 3.x dash
-  syntax (`w-3 h-3`).
 
-**Parked with Yumma UI** (see "Yumma UI parked, AI first")
+**Parked until a user asks** (see "Focus: adoption")
 
 - The dark theme across every component, and the colour palette update after
   it.
 - Styles phase five: Minimal's filled fields and Elegant's serif.
-- One breaking registry release: `public/ui/r` to `public/ui/registry` with a
-  redirect (installs store the absolute URL), `registryDependencies` to
-  `registryDeps`, the empty `blocks` key, and 16 `example` entries nothing can
-  reach.
 
 **Waiting on Renildo**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
-- Branch cleanup: about 150 merged branches in `docs`, 45 in `yummacss` and 8
-  in `yummaui`.
+- Branch cleanup, on GitHub, since a cloud session cannot delete branches:
+  224 branches in `docs`, 72 in `yummacss` and 14 in `yummaui`, counted
+  2026-10-12. Among them, nothing left to keep: `feat/reset-layer` in `docs`
+  and `yummacss` (layers decided against), `feat/oklab-shades` and
+  `feat/customize-drawer` (rejected) and `chore/tanstack-spike` (decided).
 
 ## Before you change anything
 
@@ -172,7 +160,7 @@ and had to be restored.
   on the clipboard.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
-  `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
+  `/ui/registry/<style>-<radius>/<id>.json`, went with the editor stage on
   2026-09-28; `addCommand` and `styleFlags` have no caller.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
@@ -202,19 +190,16 @@ and had to be restored.
 
 Read before proposing a change to where things live or how a prop is shaped.
 
-**Queued renames and additions, not yet done.** All three are breaking for
-someone: do them together, in one release.
-
-- [ ] `public/ui/r` to `public/ui/registry`. Old path needs a redirect - a
-      published `yummaui.json` pins `registry` as an absolute URL, so every
-      existing install points at `/ui/r`.
-- [ ] `registryDependencies` to `registryDeps`, in the generator, the JSON, and
-      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON, so
-      the field ships in both shapes for one version or the CLI floor moves.
-- [x] OTP Field ships, `src/registry/ui/otp-field.tsx`.
+**The registry address, 2026-10-12.** The JSON lives at `/ui/registry/` and
+lists dependencies in `registryDeps`; `/ui/r/` redirects there, since a
+`yummaui.json` from before yummaui 0.6 stores that absolute URL, and 0.6 reads
+the old address as the new one. 0.5 cannot read `registryDeps`, so this site
+deploys first and yummaui 0.6 publishes right after. Only what the index
+reaches is published, each component's base and its dependencies; the 16
+example files stay the site's own.
 
 **The registry stays in `docs`, at `src/registry/`.** Served as static JSON from
-`public/ui/r/`, generated at build time by `scripts/generate-registry-json.mjs`
+`public/ui/registry/`, generated at build time by `scripts/generate-registry-json.mjs`
 (gitignored output). The CLI **fetches it over HTTP** and imports nothing. Six
 things in `docs` need those files on disk: the `yumma.config.mjs` source glob
 (CSS generation), `src/registry/index.ts`'s dynamic import map (bundling),
@@ -263,7 +248,7 @@ config it creates and names any an existing config lacks, so the list lives in
 one place.
 
 `add` resolves its argument against `index.components[].component` in
-`/ui/r/index.json`, which holds the **36 component names**, never the flat ids.
+`/ui/registry/index.json`, which holds the **component names**, never the flat ids.
 So `add button` works, `add button-pill` exits 1. The registry id is only how
 registry *files* are keyed. That gap between "how files are keyed" and "what the
 CLI addresses" is exactly what went wrong.
@@ -1402,94 +1387,40 @@ own table has failed the test.
 
 ---
 
-## Queue, 2026-09-22
+## Styles
 
-Renildo asked for these in priority order so the release is not starved by
-the interesting work. Top first.
+Yumma UI's look is a style and a radius, not a set of knobs. Renildo's calls,
+2026-09-26 and 27: Soft is the default; a style blocks the combinations that
+make no sense for it rather than letting the rail produce them; a style
+rewrites the component file, its defaults and its `SHAPES` tables; `size`,
+`shape` and `shadow` stay props in the installed API, with the style setting
+their defaults, and leave the site's rail.
 
-1. **Phase 1 is empty.** Nothing below blocks a release.
-2. **Audit quick wins**: `avatar.tsx`'s `#989ec2` and `reference.tsx`'s
-   `#b9bed5` onto tokens, and `[data-code]` onto `cs:d`.
-3. **Icons from Nucleo, as one hand-written `icons.tsx`.** Renildo supplies the
-   SVGs. Open question first: the chrome only (56 names in `src/icons.tsx`),
-   or the registry too (21 iconoir icons across `src/registry/ui`, and the
-   installation page tells users to `pnpm add iconoir-react`, so swapping
-   there changes what every installer depends on).
-4. **Motion out of the registry: evaluated, see the section below.** CSS
-   covers all eleven; Onboarding's outgoing slide is the one loss.
-5. **Component API as styles, not knobs.** A style select (working names:
-   Elegant, sharp with an archival serif; Minimal; one on a medium radius; one
-   on a small radius and tighter spacing; one on `corner-shape`), plus an
-   accent colour and a bounded radius. The hard constraint is `corner-shape`:
-   a squircle at a small size reads as a pill, so the radius scale has to stop
-   where the shape still reads, per control size. Read-only props stay; they
-   are the API reference. Mockups first. **Renildo's calls, 2026-09-26:**
-   Soft (rounded, `br:lg` on controls) is the default, and a style blocks
-   the combinations that make no sense for it, such as Squircle with no
-   radius, rather than letting the rail produce them.
-   **Phase one done, 2026-09-27:** every `shape` and `iconShape` that
-   defaulted to `square` defaults to `rounded`, 31 in code and 32 in the
-   schemas (Separator's schema said `square` while its code said `rounded`).
-   `tests/registry.test.ts` fails when a schema default and a code default
-   disagree.
-   **Renildo's calls, 2026-09-27:** a style rewrites the component file,
-   its defaults and its `SHAPES` tables, rather than presetting props in the
-   usage; and `size`, `shape` and `shadow` stay as props, with the style
-   setting their defaults. The plan, one PR each:
-   2. `src/utils/styles.ts` holds the styles, their allowed radius steps and
-      the reason for each refusal, and a pure `applyStyle(source, style,
-      radius)`. Each `rounded:` entry moves along the Yumma radius scale from
-      the value it has, which already names the part: `br:sm` a check,
-      `br:md`/`br:lg` a control, `br:xl`/`br:xxl` a panel, `br:9999` a
-      capsule that never moves. Tested on every component and every allowed
-      pair, with every class validated.
-   3. `public/ui/r/<style>/` builds per style, and `yummaui add --style`.
-   4. The rail's Style and Radius controls, and a Code tab that shows the
-      file as it would be copied.
-   5. Minimal's filled fields and Elegant's serif, which need new classes.
-   **Phase two done, 2026-09-27:** `src/utils/styles.mjs` holds Soft,
-   Compact and Squircle with their allowed steps and refusals, and
-   `applyStyle`. A step shifts each `rounded:` by -2, -1, 0 or +1 along the
-   scale, bounded by the part (`br:sm` stays within `xs`-`md`, `md`/`lg`
-   within `xs`-`xl`, `xl` and up within `sm`-`3xl`); `squircle:` entries stay
-   within `lg`-`3xl`; `br:9999` never moves. Squircle sets `shape =
-   "squircle"`, Compact `size = "sm"`, and no radius sets `shape = "square"`.
-   `tests/styles.test.ts` runs all 550 file, style and step combinations
-   through the class validator. Context Menu's trigger had `rounded` equal to
-   `squircle`; it is `br:xxl`, and the test holds the two apart.
-   **A container is rounder than what it holds, 2026-09-27.** Tabs' list and
-   Menubar's bar matched their tabs and triggers at `br:lg`, so the outer
-   corner read tighter than the inner one across the 4px padding; they are
-   `br:xl` (and `br:3xl` for Menubar's squircle). The test for it caught a
-   phase-two bug: past `3xl` a shift fell back to `0`, so Extra collapsed
-   every `3xl` to its floor. It clamps now, and a `squircle:` entry only ever
-   loses radius, since past its own it reads as a pill.
-   **Renildo's answers to the mockup's open questions, 2026-09-27:**
-   `size`, `shape` and `shadow` stay props in the installed API but leave the
-   site's rail, which lists them as reference; `yummaui add` takes `--style`;
-   and the Elegant serif comes from `theme.fonts`, which the CLI fills by
-   offering three Fontsource faces or the user's own.
-
-**Styles phase four, the controls, 2026-09-27:** the rail's Style and
-Radius set `style` and `radius` in the URL through nuqs, the same way the
-props are, and `localStorage` carries them to the next page; a blocked pair in
-an address falls back to the nearest allowed step. The preview shows a style
-the way the accent shows a colour: `radiusCss` redefines each `br:` class in
-the preview frame, `:not(.cs\:s)` for rounded and `.cs\:s` for squircle, and
-`styleProps` passes the shape and size defaults the style writes. The install
-command carries `--style` and `--radius`. `size`, `shape`, `iconShape` and
-`shadow` leave the controls and the URL. `applyStyle` shifts every `br:` in
-a component's class strings, not only its `SHAPES` tables, since the preview
-redefines classes by value: the table-only version had also missed
-Accordion's nested table. `tests/styles.test.ts` compares the preview's CSS
-with what `applyStyle` writes, token by token.
-
-**Styles phase three, docs half, 2026-09-27:** `generate-registry-json.mjs`
-writes each allowed style and radius as a folder of the whole registry,
-`r/compact-small/button.json` and so on, plus `r/styles.json`, the table the
-CLI validates against. The CLI swaps its base URL and nothing else.
-`tests/registry-json.test.ts` builds it and checks every item in every folder
-is `applyStyle` of the default.
+- `src/utils/styles.mjs` holds Soft, Compact and Squircle, their allowed
+  radius steps with the reason for each refusal, and `applyStyle(source,
+  style, radius)`. A step shifts every `br:` by -2, -1, 0 or +1 along the
+  scale, bounded by the part: `br:sm` within `xs`-`md`, `md` and `lg` within
+  `xs`-`xl`, `xl` and up within `sm`-`3xl`. A `squircle:` entry stays within
+  `lg`-`3xl` and only ever loses radius, since past its own it reads as a
+  pill; `br:9999` never moves. Squircle sets `shape = "squircle"`, Compact
+  `size = "sm"`, and no radius sets `shape = "square"`.
+- A container is rounder than what it holds: Tabs' list and Menubar's bar are
+  `br:xl` (Menubar's squircle `br:3xl`) around `br:lg` items.
+- `generate-registry-json.mjs` writes each allowed style and radius as a
+  folder of the whole registry (`r/compact-small/button.json`) plus
+  `r/styles.json`, which the CLI validates against; `yummaui add` takes
+  `--style` and `--radius` and swaps its base URL, nothing else.
+- On the site, Style and Radius are carried as AGENTS.md describes. The
+  preview shows a style the way the accent shows a colour: `radiusCss`
+  redefines each `br:` class in the preview frame, and `styleProps` passes
+  the defaults the style writes.
+- `tests/styles.test.ts` runs every file, style and step through the class
+  validator and compares the preview's CSS with `applyStyle`;
+  `tests/registry-json.test.ts` checks every built item is `applyStyle` of the
+  default.
+- Parked: Minimal's filled fields, and Elegant's serif from `theme.fonts`,
+  which the CLI would fill by offering three Fontsource faces or the user's
+  own.
 
 ## Motion out of the registry, evaluated 2026-09-23
 
@@ -1637,40 +1568,27 @@ Four stale things found on the way, fixed in the same branch:
     gce-4` already does it, both taking 1-16. And `/` is the opacity separator
     (`bg-red/50`), so `gc-2/4` would parse as "gc-2 at 4% opacity" - it would
     cost a delimiter that already means something.
-- **Stop `play` looking like Tailwind Play.** It is close to a clone: same split
-  editor, same generated-CSS drawer, same top-left brand and top-right share.
-  The reference points are `diffs.com` and `trees.software` - what they get right
-  is that the *chrome* is the product: a real window frame with traffic lights, a
-  file tree, tabs, per-line diff gutters, a command bar at the bottom. None of
-  that is playground-specific and all of it reads as its own tool rather than a
-  reskin. Possibly rename to `try.yummacss.com`. **The strategic point stands on
-  its own**: Yumma CSS gets compared to Tailwind constantly, and the playground
-  is the single most-seen surface, so it is the cheapest place to stop inviting
-  the comparison. After v4 and the UI work.
-  **2026-09-29:** diffs.com and trees.software are Pierre's `@pierre/diffs`
-  (Shiki file and diff rendering, React and vanilla) and `@pierre/trees` (a
-  path-first file tree, React and vanilla), both Apache 2.0. The tree renders
-  in a shadow root and themes through CSS variables, so play's own classes
-  cannot leak into it or out of it. Trellis UI has no npm package under
-  `trellisui`, `trellis-ui` or `@trellis/ui`.
 
-## Yumma UI parked, AI first, 2026-10-03
+## Focus: adoption, 2026-10-12
 
-Renildo weighed deleting Yumma UI: it earns nothing and looks like every other
-component set built on Base UI. It stays, for three reasons. Deleting it felt
-like a loss, where the playground, the CDN and IntelliSense felt like relief.
-A real app depends on it (link.dutfolio.com). And it is the largest body of
-correct 4.x classes anywhere, served as plain text at
-`/ui/components/<id>.md`, which is what an agent needs to learn the syntax.
+Renildo's call: the work that matters is people using Yumma, not more of it.
+The goal is 25 developers who know it and a second active user (the first is
+a friend; the one app on Yumma UI is link.dutfolio.com). Monetising waits
+until there are users to pay. Yumma UI is part of that, not parked: it is
+the largest body of correct 4.x classes anywhere, served as plain text at
+`/ui/components/<id>.md`, which is what people and agents learn the syntax
+from. Its roadmap items stay parked until a user asks for one.
 
-So it is kept and its roadmap is parked: no dark theme, no palette update, no
-new styles and no breaking registry release. Fixes still land, and anything
-the one app using it needs. The parked items are listed on the scoreboard.
-
-The main line of work is the AI track in `TODO.md`: an agent writes Yumma CSS
-right first time, and the linter's message is enough to fix it when it does
-not. The first finding, while writing the track: `/llms.txt`, the first file
-an agent reads, still explains the 3.x dash syntax.
+**The audience, measured 2026-10-12** in Vercel Web Analytics, Sep 12 to
+Oct 12: 1,480 visitors and 2,746 page views, but most visitors are crawlers.
+Singapore (788 visitors), China, Vietnam and Hong Kong each show one page per
+visitor; Portugal (64 visitors, 994 views) is mostly the site's own work.
+Real readers are an estimated 50 to 150 a month. Search is the only channel
+that brings anyone on its own, about 30 a month (Google 18, Bing 8,
+DuckDuckGo 3, Kagi 2); GitHub, X and LinkedIn sent one each. Installation is
+the entrance (225 views); `/docs/corner-shape` draws 53 from people searching
+for the new property. Daily visitors fell from about 145 to 15 to 20 over the
+month. Shared links carry `?utm_source=` so each channel shows on its own row.
 
 ## Retired: the playground, `@yummacss/cdn` and `@yummacss/intellisense`
 
