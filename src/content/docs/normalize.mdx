@@ -3,6 +3,8 @@ title: Normalization
 description: Normalize CSS styles across browsers.
 ---
 
+The reset clears what browsers add and sets nothing a utility would have to undo. Every rule weighs at most one class, so a utility always wins.
+
 Every rule below is read from the reset Yumma CSS ships, so this page cannot fall out of step with what your project actually gets.
 
 ## Box Sizing
@@ -28,39 +30,24 @@ Ensure images & videos behave predictably in all layouts.
 
 ## Form Elements
 
-Normalize form controls for visual consistency & accessibility.
+Form controls take the surrounding font and drop the browser's background, so their look comes from classes.
 
 ```css normalize="button, input, optgroup, select, textarea"
 ```
 
-Add a default border to form elements that do not have a class attribute.
-
-```css normalize="button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class])"
-```
-
-Apply consistent focus styles to interactive elements.
-
-```css normalize=":is(a, button, input, select, summary, textarea):focus"
-```
-
-Set a minimum height for textareas without a defined `rows` attribute.
-
-```css normalize="textarea:not([rows])"
-```
-
-Ensure the buttons have a pointer cursor.
+Buttons have a pointer cursor.
 
 ```css normalize="button"
 ```
 
-Disabled states.
+Disabled controls are dimmed and show a not-allowed cursor. The rule weighs as much as one class, so a utility on the control wins.
 
-```css normalize="button:disabled, input:disabled, select:disabled, textarea:disabled"
+```css normalize=":where(button, input, select, textarea):disabled"
 ```
 
 ## Typography
 
-Improve rendering, wrapping, & default font behavior.
+Headings and paragraphs wrap long words, headings balance their lines, and paragraphs avoid a lone last word. Headings take their size and weight from the text around them.
 
 ```css normalize="h1, h2, h3, h4, h5, h6, p; h1, h2, h3, h4, h5, h6; p"
 ```
@@ -68,11 +55,6 @@ Improve rendering, wrapping, & default font behavior.
 Chrome, Edge, & Safari bold weight correction:
 
 ```css normalize="b, strong"
-```
-
-Default font size across browsers:
-
-```css normalize="small"
 ```
 
 Monospace elements keep the browser's own font stack at the surrounding size:
@@ -87,31 +69,19 @@ Links inherit their color and carry no underline, so a class decides both:
 
 ## Lists
 
-Remove default list styles for clean, customizable lists.
+Lists have no markers or indent.
 
 ```css normalize="ol, ul"
 ```
 
-## Tables
+## Rules
 
-Standardize table header styling for better readability.
-
-```css normalize="th"
-```
-
-## Miscellaneous
-
-Fix minor browser quirks and improve default styles for common elements.
+A horizontal rule is a single line in the text color.
 
 ```css normalize="hr"
 ```
 
-Ensure details and summary elements display correctly.
-
-```css normalize="details; summary"
-```
-
-### Disable Base Styles
+## Disable Base Styles
 
 Base styles are enabled by default to disable it set `normalize` to `false` in `yumma.config.mjs`.
 

@@ -76,7 +76,7 @@ export default function PlaygroundRail({
           {playground && <Look />}
 
           <div className="d:f ai:c jc:sb g:2 mb:3">
-            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">
+            <h3 className="ff:system c:silver-8 fs:xs fw:600 ls:2 tt:u">
               Component API
             </h3>
             {primitive && (
@@ -203,7 +203,7 @@ function Look() {
 
   return (
     <div className="d:f fd:c pb:4 mb:4">
-      <h3 className="ff:system mb:1 c:silver-8 fs:xs ls:2 tt:u">Look</h3>
+      <h3 className="ff:system mb:1 c:silver-8 fs:xs fw:600 ls:2 tt:u">Look</h3>
       <p className="m:0 mb:1 c:ink/60 fs:xs lh:4">
         The accent tints the preview only.
       </p>

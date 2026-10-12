@@ -101,7 +101,7 @@ export default function Reference({ category, name, variant }: Props) {
                     placeholder="Filter..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w:100% bg:transparent c:ink/70 bw:0 fs:md"
+                    className="w:100% p:2 bg:transparent c:ink/70 bw:0 fs:md"
                   />
                   {search && (
                     <span className="fs:0 c:ink/30 fs:xs ws:nw">
