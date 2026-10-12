@@ -1928,8 +1928,7 @@ TanStack Start spike either way.
 
 ## Framework: Next stays
 
-Decided 2026-10-12 after a spike, kept on the `chore/tanstack-spike` branch
-with its numbers in `spike/README.md`. TanStack Start rendered the Next
+Decided 2026-10-12 after a spike, since deleted with its branch. TanStack Start rendered the Next
 layouts and pages unchanged through its server components, with three small
 shims for `next/link`, `next/navigation` and `next/image`. Page weight came out
 about even. Blocking time under a 4x CPU was lower, 468 to 310ms on a docs
