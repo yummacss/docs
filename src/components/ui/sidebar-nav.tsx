@@ -47,13 +47,13 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
         viewportClassName="d:f fd:c g:8 mx:-2 px:2 pb:12"
       >
         <ProductLinks
-          heading="ff:system mb:3 c:silver-8 fs:xs ls:2 tt:u"
+          heading="ff:system mb:3 c:silver-8 fs:xs fw:600 ls:2 tt:u"
           list="d:f fd:c g:2"
           link="p:r d:if ai:c g:3 fs:sm us:none fv:oc:ink fv:oo:2 fv:ow:2"
         />
         {sections.map((section) => (
           <div key={section.title} className="d:f fd:c g:3">
-            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">
+            <h3 className="ff:system c:silver-8 fs:xs fw:600 ls:2 tt:u">
               {section.title}
             </h3>
             <ul className="d:f fd:c g:2">
@@ -114,7 +114,9 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
 
         {links && links.length > 0 && (
           <div className="d:f fd:c g:3">
-            <h3 className="ff:system c:silver-8 fs:xs ls:2 tt:u">Resources</h3>
+            <h3 className="ff:system c:silver-8 fs:xs fw:600 ls:2 tt:u">
+              Resources
+            </h3>
             <ul className="d:f fd:c g:2">
               {links.map((link) => (
                 <li key={link.href}>
