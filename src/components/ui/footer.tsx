@@ -92,7 +92,7 @@ export default function Footer() {
           <div className="d:g f:1 g:8 gtc:1 @sm:gtc:2 @lg:gtc:4">
             {COLUMNS.map((column) => (
               <div key={column.title} className="d:f fd:c g:4">
-                <h3 className="ff:system c:ink/90 fs:xs ls:5 tt:u">
+                <h3 className="ff:system c:ink/90 fs:xs fw:600 ls:5 tt:u">
                   {column.title}
                 </h3>
                 <ul className="d:f fd:c g:3">

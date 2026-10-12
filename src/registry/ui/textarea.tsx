@@ -157,7 +157,7 @@ export default function TextareaBase({
 
   const controlClasses = merge(
     outline,
-    "h:24 w:64 pt:3 pl:3 bg:white c:slate-10 bw:1 fs:md r:none",
+    "h:24 w:64 py:3 pl:3 bg:white c:slate-10 bw:1 fs:md r:none",
     showCounter || status !== "default" ? "pr:10" : "pr:3",
     SHAPES[shape],
     SHADOWS[shadow],
