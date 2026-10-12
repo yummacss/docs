@@ -39,15 +39,7 @@ Empty.
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-Performance, Renildo, 2026-10-03. The content pipeline stays (NOTES.md,
-"Content pipeline: content-collections stays"); the framework is next.
-
-- [ ] **Spike TanStack Start.** Vite-based, with MDX support. On a branch, one
-      docs page and one component page, compared on build time, bundle and
-      hydration against a 48.7s clean `next build`. What a move costs: the routes,
-      `next/og` covers, `next/image`, the Vercel setup and the redirects.
-      Measured 2026-10-04: the weight was one misplaced `"use client"`, which
-      a framework move would have carried along.
+Empty.
 
 
 ## Phase 6 - After v4

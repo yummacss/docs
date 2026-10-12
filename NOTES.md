@@ -1922,3 +1922,16 @@ rewriting what 13 files read from it: the zod schemas, the search index, the
 `.md` twins, `llms.txt`, the sitemap and the covers. Its known cost is in
 `next dev`, under Traps. It also has a Vite adapter, so it does not decide the
 TanStack Start spike either way.
+
+## Framework: Next stays
+
+Decided 2026-10-12 after a spike, kept on the `chore/tanstack-spike` branch
+with its numbers in `spike/README.md`. TanStack Start rendered the Next
+layouts and pages unchanged through its server components, with three small
+shims for `next/link`, `next/navigation` and `next/image`. Page weight came out
+about even. Blocking time under a 4x CPU was lower, 468 to 310ms on a docs
+page and 743 to 256ms on a component page. Not worth a move: its server
+components are experimental, and the search, `.md` copies, covers, redirects,
+metadata and Vercel setup would all need porting, for a gain no visitor
+asked for. If blocking time ever matters, first stop Next prefetching every
+sidebar link in view, which the spike suggests is part of the gap.
