@@ -193,6 +193,12 @@ const blogRedirects = [
 ];
 
 const uiRedirects = [
+  // installs before yummaui 0.6 store this address in yummaui.json
+  {
+    source: "/ui/r/:path*",
+    destination: "/ui/registry/:path*",
+    permanent: true,
+  },
   {
     source: "/ui/theming",
     destination: "/ui/components/customization",
