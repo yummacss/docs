@@ -39,7 +39,7 @@ export interface MeterProps {
    * A leading avatar. Setting this switches the header to a grouped
    * icon+label+description block & moves the value display below the track
    * instead of beside the label. It sits in a fixed 32px tile that colors the
-   * glyph but does not resize it, so pass one sized to fit (`w-4 h-4`).
+   * glyph but does not resize it, so pass one sized to fit (`w:4 h:4`).
    */
   icon?: ReactNode;
   /**
