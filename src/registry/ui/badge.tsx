@@ -122,7 +122,7 @@ export interface BadgeProps {
   /**
    * Any icon. The slot is sized to the badge and the color is inherited, but a
    * glyph that carries its own width and height keeps them, so pass it at the
-   * badge's icon size (`w-3 h-3` on `sm` and `md`, `w-4 h-4` on `lg`).
+   * badge's icon size (`w:3 h:3` on `sm` and `md`, `w:4 h:4` on `lg`).
    */
   icon?: ReactNode;
   /** Which end `icon` sits at. */
