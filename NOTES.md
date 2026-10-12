@@ -55,10 +55,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 **Waiting on Renildo**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
-- One breaking registry release: `public/ui/r` to `public/ui/registry` with a
-  redirect (installs store the absolute URL), `registryDependencies` to
-  `registryDeps`, the empty `blocks` key, and 16 `example` entries nothing can
-  reach. Cheapest while the one app is the only install: now or never.
 - Branch cleanup, on GitHub, since a cloud session cannot delete branches:
   224 branches in `docs`, 72 in `yummacss` and 14 in `yummaui`, counted
   2026-10-12. Among them, nothing left to keep: `feat/reset-layer` in `docs`
@@ -164,7 +160,7 @@ and had to be restored.
   on the clipboard.
 - **No copy button of its own.** The stage's code tabs copy through the code
   block's button. Copy component, which fetched the styled file from
-  `/ui/r/<style>-<radius>/<id>.json`, went with the editor stage on
+  `/ui/registry/<style>-<radius>/<id>.json`, went with the editor stage on
   2026-09-28; `addCommand` and `styleFlags` have no caller.
 - **The rail stays.** No way to hide it at `@lg:`. Below it, the stage is
   fixed under the navbar at 45dvh and the page starts beneath it, so the
@@ -194,19 +190,16 @@ and had to be restored.
 
 Read before proposing a change to where things live or how a prop is shaped.
 
-**Queued renames and additions, not yet done.** All three are breaking for
-someone: do them together, in one release.
-
-- [ ] `public/ui/r` to `public/ui/registry`. Old path needs a redirect - a
-      published `yummaui.json` pins `registry` as an absolute URL, so every
-      existing install points at `/ui/r`.
-- [ ] `registryDependencies` to `registryDeps`, in the generator, the JSON, and
-      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON, so
-      the field ships in both shapes for one version or the CLI floor moves.
-- [x] OTP Field ships, `src/registry/ui/otp-field.tsx`.
+**The registry address, 2026-10-12.** The JSON lives at `/ui/registry/` and
+lists dependencies in `registryDeps`; `/ui/r/` redirects there, since a
+`yummaui.json` from before yummaui 0.6 stores that absolute URL, and 0.6 reads
+the old address as the new one. 0.5 cannot read `registryDeps`, so this site
+deploys first and yummaui 0.6 publishes right after. Only what the index
+reaches is published, each component's base and its dependencies; the 16
+example files stay the site's own.
 
 **The registry stays in `docs`, at `src/registry/`.** Served as static JSON from
-`public/ui/r/`, generated at build time by `scripts/generate-registry-json.mjs`
+`public/ui/registry/`, generated at build time by `scripts/generate-registry-json.mjs`
 (gitignored output). The CLI **fetches it over HTTP** and imports nothing. Six
 things in `docs` need those files on disk: the `yumma.config.mjs` source glob
 (CSS generation), `src/registry/index.ts`'s dynamic import map (bundling),
@@ -255,7 +248,7 @@ config it creates and names any an existing config lacks, so the list lives in
 one place.
 
 `add` resolves its argument against `index.components[].component` in
-`/ui/r/index.json`, which holds the **36 component names**, never the flat ids.
+`/ui/registry/index.json`, which holds the **component names**, never the flat ids.
 So `add button` works, `add button-pill` exits 1. The registry id is only how
 registry *files* are keyed. That gap between "how files are keyed" and "what the
 CLI addresses" is exactly what went wrong.
