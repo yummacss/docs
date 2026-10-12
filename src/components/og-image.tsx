@@ -17,10 +17,11 @@ const PALETTES = {
     accent: "#4c5fc7",
     on: "#ffffff",
   },
+  // the canvas is the surface, as the site's boxes are, so it stands off the page
   dark: {
-    page: "#151724",
-    panel: "#1a1d2e",
-    rule: "#232741",
+    page: "#1a1d2e",
+    panel: "#20243a",
+    rule: "#2c3152",
     tick: "#5c6080",
     ink: "#ffffff",
     muted: "#9a9db0",
