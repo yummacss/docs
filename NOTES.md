@@ -1861,8 +1861,10 @@ inner walls under three faint white faces; the solid sits at the centre, behind
 the front faces. Light and dark differ in colour only, never in geometry.
 
 - `src/components/icons/yummacss-mark.tsx` draws it for the navbar, the mobile
-  nav and the footer, with no tile. `HomeMark` (`src/components/ui/home-mark.tsx`)
-  links each one home; a right-click opens `/docs/brand` instead of the browser's
+  nav and the footer, with no tile; `product="ui"` swaps the cube for Yumma
+  UI's two panels. `HomeMark` (`src/components/ui/home-mark.tsx`) shows the
+  mark of the product the route is in and links to that product's
+  installation; a right-click opens `/docs/brand` instead of the browser's
   menu. Every colour is a `light-dark()` pair, so it
   follows the OS theme; gradient ids come from `useId`, since the mark renders
   more than once a page.

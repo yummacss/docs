@@ -1,0 +1,817 @@
+Starting content-collections with config content-collections.ts
+[1/5] analyze client references...
+vite v8.3.4 building rsc environment for production...
+Start initial build
+build started ...
+... finished build of 2 collections and 201 documents in 109ms
+transforming...
+✓ 22 modules transformed.
+rendering chunks...
+✓ built in 283ms
+[2/5] analyze server references...
+vite v8.3.4 building ssr environment for production...
+Start initial build
+build started ...
+... finished build of 2 collections and 201 documents in 55ms
+transforming...
+✓ 225 modules transformed.
+rendering chunks...
+✓ built in 896ms
+[3/5] build rsc environment...
+vite v8.3.4 building rsc environment for production...
+Start initial build
+build started ...
+... finished build of 2 collections and 201 documents in 53ms
+transforming...
+✓ 3455 modules transformed.
+rendering chunks...
+computing gzip size...
+spike/dist/server/rsc/index.js                    177.07 kB │ gzip:  37.60 kB
+spike/dist/server/rsc/assets/pages-61UcsNed.js  6,556.71 kB │ gzip: 564.95 kB
+
+✓ built in 4.10s
+[4/5] build client environment...
+vite v8.3.4 building client environment for production...
+Start initial build
+build started ...
+... finished build of 2 collections and 201 documents in 71ms
+transforming...
+✓ 6995 modules transformed.
+rendering chunks...
+computing gzip size...
+spike/dist/client/assets/esteban-latin-ext-400-normal-Bd8Nrzo_.woff           4.18 kB
+spike/dist/client/assets/esteban-latin-400-normal-CwXUdOdD.woff2             14.69 kB
+spike/dist/client/assets/esteban-latin-400-normal-CoqKLug5.woff              18.86 kB
+spike/dist/client/assets/ia-writer-quattro-latin-400-italic-DzF8or6q.woff2   41.15 kB
+spike/dist/client/assets/ia-writer-quattro-latin-700-italic-BRKpd2c3.woff2   41.61 kB
+spike/dist/client/assets/ia-writer-quattro-latin-400-normal-CS_Vpeb6.woff2   44.41 kB
+spike/dist/client/assets/ia-writer-quattro-latin-700-normal-DzkVVaht.woff2   45.25 kB
+spike/dist/client/assets/ia-writer-quattro-latin-400-italic-cH1aRUOk.woff    51.81 kB
+spike/dist/client/assets/ia-writer-quattro-latin-700-italic-VuuLaU-p.woff    52.51 kB
+spike/dist/client/assets/ia-writer-quattro-latin-400-normal-DJI1zyv3.woff    56.86 kB
+spike/dist/client/assets/ia-writer-quattro-latin-700-normal-x0Cq0k16.woff    57.95 kB
+spike/dist/client/assets/index-BxG9qkbO.css                                   6.02 kB │ gzip:   3.77 kB
+spike/dist/client/assets/globals-de-1mLdU.css                                32.82 kB │ gzip:   7.67 kB
+spike/dist/client/assets/avatar-BN6tbk0R.js                                   0.04 kB │ gzip:   0.06 kB
+spike/dist/client/assets/button-BDZUZ10C.js                                   0.04 kB │ gzip:   0.06 kB
+spike/dist/client/assets/checkbox-C579HtKa.js                                 0.04 kB │ gzip:   0.06 kB
+spike/dist/client/assets/toggle-jTr47_ki.js                                   0.04 kB │ gzip:   0.06 kB
+spike/dist/client/assets/valueToPercent-CNSGbpPd.js                           0.05 kB │ gzip:   0.07 kB
+spike/dist/client/assets/owner-NnnQFEU-.js                                    0.06 kB │ gzip:   0.07 kB
+spike/dist/client/assets/env-wFuK7eMI.js                                      0.08 kB │ gzip:   0.09 kB
+spike/dist/client/assets/clamp-D0kAXd-u.js                                    0.08 kB │ gzip:   0.09 kB
+spike/dist/client/assets/docs._slug-DmOQeprn.js                               0.09 kB │ gzip:   0.11 kB
+spike/dist/client/assets/ui.components._slug-DDFMqv0Y.js                      0.09 kB │ gzip:   0.10 kB
+spike/dist/client/assets/resolveAriaLabelledBy-B2ZzrlGb.js                    0.09 kB │ gzip:   0.10 kB
+spike/dist/client/assets/stringifyLocale-CkHjdQTJ.js                          0.09 kB │ gzip:   0.10 kB
+spike/dist/client/assets/addEventListener-VyGXw_SB.js                         0.10 kB │ gzip:   0.09 kB
+spike/dist/client/assets/inertValue-EKYQy6LH.js                               0.10 kB │ gzip:   0.12 kB
+spike/dist/client/assets/isElementDisabled-KSuuBj8D.js                        0.11 kB │ gzip:   0.11 kB
+spike/dist/client/assets/serializeValue-B_EucO5O.js                           0.13 kB │ gzip:   0.12 kB
+spike/dist/client/assets/areArraysEqual-DpJhDMgE.js                           0.14 kB │ gzip:   0.13 kB
+spike/dist/client/assets/AlertDialogTrigger-DDmae1bq.js                       0.15 kB │ gzip:   0.14 kB
+spike/dist/client/assets/ToggleGroupContext-78ijh57e.js                       0.18 kB │ gzip:   0.16 kB
+spike/dist/client/assets/useForcedRerendering-CFBj-xbZ.js                     0.18 kB │ gzip:   0.17 kB
+spike/dist/client/assets/DirectionContext-BlO6nWSJ.js                         0.19 kB │ gzip:   0.16 kB
+spike/dist/client/assets/useRegisteredLabelId-CjyEBm8b.js                     0.19 kB │ gzip:   0.17 kB
+spike/dist/client/assets/visuallyHidden-CrYY0HH5.js                           0.19 kB │ gzip:   0.16 kB
+spike/dist/client/assets/useOnMount-DHYRdKEt.js                               0.19 kB │ gzip:   0.16 kB
+spike/dist/client/assets/field-suffix-DbFlIPLm.js                             0.20 kB │ gzip:   0.18 kB
+spike/dist/client/assets/CSPContext-7bwp3AvO.js                               0.20 kB │ gzip:   0.18 kB
+spike/dist/client/assets/useValueAsRef-BqMEp69D.js                            0.21 kB │ gzip:   0.17 kB
+spike/dist/client/assets/field-prefix-DDgG-hxT.js                             0.22 kB │ gzip:   0.19 kB
+spike/dist/client/assets/constants-CRVdF2T0.js                                0.24 kB │ gzip:   0.17 kB
+spike/dist/client/assets/avatar-icon-fallback-CruozBYd.js                     0.25 kB │ gzip:   0.21 kB
+spike/dist/client/assets/os-C3tUrIQC.js                                       0.25 kB │ gzip:   0.20 kB
+spike/dist/client/assets/CompositeListContext-CSG4e8yd.js                     0.26 kB │ gzip:   0.21 kB
+spike/dist/client/assets/mergeCleanups-Dnl8mEtb.js                            0.26 kB │ gzip:   0.22 kB
+spike/dist/client/assets/avatar-initial-fallback-DstTSrfg.js                  0.26 kB │ gzip:   0.22 kB
+spike/dist/client/assets/FieldsetRootContext-RMQ0ANoc.js                      0.27 kB │ gzip:   0.22 kB
+spike/dist/client/assets/formatNumber-CaBnao-Y.js                             0.27 kB │ gzip:   0.21 kB
+spike/dist/client/assets/ToolbarRootContext-OP5nD4IY.js                       0.27 kB │ gzip:   0.22 kB
+spike/dist/client/assets/CompositeRootContext-BB1J-1LA.js                     0.28 kB │ gzip:   0.22 kB
+spike/dist/client/assets/useControlled-CJYtybmH.js                            0.28 kB │ gzip:   0.23 kB
+spike/dist/client/assets/shared-Arf_fccI.js                                   0.30 kB │ gzip:   0.17 kB
+spike/dist/client/assets/useValueChanged-CTCw48JR.js                          0.31 kB │ gzip:   0.23 kB
+spike/dist/client/assets/useStableCallback-NpDt9OA7.js                        0.34 kB │ gzip:   0.23 kB
+spike/dist/client/assets/Separator-D2W7SxUb.js                                0.35 kB │ gzip:   0.26 kB
+spike/dist/client/assets/usePopupHandleStore-8UODVhJh.js                      0.39 kB │ gzip:   0.27 kB
+spike/dist/client/assets/CompositeItem-BAO_n-2l.js                            0.39 kB │ gzip:   0.27 kB
+spike/dist/client/assets/useBaseUiId-CZTGrM5W.js                              0.41 kB │ gzip:   0.29 kB
+spike/dist/client/assets/shadowDom-9QM7wuPK.js                                0.42 kB │ gzip:   0.28 kB
+spike/dist/client/assets/useAnchoredPopupScrollLock-Dxe8ub4j.js               0.44 kB │ gzip:   0.31 kB
+spike/dist/client/assets/useTimeout-Bi-FIjBO.js                               0.46 kB │ gzip:   0.28 kB
+spike/dist/client/assets/FloatingPortalLite-CyMHp8qF.js                       0.47 kB │ gzip:   0.34 kB
+spike/dist/client/assets/Button-sMXnOGHu.js                                   0.47 kB │ gzip:   0.31 kB
+spike/dist/client/assets/autocomplete-helper-CE0fDQpL.js                      0.48 kB │ gzip:   0.36 kB
+spike/dist/client/assets/select-grouped-D2f4qAP1.js                           0.49 kB │ gzip:   0.30 kB
+spike/dist/client/assets/skeleton-list-DeAIUSKN.js                            0.50 kB │ gzip:   0.30 kB
+spike/dist/client/assets/skeleton-stats-CaLhQEfc.js                           0.50 kB │ gzip:   0.33 kB
+spike/dist/client/assets/combobox-helper-Civz8SSU.js                          0.51 kB │ gzip:   0.38 kB
+spike/dist/client/assets/PrehydrationScript-D509qTtu.js                       0.53 kB │ gzip:   0.34 kB
+spike/dist/client/assets/skeleton-activity-f6Y6qUi2.js                        0.57 kB │ gzip:   0.34 kB
+spike/dist/client/assets/toggle-group-Bonhu_h9.js                             0.58 kB │ gzip:   0.37 kB
+spike/dist/client/assets/skeleton-CyUJdfvd.js                                 0.59 kB │ gzip:   0.39 kB
+spike/dist/client/assets/useAriaLabelledBy-Da2hn0jT.js                        0.61 kB │ gzip:   0.41 kB
+spike/dist/client/assets/avatar-stack-CcjCeIT0.js                             0.62 kB │ gzip:   0.39 kB
+spike/dist/client/assets/useCompositeItem-I_F4B1Pv.js                         0.62 kB │ gzip:   0.41 kB
+spike/dist/client/assets/DialogTitle-0eVWa06A.js                              0.62 kB │ gzip:   0.34 kB
+spike/dist/client/assets/FieldDescription-DcsQ4pNC.js                         0.63 kB │ gzip:   0.42 kB
+spike/dist/client/assets/scrollable-BvpXZ0wG.js                               0.64 kB │ gzip:   0.34 kB
+spike/dist/client/assets/autocomplete-grouped-DUuKd_Iy.js                     0.65 kB │ gzip:   0.36 kB
+spike/dist/client/assets/alt-arrow-right-BRjs7CyS.js                          0.65 kB │ gzip:   0.42 kB
+spike/dist/client/assets/alt-arrow-down-BFZwYC2o.js                           0.65 kB │ gzip:   0.42 kB
+spike/dist/client/assets/getPseudoElementBounds-DeV-KvU9.js                   0.67 kB │ gzip:   0.38 kB
+spike/dist/client/assets/combobox-grouped-B2W6_PJc.js                         0.67 kB │ gzip:   0.38 kB
+spike/dist/client/assets/DialogViewport-Bd3BmKhe.js                           0.71 kB │ gzip:   0.45 kB
+spike/dist/client/assets/avatar-stack-compact-BJr5owiU.js                     0.71 kB │ gzip:   0.39 kB
+spike/dist/client/assets/event-B9z4KXAD.js                                    0.72 kB │ gzip:   0.38 kB
+spike/dist/client/assets/useCompositeListItem-CRzzbDjE.js                     0.76 kB │ gzip:   0.45 kB
+spike/dist/client/assets/close-DUG3xszp.js                                    0.82 kB │ gzip:   0.45 kB
+spike/dist/client/assets/autocomplete-icon-leading-B2N81Kls.js                0.83 kB │ gzip:   0.41 kB
+spike/dist/client/assets/autocomplete-icon-trailing-BdK5WxSS.js               0.83 kB │ gzip:   0.41 kB
+spike/dist/client/assets/skeleton-filters-CHH911lE.js                         0.85 kB │ gzip:   0.34 kB
+spike/dist/client/assets/shim-SRe-TzJV.js                                     0.85 kB │ gzip:   0.46 kB
+spike/dist/client/assets/useTriggerFocusGuards-C6KZRROK.js                    0.87 kB │ gzip:   0.49 kB
+spike/dist/client/assets/button-group-QoAccqCs.js                             0.90 kB │ gzip:   0.54 kB
+spike/dist/client/assets/danger-triangle-BUjzcDsx.js                          1.07 kB │ gzip:   0.59 kB
+spike/dist/client/assets/separator-Dh9o7Q12.js                                1.07 kB │ gzip:   0.60 kB
+spike/dist/client/assets/jsx-runtime-Cx0BB4qO.js                              1.08 kB │ gzip:   0.61 kB
+spike/dist/client/assets/useAnimationFrame-BmTjY7V_.js                        1.09 kB │ gzip:   0.50 kB
+spike/dist/client/assets/createBaseUIEventDetails-D3-bD4Cn.js                 1.12 kB │ gzip:   0.61 kB
+spike/dist/client/assets/DialogTrigger-DhLWArlE.js                            1.19 kB │ gzip:   0.72 kB
+spike/dist/client/assets/element-DuBaCkQx.js                                  1.23 kB │ gzip:   0.65 kB
+spike/dist/client/assets/Toggle-C6VtRf6J.js                                   1.25 kB │ gzip:   0.73 kB
+spike/dist/client/assets/IconBase-BdSS-i1J.js                                 1.29 kB │ gzip:   0.72 kB
+spike/dist/client/assets/sort-vertical-TTwF25cV.js                            1.31 kB │ gzip:   0.69 kB
+spike/dist/client/assets/ToggleGroup-IVyPoV8O.js                              1.32 kB │ gzip:   0.77 kB
+spike/dist/client/assets/FieldLabel-CWBvu2lf.js                               1.33 kB │ gzip:   0.79 kB
+spike/dist/client/assets/breadcrumb-CFquZpRU.js                               1.42 kB │ gzip:   0.75 kB
+spike/dist/client/assets/empty-state-BdC9Pjd9.js                              1.44 kB │ gzip:   0.75 kB
+spike/dist/client/assets/store-ByU1kMhN.js                                    1.53 kB │ gzip:   0.58 kB
+spike/dist/client/assets/switch-BqzgeLXy.js                                   1.67 kB │ gzip:   0.91 kB
+spike/dist/client/assets/useTypeahead-BJIEWLqB.js                             1.98 kB │ gzip:   1.00 kB
+spike/dist/client/assets/useTransitionStatus-DnJvaKa8.js                      2.11 kB │ gzip:   1.05 kB
+spike/dist/client/assets/composite-CY6TMZr3.js                                2.15 kB │ gzip:   0.78 kB
+spike/dist/client/assets/tabs-Bnx75oqP.js                                     2.19 kB │ gzip:   1.10 kB
+spike/dist/client/assets/FieldControl-BkNkNixD.js                             2.27 kB │ gzip:   1.17 kB
+spike/dist/client/assets/useFocus-DtgXbCwl.js                                 2.27 kB │ gzip:   1.09 kB
+spike/dist/client/assets/useLabelableId-C0rBz1rH.js                           2.30 kB │ gzip:   1.10 kB
+spike/dist/client/assets/floating-ui.utils.dom-Bga_OvHD.js                    2.30 kB │ gzip:   1.05 kB
+spike/dist/client/assets/useOpenInteractionType-RuYwrVgZ.js                   2.34 kB │ gzip:   1.15 kB
+spike/dist/client/assets/textarea-D6n-e9Vi.js                                 2.44 kB │ gzip:   1.16 kB
+spike/dist/client/assets/useButton-DJUaZG4G.js                                2.45 kB │ gzip:   1.15 kB
+spike/dist/client/assets/AvatarFallback-B15nWGaI.js                           2.66 kB │ gzip:   1.26 kB
+spike/dist/client/assets/CompositeList-DBFrkFyW.js                            2.69 kB │ gzip:   1.26 kB
+spike/dist/client/assets/badge-C6UbnZOH.js                                    2.89 kB │ gzip:   1.07 kB
+spike/dist/client/assets/meter-HmrArDHN.js                                    3.06 kB │ gzip:   1.35 kB
+spike/dist/client/assets/resolveValueLabel-DfbYDkZn.js                        3.09 kB │ gzip:   1.31 kB
+spike/dist/client/assets/alert-dialog-DZqbYKMc.js                             3.14 kB │ gzip:   1.45 kB
+spike/dist/client/assets/dialog-B82wter6.js                                   3.17 kB │ gzip:   1.47 kB
+spike/dist/client/assets/useFieldValidation-CY4ZdWJn.js                       3.25 kB │ gzip:   1.57 kB
+spike/dist/client/assets/drawer-BuZ7W0eF.js                                   3.51 kB │ gzip:   1.46 kB
+spike/dist/client/assets/mobile-sheet-CTR_F_NJ.js                             3.53 kB │ gzip:   1.61 kB
+spike/dist/client/assets/checkbox-group-DJSKr48z.js                           3.60 kB │ gzip:   1.73 kB
+spike/dist/client/assets/progress-CC3PiTyG.js                                 3.68 kB │ gzip:   1.61 kB
+spike/dist/client/assets/FieldRoot-6XmF-Mwd.js                                4.21 kB │ gzip:   1.84 kB
+spike/dist/client/assets/menu-BQgAUyeJ.js                                     4.28 kB │ gzip:   1.70 kB
+spike/dist/client/assets/accordion-CiplXOZk.js                                4.31 kB │ gzip:   1.84 kB
+spike/dist/client/assets/rating-BXBpNQBi.js                                   4.38 kB │ gzip:   2.09 kB
+spike/dist/client/assets/useIsoLayoutEffect-DWblRLsP.js                       4.39 kB │ gzip:   1.93 kB
+spike/dist/client/assets/autocomplete-CtZ68v28.js                             4.41 kB │ gzip:   2.03 kB
+spike/dist/client/assets/MenuTrigger-BSNOtk7E.js                              4.44 kB │ gzip:   2.09 kB
+spike/dist/client/assets/composite-BDmUUVvh.js                                4.76 kB │ gzip:   2.05 kB
+spike/dist/client/assets/select-BVYT1wVI.js                                   5.03 kB │ gzip:   2.20 kB
+spike/dist/client/assets/DialogPortal-BvaiNGMR.js                             5.15 kB │ gzip:   2.18 kB
+spike/dist/client/assets/file-upload-BI01-REt.js                              5.49 kB │ gzip:   2.64 kB
+spike/dist/client/assets/menubar-CW-hw6BJ.js                                  5.59 kB │ gzip:   2.22 kB
+spike/dist/client/assets/toolbar-Ca7JVSIu.js                                  5.64 kB │ gzip:   2.15 kB
+spike/dist/client/assets/number-field-0PmHMHGI.js                             5.88 kB │ gzip:   2.86 kB
+spike/dist/client/assets/user-cross-BEo4XBUM.js                               6.13 kB │ gzip:   2.31 kB
+spike/dist/client/assets/field-Cbo6D21m.js                                    6.45 kB │ gzip:   2.93 kB
+spike/dist/client/assets/useListNavigation-DaCpauKI.js                        6.51 kB │ gzip:   2.80 kB
+spike/dist/client/assets/context-menu-CiYXlXNr.js                             6.55 kB │ gzip:   2.67 kB
+spike/dist/client/assets/radio-DAoJNKD3.js                                    7.04 kB │ gzip:   3.22 kB
+spike/dist/client/assets/onboarding-Dulzgt0o.js                               7.56 kB │ gzip:   2.75 kB
+spike/dist/client/assets/react-IDFlRUvQ.js                                    7.87 kB │ gzip:   3.00 kB
+spike/dist/client/assets/merge-CfNstS5o.js                                    9.72 kB │ gzip:   2.88 kB
+spike/dist/client/assets/preview-card-BYteGCEw.js                             9.86 kB │ gzip:   4.04 kB
+spike/dist/client/assets/otp-field-DS4GCLKR.js                                9.90 kB │ gzip:   4.25 kB
+spike/dist/client/assets/safePolygon-DP2J6Wtp.js                             11.17 kB │ gzip:   4.08 kB
+spike/dist/client/assets/popover-888S5iVd.js                                 13.14 kB │ gzip:   5.10 kB
+spike/dist/client/assets/combobox-D6f0JKKd.js                                13.38 kB │ gzip:   5.15 kB
+spike/dist/client/assets/InternalBackdrop-CcTWHSPH.js                        13.71 kB │ gzip:   5.32 kB
+spike/dist/client/assets/tooltip-rygLGoeC.js                                 14.74 kB │ gzip:   5.69 kB
+spike/dist/client/assets/NumberFieldInput-CzkWpFz8.js                        15.07 kB │ gzip:   6.62 kB
+spike/dist/client/assets/slider-DELA2PqU.js                                  17.85 kB │ gzip:   7.53 kB
+spike/dist/client/assets/popupTriggerMap-CMtzGKHw.js                         24.17 kB │ gzip:   8.83 kB
+spike/dist/client/assets/usePositioner-DANIWCnj.js                           25.18 kB │ gzip:   9.87 kB
+spike/dist/client/assets/command-CcRlIJaT.js                                 25.94 kB │ gzip:   8.64 kB
+spike/dist/client/assets/DrawerViewport-Do2C0GRS.js                          28.99 kB │ gzip:  10.73 kB
+spike/dist/client/assets/ComboboxEmpty-kJk3sZ_o.js                           32.84 kB │ gzip:  11.79 kB
+spike/dist/client/assets/pages-DFqpJl4D.js                                   40.52 kB │ gzip:  13.07 kB
+spike/dist/client/assets/link-CK4pGs6_.js                                    65.85 kB │ gzip:  23.67 kB
+spike/dist/client/assets/index-Bw5D6q67.js                                  273.97 kB │ gzip:  85.67 kB
+spike/dist/client/assets/pages-dliZG0HX.js                                  475.60 kB │ gzip: 126.60 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/avatar.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/registry/ui/avatar-icon-fallback.tsx, src/registry/ui/avatar-initial-fallback.tsx, src/registry/ui/avatar-stack-compact.tsx, src/registry/ui/avatar-stack.tsx, src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/button.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/checkbox.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/registry/ui/checkbox-group.tsx, src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/toggle.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+✓ built in 5.83s
+[5/5] build ssr environment...
+vite v8.3.4 building ssr environment for production...
+Start initial build
+build started ...
+... finished build of 2 collections and 201 documents in 61ms
+transforming...
+✓ 7045 modules transformed.
+rendering chunks...
+computing gzip size...
+spike/dist/server/assets/avatar-B01lX-Dy.js                        0.05 kB │ gzip:   0.07 kB
+spike/dist/server/assets/button-CRWqhsmA.js                        0.05 kB │ gzip:   0.07 kB
+spike/dist/server/assets/checkbox-DbGoBhdi.js                      0.05 kB │ gzip:   0.07 kB
+spike/dist/server/assets/toggle-ByDaORpH.js                        0.05 kB │ gzip:   0.07 kB
+spike/dist/server/assets/docs._slug-DnjyqSgM.js                    0.22 kB │ gzip:   0.17 kB
+spike/dist/server/assets/ui.components._slug-BKseJ8MW.js           0.23 kB │ gzip:   0.17 kB
+spike/dist/server/assets/owner-BPSTcENH.js                         0.27 kB │ gzip:   0.18 kB
+spike/dist/server/assets/start-eOzSqxaF.js                         0.29 kB │ gzip:   0.21 kB
+spike/dist/server/assets/valueToPercent-DsmyhZHY.js                0.30 kB │ gzip:   0.19 kB
+spike/dist/server/assets/clamp-Dk-Okbjw.js                         0.31 kB │ gzip:   0.22 kB
+spike/dist/server/assets/env-Lfdellj8.js                           0.36 kB │ gzip:   0.25 kB
+spike/dist/server/assets/isElementDisabled-Cv6XbNDP.js             0.36 kB │ gzip:   0.22 kB
+spike/dist/server/assets/inertValue-BtDH4W7Z.js                    0.38 kB │ gzip:   0.26 kB
+spike/dist/server/assets/stringifyLocale-DtjL3Xjt.js               0.39 kB │ gzip:   0.24 kB
+spike/dist/server/assets/serializeValue-BVZk8WDt.js                0.40 kB │ gzip:   0.24 kB
+spike/dist/server/assets/field-suffix-DX1PC7lK.js                  0.41 kB │ gzip:   0.28 kB
+spike/dist/server/assets/resolveAriaLabelledBy-C9RLV3Cx.js         0.43 kB │ gzip:   0.24 kB
+spike/dist/server/assets/field-prefix-DFzOAnq4.js                  0.43 kB │ gzip:   0.29 kB
+spike/dist/server/assets/addEventListener-BipJ-qyY.js              0.47 kB │ gzip:   0.25 kB
+spike/dist/server/assets/visuallyHidden-eD3J8pP7.js                0.55 kB │ gzip:   0.30 kB
+spike/dist/server/assets/avatar-icon-fallback-Biz9JVR_.js          0.55 kB │ gzip:   0.34 kB
+spike/dist/server/assets/DirectionContext-D-DY1-NK.js              0.58 kB │ gzip:   0.32 kB
+spike/dist/server/assets/avatar-initial-fallback-B4nmeCTQ.js       0.59 kB │ gzip:   0.35 kB
+spike/dist/server/assets/areArraysEqual-DdWEHXsb.js                0.59 kB │ gzip:   0.35 kB
+spike/dist/server/assets/ToggleGroupContext-DnDXsX-3.js            0.60 kB │ gzip:   0.32 kB
+spike/dist/server/assets/useForcedRerendering-B24T86l3.js          0.60 kB │ gzip:   0.35 kB
+spike/dist/server/assets/useOnMount-C7hU8JaQ.js                    0.60 kB │ gzip:   0.37 kB
+spike/dist/server/assets/useRegisteredLabelId-CEPUZtAV.js          0.62 kB │ gzip:   0.33 kB
+spike/dist/server/assets/constants-DGCP4wLx.js                     0.63 kB │ gzip:   0.35 kB
+spike/dist/server/assets/CSPContext-BY7G45qM.js                    0.63 kB │ gzip:   0.37 kB
+spike/dist/server/assets/CompositeListContext-Bhm6Oa8m.js          0.73 kB │ gzip:   0.38 kB
+spike/dist/server/assets/useControlled-1bzU0sRF.js                 0.78 kB │ gzip:   0.43 kB
+spike/dist/server/assets/ToolbarRootContext-C_F_YH6b.js            0.78 kB │ gzip:   0.41 kB
+spike/dist/server/assets/FieldsetRootContext-CYtgtJ1v.js           0.79 kB │ gzip:   0.41 kB
+spike/dist/server/assets/formatNumber-BKhjmZGc.js                  0.81 kB │ gzip:   0.40 kB
+spike/dist/server/assets/CompositeRootContext-zjTHWmkO.js          0.82 kB │ gzip:   0.43 kB
+spike/dist/server/assets/Separator-OzhcqW3r.js                     0.84 kB │ gzip:   0.48 kB
+spike/dist/server/assets/useValueAsRef-BmaRQ9GN.js                 0.84 kB │ gzip:   0.45 kB
+spike/dist/server/assets/select-grouped-BnEVl4Oi.js                0.85 kB │ gzip:   0.42 kB
+spike/dist/server/assets/useValueChanged-C96bbHrB.js               0.85 kB │ gzip:   0.42 kB
+spike/dist/server/assets/autocomplete-helper-CYpob2BA.js           0.88 kB │ gzip:   0.48 kB
+spike/dist/server/assets/CompositeItem-DyxN1lIq.js                 0.89 kB │ gzip:   0.45 kB
+spike/dist/server/assets/combobox-helper-CVa56hji.js               0.89 kB │ gzip:   0.50 kB
+spike/dist/server/assets/_tanstack-start-manifest_v-BwfTKpDR.js    0.92 kB │ gzip:   0.44 kB
+spike/dist/server/assets/os-BcQiZQ1w.js                            0.94 kB │ gzip:   0.52 kB
+spike/dist/server/assets/shadowDom-IzZuzsQt.js                     0.95 kB │ gzip:   0.47 kB
+spike/dist/server/assets/mergeCleanups-g3_SfUXY.js                 1.00 kB │ gzip:   0.50 kB
+spike/dist/server/assets/Button-BYOfad6T.js                        1.01 kB │ gzip:   0.53 kB
+spike/dist/server/assets/toggle-group-5kJD6-K9.js                  1.02 kB │ gzip:   0.57 kB
+spike/dist/server/assets/skeleton-list-YOXi_ZVR.js                 1.05 kB │ gzip:   0.44 kB
+spike/dist/server/assets/skeleton-stats-9JG9caso.js                1.05 kB │ gzip:   0.48 kB
+spike/dist/server/assets/AlertDialogTrigger-vIMbTqRK.js            1.06 kB │ gzip:   0.43 kB
+spike/dist/server/assets/useTimeout-tjBWTZEh.js                    1.08 kB │ gzip:   0.54 kB
+spike/dist/server/assets/alt-arrow-down-Cwovb66K.js                1.08 kB │ gzip:   0.57 kB
+spike/dist/server/assets/alt-arrow-right-B6SWo0Wl.js               1.08 kB │ gzip:   0.58 kB
+spike/dist/server/assets/shared-Dxu8KVGA.js                        1.12 kB │ gzip:   0.57 kB
+spike/dist/server/assets/autocomplete-grouped-CDlj918u.js          1.15 kB │ gzip:   0.49 kB
+spike/dist/server/assets/combobox-grouped-DRkMyFiV.js              1.16 kB │ gzip:   0.51 kB
+spike/dist/server/assets/skeleton-activity-lBufPWSn.js             1.16 kB │ gzip:   0.50 kB
+spike/dist/server/assets/skeleton-BITruLs4.js                      1.17 kB │ gzip:   0.64 kB
+spike/dist/server/assets/avatar-stack-compact-BUqJn7mH.js          1.20 kB │ gzip:   0.55 kB
+spike/dist/server/assets/close-ZWVyJqsu.js                         1.23 kB │ gzip:   0.61 kB
+spike/dist/server/assets/avatar-stack-CDCnfNmY.js                  1.37 kB │ gzip:   0.66 kB
+spike/dist/server/assets/useCompositeItem-B5iPNUui.js              1.40 kB │ gzip:   0.65 kB
+spike/dist/server/assets/FloatingPortalLite-Ck2uhcJ7.js            1.45 kB │ gzip:   0.65 kB
+spike/dist/server/assets/usePopupHandleStore-CQBSBK-m.js           1.50 kB │ gzip:   0.74 kB
+spike/dist/server/assets/autocomplete-icon-leading-B1GDpQrt.js     1.51 kB │ gzip:   0.54 kB
+spike/dist/server/assets/event-BAkPwrPe.js                         1.51 kB │ gzip:   0.59 kB
+spike/dist/server/assets/autocomplete-icon-trailing-a9UXJ7RV.js    1.52 kB │ gzip:   0.54 kB
+spike/dist/server/assets/useStableCallback-SFl3-861.js             1.52 kB │ gzip:   0.73 kB
+spike/dist/server/assets/useBaseUiId-Dxx8ZjPO.js                   1.57 kB │ gzip:   0.70 kB
+spike/dist/server/assets/FieldDescription-x7gMB57x.js              1.58 kB │ gzip:   0.74 kB
+spike/dist/server/assets/danger-triangle-DVQEwFz8.js               1.59 kB │ gzip:   0.76 kB
+spike/dist/server/assets/useAnchoredPopupScrollLock-HMtKZiph.js    1.62 kB │ gzip:   0.71 kB
+spike/dist/server/assets/DialogViewport-CS95P--A.js                1.64 kB │ gzip:   0.75 kB
+spike/dist/server/assets/button-group-DUeC4ksp.js                  1.75 kB │ gzip:   0.82 kB
+spike/dist/server/assets/sort-vertical-DaqAEPNk.js                 1.78 kB │ gzip:   0.86 kB
+spike/dist/server/assets/scrollable-Bc3IW6fN.js                    1.84 kB │ gzip:   0.61 kB
+spike/dist/server/assets/skeleton-filters-BdZ9S69W.js              1.85 kB │ gzip:   0.52 kB
+spike/dist/server/assets/getPseudoElementBounds-CQq0eEzz.js        1.89 kB │ gzip:   0.74 kB
+spike/dist/server/assets/useAriaLabelledBy-B1AAcMJZ.js             1.89 kB │ gzip:   0.73 kB
+spike/dist/server/assets/IconBase-w67pjYvL.js                      1.93 kB │ gzip:   0.96 kB
+spike/dist/server/assets/separator-DDOSQ8CU.js                     1.98 kB │ gzip:   0.87 kB
+spike/dist/server/assets/useCompositeListItem-HJjfKqu5.js          1.99 kB │ gzip:   0.81 kB
+spike/dist/server/assets/DialogTitle-DxBwY5Ds.js                   2.02 kB │ gzip:   0.71 kB
+spike/dist/server/assets/useAnimationFrame-BcNEB1OG.js             2.46 kB │ gzip:   1.03 kB
+spike/dist/server/assets/useTriggerFocusGuards-Cpj9Q_ml.js         2.51 kB │ gzip:   0.99 kB
+spike/dist/server/assets/shim-DSvpByJF.js                          2.57 kB │ gzip:   0.94 kB
+spike/dist/server/assets/breadcrumb-yTrjRFNm.js                    2.63 kB │ gzip:   1.07 kB
+spike/dist/server/assets/empty-state-GJcSolWs.js                   2.72 kB │ gzip:   1.08 kB
+spike/dist/server/assets/Toggle-DTjG0tiw.js                        2.76 kB │ gzip:   1.11 kB
+spike/dist/server/assets/element-CvbX1SQe.js                       2.91 kB │ gzip:   1.09 kB
+spike/dist/server/assets/DialogTrigger-CGB3PGtP.js                 2.96 kB │ gzip:   1.21 kB
+spike/dist/server/assets/jsx-runtime-CYp_6QRR.js                   2.98 kB │ gzip:   1.25 kB
+spike/dist/server/assets/switch-DDqhEXOo.js                        3.16 kB │ gzip:   1.28 kB
+spike/dist/server/assets/createBaseUIEventDetails-DkeGcYd5.js      3.18 kB │ gzip:   1.13 kB
+spike/dist/server/assets/FieldLabel-DJWy3X0C.js                    3.54 kB │ gzip:   1.35 kB
+spike/dist/server/assets/ToggleGroup-d_o27suI.js                   3.61 kB │ gzip:   1.32 kB
+spike/dist/server/assets/store-CeU3RLRk.js                         4.01 kB │ gzip:   1.33 kB
+spike/dist/server/assets/tabs-BksOserX.js                          4.32 kB │ gzip:   1.58 kB
+spike/dist/server/assets/badge-FjSaDaN6.js                         4.63 kB │ gzip:   1.44 kB
+spike/dist/server/assets/composite-BU9CrW_3.js                     4.74 kB │ gzip:   1.27 kB
+spike/dist/server/assets/useTypeahead-D0mSXfKg.js                  4.74 kB │ gzip:   1.65 kB
+spike/dist/server/assets/textarea-BEhjo9Ls.js                      4.77 kB │ gzip:   1.66 kB
+spike/dist/server/assets/floating-ui.utils.dom-C3AI9ZqY.js         5.22 kB │ gzip:   1.58 kB
+spike/dist/server/assets/useFocus-DPiKyruJ.js                      5.54 kB │ gzip:   1.78 kB
+spike/dist/server/assets/FieldControl-C3NXxiGi.js                  5.63 kB │ gzip:   1.95 kB
+spike/dist/server/assets/alert-dialog-ByvJaWw4.js                  6.06 kB │ gzip:   1.96 kB
+spike/dist/server/assets/dialog-D6tdnKR0.js                        6.14 kB │ gzip:   2.01 kB
+spike/dist/server/assets/mobile-sheet-DYj3IrRv.js                  6.42 kB │ gzip:   2.21 kB
+spike/dist/server/assets/CompositeList-BEIdBRVV.js                 6.47 kB │ gzip:   2.01 kB
+spike/dist/server/assets/useOpenInteractionType-D4ohwglH.js        6.82 kB │ gzip:   2.16 kB
+spike/dist/server/assets/useLabelableId-BNuSPuVL.js                6.90 kB │ gzip:   1.98 kB
+spike/dist/server/assets/rating-D2UMtbyc.js                        7.21 kB │ gzip:   2.70 kB
+spike/dist/server/assets/drawer-CVojeWKM.js                        7.26 kB │ gzip:   2.21 kB
+spike/dist/server/assets/useButton-Dt4sHEtY.js                     7.33 kB │ gzip:   2.12 kB
+spike/dist/server/assets/user-cross-DuGlRNkS.js                    7.76 kB │ gzip:   2.57 kB
+spike/dist/server/assets/accordion-CFoGfxhp.js                     7.91 kB │ gzip:   2.55 kB
+spike/dist/server/assets/AvatarFallback-4b2r2fgU.js                8.08 kB │ gzip:   2.11 kB
+spike/dist/server/assets/resolveValueLabel-DFx-kIMl.js             8.22 kB │ gzip:   2.27 kB
+spike/dist/server/assets/menu-DPo6J55b.js                          8.31 kB │ gzip:   2.38 kB
+spike/dist/server/assets/meter-sgrInjdt.js                         8.38 kB │ gzip:   2.22 kB
+spike/dist/server/assets/useTransitionStatus-w1UW48mR.js           8.52 kB │ gzip:   2.55 kB
+spike/dist/server/assets/checkbox-group-DvEhestO.js                8.70 kB │ gzip:   2.65 kB
+spike/dist/server/assets/autocomplete-e-oMokv9.js                  9.31 kB │ gzip:   3.01 kB
+spike/dist/server/assets/file-upload-B2MYfcng.js                   9.34 kB │ gzip:   3.50 kB
+spike/dist/server/assets/useFieldValidation-Bp8HxDuP.js            9.44 kB │ gzip:   2.97 kB
+spike/dist/server/assets/field-BV09wJlR.js                         9.84 kB │ gzip:   3.58 kB
+spike/dist/server/assets/progress-DmROYj6O.js                     10.43 kB │ gzip:   2.61 kB
+spike/dist/server/assets/MenuTrigger-BV2JrI_f.js                  10.61 kB │ gzip:   3.23 kB
+spike/dist/server/assets/FieldRoot-BIisV-Fq.js                    11.09 kB │ gzip:   2.79 kB
+spike/dist/server/assets/menubar-BEls9S4o.js                      11.48 kB │ gzip:   3.28 kB
+spike/dist/server/assets/merge-r8xA0Osg.js                        11.55 kB │ gzip:   3.16 kB
+spike/dist/server/assets/select-ChSrNacO.js                       11.92 kB │ gzip:   3.36 kB
+spike/dist/server/assets/toolbar-DbjBmB-v.js                      12.79 kB │ gzip:   3.29 kB
+spike/dist/server/assets/composite-CooXqTTU.js                    13.12 kB │ gzip:   3.41 kB
+spike/dist/server/assets/DialogPortal-Cj3XRAWK.js                 13.16 kB │ gzip:   3.65 kB
+spike/dist/server/assets/pages-BN8Ivntb.js                        13.33 kB │ gzip:   3.43 kB
+spike/dist/server/assets/number-field-Bz6os9dC.js                 13.52 kB │ gzip:   4.26 kB
+spike/dist/server/assets/onboarding-CB52F2u6.js                   14.14 kB │ gzip:   3.77 kB
+spike/dist/server/assets/context-menu-4r7SNOhp.js                 15.06 kB │ gzip:   4.06 kB
+spike/dist/server/assets/react-BqrRjhX0.js                        16.56 kB │ gzip:   4.47 kB
+spike/dist/server/assets/radio-1MmJ_CFE.js                        17.31 kB │ gzip:   4.86 kB
+spike/dist/server/assets/useListNavigation-HnNIbJhg.js            17.69 kB │ gzip:   4.31 kB
+spike/dist/server/assets/useIsoLayoutEffect-BOEjI-kZ.js           18.62 kB │ gzip:   5.32 kB
+spike/dist/server/assets/otp-field-CpZVqL3K.js                    23.76 kB │ gzip:   6.25 kB
+spike/dist/server/assets/router-Bjme5nh0.js                       23.99 kB │ gzip:   6.74 kB
+spike/dist/server/assets/debounce-Ynq26WfO-DKf4rKCv.js            24.47 kB │ gzip:   7.69 kB
+spike/dist/server/assets/preview-card-DD4ZHwMV.js                 24.80 kB │ gzip:   6.34 kB
+spike/dist/server/assets/safePolygon-CnWg3re8.js                  30.65 kB │ gzip:   6.42 kB
+spike/dist/server/assets/combobox-Cx-Fd1zO.js                     31.37 kB │ gzip:   7.31 kB
+spike/dist/server/assets/popover-BrYNmpI3.js                      32.10 kB │ gzip:   7.81 kB
+spike/dist/server/assets/InternalBackdrop-Cvgsk1RQ.js             36.19 kB │ gzip:   8.43 kB
+spike/dist/server/assets/tooltip-BGEofkrZ.js                      37.82 kB │ gzip:   9.27 kB
+spike/dist/server/assets/NumberFieldInput-CTJxcv2g.js             40.28 kB │ gzip:  10.37 kB
+spike/dist/server/assets/slider-DGQM25C3.js                       48.46 kB │ gzip:  11.90 kB
+spike/dist/server/assets/command-DD42rnsA.js                      61.95 kB │ gzip:  12.57 kB
+spike/dist/server/assets/usePositioner-Czj9x8G_.js                69.44 kB │ gzip:  16.28 kB
+spike/dist/server/assets/popupTriggerMap-COavy0fw.js              79.67 kB │ gzip:  20.11 kB
+spike/dist/server/assets/server-B3icppZp.js                       83.35 kB │ gzip:  18.74 kB
+spike/dist/server/assets/DrawerViewport-BDm7XpZD.js               86.33 kB │ gzip:  18.36 kB
+spike/dist/server/assets/ComboboxEmpty-CcGVarWp.js                88.94 kB │ gzip:  19.98 kB
+spike/dist/server/assets/useSelector-BEYnvtKU.js                 132.99 kB │ gzip:  33.88 kB
+spike/dist/server/assets/pages-D7RuF55j.js                       764.11 kB │ gzip: 161.46 kB
+spike/dist/server/server.js                                      764.59 kB │ gzip: 158.77 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/avatar.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/registry/ui/avatar-icon-fallback.tsx, src/registry/ui/avatar-initial-fallback.tsx, src/registry/ui/avatar-stack-compact.tsx, src/registry/ui/avatar-stack.tsx, src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/button.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/checkbox.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/registry/ui/checkbox-group.tsx, src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/registry/ui/toggle.tsx is dynamically imported by src/registry/index.ts but also statically imported by src/utils/demo.tsx, dynamic import will not move module into another chunk.
+
+✓ built in 4.28s
+Starting content-collections with config content-collections.ts
+[prerender] Prerendering pages...
+[prerender] Concurrency: 4
+[prerender] Crawling: /docs/accent-color
+[prerender] Crawling: /docs/agents
+[prerender] Crawling: /docs/align-content
+[prerender] Crawling: /docs/align-items
+[prerender] Crawling: /docs/align-self
+[prerender] Crawling: /docs/animation-delay
+[prerender] Crawling: /docs/animation-duration
+[prerender] Crawling: /docs/animation-iteration-count
+[prerender] Crawling: /docs/animation-name
+[prerender] Crawling: /docs/animation-timing-function
+[prerender] Crawling: /docs/appearance
+[prerender] Crawling: /docs/aspect-ratio
+[prerender] Crawling: /docs/backdrop-blur
+[prerender] Crawling: /docs/backdrop-grayscale
+[prerender] Crawling: /docs/background-attachment
+[prerender] Crawling: /docs/background-clip
+[prerender] Crawling: /docs/background-color
+[prerender] Crawling: /docs/background-origin
+[prerender] Crawling: /docs/background-position
+[prerender] Crawling: /docs/background-repeat
+[prerender] Crawling: /docs/background-size
+[prerender] Crawling: /docs/block-size
+[prerender] Crawling: /docs/blur
+[prerender] Crawling: /docs/border-collapse
+[prerender] Crawling: /docs/border-color
+[prerender] Crawling: /docs/border-radius
+[prerender] Crawling: /docs/border-spacing
+[prerender] Crawling: /docs/border-style
+[prerender] Crawling: /docs/border-width
+[prerender] Crawling: /docs/bottom
+[prerender] Crawling: /docs/box-shadow
+[prerender] Crawling: /docs/box-sizing
+[prerender] Crawling: /docs/brand
+[prerender] Crawling: /docs/caret-color
+[prerender] Crawling: /docs/class-merge
+[prerender] Crawling: /docs/clear
+[prerender] Crawling: /docs/color-scheme
+[prerender] Crawling: /docs/color-system
+[prerender] Crawling: /docs/color
+[prerender] Crawling: /docs/column-gap
+[prerender] Crawling: /docs/configuration
+[prerender] Crawling: /docs/container-queries
+[prerender] Crawling: /docs/container-type
+[prerender] Crawling: /docs/core
+[prerender] Crawling: /docs/corner-shape
+[prerender] Crawling: /docs/css-functions
+[prerender] Crawling: /docs/cursor
+[prerender] Crawling: /docs/dark-mode
+[prerender] Crawling: /docs/display
+[prerender] Crawling: /docs/field-sizing
+[prerender] Crawling: /docs/fill
+[prerender] Crawling: /docs/flex-basis
+[prerender] Crawling: /docs/flex-direction
+[prerender] Crawling: /docs/flex-grow
+[prerender] Crawling: /docs/flex-shrink
+[prerender] Crawling: /docs/flex-wrap
+[prerender] Crawling: /docs/flex
+[prerender] Crawling: /docs/float
+[prerender] Crawling: /docs/font-family
+[prerender] Crawling: /docs/font-size
+[prerender] Crawling: /docs/font-style
+[prerender] Crawling: /docs/font-weight
+[prerender] Crawling: /docs/gap
+[prerender] Crawling: /docs/grayscale
+[prerender] Crawling: /docs/grid-auto-columns
+[prerender] Crawling: /docs/grid-auto-flow
+[prerender] Crawling: /docs/grid-auto-rows
+[prerender] Crawling: /docs/grid-column
+[prerender] Crawling: /docs/grid-row
+[prerender] Crawling: /docs/grid-template-columns
+[prerender] Crawling: /docs/grid-template-rows
+[prerender] Crawling: /docs/height
+[prerender] Crawling: /docs/inline-size
+[prerender] Crawling: /docs/inset
+[prerender] Crawling: /docs/installation
+[prerender] Crawling: /docs/isolation
+[prerender] Crawling: /docs/justify-content
+[prerender] Crawling: /docs/justify-items
+[prerender] Crawling: /docs/justify-self
+[prerender] Crawling: /docs/left
+[prerender] Crawling: /docs/letter-spacing
+[prerender] Crawling: /docs/line-height
+[prerender] Crawling: /docs/lint
+[prerender] Crawling: /docs/list-style-position
+[prerender] Crawling: /docs/list-style-type
+[prerender] Crawling: /docs/margin
+[prerender] Crawling: /docs/media-queries
+[prerender] Crawling: /docs/mix-blend-mode
+[prerender] Crawling: /docs/naming-convention
+[prerender] Crawling: /docs/negative-values
+[prerender] Crawling: /docs/nested-variants
+[prerender] Crawling: /docs/normalize
+[prerender] Crawling: /docs/object-fit
+[prerender] Crawling: /docs/object-position
+[prerender] Crawling: /docs/opacity
+[prerender] Crawling: /docs/order
+[prerender] Crawling: /docs/outline-color
+[prerender] Crawling: /docs/outline-offset
+[prerender] Crawling: /docs/outline-style
+[prerender] Crawling: /docs/outline-width
+[prerender] Crawling: /docs/overflow-wrap
+[prerender] Crawling: /docs/overflow
+[prerender] Crawling: /docs/overscroll-behavior
+[prerender] Crawling: /docs/padding
+[prerender] Crawling: /docs/place-content
+[prerender] Crawling: /docs/place-items
+[prerender] Crawling: /docs/place-self
+[prerender] Crawling: /docs/pointer-events
+[prerender] Crawling: /docs/position
+[prerender] Crawling: /docs/postcss
+[prerender] Crawling: /docs/pseudo-classes
+[prerender] Crawling: /docs/pseudo-elements
+[prerender] Crawling: /docs/resize
+[prerender] Crawling: /docs/right
+[prerender] Crawling: /docs/rotate
+[prerender] Crawling: /docs/row-gap
+[prerender] Crawling: /docs/scale-z
+[prerender] Crawling: /docs/scale
+[prerender] Crawling: /docs/scroll-behavior
+[prerender] Crawling: /docs/scroll-margin
+[prerender] Crawling: /docs/scroll-padding
+[prerender] Crawling: /docs/scroll-snap-align
+[prerender] Crawling: /docs/scroll-snap-stop
+[prerender] Crawling: /docs/scroll-snap-type
+[prerender] Crawling: /docs/skew
+[prerender] Crawling: /docs/starting-style
+[prerender] Crawling: /docs/states
+[prerender] Crawling: /docs/stroke
+[prerender] Crawling: /docs/table-layout
+[prerender] Crawling: /docs/text-align
+[prerender] Crawling: /docs/text-decoration-color
+[prerender] Crawling: /docs/text-decoration-line
+[prerender] Crawling: /docs/text-decoration-style
+[prerender] Crawling: /docs/text-decoration-thickness
+[prerender] Crawling: /docs/text-decoration
+[prerender] Crawling: /docs/text-indent
+[prerender] Crawling: /docs/text-orientation
+[prerender] Crawling: /docs/text-overflow
+[prerender] Crawling: /docs/text-transform
+[prerender] Crawling: /docs/text-underline-offset
+[prerender] Crawling: /docs/text-wrap
+[prerender] Crawling: /docs/top
+[prerender] Crawling: /docs/touch-action
+[prerender] Crawling: /docs/transform-origin
+[prerender] Crawling: /docs/transition-delay
+[prerender] Crawling: /docs/transition-duration
+[prerender] Crawling: /docs/transition-property
+[prerender] Crawling: /docs/transition-timing-function
+[prerender] Crawling: /docs/translate
+[prerender] Crawling: /docs/user-select
+[prerender] Crawling: /docs/vertical-align
+[prerender] Crawling: /docs/visibility
+[prerender] Crawling: /docs/vite
+[prerender] Crawling: /docs/white-space
+[prerender] Crawling: /docs/width
+[prerender] Crawling: /docs/word-break
+[prerender] Crawling: /docs/writing-mode
+[prerender] Crawling: /docs/z-index
+[prerender] Crawling: /ui/components/accordion
+[prerender] Crawling: /ui/components/alert-dialog
+[prerender] Crawling: /ui/components/autocomplete
+[prerender] Crawling: /ui/components/avatar-stack
+[prerender] Crawling: /ui/components/avatar
+[prerender] Crawling: /ui/components/badge
+[prerender] Crawling: /ui/components/breadcrumb
+[prerender] Crawling: /ui/components/button-group
+[prerender] Crawling: /ui/components/button
+[prerender] Crawling: /ui/components/checkbox-group
+[prerender] Crawling: /ui/components/checkbox
+[prerender] Crawling: /ui/components/cli
+[prerender] Crawling: /ui/components/combobox
+[prerender] Crawling: /ui/components/context-menu
+[prerender] Crawling: /ui/components/customization
+[prerender] Crawling: /ui/components/dialog
+[prerender] Crawling: /ui/components/drawer
+[prerender] Crawling: /ui/components/empty-state
+[prerender] Crawling: /ui/components/field
+[prerender] Crawling: /ui/components/file-upload
+[prerender] Crawling: /ui/components/installation
+[prerender] Crawling: /ui/components/menu
+[prerender] Crawling: /ui/components/menubar
+[prerender] Crawling: /ui/components/meter
+[prerender] Crawling: /ui/components/number-field
+[prerender] Crawling: /ui/components/onboarding
+[prerender] Crawling: /ui/components/otp-field
+[prerender] Crawling: /ui/components/popover
+[prerender] Crawling: /ui/components/preview-card
+[prerender] Crawling: /ui/components/progress
+[prerender] Crawling: /ui/components/radio
+[prerender] Crawling: /ui/components/rating
+[prerender] Crawling: /ui/components/select
+[prerender] Crawling: /ui/components/separator
+[prerender] Crawling: /ui/components/skeleton
+[prerender] Crawling: /ui/components/slider
+[prerender] Crawling: /ui/components/switch
+[prerender] Crawling: /ui/components/tabs
+[prerender] Crawling: /ui/components/textarea
+[prerender] Crawling: /ui/components/toggle-group
+[prerender] Crawling: /ui/components/toggle
+[prerender] Crawling: /ui/components/toolbar
+[prerender] Crawling: /ui/components/tooltip
+[prerender] Crawling: /
+[prerender] Prerendered 202 pages:
+[prerender] - /docs/agents
+[prerender] - /docs/align-content
+[prerender] - /docs/align-items
+[prerender] - /docs/accent-color
+[prerender] - /docs/align-self
+[prerender] - /docs/animation-delay
+[prerender] - /docs/animation-duration
+[prerender] - /docs/animation-iteration-count
+[prerender] - /docs/animation-name
+[prerender] - /docs/animation-timing-function
+[prerender] - /docs/appearance
+[prerender] - /docs/aspect-ratio
+[prerender] - /docs/backdrop-blur
+[prerender] - /docs/backdrop-grayscale
+[prerender] - /docs/background-attachment
+[prerender] - /docs/background-clip
+[prerender] - /docs/background-color
+[prerender] - /docs/background-origin
+[prerender] - /docs/background-position
+[prerender] - /docs/background-repeat
+[prerender] - /docs/background-size
+[prerender] - /docs/block-size
+[prerender] - /docs/blur
+[prerender] - /docs/border-collapse
+[prerender] - /docs/border-color
+[prerender] - /docs/border-radius
+[prerender] - /docs/border-style
+[prerender] - /docs/border-spacing
+[prerender] - /docs/border-width
+[prerender] - /docs/bottom
+[prerender] - /docs/box-sizing
+[prerender] - /docs/box-shadow
+[prerender] - /docs/brand
+[prerender] - /docs/caret-color
+[prerender] - /docs/class-merge
+[prerender] - /docs/clear
+[prerender] - /docs/color-scheme
+[prerender] - /docs/color-system
+[prerender] - /docs/color
+[prerender] - /docs/column-gap
+[prerender] - /docs/configuration
+[prerender] - /docs/container-queries
+[prerender] - /docs/container-type
+[prerender] - /docs/core
+[prerender] - /docs/corner-shape
+[prerender] - /docs/css-functions
+[prerender] - /docs/dark-mode
+[prerender] - /docs/cursor
+[prerender] - /docs/display
+[prerender] - /docs/field-sizing
+[prerender] - /docs/fill
+[prerender] - /docs/flex-basis
+[prerender] - /docs/flex-direction
+[prerender] - /docs/flex-grow
+[prerender] - /docs/flex-shrink
+[prerender] - /docs/flex-wrap
+[prerender] - /docs/flex
+[prerender] - /docs/float
+[prerender] - /docs/font-family
+[prerender] - /docs/font-size
+[prerender] - /docs/font-style
+[prerender] - /docs/font-weight
+[prerender] - /docs/gap
+[prerender] - /docs/grayscale
+[prerender] - /docs/grid-auto-columns
+[prerender] - /docs/grid-auto-flow
+[prerender] - /docs/grid-auto-rows
+[prerender] - /docs/grid-column
+[prerender] - /docs/grid-row
+[prerender] - /docs/grid-template-columns
+[prerender] - /docs/grid-template-rows
+[prerender] - /docs/height
+[prerender] - /docs/inline-size
+[prerender] - /docs/inset
+[prerender] - /docs/installation
+[prerender] - /docs/isolation
+[prerender] - /docs/justify-content
+[prerender] - /docs/justify-items
+[prerender] - /docs/justify-self
+[prerender] - /docs/left
+[prerender] - /docs/letter-spacing
+[prerender] - /docs/line-height
+[prerender] - /docs/lint
+[prerender] - /docs/list-style-position
+[prerender] - /docs/list-style-type
+[prerender] - /docs/margin
+[prerender] - /docs/media-queries
+[prerender] - /docs/mix-blend-mode
+[prerender] - /docs/naming-convention
+[prerender] - /docs/negative-values
+[prerender] - /docs/nested-variants
+[prerender] - /docs/normalize
+[prerender] - /docs/object-fit
+[prerender] - /docs/object-position
+[prerender] - /docs/opacity
+[prerender] - /docs/order
+[prerender] - /docs/outline-color
+[prerender] - /docs/outline-offset
+[prerender] - /docs/outline-style
+[prerender] - /docs/outline-width
+[prerender] - /docs/overflow-wrap
+[prerender] - /docs/overflow
+[prerender] - /docs/overscroll-behavior
+[prerender] - /docs/place-content
+[prerender] - /docs/padding
+[prerender] - /docs/place-items
+[prerender] - /docs/place-self
+[prerender] - /docs/pointer-events
+[prerender] - /docs/position
+[prerender] - /docs/postcss
+[prerender] - /docs/pseudo-classes
+[prerender] - /docs/pseudo-elements
+[prerender] - /docs/resize
+[prerender] - /docs/right
+[prerender] - /docs/rotate
+[prerender] - /docs/row-gap
+[prerender] - /docs/scale-z
+[prerender] - /docs/scroll-behavior
+[prerender] - /docs/scale
+[prerender] - /docs/scroll-padding
+[prerender] - /docs/scroll-margin
+[prerender] - /docs/scroll-snap-align
+[prerender] - /docs/scroll-snap-stop
+[prerender] - /docs/scroll-snap-type
+[prerender] - /docs/skew
+[prerender] - /docs/starting-style
+[prerender] - /docs/states
+[prerender] - /docs/stroke
+[prerender] - /docs/table-layout
+[prerender] - /docs/text-align
+[prerender] - /docs/text-decoration-color
+[prerender] - /docs/text-decoration-line
+[prerender] - /docs/text-decoration-style
+[prerender] - /docs/text-decoration-thickness
+[prerender] - /docs/text-decoration
+[prerender] - /docs/text-indent
+[prerender] - /docs/text-orientation
+[prerender] - /docs/text-overflow
+[prerender] - /docs/text-transform
+[prerender] - /docs/text-underline-offset
+[prerender] - /docs/text-wrap
+[prerender] - /docs/touch-action
+[prerender] - /docs/top
+[prerender] - /docs/transform-origin
+[prerender] - /docs/transition-delay
+[prerender] - /docs/transition-duration
+[prerender] - /docs/transition-property
+[prerender] - /docs/transition-timing-function
+[prerender] - /docs/user-select
+[prerender] - /docs/translate
+[prerender] - /docs/vertical-align
+[prerender] - /docs/visibility
+[prerender] - /docs/vite
+[prerender] - /docs/white-space
+[prerender] - /docs/width
+[prerender] - /docs/word-break
+[prerender] - /docs/writing-mode
+[prerender] - /docs/z-index
+[prerender] - /ui/components/accordion
+[prerender] - /ui/components/alert-dialog
+[prerender] - /ui/components/autocomplete
+[prerender] - /ui/components/avatar-stack
+[prerender] - /ui/components/avatar
+[prerender] - /ui/components/badge
+[prerender] - /ui/components/button-group
+[prerender] - /ui/components/breadcrumb
+[prerender] - /ui/components/button
+[prerender] - /ui/components/checkbox-group
+[prerender] - /ui/components/checkbox
+[prerender] - /ui/components/cli
+[prerender] - /ui/components/combobox
+[prerender] - /ui/components/context-menu
+[prerender] - /ui/components/customization
+[prerender] - /ui/components/dialog
+[prerender] - /ui/components/drawer
+[prerender] - /ui/components/empty-state
+[prerender] - /ui/components/field
+[prerender] - /ui/components/file-upload
+[prerender] - /ui/components/installation
+[prerender] - /ui/components/menu
+[prerender] - /ui/components/menubar
+[prerender] - /ui/components/meter
+[prerender] - /ui/components/number-field
+[prerender] - /ui/components/onboarding
+[prerender] - /ui/components/otp-field
+[prerender] - /ui/components/popover
+[prerender] - /ui/components/preview-card
+[prerender] - /ui/components/progress
+[prerender] - /ui/components/radio
+[prerender] - /ui/components/rating
+[prerender] - /ui/components/select
+[prerender] - /ui/components/separator
+[prerender] - /ui/components/skeleton
+[prerender] - /ui/components/slider
+[prerender] - /ui/components/switch
+[prerender] - /ui/components/tabs
+[prerender] - /ui/components/textarea
+[prerender] - /ui/components/toggle-group
+[prerender] - /ui/components/toggle
+[prerender] - /ui/components/toolbar
+[prerender] - /ui/components/tooltip
+[prerender] - /
