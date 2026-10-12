@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { allDocs, allUis } from "content-collections";
 import { ImageResponse } from "next/og";
-import OgImage, { type OgSpec } from "@/components/og-image";
+import OgImage, { type OgSpec, type OgTheme } from "@/components/og-image";
 import { type Category, getReferenceData } from "@/utils/yummacss";
 
 export const HOME_OG: Record<"css" | "ui", OgSpec> = {
@@ -71,8 +71,18 @@ export async function uiOg(slug: string): Promise<OgSpec | null> {
   };
 }
 
-export async function ogImage(spec: OgSpec | null) {
+export async function ogImage(spec: OgSpec | null, theme: OgTheme = "light") {
   if (!spec) return new Response("Not found", { status: 404 });
+
+  // the brand files, so the covers draw the same mark people download
+  const product = spec.kind === "component" ? "ui" : spec.product;
+  const svg = await readFile(
+    join(
+      process.cwd(),
+      `public/brand/yumma${product}-mark${theme === "dark" ? "-dark" : ""}.svg`,
+    ),
+  );
+  const mark = `data:image/svg+xml;base64,${svg.toString("base64")}`;
 
   const font = (file: string) =>
     readFile(join(process.cwd(), "node_modules/@fontsource", file));
@@ -81,7 +91,7 @@ export async function ogImage(spec: OgSpec | null) {
     font("ia-writer-quattro/files/ia-writer-quattro-latin-400-normal.woff"),
   ]);
 
-  return new ImageResponse(<OgImage spec={spec} />, {
+  return new ImageResponse(<OgImage spec={spec} theme={theme} mark={mark} />, {
     width: 1200,
     height: 630,
     fonts: [
