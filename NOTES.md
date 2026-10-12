@@ -56,9 +56,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
   `exampleIcon`. Badge and Separator do.
 - Doc comments in `badge.tsx` and `meter.tsx` spell sizes in the 3.x dash
   syntax (`w-3 h-3`).
-- `@vercel/analytics` and `@vercel/speed-insights` request their scripts on
-  every page, and the project has no Web Analytics enabled, so both may 404 in
-  production. Enable them or drop the packages.
 
 **Parked with Yumma UI** (see "Yumma UI parked, AI first")
 
