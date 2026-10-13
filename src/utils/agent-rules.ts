@@ -4,6 +4,7 @@ import {
   pseudoClasses,
   pseudoElements,
 } from "@yummacss/core";
+import { UI_ORIGIN } from "./hosts";
 
 export const SITE = "https://yummacss.com";
 
@@ -23,7 +24,7 @@ export const LEGACY = ["d-f", "p-4", "bg-red-5", "m--4"];
 const code = (items: readonly string[]) =>
   items.map((item) => `\`${item}\``).join(", ");
 
-/** Yumma UI components whose source shows classes combining, each at `/ui/components/<id>.md`. */
+/** Yumma UI components whose source shows classes combining, each at `/components/<id>.md` on yummaui.com. */
 export const EXAMPLES = [
   {
     id: "button",
@@ -105,7 +106,7 @@ export function agentRules(): string {
     "Yumma UI components are written in these classes. Read one before building something similar:",
     "",
     ...EXAMPLES.map(
-      ({ id, shows }) => `- ${SITE}/ui/components/${id}.md: ${shows}.`,
+      ({ id, shows }) => `- ${UI_ORIGIN}/components/${id}.md: ${shows}.`,
     ),
     "",
     "`opening:` and `closing:` are states a project declares under `theme.states`, as the Yumma UI installation page shows. Check `yumma.config.mjs` before using them.",

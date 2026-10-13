@@ -32,7 +32,7 @@ export default function Sidebar({ variant }: Props) {
   return (
     <SidebarNav
       sections={sections}
-      basePath={variant === "ui" ? "/ui/components" : "/docs"}
+      basePath={variant === "ui" ? "/components" : "/docs"}
       links={variant === "docs" ? docsLinks : undefined}
     />
   );
@@ -41,7 +41,7 @@ export default function Sidebar({ variant }: Props) {
 /** The mobile menu's sections: built on the server so the client gets titles and badges, not the collections. */
 export function menuSections(variant: Variant): NavSection[] {
   const page = pageFor(variant);
-  const basePath = variant === "ui" ? "/ui/components" : "/docs";
+  const basePath = variant === "ui" ? "/components" : "/docs";
 
   const sections = sidebarConfig[variant].map((section) => ({
     title: section.title,
