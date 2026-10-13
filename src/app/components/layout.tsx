@@ -4,6 +4,7 @@ import Navbar from "@/components/ui/navbar";
 import UIShell from "@/components/ui/shell";
 import Sidebar, { menus } from "@/components/ui/sidebar";
 import SkipLink from "@/components/ui/skip-link";
+import { UI_ORIGIN } from "@/utils/hosts";
 import type { Primitives } from "@/utils/primitive";
 
 const description =
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s · Yumma UI",
   },
   description,
-  metadataBase: new URL("https://yummacss.com"),
+  metadataBase: new URL(UI_ORIGIN),
   openGraph: {
     images: "/ui-og.png",
   },

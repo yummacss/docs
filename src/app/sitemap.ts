@@ -1,6 +1,7 @@
 import { statSync } from "node:fs";
 import { allDocs, allUis } from "content-collections";
 import type { MetadataRoute } from "next";
+import { UI_ORIGIN } from "@/utils/hosts";
 
 function getFileDate(slug: string, collection: string): Date {
   try {
@@ -23,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const uiUrls = allUis
     .filter((ui) => ui._meta.path !== "components")
     .map((ui) => ({
-      url: `${baseUrl}/ui/components/${ui._meta.path}`,
+      url: `${UI_ORIGIN}/components/${ui._meta.path}`,
       lastModified: getFileDate(ui._meta.path, "ui"),
       changeFrequency: "weekly" as const,
       priority: 0.7,

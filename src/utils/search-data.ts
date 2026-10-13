@@ -85,7 +85,7 @@ export function searchCategories(
         .flatMap((item) => (typeof item === "string" ? [item] : item.items))
         .map((slug) =>
           pages.get(
-            product === "css" ? `/docs/${slug}` : `/ui/components/${slug}`,
+            product === "css" ? `/docs/${slug}` : `/components/${slug}`,
           ),
         )
         .filter((page): page is SearchItem => page !== undefined),

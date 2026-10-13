@@ -1,6 +1,34 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { extractProperties } from "./src/utils/doc-properties";
+import { CSS_ORIGIN, UI_ORIGIN } from "./src/utils/hosts";
+
+// each product answers on its own domain; preview and local hosts match neither
+const UI_HOST = [{ type: "host" as const, value: "(?:www\\.)?yummaui\\.com" }];
+const CSS_HOST = [
+  { type: "host" as const, value: "(?:www\\.)?yummacss\\.com" },
+];
+
+const hostRedirects = [
+  {
+    source: "/",
+    has: UI_HOST,
+    destination: "/components/installation",
+    permanent: false,
+  },
+  ...["/docs/:path*", "/llms.txt", "/agents.md"].map((source) => ({
+    source,
+    has: UI_HOST,
+    destination: `${CSS_ORIGIN}${source}`,
+    permanent: true,
+  })),
+  ...["/components/:path*", "/ui/components/:path*"].map((source) => ({
+    source,
+    has: CSS_HOST,
+    destination: `${UI_ORIGIN}/components/:path*`,
+    permanent: true,
+  })),
+];
 
 const docsRedirects = [
   // no landing page: the site opens on Installation
@@ -201,22 +229,22 @@ const uiRedirects = [
   },
   {
     source: "/ui/theming",
-    destination: "/ui/components/customization",
+    destination: "/components/customization",
     permanent: true,
   },
   {
     source: "/ui/components",
-    destination: "/ui/components/installation",
+    destination: "/components/installation",
     permanent: true,
   },
   {
     source: "/components",
-    destination: "/ui/components/installation",
+    destination: "/components/installation",
     permanent: true,
   },
   {
     source: "/ui",
-    destination: "/ui/components/installation",
+    destination: "/components/installation",
     permanent: true,
   },
   ...[
@@ -251,25 +279,32 @@ const uiRedirects = [
     "tooltip",
   ].map((slug) => ({
     source: `/ui/${slug}`,
-    destination: `/ui/components/${slug}`,
+    destination: `/components/${slug}`,
     permanent: true,
   })),
 ];
 
 const removedComponents = [
   {
-    source: "/ui/components/collapsible",
-    destination: "/ui/components/accordion",
+    source: "/components/collapsible",
+    destination: "/components/accordion",
     permanent: true,
   },
   {
-    source: "/ui/components/command-palette",
-    destination: "/ui/components/combobox",
+    source: "/components/command-palette",
+    destination: "/components/combobox",
+    permanent: true,
+  },
+  // the pages lived under /ui before they moved to their own domain
+  {
+    source: "/ui/components/:slug",
+    destination: "/components/:slug",
     permanent: true,
   },
 ];
 
 export const redirects = [
+  ...hostRedirects,
   ...docsRedirects,
   ...mergedRedirects,
   ...blogRedirects,

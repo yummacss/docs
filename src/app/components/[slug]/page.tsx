@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
 import Pagination from "@/components/ui/pagination";
 import ViewMarkdown from "@/components/ui/view-markdown";
+import { UI_ORIGIN } from "@/utils/hosts";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -13,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const ui = allUis.find((u) => u._meta.path === slug);
-  const url = `https://yummacss.com/ui/components/${slug}`;
+  const url = `${UI_ORIGIN}/components/${slug}`;
 
   return {
     title: ui?.title || "Yumma UI",
@@ -25,7 +26,7 @@ export async function generateMetadata({
       url,
       images: [
         {
-          url: `/ui/components/${slug}/og.png`,
+          url: `/components/${slug}/og.png`,
           width: 1200,
           height: 630,
           alt: ui?.title || "Yumma UI",
@@ -36,7 +37,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: ui?.title,
       description: ui?.description,
-      images: [`/ui/components/${slug}/og.png`],
+      images: [`/components/${slug}/og.png`],
     },
   };
 }
@@ -66,7 +67,7 @@ export default async function Page({
               <Pagination
                 previous={navigation.previous}
                 next={navigation.next}
-                basePath="/ui/components"
+                basePath="/components"
               />
             </div>
           </div>
@@ -85,20 +86,14 @@ export default async function Page({
             {
               "@type": "ListItem",
               position: 1,
-              name: "Home",
-              item: "https://yummacss.com",
+              name: "Yumma UI",
+              item: `${UI_ORIGIN}/components/installation`,
             },
             {
               "@type": "ListItem",
               position: 2,
-              name: "UI Components",
-              item: "https://yummacss.com/ui",
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
               name: ui?.title || slug,
-              item: `https://yummacss.com/ui/components/${slug}`,
+              item: `${UI_ORIGIN}/components/${slug}`,
             },
           ],
         }}
