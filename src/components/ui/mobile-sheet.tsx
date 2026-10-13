@@ -49,7 +49,7 @@ const PRODUCT = { docs: "Yumma CSS", ui: "Yumma UI" };
 /** The phone menu: a sheet from the bottom with a filter and the area's links. */
 export default function MobileSheet({ menus, isOpen, onClose }: Props) {
   const pathname = usePathname();
-  const here = pathname.startsWith("/ui") ? "ui" : "docs";
+  const here = pathname.startsWith("/components") ? "ui" : "docs";
   const there = here === "ui" ? "docs" : "ui";
   const [query, setQuery] = useState("");
   const popup = useRef<HTMLDivElement>(null);

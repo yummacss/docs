@@ -7,10 +7,10 @@ import { YummaCSSMark } from "../icons/yummacss-mark";
 /** The mark of the product the page is in, linking to its installation; a right-click opens the brand page, which is what someone right-clicking a logo is after. */
 export default function HomeMark({ className }: { className: string }) {
   const router = useRouter();
-  const ui = usePathname().startsWith("/ui");
+  const ui = usePathname().startsWith("/components");
   return (
     <Link
-      href={ui ? "/ui/components/installation" : "/docs/installation"}
+      href={ui ? "/components/installation" : "/docs/installation"}
       aria-label={ui ? "Yumma UI" : "Yumma CSS"}
       onContextMenu={(event) => {
         event.preventDefault();

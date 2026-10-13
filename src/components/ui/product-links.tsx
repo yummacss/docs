@@ -5,7 +5,11 @@ import { usePathname } from "next/navigation";
 
 const PRODUCTS = [
   { title: "Yumma CSS", href: "/docs/installation", prefix: "/docs" },
-  { title: "Yumma UI", href: "/ui/components/installation", prefix: "/ui" },
+  {
+    title: "Yumma UI",
+    href: "/components/installation",
+    prefix: "/components",
+  },
 ];
 
 /** The two products as a section, the one the route is in marked active. */

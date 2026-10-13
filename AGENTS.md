@@ -16,12 +16,13 @@ Short. These were said out loud enough times to belong in a file.
   the bold heading itself. While a branch is open the link is that branch's
   Vercel preview, so the page shows what the PR changed rather than what is
   already live:
-  `https://docs-git-<branch>-rrenildopereiraas-projects.vercel.app/ui/components/<id>`,
+  `https://docs-git-<branch>-rrenildopereiraas-projects.vercel.app/components/<id>`,
   where `<branch>` is the branch name with `/` as `-`. Vercel reports it as
   `branchAlias` on any deployment of the branch, and it follows the latest
   push, unlike the per-deployment hash URL. Same for anything else on the docs
   site the PR touches. Once a branch is merged its alias dies, so a link to
-  shipped work is `https://www.yummacss.com/...` again.
+  shipped work is `https://www.yummacss.com/...` again, or
+  `https://www.yummaui.com/components/<id>` for a component.
 - The same link rule applies in chat, not only in PR bodies.
 - **PR bodies**: one short block per topic, each under its own bold heading,
   then the checks line (`tsc`, test count, biome, `next build`). A sentence or
