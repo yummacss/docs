@@ -152,7 +152,8 @@ export default function ComponentPlayground() {
   return (
     // below @lg: the stage is fixed under the navbar, so the controls scroll beneath the preview
     <div className="p:f t:12 l:0 r:0 zi:10 d:f fd:c h:calc(45dvh) px:4 py:3 bg:page bbw:1 bc:border @lg:p:s @lg:f:1 @lg:min-h:0 @lg:h:auto @lg:px:0 @lg:py:0 @lg:bbw:0">
-      <Tabs value={active} onValueChange={setTab} className={FILL}>
+      {/* dark like every code block on the site; the preview draws its own canvas */}
+      <Tabs value={active} onValueChange={setTab} className={`${FILL} cs:d`}>
         <div className="d:f bg:page">
           <BaseTabs.List className="d:f min-w:0 ox:auto">
             <FileTab value="preview">Preview</FileTab>
