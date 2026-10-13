@@ -55,6 +55,9 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 **Waiting on Renildo**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
+- Yumma CSS 4.6.1: `merge` taking the `0` a condition leaves behind is merged
+  and listed under Unreleased in the `yummacss` changelog, waiting for a
+  release whenever there is one.
 - Branch cleanup, on GitHub, since a cloud session cannot delete branches:
   224 branches in `docs`, 72 in `yummacss` and 14 in `yummaui`, counted
   2026-10-12. Among them, nothing left to keep: `feat/reset-layer` in `docs`
