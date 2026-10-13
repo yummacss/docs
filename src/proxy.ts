@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL(`/api/docs-md/${slug}`, request.url));
   }
 
-  const uiMatch = pathname.match(/^\/ui\/components\/([^/]+)\.md$/);
+  const uiMatch = pathname.match(/^\/components\/([^/]+)\.md$/);
   if (uiMatch) {
     const slug = uiMatch[1];
     return NextResponse.rewrite(new URL(`/api/ui-md/${slug}`, request.url));
@@ -20,5 +20,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/docs/:path*.md", "/ui/components/:path*.md"],
+  matcher: ["/docs/:path*.md", "/components/:path*.md"],
 };

@@ -22,12 +22,12 @@ const COLUMNS = [
   {
     title: "Yumma UI",
     links: [
-      { label: "Installation", href: "/ui/installation" },
-      { label: "Forms", href: "/ui/components/autocomplete" },
-      { label: "Display", href: "/ui/components/accordion" },
-      { label: "Interactive", href: "/ui/components/button" },
-      { label: "Overlays", href: "/ui/components/alert-dialog" },
-      { label: "Application UI", href: "/ui/components/empty-state" },
+      { label: "Installation", href: "/components/installation" },
+      { label: "Forms", href: "/components/autocomplete" },
+      { label: "Display", href: "/components/accordion" },
+      { label: "Interactive", href: "/components/button" },
+      { label: "Overlays", href: "/components/alert-dialog" },
+      { label: "Application UI", href: "/components/empty-state" },
     ],
   },
   {

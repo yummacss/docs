@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { redirects } from "../redirects";
 import { contentPages, rootDir, tsxFilesIn } from "./helpers";
 
-// a section name is not a route: `/ui/components/overlays` is a sidebar
+// a section name is not a route: `/components/overlays` is a sidebar
 // heading, and only the pages under it exist
 const routes = new Set([
   "/agents.md",
@@ -12,7 +12,7 @@ const routes = new Set([
   "/robots.txt",
   "/sitemap.xml",
   ...contentPages("docs").map(({ slug }) => `/docs/${slug}`),
-  ...contentPages("ui").map(({ slug }) => `/ui/components/${slug}`),
+  ...contentPages("ui").map(({ slug }) => `/components/${slug}`),
   ...redirects.map(({ source }) => source),
 ]);
 

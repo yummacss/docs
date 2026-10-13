@@ -99,7 +99,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const listRef = useRef<HTMLDivElement>(null);
 
   // the page you are on decides which product comes first
-  const first: Product = pathname?.startsWith("/ui") ? "ui" : "css";
+  const first: Product = pathname?.startsWith("/components") ? "ui" : "css";
 
   // the navbar starts the fetch on hover or focus; opening loads it otherwise, and retries a failure
   useEffect(() => {

@@ -1,6 +1,7 @@
 import { allDocs, allUis } from "content-collections";
 import { sidebarConfig } from "@/config/sidebar";
 import { EXAMPLES, LEGACY, SITE, SYNTAX } from "@/utils/agent-rules";
+import { UI_ORIGIN } from "@/utils/hosts";
 
 export const dynamic = "force-static";
 
@@ -32,10 +33,10 @@ export function GET() {
     "",
     `A rules file for a project's coding agents: ${BASE}/agents.md`,
     "",
-    `Worked examples, real components in these classes: ${EXAMPLES.map(({ id }) => `${BASE}/ui/components/${id}.md`).join(", ")}`,
+    `Worked examples, real components in these classes: ${EXAMPLES.map(({ id }) => `${UI_ORIGIN}/components/${id}.md`).join(", ")}`,
     "",
     `Docs: ${BASE}/docs`,
-    `UI Components: ${BASE}/ui`,
+    `UI Components: ${UI_ORIGIN}/components/installation`,
     "",
     "Every page below has a `.md` twin carrying its full text, and for a UI",
     "component its source and its API. Fetch the ones you need rather than a",
@@ -75,7 +76,7 @@ export function GET() {
         const ui = uiMap.get(item);
         const title = ui?.title ?? item;
         const desc = ui?.description ? `: ${ui.description}` : "";
-        lines.push(`- [${title}](${BASE}/ui/components/${item}.md)${desc}`);
+        lines.push(`- [${title}](${UI_ORIGIN}/components/${item}.md)${desc}`);
       }
     }
     lines.push("");

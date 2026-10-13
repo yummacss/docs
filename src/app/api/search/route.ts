@@ -27,7 +27,7 @@ export function GET() {
     components: allUis.map((ui) => ({
       title: ui.title,
       description: ui.description,
-      path: `/ui/components/${ui._meta.path}`,
+      path: `/components/${ui._meta.path}`,
       category: "ui-components",
       // the link preview's screenshot, scripts/og-components.mjs
       preview: existsSync(
@@ -42,7 +42,7 @@ export function GET() {
       ui.props.map((name) => ({
         title: name,
         description: ui.title,
-        path: `/ui/components/${ui._meta.path}`,
+        path: `/components/${ui._meta.path}`,
         category: "props" as const,
         terms: name,
       })),
@@ -51,7 +51,7 @@ export function GET() {
       ...allDocs.map((doc) => ({ doc, base: `/docs/${doc._meta.path}` })),
       ...allUis.map((doc) => ({
         doc,
-        base: `/ui/components/${doc._meta.path}`,
+        base: `/components/${doc._meta.path}`,
       })),
     ].flatMap(({ doc, base }) =>
       doc.reference.map((entry) => ({

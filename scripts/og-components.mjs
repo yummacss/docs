@@ -57,7 +57,7 @@ const page = await browser.newPage({
 });
 
 for (const slug of slugs) {
-  await page.goto(`${BASE}/ui/components/${slug}`, {
+  await page.goto(`${BASE}/components/${slug}`, {
     waitUntil: "networkidle",
   });
   const iframe = page.locator('iframe[title="Component preview"]').first();

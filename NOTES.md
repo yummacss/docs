@@ -1576,7 +1576,7 @@ The goal is 25 developers who know it and a second active user (the first is
 a friend; the one app on Yumma UI is link.dutfolio.com). Monetising waits
 until there are users to pay. Yumma UI is part of that, not parked: it is
 the largest body of correct 4.x classes anywhere, served as plain text at
-`/ui/components/<id>.md`, which is what people and agents learn the syntax
+`yummaui.com/components/<id>.md`, which is what people and agents learn the syntax
 from. Its roadmap items stay parked until a user asks for one.
 
 **The audience, measured 2026-10-12** in Vercel Web Analytics, Sep 12 to
@@ -1792,7 +1792,7 @@ for the installation pages.
   reader's colour scheme at the top of each installation page.
 - `/docs/[slug]/og.png` selects the page title, with its description and, on a
   utility page, the first five classes of its first `<Reference>`.
-- `/ui/components/[slug]/og.png` selects the component itself, from
+- `/components/[slug]/og.png` selects the component itself, from
   `public/og/ui/<slug>.png`. A component without a screenshot falls back to
   the docs layout.
 - The mark tells the products apart: the cube for Yumma CSS, the stacked panels
@@ -1804,6 +1804,23 @@ for the installation pages.
   `SKIP` leaves out components too thin or too wide to read small. The
   previews draw in `system-ui`, so the images carry the font of the machine
   that ran it; rerun them all on one machine.
+
+## Two domains, one deploy
+
+Yumma UI answers at `www.yummaui.com/components/<slug>` and Yumma CSS at
+`www.yummacss.com`, both from this one Vercel project; the apex domains
+redirect to `www`. The UI pages live at `src/app/components/[slug]`.
+`hostRedirects` in `redirects.ts` keeps each domain to its own pages, by
+`has: host`: on yummaui.com `/` goes to installation and `/docs`, `/llms.txt`
+and `/agents.md` go to yummacss.com; on yummacss.com `/components` and the
+old `/ui/components` go to yummaui.com. Preview and local hosts match
+neither, so a branch preview serves both products at their paths. Links stay
+relative (`/components/...`, `/docs/...`); the domain rule decides the host,
+and a link across products costs one redirect. Absolute UI addresses, in the
+canonical, the sitemap, `llms.txt` and `agents.md`, come from `UI_ORIGIN` in
+`src/utils/hosts.ts`. The registry stays at `yummacss.com/ui/registry`, where
+every install points. Settings kept in `localStorage`, the accent and the
+style, are per domain.
 
 ## Content pipeline: content-collections stays
 
