@@ -32,4 +32,17 @@ describe("Internal links", () => {
 
     expect(dead).toEqual([]);
   });
+
+  it("leaves no page or component on the old /ui/components path", () => {
+    const stale = ["src/app", "src/components"]
+      .flatMap((dir) => tsxFilesIn(join(rootDir, dir)))
+      .filter((file) =>
+        /\/ui\/components|\\\/ui\\\/components/.test(
+          readFileSync(file, "utf-8"),
+        ),
+      )
+      .map((file) => file.slice(rootDir.length + 1));
+
+    expect(stale).toEqual([]);
+  });
 });
