@@ -46,7 +46,37 @@ Empty.
 
 Empty.
 
-## AI track
+## Yumma UI
+
+Renildo's list, 2026-10-14, in order. What makes Yumma UI worth installing,
+since it sits next to other component sets wherever it is shared.
+
+- [ ] **Button Group focus.** The group clips its buttons (`o:h` in
+      `BASE`, so they follow its corners), and a button draws its focus
+      outline 3px outside its border (`fv:ow:3 fv:oo:0`), so the group's edge
+      cuts it off and the next button covers it. Reproduce in the browser
+      first, then pick: an inset outline on a grouped button, or the group
+      draws the outline with `fw:` as Number Field and Toolbar do.
+- [ ] **Hold to confirm.** An Alert Dialog whose destructive action fills
+      while it is pressed and fires only when full; letting go early cancels.
+      Reference: https://video.twimg.com/amplify_video/1931666386645889024/vid/avc1/2168x2160/-9FdZ0x4SmXGtYwL.mp4
+      It needs a keyboard path (holding Space or Enter), an accessible name
+      that says to hold, and a reduced-motion version that still waits. The
+      demo stays in one person's files: "Delete 12 files".
+- [ ] **Blocks.** Sections composed from the components, installed with
+      `yummaui add` like a component, their parts listed in `registryDeps`.
+      The first: a heading with inline icons, each icon naming the word
+      beside it ("written", "filmed", "recorded", from a partner page's
+      hero). Decide the page structure (a Blocks section in the sidebar, one
+      page per block) before the second one.
+- [ ] **A gallery as yummaui.com's front page.** Every component rendered
+      live in a grid, each linking to its page, so the first screen shows
+      what Yumma UI looks like rather than how to install it.
+- [ ] **Candidates to choose from**, none started: Toast (a Base UI
+      primitive Yumma UI lacks), File Tree (the content model's own world),
+      a theme switcher (light, dark, system), a keyboard shortcut hint, and
+      a number that counts up to its value.
+
 
 An agent writing Yumma CSS gets it right first time, and when it does not,
 the error tells it the fix. Behind adoption (NOTES.md, "Focus: adoption"):
@@ -61,7 +91,13 @@ the measurement is worth running when its number can be published.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
-Empty.
+- **Squircle as the default shape** for every Yumma UI component. Two things
+  to weigh first. AGENTS.md makes `rounded` the default wherever a component
+  has a shape, and the Soft style is the default style, so both change with
+  it. And `corner-shape` works in Chrome and Edge 139 and up only: in Firefox
+  and Safari a squircle falls back to `br:xxl`, a plain and much rounder
+  corner than today's `br:lg`. A mockup of three components in Chrome and in
+  Safari shows what most visitors would get.
 
 ## Known and accepted
 
