@@ -51,6 +51,13 @@ Empty.
 Renildo's list, 2026-10-14, in order. What makes Yumma UI worth installing,
 since it sits next to other component sets wherever it is shared.
 
+- [ ] **A Yumma agent skill**, after transitions.dev's: a skill that
+      installs with one command (`npx skills add` and the repo) and is
+      listed in skill directories, where people browse for tools without a
+      feed. Built from what `/agents.md` already teaches, the syntax, the 4.x
+      rules and the migration, plus the Yumma UI `.md` pages as worked
+      examples, so an agent writes correct classes from the first prompt.
+      Check the layout the `skills` CLI expects before choosing a repo for it.
 - [ ] **Button Group focus.** The group clips its buttons (`o:h` in
       `BASE`, so they follow its corners), and a button draws its focus
       outline 3px outside its border (`fv:ow:3 fv:oo:0`), so the group's edge
