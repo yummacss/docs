@@ -7,13 +7,7 @@ description: Install Yumma CSS using a bundler plugin or the CLI.
 
 ## Why Yumma CSS?
 
-- **Classes read as the CSS they write.** A class is the initials of a property & its value: `d:f` is `display: flex`, `jc:sb` is `justify-content: space-between`. Knowing CSS, you already know most of the names. See [Naming Convention](/docs/naming-convention).
-- **One scale for every value.** Spacing & sizing move in steps of 0.25rem & every color has twelve shades, so a layout stays consistent without a token file. A value off the scale is a CSS function, such as `w:var(--width)`. See [CSS Functions](/docs/css-functions).
-- **Only what you use.** The build scans your files & writes only the classes it finds.
-- **A reset that steps aside.** No rule in the reset weighs more than one class, so a utility always wins over it. See [Normalization](/docs/normalize).
-- **Your theme in one file.** Colors with light & dark values, breakpoints, fonts, states, easings & keyframes live in `yumma.config.mjs`. See [Configuration](/docs/configuration).
-- **Checked, by you or your agent.** `yummacss lint` names every class that does not exist & the closest one that does, & [Coding Agents](/docs/agents) teaches an agent the same rules.
-- **Components when you want them.** [Yumma UI](https://www.yummaui.com/components/installation) is a set of accessible React components written in these classes, copied into your project to edit.
+Classes read as the CSS they write, `d:f` for `display: flex`, so knowing CSS you already know most of the names. Every value sits on one scale, the build writes only the classes you use, & `yummacss lint` catches a class that does not exist before your users do.
 
 ## Set Up a Framework
 
