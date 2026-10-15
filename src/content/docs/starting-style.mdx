@@ -8,7 +8,7 @@ since: "4.2"
 
 ## Animate In
 
-An element that appears, or leaves `display: none`, has no previous style to transition from. The `@st:` variant gives it one, so an enter animation is just classes.
+`@st:` gives an element that appears a style to transition from, so an enter animation is just classes.
 
 <CodeGroup>
 
@@ -30,7 +30,7 @@ The element renders at `opacity: 0`, then transitions to its normal opacity over
 
 ## Fade & Grow
 
-Stack more than one starting value. The transition has to cover them, so `tp:a` or a [Transition Property](/docs/transition-property) that names each one.
+Stack several starting values, with a [Transition Property](/docs/transition-property) that covers each.
 
 ```tsx "@st:o:0" "@st:s:90"
 <div className="tp:a tdu:150 ttf:eo @st:o:0 @st:s:90">Settings</div>

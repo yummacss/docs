@@ -31,6 +31,22 @@ const hostRedirects = [
 ];
 
 const docsRedirects = [
+  // the plugin & core pages folded into Installation
+  {
+    source: "/docs/vite",
+    destination: "/docs/installation#using-vite",
+    permanent: true,
+  },
+  {
+    source: "/docs/postcss",
+    destination: "/docs/installation#using-nextjs",
+    permanent: true,
+  },
+  {
+    source: "/docs/core",
+    destination: "/docs/installation#reading-the-utilities",
+    permanent: true,
+  },
   // no landing page: the site opens on Installation
   {
     source: "/",
@@ -221,6 +237,11 @@ const blogRedirects = [
 ];
 
 const uiRedirects = [
+  {
+    source: "/components/cli",
+    destination: "/components/configuration",
+    permanent: true,
+  },
   // installs before yummaui 0.6 store this address in yummaui.json
   {
     source: "/ui/r/:path*",

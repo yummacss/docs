@@ -39,6 +39,10 @@ Short. These were said out loud enough times to belong in a file.
   session footer when it creates a PR. Re-save the body right after creating
   the PR; an edit does not add it back.
 - No em dashes.
+- **Docs pages are short.** The description is the lead, so the body opens
+  with a heading, a reference table or a hint, never a paragraph. A paragraph
+  stays under 30 words. `&` joins words in a list, `and` joins clauses.
+  `tests/copywriting.test.ts` holds the first two.
 - **Docs describe the current version only.** Present tense, no comparison with
   a past one: no "now", "no longer", "used to", "still" or "instead of the old".
   What changed between versions belongs in the CHANGELOG and the GitHub releases.

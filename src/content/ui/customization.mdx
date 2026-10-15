@@ -3,79 +3,68 @@ title: Customization
 description: Props, className & the file you own.
 ---
 
-Three ways to change a component, in the order worth trying them.
+## Using Props
 
-## Use Props
+Try a prop first: the component applies it itself.
 
-Props are the reliable way to change a component, because the component applies them itself.
-
-```tsx
+```tsx "tone" "color" "size" "shape"
 <Badge tone="subtle" color="green" size="lg" shape="pill">
   Shipped
 </Badge>
 ```
 
-Every component page lists its full API: each prop, its type, its default and what it does. Reach for that table before anything else. Most of what people try to do with `className` already exists as a prop.
+Every component page lists its props. Most of what people reach for `className` to do already exists as one.
 
-## className
+## Using `className`
 
-Every component takes `className` and merges it into its own classes.
+Every component takes `className` & merges it into its own classes.
 
-```tsx
+```tsx "w:100%"
 <Button className="w:100%">Save</Button>
 ```
 
-That works for adding something the component does not set, like width above, and it works for overriding something it does set.
+It adds what the component does not set, like the width above, and overrides what it does.
 
-```tsx
+```tsx "c:accent"
 <Button className="c:accent">Save</Button>
 ```
 
-Yumma CSS utilities are all single-class selectors, so they all have the same specificity, and the winner between two of them is whichever comes later **in the generated stylesheet**. Components pass your classes through [`merge`](/docs/class-merge), which drops the class yours replaces, so `c:accent` on a component that sets `c:white` takes effect.
-
-Only a class that sets the same property is dropped, so nothing you add goes missing.
+Components pass your classes through [`merge`](/docs/class-merge), which drops the class yours replaces, so `c:accent` wins over the component's `c:white`.
 
 <Hint icon="info">
-  Reach for a prop first anyway. It says what you mean, it is checked, & it
-  survives an edit to the component's own classes.
+  A prop still beats `className`: it is checked, and it survives an edit to
+  the component's own classes.
 </Hint>
 
-When there is no prop for what you need, edit the file.
+## Using Focus Outline
 
-## The Focus Outline
+Every component draws a focus outline, and one `focus` prop styles it.
 
-Every component marks `:focus-visible` with an outline, and one `focus` prop covers it.
-
-```tsx
+```tsx "focus"
 <Dialog trigger="Rename" title="Rename file" focus="fv:oc:blue-2/60" />
 ```
 
-A string of Yumma CSS utilities restyles it: the color is `fv:oc-*`, the thickness `fv:ow-*` and the distance from the control `fv:oo-*`. An outline follows the element's own border box, so a control's `shape` carries into it with nothing to keep in step.
+Set the color, width & offset with `fv:oc:*`, `fv:ow:*` & `fv:oo:*`. It reaches every focusable part, not only the root.
 
-This is separate from `className` because `className` reaches the root element and nothing else. A Dialog has four focusable parts, the trigger, the close button and both footer buttons, and `className` only ever lands on the first of them. `focus` reaches all four, and every inner control of any other component.
+`focus={false}` removes the outline & its danger, error & success tints.
 
-`focus={false}` removes the outline instead, along with the danger, error and success tints that ride with it.
-
-```tsx
+```tsx "focus={false}"
 <Button variant="danger" focus={false} className="fv:bg:silver-2">
   Delete
 </Button>
 ```
 
 <Hint icon="warning">
-  An outline you can turn off is an outline someone can lose. On its own,
-  `focus={false}` leaves nothing marking where the keyboard is, which fails
-  WCAG 2.4.7. Put something back.
+  `focus={false}` alone leaves nothing marking where the keyboard is, which
+  fails WCAG 2.4.7. Put something back.
 </Hint>
 
 ## Own Your Components
 
-`yummaui add` copies a real file into your project, and nothing overwrites it later. When props and `className` are not enough, all you need to do is edit it.
+When props & `className` are not enough, edit the file. `yummaui add` copies it into your project & nothing overwrites it later.
 
-Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there, which matters the moment you start editing. Pages built on a primitive link to it directly.
-
-Removing a component you decided against is [`yummaui prune`](/components/cli#remove-unused-components).
+[Base UI](https://base-ui.com) documents the primitive underneath.
 
 ## Colors & Theme
 
-Component colors come from Yumma CSS, so they are configured in `yumma.config.mjs` rather than anywhere in Yumma UI. Adding a brand color or changing how shades are generated is covered in [Color System](/docs/color-system) and [Configuration](/docs/configuration).
+Colors come from Yumma CSS, so you change them in `yumma.config.mjs`. See [Color System](/docs/color-system) & [Configuration](/docs/configuration).

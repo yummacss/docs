@@ -3,20 +3,20 @@ title: Normalization
 description: Normalize CSS styles across browsers.
 ---
 
-The reset clears what browsers add and sets nothing a utility would have to undo. Every rule weighs at most one class, so a utility always wins.
+## How It Works
 
-Every rule below is read from the reset Yumma CSS ships, so this page cannot fall out of step with what your project actually gets.
+The reset clears what browsers add, and a utility always wins over it.
 
 ## Box Sizing
 
-Apply a modern box model and remove browser defaults to simplify layout consistency.
+Apply a modern box model & remove browser defaults to simplify layout consistency.
 
 ```css normalize="*, :before, :after; *"
 ```
 
 ## Document
 
-Set a default system font, improve rendering, & apply accessible line-height.
+Set a default system font, improve rendering, and apply accessible line-height.
 
 ```css normalize="html; body"
 ```
@@ -30,7 +30,7 @@ Ensure images & videos behave predictably in all layouts.
 
 ## Form Elements
 
-Form controls take the surrounding font and drop the browser's background, so their look comes from classes.
+Form controls take the surrounding font & drop the browser's background, so their look comes from classes.
 
 ```css normalize="button, input, optgroup, select, textarea"
 ```
@@ -40,19 +40,19 @@ Buttons have a pointer cursor.
 ```css normalize="button"
 ```
 
-Disabled controls are dimmed and show a not-allowed cursor. The rule weighs as much as one class, so a utility on the control wins.
+Disabled controls are dimmed & show a not-allowed cursor. The rule weighs as much as one class, so a utility on the control wins.
 
 ```css normalize=":where(button, input, select, textarea):disabled"
 ```
 
 ## Typography
 
-Headings and paragraphs wrap long words, headings balance their lines, and paragraphs avoid a lone last word. Headings take their size and weight from the text around them.
+Headings balance their lines, paragraphs avoid a lone last word, and headings inherit their size & weight.
 
 ```css normalize="h1, h2, h3, h4, h5, h6, p; h1, h2, h3, h4, h5, h6; p"
 ```
 
-Chrome, Edge, & Safari bold weight correction:
+Chrome, Edge, and Safari bold weight correction:
 
 ```css normalize="b, strong"
 ```
@@ -62,7 +62,7 @@ Monospace elements keep the browser's own font stack at the surrounding size:
 ```css normalize="pre, code, kbd, samp"
 ```
 
-Links inherit their color and carry no underline, so a class decides both:
+Links inherit their color & carry no underline, so a class decides both:
 
 ```css normalize="a"
 ```
