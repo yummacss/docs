@@ -219,7 +219,7 @@ export default function DialogBase({
       <Dialog.Backdrop
         className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
           animated
-            ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none"
+            ? "tp:o tdu:250 ttf:out-quart opening:o:0 closing:o:0 closing:tdu:150 closing:ttf:eo @prm:tp:none"
             : ""
         }`}
       />
@@ -227,7 +227,7 @@ export default function DialogBase({
         <Dialog.Popup
           ref={popupRef}
           initialFocus={(type) => type === "keyboard" || popupRef.current}
-          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:250 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:150 closing:ttf:eo @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && (

@@ -83,6 +83,11 @@ export interface CheckboxProps
    */
   shadow?: Shadow;
   /**
+   * The mark's transition when the box is ticked. Turn it off for a static
+   * form, or when the user has asked for reduced motion.
+   */
+  animated?: boolean;
+  /**
    * Extra classes. `merge` folds them in last, so one here replaces the
    * component's own class for the same utility.
    */
@@ -112,6 +117,7 @@ export default function CheckboxBase({
   defaultChecked,
   onCheckedChange,
   className,
+  animated = true,
   focus = true,
   ...props
 }: CheckboxProps) {
@@ -159,7 +165,7 @@ export default function CheckboxBase({
           {...props}
         >
           <Checkbox.Indicator
-            className={`d:f ${disabled ? "c:slate-4" : "c:white"}`}
+            className={`d:f ${disabled ? "c:slate-4" : "c:white"} ${animated ? "tp:a tdu:250 ttf:out-back opening:o:0 opening:s:50 closing:o:0 closing:s:80 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
             render={(indicatorProps, state) => (
               <span {...indicatorProps}>
                 {state.indeterminate ? (

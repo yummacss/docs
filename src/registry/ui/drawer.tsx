@@ -195,7 +195,7 @@ export default function DrawerBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     "tr:var(--drawer-travel)",
     animated
-      ? "opening:tr:var(--drawer-offstage) closing:tr:var(--drawer-offstage) tp:t tdu:300 ttf:eo swiping:tp:none @prm:tp:none"
+      ? "opening:tr:var(--drawer-offstage) closing:tr:var(--drawer-offstage) tp:t tdu:300 ttf:out-quart closing:tdu:200 closing:ttf:eo swiping:tp:none @prm:tp:none"
       : "",
   ]
     .filter(Boolean)
@@ -222,7 +222,7 @@ export default function DrawerBase({
         <Drawer.Backdrop
           className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
             animated
-              ? "tp:o tdu:300 ttf:eo opening:o:0 closing:o:0 swiping:tp:none @prm:tp:none"
+              ? "tp:o tdu:300 ttf:out-quart opening:o:0 closing:o:0 closing:tdu:200 closing:ttf:eo swiping:tp:none @prm:tp:none"
               : ""
           }`}
         />

@@ -155,7 +155,7 @@ export default function SwitchBase({
             className={merge(
               thumbClasses,
               checked ? travelClass : "",
-              animated ? "tp:t tdu:200 ttf:io" : "",
+              animated ? "tp:t tdu:300 ttf:out-back @prm:tp:none" : "",
             )}
           />
         </Switch.Root>

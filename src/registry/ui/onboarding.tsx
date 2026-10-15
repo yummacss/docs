@@ -284,13 +284,13 @@ export default function OnboardingBase({
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "tp:o tdu:200 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "tp:o tdu:250 ttf:out-quart opening:o:0 closing:o:0 closing:tdu:150 closing:ttf:eo @prm:tp:none" : ""}`}
       />
       <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
           ref={popupRef}
           initialFocus={(type) => type === "keyboard" || popupRef.current}
-          className={`${popupClasses} ${animated ? "tp:a tdu:200 ttf:eo opening:o:0 opening:s:90 closing:o:0 closing:s:90 @prm:tp:none" : ""}`}
+          className={`${popupClasses} ${animated ? "tp:a tdu:250 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:150 closing:ttf:eo @prm:tp:none" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {indicator !== "dots" && (
@@ -342,7 +342,7 @@ export default function OnboardingBase({
 
           <div className="px:8 pt:4 pb:10">
             <div
-              className={`d:f p:r o:h fd:c jc:c ${resizes ? "tp:h tdu:200 ttf:eo" : ""}`}
+              className={`d:f p:r o:h fd:c jc:c ${resizes ? "tp:h tdu:250 ttf:out-quart" : ""}`}
               style={
                 resizes && contentHeight !== null
                   ? { height: contentHeight }
@@ -355,8 +355,8 @@ export default function OnboardingBase({
                     key={page}
                     className={`d:f fd:c ai:c g:3 ${
                       direction > 0
-                        ? "tp:a tdu:200 ttf:eo @st:o:0 @st:ttx:10 @prm:tp:none"
-                        : "tp:a tdu:200 ttf:eo @st:o:0 @st:ttx:-10 @prm:tp:none"
+                        ? "tp:a tdu:250 ttf:out-quart @st:o:0 @st:ttx:10 @prm:tp:none"
+                        : "tp:a tdu:250 ttf:out-quart @st:o:0 @st:ttx:-10 @prm:tp:none"
                     }`}
                   >
                     {slide}
@@ -374,7 +374,7 @@ export default function OnboardingBase({
                 className={`p:r o:h w:32 h:1 bg:silver-2 ${TRACK_SHAPES[shape]}`}
               >
                 <div
-                  className={`p:a l:0 t:0 h:100% bg:slate-12 tp:w tdu:200 ttf:eo ${TRACK_SHAPES[shape]}`}
+                  className={`p:a l:0 t:0 h:100% bg:slate-12 tp:w tdu:250 ttf:out-quart ${TRACK_SHAPES[shape]}`}
                   style={{ width: `${((page + 1) / steps.length) * 100}%` }}
                 />
               </div>

@@ -297,7 +297,9 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <span
       key={on ? "on" : "off"}
-      className={on ? "d:f tp:t tdu:250 ttf:eo @st:s:80 @prm:tp:none" : "d:f"}
+      className={
+        on ? "d:f tp:t tdu:250 ttf:out-back @st:s:80 @prm:tp:none" : "d:f"
+      }
     >
       {children}
     </span>

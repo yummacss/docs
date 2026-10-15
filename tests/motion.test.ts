@@ -13,7 +13,9 @@ const registry = readdirSync(registryDir)
   }));
 
 // the names the Yumma UI installation page tells people to add
-function installed(key: "states" | "keyframes"): Map<string, string> {
+function installed(
+  key: "states" | "easings" | "keyframes",
+): Map<string, string> {
   const page = readFileSync(
     join(rootDir, "src/content/ui/installation.mdx"),
     "utf8",
@@ -21,10 +23,9 @@ function installed(key: "states" | "keyframes"): Map<string, string> {
   const block =
     page.match(new RegExp(`${key}: \\{\\n([\\s\\S]*?)\\n\\s*\\}`))?.[1] ?? "";
   return new Map(
-    [...block.matchAll(/^\s*([a-z]+): "(.*)",$/gm)].map(([, name, value]) => [
-      name,
-      value,
-    ]),
+    [...block.matchAll(/^\s*"?([a-z][a-z0-9-]*)"?: "(.*)",$/gm)].map(
+      ([, name, value]) => [name, value],
+    ),
   );
 }
 
@@ -37,24 +38,35 @@ function sources(dir: string): string[] {
 
 describe("motion", () => {
   const states = installed("states");
+  const easings = installed("easings");
   const keyframes = installed("keyframes");
 
-  it("documents the same state and keyframes the site config defines", () => {
+  it("documents the same states, easings and keyframes the site config defines", () => {
     expect(states.size).toBeGreaterThan(0);
+    expect(easings.size).toBeGreaterThan(0);
     expect(keyframes.size).toBeGreaterThan(0);
     for (const [name, value] of states)
       expect(config.theme?.states?.[name]).toBe(value);
+    for (const [name, value] of easings)
+      expect(config.theme?.easings?.[name]).toBe(value);
     for (const [name, value] of keyframes)
       expect(config.theme?.keyframes?.[name]).toBe(value);
   });
 
-  it("uses only the states and keyframes the installation page lists", () => {
+  it("uses only the states, easings and keyframes the installation page lists", () => {
     const siteStates = Object.keys(config.theme?.states ?? {});
     const missed: string[] = [];
     for (const { file, source } of registry) {
       for (const [, name] of source.matchAll(/(?<![\w:@-])([a-z]+):[a-z@]/g)) {
         if (siteStates.includes(name) && !states.has(name))
           missed.push(`${file}: ${name}:`);
+      }
+      // l, ei, eo and io are the CSS keywords every project has
+      for (const [, name] of source.matchAll(
+        /\b(?:ttf|atf):([a-z][a-z0-9-]*)/g,
+      )) {
+        if (!["l", "ei", "eo", "io"].includes(name) && !easings.has(name))
+          missed.push(`${file}: ttf:${name}`);
       }
       for (const [, name] of source.matchAll(/\ban:([a-z]+)/g)) {
         if (name !== "none" && !keyframes.has(name))
