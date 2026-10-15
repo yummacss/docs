@@ -7,7 +7,8 @@ import Scroller from "@/components/ui/scroller";
 
 interface TocItem {
   id: string;
-  text: string;
+  // text & inline code, so code keeps its mono face here as in the heading
+  parts: { text: string; code: boolean }[];
   level: number;
 }
 
@@ -23,7 +24,10 @@ export default function TableOfContents() {
 
       const items: TocItem[] = elements.map((el) => ({
         id: el.id,
-        text: el.textContent || "",
+        parts: Array.from(el.childNodes).map((node) => ({
+          text: node.textContent ?? "",
+          code: node.nodeName === "CODE",
+        })),
         level: Number(el.tagName.charAt(1)),
       }));
 
@@ -53,7 +57,16 @@ export default function TableOfContents() {
                   href={`#${heading.id}`}
                   className={`c:ink/70 h:c:ink fv:oc:ink fv:ow:2 ${heading.level === 3 ? "ml:4" : ""}`}
                 >
-                  {heading.text}
+                  {heading.parts.map((part, index) =>
+                    part.code ? (
+                      // biome-ignore lint/suspicious/noArrayIndexKey: parts never reorder
+                      <code key={index} className="ff:m c:code">
+                        {part.text}
+                      </code>
+                    ) : (
+                      part.text
+                    ),
+                  )}
                 </Link>
               </li>
             ))}

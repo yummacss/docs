@@ -5,7 +5,7 @@ description: Use media queries to create responsive layouts.
 
 ## Mobile-First Approach
 
-By default, all base utilities support responsive variants. Use breakpoints like `@xs:*`, `@sm:*`, `@md:*`, `@lg:*`, `@xl:*` & `@xxl:*` to apply specific rules to different screen sizes.
+Every utility takes a breakpoint prefix, from `@xs:` to `@xxl:`, and applies from that width up.
 
 ```tsx ins={2} del={1}
 <h1 className="… @sm:ta:c">Good evening!</h1>
@@ -50,7 +50,7 @@ You can extend or override the default media query breakpoints using the `theme.
   </Step>
 </Stepper>
 
-## Use Media Queries
+## Using Media Queries
 
 Resize your browser window to see how these elements respond to viewport width.
 
@@ -92,4 +92,4 @@ The `@prm:*` variant applies when someone has asked their system for less motion
 
 ## Container Queries
 
-To respond to the width of a parent instead of the window, use [Container Queries](/docs/container-queries): `@c:sm:*` & the rest of the breakpoint names.
+To follow a parent's width instead, use [Container Queries](/docs/container-queries).

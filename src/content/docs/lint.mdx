@@ -1,5 +1,5 @@
 ---
-title: "@yummacss/lint"
+title: Lint
 description: "Lint rules for Oxlint, and a one-off check with yummacss lint."
 ---
 
@@ -9,7 +9,7 @@ Yumma CSS generates the same CSS with or without it. Reach for it when you want 
 
 ## What It Checks
 
-Whether each class exists, in your editor & in CI, with the class you meant when it does not. It reads `yumma.config.mjs`, so your own colors, states & `safelist` pass.
+Whether each class exists, and which one you meant when it does not. Your config's colors, states & `safelist` pass.
 
 ## Oxlint
 
@@ -58,7 +58,7 @@ The plugin is written in the ESLint plugin format, which is the format Oxlint lo
 | `no-unknown-classes` | A class Yumma CSS does not generate, such as `bg:redd-5`, with the closest class that exists. |
 | `no-inline-styles` | A property in a `style` object, with the class that writes the same declaration, such as `d:f` for `display: "flex"`. |
 
-Both rules read `className` & `class`, and the arguments of `cn`, `cx`, `clsx`, `classNames` & `merge` from `yummacss/merge`. Ternaries, arrays, object keys & the static parts of a template literal are all read.
+Both rules read `className`, `class` & the arguments of `cn`, `clsx` & `merge`, including ternaries & template literals.
 
 `no-inline-styles` skips custom properties, so a value that changes at runtime goes through one:
 
@@ -122,4 +122,4 @@ It exits with `1` when it finds a class it does not recognize, so it works as a 
 | `--allow` | `-a` | Comma-separated class names to skip. Repeat it to add more. |
 | `--config` | `-c` | Path to the config file, absolute or relative to the working directory. Defaults to `yumma.config.mjs`. |
 
-It reads class attributes & the first string passed to `cn`, `clsx`, `classnames` & `cva`. The Oxlint rules read more, so prefer them in a project that lints already.
+It reads class attributes & the first string passed to `cn`, `clsx` & `cva`. The Oxlint rules read more.

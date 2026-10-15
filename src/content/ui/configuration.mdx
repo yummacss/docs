@@ -1,33 +1,15 @@
 ---
-title: CLI
+title: Configuration
 description: Every yummaui command, flag & config field.
 ---
 
-## Run It
-
-`yummaui` copies component files into your project & is never a dependency.
-
-```bash
-pnpm dlx yummaui <command>
-```
-
-The examples use `pnpm dlx`. `init` & `add` print the runner your project uses: `npx`, `yarn dlx` or `bunx`.
-
 ## Set Up a Project
 
-Writes `yummaui.json`. It detects your framework, package manager & import alias, then asks where components live: `src/components/ui`, or `components/ui` without a `src` folder.
+Detects your framework, package manager & import alias before asking where components live.
 
 ```bash
 pnpm dlx yummaui init
 ```
-
-Without Yumma CSS, `init` offers to set it up:
-
-- installs `yummacss` & its Vite or PostCSS plugin, and registers it
-- writes `yumma.config.mjs` with what the components animate with
-- adds `@yummacss;` to your stylesheet
-
-Where a file cannot be changed safely, it prints the line to add.
 
 | Option      |                                    |
 | ----------- | ---------------------------------- |
@@ -83,7 +65,7 @@ pnpm dlx yummaui prune --write
   folder are never touched.
 </Hint>
 
-A file counts as used only when something **outside** your components directory reaches it, so an unused chain of components goes together. Deleting takes `--write` & a confirmation.
+A file counts as used only when something **outside** your components folder reaches it.
 
 ## Configuration File
 

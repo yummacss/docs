@@ -6,7 +6,7 @@ const page = (path: string) => readFileSync(`src/content/${path}.mdx`, "utf8");
 
 describe("search reference", () => {
   it("finds the CLI's flags under the section that documents them", () => {
-    const entries = extractReference(page("ui/cli"));
+    const entries = extractReference(page("ui/configuration"));
     expect(entries).toContainEqual({
       title: "-a, --all",
       description: "Add every component · yummaui add",
@@ -28,8 +28,9 @@ describe("search reference", () => {
     expect(extractReference(page("docs/lint")).map((e) => e.title)).toContain(
       "--allow",
     );
-    expect(extractReference(page("docs/vite")).length).toBeGreaterThan(0);
-    expect(extractReference(page("docs/postcss")).length).toBeGreaterThan(0);
+    expect(
+      extractReference(page("docs/installation")).map((e) => e.title),
+    ).toEqual(expect.arrayContaining(["config", "configPath", "cwd"]));
   });
 
   it("names every yumma.config.mjs key under Set Up", () => {

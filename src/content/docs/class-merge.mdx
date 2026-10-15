@@ -5,7 +5,7 @@ description: "Resolve two utilities that set the same property so the last one w
 
 ## The Problem
 
-Every utility has the same specificity, so when two set the same property, the one later **in the generated stylesheet** wins. Their order in `class` does not matter.
+When two utilities set the same property, the one later **in the stylesheet** wins, whatever their order in `class`.
 
 ```tsx "c:white" "c:accent"
 <span className="c:white c:accent">Accent</span>
@@ -14,7 +14,7 @@ Every utility has the same specificity, so when two set the same property, the o
 
 Both render white, because `c:white` is generated after `c:accent`. So passing `c:accent` to a component that already sets `c:white` does nothing.
 
-## Use Merge
+## Using Merge
 
 `merge` takes class strings & returns one with the losers removed, so the last class wins.
 
@@ -45,7 +45,7 @@ merge("px:8 p:4"); // "p:4"
 merge("p:4 px:8"); // "p:4 px:8"
 ```
 
-`p:4` covers `px:8`, so `px:8` goes. Reversed, both stay: `p:4` still sets the block axis. A class nothing else touches always stays.
+`p:4` covers `px:8`, so `px:8` goes. Reversed, both stay, since `p:4` still sets the block axis.
 
 ```tsx
 merge("w:10 h:10", "w:12"); // "h:10 w:12"
@@ -53,7 +53,7 @@ merge("w:10 h:10", "w:12"); // "h:10 w:12"
 
 ## Shared Prefixes
 
-Some prefixes serve more than one property, told apart by the value, as in [Naming Convention](/docs/naming-convention). `merge` reads the value too: `c:p` is a cursor, `c:slate-10` a color.
+`merge` reads the value, so a shared prefix never collides: `c:p` is a cursor, `c:slate-10` a color.
 
 ```tsx
 merge("c:p c:slate-10"); // "c:p c:slate-10"

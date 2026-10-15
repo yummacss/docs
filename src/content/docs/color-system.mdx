@@ -11,7 +11,7 @@ Yumma CSS provides {COLOR_FAMILIES.length} color families, each with {SHADE_LABE
 
 <Palette data={COLOR_FAMILIES} />
 
-## Use Color Utilities
+## Using Color Utilities
 
 Apply color system utilities to style your elements.
 
@@ -21,9 +21,9 @@ Apply color system utilities to style your elements.
 <div className="bg:blue …"></div>
 ```
 
-## Use Color Shades
+## Using Color Shades
 
-Each color family generates 13 values from a single base hex. The base color has no suffix. Shades `1–6` mix progressively more white, and shades `7–12` mix progressively more black.
+Each family is one base color plus 12 shades: `1–6` lighter, `7–12` darker.
 
 | Suffix    | Direction |
 | --------- | --------- |
@@ -39,7 +39,7 @@ The step size is controlled by `percentage.light` & `percentage.dark` in your co
 <div className="bg:blue-5 …"></div>
 ```
 
-## Use Opacity Modifiers
+## Using Opacity Modifiers
 
 Target specific opacity values across color utilities. Opacity variants range from `0` to `95` in increments of `5`.
 
@@ -82,11 +82,11 @@ Extend or override the default palette using the `theme.colors` configuration op
   </Step>
 </Stepper>
 
-Dark mode is opt-in per color: every color you already use keeps applying in both schemes. See [Dark Mode](/docs/dark-mode) for the full walkthrough.
+Dark mode is opt-in per color. See [Dark Mode](/docs/dark-mode).
 
 ## Custom Color Shades
 
-Override the default shade percentages using the `theme.colors.percentage` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` & `percentage.dark` values.
+Set `theme.colors.percentage` to change how far each shade steps from the base.
 
 <Stepper>
   <Step title="Configure Custom Colors">
