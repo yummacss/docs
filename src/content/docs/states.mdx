@@ -6,7 +6,7 @@ since: "4.2"
 
 ## Define a State
 
-Components mark what they are doing with attributes: a details element is `[open]`, a Base UI popup is `[data-ending-style]` while it closes. Name the attribute once in `theme.states` & it becomes a variant like `h:` or `f:`.
+Name an attribute your components set, such as `[open]`, in `theme.states`, and it becomes a variant like `h:`.
 
 ```mjs title="yumma.config.mjs" mark={5-8}
 import { defineConfig } from "yummacss";
