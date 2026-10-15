@@ -193,6 +193,22 @@ export default defineConfig({
 });
 ```
 
+#### Easings
+
+Name timing functions. Each name becomes a `ttf:` and an `atf:` class beside the four CSS keywords, whose names it cannot reuse. See [Transition Timing Function](/docs/transition-timing-function).
+
+```mjs title="yumma.config.mjs" mark={4-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    easings: {
+      "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
+    },
+  },
+});
+```
+
 ### Safelist
 
 An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files. Use this for classes that are added dynamically via JavaScript.

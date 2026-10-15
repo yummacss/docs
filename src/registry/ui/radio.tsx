@@ -117,7 +117,7 @@ export default function RadioBase({
 
   const dotClasses = (checked: boolean) =>
     checked
-      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "tp:t tdu:150 ttf:eo @st:s:0 @prm:tp:none" : ""}`
+      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "tp:t tdu:250 ttf:out-back @st:s:0 @prm:tp:none" : ""}`
       : "d:none";
 
   return (

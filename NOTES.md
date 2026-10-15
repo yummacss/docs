@@ -55,9 +55,6 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
 **Waiting on Renildo**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
-- Yumma CSS 4.6.1: `merge` taking the `0` a condition leaves behind is merged
-  and listed under Unreleased in the `yummacss` changelog, waiting for a
-  release whenever there is one.
 - Branch cleanup, on GitHub, since a cloud session cannot delete branches:
   224 branches in `docs`, 72 in `yummacss` and 14 in `yummaui`, counted
   2026-10-12. Among them, nothing left to keep: `feat/reset-layer` in `docs`
@@ -1424,6 +1421,27 @@ their defaults, and leave the site's rail.
 - Parked: Minimal's filled fields, and Elegant's serif from `theme.fonts`,
   which the CLI would fill by offering three Fontsource faces or the user's
   own.
+
+## Motion curves
+
+The registry runs on three curves from `theme.easings`, named for their
+standard shapes so the name says what the curve does: `out-quart` for anything
+appearing or moving, `in-out-cubic` for the Accordion closing, and `out-back`
+for what lands with a small overshoot (the Switch thumb, the Checkbox mark,
+the Radio dot, an icon swap). Yumma CSS builds in only the CSS keywords, so
+these live in the config the installation page lists.
+
+The rules, applied everywhere a component animates:
+
+- Opening takes 200ms on an anchored popup, 250ms on a dialog, 300ms on a
+  panel, a drawer or an indicator, all on `out-quart`.
+- Closing is shorter, 100 to 200ms on `ease-out`: a closing popup has nothing
+  left to show.
+- Popups start from `s:95` at Base UI's `--transform-origin`, so they grow out
+  of their trigger. `s:90` read as a zoom.
+- A press (`a:s:90`) and a hover colour stay on the CSS keywords: they answer
+  the pointer directly, and an overshoot there feels late.
+- Progress and Meter bars keep their 500ms: they follow data, not a state.
 
 ## Motion out of the registry, evaluated 2026-09-23
 

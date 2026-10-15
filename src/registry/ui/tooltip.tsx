@@ -169,7 +169,7 @@ export default function TooltipBase({
 
   const popup = (
     <Tooltip.Popup
-      className={`${popupClasses} ${animated ? "tp:a tdu:150 ttf:eo opening:o:0 opening:tty:1 closing:o:0 closing:tty:1 @prm:tp:none" : ""}`}
+      className={`${popupClasses} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 opening:tty:1 closing:o:0 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
     >
       {arrow && (
         <Tooltip.Arrow
