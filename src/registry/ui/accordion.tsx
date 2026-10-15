@@ -15,7 +15,7 @@ type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const TURN = "tp:t tdu:150 ttf:io @prm:tp:none";
+const TURN = "tp:t tdu:300 ttf:out-quart @prm:tp:none";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 type Indicator = "chevron" | "plus-minus";
@@ -291,7 +291,7 @@ export default function AccordionBase({
               keepMounted
               className={
                 animated
-                  ? "h:var(--accordion-panel-height) o:h tp:a tdu:200 ttf:eo opening:h:0 opening:o:0 closing:h:0 closing:o:0 @prm:tp:none"
+                  ? "h:var(--accordion-panel-height) o:h tp:a tdu:300 ttf:out-quart opening:h:0 opening:o:0 closing:h:0 closing:o:0 closing:tdu:200 closing:ttf:in-out-cubic @prm:tp:none"
                   : undefined
               }
             >

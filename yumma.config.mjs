@@ -28,6 +28,11 @@ export default defineConfig({
       scrolling: "[data-scrolling]",
       swiping: "[data-swiping]",
     },
+    easings: {
+      "in-out-cubic": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
+    },
     keyframes: {
       pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",
       slide: "from { translate: -100% 0; } to { translate: 100% 0; }",

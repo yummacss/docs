@@ -379,7 +379,7 @@ function MenubarEntry({
     <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow:0" sideOffset={8}>
         <Menu.Popup
-          className={`${popupClasses} ${animated ? "tp:o tdu:150 ttf:eo opening:o:0 closing:o:0 @prm:tp:none" : ""}`}
+          className={`${popupClasses} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
         >
           {renderItems(menu.items, menu.label)}
         </Menu.Popup>

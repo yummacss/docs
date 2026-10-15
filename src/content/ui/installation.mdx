@@ -54,7 +54,7 @@ Yumma UI components are copied into your project rather than installed as a depe
 
 ## The Config It Writes
 
-`yumma.config.mjs` points at your project files and holds the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
+`yumma.config.mjs` points at your project files and holds the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, the `out-quart`, `out-back` and `in-out-cubic` curves the motion runs on, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
 
 ```js title="yumma.config.mjs"
 import { defineConfig } from "yummacss";
@@ -66,6 +66,11 @@ export default defineConfig({
       closing: "[data-ending-style]",
       opening: "[data-starting-style]",
       swiping: "[data-swiping]",
+    },
+    easings: {
+      "in-out-cubic": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
     },
     keyframes: {
       pulse: "0%, 100% { opacity: .5; } 50% { opacity: 1; }",

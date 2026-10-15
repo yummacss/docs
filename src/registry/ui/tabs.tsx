@@ -147,7 +147,7 @@ export default function TabsBase({
   const indicatorClasses = merge(
     "p:a l:0 t:0 zi:0 bg:white",
     TAB_SHAPES[shape],
-    animated && "tp:a tdu:200 ttf:io",
+    animated && "tp:a tdu:300 ttf:out-quart @prm:tp:none",
   );
 
   return (

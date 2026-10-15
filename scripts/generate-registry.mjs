@@ -48,8 +48,8 @@ const targetLines = uiIds
   })
   .join("\n");
 
-// the states and keyframes each component names, so its page can show the config it needs
-const { states = {}, keyframes = {} } = config.theme ?? {};
+// the states, easings and keyframes each component names, so its page can show the config it needs
+const { states = {}, easings = {}, keyframes = {} } = config.theme ?? {};
 const STATE_ORDER = ["opening", "closing"];
 const stateNames = Object.keys(states).sort(
   (a, b) =>
@@ -66,12 +66,16 @@ const configLines = uiIds
       Object.keys(keyframes),
       (name) => new RegExp(`\\ban:${name}\\b`),
     );
-    if (!s.length && !k.length) return null;
+    const e = used(
+      Object.keys(easings),
+      (name) => new RegExp(`\\b(?:ttf|atf):${name}(?![\\w-])`),
+    );
+    if (!s.length && !e.length && !k.length) return null;
     const pick = (table, names) =>
       names.length
         ? `{ ${names.map((name) => `${JSON.stringify(name)}: ${JSON.stringify(table[name])}`).join(", ")} }`
         : "{}";
-    return `  "${id}": { states: ${pick(states, s)}, keyframes: ${pick(keyframes, k)} },`;
+    return `  "${id}": { states: ${pick(states, s)}, easings: ${pick(easings, e)}, keyframes: ${pick(keyframes, k)} },`;
   })
   .filter(Boolean)
   .join("\n");
@@ -155,6 +159,7 @@ ${targetLines}
 
 export interface RegistryConfig {
   states: Record<string, string>;
+  easings: Record<string, string>;
   keyframes: Record<string, string>;
 }
 

@@ -73,6 +73,12 @@
       "description": "Shows a value without offering to change it. Unlike `disabled` it stays focusable and is not dimmed, so it can still be read."
     },
     {
+      "name": "animated",
+      "type": "boolean",
+      "default": true,
+      "description": "The mark's transition when the box is ticked. Turn it off for a static form, or when the user has asked for reduced motion."
+    },
+    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
