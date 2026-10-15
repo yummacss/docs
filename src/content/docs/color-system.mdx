@@ -31,7 +31,7 @@ Each color family generates 13 values from a single base hex. The base color has
 | (none)    | Base      |
 | `7 to 12` | Darkest   |
 
-The step size is controlled by `percentage.light` and `percentage.dark` in your config. Both default to `14`.
+The step size is controlled by `percentage.light` & `percentage.dark` in your config. Both default to `14`.
 
 ```tsx
 <div className="bg:red-5 …"></div>
@@ -86,7 +86,7 @@ Dark mode is opt-in per color: every color you already use keeps applying in bot
 
 ## Custom Color Shades
 
-Override the default shade percentages using the `theme.colors.percentage` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` and `percentage.dark` values.
+Override the default shade percentages using the `theme.colors.percentage` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` & `percentage.dark` values.
 
 <Stepper>
   <Step title="Configure Custom Colors">

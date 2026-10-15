@@ -4,11 +4,9 @@ description: "A rules file that teaches a coding agent to write Yumma CSS & chec
 since: "4.3"
 ---
 
-A coding agent writes the class names it has seen most. [agents.md](/agents.md) gives it the Yumma CSS syntax, the values that exist & the command that checks its work, in one short file it reads before it starts.
-
 ## Add It to a Project
 
-Save it as the instructions file your agent reads. Most read `AGENTS.md` at the project root.
+Save [agents.md](/agents.md) as the instructions file your agent reads. Most read `AGENTS.md` at the project root.
 
 ```bash
 curl -s https://www.yummacss.com/agents.md >> AGENTS.md
@@ -34,7 +32,7 @@ Other agents that read a file of their own name take the same pointer, or the ru
 
 | Section | Contents |
 | --- | --- |
-| Migrating From 3.x | How to tell a 3.x project, & the codemod to run before anything else. |
+| Migrating From 3.x | How to tell a 3.x project, and the codemod to run before anything else. |
 | Syntax | Property & value initials joined by a colon, variants, opacity, negatives & CSS functions. |
 | Values | The spacing scale, every color family & its shades, breakpoints, states & pseudo-elements. |
 | Examples | Four Yumma UI components to read before building something similar: Button, Field, Tabs & Dialog. |

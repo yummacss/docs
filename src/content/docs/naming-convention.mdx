@@ -23,7 +23,7 @@ Numbers & scales keep their position instead of their initials.
 <div className="p:4 fs:lg fw:600 zi:10 …"></div>
 ```
 
-`none` & `auto` are never abbreviated. Every other value shortens to its initials, but these two keep their full spelling in every utility that accepts them. Reserving both words stops them colliding with the initials of other values under a shared prefix.
+`none` & `auto` are never abbreviated, so they never collide with another value's initials.
 
 ```tsx
 <div className="d:none pe:auto ob:none sb:auto …"></div>

@@ -147,6 +147,39 @@ describe("copywriting", () => {
     expect(wrong).toEqual([]);
   });
 
+  // the description leads a page, so the body opens with a heading, a table or a hint
+  it("opens every page with a heading, not a paragraph", () => {
+    const bad = allPages.filter(({ source }) => {
+      const body = source
+        .replace(/^---\n[\s\S]*?\n---/, "")
+        .replace(/```[\s\S]*?```/g, "")
+        .replace(/<([A-Z]\w*)\b[\s\S]*?<\/\1>/g, "")
+        .replace(/:::[\s\S]*?:::/g, "")
+        .replace(/^(import|export) .*$/gm, "");
+      const lead = body.split(/^#{2,} /m)[0] ?? "";
+      return lead
+        .split(/\n\s*\n/)
+        .some((block) => /^[A-Za-z`*[>]/.test(block.trim()));
+    });
+    expect(bad.map(({ page }) => page)).toEqual([]);
+  });
+
+  it("keeps every paragraph under 40 words", () => {
+    const long: string[] = [];
+    for (const { page, source } of allPages) {
+      for (const block of prose(source)
+        .join("\n")
+        .split(/\n\s*\n/)) {
+        const text = block.trim();
+        if (!text || /^(#|-|\d+\.|:::|import |export )/.test(text)) continue;
+        const words = text.split(/\s+/).length;
+        if (words > 40)
+          long.push(`${page}  ${words} words: ${text.slice(0, 60)}`);
+      }
+    }
+    expect(long).toEqual([]);
+  });
+
   it("gives every page a one-sentence description", () => {
     const bad: string[] = [];
 
