@@ -7,15 +7,15 @@ description: Install Yumma CSS using a bundler plugin or the CLI.
 
 ## Why Yumma CSS?
 
-Classes read as the CSS they write, `d:f` for `display: flex`, so knowing CSS you already know most of the names. Every value sits on one scale, the build writes only the classes you use, & `yummacss lint` catches a class that does not exist before your users do.
+Classes read as the CSS they write: `d:f` is `display: flex`. One scale, only the classes you use, and a lint that catches typos.
 
 ## Set Up a Framework
 
 Add Yumma CSS to your framework of choice with a single plugin.
 
-### Use with Vite
+### Using Vite
 
-Use the `@yummacss/vite` plugin with Vite & Vite-based frameworks like SvelteKit, Astro, Nuxt, & Solid. Generated CSS is rebuilt automatically as you work.
+Use the `@yummacss/vite` plugin with Vite & Vite-based frameworks like SvelteKit, Astro, Nuxt, and Solid. Generated CSS is rebuilt automatically as you work.
 
 <Stepper>
   <Step title="Install Yumma CSS">
@@ -61,7 +61,7 @@ Use the `@yummacss/vite` plugin with Vite & Vite-based frameworks like SvelteKit
   </Step>
 </Stepper>
 
-### Use with Next.js
+### Using Next.js
 
 Use the `@yummacss/postcss` plugin with Next.js. It works with both Turbopack & Webpack through the built-in PostCSS support.
 
@@ -112,11 +112,29 @@ Use the `@yummacss/postcss` plugin with Next.js. It works with both Turbopack & 
   The PostCSS plugin works anywhere PostCSS runs, not only Next.js.
 </Hint>
 
+### Plugin Options
+
+Both plugins read `yumma.config.mjs` unless you pass a config of your own.
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `config` | `Config` | | Inline configuration, read instead of the file. |
+| `configPath` | `string` | `yumma.config.mjs` | Path to the config file. |
+| `cwd` | `string` | `process.cwd()` | PostCSS only. Where the config & `source` globs resolve from. |
+
+```js title="postcss.config.mjs" "cwd"
+export default {
+  plugins: {
+    "@yummacss/postcss": { cwd: import.meta.dirname },
+  },
+};
+```
+
 ## Set Up Standalone
 
 Yumma CSS can be used on its own, without a framework.
 
-### Use with CLI
+### Using the CLI
 
 Prefer generating a plain CSS file? Install Yumma CSS with your favorite package manager & use the CLI:
 
@@ -159,3 +177,14 @@ Prefer generating a plain CSS file? Install Yumma CSS with your favorite package
 
   </Step>
 </Stepper>
+
+## Reading the Utilities
+
+`@yummacss/core` returns every utility definition, one function per category.
+
+```js "coreUtils"
+import { boxModelUtils, coreUtils } from "@yummacss/core";
+
+const boxModel = boxModelUtils();
+const everything = coreUtils();
+```

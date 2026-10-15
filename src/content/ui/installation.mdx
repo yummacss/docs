@@ -7,11 +7,11 @@ description: Set up Yumma UI in a Vite or Next.js project.
 
 ## What Is Yumma UI?
 
-A set of ready-to-use UI components based on [Base UI](https://base-ui.com/) for accessibility and keyboard navigation, styled with Yumma CSS utility classes, giving you full control over the final look and feel without any hidden abstractions.
+Accessible React components built on [Base UI](https://base-ui.com/) & styled with Yumma CSS. You copy each one into your project & own every class.
 
 ## Getting Started
 
-Yumma UI components are copied into your project rather than installed as a dependency. Once a component is in your codebase, it is yours to edit. `init` sets up Yumma CSS for you, in a Vite or a Next.js project.
+Components are copied in, not installed, and `init` sets up Yumma CSS in a Vite or Next.js project.
 
 <Stepper>
   <Step title="Create Project">
@@ -32,7 +32,7 @@ Yumma UI components are copied into your project rather than installed as a depe
   </Step>
 
   <Step title="Run init">
-    `init` detects your framework, package manager & import alias, asks where components should live, then sets up Yumma CSS: it installs `yummacss` & the plugin for your framework, registers the plugin, writes `yumma.config.mjs` & adds `@yummacss;` to the stylesheet your app loads.
+    `init` detects your project, asks where components live, then installs & configures Yumma CSS for you.
 
     ```bash
     pnpm dlx yummaui init
@@ -54,7 +54,7 @@ Yumma UI components are copied into your project rather than installed as a depe
 
 ## The Config It Writes
 
-`yumma.config.mjs` points at your project files and holds the names the components animate with: `opening` and `closing` for enter and exit transitions, `swiping` for a Drawer being dragged, the `out-quart`, `out-back` and `in-out-cubic` curves the motion runs on, and `pulse`, `slide` and `spin` for Skeleton, Progress and Autocomplete.
+`yumma.config.mjs` holds the states, curves & keyframes the components animate with.
 
 ```js title="yumma.config.mjs"
 import { defineConfig } from "yummacss";
@@ -89,4 +89,4 @@ To set up the plugin by hand instead, follow [Installation](/docs/installation),
 
 ## Icons
 
-Components draw their icons from [Solar](https://github.com/480-Design/Solar-Icon-Set) by 480 Design, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), through `@solar-icons/react`: Outline for checks, arrows and operators, Bold Duotone for objects.
+Icons come from [Solar](https://github.com/480-Design/Solar-Icon-Set) by 480 Design, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

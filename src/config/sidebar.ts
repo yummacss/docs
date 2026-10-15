@@ -17,7 +17,7 @@ export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: ["installation", "configuration", "agents"],
+      items: ["installation", "configuration", "agents", "lint"],
     },
     {
       title: "Customization",
@@ -269,13 +269,12 @@ export const sidebarConfig = {
         },
       ],
     },
-    {
-      title: "Utils",
-      items: ["vite", "postcss", "lint", "core"],
-    },
   ] satisfies SidebarSection[],
   ui: [
-    { title: "Get Started", items: ["installation", "cli", "customization"] },
+    {
+      title: "Get Started",
+      items: ["installation", "configuration", "customization"],
+    },
     {
       title: "Forms",
       items: [

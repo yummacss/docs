@@ -1,34 +1,24 @@
 ---
-title: CLI
-description: Every yummaui command, flag and config field.
+title: Configuration
+description: Every yummaui command, flag & config field.
 ---
-
-`yummaui` copies component files into your project. It is never a dependency, so there is nothing to install and nothing to keep up to date.
-
-```bash
-pnpm dlx yummaui <command>
-```
-
-Every example below uses `pnpm dlx`. The runner is `npx`, `yarn dlx` or `bunx` on the other three, and `init` and `add` print whichever one matches the project they find.
 
 ## Set Up a Project
 
-Writes `yummaui.json`. It detects your framework, package manager and import alias first, then asks where components should live: `src/components/ui` when the project has a `src` folder, `components/ui` otherwise.
+Detects your framework, package manager & import alias before asking where components live.
 
 ```bash
 pnpm dlx yummaui init
 ```
 
-When Yumma CSS is not set up, `init` offers to do it: it installs `yummacss` and `@yummacss/vite` or `@yummacss/postcss`, registers the plugin in `vite.config` or `postcss.config`, writes `yumma.config.mjs` with the states, easings and keyframes the components animate with, and adds `@yummacss;` to the stylesheet your app loads. Where a file cannot be changed safely, it prints the line to add.
-
 | Option      |                                    |
 | ----------- | ---------------------------------- |
 | `--force`   | Replace an existing `yummaui.json` |
-| `-y, --yes` | Skip prompts and take the defaults |
+| `-y, --yes` | Skip prompts & take the defaults |
 
 ## Add Components
 
-Copies one or more components in. With no names, it opens a list to search and pick from.
+Copies one or more components in. With no names, it opens a list to search & pick from.
 
 ```bash
 pnpm dlx yummaui add button
@@ -44,9 +34,9 @@ pnpm dlx yummaui add button --style compact --radius small
 | `--style <name>`  | `soft`, `compact` or `squircle`               |
 | `--radius <step>` | `none`, `small`, `medium`, `large` or `extra` |
 | `--overwrite`     | Replace files that already exist              |
-| `-y, --yes`       | Skip prompts and take the defaults            |
+| `-y, --yes`       | Skip prompts & take the defaults            |
 
-Anything a component needs from npm is installed with the package manager the project already uses, after asking. `add` offers the same Yumma CSS setup as `init` when it is missing.
+It asks before installing what a component needs from npm, and offers the same Yumma CSS setup as `init` when it is missing.
 
 ## List Components
 
@@ -75,9 +65,7 @@ pnpm dlx yummaui prune --write
   folder are never touched.
 </Hint>
 
-A component can import another, so "is anything importing this file" would keep a whole unused chain alive. `prune` asks whether a file is reachable from **outside** your components directory instead, and reports every file in an unused chain.
-
-Listing is the default. Deleting takes `--write` and a confirmation.
+A file counts as used only when something **outside** your components folder reaches it.
 
 ## Configuration File
 
@@ -96,8 +84,6 @@ Listing is the default. Deleting takes `--write` and a confirmation.
 | `registry`      | Where components are fetched from                                       |
 | `style`         | The style `add` uses when `--style` is not given                        |
 | `radius`        | The radius `add` uses when `--radius` is not given                      |
-
-There is no record of what you installed, and none is needed: `componentsDir` is the answer.
 
 ## Registry
 

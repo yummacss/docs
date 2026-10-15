@@ -25,14 +25,19 @@ Empty.
 
 ## Phase 3 - API changes
 
-Empty.
+- [ ] **`yummaui.json` becomes `yummaui.config.mjs`**, beside
+      `yumma.config.mjs`, at yummaui 1.0: it breaks every existing install.
 
 
 ## Phase 4 - Wants mockups
 
 Design decisions. Nothing here starts without them.
 
-Empty.
+- [ ] **Admonitions**: a redesign that replaces both `Hint` and `:::note`.
+- [ ] **Baseline & Palette**: their own look; Palette reads as a generic
+      color grid.
+- [ ] **The utility page**: Reference, Baseline & the variant sections
+      redesigned together.
 
 
 ## Phase 5 - Infrastructure

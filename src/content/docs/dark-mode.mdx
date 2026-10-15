@@ -3,59 +3,52 @@ title: Dark Mode
 description: "Opt into dark mode per color with light/dark pairs."
 ---
 
-Every color utility applies in both color schemes by default. To make one differ, define it as a light/dark pair instead of a single value. The pair compiles to CSS `light-dark()`, which resolves per color scheme.
-
 ## Pair a Color
 
-<Stepper>
-  <Step title="Define the Pair">
-    A value of `{ light, dark }` replaces a single color string.
-
-    ```mjs title="yumma.config.mjs" mark={6}
-    import { defineConfig } from "yummacss";
-
-    export default defineConfig({
-      theme: {
-        colors: {
-          surface: { light: "#ffffff", dark: "#111214" },
-        },
-      },
-    });
-    ```
-
-  </Step>
-
-  <Step title="Use It">
-    Nothing changes in your markup.
-    <CodeGroup>
-    ```tsx title="page.tsx"
-    <div className="bg:surface …"></div>
-    ```
-
-    ```css title="output.css"
-    .bg-surface {
-      background-color: light-dark(#ffffff, #111214);
-    }
-    ```
-    </CodeGroup>
-
-  </Step>
-</Stepper>
-
-Both sides are scaled independently & paired step for step, so the whole shade scale comes along: `bg:surface-3` is the third light shade under a light scheme & the third dark shade under a dark one.
-
-## Opacity
-
-Opacity modifiers work on paired colors, because opacity is applied with `color-mix()` rather than by appending hex alpha.
+A color applies in both schemes until you give it a light & a dark value, which compiles to CSS `light-dark()`.
 
 <CodeGroup>
-```tsx title="page.tsx"
-<div className="bg:surface/50 …"></div>
+
+```mjs title="yumma.config.mjs" mark={6}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      surface: { light: "#ffffff", dark: "#111214" },
+    },
+  },
+});
+```
+
+```tsx title="page.tsx" "bg:surface"
+<div className="bg:surface"></div>
 ```
 
 ```css title="output.css"
-.bg-surface\/50 {
-    background-color: color-mix(in srgb, light-dark(#ffffff, #111214) 50%, transparent);
+.bg\:surface {
+  background-color: light-dark(#ffffff, #111214);
 }
 ```
+
+</CodeGroup>
+
+Every shade is paired too, so `bg:surface-3` follows the scheme.
+
+## Opacity
+
+Opacity modifiers work on paired colors through `color-mix()`.
+
+<CodeGroup>
+
+```tsx title="page.tsx" "bg:surface/50"
+<div className="bg:surface/50"></div>
+```
+
+```css title="output.css"
+.bg\:surface\/50 {
+  background-color: color-mix(in srgb, light-dark(#ffffff, #111214) 50%, transparent);
+}
+```
+
 </CodeGroup>

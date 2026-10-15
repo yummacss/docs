@@ -376,6 +376,11 @@ change.** Stay on patches until then.
 
 ## Docs site conventions
 
+**Two setup pages share a name.** Yumma CSS & Yumma UI each have a
+Configuration page for their own config & commands, so neither product has a
+page called CLI. The Vite, PostCSS & core package pages live in Installation,
+next to the setup they configure, and redirect there.
+
 **Sharp angles only. No cards, no rails, no rounded corners, no framed images.**
 `src/app`, `src/components` and `src/styles` contain **zero** `br-*` utilities
 and zero `border-radius`; every route is plain typography grouped by whitespace.
