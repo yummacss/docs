@@ -56,13 +56,15 @@ export function menuSections(variant: Variant): NavSection[] {
 
   if (variant !== "docs") return sections;
 
+  const [first, ...rest] = sections;
   return [
-    ...sections,
+    ...(first ? [first] : []),
     {
       title: "Resources",
       _key: "docs::resources",
       items: docsLinks.map((link) => ({ ...link, external: true })),
     },
+    ...rest,
   ];
 }
 

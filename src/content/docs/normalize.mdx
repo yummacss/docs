@@ -5,7 +5,7 @@ description: Normalize CSS styles across browsers.
 
 ## How It Works
 
-The reset clears what browsers add. Every rule weighs at most one class, so a utility always wins. The rules below are read from the reset Yumma CSS ships.
+The reset clears what browsers add, and a utility always wins over it.
 
 ## Box Sizing
 
@@ -47,7 +47,7 @@ Disabled controls are dimmed & show a not-allowed cursor. The rule weighs as muc
 
 ## Typography
 
-Headings & paragraphs wrap long words, headings balance their lines, and paragraphs avoid a lone last word. Headings take their size & weight from the text around them.
+Headings balance their lines, paragraphs avoid a lone last word, and headings inherit their size & weight.
 
 ```css normalize="h1, h2, h3, h4, h5, h6, p; h1, h2, h3, h4, h5, h6; p"
 ```

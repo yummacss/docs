@@ -3,7 +3,7 @@ title: Negative Values
 description: "Apply a negative value with a minus sign after the colon, which toggles the sign."
 ---
 
-## Use Negative Values
+## Using Negative Values
 
 Put a minus sign in front of the value, after the colon: `ml:-4` is a margin of `-1rem`.
 
@@ -11,7 +11,7 @@ Only properties CSS lets go negative take one, such as margins, positioning, `z-
 
 ## Margin
 
-Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m:`, `mt:`, `mr:`, `mb:`, `ml:`, `mx:` & `my:`).
+Every margin utility takes a negative value, to overlap elements.
 
 ```tsx "ml:-4"
 <div className="zi:10 …">A</div>
@@ -21,7 +21,7 @@ Use negative margins to overlap elements or create unique layouts. Negative marg
 
 ## Positioning
 
-Apply negative offsets to position elements outside their parents or create overlapping effects. This works with the `t:`, `r:`, `b:`, `l:` & `i:` utilities.
+`t:`, `r:`, `b:`, `l:` & `i:` take a negative value, to place an element outside its parent.
 
 ```tsx "t:-4" "l:-4"
 <div className="p:r …">
@@ -46,7 +46,7 @@ The minus sign flips the sign of the utility's value, which matters for utilitie
 
 ### Letter Spacing
 
-Utilities like `ls:1` & `ls:2` are defined with negative CSS values. Using the sign-toggle syntax `ls:-1` or `ls:-2` flips these to positive values, resulting in wider spacing instead of tighter spacing.
+`ls:1` & `ls:2` are already negative, so `ls:-1` & `ls:-2` flip them to wider spacing.
 
 | Class  | Standard Value | Negated Class | Negated Value |
 | ------ | -------------- | ------------- | ------------- |

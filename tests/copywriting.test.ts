@@ -164,7 +164,7 @@ describe("copywriting", () => {
     expect(bad.map(({ page }) => page)).toEqual([]);
   });
 
-  it("keeps every paragraph under 40 words", () => {
+  it("keeps every paragraph under 30 words", () => {
     const long: string[] = [];
     for (const { page, source } of allPages) {
       for (const block of prose(source)
@@ -173,7 +173,7 @@ describe("copywriting", () => {
         const text = block.trim();
         if (!text || /^(#|-|\d+\.|:::|import |export )/.test(text)) continue;
         const words = text.split(/\s+/).length;
-        if (words > 40)
+        if (words > 30)
           long.push(`${page}  ${words} words: ${text.slice(0, 60)}`);
       }
     }

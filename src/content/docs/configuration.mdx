@@ -19,7 +19,7 @@ Initialize a configuration file in your project.
 pnpm dlx yummacss init
 ```
 
-This creates a `yumma.config.mjs` file at your project root, pointing at your project's own folders. The same configuration file powers the CLI & the bundler plugins (`@yummacss/vite` & `@yummacss/postcss`).
+Creates `yumma.config.mjs` at your project root, read by the CLI & both plugins.
 
 ```mjs title="yumma.config.mjs" mark={4-5}
 import { defineConfig } from "yummacss";
@@ -32,7 +32,7 @@ export default defineConfig({
 
 ### Source
 
-A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). The CLI scans these files for utilities to include in the final CSS file.
+The files to scan for classes.
 
 <Hint icon="info">
   Use glob patterns to include subfolders & specific file types.
@@ -81,7 +81,7 @@ Extends or overrides default design tokens.
 
 #### Colors
 
-Define custom color families. The compiler automatically generates a 13-step scale (the base, plus shades `1` to `12`) unless a full palette is explicitly provided.
+Add color families. Each gets shades `1` to `12` unless you write them out.
 
 <Hint icon="info">
   Use `percentage` to control how much the shade is lightened or darkened.
@@ -103,7 +103,7 @@ export default defineConfig({
 });
 ```
 
-A color may also be a light/dark pair, which compiles to CSS `light-dark()` & resolves per color scheme. Both sides are scaled independently, so every shade of a paired color is itself a pair.
+A color can be a light & dark pair, and so is every shade of it. See [Dark Mode](/docs/dark-mode).
 
 ```mjs title="yumma.config.mjs" mark={6}
 import { defineConfig } from "yummacss";
@@ -118,10 +118,8 @@ export default defineConfig({
 ```
 
 <Hint icon="info">
-  As soon as one color is paired, `color-scheme: light dark` is declared on
-  `:root` so the page follows the operating system. Override it with the [Color
-  Scheme](/docs/color-scheme) utilities. See [Dark Mode](/docs/dark-mode)
-  for the full walkthrough.
+  One paired color sets `color-scheme: light dark` on `:root`, so the page
+  follows the system. [Color Scheme](/docs/color-scheme) overrides it.
 </Hint>
 
 #### Screens
@@ -163,7 +161,7 @@ export default defineConfig({
 
 #### Fonts
 
-Add font stacks. Each name becomes an `ff:` class, and a name that matches a built-in family replaces it. See [Font Family](/docs/font-family).
+Add font stacks, each an `ff:` class. See [Font Family](/docs/font-family).
 
 ```mjs title="yumma.config.mjs" mark={4-7}
 import { defineConfig } from "yummacss";
@@ -179,7 +177,7 @@ export default defineConfig({
 
 #### Keyframes
 
-Define animations, each written as the body of a CSS `@keyframes` rule. Each name becomes an `an:` class. See [Animation Name](/docs/animation-name).
+Add keyframes, each an `an:` class. See [Animation Name](/docs/animation-name).
 
 ```mjs title="yumma.config.mjs" mark={4-7}
 import { defineConfig } from "yummacss";
@@ -195,7 +193,7 @@ export default defineConfig({
 
 #### Easings
 
-Name timing functions. Each name becomes a `ttf:` & an `atf:` class beside the four CSS keywords, whose names it cannot reuse. See [Transition Timing Function](/docs/transition-timing-function).
+Add easing curves, each a `ttf:` & an `atf:` class. See [Transition Timing Function](/docs/transition-timing-function).
 
 ```mjs title="yumma.config.mjs" mark={4-7}
 import { defineConfig } from "yummacss";
@@ -211,12 +209,11 @@ export default defineConfig({
 
 ### Safelist
 
-An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files. Use this for classes that are added dynamically via JavaScript.
+Classes to generate even when no file contains them, such as one built at runtime.
 
 <Hint icon="info">
-  Use `safelist` for classes generated dynamically at runtime. For example, in
-  React, a class assembled at runtime such as `` `d-${direction}` `` cannot be
-  detected by the file scanner, making a safelist necessary.
+  The scanner cannot see a class built at runtime, such as
+  `` `d:${display}` ``, so list it here.
 </Hint>
 
 ```mjs title="yumma.config.mjs" mark={4}

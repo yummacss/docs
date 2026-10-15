@@ -21,7 +21,7 @@ export default defineConfig({
 });
 ```
 
-## Use a State
+## Using States
 
 <CodeGroup>
 
@@ -37,11 +37,11 @@ export default defineConfig({
 
 </CodeGroup>
 
-A state is appended to the selector, so it stacks with everything else: `@md:h:open:bg:silver-1` applies on hover, while open, from `48rem` up.
+A state stacks with other variants: `@md:h:open:bg:silver-1`.
 
 ## Animate Out
 
-[Starting Style](/docs/starting-style) covers the way in & a state covers the way out, which together animate a popup both ways with no custom CSS.
+Pair it with [Starting Style](/docs/starting-style) to animate a popup in and out.
 
 ```tsx "@st:o:0" "closing:o:0"
 <div className="tp:a tdu:150 @st:o:0 @st:s:90 closing:o:0 closing:s:90">

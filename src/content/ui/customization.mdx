@@ -3,11 +3,11 @@ title: Customization
 description: Props, className & the file you own.
 ---
 
-## Use Props
+## Using Props
 
 Try a prop first: the component applies it itself.
 
-```tsx
+```tsx "tone" "color" "size" "shape"
 <Badge tone="subtle" color="green" size="lg" shape="pill">
   Shipped
 </Badge>
@@ -15,17 +15,17 @@ Try a prop first: the component applies it itself.
 
 Every component page lists its props. Most of what people reach for `className` to do already exists as one.
 
-## className
+## Using `className`
 
 Every component takes `className` & merges it into its own classes.
 
-```tsx
+```tsx "w:100%"
 <Button className="w:100%">Save</Button>
 ```
 
 It adds what the component does not set, like the width above, and overrides what it does.
 
-```tsx
+```tsx "c:accent"
 <Button className="c:accent">Save</Button>
 ```
 
@@ -36,19 +36,19 @@ Components pass your classes through [`merge`](/docs/class-merge), which drops t
   the component's own classes.
 </Hint>
 
-## The Focus Outline
+## Using Focus Outline
 
 Every component draws a focus outline, and one `focus` prop styles it.
 
-```tsx
+```tsx "focus"
 <Dialog trigger="Rename" title="Rename file" focus="fv:oc:blue-2/60" />
 ```
 
-Pass `fv:oc:*` for the color, `fv:ow:*` for the thickness & `fv:oo:*` for the offset. Unlike `className`, which reaches only the root, `focus` reaches every focusable part, such as all four buttons of a Dialog.
+Set the color, width & offset with `fv:oc:*`, `fv:ow:*` & `fv:oo:*`. It reaches every focusable part, not only the root.
 
 `focus={false}` removes the outline & its danger, error & success tints.
 
-```tsx
+```tsx "focus={false}"
 <Button variant="danger" focus={false} className="fv:bg:silver-2">
   Delete
 </Button>
@@ -63,7 +63,7 @@ Pass `fv:oc:*` for the color, `fv:ow:*` for the thickness & `fv:oo:*` for the of
 
 When props & `className` are not enough, edit the file. `yummaui add` copies it into your project & nothing overwrites it later.
 
-The primitive underneath is documented by [Base UI](https://base-ui.com). To remove a component you no longer use, run [`yummaui prune`](/components/cli#remove-unused-components).
+[Base UI](https://base-ui.com) documents the primitive underneath.
 
 ## Colors & Theme
 
