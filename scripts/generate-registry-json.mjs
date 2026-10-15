@@ -55,9 +55,9 @@ function registryDepsOf(source, id, allIds) {
   return [...found].sort();
 }
 
-// the states and keyframes the components use, for yummaui to add to a project's config
+// the states, easings and keyframes the components use, for yummaui to add to a project's config
 function themeOf(sources) {
-  const { states = {}, keyframes = {} } = config.theme ?? {};
+  const { states = {}, easings = {}, keyframes = {} } = config.theme ?? {};
   const used = (pattern) =>
     new Set(
       sources.flatMap((source) =>
@@ -70,6 +70,7 @@ function themeOf(sources) {
     );
   return {
     states: pick(states, used(/(?<![\w:@-])([a-z]+):[a-z@]/g)),
+    easings: pick(easings, used(/\b(?:ttf|atf):([a-z][a-z0-9-]*)/g)),
     keyframes: pick(keyframes, used(/\ban:([a-z]+)/g)),
   };
 }

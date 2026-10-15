@@ -8,6 +8,12 @@ since: "4.2"
 
 <Reference category="animation" name="animation-timing-function" />
 
+<Hint icon="info">
+  `l`, `ei`, `eo` & `io` are the built-in curves, the CSS keywords. Every other
+  name comes from `theme.easings` in your config.
+</Hint>
+
+
 ### Media Queries
 
 Prefix a class with a breakpoint to apply it from that width up.
@@ -19,3 +25,33 @@ Prefix a class with a breakpoint to apply it from that width up.
 Prefix a class with a state to apply it only while that state matches.
 
 <Reference category="animation" name="animation-timing-function" variant="pseudo-class" />
+
+## Define Easings
+
+Name a curve once in `theme.easings`, written as any CSS timing function. Each name becomes a `ttf:` and an `atf:` class.
+
+```mjs title="yumma.config.mjs" mark={5-7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    easings: {
+      "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
+    },
+  },
+});
+```
+
+<CodeGroup>
+
+```tsx title="page.tsx" "atf:out-quart"
+<span className="d:b an:spin adu:700 atf:out-quart aic:inf"></span>
+```
+
+```css title="output.css"
+.atf\:out-quart {
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+```
+
+</CodeGroup>

@@ -352,9 +352,10 @@ export function tokensToText(tokens: Token[]): string {
   return tokens.map((token) => token.text).join("");
 }
 
-/** The `yumma.config.mjs` a component needs: its states and keyframes, nothing else. */
+/** The `yumma.config.mjs` a component needs: its states, easings and keyframes, nothing else. */
 export function buildConfig(config: {
   states: Record<string, string>;
+  easings: Record<string, string>;
   keyframes: Record<string, string>;
 }): Token[] {
   const out: Draft[] = [];
@@ -370,7 +371,8 @@ export function buildConfig(config: {
     push("text", "\n");
     for (const key of keys) {
       push("text", "      ");
-      push("attribute", key);
+      // a name with a dash is a quoted key
+      push("attribute", /^[a-z]+$/.test(key) ? key : JSON.stringify(key));
       push("punctuation", ": ");
       push("string", JSON.stringify(entries[key]));
       push("punctuation", ",");
@@ -410,6 +412,7 @@ export function buildConfig(config: {
   push("brace", "{");
   push("text", "\n");
   table("states", config.states);
+  table("easings", config.easings);
   table("keyframes", config.keyframes);
   push("text", "  ");
   push("brace", "}");

@@ -265,26 +265,34 @@ export const registryTargets: Record<string, RegistryTarget> = {
 
 export interface RegistryConfig {
   states: Record<string, string>;
+  easings: Record<string, string>;
   keyframes: Record<string, string>;
 }
 
 export const registryConfig: Record<string, RegistryConfig> = {
-  "accordion": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "alert-dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "autocomplete": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
-  "combobox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
-  "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "drawer": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]", "swiping": "[data-swiping]" }, keyframes: {} },
-  "menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "menubar": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "onboarding": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "popover": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "preview-card": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "progress": { states: {}, keyframes: { "slide": "from { translate: -100% 0; } to { translate: 100% 0; }" } },
-  "select": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
-  "skeleton": { states: {}, keyframes: { "pulse": "0%, 100% { opacity: .5; } 50% { opacity: 1; }" } },
-  "tooltip": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, keyframes: {} },
+  "accordion": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "in-out-cubic": "cubic-bezier(0.65, 0, 0.35, 1)", "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "alert-dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "autocomplete": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
+  "checkbox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "combobox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
+  "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "drawer": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]", "swiping": "[data-swiping]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "menubar": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "onboarding": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "popover": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "preview-card": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "progress": { states: {}, easings: {}, keyframes: { "slide": "from { translate: -100% 0; } to { translate: 100% 0; }" } },
+  "radio": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "rating": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "select": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "skeleton": { states: {}, easings: {}, keyframes: { "pulse": "0%, 100% { opacity: .5; } 50% { opacity: 1; }" } },
+  "switch": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "tabs": { states: {}, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "toggle": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "toolbar": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
+  "tooltip": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
 };
 
 export function getRegistryTarget(id: string): RegistryTarget {
