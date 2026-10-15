@@ -79,6 +79,11 @@ since it sits next to other component sets wherever it is shared.
 - [ ] **A gallery as yummaui.com's front page.** Every component rendered
       live in a grid, each linking to its page, so the first screen shows
       what Yumma UI looks like rather than how to install it.
+- [ ] **Intro videos for both installation pages**, in place of the cover
+      image: a short clip built from the cover's own graphics (the rulers,
+      the selected word, the cursor), one for Yumma CSS to replace its
+      3-year-old intro (https://www.youtube.com/watch?v=iS05_AV22qA) and one
+      for Yumma UI for its release. Later, when Yumma UI feels release-ready.
 - [ ] **Candidates to choose from**, none started: Toast (a Base UI
       primitive Yumma UI lacks), File Tree (the content model's own world),
       a theme switcher (light, dark, system), a keyboard shortcut hint, and
