@@ -7,10 +7,10 @@ description: "Style ::before, ::after, ::selection & ::placeholder with a prefix
 
 Creates a pseudo-element that is the first child of the selected element.
 
-<Hint icon="info">
+<Note>
   Pseudo Elements require content to be visible. Make sure to set content via
   CSS or inline styles when using `::before`.
-</Hint>
+</Note>
 
 ```tsx "b::p:a" "b::bg:indigo/10"
 <div className="p:r p:8 b::p:a b::i:0 b::bg:indigo/10">Styled content</div>
@@ -20,9 +20,9 @@ Creates a pseudo-element that is the first child of the selected element.
 
 Creates a pseudo-element that is the last child of the selected element.
 
-<Hint icon="info">
+<Note>
   Like `::before`, the `::after` pseudo-element requires content to be visible.
-</Hint>
+</Note>
 
 ```tsx "a::p:a" "a::c:indigo"
 <div className="p:r a::p:a a::c:indigo">Styled content</div>
@@ -32,9 +32,9 @@ Creates a pseudo-element that is the last child of the selected element.
 
 Applies styles to highlighted/selected text.
 
-<Hint icon="cursor_text">
-  Try selecting the text below to see the custom selection styling.
-</Hint>
+<Try>
+  Select the text below to see the custom selection styling.
+</Try>
 
 ```tsx "s::bg:indigo"
 <p className="… s::bg:indigo">
@@ -46,9 +46,9 @@ Applies styles to highlighted/selected text.
 
 Styles the placeholder text for `input` or `textarea` elements.
 
-<Hint icon="cursor_click">
-  Try focusing on the input to see the placeholder styling.
-</Hint>
+<Try>
+  Focus the input to see the placeholder styling.
+</Try>
 
 ```tsx "p::c:silver"
 <input className="… p::c:silver" placeholder="Enter your email…" />

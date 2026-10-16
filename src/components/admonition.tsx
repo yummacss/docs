@@ -1,7 +1,32 @@
 import type { ReactNode } from "react";
-import { CheckCircle, InfoCircle, WarningTriangle } from "@/icons";
+import { Cursor, Diamond, TextLayer } from "@/icons";
 
-type Kind = "note" | "warning" | "success";
+type Kind = "note" | "warning" | "try";
+
+// the cover's tag on a tinted box; a flex column keeps the paragraphs' margins inside the tint
+const KINDS: Record<
+  Kind,
+  { label: string; box: string; tag: string; Icon: typeof TextLayer }
+> = {
+  note: {
+    label: "Note",
+    box: "bc:accent bg:accent/10",
+    tag: "bg:accent",
+    Icon: TextLayer,
+  },
+  warning: {
+    label: "Warning",
+    box: "bc:warning bg:warning/10",
+    tag: "bg:warning",
+    Icon: Diamond,
+  },
+  try: {
+    label: "Try",
+    box: "bc:diff-add bg:diff-add/10",
+    tag: "bg:diff-add",
+    Icon: Cursor,
+  },
+};
 
 interface Props {
   kind?: Kind;
@@ -9,37 +34,32 @@ interface Props {
   children: ReactNode;
 }
 
-const KINDS: Record<
-  Kind,
-  { rail: string; icon: string; Icon: typeof InfoCircle }
-> = {
-  note: {
-    rail: "bc:accent bg:accent-dim/10",
-    icon: "c:accent",
-    Icon: InfoCircle,
-  },
-  warning: {
-    rail: "bc:diff-remove bg:diff-remove/10",
-    icon: "c:diff-remove",
-    Icon: WarningTriangle,
-  },
-  success: {
-    rail: "bc:diff-add bg:diff-add/10",
-    icon: "c:diff-add",
-    Icon: CheckCircle,
-  },
-};
-
 export default function Admonition({ kind = "note", title, children }: Props) {
-  const { rail, icon, Icon } = KINDS[kind] ?? KINDS.note;
+  const { label, box, tag, Icon } = KINDS[kind] ?? KINDS.note;
 
   return (
-    <div className={`d:f g:3 my:6 pl:3 pr:4 py:3 blw:2 ${rail}`}>
-      <Icon className={`fs:0 w:4 h:4 mt:1 ${icon}`} aria-hidden />
-      <div className="f:1 min-w:0">
-        {title && <p className={`m:0 mb:1 fs:sm fw:600 ${icon}`}>{title}</p>}
-        <div>{children}</div>
-      </div>
-    </div>
+    <aside
+      aria-label={title ?? label}
+      className={`p:r d:f fd:c mt:10 mb:6 px:4 blw:2 ${box}`}
+    >
+      <span
+        className={`p:a l:calc(-2px) b:100% d:if ai:c g:1 px:2 py:1 c:surface ff:m fs:xs lh:1 ${tag}`}
+        aria-hidden
+      >
+        <Icon className="w:3 h:3" />
+        {title ?? label}
+      </span>
+      {children}
+    </aside>
   );
 }
+
+export const Note = ({ children }: { children: ReactNode }) => (
+  <Admonition kind="note">{children}</Admonition>
+);
+export const Warning = ({ children }: { children: ReactNode }) => (
+  <Admonition kind="warning">{children}</Admonition>
+);
+export const Try = ({ children }: { children: ReactNode }) => (
+  <Admonition kind="try">{children}</Admonition>
+);

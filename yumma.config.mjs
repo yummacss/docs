@@ -15,6 +15,7 @@ export default defineConfig({
       page: { light: "#f7f8fb", dark: "#151724" },
       press: { light: "#e5e8f0", dark: "#0f111b" },
       surface: { light: "#ffffff", dark: "#1a1d2e" },
+      warning: { light: "#b4581a", dark: "#f0b27a" },
     },
     fonts: {
       body: '"iA Writer Quattro", sans-serif',
