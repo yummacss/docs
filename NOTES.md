@@ -379,7 +379,9 @@ change.** Stay on patches until then.
 **Two setup pages share a name.** Yumma CSS & Yumma UI each have a
 Configuration page for their own config & commands, so neither product has a
 page called CLI. The Vite, PostCSS & core package pages live in Installation,
-next to the setup they configure, and redirect there.
+next to the setup they configure, and redirect there. Lint lives at the end of
+Configuration, beside the CLI commands it adds to. The TOC lists `h2` to `h4`,
+so Theme's options show there.
 
 **Sharp angles only. No cards, no rails, no rounded corners, no framed images.**
 `src/app`, `src/components` and `src/styles` contain **zero** `br-*` utilities

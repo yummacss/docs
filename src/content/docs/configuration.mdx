@@ -276,3 +276,124 @@ Watch for file changes & recompile automatically.
 ```bash
 pnpm dlx yummacss watch
 ```
+
+## Lint
+
+:::note[Optional]
+Yumma CSS generates the same CSS with or without it. Reach for it when you want the check, not to get started.
+:::
+
+Whether each class exists, and which one you meant when it does not. Your config's colors, states & `safelist` pass.
+
+### Oxlint
+
+<Stepper>
+  <Step title="Install the Plugin">
+    ```bash
+    pnpm add -D oxlint @yummacss/lint
+    ```
+
+  </Step>
+
+  <Step title="Turn On the Rules">
+    Register the plugin & pick a level for each rule.
+
+    ```json title=".oxlintrc.json"
+    {
+      "jsPlugins": ["@yummacss/lint"],
+      "rules": {
+        "yummacss/no-unknown-classes": "error",
+        "yummacss/no-inline-styles": "warn"
+      }
+    }
+    ```
+
+  </Step>
+
+  <Step title="Run It">
+    ```bash
+    pnpm oxlint
+    ```
+
+    ```text
+    src/app.tsx:4:25: error yummacss(no-unknown-classes): `bg:redd-5` is not a Yumma CSS class, so it generates no CSS. Did you mean `bg:red-5`?
+    src/app.tsx:4:68: warning yummacss(no-inline-styles): `display: flex` is set inline. Use `d:f` instead.
+    ```
+
+  </Step>
+</Stepper>
+
+The plugin is written in the ESLint plugin format, which is the format Oxlint loads, so ESLint runs it too.
+
+### Rules
+
+| Rule | Reports |
+| --- | --- |
+| `no-unknown-classes` | A class Yumma CSS does not generate, such as `bg:redd-5`, with the closest class that exists. |
+| `no-inline-styles` | A property in a `style` object, with the class that writes the same declaration, such as `d:f` for `display: "flex"`. |
+
+Both rules read `className`, `class` & the arguments of `cn`, `clsx` & `merge`, including ternaries & template literals.
+
+`no-inline-styles` skips custom properties, so a value that changes at runtime goes through one:
+
+```tsx
+<div className="w:var(--progress)" style={{ "--progress": `${value}%` }} />
+```
+
+:::warning[Runtime classes are invisible]
+A class assembled at runtime cannot be checked. In `` className={`p:4 ${size}`} `` the `p:4` is checked & `${size}` is skipped.
+:::
+
+### Options
+
+Every rule takes `allow` & `message`.
+
+```json title=".oxlintrc.json"
+{
+  "rules": {
+    "yummacss/no-unknown-classes": ["error", {
+      "allow": ["brand-logo", "editor-*"],
+      "message": "{{className}} is not on the scale. Did you mean {{suggestions}}?"
+    }]
+  }
+}
+```
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `allow` | `string[]` | Class names to accept, or CSS property names for `no-inline-styles`. A trailing `*` matches a prefix. |
+| `message` | `string` | Replaces the rule's message. `{{className}}`, `{{property}}` & `{{suggestions}}` are filled in. |
+
+Skip a single line with a comment:
+
+```tsx
+// oxlint-disable-next-line yummacss/no-unknown-classes
+<div className="brand-logo" />
+```
+
+### One-Off Check
+
+`yummacss lint` scans the `source` files from your config & lists every class it does not recognize, with no linter to set up.
+
+```bash
+pnpm dlx yummacss lint
+```
+
+```text
+Scanned 128 files and found 214 unique classes.
+Found 2 classes Yumma CSS does not recognize:
+ "ai:st" - did you mean "ai:s"?
+  - src/components/hero.tsx
+ "flex-center"
+  - src/components/layout.tsx
+Fix the classes above, or pass --allow "class-a,class-b" for custom classes.
+```
+
+It exits with `1` when it finds a class it does not recognize, so it works as a CI step on its own.
+
+| Flag | Alias | Description |
+| --- | --- | --- |
+| `--allow` | `-a` | Comma-separated class names to skip. Repeat it to add more. |
+| `--config` | `-c` | Path to the config file, absolute or relative to the working directory. Defaults to `yumma.config.mjs`. |
+
+It reads class attributes & the first string passed to `cn`, `clsx` & `cva`. The Oxlint rules read more.

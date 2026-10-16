@@ -12,6 +12,8 @@ interface TocItem {
   level: number;
 }
 
+const INDENT: Record<number, string> = { 3: "ml:4", 4: "ml:8" };
+
 export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
@@ -19,7 +21,9 @@ export default function TableOfContents() {
   useEffect(() => {
     const timer = setTimeout(() => {
       const elements = Array.from(
-        document.querySelectorAll("article h2, article h3, main h2, main h3"),
+        document.querySelectorAll(
+          "article h2, article h3, article h4, main h2, main h3, main h4",
+        ),
       ).filter((el) => !el.closest("[data-meta]") && el.id);
 
       const items: TocItem[] = elements.map((el) => ({
@@ -55,7 +59,7 @@ export default function TableOfContents() {
               <li key={heading.id}>
                 <Link
                   href={`#${heading.id}`}
-                  className={`c:ink/70 h:c:ink fv:oc:ink fv:ow:2 ${heading.level === 3 ? "ml:4" : ""}`}
+                  className={`c:ink/70 h:c:ink fv:oc:ink fv:ow:2 ${INDENT[heading.level] ?? ""}`}
                 >
                   {heading.parts.map((part, index) =>
                     part.code ? (
