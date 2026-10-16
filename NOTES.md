@@ -376,6 +376,13 @@ change.** Stay on patches until then.
 
 ## Docs site conventions
 
+**Admonitions.** One component in three kinds: `<Note>` for a fact, `<Warning>`
+for what breaks, `<Try>` above a live demo. `:::note` & `:::warning` render the
+same component. It is the cover's tag on a tinted box, chosen 2026-10-16 over
+a plain bar, which read as any docs site, and over a bare selection box or
+ruler, which did not read as a callout. A Try sentence starts with the verb,
+since the tag already says Try.
+
 **Two setup pages share a name.** Yumma CSS & Yumma UI each have a
 Configuration page for their own config & commands, so neither product has a
 page called CLI. The Vite, PostCSS & core package pages live in Installation,

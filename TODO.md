@@ -33,7 +33,6 @@ Empty.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **Admonitions**: a redesign that replaces both `Hint` and `:::note`.
 - [ ] **Baseline & Palette**: their own look; Palette reads as a generic
       color grid.
 - [ ] **The utility page**: Reference, Baseline & the variant sections

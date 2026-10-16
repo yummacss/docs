@@ -1,12 +1,11 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import { Children, cloneElement, isValidElement } from "react";
-import Admonition from "@/components/admonition";
+import Admonition, { Note, Try, Warning } from "@/components/admonition";
 import Baseline from "@/components/baseline";
 import { BrandColors, BrandMarks } from "@/components/brand";
 import Cover from "@/components/cover";
 import FileTree from "@/components/file-tree";
-import Hint from "@/components/hint";
 import {
   Cursor,
   VisualStudioCode,
@@ -83,7 +82,9 @@ const components: MDXComponents = {
   ComponentPlayground: () => null,
   Cursor,
   FileTree,
-  Hint,
+  Note,
+  Try,
+  Warning,
   Palette,
   Preview,
   Reference,
