@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
+type Shape = "square" | "rounded" | "pill" | "squircle";
 
 const SIZES: Record<Size, string> = {
   sm: "fs:xxl",
@@ -14,12 +15,29 @@ const SIZES: Record<Size, string> = {
   lg: "fs:4xl",
 };
 
+const CHIP_SHAPES: Record<Shape, string> = {
+  square: "",
+  rounded: "br:lg",
+  pill: "br:9999",
+  squircle: "br:xxl cs:s",
+};
+
+// the tile sits inside the chip, so it takes the next radius down
+const TILE_SHAPES: Record<Shape, string> = {
+  square: "",
+  rounded: "br:md",
+  pill: "br:9999",
+  squircle: "br:lg cs:s",
+};
+
 // each icon arrives in turn, so the eye reads the three words in order
 const DELAYS = ["td:200", "td:350", "td:500"];
 
 export interface InlineIconHeadingProps {
-  /** Text size of the whole heading; the icons scale with it. */
+  /** Text size of the whole heading; the chips scale with it. */
   size?: Size;
+  /** The corners of each chip & of the icon tile inside it. */
+  shape?: Shape;
   /**
    * The icons pop in one after another as the heading first renders. Turn it
    * off for a heading that is simply there, or when the user has asked for
@@ -33,44 +51,56 @@ export interface InlineIconHeadingProps {
   className?: string;
 }
 
-function Word({
+function Chip({
   icon,
   index,
+  shape,
   animated,
+  after,
   children,
 }: {
   icon: ReactNode;
   index: number;
+  shape: Shape;
   animated: boolean;
+  after?: string;
   children: ReactNode;
 }) {
+  // the comma after a chip stays on its line
   return (
     <span className="ws:nw">
       <span
-        aria-hidden
-        className={`d:ib mr:calc(.18em) c:indigo ${
-          animated
-            ? `tp:a tdu:500 ttf:out-back @st:s:30 @st:o:0 @st:ro:-20 @prm:tp:none ${DELAYS[index]}`
-            : ""
-        }`}
+        className={`d:if ai:c g:calc(.2em) py:calc(.08em) pl:calc(.1em) pr:calc(.3em) bg:indigo-1 bw:1 bc:indigo-2/70 c:indigo-8 lh:1 ws:nw va:m ${CHIP_SHAPES[shape]}`}
       >
-        {icon}
+        <span
+          aria-hidden
+          className={`d:if ai:c jc:c w:calc(1em) h:calc(1em) bg:indigo c:indigo-1 ${TILE_SHAPES[shape]} ${
+            animated
+              ? `tp:a tdu:500 ttf:out-back @st:s:30 @st:o:0 @st:ro:-20 @prm:tp:none ${DELAYS[index]}`
+              : ""
+          }`}
+        >
+          {icon}
+        </span>
+        {children}
       </span>
-      {children}
+      {after}
     </span>
   );
 }
 
 /**
- * A centered heading whose key words each carry the icon that names them: a
- * pen for written, a camera for filmed, a microphone for recorded.
+ * A centered heading whose key words each sit in a chip with the icon that
+ * names them: a pen for written, a camera for filmed, a microphone for
+ * recorded.
  */
 export default function InlineIconHeading({
   size = "md",
+  shape = "rounded",
   animated = true,
   className,
 }: InlineIconHeadingProps) {
-  const icon = "w:calc(.9em) h:calc(.9em)";
+  const icon = "w:calc(.62em) h:calc(.62em)";
   return (
     <h2
       className={merge(
@@ -80,24 +110,33 @@ export default function InlineIconHeading({
       )}
     >
       Everything you have{" "}
-      <Word icon={<PenIcon className={icon} />} index={0} animated={animated}>
-        written,
-      </Word>{" "}
-      <Word
+      <Chip
+        icon={<PenIcon className={icon} />}
+        index={0}
+        shape={shape}
+        animated={animated}
+        after=","
+      >
+        written
+      </Chip>{" "}
+      <Chip
         icon={<VideocameraIcon className={icon} />}
         index={1}
+        shape={shape}
         animated={animated}
       >
         filmed
-      </Word>{" "}
+      </Chip>{" "}
       &amp;{" "}
-      <Word
+      <Chip
         icon={<MicrophoneIcon className={icon} />}
         index={2}
+        shape={shape}
         animated={animated}
+        after=","
       >
-        recorded,
-      </Word>{" "}
+        recorded
+      </Chip>{" "}
       kept in one folder.
     </h2>
   );
