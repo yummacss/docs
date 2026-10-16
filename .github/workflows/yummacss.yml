@@ -1,5 +1,5 @@
 # Moves the docs to the latest Yumma CSS and merges it once the checks pass.
-# Dependabot stopped opening these; a run here fails in plain sight. NOTES.md.
+# Dependabot stopped opening these; a run here fails in plain sight. See the notes.
 name: Yumma CSS updates
 on:
   schedule:

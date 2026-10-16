@@ -77,7 +77,7 @@ const ui = defineCollection({
 export default defineConfig({
   content: [docs, ui],
   hooks: {
-    // the collections import every page's MDX, so a client import must fail the build (NOTES.md, "Menu bundle")
+    // the collections import every page's MDX, so a client import must fail the build (the notes, "Menu bundle")
     writer: [
       ({ fileType, content }) => ({
         content:
