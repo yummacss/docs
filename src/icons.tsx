@@ -8,7 +8,6 @@ import {
   CaretLeftIcon,
   CaretRightIcon,
   CaretUpIcon,
-  CheckCircleIcon,
   CheckIcon,
   CopyIcon,
   CubeIcon,
@@ -20,11 +19,9 @@ import {
   PlusIcon,
   SignOutIcon,
   SlidersHorizontalIcon,
-  SparkleIcon,
   TerminalWindowIcon,
   TextTIcon,
   TwitterLogoIcon,
-  WarningIcon,
 } from "@phosphor-icons/react/ssr";
 
 type Props = Omit<IconProps, "weight">;
@@ -38,7 +35,6 @@ const regular = (Glyph: Icon) => {
 
 export const ArrowUpRight = regular(ArrowUpRightIcon);
 export const Check = regular(CheckIcon);
-export const CheckCircle = regular(CheckCircleIcon);
 export const ComponentSolid = regular(CubeIcon);
 export const Copy = regular(CopyIcon);
 export const Diamond = regular(DiamondIcon);
@@ -55,9 +51,7 @@ export const Page = regular(FileIcon);
 export const Plus = regular(PlusIcon);
 export const Search = regular(MagnifyingGlassIcon);
 export const Sliders = regular(SlidersHorizontalIcon);
-export const Sparks = regular(SparkleIcon);
 export const Terminal = regular(TerminalWindowIcon);
 export const TextLayer = regular(TextTIcon);
 export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
-export const WarningTriangle = regular(WarningIcon);
