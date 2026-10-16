@@ -269,3 +269,156 @@ export function getReferenceData(
     }
   }
 }
+
+export interface VariantGroup {
+  title: string;
+  /** One sentence under the heading; `code` in backticks. */
+  description: string;
+  lines: { className: string; text: string }[];
+}
+
+const pick = <T extends { prefix: string }>(entries: T[], want: string) =>
+  entries.find((e) => e.prefix === want) ?? (entries[0] as T);
+
+const MEDIA_TEXT: Record<string, string> = {
+  pc: "On a touch screen.",
+  prm: "With reduced motion on.",
+  st: "On the first frame.",
+};
+
+const COMMON_STATES = ["h", "f", "fv", "a", "d", "fc"];
+
+const sentence = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+/** Every kind of variant the utility takes, each with classes to copy. */
+/** The lead under a page's Variants heading, its example built from the utility. */
+export const variantsLead = (category: Category, name: string) =>
+  `Prefix any class with a variant to apply it only under that condition. Variants stack, as in \`@md:h:${exampleClass(category, name)}\`.`;
+
+export function variantGroups(
+  category: Category,
+  name: string,
+  negative = false,
+): VariantGroup[] {
+  let util:
+    | { prefix: string; values: Record<string, string>; variants?: Variants }
+    | undefined;
+  try {
+    util = categoryGetters[category]?.()[name] as typeof util;
+  } catch {
+    return [];
+  }
+  if (!util) return [];
+
+  const base = exampleClass(category, name);
+  const v = util.variants ?? {};
+  const media = v.mediaQueries ?? [];
+  const out: VariantGroup[] = [];
+
+  const widths = media.filter(
+    (e) => /min-width/.test(e.value) && !e.prefix.startsWith("c:"),
+  );
+  if (widths.length) {
+    out.push({
+      title: "Breakpoints",
+      description:
+        "Apply a class from a viewport width up. Each breakpoint covers its width & every width above it.",
+      lines: widths.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: `From ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
+      })),
+    });
+  }
+
+  const containers = media.filter((e) => e.prefix.startsWith("c:"));
+  if (containers.length) {
+    out.push({
+      title: "Containers",
+      description:
+        "Apply a class from a container's width up, not the viewport's. Mark the parent with `ct:is` first.",
+      lines: containers.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: `Container from ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
+      })),
+    });
+  }
+
+  const other = media.filter(
+    (e) => !widths.includes(e) && !containers.includes(e),
+  );
+  if (other.length) {
+    out.push({
+      title: "Media",
+      description:
+        "Apply a class when the device or the page matches a condition, or on the first frame an element renders.",
+      lines: other.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: MEDIA_TEXT[e.prefix] ?? `${e.value}.`,
+      })),
+    });
+  }
+
+  const states = v.pseudoClasses ?? [];
+  if (states.length) {
+    // the common ones first, then the rest in the generator's order
+    const first = COMMON_STATES.flatMap((c) =>
+      states.filter((e) => e.prefix === c),
+    );
+    out.push({
+      title: "States",
+      description:
+        "Apply a class only while the element is in a state, such as hovered, focused or checked.",
+      lines: [...first, ...states.filter((e) => !first.includes(e))].map(
+        (e) => ({ className: `${e.prefix}:${base}`, text: `On ${e.value}.` }),
+      ),
+    });
+  }
+
+  if (v.pseudoElements?.length) {
+    out.push({
+      title: "Pseudo Elements",
+      description:
+        "Style a part of the element rather than the element itself, such as its placeholder or the selected text.",
+      lines: v.pseudoElements.map((e) => ({
+        className: `${e.prefix}::${base}`,
+        text: `On ${e.value.replace(/^:+/, "::")}.`,
+      })),
+    });
+  }
+
+  if (v.opacity?.length) {
+    const half = pick(v.opacity, "50");
+    const steps = v.opacity.map((e) => Number(e.prefix));
+    out.push({
+      title: "Opacity",
+      description: "Add a slash & a step after a color to set its opacity.",
+      lines: [
+        {
+          className: `${base}/${half.prefix}`,
+          text: sentence(
+            `at ${half.value} opacity, in steps of ${steps[1] - steps[0]}.`,
+          ),
+        },
+      ],
+    });
+  }
+
+  const numeric = Object.keys(util.values).find(
+    (k) => /^\d+$/.test(k) && Number(k) !== 0,
+  );
+  if (negative && numeric) {
+    const key = PREFERRED.find((k) => k in util.values) ?? numeric;
+    out.push({
+      title: "Negative",
+      description: "Put a minus after the colon to negate a value.",
+      lines: [
+        {
+          className: `${util.prefix}:-${key}`,
+          text: "A minus after the colon.",
+        },
+      ],
+    });
+  }
+
+  return out;
+}

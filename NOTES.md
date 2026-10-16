@@ -415,7 +415,7 @@ The rail is about 15rem of content at 1440px.
 scroller handing the wheel to the page when it reaches its end. The left nav had
 it; the other five scrollers on the site did not, which is why the chaining felt
 random - it depended on what the pointer happened to be over. Measured on
-`/docs/display`: wheeling a `<Reference>` filter list to its end threw the page
+`/docs/display`: wheeling the old Reference filter list to its end threw the page
 609px. The worst case was the mobile nav dialog (7936/720 on a phone), where the
 page scrolls behind an open menu. `ob-c` is on all six now. **The registry
 popups - `combobox`, `autocomplete`, `command-palette` - still lack it**; that is
@@ -447,7 +447,7 @@ contrast without changing the face. Docs `h1` is `fs-4xl fw-400` = 36px on 54px
 leading, loose for display type.
 
 **Every heading names its family.** `ff:display` (Esteban) on content: the MDX
-headings, the page titles, the Reference header. `ff:system`
+headings, the page titles. `ff:system`
 (`system-ui`, from `theme.fonts`) on chrome: sidebar, TOC, footer, rail, the
 error pages. A heading with neither gets the body font, iA Writer Quattro.
 
@@ -504,6 +504,24 @@ string**, because the names diverge (Textarea is Field's `render={<textarea />}`
 and `base-ui.com/react/components/textarea` is a 404). Re-run the
 frontmatter-against-imports check if a new component's primitive name diverges
 from its `@base-ui/react/*` import.
+
+**A utility page is Baseline, Reference & Variants.** All static.
+- `Reference` is one Class | CSS table holding every class of its first
+  property. Past 12 rows it scrolls in `Scroller` under a sticky header, and
+  the border moves from the table to the box so its edges stay in view. With
+  `names`, a line under it names the other prefixes, each carrying the anchor
+  search links to, because every multi-property page shares one scale.
+- Every row renders. Measured on Margin, all 387 rows against a condensed
+  table cost 9 KB of gzipped HTML (31.7 to 40.6) & 6 KB of RSC (16.5 to 22.6).
+  All 4,257 classes of its 11 prefixes would cost about eleven times that.
+- `<Variants>` is a table per kind of variant, each under its own `h3`, so
+  the TOC lists them, and every variant the data has is a row: breakpoints,
+  containers, other media, states (the common ones first), pseudo-elements,
+  opacity where it exists. Each heading has one sentence under it, written
+  in `variantGroups`, & the section opens with `variantsLead`, whose example
+  is the page's own class. `negative` is a prop because the data allows a
+  minus on any numeric scale, and only some utilities document one.
+- The `.md` twin keeps every class: a full table per property.
 
 **Baseline is a row above the Reference table.** `baseline` in mono on a tint:
 green (`diff-add`) for widely, accent for newly, `warning` for limited. The four
@@ -1586,7 +1604,6 @@ Four stale things found on the way, fixed in the same branch:
 - **Nested Variants documented the `@sm:@lg:` collapse** that 4.2 fixed, and
   its outputs used 3.x selectors (`bg-red`).
 - **`@xs` and `@prm` were documented nowhere** but the 4.0 post.
-- `Reference` said "1 utilities". It picks the singular now.
 
 ## Parked
 

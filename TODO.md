@@ -35,8 +35,6 @@ Design decisions. Nothing here starts without them.
 
 - [ ] **Baseline & Palette**: their own look; Palette reads as a generic
       color grid.
-- [ ] **The utility page**: Reference, Baseline & the variant sections
-      redesigned together.
 
 
 ## Phase 5 - Infrastructure
