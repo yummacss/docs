@@ -34,7 +34,7 @@ const PLACEMENTS: Record<Side, string> = {
 };
 
 // `translate` needs both axes, which no class can spell with a percentage, so the
-// popup carries them in two variables; NOTES.md, "Drawer", has the measurements
+// popup carries them in two variables; the notes, "Drawer", has the measurements
 const TRAVEL: Record<Side, { swipe: string; offstage: string }> = {
   bottom: {
     swipe: "0 var(--drawer-swipe-movement-y)",

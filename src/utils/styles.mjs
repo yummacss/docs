@@ -1,5 +1,5 @@
 // A style rewrites a component file: its shape and size defaults and its
-// *SHAPES tables. See NOTES.md, "Component API as styles".
+// *SHAPES tables. See the notes, "Component API as styles".
 
 export const RADIUS = ["none", "small", "medium", "large", "extra"];
 

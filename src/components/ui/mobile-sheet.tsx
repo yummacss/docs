@@ -35,7 +35,7 @@ interface Props {
   onClose: () => void;
 }
 
-// Base UI's sheet motion; NOTES.md, "Phone menu", has the reasoning
+// Base UI's sheet motion; the notes, "Phone menu", has the reasoning
 const MOTION = {
   "--sheet-ease": "cubic-bezier(0.32, 0.72, 0, 1)",
   "--sheet-close": "calc(var(--drawer-swipe-strength, 1) * 400ms)",

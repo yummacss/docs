@@ -1,7 +1,7 @@
 // Screenshots every Yumma UI component's preview into public/og/ui/<slug>.png,
 // at twice its size, for the link previews. Run it against a running site:
 //   pnpm og:components [http://localhost:3000] [slug ...]
-// NOTES.md, "OG images".
+// The notes, "OG images".
 import { mkdir, readdir } from "node:fs/promises";
 import { chromium } from "playwright";
 

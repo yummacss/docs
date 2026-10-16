@@ -194,7 +194,7 @@ const removedReleasePosts = [
 
 const RELEASES = "https://github.com/yummacss/yummacss/releases";
 
-// the blog is gone and release notes live on GitHub; NOTES.md, "Releases".
+// the blog is gone and release notes live on GitHub; the notes, "Releases".
 const blogRedirects = [
   {
     source: "/blog/v0",
