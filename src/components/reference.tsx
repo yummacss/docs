@@ -17,14 +17,18 @@ interface Props {
   names?: string[];
 }
 
-const TABLE = "w:100% bc:c bc:border bg:surface bw:1 ff:m fs:sm";
+// a scrolling table draws no outer border: its box does
+const TABLE = "w:100% bc:c bc:border bg:surface ff:m fs:sm";
+const EDGE = "bw:1";
 const HEAD =
   "px:4 py:2 bbw:1 bc:border ta:l ff:system fs:xs fw:600 ls:2 tt:u c:silver-8";
-const CELL = "px:4 py:2 bbw:1 bc:border";
+const CELL = "px:4 py:2";
+// rows draw the lines between them, so the last one leaves the edge to the box
+const ROW = "bbw:1 bc:border lc:bbw:0";
 
 function Rows({ rows }: { rows: ReferenceRow[] }) {
   return rows.map((row) => (
-    <tr key={row.className}>
+    <tr key={row.className} className={ROW}>
       <td className={`${CELL} w:30% c:code ws:nw`}>{row.className}</td>
       <td className={`${CELL} c:ink/70`}>{row.details.join(" ")}</td>
     </tr>
@@ -45,9 +49,8 @@ function Table({
   children: ReactNode;
 }) {
   const long = rows > LONG;
-  // a scrolling table's border sits on the box, so its edges stay in view
   const table = (
-    <table className={long ? `${TABLE} bw:0` : TABLE}>
+    <table className={long ? TABLE : `${TABLE} ${EDGE}`}>
       <thead>
         <tr>
           <th className={`${HEAD} w:30% p:st t:0 zi:10 bg:surface`}>
@@ -158,10 +161,10 @@ export function Variants({
           </h3>
           <Prose text={group.description} />
           <div className="ox:auto">
-            <table className={TABLE}>
+            <table className={`${TABLE} ${EDGE}`}>
               <tbody>
                 {group.lines.map((line) => (
-                  <tr key={line.className}>
+                  <tr key={line.className} className={ROW}>
                     <td className={`${CELL} w:30% c:code ws:nw`}>
                       {line.className}
                     </td>
