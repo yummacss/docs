@@ -1,4 +1,4 @@
-// Marks and arrows are Outline; objects are Bold Duotone. See NOTES.md, "Solar icons".
+// Marks and arrows are Outline; objects are Bold Duotone. See the notes, "Solar icons".
 export type IconStyle = "outline" | "bold-duotone";
 
 export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {

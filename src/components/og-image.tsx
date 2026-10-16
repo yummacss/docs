@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 
 // The link preview for every page: a canvas, the product's mark, and one
-// selected layer. Drawn by ImageResponse at 1200 by 630. NOTES.md, "OG images".
+// selected layer. Drawn by ImageResponse at 1200 by 630. the notes, "OG images".
 
 export type OgTheme = "light" | "dark";
 

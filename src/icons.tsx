@@ -27,7 +27,7 @@ import {
 type Props = Omit<IconProps, "weight">;
 
 // Regular weight: at 16px its 1px strokes sit on the pixel grid, where duotone's
-// fill blurs every edge. See NOTES.md, "Icons at 16px".
+// fill blurs every edge. See the notes, "Icons at 16px".
 const regular = (Glyph: Icon) => {
   const Regular = (props: Props) => <Glyph weight="regular" {...props} />;
   return Regular;
