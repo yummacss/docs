@@ -501,7 +501,8 @@ from its `@base-ui/react/*` import.
 
 **A utility page is Baseline, Reference & Variants.** All static.
 - `Reference` is one Class | CSS table holding every class of its first
-  property. Past 12 rows it scrolls in `Scroller` under a sticky header. With
+  property. Past 12 rows it scrolls in `Scroller` under a sticky header, and
+  the border moves from the table to the box so its edges stay in view. With
   `names`, a line under it names the other prefixes, each carrying the anchor
   search links to, because every multi-property page shares one scale.
 - Every row renders. Measured on Margin, all 387 rows against a condensed

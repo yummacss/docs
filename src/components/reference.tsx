@@ -44,8 +44,10 @@ function Table({
   rows: number;
   children: ReactNode;
 }) {
+  const long = rows > LONG;
+  // a scrolling table's border sits on the box, so its edges stay in view
   const table = (
-    <table className={TABLE}>
+    <table className={long ? `${TABLE} bw:0` : TABLE}>
       <thead>
         <tr>
           <th className={`${HEAD} w:30% p:st t:0 zi:10 bg:surface`}>
@@ -57,9 +59,12 @@ function Table({
       <tbody>{children}</tbody>
     </table>
   );
-  if (rows <= LONG) return <div className="ox:auto">{table}</div>;
+  if (!long) return <div className="ox:auto">{table}</div>;
   return (
-    <Scroller className="max-h:96" viewportClassName="ox:auto">
+    <Scroller
+      className="max-h:96 bc:border bw:1 bg:surface"
+      viewportClassName="ox:auto"
+    >
       {table}
     </Scroller>
   );
