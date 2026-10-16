@@ -441,7 +441,7 @@ contrast without changing the face. Docs `h1` is `fs-4xl fw-400` = 36px on 54px
 leading, loose for display type.
 
 **Every heading names its family.** `ff:display` (Esteban) on content: the MDX
-headings, the page titles, Baseline, the Reference header. `ff:system`
+headings, the page titles, the Reference header. `ff:system`
 (`system-ui`, from `theme.fonts`) on chrome: sidebar, TOC, footer, rail, the
 error pages. A heading with neither gets the body font, iA Writer Quattro.
 
@@ -498,6 +498,10 @@ string**, because the names diverge (Textarea is Field's `render={<textarea />}`
 and `base-ui.com/react/components/textarea` is a 404). Re-run the
 frontmatter-against-imports check if a new component's primitive name diverges
 from its `@base-ui/react/*` import.
+
+**Baseline is a row above the Reference table.** `baseline` in mono on a tint:
+green (`diff-add`) for widely, accent for newly, `warning` for limited. The four
+logos follow, greyed where a browser has no support.
 
 **`scripts/check-sidebar.mjs` runs before `next build`.** Every content page must
 appear in `sidebarConfig` exactly once. It parses only the `sidebarConfig`
