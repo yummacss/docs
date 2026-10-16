@@ -26,8 +26,8 @@ export default function Palette({
 }: Props) {
   return (
     <ul
-      className="d:g g:2 my:6"
-      style={{ gridTemplateColumns: "repeat(auto-fill, minmax(104px, 1fr))" }}
+      className="d:g g:4 my:8"
+      style={{ gridTemplateColumns: "repeat(auto-fill, minmax(132px, 1fr))" }}
     >
       {data.map((item) => {
         const shades = generateShades(
@@ -39,7 +39,7 @@ export default function Palette({
         return (
           <li
             key={item.name}
-            className="d:f fd:c p:1 bc:border bg:surface bw:1"
+            className="d:f fd:c p:2 bc:border bg:surface bw:1"
           >
             {shades.map((shade, index) => (
               <Shade
@@ -51,7 +51,7 @@ export default function Palette({
                 }
               />
             ))}
-            <span className="pt:2 px:1 pb:1 ff:display c:ink fs:md">
+            <span className="pt:3 px:1 pb:1 ff:display c:ink fs:lg">
               {item.name}
             </span>
           </li>
@@ -84,7 +84,7 @@ function Shade({
     <Button
       onClick={handleClick}
       aria-label={`${name}: ${hex}${copied ? ", copied" : ""}`}
-      className={`d:f ai:c jc:sb g:1 px:1 bw:0 ff:m fs:xs c:p fv:oc:ink fv:oo:2 fv:ow:2 ${base ? "h:8 fw:500" : "h:4"} ${tinycolor(shade).isLight() ? "c:black" : "c:white"}`}
+      className={`d:f ai:c jc:sb g:2 px:2 bw:0 ff:m fs:xs c:p fv:oc:ink fv:oo:2 fv:ow:2 ${base ? "h:11 fw:500" : "h:6"} ${tinycolor(shade).isLight() ? "c:black" : "c:white"}`}
       style={{ backgroundColor: shade }}
     >
       <span>{base ? "base" : label}</span>
