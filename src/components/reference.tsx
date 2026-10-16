@@ -5,6 +5,7 @@ import {
   compactRows,
   getPrefix,
   variantGroups,
+  variantsLead,
 } from "@/utils/yummacss";
 
 interface Props {
@@ -110,6 +111,24 @@ export default function Reference({ category, name, names }: Props) {
   );
 }
 
+/** A sentence with `code` in backticks, set the way the page sets inline code. */
+function Prose({ text }: { text: string }) {
+  return (
+    <p className="my:4 c:ink/80">
+      {text.split(/`([^`]+)`/).map((part, i) =>
+        i % 2 ? (
+          // biome-ignore lint/suspicious/noArrayIndexKey: the split's order is the identity
+          <code key={i} className="c:code ff:m fs:md">
+            {part}
+          </code>
+        ) : (
+          part
+        ),
+      )}
+    </p>
+  );
+}
+
 /** Every kind of variant the utility takes, a table per kind, each row a class to copy. */
 export function Variants({
   category,
@@ -120,28 +139,36 @@ export function Variants({
   name: string;
   negative?: boolean;
 }) {
-  return variantGroups(category, name, negative).map((group) => (
-    <section key={group.title}>
-      <h3
-        id={generateId(group.title)}
-        className="mt:8 mb:4 ff:display c:ink fs:xl fw:400 lh:1 smt:24"
-      >
-        {group.title}
-      </h3>
-      <div className="ox:auto">
-        <table className={TABLE}>
-          <tbody>
-            {group.lines.map((line) => (
-              <tr key={line.className}>
-                <td className={`${CELL} w:30% c:code ws:nw`}>
-                  {line.className}
-                </td>
-                <td className={`${CELL} c:ink/70 ff:body`}>{line.text}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  ));
+  const groups = variantGroups(category, name, negative);
+  if (groups.length === 0) return null;
+  return (
+    <>
+      <Prose text={variantsLead(category, name)} />
+      {groups.map((group) => (
+        <section key={group.title}>
+          <h3
+            id={generateId(group.title)}
+            className="mt:8 mb:4 ff:display c:ink fs:xl fw:400 lh:1 smt:24"
+          >
+            {group.title}
+          </h3>
+          <Prose text={group.description} />
+          <div className="ox:auto">
+            <table className={TABLE}>
+              <tbody>
+                {group.lines.map((line) => (
+                  <tr key={line.className}>
+                    <td className={`${CELL} w:30% c:code ws:nw`}>
+                      {line.className}
+                    </td>
+                    <td className={`${CELL} c:ink/70 ff:body`}>{line.text}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+    </>
+  );
 }
