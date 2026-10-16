@@ -74,7 +74,7 @@ function Chip({
       >
         <span
           aria-hidden
-          className={`d:if ai:c jc:c w:calc(1em) h:calc(1em) bg:indigo-4 c:indigo-1 ${TILE_SHAPES[shape]} ${
+          className={`d:if ai:c jc:c w:calc(1em) h:calc(1em) bg:indigo-4 c:white ${TILE_SHAPES[shape]} ${
             animated
               ? `tp:a tdu:500 ttf:out-back @st:s:30 @st:o:0 @st:ro:-20 @prm:tp:none ${DELAYS[index]}`
               : ""
