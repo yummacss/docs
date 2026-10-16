@@ -17,6 +17,7 @@ import {
   type Category,
   categoryGetters,
   variantGroups,
+  variantsLead,
 } from "@/utils/yummacss";
 
 export type RegistryResolver = (registryId: string) => string | null;
@@ -278,11 +279,14 @@ function component(
     const negative = node.attributes.some(
       (attr) => attr.type === "mdxJsxAttribute" && attr.name === "negative",
     );
-    return markdown(
-      variantGroups(a.category as Category, a.name, negative).flatMap(
-        (group, index) => [
-          ...(index ? [""] : []),
+    return markdown([
+      variantsLead(a.category as Category, a.name),
+      ...variantGroups(a.category as Category, a.name, negative).flatMap(
+        (group) => [
+          "",
           `### ${group.title}`,
+          "",
+          group.description,
           "",
           "| Class | Applies |",
           "|-------|---------|",
@@ -291,7 +295,7 @@ function component(
           ),
         ],
       ),
-    );
+    ]);
   }
 
   const registryId =

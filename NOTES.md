@@ -508,7 +508,9 @@ from its `@base-ui/react/*` import.
 - `<Variants>` is a table per kind of variant, each under its own `h3`, so
   the TOC lists them, and every variant the data has is a row: breakpoints,
   containers, other media, states (the common ones first), pseudo-elements,
-  opacity where it exists. `negative` is a prop because the data allows a
+  opacity where it exists. Each heading has one sentence under it, written
+  in `variantGroups`, & the section opens with `variantsLead`, whose example
+  is the page's own class. `negative` is a prop because the data allows a
   minus on any numeric scale, and only some utilities document one.
 - The `.md` twin keeps every class: a full table per property.
 

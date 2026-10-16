@@ -380,6 +380,8 @@ export function compactRows(category: Category, name: string): CompactRow[] {
 
 export interface VariantGroup {
   title: string;
+  /** One sentence under the heading; `code` in backticks. */
+  description: string;
   lines: { className: string; text: string }[];
 }
 
@@ -397,6 +399,10 @@ const COMMON_STATES = ["h", "f", "fv", "a", "d", "fc"];
 const sentence = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 
 /** Every kind of variant the utility takes, each with classes to copy. */
+/** The lead under a page's Variants heading, its example built from the utility. */
+export const variantsLead = (category: Category, name: string) =>
+  `Prefix any class with a variant to apply it only under that condition. Variants stack, as in \`@md:h:${exampleClass(category, name)}\`.`;
+
 export function variantGroups(
   category: Category,
   name: string,
@@ -423,6 +429,8 @@ export function variantGroups(
   if (widths.length) {
     out.push({
       title: "Breakpoints",
+      description:
+        "Apply a class from a viewport width up. Each breakpoint covers its width & every width above it.",
       lines: widths.map((e) => ({
         className: `@${e.prefix}:${base}`,
         text: `From ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
@@ -434,6 +442,8 @@ export function variantGroups(
   if (containers.length) {
     out.push({
       title: "Containers",
+      description:
+        "Apply a class from a container's width up, not the viewport's. Mark the parent with `ct:is` first.",
       lines: containers.map((e) => ({
         className: `@${e.prefix}:${base}`,
         text: `Container from ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
@@ -447,6 +457,8 @@ export function variantGroups(
   if (other.length) {
     out.push({
       title: "Media",
+      description:
+        "Apply a class when the device or the page matches a condition, or on the first frame an element renders.",
       lines: other.map((e) => ({
         className: `@${e.prefix}:${base}`,
         text: MEDIA_TEXT[e.prefix] ?? `${e.value}.`,
@@ -462,6 +474,8 @@ export function variantGroups(
     );
     out.push({
       title: "States",
+      description:
+        "Apply a class only while the element is in a state, such as hovered, focused or checked.",
       lines: [...first, ...states.filter((e) => !first.includes(e))].map(
         (e) => ({ className: `${e.prefix}:${base}`, text: `On ${e.value}.` }),
       ),
@@ -471,6 +485,8 @@ export function variantGroups(
   if (v.pseudoElements?.length) {
     out.push({
       title: "Pseudo Elements",
+      description:
+        "Style a part of the element rather than the element itself, such as its placeholder or the selected text.",
       lines: v.pseudoElements.map((e) => ({
         className: `${e.prefix}::${base}`,
         text: `On ${e.value.replace(/^:+/, "::")}.`,
@@ -483,6 +499,7 @@ export function variantGroups(
     const steps = v.opacity.map((e) => Number(e.prefix));
     out.push({
       title: "Opacity",
+      description: "Add a slash & a step after a color to set its opacity.",
       lines: [
         {
           className: `${base}/${half.prefix}`,
@@ -501,6 +518,7 @@ export function variantGroups(
     const key = PREFERRED.find((k) => k in util.values) ?? numeric;
     out.push({
       title: "Negative",
+      description: "Put a minus after the colon to negate a value.",
       lines: [
         {
           className: `${util.prefix}:-${key}`,
