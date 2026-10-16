@@ -4,7 +4,7 @@ import {
   type CompactRow,
   compactRows,
   getPrefix,
-  variantLines,
+  variantGroups,
 } from "@/utils/yummacss";
 
 interface Props {
@@ -32,7 +32,7 @@ function Rows({ rows, prefix }: { rows: CompactRow[]; prefix?: string }) {
       </tr>
     ) : (
       <tr key={row.className}>
-        <td className={`${CELL} c:code ws:nw`}>
+        <td className={`${CELL} w:30% c:code ws:nw`}>
           {prefix === undefined
             ? row.className
             : row.className.slice(prefix.length + 1) || row.className}
@@ -59,7 +59,7 @@ export default function Reference({ category, name, names }: Props) {
         <table className={TABLE}>
           <thead>
             <tr>
-              <th className={HEAD}>Class</th>
+              <th className={`${HEAD} w:30%`}>Class</th>
               <th className={HEAD}>CSS</th>
             </tr>
           </thead>
@@ -77,14 +77,16 @@ export default function Reference({ category, name, names }: Props) {
         <table className={TABLE}>
           <thead>
             <tr>
-              <th className={HEAD}>Prefix</th>
+              <th className={`${HEAD} w:30%`}>Prefix</th>
               <th className={HEAD}>Property</th>
             </tr>
           </thead>
           <tbody>
             {all.map((n) => (
               <tr key={n} id={generateId(n)} className="smt:24">
-                <td className={`${CELL} c:code`}>{getPrefix(category, n)}</td>
+                <td className={`${CELL} w:30% c:code`}>
+                  {getPrefix(category, n)}
+                </td>
                 <td className={`${CELL} c:ink/70`}>{n}</td>
               </tr>
             ))}
@@ -95,7 +97,7 @@ export default function Reference({ category, name, names }: Props) {
         <table className={TABLE}>
           <thead>
             <tr>
-              <th className={HEAD}>Value</th>
+              <th className={`${HEAD} w:30%`}>Value</th>
               <th className={HEAD}>CSS</th>
             </tr>
           </thead>
@@ -108,7 +110,7 @@ export default function Reference({ category, name, names }: Props) {
   );
 }
 
-/** A class to copy for each kind of variant the utility takes. */
+/** Every kind of variant the utility takes, a table per kind, each row a class to copy. */
 export function Variants({
   category,
   name,
@@ -118,20 +120,28 @@ export function Variants({
   name: string;
   negative?: boolean;
 }) {
-  const lines = variantLines(category, name, negative);
-  if (lines.length === 0) return null;
-  return (
-    <div className="ox:auto my:6">
-      <table className={TABLE}>
-        <tbody>
-          {lines.map((line) => (
-            <tr key={line.className}>
-              <td className={`${CELL} c:code ws:nw`}>{line.className}</td>
-              <td className={`${CELL} c:ink/70 ff:body`}>{line.text}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  return variantGroups(category, name, negative).map((group) => (
+    <section key={group.title}>
+      <h3
+        id={generateId(group.title)}
+        className="mt:8 mb:4 ff:display c:ink fs:xl fw:400 lh:1 smt:24"
+      >
+        {group.title}
+      </h3>
+      <div className="ox:auto">
+        <table className={TABLE}>
+          <tbody>
+            {group.lines.map((line) => (
+              <tr key={line.className}>
+                <td className={`${CELL} w:30% c:code ws:nw`}>
+                  {line.className}
+                </td>
+                <td className={`${CELL} c:ink/70 ff:body`}>{line.text}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ));
 }
