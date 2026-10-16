@@ -31,10 +31,10 @@ It adds what the component does not set, like the width above, and overrides wha
 
 Components pass your classes through [`merge`](/docs/class-merge), which drops the class yours replaces, so `c:accent` wins over the component's `c:white`.
 
-<Hint icon="info">
+<Note>
   A prop still beats `className`: it is checked, and it survives an edit to
   the component's own classes.
-</Hint>
+</Note>
 
 ## Using Focus Outline
 
@@ -54,10 +54,10 @@ Set the color, width & offset with `fv:oc:*`, `fv:ow:*` & `fv:oo:*`. It reaches 
 </Button>
 ```
 
-<Hint icon="warning">
+<Warning>
   `focus={false}` alone leaves nothing marking where the keyboard is, which
   fails WCAG 2.4.7. Put something back.
-</Hint>
+</Warning>
 
 ## Own Your Components
 

@@ -7,10 +7,6 @@ description: "Use pseudo classes to style elements."
 
 Represents an element activated by the user (e.g., clicking a button).
 
-<Hint icon="cursor_click">
-  Try clicking & holding the button to see the active state.
-</Hint>
-
 ```tsx "a:bg:indigo-7"
 <button className="… a:bg:indigo-7">
   Press me
@@ -20,11 +16,6 @@ Represents an element activated by the user (e.g., clicking a button).
 ## Focus
 
 Represents an element that received focus via click, tap, or the **Tab** key.
-
-<Hint icon="cursor_click">
-  Try clicking on the input field to see how the border color & outline
-  change.
-</Hint>
 
 ```tsx "f:oc:indigo-4" "f:oo:2" "f:os:s" "f:ow:2"
 <button className="… f:oc:indigo-4 f:oo:2 f:os:s f:ow:2">
@@ -36,10 +27,6 @@ Represents an element that received focus via click, tap, or the **Tab** key.
 
 Matches an element when the user interacts with it using a pointing device.
 
-<Hint icon="hand_pointing">
-  Try hovering over the button to see how the background color changes.
-</Hint>
-
 ```tsx "h:bg:indigo-7"
 <button className="… h:bg:indigo-7">
   Hover me
@@ -50,10 +37,6 @@ Matches an element when the user interacts with it using a pointing device.
 
 Triggers when an element matches `:focus` & the browser determines focus should be evident.
 
-<Hint icon="keyboard">
-  Try using Tab to focus the button with your keyboard.
-</Hint>
-
 ```tsx "fv:ow:2" "fv:oc:indigo-2"
 <button className="… fv:ow:2 fv:oc:indigo-2">
   Focus me
@@ -63,10 +46,6 @@ Triggers when an element matches `:focus` & the browser determines focus should 
 ## Focus Within
 
 Matches an element if the element or any of its descendants are focused.
-
-<Hint icon="cursor_click">
-  Try clicking on the input field to see the container's border change.
-</Hint>
 
 ```tsx "fw:oc:indigo-6"
 <div className="… fw:oc:indigo-6">
@@ -88,11 +67,6 @@ Represents radio, checkbox, or option elements toggled to an "on" state.
 ## Disabled
 
 Represents disabled elements that cannot be activated or receive focus.
-
-<Hint icon="cursor">
-  Elements with the `disabled` attribute use `cursor: not-allowed` by default in
-  [Normalize](/docs/normalize).
-</Hint>
 
 ```tsx "d:bg:silver-4" "d:c:silver-9"
 <button className="… d:bg:silver-4 d:c:silver-9" disabled>

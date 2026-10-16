@@ -19,6 +19,15 @@ export type RegistryResolver = (registryId: string) => string | null;
 
 export type MetaResolver = (registryId: string) => RegistryMeta | null;
 
+// Note & Warning, and the Admonition the ::: directives become
+const CALLOUTS: Record<string, string> = {
+  Note: "note",
+  Warning: "warning",
+};
+const LABELS: Record<string, string> = {
+  note: "Note",
+  warning: "Warning",
+};
 function buildPropsTable(meta: RegistryMeta): string[] {
   if (!meta.props?.length) return [];
 
@@ -266,9 +275,17 @@ function component(
     );
   }
   if (name === "Step" && a.title) return [title(a.title), ...children];
-  if (name === "Hint") {
+  const callout =
+    CALLOUTS[name] ?? (name === "Admonition" ? a.kind : undefined);
+  if (callout) {
+    const label = a.title ?? LABELS[callout] ?? "Note";
     return children.length
-      ? [{ type: "blockquote", children } as RootContent]
+      ? [
+          {
+            type: "blockquote",
+            children: [...markdown([`**${label}**`]), ...children],
+          } as RootContent,
+        ]
       : [];
   }
   if (name === "a" && a.href) {
