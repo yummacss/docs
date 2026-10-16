@@ -312,5 +312,9 @@ export const sidebarConfig = {
       title: "Application UI",
       items: ["empty-state", "onboarding", "rating", "skeleton"],
     },
+    {
+      title: "Blocks",
+      items: ["inline-icon-heading"],
+    },
   ] satisfies SidebarSection[],
 };
