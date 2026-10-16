@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 
-const KINDS = new Set(["note", "warning", "success"]);
+const KINDS = new Set(["note", "warning"]);
 
 export default function remarkAdmonition() {
   return (tree) => {

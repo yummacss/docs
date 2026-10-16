@@ -12,26 +12,17 @@ import {
   CheckIcon,
   CopyIcon,
   CubeIcon,
-  CursorClickIcon,
-  CursorTextIcon,
+  DiamondIcon,
   FileIcon,
   FileMdIcon,
   FolderIcon,
-  HandPointingIcon,
-  HeartIcon,
-  InfoIcon,
-  KeyboardIcon,
   MagnifyingGlassIcon,
-  MouseLeftClickIcon,
-  MouseRightClickIcon,
-  MouseScrollIcon,
   PlusIcon,
-  ResizeIcon,
-  RulerIcon,
   SignOutIcon,
   SlidersHorizontalIcon,
   SparkleIcon,
   TerminalWindowIcon,
+  TextTIcon,
   TwitterLogoIcon,
   WarningIcon,
 } from "@phosphor-icons/react/ssr";
@@ -50,32 +41,23 @@ export const Check = regular(CheckIcon);
 export const CheckCircle = regular(CheckCircleIcon);
 export const ComponentSolid = regular(CubeIcon);
 export const Copy = regular(CopyIcon);
-export const CursorPointer = regular(CursorClickIcon);
+export const Diamond = regular(DiamondIcon);
 export const FileMd = regular(FileMdIcon);
 export const Folder = regular(FolderIcon);
-export const Heart = regular(HeartIcon);
-export const InfoCircle = regular(InfoIcon);
-export const InputField = regular(CursorTextIcon);
 export const LogOut = regular(SignOutIcon);
 export const LongArrowDownLeftSolid = regular(ArrowElbowDownLeftIcon);
-export const MouseButtonLeft = regular(MouseLeftClickIcon);
-export const MouseButtonRight = regular(MouseRightClickIcon);
-export const MouseScrollWheel = regular(MouseScrollIcon);
 export const NavArrowDown = regular(CaretDownIcon);
 export const NavArrowLeft = regular(CaretLeftIcon);
 export const NavArrowRight = regular(CaretRightIcon);
 export const NavArrowUp = regular(CaretUpIcon);
 export const OpenBook = regular(BookOpenIcon);
-export const OpenSelectHandGesture = regular(HandPointingIcon);
 export const Page = regular(FileIcon);
 export const Plus = regular(PlusIcon);
-export const Ruler = regular(RulerIcon);
-export const RulerCombine = regular(ResizeIcon);
 export const Search = regular(MagnifyingGlassIcon);
 export const Sliders = regular(SlidersHorizontalIcon);
 export const Sparks = regular(SparkleIcon);
-export const StyleBorderSolid = regular(KeyboardIcon);
 export const Terminal = regular(TerminalWindowIcon);
+export const TextLayer = regular(TextTIcon);
 export const Twitter = regular(TwitterLogoIcon);
 export const Undo = regular(ArrowCounterClockwiseIcon);
 export const WarningTriangle = regular(WarningIcon);

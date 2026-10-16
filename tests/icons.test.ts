@@ -69,7 +69,7 @@ describe("icons", () => {
     }
 
     expect([...wanted].filter((name) => !names.has(name))).toEqual([]);
-    expect(wanted.size).toBeGreaterThan(20);
+    expect(wanted.size).toBeGreaterThan(15);
   });
 
   it("gives each Solar icon one style within a file", () => {

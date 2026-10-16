@@ -34,9 +34,9 @@ export default defineConfig({
 
 The files to scan for classes.
 
-<Hint icon="info">
+<Note>
   Use glob patterns to include subfolders & specific file types.
-</Hint>
+</Note>
 
 ```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
@@ -50,10 +50,10 @@ export default defineConfig({
 
 Specifies the output path for the compiled CSS file.
 
-<Hint icon="info">
+<Note>
   Only the CLI uses `output`. The bundler plugins ignore it & inject the
   generated CSS through the `@yummacss;` marker instead.
-</Hint>
+</Note>
 
 ```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
@@ -83,9 +83,9 @@ Extends or overrides default design tokens.
 
 Add color families. Each gets shades `1` to `12` unless you write them out.
 
-<Hint icon="info">
+<Note>
   Use `percentage` to control how much the shade is lightened or darkened.
-</Hint>
+</Note>
 
 ```mjs title="yumma.config.mjs" mark={4-12}
 import { defineConfig } from "yummacss";
@@ -117,10 +117,10 @@ export default defineConfig({
 });
 ```
 
-<Hint icon="info">
+<Note>
   One paired color sets `color-scheme: light dark` on `:root`, so the page
   follows the system. [Color Scheme](/docs/color-scheme) overrides it.
-</Hint>
+</Note>
 
 #### Screens
 
@@ -211,10 +211,10 @@ export default defineConfig({
 
 Classes to generate even when no file contains them, such as one built at runtime.
 
-<Hint icon="info">
+<Note>
   The scanner cannot see a class built at runtime, such as
   `` `d:${display}` ``, so list it here.
-</Hint>
+</Note>
 
 ```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
@@ -256,10 +256,10 @@ Running the `build` or `watch` command generates the following CSS:
 
 The Yumma CSS CLI provides commands to manage your project.
 
-<Hint icon="info">
+<Note>
   Create a `yumma.config.mjs` file before running these commands. If there is
   none, run `yummacss init`.
-</Hint>
+</Note>
 
 ### Build
 
