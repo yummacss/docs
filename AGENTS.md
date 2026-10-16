@@ -133,8 +133,8 @@ is written.
   positioning lives on a wrapper; and every box down to the viewport needs
   `f-1 min-h-0`, because a viewport on `h-100%` under a `max-height` parent
   grows to its content and never scrolls.
-- The scrollbar fades with `hovering:` and `scrolling:`, two states in
-  `yumma.config.mjs`.
+- The scrollbar is 12px and square, sits above sticky headers (`zi:20`), and
+  fades with `hovering:` and `scrolling:`, two states in `yumma.config.mjs`.
 - Site icons come from `src/icons.tsx`, Phosphor regular. Duotone blurs at
   16px; NOTES.md, "Icons at 16px", has the measurements.
 

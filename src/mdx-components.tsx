@@ -14,7 +14,7 @@ import {
 } from "@/components/icons/icons";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
-import Reference from "@/components/reference";
+import Reference, { Variants } from "@/components/reference";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import Code from "@/components/ui/code-block";
@@ -87,6 +87,7 @@ const components: MDXComponents = {
   Palette,
   Preview,
   Reference,
+  Variants,
   Step,
   Stepper,
   Tabs,
