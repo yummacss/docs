@@ -3,8 +3,7 @@
 import { Button } from "@base-ui/react";
 import { useState } from "react";
 import tinycolor from "tinycolor2";
-import { Check } from "@/icons";
-import { generateShades, getBorderColor, SHADE_LABELS } from "@/utils/colors";
+import { generateShades, SHADE_LABELS } from "@/utils/colors";
 
 interface ColorItem {
   name: string;
@@ -18,6 +17,7 @@ interface Props {
   blackPercentage?: number;
 }
 
+/** One paint chip per family: each shade prints its number & hex, Base twice as tall. */
 export default function Palette({
   data,
   scale = SHADE_LABELS,
@@ -25,74 +25,57 @@ export default function Palette({
   blackPercentage = 14,
 }: Props) {
   return (
-    <div className="d:f fd:c g:1">
-      <div className="d:none @lg:d:f fd:c g:1 @md:fd:r @md:ai:c">
-        <div className="d:f ai:c ws:nw ta:c @md:w:24 @md:min-w:24 @md:mr:2" />
-        <div
-          className="d:g g:1 f:1 my:2 w:100%"
-          style={{
-            gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
-          }}
-        >
-          {scale.map((label) => (
-            <div key={`header-${label}`} className="d:f ai:c jc:c c:ink fs:sm">
-              {label}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {data.map((colorItem) => {
+    <ul
+      className="d:g g:2 my:6"
+      style={{ gridTemplateColumns: "repeat(auto-fill, minmax(104px, 1fr))" }}
+    >
+      {data.map((item) => {
         const shades = generateShades(
-          colorItem.color,
+          item.color,
           whitePercentage,
           blackPercentage,
         );
+        const family = item.name.toLowerCase();
         return (
-          <div
-            key={colorItem.name}
-            className="d:f fd:c g:1 ai:c @md:ai:c @md:fd:r"
+          <li
+            key={item.name}
+            className="d:f fd:c p:1 bc:border bg:surface bw:1"
           >
-            <p className="d:f ai:c c:ink ws:nw o:h fs:sm @md:w:24 @md:min-w:24 @md:mr:2">
-              {colorItem.name}
-            </p>
-            <div
-              className="d:g g:1 f:1 w:100%"
-              style={{
-                gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
-              }}
-            >
-              {shades.map((shade, index) => (
-                <ColorSwatch
-                  key={`${colorItem.name}-${scale[index]}`}
-                  name={colorItem.name}
-                  shade={shade}
-                  label={scale[index]}
-                />
-              ))}
-            </div>
-          </div>
+            {shades.map((shade, index) => (
+              <Shade
+                key={scale[index]}
+                shade={shade}
+                label={scale[index]}
+                name={
+                  scale[index] === "Base" ? family : `${family}-${scale[index]}`
+                }
+              />
+            ))}
+            <span className="pt:2 px:1 pb:1 ff:display c:ink fs:md">
+              {item.name}
+            </span>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-function ColorSwatch({
-  name,
+function Shade({
   shade,
   label,
+  name,
 }: {
-  name: string;
   shade: string;
   label: string;
+  name: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const hex = tinycolor(shade).toHexString().toUpperCase();
+  const base = label === "Base";
 
   const handleClick = async () => {
-    await navigator.clipboard.writeText(
-      tinycolor(shade).toHexString().toUpperCase(),
-    );
+    await navigator.clipboard.writeText(hex);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -100,16 +83,12 @@ function ColorSwatch({
   return (
     <Button
       onClick={handleClick}
-      aria-label={`${name} ${label}: ${shade}${copied ? ", copied" : ""}`}
-      className="d:f ai:c jc:c w:100% ar:1/1 p:0 c:p fv:oc:ink fv:oo:2 fv:ow:2"
-      style={{ backgroundColor: shade, border: getBorderColor(shade) }}
+      aria-label={`${name}: ${hex}${copied ? ", copied" : ""}`}
+      className={`d:f ai:c jc:sb g:1 px:1 bw:0 ff:m fs:xs c:p fv:oc:ink fv:oo:2 fv:ow:2 ${base ? "h:8 fw:500" : "h:4"} ${tinycolor(shade).isLight() ? "c:black" : "c:white"}`}
+      style={{ backgroundColor: shade }}
     >
-      {copied && (
-        <Check
-          aria-hidden
-          className={`w:4 h:4 ${tinycolor(shade).isLight() ? "c:black" : "c:white"}`}
-        />
-      )}
+      <span>{base ? "base" : label}</span>
+      <span>{copied ? "Copied" : hex.slice(1)}</span>
     </Button>
   );
 }

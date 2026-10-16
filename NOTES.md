@@ -521,6 +521,10 @@ props tables, registry source) goes into the tree as a raw node, as written.
 Parsing a built table only to print it back cost about a second on `margin`.
 A `<Palette data={...}>` renders the colors it lists, not the current palette.
 
+**Palette is one paint chip per family.** Each shade is a button printing its
+number & hex, Base twice as tall, and a click copies the hex. Text on a shade
+is `c:black` or `c:white` by `tinycolor().isLight()`.
+
 **Tests:** `tests/copywriting.test.ts` bans em dashes, contractions, first
 person, trailing whitespace, and British spelling; headings are
 Title Case; descriptions are one sentence, 120 chars max, ending in punctuation.
