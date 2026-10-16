@@ -378,27 +378,30 @@ export function compactRows(category: Category, name: string): CompactRow[] {
   return collapseShades(data.rows, prefix) ?? collapseRuns(data.rows, prefix);
 }
 
-export interface VariantLine {
-  className: string;
-  text: string;
+export interface VariantGroup {
+  title: string;
+  lines: { className: string; text: string }[];
 }
 
 const pick = <T extends { prefix: string }>(entries: T[], want: string) =>
-  entries.find((e) => e.prefix === want) ?? entries[0];
+  entries.find((e) => e.prefix === want) ?? (entries[0] as T);
 
-const others = (prefixes: string[], shown = 2) =>
-  prefixes.length <= shown + 1
-    ? `${prefixes.slice(0, -1).join(", ")}${prefixes.length > 1 ? " & " : ""}${prefixes.at(-1) ?? ""}`
-    : `${prefixes.slice(0, shown).join(", ")} & ${prefixes.length - shown} more`;
+const MEDIA_TEXT: Record<string, string> = {
+  pc: "On a touch screen.",
+  prm: "With reduced motion on.",
+  st: "On the first frame.",
+};
 
-const COMMON = ["f", "fv", "a", "d"];
+const COMMON_STATES = ["h", "f", "fv", "a", "d", "fc"];
 
-/** One line per kind of variant the utility takes, each with a class to copy. */
-export function variantLines(
+const sentence = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+/** Every kind of variant the utility takes, each with classes to copy. */
+export function variantGroups(
   category: Category,
   name: string,
   negative = false,
-): VariantLine[] {
+): VariantGroup[] {
   let util:
     | { prefix: string; values: Record<string, string>; variants?: Variants }
     | undefined;
@@ -411,52 +414,83 @@ export function variantLines(
 
   const base = exampleClass(category, name);
   const v = util.variants ?? {};
-  const out: VariantLine[] = [];
+  const media = v.mediaQueries ?? [];
+  const out: VariantGroup[] = [];
 
-  const widths = (v.mediaQueries ?? []).filter(
+  const widths = media.filter(
     (e) => /min-width/.test(e.value) && !e.prefix.startsWith("c:"),
   );
   if (widths.length) {
-    const md = pick(widths, "md");
-    const width = md.value.match(/min-width: ([^)]+)/)?.[1];
-    const rest = [
-      ...widths.filter((e) => e !== md),
-      ...(v.mediaQueries ?? []).filter((e) => !widths.includes(e)),
-    ].map((e) => `@${e.prefix}`);
     out.push({
-      className: `@${md.prefix}:${base}`,
-      text: `From ${width} up. Also ${others(rest)}.`,
+      title: "Breakpoints",
+      lines: widths.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: `From ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
+      })),
     });
   }
 
-  if (v.pseudoClasses?.length) {
-    const h = pick(v.pseudoClasses, "h");
-    const rest = [
-      ...COMMON.flatMap(
-        (c) => v.pseudoClasses?.filter((e) => e.prefix === c) ?? [],
-      ),
-      ...v.pseudoClasses.filter((e) => e !== h && !COMMON.includes(e.prefix)),
-    ].map((e) => `${e.prefix}:`);
+  const containers = media.filter((e) => e.prefix.startsWith("c:"));
+  if (containers.length) {
     out.push({
-      className: `${h.prefix}:${base}`,
-      text: `On ${h.value.replace(/^:/, "")}. Also ${others(rest)}.`,
+      title: "Containers",
+      lines: containers.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: `Container from ${e.value.match(/min-width: ([^)]+)/)?.[1]} up.`,
+      })),
+    });
+  }
+
+  const other = media.filter(
+    (e) => !widths.includes(e) && !containers.includes(e),
+  );
+  if (other.length) {
+    out.push({
+      title: "Media",
+      lines: other.map((e) => ({
+        className: `@${e.prefix}:${base}`,
+        text: MEDIA_TEXT[e.prefix] ?? `${e.value}.`,
+      })),
+    });
+  }
+
+  const states = v.pseudoClasses ?? [];
+  if (states.length) {
+    // the common ones first, then the rest in the generator's order
+    const first = COMMON_STATES.flatMap((c) =>
+      states.filter((e) => e.prefix === c),
+    );
+    out.push({
+      title: "States",
+      lines: [...first, ...states.filter((e) => !first.includes(e))].map(
+        (e) => ({ className: `${e.prefix}:${base}`, text: `On ${e.value}.` }),
+      ),
     });
   }
 
   if (v.pseudoElements?.length) {
-    const first = v.pseudoElements[0];
-    const rest = v.pseudoElements.slice(1).map((e) => `${e.prefix}::`);
     out.push({
-      className: `${first.prefix}::${base}`,
-      text: `On ${first.value.replace(/^:+/, "::")}.${rest.length ? ` Also ${others(rest)}.` : ""}`,
+      title: "Pseudo Elements",
+      lines: v.pseudoElements.map((e) => ({
+        className: `${e.prefix}::${base}`,
+        text: `On ${e.value.replace(/^:+/, "::")}.`,
+      })),
     });
   }
 
   if (v.opacity?.length) {
     const half = pick(v.opacity, "50");
+    const steps = v.opacity.map((e) => Number(e.prefix));
     out.push({
-      className: `${base}/${half.prefix}`,
-      text: `At ${half.value} opacity, in ${v.opacity.length} steps.`,
+      title: "Opacity",
+      lines: [
+        {
+          className: `${base}/${half.prefix}`,
+          text: sentence(
+            `at ${half.value} opacity, in steps of ${steps[1] - steps[0]}.`,
+          ),
+        },
+      ],
     });
   }
 
@@ -466,8 +500,13 @@ export function variantLines(
   if (negative && numeric) {
     const key = PREFERRED.find((k) => k in util.values) ?? numeric;
     out.push({
-      className: `${util.prefix}:-${key}`,
-      text: "Negative, a minus after the colon.",
+      title: "Negative",
+      lines: [
+        {
+          className: `${util.prefix}:-${key}`,
+          text: "A minus after the colon.",
+        },
+      ],
     });
   }
 

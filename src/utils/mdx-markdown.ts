@@ -13,7 +13,11 @@ import { BRAND_COLORS, type BrandProduct, brandFiles } from "@/utils/brand";
 import { COLOR_FAMILIES, SHADE_LABELS } from "@/utils/colors";
 import { targetPath } from "@/utils/install.mjs";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
-import { type Category, categoryGetters, variantLines } from "@/utils/yummacss";
+import {
+  type Category,
+  categoryGetters,
+  variantGroups,
+} from "@/utils/yummacss";
 
 export type RegistryResolver = (registryId: string) => string | null;
 
@@ -274,13 +278,20 @@ function component(
     const negative = node.attributes.some(
       (attr) => attr.type === "mdxJsxAttribute" && attr.name === "negative",
     );
-    return markdown([
-      "| Class | Variant |",
-      "|-------|---------|",
-      ...variantLines(a.category as Category, a.name, negative).map(
-        (line) => `| \`${line.className}\` | ${line.text} |`,
+    return markdown(
+      variantGroups(a.category as Category, a.name, negative).flatMap(
+        (group, index) => [
+          ...(index ? [""] : []),
+          `### ${group.title}`,
+          "",
+          "| Class | Applies |",
+          "|-------|---------|",
+          ...group.lines.map(
+            (line) => `| \`${line.className}\` | ${line.text} |`,
+          ),
+        ],
       ),
-    ]);
+    );
   }
 
   const registryId =

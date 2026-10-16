@@ -505,9 +505,11 @@ from its `@base-ui/react/*` import.
   shares one scale. Each prefix row carries the anchor search links to.
 - `compactRows` writes a scale once. An even run of 12 or more keeps five rows,
   a "one step per" note & the last. Color shades fold behind their base.
-- `<Variants>` is one example row per kind of variant, from the data.
-  `negative` is a prop because the data allows a minus on any numeric scale,
-  and only some utilities document one.
+- `<Variants>` is a table per kind of variant, each under its own `h3`, so
+  the TOC lists them, and every variant the data has is a row: breakpoints,
+  containers, other media, states (the common ones first), pseudo-elements,
+  opacity where it exists. `negative` is a prop because the data allows a
+  minus on any numeric scale, and only some utilities document one.
 - The `.md` twin keeps every class: a full table per property.
 
 **Baseline is a row above the Reference table.** `baseline` in mono on a tint:
