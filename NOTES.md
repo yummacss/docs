@@ -52,7 +52,7 @@ Everything open that `TODO.md` does not hold. Delete a line when it is done.
   it.
 - Styles phase five: Minimal's filled fields and Elegant's serif.
 
-**Waiting on Renildo**
+**Waiting on a decision**
 
 - Bounded or unbounded scale (see "The 0-384 scale").
 - Branch cleanup, on GitHub, since a cloud session cannot delete branches:
@@ -86,7 +86,7 @@ rebuild the `/ui` playground" ruling**, which was written after a Dimsum-style
 stage was built and reverted the same day. The old objection was that a gallery
 should show 27 finished previews in one flick rather than ask the reader to
 operate one control panel. What changed: the playground is now the *page*, not a
-replacement for the gallery, and Renildo asked for it directly. Do not resurrect
+replacement for the gallery, and it was asked for directly. Do not resurrect
 the revert note; do not re-propose the reverted design either.
 
 Everything lives under `src/components/playground/` unless noted.
@@ -145,7 +145,7 @@ and the cause is the art, not where the icon lands.
 Each of these was asked for explicitly and at least one was lost once in a merge
 and had to be restored.
 
-- **Look, then the Component API**, Renildo's pick from the rail rework
+- **Look, then the Component API**, picked from the rail rework
   mockups, round 2, option 3 (2026-09-27). Look is three rows that read like
   props: a select, a stepper that stops at the style's range, and a select
   whose options are three shades (light, base, dark) of each family. The
@@ -204,9 +204,8 @@ example files stay the site's own.
 things in `docs` need those files on disk: the `yumma.config.mjs` source glob
 (CSS generation), `src/registry/index.ts`'s dynamic import map (bundling),
 `rehype-registry.mjs`, both generators, and `tests/classes.test.ts`. Moving the
-registry to `ui` optimises for the consumer that does not need it. shadcn keeps
-its registry in the docs site with the CLI separate over HTTP, which is the shape
-we already have. **If one repo is ever wanted, bring the CLI into `docs` as a
+registry to `ui` optimises for the consumer that does not need it. A registry in
+the docs site with the CLI separate over HTTP is the shape we already have. **If one repo is ever wanted, bring the CLI into `docs` as a
 package; never move the registry out.**
 
 **Yumma UI must never ship CSS.** Components are styled with utilities the
@@ -354,7 +353,7 @@ package at `3.31.1` with its own. The registry is neither: `yummaui add` writes
 a file into your repo and never touches it again, so there is no installed
 version to compare against and nothing to publish an upgrade to.
 
-**No Yumma UI `1.0`, and no changelog for the registry.** Renildo's call,
+**No Yumma UI `1.0`, and no changelog for the registry.** Decided
 2026-09-14. A `1.0` would be a version number on the CLI, which is the part that
 barely changes - almost everything lands in the registry, 110 commits against
 `src/registry` including four global prop renames, and the CLI's version says
@@ -451,7 +450,7 @@ headings, the page titles. `ff:system`
 (`system-ui`, from `theme.fonts`) on chrome: sidebar, TOC, footer, rail, the
 error pages. A heading with neither gets the body font, iA Writer Quattro.
 
-**pnpm only.** Renildo's call, 2026-08-31, replacing the old two-tab rule:
+**pnpm only.** Decided 2026-08-31, replacing the old two-tab rule:
 every install or CLI command is a plain fence with the pnpm form, no
 `<CodeGroup>` and no `title="pnpm"` label - a single tab labels nothing. `pnpm
 add X -D`, `pnpm dlx X`.
@@ -479,7 +478,7 @@ Corollaries: **base demos show range, not minimum** (Rating's base should pass
 `count` even though 5 is the default), and icon *placement* is spatial, so icon
 examples stay.
 
-**How the API table is actually read**, from watching a real user: scan the
+**How the API table is actually read**: scan the
 **Prop** column for the name, then conditionally read **Type** for that one row.
 Not top to bottom, not every column. This validates the existing
 `Prop | Type | Default | Description` order rather than asking for a change.
@@ -562,7 +561,7 @@ The expensive ones, in rough order of how much time they have cost.
 `ml:-4`, and `m--4` is refused by 4.x. Fixed 2026-09-26, with the utilities that
 take a negative listed from `acceptsNegative` and a line on what is refused.
 
-**Docs pages compared with past versions.** Renildo's rule, 2026-09-26: the
+**Docs pages compared with past versions.** The rule, 2026-09-26: the
 docs document the latest version only, so no page says what used to be true.
 A sweep found five: Naming Convention (`tt-n` & `tl-a`), CDN (the runtime
 rename), UI Customization (what `c:accent` used to do), Lint ("older
@@ -908,8 +907,7 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 - **The editor extensions.** `intellisense` and `intellisense-zed` are deleted:
   repos gone, unpublished from the VS Code Marketplace and Open VSX, and the Zed
   marketplace PR (#6731, open since 2026-07-22) withdrawn. The 18k VSIX installs
-  were read as bots, the same way the npm download counts are; the only real user
-  was Renildo. **Do not re-propose an editor extension, and do not treat the
+  were read as bots, the same way the npm download counts are. **Do not re-propose an editor extension, and do not treat the
   download numbers as evidence of an audience.** Two live consequences: v4 no
   longer has to migrate any class-detection pattern to `d:f`, and the
   `yummacss.com/docs/${util.slug}` hover links no longer have a consumer - core's
@@ -955,17 +953,15 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 
 **Target was early September and the work has started**: `yummacss` branch `v4`
 carries colon-syntax parsing and migrated fixtures. The rationale for holding v4
-behind Yumma UI still stands as recorded: nobody uses Yumma CSS yet, a real
-person is waiting on Yumma UI, and Yumma UI is what gives anyone a reason to
-adopt the CSS. Decision #15 in the 4.0 draft already rejected a compat mode
-because "the user base is one person who will be migrated by hand".
+behind Yumma UI still stands as recorded: Yumma UI is what gives anyone a reason
+to adopt the CSS. Decision #15 in the 4.0 draft already rejected a compat mode;
+v3 projects migrate with the codemod.
 
-**The motivation, stated properly:** Cursor suggested Tailwind's `-m-4` to a real
-user and she preferred it, and she already likes Tailwind. The lesson is not that
-the docs are thin. It is that **the v3 dash syntax reads as a worse Tailwind
-rather than as CSS**, which is the actual argument for the colon syntax.
+**The motivation, stated properly:** the lesson is not that the docs are thin.
+It is that **the v3 dash syntax reads as one more utility dialect rather than as
+CSS**, which is the actual argument for the colon syntax.
 
-**Nested variants: keep both. Decision #20 is reversed.** Renildo's call,
+**Nested variants: keep both. Decision #20 is reversed.** Decided
 2026-09-16: `f:h:bg:red` next to `f:bg:red h:bg:red` reads as confusing at first
 and then as the better tool, and it is shorter. The two are not alternatives, so
 there was never a form to drop: one matches focused **and** hovered, the other
@@ -1012,7 +1008,7 @@ is used with any family, emit it for every **configured** family. Then adding
 
 ### Killing custom classes, without arbitrary values
 
-The goal is to remove the *need* to write custom CSS without adopting Tailwind's
+The goal is to remove the *need* to write custom CSS without adopting an
 arbitrary-value escape hatch. All three below take the same shape, which is why
 they belong together: **move the thing into `yumma.config.mjs` and generate a
 utility for it.** The user names a value once, in config, and gets a real utility
@@ -1031,7 +1027,7 @@ with a real name; they do not inline a value into a class and get an unnamed one
    not.** This site would want **two**, so the config shape is a map of named
    containers, not a single value.
 3. **Viewport-minus utilities. Asked for directly, 2026-08-28**, framed as the
-   answer to Tailwind users reaching for an arbitrary value on a genuinely common
+   answer to reaching for an arbitrary value on a genuinely common
    need. `max-height: calc(100dvh - 5rem)` appears twice
    as an inline style (`sidebar-nav.tsx`, `toc.tsx`). Shape: the existing 0-384
    scale subtracted from `100dvh`/`100vh`, e.g. `max-h-dvh--20`. **The sharpest
@@ -1055,12 +1051,12 @@ right.
 
 #### The docs go Yumma first, 2026-09-22
 
-Renildo's direction: **the docs site is where Yumma proves itself**, so every
+The direction: **the docs site is where Yumma proves itself**, so every
 inline style and custom class in it is a data point. Each one is either a gap
 Yumma should close with something true to CSS, or data that belongs inline, or a
 utility that already exists and was missed. Special-purpose utilities that only
 fit one call site are the wrong answer; `theme.fonts` (#1 above) is the model.
-**`globals.css` aims at the marker alone**, Renildo, 2026-10-11. A rule left in
+**`globals.css` aims at the marker alone**, 2026-10-11. A rule left in
 it is a Yumma gap or a selector no class can reach, and is listed below.
 
 What moved out, 2026-10-11:
@@ -1177,8 +1173,8 @@ after - it is the same "four keys or one mechanism" question as the config
 generators above, and 4.0 is equally the cheapest moment for both.
 
 **Do not rename `yumma.config.mjs`.** The asymmetry with the `yummacss` package
-looks like a mistake and is the convention: `tailwindcss` ships
-`tailwind.config.js`. The cost is not cosmetic either - 15 files in `docs` and 3
+looks like a mistake and is the convention: a package's config file is named
+for the tool, not the package. The cost is not cosmetic either - 15 files in `docs` and 3
 in the monorepo name it, plus every docs example and `play` - and
 decision #15 rules out a compat mode, so `loadConfig` would hard-break rather
 than accept both. Nothing is gained that a reader was confused by.
@@ -1229,7 +1225,7 @@ visible: one branch of the same question was answered and the others were not.
 
 ## Attribute variants: not for `data-*`
 
-Renildo's call, 2026-09-16. **`data-starting-style` and `data-ending-style` are
+Decided 2026-09-16. **`data-starting-style` and `data-ending-style` are
 Base UI's vocabulary. They are not present in vanilla CSS, so Yumma CSS will not
 grow variants that name them.** A general-purpose CSS framework that ships
 selectors for one component library's conventions has stopped being general
@@ -1259,7 +1255,7 @@ overlap a pseudo class Yumma already has (`:disabled`, `:checked`, `:required`,
 
 ## Doc comments are API, and the strip took them
 
-Renildo wants them back on the config and on Yumma UI, after 4.0. **They were
+They come back on the config and on Yumma UI, after 4.0. **They were
 there.** `chore: remove code comments` (`92e8557`) took 66 lines off
 `packages/nitro/src/config/schema.ts`, 36 off canon's `index.ts`, 18 off vite,
 5 off core, and shrank postcss. The blank line between every field of the
@@ -1286,8 +1282,8 @@ is the only part missing.
 **Two surfaces, and the second never had any.** The monorepo's is a restore:
 `Config`, `defineConfig`, and what each package exports. Yumma UI's is new work:
 `ButtonProps` declares six props and says nothing about any of them, and the
-same holds across the registry, which is the case Renildo describes as writing
-without knowing what A, B or C do.
+same holds across the registry, so a reader writes without knowing what A, B
+or C do.
 
 Additive and non-breaking either way, so it does not gate 4.0 and fits a 4.0.1.
 
@@ -1316,7 +1312,7 @@ hang a comment on it would widen the API to document it.
 
 ## Cascade layers: no
 
-**Decided, Renildo, 2026-10-11: no layers.** The reset used to outrank the
+**Decided 2026-10-11: no layers.** The reset used to outrank the
 utilities through a (0,1,1) focus rule, which made `oc:*`, `ow:*` and `os:*`
 do nothing on a focused control. Yumma CSS 4.6 removed that rule and keeps
 every reset rule at one class's weight or less, so a utility wins on order and
@@ -1349,8 +1345,8 @@ before anything could point at it.
 script tag served from a CDN, rather than what it is not.
 
 **The old name is gone.** It shipped as a shim first, a manifest and a tsdown
-config pointing at `../cdn/src/index.ts`, but Renildo deleted
-`@yummacss/runtime` from npm on 2026-09-18 and the shim came back out: npm
+config pointing at `../cdn/src/index.ts`, but
+`@yummacss/runtime` was deleted from npm on 2026-09-18 and the shim came back out: npm
 refuses a version number that has been published once, so the next release would
 have failed on that package and, because the publish loop runs under `bash -e`,
 taken the packages after it down too.
@@ -1369,14 +1365,14 @@ now names `@yummacss/cdn`, so the only thing left at release time is bumping
 
 **Deleting beats deprecating here, and costs one thing.** A deprecation notice
 would have left the old URL serving. Deleting means every page on the old script
-tag breaks at once, which is the right call at zero users and the wrong one
+tag breaks at once, which is the right call this early and the wrong one
 later.
 
 ---
 
 ## Linting: hand the reporting to a real linter
 
-Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
+Decided 2026-09-16.
 **Targets 4.2 for Yumma CSS and 0.4.0 for Yumma UI.** Neither gates v4.
 
 **The shape: rules are ours, everything around them is not.** `@yummacss/canon`
@@ -1389,10 +1385,10 @@ config file the project already has. The `--allow` flag in particular is the
 wrong shape - an allowlist belongs next to the line it excuses, not in a CI
 argument.
 
-**Renamed, 2026-09-16, ahead of the plugin.** Renildo's call: 4.0 is the cheap
+**Renamed, 2026-09-16, ahead of the plugin.** 4.0 is the cheap
 moment for a breaking rename, so it did not wait. `@yummacss/canon` is
 `@yummacss/lint`, the binary is `yummacss-lint`, the docs page is `/docs/lint`,
-and the API is unchanged. **`canon` is retired as a word too**, Renildo's call,
+and the API is unchanged. **`canon` is retired as a word too**,
 2026-10-01: the tool is lint, and its rules are named for what they forbid,
 `no-unknown-classes` and `no-inline-styles` (`yummacss#64`). Older entries
 below still say canon; read it as "a class Yumma generates".
@@ -1430,7 +1426,7 @@ own table has failed the test.
 
 ## Styles
 
-Yumma UI's look is a style and a radius, not a set of knobs. Renildo's calls,
+Yumma UI's look is a style and a radius, not a set of knobs. Decided
 2026-09-26 and 27: Soft is the default; a style blocks the combinations that
 make no sense for it rather than letting the rail produce them; a style
 rewrites the component file, its defaults and its `SHAPES` tables; `size`,
@@ -1511,7 +1507,7 @@ exception, in eleven files:
 
 Onboarding is the only real decision: accept an enter-only slide, or keep the
 old page mounted for 200ms ourselves, which is the state `AnimatePresence`
-holds today. The prop API does not change anywhere. **Renildo's call: enter-only.**
+holds today. The prop API does not change anywhere. **Decided: enter-only.**
 
 **Done for the ten, 2026-09-23.** Each carries a `*_MOTION` block with a
 reduced-motion guard, which `motion` never honoured. Measured in the browser
@@ -1550,7 +1546,7 @@ menu scale in with the registry's popup classes, and `motion` left
 ## Solar icons in the registry, 2026-09-26
 
 The registry draws its icons from Solar through `@solar-icons/react`, one
-barrel import per style. Renildo's call: the package, not an `icons.tsx`
+barrel import per style. Decided: the package, not an `icons.tsx`
 copied in beside each component.
 
 - **Two styles, by kind.** Outline for marks, arrows and operators: check,
@@ -1564,7 +1560,7 @@ copied in beside each component.
   imports from the right barrel. A demo marker can ask for another with
   `"style"`, which is how Command Palette's Search item is Bold Duotone.
   `tests/icons.test.ts` fails on a clash inside a file or a marker the demo
-  cannot resolve. Renildo's calls, 2026-09-26 and -27.
+  cannot resolve. Decided 2026-09-26 and -27.
 
 - **Licence.** The icons are CC BY 4.0 (480 Design); the wrapper is MIT and
   ships the third-party notice. The Yumma UI installation page credits them.
@@ -1630,8 +1626,8 @@ Four stale things found on the way, fixed in the same branch:
   cannot simply be re-exported from `@yummacss/nitro/browser`. Needs a real
   browser config path: parse a config from a string in memory rather than resolve
   and import a file.
-- **A 4.2, for utilities that are additive rather than breaking.** Renildo's
-  call, 2026-08-31: neither of these gates v4, so neither should delay it.
+- **A 4.2, for utilities that are additive rather than breaking.** Decided
+  2026-08-31: neither of these gates v4, so neither should delay it.
   - **Colored box-shadows.**
   - **Shorten what `gc-s-*` and `gr-s-*` emit.** `grid-column: span 3 / span 3`
     and `grid-column: span 3` are the same declaration - measured in Chromium,
@@ -1646,24 +1642,11 @@ Four stale things found on the way, fixed in the same branch:
 
 ## Focus: adoption, 2026-10-12
 
-Renildo's call: the work that matters is people using Yumma, not more of it.
-The goal is 25 developers who know it and a second active user (the first is
-a friend; the one app on Yumma UI is link.dutfolio.com). Monetising waits
-until there are users to pay. Yumma UI is part of that, not parked: it is
-the largest body of correct 4.x classes anywhere, served as plain text at
-`yummaui.com/components/<id>.md`, which is what people and agents learn the syntax
-from. Its roadmap items stay parked until a user asks for one.
-
-**The audience, measured 2026-10-12** in Vercel Web Analytics, Sep 12 to
-Oct 12: 1,480 visitors and 2,746 page views, but most visitors are crawlers.
-Singapore (788 visitors), China, Vietnam and Hong Kong each show one page per
-visitor; Portugal (64 visitors, 994 views) is mostly the site's own work.
-Real readers are an estimated 50 to 150 a month. Search is the only channel
-that brings anyone on its own, about 30 a month (Google 18, Bing 8,
-DuckDuckGo 3, Kagi 2); GitHub, X and LinkedIn sent one each. Installation is
-the entrance (225 views); `/docs/corner-shape` draws 53 from people searching
-for the new property. Daily visitors fell from about 145 to 15 to 20 over the
-month. Shared links carry `?utm_source=` so each channel shows on its own row.
+The work that matters is people using Yumma, not more of it. Yumma UI is part
+of that, not parked: it is the largest body of correct 4.x classes anywhere,
+served as plain text at `yummaui.com/components/<id>.md`, which is what people
+and agents learn the syntax from. Its roadmap items stay parked until someone
+asks for one.
 
 ## Retired: the playground, `@yummacss/cdn` and `@yummacss/intellisense`
 
@@ -1814,7 +1797,7 @@ enough to stay behind the links.
 
 There is no blog and no releases page. Release notes live in the GitHub
 releases of `yummacss` and `yummaui`, which the footer's Releases link opens;
-GitHub is where a reader can also star, watch or contribute. Renildo,
+GitHub is where a reader can also star, watch or contribute. Decided
 2026-10-11. Every old `/blog` address redirects there permanently from
 `redirects.ts`: a release post to its version's tag, Hello Yumma UI to Yumma
 UI's releases, everything else (wrap-ups, Behind the Scenes, the index, the
