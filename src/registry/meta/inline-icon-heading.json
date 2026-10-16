@@ -1,0 +1,18 @@
+{
+  "summary": "A centered heading whose key words each carry the icon that names them: a pen for written, a camera for filmed, a microphone for recorded.",
+  "props": [
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Text size of the whole heading; the icons scale with it."
+    },
+    {
+      "name": "animated",
+      "type": "boolean",
+      "default": true,
+      "description": "The icons pop in one after another as the heading first renders. Turn it off for a heading that is simply there, or when the user has asked for reduced motion."
+    }
+  ]
+}

@@ -59,12 +59,8 @@ since it sits next to other component sets wherever it is shared.
       It needs a keyboard path (holding Space or Enter), an accessible name
       that says to hold, and a reduced-motion version that still waits. The
       demo stays in one person's files: "Delete 12 files".
-- [ ] **Blocks.** Sections composed from the components, installed with
-      `yummaui add` like a component, their parts listed in `registryDeps`.
-      The first: a heading with inline icons, each icon naming the word
-      beside it ("written", "filmed", "recorded", from a partner page's
-      hero). Decide the page structure (a Blocks section in the sidebar, one
-      page per block) before the second one.
+      Parked: it waits on the reference clip. The motion engine (fill, drain,
+      spring back) lives in the hold mockup, ready for the next round.
 - [ ] **A gallery as yummaui.com's front page.** Every component rendered
       live in a grid, each linking to its page, so the first screen shows
       what Yumma UI looks like rather than how to install it.

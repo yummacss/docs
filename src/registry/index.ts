@@ -20,6 +20,7 @@ import meta_drawer from "./meta/drawer.json";
 import meta_empty_state from "./meta/empty-state.json";
 import meta_field from "./meta/field.json";
 import meta_file_upload from "./meta/file-upload.json";
+import meta_inline_icon_heading from "./meta/inline-icon-heading.json";
 import meta_menu from "./meta/menu.json";
 import meta_menubar from "./meta/menubar.json";
 import meta_meter from "./meta/meter.json";
@@ -73,6 +74,7 @@ export const registry = {
   "field-suffix": () => import("./ui/field-suffix"),
   "field": () => import("./ui/field"),
   "file-upload": () => import("./ui/file-upload"),
+  "inline-icon-heading": () => import("./ui/inline-icon-heading"),
   "menu": () => import("./ui/menu"),
   "menubar": () => import("./ui/menubar"),
   "meter": () => import("./ui/meter"),
@@ -169,6 +171,7 @@ export const registryMeta = {
   "empty-state": meta_empty_state,
   "field": meta_field,
   "file-upload": meta_file_upload,
+  "inline-icon-heading": meta_inline_icon_heading,
   "menu": meta_menu,
   "menubar": meta_menubar,
   "meter": meta_meter,
@@ -234,6 +237,7 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "field-suffix": { component: "field", variant: "suffix", kind: "example", install: "field" },
   "field": { component: "field", variant: "base", kind: "component", install: "field" },
   "file-upload": { component: "file-upload", variant: "base", kind: "component", install: "file-upload" },
+  "inline-icon-heading": { component: "inline-icon-heading", variant: "base", kind: "component", install: "inline-icon-heading" },
   "menu": { component: "menu", variant: "base", kind: "component", install: "menu" },
   "menubar": { component: "menubar", variant: "base", kind: "component", install: "menubar" },
   "meter": { component: "meter", variant: "base", kind: "component", install: "meter" },
@@ -278,6 +282,7 @@ export const registryConfig: Record<string, RegistryConfig> = {
   "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "drawer": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]", "swiping": "[data-swiping]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "inline-icon-heading": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
   "menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "menubar": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "onboarding": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
