@@ -1593,10 +1593,11 @@ copied in beside each component.
 - **Inline Icon Heading** is the first: a centered heading whose key words
   sit in a chip with their icon. Indigo shades only, kept light: an
   `indigo-1/50` chip, `indigo-1` border, `indigo-6` word, an `indigo-4` tile
-  with a white icon. The word stays at `indigo-6` for contrast. The icons are Bold Duotone, Solar's filled style, sized in `em`.
+  with a white icon. The word stays at `indigo-6` for contrast. The icons
+  are Bold Duotone, Solar's filled style, sized in `em`.
 - **Chips have a `shape`**, so Radius and Squircle reach them; the tile takes
   one radius step below its chip. A comma after a chip shares its `ws:nw`
-  span, so it never starts a line. Renildo's call: the word chips over bare
+  span, so it never starts a line. Decided 2026-10-16: word chips over bare
   icons, because a radius has nothing to act on without them.
 
 ## Docs for 4.2, drafted 2026-09-26
