@@ -1,5 +1,4 @@
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
-import { CheckCircle, Sparks, WarningTriangle } from "@/icons";
 import { baselineFor } from "../utils/baseline";
 
 const ICONS = {
@@ -7,6 +6,12 @@ const ICONS = {
   edge: Edge,
   firefox: Firefox,
   safari: Safari,
+} as const;
+
+const TONE = {
+  high: { text: "c:diff-add", bg: "bg:diff-add/5" },
+  low: { text: "c:accent", bg: "bg:accent/5" },
+  none: { text: "c:warning", bg: "bg:warning/5" },
 } as const;
 
 interface Props {
@@ -17,45 +22,29 @@ export default function Baseline({ path }: Props) {
   const baseline = baselineFor(path);
   if (!baseline) return null;
 
-  const { level, label, description, browsers } = baseline;
-  const statusColor =
-    level === "high" ? "c:green" : level === "low" ? "c:green-5" : "c:yellow";
-  const StatusIcon =
-    level === "high" ? CheckCircle : level === "low" ? Sparks : WarningTriangle;
+  const { level, label, browsers } = baseline;
+  const tone = TONE[level || "none"];
 
   return (
-    <div className="mb:6 p:4 bc:border bg:surface bw:1">
-      <div className="mb:4">
-        <div className="d:f ai:c g:2 mb:2">
-          <StatusIcon className={`${statusColor} w:5 h:5`} />
-          <h3 className="ff:display c:ink fs:lg fw:500">{label}</h3>
-        </div>
-        <p className="c:ink/70">{description}</p>
-      </div>
-
-      <div className="d:g g:4 gtc:1 @sm:gtc:2 @md:gtc:4">
-        {browsers.map((browser) => {
-          const Icon = ICONS[browser.key as keyof typeof ICONS];
-          return (
-            <div key={browser.key} className="d:f ai:c g:2">
-              <div
-                className={`d:f ai:c jc:c w:6 h:6 ${
-                  browser.supported ? "" : "fgr:100 o:50"
-                }`}
-              >
-                <Icon className="w:100% h:100%" />
-              </div>
-              <div className="d:f fd:c">
-                <span className={`c:ink/80 ${browser.supported ? "" : "o:50"}`}>
-                  {browser.name}
-                </span>
-                {browser.desktopOnly && (
-                  <span className="c:ink/50 fs:xs">Desktop only</span>
-                )}
-              </div>
-            </div>
-          );
-        })}
+    <div className="mb:6 bc:border bg:surface bw:1">
+      <div
+        className={`d:f fw:w ai:c jc:sb g:3 py:3 px:4 ff:m fs:sm ${tone.bg}`}
+      >
+        <code className={tone.text}>baseline</code>
+        <span className="d:f ai:c g:2 c:ink/60">
+          {label.split(" ")[0].toLowerCase()}
+          {browsers.map((browser) => {
+            const Icon = ICONS[browser.key as keyof typeof ICONS];
+            return (
+              <Icon
+                key={browser.key}
+                aria-label={`${browser.name} ${browser.version ?? "unsupported"}`}
+                role="img"
+                className={`w:4 h:4 ${browser.supported ? "" : "fgr:100 o:40"}`}
+              />
+            );
+          })}
+        </span>
       </div>
     </div>
   );
