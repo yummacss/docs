@@ -374,6 +374,12 @@ change.** Stay on patches until then.
 
 ---
 
+**A grouped button draws its focus outline inside.** Button Group clips its
+buttons (`o:h`, so they follow its corners), and a button's outline sits 3px
+outside its border, so the group cut it off. The group merges `fv:oo:-3` into
+each child, which keeps the outline inside the clip & on the one button. An
+outline on the group (`fw:`) would hide which button has focus.
+
 ## Docs site conventions
 
 **Admonitions.** One component in two kinds: `<Note>` for a fact, `<Warning>`
