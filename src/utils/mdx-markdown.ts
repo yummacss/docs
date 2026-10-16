@@ -13,7 +13,7 @@ import { BRAND_COLORS, type BrandProduct, brandFiles } from "@/utils/brand";
 import { COLOR_FAMILIES, SHADE_LABELS } from "@/utils/colors";
 import { targetPath } from "@/utils/install.mjs";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
-import { type Category, categoryGetters } from "@/utils/yummacss";
+import { type Category, categoryGetters, variantLines } from "@/utils/yummacss";
 
 export type RegistryResolver = (registryId: string) => string | null;
 
@@ -193,6 +193,22 @@ function attrs(node: Element): Record<string, string> {
   return out;
 }
 
+/** The strings in an expression attribute, e.g. names={["margin", "margin-top"]}. */
+function expressionStrings(node: Element, attrName: string): string[] {
+  const attr = node.attributes.find(
+    (x) => x.type === "mdxJsxAttribute" && x.name === attrName,
+  );
+  const value = attr?.value;
+  if (!value || typeof value !== "object") return [];
+  return [...value.value.matchAll(/"([^"]+)"/g)].map((m) => m[1] as string);
+}
+
+const titleCase = (name: string) =>
+  name
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
 function component(
   node: Element,
   options: RenderOptions,
@@ -241,9 +257,30 @@ function component(
     ]);
   }
   if (name === "Reference") {
-    return a.category && a.name
-      ? markdown(buildReferenceTable(a.category as Category, a.name))
-      : [];
+    if (!a.category) return [];
+    const names = a.name ? [a.name] : expressionStrings(node, "names");
+    // the twin keeps every class, a table per property
+    return markdown(
+      names.flatMap((n, i) => [
+        ...(names.length > 1
+          ? [...(i ? [""] : []), `### ${titleCase(n)}`, ""]
+          : []),
+        ...buildReferenceTable(a.category as Category, n),
+      ]),
+    );
+  }
+  if (name === "Variants") {
+    if (!a.category || !a.name) return [];
+    const negative = node.attributes.some(
+      (attr) => attr.type === "mdxJsxAttribute" && attr.name === "negative",
+    );
+    return markdown([
+      "| Class | Variant |",
+      "|-------|---------|",
+      ...variantLines(a.category as Category, a.name, negative).map(
+        (line) => `| \`${line.className}\` | ${line.text} |`,
+      ),
+    ]);
   }
 
   const registryId =

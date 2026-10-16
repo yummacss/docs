@@ -269,3 +269,207 @@ export function getReferenceData(
     }
   }
 }
+
+export type CompactRow =
+  | { kind: "row"; className: string; details: string[] }
+  | { kind: "gap"; text: string };
+
+const RUN = 12;
+const HEAD = 5;
+
+const suffixOf = (className: string, prefix: string) =>
+  className === prefix ? "" : className.slice(prefix.length + 1);
+
+function keyNumber(key: string): { n: number; unit: string } | null {
+  const m = key.match(/^(\d+(?:\.\d+)?)(%?)$/);
+  return m ? { n: Number(m[1]), unit: m[2] } : null;
+}
+
+function measure(detail: string): { n: number; unit: string } | null {
+  const m = detail.match(/(-?\d*\.?\d+)(rem|px|ms|s|deg|%)\b/);
+  return m ? { n: Number(m[1]), unit: m[2] } : null;
+}
+
+const formatStep = ({ n, unit }: { n: number; unit: string }) =>
+  `${String(Number(n.toFixed(4))).replace(/^0\./, ".")}${unit}`;
+
+/** Shades of one base collapse into a note: red-1 … red-12 sit behind red. */
+function collapseShades(rows: ReferenceRow[], prefix: string) {
+  const suffixes = new Set(rows.map((r) => suffixOf(r.className, prefix)));
+  const shade = (s: string) => {
+    const m = s.match(/^([a-z]+)-(\d+)$/);
+    return m && suffixes.has(m[1]) ? { base: m[1], n: Number(m[2]) } : null;
+  };
+  const shaded = rows.filter((r) => shade(suffixOf(r.className, prefix)));
+  const bases = new Set(
+    shaded.map((r) => shade(suffixOf(r.className, prefix))?.base),
+  );
+  if (bases.size < 3) return null;
+
+  const first = [...bases][0] as string;
+  const steps = shaded
+    .map((r) => shade(suffixOf(r.className, prefix)))
+    .filter((s) => s?.base === first)
+    .map((s) => s?.n as number);
+  const out: CompactRow[] = [];
+  for (const row of rows) {
+    if (shade(suffixOf(row.className, prefix))) continue;
+    out.push({ kind: "row", ...row });
+    if (suffixOf(row.className, prefix) === first) {
+      out.push({
+        kind: "gap",
+        text: `… ${prefix}:${first}-${Math.min(...steps)} to ${prefix}:${first}-${Math.max(...steps)}, & the same for every color …`,
+      });
+    }
+  }
+  return out;
+}
+
+/** A long even run keeps its first rows & its last; a gap row says what was left out. */
+function collapseRuns(rows: ReferenceRow[], prefix: string): CompactRow[] {
+  const out: CompactRow[] = [];
+  let i = 0;
+  while (i < rows.length) {
+    const start = keyNumber(suffixOf(rows[i].className, prefix));
+    let j = i + 1;
+    if (start) {
+      const next = keyNumber(suffixOf(rows[j]?.className ?? "", prefix));
+      const diff = next && next.unit === start.unit ? next.n - start.n : 0;
+      if (diff > 0) {
+        while (j < rows.length) {
+          const a = keyNumber(suffixOf(rows[j - 1].className, prefix));
+          const b = keyNumber(suffixOf(rows[j].className, prefix));
+          if (!a || !b || b.unit !== start.unit || b.n - a.n !== diff) break;
+          j++;
+        }
+      }
+    }
+
+    const run = rows.slice(i, j);
+    if (run.length >= RUN) {
+      const [a, b] = [
+        measure(run[0].details[0] ?? ""),
+        measure(run[1].details[0] ?? ""),
+      ];
+      const step =
+        a && b && a.unit === b.unit
+          ? `one step per ${formatStep({ n: b.n - a.n, unit: a.unit })}`
+          : b && /^0\b/.test((run[0].details[0] ?? "").split(": ")[1] ?? "")
+            ? `one step per ${formatStep(b)}`
+            : `${run.length - HEAD - 1} more`;
+      out.push(
+        ...run.slice(0, HEAD).map((r) => ({ kind: "row" as const, ...r })),
+      );
+      out.push({ kind: "gap", text: `… ${step} …` });
+      out.push({ kind: "row", ...(run.at(-1) as ReferenceRow) });
+    } else {
+      out.push(...run.map((r) => ({ kind: "row" as const, ...r })));
+    }
+    i = j;
+  }
+  return out;
+}
+
+/** The rows a page shows: every class the scale has, written once. The `.md` twin keeps them all. */
+export function compactRows(category: Category, name: string): CompactRow[] {
+  const data = getReferenceData(category, name);
+  if (!data) return [];
+  const prefix = getPrefix(category, name);
+  return collapseShades(data.rows, prefix) ?? collapseRuns(data.rows, prefix);
+}
+
+export interface VariantLine {
+  className: string;
+  text: string;
+}
+
+const pick = <T extends { prefix: string }>(entries: T[], want: string) =>
+  entries.find((e) => e.prefix === want) ?? entries[0];
+
+const others = (prefixes: string[], shown = 2) =>
+  prefixes.length <= shown + 1
+    ? `${prefixes.slice(0, -1).join(", ")}${prefixes.length > 1 ? " & " : ""}${prefixes.at(-1) ?? ""}`
+    : `${prefixes.slice(0, shown).join(", ")} & ${prefixes.length - shown} more`;
+
+const COMMON = ["f", "fv", "a", "d"];
+
+/** One line per kind of variant the utility takes, each with a class to copy. */
+export function variantLines(
+  category: Category,
+  name: string,
+  negative = false,
+): VariantLine[] {
+  let util:
+    | { prefix: string; values: Record<string, string>; variants?: Variants }
+    | undefined;
+  try {
+    util = categoryGetters[category]?.()[name] as typeof util;
+  } catch {
+    return [];
+  }
+  if (!util) return [];
+
+  const base = exampleClass(category, name);
+  const v = util.variants ?? {};
+  const out: VariantLine[] = [];
+
+  const widths = (v.mediaQueries ?? []).filter(
+    (e) => /min-width/.test(e.value) && !e.prefix.startsWith("c:"),
+  );
+  if (widths.length) {
+    const md = pick(widths, "md");
+    const width = md.value.match(/min-width: ([^)]+)/)?.[1];
+    const rest = [
+      ...widths.filter((e) => e !== md),
+      ...(v.mediaQueries ?? []).filter((e) => !widths.includes(e)),
+    ].map((e) => `@${e.prefix}`);
+    out.push({
+      className: `@${md.prefix}:${base}`,
+      text: `From ${width} up. Also ${others(rest)}.`,
+    });
+  }
+
+  if (v.pseudoClasses?.length) {
+    const h = pick(v.pseudoClasses, "h");
+    const rest = [
+      ...COMMON.flatMap(
+        (c) => v.pseudoClasses?.filter((e) => e.prefix === c) ?? [],
+      ),
+      ...v.pseudoClasses.filter((e) => e !== h && !COMMON.includes(e.prefix)),
+    ].map((e) => `${e.prefix}:`);
+    out.push({
+      className: `${h.prefix}:${base}`,
+      text: `On ${h.value.replace(/^:/, "")}. Also ${others(rest)}.`,
+    });
+  }
+
+  if (v.pseudoElements?.length) {
+    const first = v.pseudoElements[0];
+    const rest = v.pseudoElements.slice(1).map((e) => `${e.prefix}::`);
+    out.push({
+      className: `${first.prefix}::${base}`,
+      text: `On ${first.value.replace(/^:+/, "::")}.${rest.length ? ` Also ${others(rest)}.` : ""}`,
+    });
+  }
+
+  if (v.opacity?.length) {
+    const half = pick(v.opacity, "50");
+    out.push({
+      className: `${base}/${half.prefix}`,
+      text: `At ${half.value} opacity, in ${v.opacity.length} steps.`,
+    });
+  }
+
+  const numeric = Object.keys(util.values).find(
+    (k) => /^\d+$/.test(k) && Number(k) !== 0,
+  );
+  if (negative && numeric) {
+    const key = PREFERRED.find((k) => k in util.values) ?? numeric;
+    out.push({
+      className: `${util.prefix}:-${key}`,
+      text: "Negative, a minus after the colon.",
+    });
+  }
+
+  return out;
+}

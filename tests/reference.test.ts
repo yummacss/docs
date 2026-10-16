@@ -45,9 +45,12 @@ function referenced(): Set<string> {
   for (const file of mdxFilesIn(join(rootDir, "src/content"))) {
     const source = readFileSync(file, "utf-8");
     for (const match of source.matchAll(
-      /<Reference\s+category="([^"]+)"\s+name="([^"]+)"/g,
+      /<Reference\s+category="([^"]+)"\s+names?=(?:"([^"]+)"|\{\[([^\]]+)\]\})/g,
     )) {
-      out.add(`${match[1]}:${match[2]}`);
+      const names = match[2]
+        ? [match[2]]
+        : [...(match[3] ?? "").matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+      for (const name of names) out.add(`${match[1]}:${name}`);
     }
   }
   return out;
