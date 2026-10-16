@@ -13,7 +13,7 @@ When an entry is done it leaves this file.
 
 ## Phase 1 - Broken
 
-Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
+A pass over the site, 2026-09-18. Reproduce each before acting on it.
 
 Empty.
 
@@ -50,7 +50,7 @@ Empty.
 
 ## Yumma UI
 
-Renildo's list, 2026-10-14, in order. What makes Yumma UI worth installing,
+The list, 2026-10-14, in order. What makes Yumma UI worth installing,
 since it sits next to other component sets wherever it is shared.
 
 - [ ] **Hold to confirm.** An Alert Dialog whose destructive action fills
@@ -90,7 +90,7 @@ the measurement is worth running when its number can be published.
 
 ## Decisions
 
-Blocked on Renildo. Each one holds up the entry beside it.
+Blocked on a decision. Each one holds up the entry beside it.
 
 - **Squircle as the default shape** for every Yumma UI component. Two things
   to weigh first. AGENTS.md makes `rounded` the default wherever a component
@@ -107,7 +107,7 @@ Not bugs. Written down so they stop being rediscovered.
 - Focus is treatment A and sits below WCAG 2.1 1.4.11. It was 1.21:1 for the
   outline and 1.80:1 for the border on indigo. The slate pair is 1.6:1 for
   the outline and 3.6:1 for the border, so a bordered control passes and
-  a slider thumb or a switch does not. Deferred deliberately: no users, and a
+  a slider thumb or a switch does not. Deferred deliberately: nobody has asked, and a
   CSS change is reversible.
 - Number Field and Toolbar outline the input, not the group around it, so the
   steppers sit outside it. Chosen knowingly: `fv:` everywhere is worth more
