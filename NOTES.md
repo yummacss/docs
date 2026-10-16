@@ -499,9 +499,9 @@ and `base-ui.com/react/components/textarea` is a 404). Re-run the
 frontmatter-against-imports check if a new component's primitive name diverges
 from its `@base-ui/react/*` import.
 
-**Baseline is a strip above the Reference table.** `baseline` in mono, the
-label, then one bar per browser: green (`diff-add`) for widely, accent for newly,
-`warning` for limited, `border` where a browser has no support.
+**Baseline is a row above the Reference table.** `baseline` in mono on a tint:
+green (`diff-add`) for widely, accent for newly, `warning` for limited. The four
+logos follow, greyed where a browser has no support.
 
 **`scripts/check-sidebar.mjs` runs before `next build`.** Every content page must
 appear in `sidebarConfig` exactly once. It parses only the `sidebarConfig`

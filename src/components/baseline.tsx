@@ -9,9 +9,9 @@ const ICONS = {
 } as const;
 
 const TONE = {
-  high: { text: "c:diff-add", bar: "bg:diff-add" },
-  low: { text: "c:accent", bar: "bg:accent" },
-  none: { text: "c:warning", bar: "bg:warning" },
+  high: { text: "c:diff-add", bg: "bg:diff-add/5" },
+  low: { text: "c:accent", bg: "bg:accent/5" },
+  none: { text: "c:warning", bg: "bg:warning/5" },
 } as const;
 
 interface Props {
@@ -26,35 +26,26 @@ export default function Baseline({ path }: Props) {
   const tone = TONE[level || "none"];
 
   return (
-    <div className="d:f fw:w ai:c jc:sb g:3 mb:6 py:3 px:4 bc:border bg:surface bw:1">
-      <span className="d:f ai:c g:2 fs:sm">
-        <code className={`ff:m ${tone.text}`}>baseline</code>
-        <span className="c:ink/70">{label}</span>
-      </span>
-      <ul className="d:g gtc:4 g:1 w:100% @sm:w:auto">
-        {browsers.map((browser) => {
-          const Icon = ICONS[browser.key as keyof typeof ICONS];
-          return (
-            <li key={browser.key} className="d:f fd:c g:1 @sm:min-w:16">
-              <span
-                className={`d:f ai:c g:1 ff:m fs:xs ${browser.supported ? "c:ink/70" : "c:ink/40"}`}
-              >
-                <Icon
-                  aria-label={browser.name}
-                  className={`w:4 h:4 ${browser.supported ? "" : "fgr:100 o:50"}`}
-                />
-                {browser.version ?? "no"}
-                {browser.desktopOnly && (
-                  <span className="c:ink/40">desktop</span>
-                )}
-              </span>
-              <span
-                className={`h:1 ${browser.supported ? tone.bar : "bg:border"}`}
+    <div className="mb:6 bc:border bg:surface bw:1">
+      <div
+        className={`d:f fw:w ai:c jc:sb g:3 py:3 px:4 ff:m fs:sm ${tone.bg}`}
+      >
+        <code className={tone.text}>baseline</code>
+        <span className="d:f ai:c g:2 c:ink/60">
+          {label.split(" ")[0].toLowerCase()}
+          {browsers.map((browser) => {
+            const Icon = ICONS[browser.key as keyof typeof ICONS];
+            return (
+              <Icon
+                key={browser.key}
+                aria-label={`${browser.name} ${browser.version ?? "unsupported"}`}
+                role="img"
+                className={`w:4 h:4 ${browser.supported ? "" : "fgr:100 o:40"}`}
               />
-            </li>
-          );
-        })}
-      </ul>
+            );
+          })}
+        </span>
+      </div>
     </div>
   );
 }
