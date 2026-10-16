@@ -49,10 +49,14 @@ export interface ButtonGroupProps {
 }
 
 type IconProps = {
+  className?: string;
   icon?: ReactNode;
   iconPosition?: IconSide;
   iconOnly?: boolean;
 };
+
+// the group clips its buttons, so a grouped button draws its focus outline inside
+const INSET = "fv:oo:-3";
 
 /**
  * A row of related buttons sharing one border, in four shapes, with optional
@@ -70,9 +74,17 @@ export default function ButtonGroup({
 }: ButtonGroupProps) {
   // a button with an icon takes the group's icon props; one it sets itself wins
   const items = Children.toArray(children).map((child) => {
-    if (!isValidElement<IconProps>(child) || !child.props.icon) return child;
-    if (!icon) return cloneElement(child, { icon: undefined, iconOnly: false });
+    if (!isValidElement<IconProps>(child)) return child;
+    const className = merge(INSET, child.props.className);
+    if (!child.props.icon) return cloneElement(child, { className });
+    if (!icon)
+      return cloneElement(child, {
+        className,
+        icon: undefined,
+        iconOnly: false,
+      });
     return cloneElement(child, {
+      className,
       iconPosition: child.props.iconPosition ?? iconPosition,
       iconOnly: child.props.iconOnly ?? iconOnly,
     });
