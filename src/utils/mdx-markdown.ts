@@ -19,16 +19,14 @@ export type RegistryResolver = (registryId: string) => string | null;
 
 export type MetaResolver = (registryId: string) => RegistryMeta | null;
 
-// Note, Warning & Try, and the Admonition the ::: directives become
+// Note & Warning, and the Admonition the ::: directives become
 const CALLOUTS: Record<string, string> = {
   Note: "note",
   Warning: "warning",
-  Try: "try",
 };
 const LABELS: Record<string, string> = {
   note: "Note",
   warning: "Warning",
-  try: "Try",
 };
 function buildPropsTable(meta: RegistryMeta): string[] {
   if (!meta.props?.length) return [];

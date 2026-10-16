@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { Cursor, Diamond, TextLayer } from "@/icons";
+import { Diamond, TextLayer } from "@/icons";
 
-type Kind = "note" | "warning" | "try";
+type Kind = "note" | "warning";
 
 // the cover's tag on a tinted box; a flex column keeps the paragraphs' margins inside the tint
 const KINDS: Record<
@@ -19,12 +19,6 @@ const KINDS: Record<
     box: "bc:warning bg:warning/10",
     tag: "bg:warning",
     Icon: Diamond,
-  },
-  try: {
-    label: "Try",
-    box: "bc:diff-add bg:diff-add/10",
-    tag: "bg:diff-add",
-    Icon: Cursor,
   },
 };
 
@@ -59,7 +53,4 @@ export const Note = ({ children }: { children: ReactNode }) => (
 );
 export const Warning = ({ children }: { children: ReactNode }) => (
   <Admonition kind="warning">{children}</Admonition>
-);
-export const Try = ({ children }: { children: ReactNode }) => (
-  <Admonition kind="try">{children}</Admonition>
 );
