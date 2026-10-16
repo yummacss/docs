@@ -1,12 +1,19 @@
 {
-  "summary": "A centered heading whose key words each carry the icon that names them: a pen for written, a camera for filmed, a microphone for recorded.",
+  "summary": "A centered heading whose key words each sit in an indigo chip with the icon that names them: a pen for written, a camera for filmed, a microphone for recorded.",
   "props": [
     {
       "name": "size",
       "type": "enum",
       "values": ["sm", "md", "lg"],
       "default": "md",
-      "description": "Text size of the whole heading; the icons scale with it."
+      "description": "Text size of the whole heading; the chips scale with it."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["square", "rounded", "pill", "squircle"],
+      "default": "rounded",
+      "description": "The corners of each chip & of the icon tile inside it."
     },
     {
       "name": "animated",
