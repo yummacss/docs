@@ -500,11 +500,13 @@ frontmatter-against-imports check if a new component's primitive name diverges
 from its `@base-ui/react/*` import.
 
 **A utility page is Baseline, Reference & Variants.** All static.
-- `Reference` with `name` is a Class | CSS table. With `names`, it is a Prefix |
-  Property table, then one Value | CSS table, because every multi-property page
-  shares one scale. Each prefix row carries the anchor search links to.
-- `compactRows` writes a scale once. An even run of 12 or more keeps five rows,
-  a "one step per" note & the last. Color shades fold behind their base.
+- `Reference` is one Class | CSS table holding every class of its first
+  property. Past 12 rows it scrolls in `Scroller` under a sticky header. With
+  `names`, a line under it names the other prefixes, each carrying the anchor
+  search links to, because every multi-property page shares one scale.
+- Every row renders. Measured on Margin, all 387 rows against a condensed
+  table cost 9 KB of gzipped HTML (31.7 to 40.6) & 6 KB of RSC (16.5 to 22.6).
+  All 4,257 classes of its 11 prefixes would cost about eleven times that.
 - `<Variants>` is a table per kind of variant, each under its own `h3`, so
   the TOC lists them, and every variant the data has is a row: breakpoints,
   containers, other media, states (the common ones first), pseudo-elements,
