@@ -12,12 +12,21 @@ export function generateId(text: string): string {
     .replace(/^-|-$/g, "");
 }
 
-const SECTION = /^##\s+(.+?)\s*\n+\s*<Reference[^>]*name="([^"]+)"/gm;
+const NAMES = /<Reference[^>]*names=\{\[([^\]]+)\]\}/g;
 
+const titleCase = (name: string) =>
+  name
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
+/** Each property in a Reference's names list; its row in the prefix table carries the anchor. */
 export function extractProperties(content: string): DocProperty[] {
   const out: DocProperty[] = [];
-  for (const [, title, name] of content.matchAll(SECTION)) {
-    out.push({ name, title, anchor: generateId(title) });
+  for (const [, list] of content.matchAll(NAMES)) {
+    for (const [, name] of list.matchAll(/"([^"]+)"/g)) {
+      out.push({ name, title: titleCase(name), anchor: generateId(name) });
+    }
   }
   return out;
 }

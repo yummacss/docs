@@ -26,7 +26,7 @@ export const HOME_OG: Record<"css" | "ui", OgSpec> = {
 /** The first classes a utility page lists, read from its first Reference. */
 function pageClasses(content = ""): string[] {
   const match = content.match(
-    /<Reference category="([^"]+)" name="([^"]+)" \/>/,
+    /<Reference category="([^"]+)" names?=(?:"|\{\[")([^"]+)"/,
   );
   if (!match) return [];
   const data = getReferenceData(match[1] as Category, match[2]);

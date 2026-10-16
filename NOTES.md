@@ -409,7 +409,7 @@ The rail is about 15rem of content at 1440px.
 scroller handing the wheel to the page when it reaches its end. The left nav had
 it; the other five scrollers on the site did not, which is why the chaining felt
 random - it depended on what the pointer happened to be over. Measured on
-`/docs/display`: wheeling a `<Reference>` filter list to its end threw the page
+`/docs/display`: wheeling the old Reference filter list to its end threw the page
 609px. The worst case was the mobile nav dialog (7936/720 on a phone), where the
 page scrolls behind an open menu. `ob-c` is on all six now. **The registry
 popups - `combobox`, `autocomplete`, `command-palette` - still lack it**; that is
@@ -441,7 +441,7 @@ contrast without changing the face. Docs `h1` is `fs-4xl fw-400` = 36px on 54px
 leading, loose for display type.
 
 **Every heading names its family.** `ff:display` (Esteban) on content: the MDX
-headings, the page titles, the Reference header. `ff:system`
+headings, the page titles. `ff:system`
 (`system-ui`, from `theme.fonts`) on chrome: sidebar, TOC, footer, rail, the
 error pages. A heading with neither gets the body font, iA Writer Quattro.
 
@@ -498,6 +498,17 @@ string**, because the names diverge (Textarea is Field's `render={<textarea />}`
 and `base-ui.com/react/components/textarea` is a 404). Re-run the
 frontmatter-against-imports check if a new component's primitive name diverges
 from its `@base-ui/react/*` import.
+
+**A utility page is Baseline, Reference & Variants.** All static.
+- `Reference` with `name` is a Class | CSS table. With `names`, it is a Prefix |
+  Property table, then one Value | CSS table, because every multi-property page
+  shares one scale. Each prefix row carries the anchor search links to.
+- `compactRows` writes a scale once. An even run of 12 or more keeps five rows,
+  a "one step per" note & the last. Color shades fold behind their base.
+- `<Variants>` is one example row per kind of variant, from the data.
+  `negative` is a prop because the data allows a minus on any numeric scale,
+  and only some utilities document one.
+- The `.md` twin keeps every class: a full table per property.
 
 **Baseline is a row above the Reference table.** `baseline` in mono on a tint:
 green (`diff-add`) for widely, accent for newly, `warning` for limited. The four
@@ -1580,7 +1591,6 @@ Four stale things found on the way, fixed in the same branch:
 - **Nested Variants documented the `@sm:@lg:` collapse** that 4.2 fixed, and
   its outputs used 3.x selectors (`bg-red`).
 - **`@xs` and `@prm` were documented nowhere** but the 4.0 post.
-- `Reference` said "1 utilities". It picks the singular now.
 
 ## Parked
 
