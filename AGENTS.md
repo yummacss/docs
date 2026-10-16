@@ -46,6 +46,9 @@ Short. These were said out loud enough times to belong in a file.
 - **Docs describe the current version only.** Present tense, no comparison with
   a past one: no "now", "no longer", "used to", "still" or "instead of the old".
   What changed between versions belongs in the CHANGELOG and the GitHub releases.
+- **NOTES.md and TODO.md record decisions, not people.** No names, no one's
+  private details, no user or traffic numbers, and no other framework, in
+  either file. A decision reads "Decided 2026-10-16", not whose call it was.
 - Never name another framework to explain a Yumma decision, and do not borrow
   its vocabulary either. Focus draws an **outline**, never a ring: Yumma has
   `os-`, `ow-`, `oo-` and `oc-`, so a box-shadow word for it describes a
