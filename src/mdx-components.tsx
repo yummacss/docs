@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import { Children, cloneElement, isValidElement } from "react";
-import Admonition, { Note, Try, Warning } from "@/components/admonition";
+import Admonition, { Note, Warning } from "@/components/admonition";
 import Baseline from "@/components/baseline";
 import { BrandColors, BrandMarks } from "@/components/brand";
 import Cover from "@/components/cover";
@@ -83,7 +83,6 @@ const components: MDXComponents = {
   Cursor,
   FileTree,
   Note,
-  Try,
   Warning,
   Palette,
   Preview,

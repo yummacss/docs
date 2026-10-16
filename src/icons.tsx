@@ -12,7 +12,6 @@ import {
   CheckIcon,
   CopyIcon,
   CubeIcon,
-  CursorIcon,
   DiamondIcon,
   FileIcon,
   FileMdIcon,
@@ -42,7 +41,6 @@ export const Check = regular(CheckIcon);
 export const CheckCircle = regular(CheckCircleIcon);
 export const ComponentSolid = regular(CubeIcon);
 export const Copy = regular(CopyIcon);
-export const Cursor = regular(CursorIcon);
 export const Diamond = regular(DiamondIcon);
 export const FileMd = regular(FileMdIcon);
 export const Folder = regular(FolderIcon);
