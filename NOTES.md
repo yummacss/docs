@@ -1586,6 +1586,20 @@ copied in beside each component.
   Rename and Edit, a keyboard for Shortcuts, a folder for "No files yet". The
   site's own icons stay Phosphor behind `src/icons.tsx`.
 
+## Blocks, 2026-10-16
+
+- **Blocks** is the last section of the ui sidebar, one page per block, and a
+  block installs with `yummaui add` like a component.
+- **Inline Icon Heading** is the first: a centered heading whose key words
+  sit in a chip with their icon. Indigo shades only, kept light: an
+  `indigo-1/50` chip, `indigo-1` border, `indigo-6` word, an `indigo-4` tile
+  with a white icon. The word stays at `indigo-6` for contrast. The icons
+  are Bold Duotone, Solar's filled style, sized in `em`.
+- **Chips have a `shape`**, so Radius and Squircle reach them; the tile takes
+  one radius step below its chip. A comma after a chip shares its `ws:nw`
+  span, so it never starts a line. Decided 2026-10-16: word chips over bare
+  icons, because a radius has nothing to act on without them.
+
 ## Docs for 4.2, drafted 2026-09-26
 
 Branch `feat/docs-4-2`, merged with the bump to 4.2.0: `src/utils/yummacss.ts`
