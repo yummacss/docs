@@ -31,6 +31,11 @@ const hostRedirects = [
 ];
 
 const docsRedirects = [
+  {
+    source: "/docs/lint",
+    destination: "/docs/configuration#lint",
+    permanent: true,
+  },
   // the plugin & core pages folded into Installation
   {
     source: "/docs/vite",

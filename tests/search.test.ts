@@ -19,15 +19,16 @@ describe("search reference", () => {
       anchor: "configuration-file",
     });
     expect(
-      extractReference(page("docs/lint")).find((e) => e.title === "--allow")
-        ?.description,
+      extractReference(page("docs/configuration")).find(
+        (e) => e.title === "--allow",
+      )?.description,
     ).toMatch(/· yummacss lint$/);
   });
 
   it("finds the lint flags and the bundler plugins' options", () => {
-    expect(extractReference(page("docs/lint")).map((e) => e.title)).toContain(
-      "--allow",
-    );
+    expect(
+      extractReference(page("docs/configuration")).map((e) => e.title),
+    ).toContain("--allow");
     expect(
       extractReference(page("docs/installation")).map((e) => e.title),
     ).toEqual(expect.arrayContaining(["config", "configPath", "cwd"]));
