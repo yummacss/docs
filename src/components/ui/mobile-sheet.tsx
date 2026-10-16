@@ -15,7 +15,6 @@ import ProductLinks from "./product-links";
 interface NavItem {
   title: string;
   href: string;
-  external?: boolean;
   since?: string;
 }
 
@@ -151,17 +150,7 @@ export default function MobileSheet({ menus, isOpen, onClose }: Props) {
                           >
                             <Drawer.Close
                               nativeButton={false}
-                              render={
-                                <Link
-                                  href={item.href}
-                                  target={item.external ? "_blank" : undefined}
-                                  rel={
-                                    item.external
-                                      ? "noopener noreferrer"
-                                      : undefined
-                                  }
-                                />
-                              }
+                              render={<Link href={item.href} />}
                               className={`p:r d:f ai:c g:2 h:10 px:7 fs:md us:none a:bg:surface fv:oc:ink fv:oo:-2 fv:ow:2 ${
                                 isActive
                                   ? "c:accent td:u tds:d"
