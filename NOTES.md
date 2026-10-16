@@ -501,9 +501,9 @@ from its `@base-ui/react/*` import.
 
 **`scripts/check-sidebar.mjs` runs before `next build`.** Every content page must
 appear in `sidebarConfig` exactly once. It parses only the `sidebarConfig`
-object, so link lists elsewhere in that file are ignored - which is why the
-`/llms.txt` sidebar link is defined as `docsLinks` instead. Six consumers assume
-every `sidebarConfig` entry resolves to an `.mdx`.
+object, and six consumers assume every `sidebarConfig` entry resolves to an
+`.mdx`, so the sidebar holds pages only. `/llms.txt` & `/agents.md` are linked
+from the Coding Agents page.
 
 **`mdxToMarkdown` must stay client-safe by construction.** `registry-source.ts`
 and `resolveRegistryMeta` are **injected** into it rather than imported by it. A
@@ -899,8 +899,8 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
   because `/api/search` indexes only `allDocs` and `allUis`. **If the itch
   returns, build per-utility "added in 3.29" badges or a version switcher
   instead** - those carry information GitHub does not have.
-- **A "For LLMs" docs page.** Replaced by the plain sidebar link to `/llms.txt`,
-  which is what was wanted.
+- **A "For LLMs" docs page.** Coding Agents links `/llms.txt` & `/agents.md` in
+  its Plain Text table, which is what was wanted.
 - **Driving the sidebar from frontmatter.** Section order and 16 nested groups
   would still need a config file, and numeric order across 254 files is exactly
   what had already drifted into four duplicate values.

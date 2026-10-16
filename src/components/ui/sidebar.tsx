@@ -1,5 +1,5 @@
 import { allDocs, allUis } from "content-collections";
-import { docsLinks, sidebarConfig } from "@/config/sidebar";
+import { sidebarConfig } from "@/config/sidebar";
 import type { Menus, NavSection } from "./mobile-sheet";
 import SidebarNav from "./sidebar-nav";
 
@@ -33,7 +33,6 @@ export default function Sidebar({ variant }: Props) {
     <SidebarNav
       sections={sections}
       basePath={variant === "ui" ? "/components" : "/docs"}
-      links={variant === "docs" ? docsLinks : undefined}
     />
   );
 }
@@ -43,7 +42,7 @@ export function menuSections(variant: Variant): NavSection[] {
   const page = pageFor(variant);
   const basePath = variant === "ui" ? "/components" : "/docs";
 
-  const sections = sidebarConfig[variant].map((section) => ({
+  return sidebarConfig[variant].map((section) => ({
     title: section.title,
     _key: `${variant}::${section.title}`,
     items: section.items
@@ -53,19 +52,6 @@ export function menuSections(variant: Variant): NavSection[] {
         return { title, href: `${basePath}/${slug}`, since };
       }),
   }));
-
-  if (variant !== "docs") return sections;
-
-  const [first, ...rest] = sections;
-  return [
-    ...(first ? [first] : []),
-    {
-      title: "Resources",
-      _key: "docs::resources",
-      items: docsLinks.map((link) => ({ ...link, external: true })),
-    },
-    ...rest,
-  ];
 }
 
 /** Both menus, so the phone sheet can switch between Docs and Components anywhere. */

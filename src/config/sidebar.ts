@@ -3,16 +3,6 @@ export interface SidebarSection {
   items: (string | { title: string; items: string[] })[];
 }
 
-export interface SidebarLink {
-  title: string;
-  href: string;
-}
-
-export const docsLinks: SidebarLink[] = [
-  { title: "llms.txt", href: "/llms.txt" },
-  { title: "agents.md", href: "/agents.md" },
-];
-
 export const sidebarConfig = {
   docs: [
     {
