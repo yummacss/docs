@@ -15,7 +15,7 @@ const EXTRA = {
   "avatar.children":
     "Drawn inside the avatar, in place of an image or initials.",
   "avatar.tint":
-    "Recolours the fallback. It reaches the initials and the icon, never an image.",
+    "Recolors the fallback. It reaches the initials and the icon, never an image.",
   "avatar-stack.children": "The avatars. Each one overlaps the one before it.",
   "badge.children": "The badge's label.",
   "button.children": "The button's label.",
