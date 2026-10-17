@@ -100,8 +100,8 @@ export interface TextareaProps
 }
 
 /**
- * A multi-line text field, in three shapes and three shadows, with an optional
- * character counter and error or success states.
+ * A multi-line text field, in three shapes, with an optional character counter
+ * and error or success states.
  */
 export default function TextareaBase({
   label,

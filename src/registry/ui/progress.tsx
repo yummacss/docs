@@ -43,10 +43,7 @@ export interface ProgressProps {
   className?: string;
 }
 
-/**
- * A labelled progress bar, determinate or indeterminate, in three shapes with
- * an optional card shadow.
- */
+/** A labelled progress bar, determinate or indeterminate, in three shapes. */
 export default function ProgressBase({
   value,
   label,

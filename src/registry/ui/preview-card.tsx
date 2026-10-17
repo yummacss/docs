@@ -75,7 +75,7 @@ export interface PreviewCardProps {
   focus?: boolean | string;
 }
 
-/** A hover-triggered card, in three shapes with an optional shadow. */
+/** A hover-triggered card, in three shapes. */
 export default function PreviewCardBase({
   arrow = true,
   trigger,

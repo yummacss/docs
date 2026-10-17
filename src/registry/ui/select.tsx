@@ -177,8 +177,8 @@ export interface SelectProps {
 }
 
 /**
- * A choice from a closed list, in three sizes, three shapes and three shadows,
- * with an optional icon on the trigger and an avatar per option.
+ * A choice from a closed list, in three sizes and three shapes, with an
+ * optional icon on the trigger and an avatar per option.
  */
 export default function SelectBase({
   options,

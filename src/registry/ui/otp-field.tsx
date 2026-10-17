@@ -79,8 +79,8 @@ export interface OTPFieldProps
 }
 
 /**
- * A one-time code input, one slot per character, in three sizes, three shapes
- * and three shadows.
+ * A one-time code input, one slot per character, in three sizes and three
+ * shapes.
  */
 export default function OTPFieldBase({
   label,

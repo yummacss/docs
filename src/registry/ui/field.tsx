@@ -142,8 +142,8 @@ export interface FieldProps
 }
 
 /**
- * A labelled input, in three sizes, three shapes and three shadows, with an
- * optional icon and error or success states.
+ * A labelled input, in three sizes and three shapes, with an optional icon and
+ * error or success states.
  */
 export default function FieldBase({
   label,

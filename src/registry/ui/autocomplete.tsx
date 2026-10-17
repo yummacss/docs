@@ -186,8 +186,8 @@ function renderItem(item: AutocompleteItem, shape: Shape) {
 }
 
 /**
- * A text input that filters a list as you type, in three sizes, three shapes
- * and three shadows, with an optional icon and a loading state.
+ * A text input that filters a list as you type, in three sizes and three
+ * shapes, with an optional icon and a loading state.
  */
 export default function AutocompleteBase({
   items,

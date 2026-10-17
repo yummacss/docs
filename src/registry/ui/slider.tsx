@@ -78,7 +78,7 @@ export interface SliderProps {
 
 /**
  * A value between a min and a max, one thumb or two for a range, in three
- * shapes and three thumb shadows.
+ * shapes.
  */
 export default function SliderBase({
   label,

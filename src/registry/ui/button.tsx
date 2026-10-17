@@ -107,8 +107,8 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
 }
 
 /**
- * A primary action, in six variants, three sizes and four shapes, with optional
- * shadow, loading and icon-only states.
+ * A primary action, in six variants, three sizes and four shapes, with loading
+ * and icon-only states.
  */
 export default function ButtonBase({
   variant = "primary",

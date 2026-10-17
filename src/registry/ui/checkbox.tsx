@@ -95,8 +95,8 @@ export interface CheckboxProps
 }
 
 /**
- * A single tick box with its label, in three sizes, three shapes and three
- * shadows, with indeterminate, disabled and read-only states.
+ * A single tick box with its label, in three sizes and three shapes, with
+ * indeterminate, disabled and read-only states.
  */
 export default function CheckboxBase({
   label,

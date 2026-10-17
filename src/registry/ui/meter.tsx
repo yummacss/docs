@@ -51,8 +51,8 @@ export interface MeterProps {
 }
 
 /**
- * A labelled progress meter, in four colors, with an optional icon, description
- * and card shadow.
+ * A labelled progress meter, in four colors, with an optional icon and
+ * description.
  */
 export default function MeterBase({
   value,

@@ -179,8 +179,8 @@ function renderItem(item: ComboboxItem, shape: Shape) {
 }
 
 /**
- * A filtering input that commits to a selection, in three sizes, three shapes
- * and three shadows, single or multiple with removable chips.
+ * A filtering input that commits to a selection, in three sizes and three
+ * shapes, single or multiple with removable chips.
  */
 export default function ComboboxBase({
   items,

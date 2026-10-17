@@ -87,7 +87,7 @@ export interface RatingProps {
   focus?: boolean | string;
 }
 
-/** A star rating input, with an optional shadow on each star. */
+/** A star rating input. */
 export default function RatingBase({
   label,
   max = 5,

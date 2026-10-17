@@ -81,8 +81,8 @@ export interface NumberFieldProps
 }
 
 /**
- * A number input with increment and decrement buttons, in three sizes, three
- * shapes and three shadows.
+ * A number input with increment and decrement buttons, in three sizes and three
+ * shapes.
  */
 export default function NumberFieldBase({
   label,
