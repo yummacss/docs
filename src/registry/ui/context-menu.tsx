@@ -306,7 +306,7 @@ export default function ContextMenuBase({
           className={itemClasses(destructive, trailing)}
         >
           {icon && action.icon && iconPosition === "leading" && (
-            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+            <span className={`d:f fs:0 ${destructive ? "" : "c:slate-5"}`}>
               {action.icon}
             </span>
           )}
@@ -316,7 +316,7 @@ export default function ContextMenuBase({
             action.label
           )}
           {icon && action.icon && iconPosition === "trailing" && (
-            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+            <span className={`d:f fs:0 ${destructive ? "" : "c:slate-5"}`}>
               {action.icon}
             </span>
           )}
@@ -324,7 +324,7 @@ export default function ContextMenuBase({
             <span
               className={[
                 "d:f ai:c g:1 ml:4 fw:400 fs:xs",
-                destructive ? "c:red" : "c:slate-6",
+                destructive ? "" : "c:slate-6",
               ]
                 .filter(Boolean)
                 .join(" ")}
