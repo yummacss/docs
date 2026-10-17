@@ -25,6 +25,8 @@ const EXPECTED_DROPS = [
   "file-upload.tsx: fv:oc:slate-4/60",
   "textarea.tsx: fv:bc:slate-6",
   "textarea.tsx: fv:oc:slate-4/60",
+  "toast.tsx: fv:bc:slate-6",
+  "toast.tsx: fv:oc:slate-4/60",
   "tooltip.tsx: fv:bc:slate-6",
   "tooltip.tsx: fv:oc:slate-4/60",
   "file-upload.tsx: fv:oo:0",

@@ -7,6 +7,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
+type TriggerTone = "neutral" | "danger";
 
 const TOAST_SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
@@ -36,6 +37,14 @@ const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const RAISED =
   "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1";
+
+const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
+
+const TRIGGER_TONES: Record<TriggerTone, string> = {
+  neutral: RAISED,
+  danger:
+    "bg:red h:bg:red-8 btc:red-5 blc:red-8 brc:red-8 bbc:red-9 c:white bs-o:sm",
+};
 
 const BUTTON_BASE = "bw:1 fw:500 tp:c tdu:150 ttf:io us:none c:p";
 
@@ -94,6 +103,11 @@ export interface ToastProps {
   /** How many toasts stay visible; older ones wait until there is room. */
   limit?: number;
   /**
+   * The trigger's color: `danger` when the action it reports destroys
+   * something.
+   */
+  triggerTone?: TriggerTone;
+  /**
    * Corner radius of the toast and its buttons. `squircle` uses `corner-shape`,
    * which degrades to a rounded square where that is unsupported.
    */
@@ -131,6 +145,7 @@ export default function ToastBase({
   onAction,
   timeout = 5000,
   limit = 3,
+  triggerTone = "neutral",
   shape = "rounded",
   animated = true,
   className,
@@ -138,16 +153,18 @@ export default function ToastBase({
   container,
 }: ToastProps) {
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
+  const triggerOutline =
+    focus && triggerTone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
 
   return (
     <Toast.Provider timeout={timeout} limit={limit}>
       <Trigger
         className={merge(
-          outline,
+          triggerOutline,
           "d:if ai:c g:2 px:4 py:2 fs:sm",
           BUTTON_BASE,
           BUTTON_SHAPES[shape],
-          RAISED,
+          TRIGGER_TONES[triggerTone],
           className,
         )}
         title={title}

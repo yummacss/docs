@@ -51,6 +51,14 @@
       "description": "How many toasts stay visible; older ones wait until there is room."
     },
     {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["neutral", "danger"],
+      "default": "neutral",
+      "example": "danger",
+      "description": "The trigger's color: `danger` when the action it reports destroys something."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
