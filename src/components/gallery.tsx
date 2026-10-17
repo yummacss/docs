@@ -330,7 +330,7 @@ export function GalleryC6({ items }: { items: GalleryItem[] }) {
   );
 }
 
-/** D: the mockup's grid. A white stage per group, three across, the name in a corner. */
+/** D: the mockup's grid. A white stage per group, two across, the name in a corner. */
 export function GalleryD({ items }: { items: GalleryItem[] }) {
   const sections = [...new Set(items.map((item) => item.section))];
   return (
@@ -338,7 +338,7 @@ export function GalleryD({ items }: { items: GalleryItem[] }) {
       {sections.map((section) => (
         <section key={section} className="d:g g:3">
           <h2 className="m:0 ff:display fw:400 fs:xxl c:ink">{section}</h2>
-          <div className="d:g gtc:1 gaf:d bw:1 bc:border bg:surface o:h @md:gtc:2 @xl:gtc:3">
+          <div className="d:g gtc:1 gaf:d bw:1 bc:border bg:surface o:h @md:gtc:2">
             {items
               .filter((item) => item.section === section)
               .map((item) => (
@@ -348,7 +348,9 @@ export function GalleryD({ items }: { items: GalleryItem[] }) {
                     WIDE.has(item.id) ? "@md:gc-s:2" : ""
                   }`}
                 >
-                  <Live id={item.id} height={272} />
+                  <div className="p:a t:3 r:3 b:8 l:3">
+                    <Live id={item.id} height={228} />
+                  </div>
                   <Link
                     href={`/components/${item.id}`}
                     className={`p:a l:3 b:2 fs:xs fw:500 ls:1 tt:u c:ink/50 h:c:ink ${LINK}`}
