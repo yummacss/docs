@@ -5,22 +5,25 @@ import { merge } from "yummacss/merge";
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle" | "pill";
-type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BASE = "d:if ai:c jc:c g:2 bw:1 fw:500 us:none";
 
-const MOTION = "tp:c tdu:150 ttf:io";
+const MOTION = "tp:a tdu:150 ttf:io a:s:95";
 
+// a bevel names all four sides: Yumma sorts rules by name, so bc: would beat bbc:
 const VARIANTS: Record<Variant, string> = {
-  primary: "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white",
-  secondary: "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50",
+  primary:
+    "bg:slate-12 h:bg:slate-11 btc:white/20 blc:black/40 brc:black/40 bbc:black/60 c:white bs-o:sm",
+  secondary:
+    "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 c:slate-10 h:bg:silver-1 bs-o:xs",
   subtle: "bg:silver-1 bc:transparent c:slate-7 h:bg:silver-2",
   ghost:
     "bg:transparent bc:transparent c:slate-10 h:bg:silver-1/50 h:c:slate-7",
-  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
+  danger:
+    "bg:red h:bg:red-8 btc:red-5 blc:red-8 brc:red-8 bbc:red-9 c:white bs-o:sm",
   link: "bg:transparent bc:transparent c:slate-10 tuo:2 h:td:u",
 };
 
@@ -47,12 +50,6 @@ const SHAPES: Record<Shape, string> = {
   pill: "br:9999",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 export interface ButtonProps extends ComponentProps<typeof Button> {
   /**
    * Extra classes. `merge` folds them in last, so one here replaces the
@@ -71,8 +68,6 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
    * square where that is unsupported.
    */
   shape?: Shape;
-  /** Depth. `inset` reads as a pressed control, `outset` as a raised one. */
-  shadow?: Shadow;
   /**
    * Dims the button and blocks interaction, while leaving it focusable:
    * `aria-busy` and `aria-disabled` rather than the native `disabled`
@@ -112,14 +107,13 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
 }
 
 /**
- * A primary action, in six variants, three sizes and four shapes, with optional
- * shadow, loading and icon-only states.
+ * A primary action, in six variants, three sizes and four shapes, with loading
+ * and icon-only states.
  */
 export default function ButtonBase({
   variant = "primary",
   size = "md",
   shape = "rounded",
-  shadow = "none",
   loading = false,
   icon,
   iconPosition = "leading",
@@ -146,7 +140,6 @@ export default function ButtonBase({
     VARIANTS[variant],
     iconOnlyActive ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
     inactive ? "o:60 c:na" : "c:p",
     className,
   );

@@ -84,12 +84,26 @@ is written.
   has no `shape` prop at all. Ask that question before adding one.
 - `tests/registry.test.ts` holds the mechanical half.
 
+# Tactile
+
+- Raised things (buttons, triggers, tiles, bars) are lighter on top and darker
+  below: `bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs`.
+  Filled ones: `bg:slate-12 btc:white/20 blc:black/40 brc:black/40
+  bbc:black/60 bs-o:sm`, so the bevel works on any accent.
+- Recessed things (inputs, wells) reverse it: `btc:slate-4 blc:slate-3
+  brc:slate-3 bbc:slate-2`.
+- Popups float on `bc:black/10 bs-o:xl`. A highlighted row is filled,
+  `bg:slate-12 c:white btc:white/20`, on a `bw:1 bc:transparent` row.
+- No inset shadow, except a pressed toggle (Toggle, Toolbar). No `shadow` prop.
+- A bevel names all four sides and never mixes in `bc:`. Yumma sorts its rules
+  by name, so `bc:` would beat `bbc:`.
+
 # Prop order
 
 - A component's own props come first, in whatever order reads best for that
   component. The props every component shares follow, in one fixed sequence:
   style, then state, then behavior, then the escape hatches. `shape` sits
-  between `size` and `shadow` on all 33 components that have it.
+  after `size` on all 33 components that have it.
 - The sequence lives in `SHARED_PROP_ORDER` in `src/utils/props.ts`, the only
   place to change it. `node scripts/order-props.mjs` re-sorts every schema to
   match, and `tests/registry.test.ts` fails when one drifts.
@@ -100,7 +114,7 @@ is written.
   `style` and `radius` in the URL, remembered in `localStorage` for the next
   page, and the address wins. `src/utils/styles.mjs` owns them. A blocked
   pair in an address falls back to the nearest allowed radius.
-- `size`, `shape`, `iconShape` and `shadow` belong to the style: the rail
+- `size`, `shape` and `iconShape` belong to the style: the rail
   never shows or sets them.
 - `animated` and `focus` follow you from one component page to the next.
   `src/utils/sticky.ts` owns that list.

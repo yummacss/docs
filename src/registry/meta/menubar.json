@@ -114,13 +114,6 @@
       "description": "Corner radius on the bar, its buttons, the popups and their items together."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar: they are transparent, so a shadow on each one reads as noise."
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,

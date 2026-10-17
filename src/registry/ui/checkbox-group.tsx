@@ -72,7 +72,12 @@ export default function CheckboxGroupBase({
         </div>
       )}
       {parentLabel && <Checkbox name={name} parent label={parentLabel} />}
-      <div className={merge("d:f fd:c g:2", parentLabel ? "ml:6" : undefined)}>
+      <div
+        className={merge(
+          "d:f fd:c g:2 p:3 br:lg bg:silver-1",
+          parentLabel ? "ml:6" : undefined,
+        )}
+      >
         {children}
       </div>
     </CheckboxGroup>

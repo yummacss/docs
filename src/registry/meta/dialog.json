@@ -108,13 +108,6 @@
       "description": "Corner radius on the popup and its buttons."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the popup."
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,

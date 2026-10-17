@@ -15,7 +15,6 @@ import { merge } from "yummacss/merge";
 type Indicator = "count" | "progress" | "dots" | "checklist";
 type IconPosition = "leading" | "trailing";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br:xxl",
@@ -47,11 +46,6 @@ const TRACK_SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
 };
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -107,8 +101,6 @@ export interface OnboardingProps {
   animatedResize?: boolean;
   /** Corner radius on the trigger, the popup and its controls. */
   shape?: Shape;
-  /** Depth on the popup. */
-  shadow?: Shadow;
   /**
    * The slide transition between steps and the popup's scale-in. Turn it off
    * for an instant tour, or when the user has asked for reduced motion.
@@ -142,7 +134,6 @@ export default function OnboardingBase({
   closeOnEscape = true,
   animatedResize = true,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
@@ -200,15 +191,14 @@ export default function OnboardingBase({
 
   const triggerClasses = merge(
     outline,
-    "bg:white d:if ai:c g:2 px:3 py:2 bc:silver-2 c:slate-10 bw:1 fs:sm fw:500 tp:c tdu:150 ttf:io us:none h:bg:silver-1/50",
+    "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs d:if ai:c g:2 px:3 py:2 c:slate-10 bw:1 fs:sm fw:500 tp:c tdu:150 ttf:io us:none h:bg:silver-1/50",
     CONTROL_SHAPES[shape],
     className,
   );
 
   const popupClasses = [
-    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "o:h p:r w:96 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     POPUP_SHAPES[shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -217,7 +207,7 @@ export default function OnboardingBase({
     outline,
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
-    "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50",
+    "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1",
   );
 
   const forwardClasses = merge(
@@ -225,7 +215,7 @@ export default function OnboardingBase({
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     allTasksDone
-      ? "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white"
+      ? "bg:slate-12 btc:white/20 blc:black/40 brc:black/40 bbc:black/60 bs-o:sm h:bg:slate-11 c:white"
       : "bg:silver-1 bc:silver-2 c:slate-4",
   );
 
@@ -239,7 +229,7 @@ export default function OnboardingBase({
           className={`p:a r:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 ro:3 tty:1 ${TILE_SHAPES[shape]}`}
         />
         <div
-          className={`d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 c:slate-11 bw:1 ${TILE_SHAPES[shape]}`}
+          className={`d:f p:r ai:c jc:c h:14 w:14 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-11 bw:1 ${TILE_SHAPES[shape]}`}
         >
           {step.icon}
         </div>

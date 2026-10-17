@@ -20,13 +20,9 @@ describe("carried styles", () => {
     });
   });
 
-  it("leaves shape, size and shadow to the style", () => {
+  it("leaves shape and size to the style", () => {
     expect(
-      carriedFor(
-        meta("button"),
-        { shape: "squircle", size: "lg", shadow: "outset" },
-        unclaimed,
-      ),
+      carriedFor(meta("button"), { shape: "squircle", size: "lg" }, unclaimed),
     ).toEqual({});
   });
 

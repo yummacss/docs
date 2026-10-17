@@ -12,7 +12,8 @@ const SHAPES: Record<Shape, string> = {
   pill: "p:1 br:9999",
 };
 
-const BASE = "d:f ai:c o:h w:fc bg:white bc:silver-2 bw:1";
+const BASE =
+  "d:f ai:c o:h w:fc bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1";
 
 export interface ButtonGroupProps {
   /** Merged with the group's own classes, so a utility you pass wins. */

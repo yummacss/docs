@@ -95,13 +95,6 @@
       "description": "Corner radius on the popup, the badge and the buttons. `square` squares off the badge too."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the popup."
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,

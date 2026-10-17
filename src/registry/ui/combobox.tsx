@@ -10,7 +10,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 export interface ComboboxItem {
   label: string;
@@ -25,7 +24,8 @@ export interface ComboboxGroup {
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
-const INPUT = "pl:4 pr:16 bg:white bc:silver-3 c:slate-10 bw:1 fs:md";
+const INPUT =
+  "pl:4 pr:16 bg:white btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-10 bw:1 fs:md";
 
 const SIZES: Record<Size, string> = {
   sm: "h:8 w:56",
@@ -63,12 +63,6 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 const ACTION =
   "d:f b:0 ai:c jc:c w:6 h:6 p:0 bg:transparent c:slate-6 c:p h:c:slate-10";
 
@@ -102,10 +96,6 @@ export interface ComboboxProps {
    * `corner-shape`.
    */
   shape?: Shape;
-  /**
-   * Depth on the input. `inset` reads as a well, `outset` as a raised control.
-   */
-  shadow?: Shadow;
   /**
    * Allows more than one selection. Choices become removable chips under the
    * input.
@@ -158,8 +148,10 @@ function renderItem(item: ComboboxItem, shape: Shape) {
       key={item.label}
       value={item.label}
       className={(state) =>
-        `d:f ai:c g:2 py:2 px:3 mx:1 ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p ${
-          state.highlighted ? "bg:silver-2/50" : "bg:transparent"
+        `d:f ai:c g:2 py:2 px:3 mx:1 bw:1 bc:transparent ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p ${
+          state.highlighted
+            ? "bg:slate-12 c:white btc:white/20"
+            : "bg:transparent"
         }`
       }
     >
@@ -187,8 +179,8 @@ function renderItem(item: ComboboxItem, shape: Shape) {
 }
 
 /**
- * A filtering input that commits to a selection, in three sizes, three shapes
- * and three shadows, single or multiple with removable chips.
+ * A filtering input that commits to a selection, in three sizes and three
+ * shapes, single or multiple with removable chips.
  */
 export default function ComboboxBase({
   items,
@@ -197,7 +189,6 @@ export default function ComboboxBase({
   placeholder = "Search",
   size = "md",
   shape = "rounded",
-  shadow = "none",
   multiple = false,
   clearable = true,
   disabled = false,
@@ -218,10 +209,9 @@ export default function ComboboxBase({
   const id = useId();
 
   const chipsClasses = merge(
-    "d:f fw:w ai:c g:1 py:1 pl:2 pr:16 bg:white bc:silver-3 c:slate-10 bw:1",
+    "d:f fw:w ai:c g:1 py:1 pl:2 pr:16 bg:white btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-10 bw:1",
     CHIPS_SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
     className,
   );
 
@@ -230,13 +220,12 @@ export default function ComboboxBase({
     INPUT,
     SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
     className,
   );
 
   const popup = (
     <Combobox.Popup
-      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
+      className={`o:h bg:white bc:black/10 bs-o:xl c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
     >
       {loading ? (
         <div
@@ -301,7 +290,7 @@ export default function ComboboxBase({
                     {toChips(selected).map((chip) => (
                       <Combobox.Chip
                         key={chip}
-                        className="d:f ai:c g:1 px:2 py:0 h:6 bg:white bc:silver-3 c:slate-10 bw:1 fs:xs fw:500"
+                        className="d:f ai:c g:1 px:2 py:0 h:6 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 bw:1 fs:xs fw:500"
                       >
                         {chip}
                         <Combobox.ChipRemove

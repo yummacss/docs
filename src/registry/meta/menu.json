@@ -91,13 +91,6 @@
       "description": "Corner radius on the trigger, popup and items together. `squircle` steps the popup & item radius up one and adds `corner-shape`."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on both the trigger and the popup."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,

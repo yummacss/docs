@@ -1,5 +1,5 @@
 {
-  "summary": "A hover-triggered card, in three shapes with an optional shadow.",
+  "summary": "A hover-triggered card, in three shapes.",
   "props": [
     {
       "name": "arrow",
@@ -39,13 +39,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the card. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the card. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "animated",

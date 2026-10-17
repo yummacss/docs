@@ -8,7 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Side = "bottom" | "top" | "left" | "right";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 type Size = "sm" | "md" | "lg";
 
@@ -80,15 +79,10 @@ const HANDLE_SHAPES: Record<Shape, string> = {
   squircle: "br:9999 cs:s",
 };
 
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
-};
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BUTTON =
-  "d:if ai:c jc:c g:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50";
+  "d:if ai:c jc:c g:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1";
 
 const SIZES: Record<Size, string> = {
   sm: "px:3 py:1 fs:xs",
@@ -134,8 +128,6 @@ export interface DrawerProps {
   size?: Size;
   /** Corner radius on the edge that faces the page, and on the buttons. */
   shape?: Shape;
-  /** Depth on the panel. */
-  shadow?: Shadow;
   /**
    * The slide in and out and the backdrop's fade. A swipe follows the finger
    * either way.
@@ -172,7 +164,6 @@ export default function DrawerBase({
   showClose = false,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
@@ -189,10 +180,9 @@ export default function DrawerBase({
   );
 
   const popupClasses = [
-    "p:r d:f fd:c bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "p:r d:f fd:c bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     PLACEMENTS[side],
     EDGE_SHAPES[side][shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     "tr:var(--drawer-travel)",
     animated
       ? "opening:tr:var(--drawer-offstage) closing:tr:var(--drawer-offstage) tp:t tdu:300 ttf:out-quart closing:tdu:200 closing:ttf:eo swiping:tp:none @prm:tp:none"
