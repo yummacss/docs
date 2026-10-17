@@ -95,6 +95,8 @@ is written.
 - Popups float on `bc:black/10 bs-o:xl`. A highlighted row is filled,
   `bg:slate-12 c:white btc:white/20`, on a `bw:1 bc:transparent` row.
 - No inset shadow, except a pressed toggle (Toggle, Toolbar). No `shadow` prop.
+- Pressed in is an on/off that stays on by itself (Toggle, Toolbar). Picking
+  one of several is a raised chip on a track (Tabs, Toggle Group).
 - A bevel names all four sides and never mixes in `bc:`. Yumma sorts its rules
   by name, so `bc:` would beat `bbc:`.
 

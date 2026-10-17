@@ -38,7 +38,7 @@
     {
       "name": "value",
       "type": "string",
-      "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array instead of this component's internal state."
+      "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array, and the pressed toggle draws as a raised chip on the group's track."
     },
     {
       "name": "aria-label",

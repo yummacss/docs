@@ -39,6 +39,7 @@ import {
   DownloadIcon,
   Grid2x2Icon,
   LinkIcon,
+  ListIcon as ListOutlineIcon,
   MagnifierIcon,
   MenuDotsIcon,
   TextBoldIcon,
@@ -114,6 +115,7 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     TextBoldIcon,
     TextItalicIcon,
     TextUnderlineIcon,
+    ListIcon: ListOutlineIcon,
   },
 };
 
