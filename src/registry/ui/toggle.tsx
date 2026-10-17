@@ -17,6 +17,13 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
+// in a group, one step under the track's own round, so the chip nests inside it
+const GROUP_SHAPES: Record<Shape, string> = {
+  rounded: "br:md",
+  square: "",
+  squircle: "br:xl cs:s",
+};
+
 const SIZES: Record<Size, string> = {
   sm: "w:9 h:9",
   md: "w:12 h:12",
@@ -29,6 +36,11 @@ const PRESSED =
   "bg:silver-1 bs-i:md btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-11";
 const UNPRESSED =
   "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1";
+
+// in a group, picking one of several: the selected tab's raised chip on the track
+const GROUP_PRESSED =
+  "bg:white btc:silver-2 blc:silver-2 brc:silver-2 bbc:silver-4 bs-o:xs c:slate-10";
+const GROUP_UNPRESSED = "bg:transparent bc:transparent c:slate-8 h:c:slate-10";
 
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
@@ -139,8 +151,18 @@ export default function ToggleBase({
           "d:f ai:c jc:c us:none",
           disabled ? "c:na" : "c:p",
           SIZES[size],
-          SHAPES[shape],
-          disabled ? DISABLED : `bw:1 ${state.pressed ? PRESSED : UNPRESSED}`,
+          grouped ? GROUP_SHAPES[shape] : SHAPES[shape],
+          disabled
+            ? DISABLED
+            : `bw:1 ${
+                grouped
+                  ? state.pressed
+                    ? GROUP_PRESSED
+                    : GROUP_UNPRESSED
+                  : state.pressed
+                    ? PRESSED
+                    : UNPRESSED
+              }`,
           className,
         ) +
         (animated && !disabled

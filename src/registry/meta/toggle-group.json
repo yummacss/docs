@@ -22,7 +22,8 @@
     {
       "name": "defaultValue",
       "type": "string[]",
-      "description": "The pressed toggles on first render, uncontrolled."
+      "description": "The pressed toggles on first render, uncontrolled.",
+      "example": ["grid"]
     },
     {
       "name": "onValueChange",
@@ -52,33 +53,36 @@
     {
       "component": "Toggle",
       "props": {
-        "value": "bold",
-        "aria-label": "Bold",
+        "value": "list",
+        "aria-label": "List",
         "icon": {
-          "$icon": "TextBoldIcon",
-          "size": "w:4 h:4"
+          "$icon": "ListIcon",
+          "size": "w:4 h:4",
+          "style": "outline"
         }
       }
     },
     {
       "component": "Toggle",
       "props": {
-        "value": "italic",
-        "aria-label": "Italic",
+        "value": "grid",
+        "aria-label": "Grid",
         "icon": {
-          "$icon": "TextItalicIcon",
-          "size": "w:4 h:4"
+          "$icon": "Grid2x2Icon",
+          "size": "w:4 h:4",
+          "style": "outline"
         }
       }
     },
     {
       "component": "Toggle",
       "props": {
-        "value": "underline",
-        "aria-label": "Underline",
+        "value": "columns",
+        "aria-label": "Columns",
         "icon": {
-          "$icon": "TextUnderlineIcon",
-          "size": "w:4 h:4"
+          "$icon": "Columns3Icon",
+          "size": "w:4 h:4",
+          "style": "outline"
         }
       }
     }

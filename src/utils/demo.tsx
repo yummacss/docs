@@ -27,6 +27,7 @@ import {
   CheckIcon,
   Columns3Icon,
   Grid2x2Icon,
+  ListIcon as ListOutlineIcon,
   MagnifierIcon,
   TextBoldIcon,
   TextItalicIcon,
@@ -79,6 +80,7 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     TextBoldIcon,
     TextItalicIcon,
     TextUnderlineIcon,
+    ListIcon: ListOutlineIcon,
   },
 };
 
