@@ -39,6 +39,7 @@ import meta_slider from "./meta/slider.json";
 import meta_switch from "./meta/switch.json";
 import meta_tabs from "./meta/tabs.json";
 import meta_textarea from "./meta/textarea.json";
+import meta_toast from "./meta/toast.json";
 import meta_toggle_group from "./meta/toggle-group.json";
 import meta_toggle from "./meta/toggle.json";
 import meta_toolbar from "./meta/toolbar.json";
@@ -98,6 +99,7 @@ export const registry = {
   "switch": () => import("./ui/switch"),
   "tabs": () => import("./ui/tabs"),
   "textarea": () => import("./ui/textarea"),
+  "toast": () => import("./ui/toast"),
   "toggle-group": () => import("./ui/toggle-group"),
   "toggle": () => import("./ui/toggle"),
   "toolbar": () => import("./ui/toolbar"),
@@ -194,6 +196,7 @@ export const registryMeta = {
   "switch": meta_switch,
   "tabs": meta_tabs,
   "textarea": meta_textarea,
+  "toast": meta_toast,
   "toggle-group": meta_toggle_group,
   "toggle": meta_toggle,
   "toolbar": meta_toolbar,
@@ -265,6 +268,7 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "switch": { component: "switch", variant: "base", kind: "component", install: "switch" },
   "tabs": { component: "tabs", variant: "base", kind: "component", install: "tabs" },
   "textarea": { component: "textarea", variant: "base", kind: "component", install: "textarea" },
+  "toast": { component: "toast", variant: "base", kind: "component", install: "toast" },
   "toggle-group": { component: "toggle-group", variant: "base", kind: "component", install: "toggle-group" },
   "toggle": { component: "toggle", variant: "base", kind: "component", install: "toggle" },
   "toolbar": { component: "toolbar", variant: "base", kind: "component", install: "toolbar" },
@@ -300,6 +304,7 @@ export const registryConfig: Record<string, RegistryConfig> = {
   "skeleton": { states: {}, easings: {}, keyframes: { "pulse": "0%, 100% { opacity: .5; } 50% { opacity: 1; }" } },
   "switch": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
   "tabs": { states: {}, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
+  "toast": { states: {}, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "toggle": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
   "toolbar": { states: {}, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
   "tooltip": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
