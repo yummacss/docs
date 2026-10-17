@@ -90,8 +90,8 @@ function Chip({
 }
 
 /**
- * A centered heading whose key words each sit in a chip with the icon that
- * names them: a pen for written, a camera for filmed, a microphone for
+ * A centered heading whose key words each sit in an indigo chip with the icon
+ * that names them: a pen for written, a camera for filmed, a microphone for
  * recorded.
  */
 export default function InlineIconHeading({

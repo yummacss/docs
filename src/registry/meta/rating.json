@@ -1,10 +1,10 @@
 {
-  "summary": "A star rating input, with an optional shadow on each star.",
+  "summary": "A star rating input.",
   "props": [
     {
       "name": "label",
       "type": "string",
-      "example": "Rating",
+      "example": "How useful was this search?",
       "description": "Text above the stars."
     },
     {
@@ -26,7 +26,7 @@
       "name": "icons",
       "type": "none",
       "typeName": "RatingIcon[]",
-      "description": "A custom icon set, for a single-choice picker instead of N stars. When set, `value`/`defaultValue` index into it (0-based, `-1` for none) rather than counting filled stars, and `count`/`shadow` are ignored."
+      "description": "A custom icon set, for a single-choice picker instead of N stars. When set, `value`/`defaultValue` index into it (0-based, `-1` for none) rather than counting filled stars, and `count` is ignored."
     },
     {
       "name": "defaultValue",
@@ -35,7 +35,7 @@
       "min": 0,
       "max": 10,
       "step": 1,
-      "example": 3
+      "example": 4
     },
     {
       "name": "value",
@@ -69,13 +69,6 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "Extra content below the hint text, like a feedback field."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card, which is what both shadow demos did."
     },
     {
       "name": "disabled",

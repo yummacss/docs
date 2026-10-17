@@ -62,8 +62,14 @@
       "default": true,
       "description": "A grab bar on the edge facing the page, for a `bottom` or `top` drawer.",
       "conflictsWith": [
-        { "prop": "side", "is": "left" },
-        { "prop": "side", "is": "right" }
+        {
+          "prop": "side",
+          "is": "left"
+        },
+        {
+          "prop": "side",
+          "is": "right"
+        }
       ]
     },
     {
@@ -85,13 +91,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the edge that faces the page, and on the buttons."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the panel."
     },
     {
       "name": "animated",

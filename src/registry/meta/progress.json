@@ -1,11 +1,11 @@
 {
-  "summary": "A labelled progress bar, determinate or indeterminate, in three shapes with an optional card shadow.",
+  "summary": "A labelled progress bar, determinate or indeterminate, in three shapes.",
   "props": [
     {
       "name": "value",
       "type": "number",
       "typeName": "number | null",
-      "example": 68,
+      "example": 60,
       "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar. There is no fill level to show, so the schema here cannot demo it, but the prop accepts it.",
       "min": 0,
       "max": 100,
@@ -15,7 +15,7 @@
       "name": "label",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Uploading",
+      "example": "Uploading 3 of 5 files",
       "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
     },
     {
@@ -42,13 +42,6 @@
       "description": "Corner radius on both the track and the indicator."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Wraps the bar in a padded card. `none` renders it bare, with no card at all."
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,
@@ -57,6 +50,50 @@
         {
           "prop": "value",
           "set": false
+        }
+      ]
+    }
+  ],
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:g g:3 w:100% max-w:64",
+      "children": [
+        {
+          "component": "Progress",
+          "props": {
+            "value": 60,
+            "label": "Uploading 3 of 5 files"
+          }
+        },
+        {
+          "tag": "div",
+          "className": "d:f ai:c jc:sb",
+          "children": [
+            {
+              "tag": "span",
+              "className": "d:f ai:c g:1 fs:sm c:slate-7",
+              "children": [
+                {
+                  "icon": {
+                    "$icon": "ClockCircleIcon",
+                    "size": "w:4 h:4"
+                  }
+                },
+                {
+                  "text": "About 20 seconds left"
+                }
+              ]
+            },
+            {
+              "component": "Button",
+              "props": {
+                "variant": "secondary",
+                "size": "sm"
+              },
+              "children": "Pause"
+            }
+          ]
         }
       ]
     }

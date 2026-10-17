@@ -11,7 +11,6 @@ import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
@@ -25,11 +24,6 @@ const CONTROL_SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 export interface ToolbarButtonItem {
@@ -104,8 +98,6 @@ export interface ToolbarProps {
    * step more than its controls.
    */
   shape?: Shape;
-  /** Depth on the bar. */
-  shadow?: Shadow;
   /**
    * The press-scale on buttons and toggles. Turn it off for static controls, or
    * when the user has asked for reduced motion.
@@ -133,20 +125,15 @@ export interface ToolbarProps {
 export default function ToolbarBase({
   items,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
 }: ToolbarProps) {
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
-  const shadowClass =
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
-
   const rootClasses = merge(
-    "d:f ai:c g:1 p:2 bg:white bc:silver-2 bw:1",
+    "d:f ai:c g:1 p:2 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1",
     ROOT_SHAPES[shape],
-    shadowClass,
     className,
   );
 
@@ -334,8 +321,8 @@ function ToolbarToggles({
       "d:f w:9 h:9 ai:c jc:c bw:0 us:none c:p",
       control,
       pressed
-        ? "bg:silver-1 bc:silver-3 c:slate-12 bw:1"
-        : "bg:transparent c:slate-7 h:bg:silver-1 h:c:slate-10",
+        ? "bg:silver-1 bs-i:md bw:1 btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-11"
+        : "bg:transparent bw:1 bc:transparent c:slate-7 h:bg:silver-1 h:c:slate-10",
     );
 
   return (

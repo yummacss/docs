@@ -1,5 +1,5 @@
 {
-  "summary": "A single tick box with its label, in three sizes, three shapes and three shadows, with indeterminate, disabled and read-only states.",
+  "summary": "A single tick box with its label, in three sizes and three shapes, with indeterminate, disabled and read-only states.",
   "props": [
     {
       "name": "label",
@@ -10,7 +10,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label."
+      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label.",
+      "example": "Files whose names start with a dot, like .env"
     },
     {
       "name": "defaultChecked",
@@ -52,13 +53,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the box. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

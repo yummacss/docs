@@ -5,19 +5,12 @@ import { type FocusEvent, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type Value = number | number[];
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 const FOCUS = "os:s ow:3 oo:0 oc:slate-4/60";
@@ -61,11 +54,6 @@ export interface SliderProps {
    * `squircle` uses `corner-shape`.
    */
   shape?: Shape;
-  /**
-   * Depth on the thumb only. The track and indicator are flush with the
-   * control, so a shadow on them would read as a stray line rather than depth.
-   */
-  shadow?: Shadow;
   /** Blocks interaction and dims the control. */
   disabled?: boolean;
   /**
@@ -90,7 +78,7 @@ export interface SliderProps {
 
 /**
  * A value between a min and a max, one thumb or two for a range, in three
- * shapes and three thumb shadows.
+ * shapes.
  */
 export default function SliderBase({
   label,
@@ -103,7 +91,6 @@ export default function SliderBase({
   max = 100,
   step = 1,
   shape = "rounded",
-  shadow = "none",
   disabled = false,
   formatValue = defaultFormat,
   className,
@@ -129,7 +116,9 @@ export default function SliderBase({
   const thumbClasses = (index: number) =>
     merge(
       "w:4 h:3",
-      disabled ? "bg:silver-5" : "bg:slate-10",
+      disabled
+        ? "bg:silver-5"
+        : "bg:white bw:1 btc:black/5 blc:black/10 brc:black/10 bbc:black/20 bs-o:sm",
       SHAPES[shape],
       focused === index ? outline : "",
     );
@@ -167,9 +156,8 @@ export default function SliderBase({
         >
           <Slider.Track
             className={merge(
-              "p:r h:5 w:100% bg:white os:s ow:1 oo:0 oc:silver-3",
+              "p:r h:5 w:100% bw:1 bg:silver-1 btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2",
               SHAPES[shape],
-              SHADOWS[shadow],
             )}
           >
             <Slider.Indicator
@@ -182,7 +170,7 @@ export default function SliderBase({
                   : { width: `calc(var(--start-position) + ${HALF_BOX})` }
               }
               className={merge(
-                disabled ? "bg:silver-1" : "bg:silver-2 brc:silver-3 brw:1",
+                disabled ? "bg:silver-2" : "bg:slate-12",
                 SHAPES[shape],
               )}
             />

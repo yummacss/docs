@@ -7,19 +7,19 @@
       "typeName": "BreadcrumbItem[]",
       "example": [
         {
-          "label": "Home",
-          "href": "#"
-        },
-        {
           "label": "Documents",
           "href": "#"
         },
         {
-          "label": "Notes",
+          "label": "Taxes",
           "href": "#"
         },
         {
-          "label": "readme.md"
+          "label": "2026",
+          "href": "#"
+        },
+        {
+          "label": "receipts.pdf"
         }
       ],
       "description": "Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item is always rendered as the current page: a plain span with `aria-current=\"page\"`, never a link, regardless of whether it has an `href`."
@@ -50,19 +50,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. Only visible when `bordered` is set.",
-      "conflictsWith": [
-        {
-          "prop": "bordered",
-          "set": false
-        }
-      ]
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the card. Only visible when `bordered` is set.",
       "conflictsWith": [
         {
           "prop": "bordered",

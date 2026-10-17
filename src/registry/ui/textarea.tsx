@@ -8,7 +8,6 @@ import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type Status = "default" | "error" | "success";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -19,14 +18,8 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
-};
-
 const STATUS_BORDER: Record<Status, string> = {
-  default: "bc:silver-3",
+  default: "btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2",
   error: "bc:red-5",
   success: "bc:green-5",
 };
@@ -89,11 +82,6 @@ export interface TextareaProps
    * square where that is unsupported.
    */
   shape?: Shape;
-  /**
-   * Depth on the control. `inset` reads as a well, `outset` as a raised
-   * control.
-   */
-  shadow?: Shadow;
   /** Called on every input event. */
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   /**
@@ -112,8 +100,8 @@ export interface TextareaProps
 }
 
 /**
- * A multi-line text field, in three shapes and three shadows, with an optional
- * character counter and error or success states.
+ * A multi-line text field, in three shapes, with an optional character counter
+ * and error or success states.
  */
 export default function TextareaBase({
   label,
@@ -123,7 +111,6 @@ export default function TextareaBase({
   success,
   maxLength,
   shape = "rounded",
-  shadow = "none",
   disabled,
   className,
   focus = true,
@@ -160,7 +147,6 @@ export default function TextareaBase({
     "h:24 w:64 py:3 pl:3 bg:white c:slate-10 bw:1 fs:md r:none",
     showCounter || status !== "default" ? "pr:10" : "pr:3",
     SHAPES[shape],
-    SHADOWS[shadow],
     STATUS_BORDER[status],
     className,
   );

@@ -126,6 +126,8 @@ export interface RegistryMeta {
   props: RegistryProp[];
   children?: string;
   childrenExample?: ChildExample[];
+  /** The Example view: the component in use, often several times over. */
+  scene?: ChildExample[];
 }
 
 /** One node of a demo's children: a registry component, a plain element, or text. */
@@ -136,6 +138,8 @@ export interface ChildExample {
   props?: Record<string, unknown>;
   children?: string | ChildExample[];
   text?: string;
+  /** An icon on its own, as an \`{ "$icon" }\` marker. */
+  icon?: unknown;
 }
 
 export const registryMeta = {

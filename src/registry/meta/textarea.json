@@ -1,10 +1,10 @@
 {
-  "summary": "A multi-line text field, in three shapes and three shadows, with an optional character counter and error or success states.",
+  "summary": "A multi-line text field, in three shapes, with an optional character counter and error or success states.",
   "props": [
     {
       "name": "label",
       "type": "none",
-      "example": "Message",
+      "example": "Description",
       "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed.",
       "typeName": "string",
       "optional": true
@@ -12,7 +12,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set.",
+      "example": "Shown under the folder name and found by search."
     },
     {
       "name": "error",
@@ -27,7 +28,7 @@
     {
       "name": "maxLength",
       "type": "number",
-      "example": 0,
+      "example": 200,
       "description": "Caps the value and draws the counter under the field. Zero draws neither.",
       "min": 0,
       "max": 400,
@@ -39,13 +40,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

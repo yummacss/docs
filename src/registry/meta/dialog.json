@@ -46,7 +46,7 @@
       "name": "description",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Choose a new name for readme.md.",
+      "example": "Choose a new name for budget-2026.xlsx.",
       "description": "The body text, wired up by Base UI's own Dialog.Description."
     },
     {
@@ -106,13 +106,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the popup and its buttons."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the popup."
     },
     {
       "name": "animated",

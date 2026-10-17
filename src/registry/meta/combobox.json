@@ -1,5 +1,5 @@
 {
-  "summary": "A filtering input that commits to a selection, in three sizes, three shapes and three shadows, single or multiple with removable chips.",
+  "summary": "A filtering input that commits to a selection, in three sizes and three shapes, single or multiple with removable chips.",
   "props": [
     {
       "name": "items",
@@ -7,20 +7,20 @@
       "typeName": "ComboboxItem[]",
       "example": [
         {
-          "label": "Berlin",
-          "description": "Germany"
+          "label": "taxes",
+          "description": "14 files"
         },
         {
-          "label": "Lisbon",
-          "description": "Portugal"
+          "label": "receipts",
+          "description": "32 files"
         },
         {
-          "label": "Nairobi",
-          "description": "Kenya"
+          "label": "recipes",
+          "description": "6 files"
         },
         {
-          "label": "Osaka",
-          "description": "Japan"
+          "label": "holiday",
+          "description": "118 files"
         }
       ],
       "description": "What to choose from. Same shape as Autocomplete's: `label` is matched and shown, `description` and `avatar` are optional."
@@ -28,7 +28,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "City",
+      "example": "Tag",
       "description": "Field label above the input.",
       "optional": true
     },
@@ -74,13 +74,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius, applied to the input and the popup together. `squircle` uses `corner-shape`."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

@@ -10,7 +10,6 @@ import { useId, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type Border = "dashed" | "solid" | "none";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -27,12 +26,6 @@ const BORDERS: Record<Border, string> = {
   dashed: "bw:2 bs:d",
   solid: "bw:1",
   none: "bw:0",
-};
-
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 const UNITS = ["B", "KB", "MB", "GB"];
@@ -86,11 +79,6 @@ export interface FileUploadProps {
    */
   shape?: Shape;
   /**
-   * Depth on the icon tile, not on the zone: a drop target with a drop shadow
-   * reads as a card you cannot drop into.
-   */
-  shadow?: Shadow;
-  /**
    * `dashed` is the drop-zone convention and carries the extra width it needs
    * to read as one. `solid` is a heavier, more permanent box, so it stays thin.
    * `none` leaves the zone to its background.
@@ -134,7 +122,6 @@ export default function FileUploadBase({
   multiple = false,
   onFilesChange,
   shape = "rounded",
-  shadow = "none",
   border = "dashed",
   error,
   disabled = false,
@@ -248,8 +235,9 @@ export default function FileUploadBase({
           className={merge(
             "d:f ai:c jc:c w:10 h:10 bw:1",
             SHAPES[shape],
-            SHADOWS[shadow],
-            error ? "bg:red-1/50 bc:red-5" : "bg:white bc:silver-2",
+            error
+              ? "bg:red-1/50 bc:red-5"
+              : "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs",
           )}
         >
           {icon ?? (
@@ -285,7 +273,7 @@ export default function FileUploadBase({
             <div
               key={identity(file)}
               className={merge(
-                "d:f ai:c jc:sb g:3 px:3 py:2 bg:silver-1/50 bc:silver-2 bw:1",
+                "d:f ai:c jc:sb g:3 px:3 py:2 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1",
                 SHAPES[shape],
               )}
             >

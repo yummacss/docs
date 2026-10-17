@@ -13,7 +13,6 @@ import { merge } from "yummacss/merge";
 
 type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const TURN = "tp:t tdu:300 ttf:out-quart @prm:tp:none";
 
@@ -34,11 +33,6 @@ const SHAPES: Record<Shape, { item: string; trigger: string }> = {
   squircle: { item: "br:xxl cs:s", trigger: "br:xxl cs:s" },
 };
 
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
-};
-
 export interface AccordionProps {
   /**
    * Each item's `value`, `title`, `content` and optional `disabled`. `value` is
@@ -56,8 +50,6 @@ export interface AccordionProps {
    * since no shape was ever paired with them.
    */
   shape?: Shape;
-  /** Wraps the whole list in a card. Only applies to the `default` variant. */
-  shadow?: Shadow;
   /**
    * Draws a rule between each pair of items. Only visible on the `default`
    * variant.
@@ -113,7 +105,6 @@ export default function AccordionBase({
   items,
   variant = "default",
   shape = "rounded",
-  shadow = "none",
   separated = true,
   indicator = "chevron",
   indicatorPosition = "trailing",
@@ -137,19 +128,13 @@ export default function AccordionBase({
     onValueChange?.(next);
   };
 
-  const isCard = variant === "default" && shadow !== "none";
-  const itemShadow =
-    shadow !== "none" && (variant === "bordered" || variant === "subtle")
-      ? SHADOWS[shadow]
-      : "";
+  const isCard = variant === "default";
 
   const rootClasses = merge(
     "d:f fd:c w:100% max-w:96",
     variant === "bordered" || variant === "subtle" ? "g:2" : "",
     isCard
-      ? ["bg:white br:lg bw:1 bc:silver-2", SHADOWS[shadow]]
-          .filter(Boolean)
-          .join(" ")
+      ? "bg:white bw:1 btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs br:lg"
       : "",
     className,
   );
@@ -167,9 +152,7 @@ export default function AccordionBase({
 
         const itemClasses =
           variant === "bordered"
-            ? ["bg:white bc:silver-3 bw:1", SHAPES[shape].item, itemShadow]
-                .filter(Boolean)
-                .join(" ")
+            ? `bg:white bw:1 btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs ${SHAPES[shape].item}`
             : variant === "ghost"
               ? [
                   "blw:2 pl:4",
@@ -182,12 +165,11 @@ export default function AccordionBase({
                 ? [
                     SHAPES[shape].item,
                     isOpen ? "bg:silver-1" : "bg:silver-1 h:bg:silver-2",
-                    itemShadow,
                   ]
                     .filter(Boolean)
                     .join(" ")
                 : separated && !isLast
-                  ? "bbw:1 bc:silver-3"
+                  ? "bbw:1 bc:silver-2"
                   : "";
 
         const triggerRadius =

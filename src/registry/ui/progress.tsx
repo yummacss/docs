@@ -5,17 +5,11 @@ import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br:9999",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
 };
 
 export interface ProgressProps {
@@ -38,11 +32,6 @@ export interface ProgressProps {
   /** Corner radius on both the track and the indicator. */
   shape?: Shape;
   /**
-   * Wraps the bar in a padded card. `none` renders it bare, with no card at
-   * all.
-   */
-  shadow?: Shadow;
-  /**
    * The indicator's width transition as `value` changes. Indeterminate progress
    * always animates regardless of this.
    */
@@ -54,31 +43,21 @@ export interface ProgressProps {
   className?: string;
 }
 
-/**
- * A labelled progress bar, determinate or indeterminate, in three shapes with
- * an optional card shadow.
- */
+/** A labelled progress bar, determinate or indeterminate, in three shapes. */
 export default function ProgressBase({
   value,
   label,
   shimmer = false,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
 }: ProgressProps) {
-  const isCard = shadow !== "none";
   const isIndeterminate = value === null;
   const sweeps = shimmer && animated && !isIndeterminate && value < 100;
 
-  const rootClasses = merge(
-    "d:f fd:c g:2 w:64",
-    isCard ? "p:4 bg:white bc:silver-2 br:lg bw:1" : "",
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
-    className,
-  );
+  const rootClasses = merge("d:f fd:c g:2 w:64", className);
 
-  const trackClasses = ["o:h h:2 bg:silver-2", SHAPES[shape]]
+  const trackClasses = ["o:h h:2 bg:slate-2", SHAPES[shape]]
     .filter(Boolean)
     .join(" ");
 

@@ -11,7 +11,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the label, for the consequence of turning it on."
+      "description": "A line under the label, for the consequence of turning it on.",
+      "example": "Every change, as you type"
     },
     {
       "name": "defaultChecked",
@@ -71,6 +72,29 @@
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    }
+  ],
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:g g:4",
+      "children": [
+        {
+          "component": "Switch",
+          "props": {
+            "label": "Autosave",
+            "description": "Every change, as you type",
+            "defaultChecked": true
+          }
+        },
+        {
+          "component": "Switch",
+          "props": {
+            "label": "Show file extensions",
+            "description": "report.pdf rather than report"
+          }
+        }
+      ]
     }
   ]
 }

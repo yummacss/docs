@@ -1,5 +1,5 @@
 {
-  "summary": "A text input that filters a list as you type, in three sizes, three shapes and three shadows, with an optional icon and a loading state.",
+  "summary": "A text input that filters a list as you type, in three sizes and three shapes, with an optional icon and a loading state.",
   "props": [
     {
       "name": "items",
@@ -7,20 +7,36 @@
       "typeName": "AutocompleteItem[]",
       "example": [
         {
-          "label": "Berlin",
-          "description": "Germany"
+          "label": "report-2026.pdf",
+          "description": "Documents / Taxes",
+          "icon": {
+            "$icon": "DocumentIcon",
+            "size": "w:4 h:4"
+          }
         },
         {
-          "label": "Lisbon",
-          "description": "Portugal"
+          "label": "receipts.pdf",
+          "description": "Documents / Taxes",
+          "icon": {
+            "$icon": "DocumentIcon",
+            "size": "w:4 h:4"
+          }
         },
         {
-          "label": "Nairobi",
-          "description": "Kenya"
+          "label": "repo-notes.md",
+          "description": "Notes",
+          "icon": {
+            "$icon": "DocumentIcon",
+            "size": "w:4 h:4"
+          }
         },
         {
-          "label": "Osaka",
-          "description": "Japan"
+          "label": "Repairs",
+          "description": "Folder in Home",
+          "icon": {
+            "$icon": "FolderIcon",
+            "size": "w:4 h:4"
+          }
         }
       ],
       "description": "What to search. `label` is matched and shown; `description` and `avatar` are optional. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the item body, not an API."
@@ -28,7 +44,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "City",
+      "example": "Find a file",
       "description": "Field label above the input. Leave it out and the input is described by its placeholder alone.",
       "optional": true
     },
@@ -93,13 +109,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius, applied to the input and the popup together. `squircle` uses `corner-shape`."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

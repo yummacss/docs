@@ -1,5 +1,5 @@
 {
-  "summary": "A hover-triggered card, in three shapes with an optional shadow.",
+  "summary": "A hover-triggered card, in three shapes.",
   "props": [
     {
       "name": "arrow",
@@ -41,13 +41,6 @@
       "description": "Corner radius on the card. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the card. `inset` reads as a well, `outset` as a raised control."
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,
@@ -75,8 +68,8 @@
         {
           "component": "Avatar",
           "props": {
-            "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
             "name": "Ada Lovelace",
+            "fallback": "AL",
             "size": "lg",
             "status": "online"
           }

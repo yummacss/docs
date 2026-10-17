@@ -1,5 +1,5 @@
 {
-  "summary": "A choice from a closed list, in three sizes, three shapes and three shadows, with an optional icon on the trigger and an avatar per option.",
+  "summary": "A choice from a closed list, in three sizes and three shapes, with an optional icon on the trigger and an avatar per option.",
   "props": [
     {
       "name": "options",
@@ -46,7 +46,8 @@
     {
       "name": "defaultValue",
       "type": "string",
-      "description": "The option selected when you are not controlling it. Pair `value` with `onValueChange` instead if you are."
+      "description": "The option selected when you are not controlling it. Pair `value` with `onValueChange` instead if you are.",
+      "example": "modified"
     },
     {
       "name": "value",
@@ -88,13 +89,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius, applied to the trigger and the popup together. `squircle` uses `corner-shape`."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the trigger. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

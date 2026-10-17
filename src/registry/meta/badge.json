@@ -70,13 +70,6 @@
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the badge. `inset` reads as a well, `outset` as a raised chip."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
@@ -84,5 +77,70 @@
       "description": "The close button's focus outline, the only focusable part of a badge, so it applies when `onClose` is set. `true` draws it, `false` removes it, and a string of Yumma CSS utilities restyles it. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
   ],
-  "children": "Label"
+  "children": "Label",
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:f fw:w jc:c g:2 max-w:72",
+      "children": [
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "solid",
+            "intent": "success",
+            "icon": {
+              "$icon": "CheckIcon",
+              "size": "w:3 h:3"
+            }
+          },
+          "children": "Synced"
+        },
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "outline",
+            "intent": "info",
+            "icon": {
+              "$icon": "LinkIcon",
+              "size": "w:3 h:3"
+            }
+          },
+          "children": "Link shared"
+        },
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "outline"
+          },
+          "children": "Draft"
+        },
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "solid",
+            "intent": "danger"
+          },
+          "children": "Over quota"
+        },
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "outline",
+            "icon": {
+              "$icon": "StarIcon",
+              "size": "w:3 h:3 c:yellow"
+            }
+          },
+          "children": "Favorite"
+        },
+        {
+          "component": "Badge",
+          "props": {
+            "tone": "solid"
+          },
+          "children": "3 new"
+        }
+      ]
+    }
+  ]
 }
