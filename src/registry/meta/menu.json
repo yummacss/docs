@@ -30,7 +30,7 @@
           "shortcut": "Ctrl D"
         },
         {
-          "label": "Add to favourites",
+          "label": "Add to favorites",
           "icon": {
             "$icon": "StarIcon",
             "size": "w:4 h:4"

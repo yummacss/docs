@@ -152,6 +152,8 @@ export interface ChildExample {
   props?: Record<string, unknown>;
   children?: string | ChildExample[];
   text?: string;
+  /** An icon on its own, as an `{ "$icon" }` marker. */
+  icon?: unknown;
 }
 
 export const registryMeta = {

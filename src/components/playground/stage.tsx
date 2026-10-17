@@ -20,6 +20,7 @@ import {
   exampleChildren,
   renderScene,
   resolveIcons,
+  sceneIds,
   seedValues,
 } from "@/utils/demo";
 import {
@@ -262,6 +263,12 @@ function ViewToggle({ value, children }: { value: View; children: ReactNode }) {
   );
 }
 
+function loaded(ids: string[]) {
+  return Object.fromEntries(
+    ids.map((id) => [id, getCachedRegistryComponent(id)]),
+  ) as Record<string, ComponentType<DemoProps> | null>;
+}
+
 function Scene({
   scene,
   style,
@@ -272,7 +279,28 @@ function Scene({
   radius: string;
 }) {
   const container = usePreviewContainer();
-  return renderScene(scene, style, radius, container);
+  const ids = useMemo(() => sceneIds(scene), [scene]);
+  const [components, setComponents] = useState(() => loaded(ids));
+
+  useEffect(() => {
+    let live = true;
+    Promise.all(ids.map((id) => loadRegistryComponent(id))).then(() => {
+      if (live) setComponents(loaded(ids));
+    });
+    return () => {
+      live = false;
+    };
+  }, [ids]);
+
+  // a scene draws whole or not at all, so nothing jumps in as it loads
+  if (ids.some((id) => !components[id])) return null;
+  return renderScene(
+    scene,
+    components as Record<string, ComponentType<DemoProps>>,
+    style,
+    radius,
+    container,
+  );
 }
 
 function Mounted({

@@ -6,25 +6,25 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "The trigger's content, an icon usually. Pair it with `triggerLabel` when there is no text.",
-      "exampleIcon": "BellIcon"
+      "exampleIcon": "PaletteIcon"
     },
     {
       "name": "triggerLabel",
       "type": "string",
-      "example": "Notifications",
+      "example": "Folder color",
       "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
     },
     {
       "name": "title",
       "type": "string",
-      "example": "Notifications",
+      "example": "Folder color",
       "description": "The popup's heading, wired up by Base UI's own Popover.Title."
     },
     {
       "name": "description",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Review your recent alerts and updates.",
+      "example": "Taxes shows in this color in the sidebar.",
       "description": "The body text, wired up by Base UI's own Popover.Description."
     },
     {

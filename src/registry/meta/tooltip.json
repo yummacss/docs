@@ -5,20 +5,20 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "exampleIcon": "BellIcon",
+      "exampleIcon": "TrashBinTrashIcon",
       "description": "The trigger's content, an icon usually. Pair it with `triggerLabel` when there is no text."
     },
     {
       "name": "triggerLabel",
       "type": "string",
-      "example": "Notifications",
+      "example": "Move to Trash",
       "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
     },
     {
       "name": "content",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "3 unread notifications",
+      "example": "Move to Trash",
       "description": "The tooltip's text."
     },
     {

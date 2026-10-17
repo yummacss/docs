@@ -9,17 +9,17 @@
         {
           "value": "storage",
           "title": "Where are my files kept?",
-          "content": "In the folder you chose on setup. Move it any time from Settings."
+          "content": "On this computer, with a copy in the cloud for every folder you sync."
         },
         {
-          "value": "notifications",
-          "title": "How do I change notifications?",
-          "content": "Open Settings, then Notifications, and pick what raises an alert."
+          "value": "trash",
+          "title": "How long does Trash keep things?",
+          "content": "30 days, then the files are deleted for good. Change it in Storage."
         },
         {
-          "value": "shortcuts",
-          "title": "Can I change the shortcuts?",
-          "content": "Every shortcut is editable in Settings. Clear a field to drop one."
+          "value": "offline",
+          "title": "Can I use it offline?",
+          "content": "Yes. Files you keep offline open without a connection and sync when you are back."
         }
       ],
       "description": "Each item's `value`, `title`, `content` and optional `disabled`. `value` is what `defaultValue`/`value` reference to control which items are open."
