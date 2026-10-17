@@ -1,14 +1,19 @@
+import {
+  LaptopIcon,
+  SmartphoneIcon,
+  TabletIcon,
+} from "@solar-icons/react/bold-duotone";
 import Avatar from "./avatar";
 
 export default function AvatarStackCompact() {
   return (
     <div className="d:f ai:c p:px bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs br:9999 bw:1">
-      {stackMembers.map((member, index) => (
+      {devices.map((device, index) => (
         <Avatar
-          key={member.avatarUrl}
+          key={device.name}
           size="sm"
-          src={member.avatarUrl}
-          name={member.name}
+          name={device.name}
+          fallback={<device.icon className="w:4 h:4" />}
           className={index > 0 ? "ml:-2" : ""}
         />
       ))}
@@ -17,22 +22,10 @@ export default function AvatarStackCompact() {
   );
 }
 
-const stackMembers = [
-  {
-    name: "Adrian",
-    avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
-  },
-  {
-    name: "Aidan",
-    avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE",
-  },
-  {
-    name: "Jade",
-    avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9",
-  },
+const devices = [
+  { name: "This laptop", icon: LaptopIcon },
+  { name: "Phone", icon: SmartphoneIcon },
+  { name: "Tablet", icon: TabletIcon },
 ];
 
-const extraCount = 3;
+const extraCount = 1;

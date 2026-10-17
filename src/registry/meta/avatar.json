@@ -4,7 +4,7 @@
     {
       "name": "src",
       "type": "string",
-      "example": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
+      "example": null,
       "description": "The image. Leave it out, or let it fail, and the fallback takes over."
     },
     {

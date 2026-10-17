@@ -10,7 +10,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label."
+      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label.",
+      "example": "Files whose names start with a dot, like .env"
     },
     {
       "name": "defaultChecked",

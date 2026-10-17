@@ -60,7 +60,7 @@
       "name": "loading",
       "type": "boolean",
       "default": false,
-      "description": "Dims the button and blocks interaction, while leaving it focusable: `aria-busy` and `aria-disabled` rather than the native `disabled` attribute, which would drop the control out of the tab order while a reader is waiting on it."
+      "description": "Swaps the icon for a spinner, dims the button and blocks interaction, while leaving it focusable: `aria-busy` and `aria-disabled` rather than the native `disabled` attribute, which would drop the control out of the tab order while a reader is waiting on it."
     },
     {
       "name": "transition",
@@ -76,5 +76,72 @@
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
   ],
-  "children": "Label"
+  "children": "Label",
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:g g:3 ji:c",
+      "children": [
+        {
+          "tag": "div",
+          "className": "d:f fw:w jc:c g:2",
+          "children": [
+            {
+              "component": "Button",
+              "props": {
+                "icon": {
+                  "$icon": "MoveToFolderIcon",
+                  "size": "w:5 h:5"
+                }
+              },
+              "children": "Move 3 files"
+            },
+            {
+              "component": "Button",
+              "props": {
+                "variant": "secondary"
+              },
+              "children": "Cancel"
+            }
+          ]
+        },
+        {
+          "tag": "div",
+          "className": "d:f fw:w jc:c g:2",
+          "children": [
+            {
+              "component": "Button",
+              "props": {
+                "variant": "danger",
+                "icon": {
+                  "$icon": "TrashBinTrashIcon",
+                  "size": "w:5 h:5"
+                }
+              },
+              "children": "Delete"
+            },
+            {
+              "component": "Button",
+              "props": {
+                "variant": "secondary",
+                "icon": {
+                  "$icon": "MenuDotsIcon",
+                  "size": "w:5 h:5"
+                },
+                "iconOnly": true
+              },
+              "children": "More"
+            },
+            {
+              "component": "Button",
+              "props": {
+                "loading": true
+              },
+              "children": "Saving"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -243,6 +243,7 @@ describe("Yumma UI registry", () => {
         }
       };
       walk(meta.childrenExample ?? []);
+      walk(meta.scene ?? []);
     }
 
     expect(missing).toEqual([]);

@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Delete file",
+      "example": "Delete 12 files",
       "description": "The trigger button's label."
     },
     {
@@ -33,13 +33,13 @@
     {
       "name": "title",
       "type": "string",
-      "example": "Delete file?",
+      "example": "Delete 12 files?",
       "description": "The dialog's heading, wired up by Base UI's own AlertDialog.Title."
     },
     {
       "name": "description",
       "type": "string",
-      "example": "This deletes readme.md. It cannot be undone.",
+      "example": "They move to Trash and are deleted for good after 30 days.",
       "description": "The body text, wired up by Base UI's own AlertDialog.Description."
     },
     {

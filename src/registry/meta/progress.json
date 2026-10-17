@@ -5,7 +5,7 @@
       "name": "value",
       "type": "number",
       "typeName": "number | null",
-      "example": 68,
+      "example": 60,
       "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar. There is no fill level to show, so the schema here cannot demo it, but the prop accepts it.",
       "min": 0,
       "max": 100,
@@ -15,7 +15,7 @@
       "name": "label",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Uploading",
+      "example": "Uploading 3 of 5 files",
       "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
     },
     {

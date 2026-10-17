@@ -9,17 +9,22 @@ import {
   FileRightIcon,
   FolderIcon,
   KeyboardIcon,
+  LaptopIcon,
   ListIcon,
   MagnifierIcon as MagnifierDuotoneIcon,
+  MonitorIcon,
   MoonIcon,
   MoveToFolderIcon,
   PaletteIcon,
   PenIcon,
   PinIcon,
   SettingsIcon,
+  SmartphoneIcon,
   SortIcon,
+  StarIcon,
   StarsIcon,
   SunIcon,
+  TabletIcon,
   TrashBinTrashIcon,
 } from "@solar-icons/react/bold-duotone";
 import {
@@ -28,18 +33,25 @@ import {
   Columns3Icon,
   Grid2x2Icon,
   MagnifierIcon,
+  MenuDotsIcon,
   TextBoldIcon,
   TextItalicIcon,
   TextUnderlineIcon,
 } from "@solar-icons/react/outline";
 import type { ComponentType, ReactNode } from "react";
-import type { ChildExample, RegistryMeta } from "@/registry";
+import {
+  type ChildExample,
+  getRegistryMeta,
+  type RegistryMeta,
+} from "@/registry";
 import Avatar from "@/registry/ui/avatar";
+import AvatarStackBase from "@/registry/ui/avatar-stack";
 import Button from "@/registry/ui/button";
 import Checkbox from "@/registry/ui/checkbox";
 import Toggle from "@/registry/ui/toggle";
 import { EXAMPLE_ICON_STYLE, type IconStyle } from "@/utils/icon-style";
 import { iconMarker } from "@/utils/snippet";
+import { styleProps } from "@/utils/styles.mjs";
 
 export type DemoProps = Record<string, unknown>;
 
@@ -57,16 +69,21 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     FileRightIcon,
     FolderIcon,
     KeyboardIcon,
+    LaptopIcon,
     ListIcon,
+    MonitorIcon,
     MoonIcon,
     MoveToFolderIcon,
     PaletteIcon,
     PenIcon,
     PinIcon,
     SettingsIcon,
+    SmartphoneIcon,
     SortIcon,
+    StarIcon,
     StarsIcon,
     SunIcon,
+    TabletIcon,
     TrashBinTrashIcon,
     MagnifierIcon: MagnifierDuotoneIcon,
   },
@@ -76,6 +93,7 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     Columns3Icon,
     Grid2x2Icon,
     MagnifierIcon,
+    MenuDotsIcon,
     TextBoldIcon,
     TextItalicIcon,
     TextUnderlineIcon,
@@ -130,8 +148,12 @@ export function resolveIcons(value: unknown): unknown {
   return value;
 }
 
+// its children are required, and a scene always passes them
+const AvatarStack = AvatarStackBase as unknown as ComponentType<DemoProps>;
+
 const CHILD_COMPONENTS: Record<string, ComponentType<DemoProps>> = {
   Avatar,
+  AvatarStack,
   Button,
   Checkbox,
   Toggle,
@@ -139,15 +161,40 @@ const CHILD_COMPONENTS: Record<string, ComponentType<DemoProps>> = {
 
 export function exampleChildren(meta: RegistryMeta): ReactNode {
   if (!meta.childrenExample) return meta.children;
-  return meta.childrenExample.map(renderChild);
+  return meta.childrenExample.map((child, index) => renderChild(child, index));
+}
+
+/** The Example view, with the rail's style & radius on every component in it. */
+export function renderScene(
+  scene: ChildExample[],
+  style: string,
+  radius: string,
+  container: unknown,
+): ReactNode {
+  const styled = (component: string) => {
+    const meta = getRegistryMeta(
+      component.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
+    );
+    if (!meta) return {};
+    const portals = meta.props.some((prop) => prop.name === "container");
+    return {
+      ...styleProps(meta.props, style, radius),
+      ...(portals ? { container } : {}),
+    };
+  };
+  return scene.map((child, index) => renderChild(child, index, styled));
 }
 
 // position is the identity of a demo's child, so it is the key
-function renderChild(child: ChildExample, index: number): ReactNode {
+function renderChild(
+  child: ChildExample,
+  index: number,
+  styled?: (component: string) => DemoProps,
+): ReactNode {
   const inner =
     typeof child.children === "string"
       ? child.children
-      : child.children?.map(renderChild);
+      : child.children?.map((node, at) => renderChild(node, at, styled));
 
   if (child.text !== undefined) {
     return (
@@ -167,7 +214,12 @@ function renderChild(child: ChildExample, index: number): ReactNode {
   const Child = child.component ? CHILD_COMPONENTS[child.component] : null;
   if (!Child) return null;
   return (
-    <Child key={index} {...(resolveIcons(child.props ?? {}) as DemoProps)}>
+    <Child
+      key={index}
+      {...(styled && child.component ? styled(child.component) : {})}
+      {...(resolveIcons(child.props ?? {}) as DemoProps)}
+      {...(child.className ? { className: child.className } : {})}
+    >
       {inner}
     </Child>
   );
