@@ -23,6 +23,7 @@ export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {
   KeyboardIcon: "bold-duotone",
   ListIcon: "bold-duotone",
   MagnifierIcon: "outline",
+  MenuDotsIcon: "outline",
   MoonIcon: "bold-duotone",
   MoveToFolderIcon: "bold-duotone",
   PaletteIcon: "bold-duotone",

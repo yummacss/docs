@@ -74,10 +74,10 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   /** Depth. `inset` reads as a pressed control, `outset` as a raised one. */
   shadow?: Shadow;
   /**
-   * Dims the button and blocks interaction, while leaving it focusable:
-   * `aria-busy` and `aria-disabled` rather than the native `disabled`
-   * attribute, which would drop the control out of the tab order while a reader
-   * is waiting on it.
+   * Swaps the icon for a spinner, dims the button and blocks interaction, while
+   * leaving it focusable: `aria-busy` and `aria-disabled` rather than the
+   * native `disabled` attribute, which would drop the control out of the tab
+   * order while a reader is waiting on it.
    */
   loading?: boolean;
   /**
@@ -138,6 +138,22 @@ export default function ButtonBase({
   const inactive = disabled || loading;
   const busy = loading && !disabled;
   const iconOnlyActive = iconOnly && Boolean(icon);
+  const trailing = iconPosition === "trailing" && Boolean(icon);
+  const glyph = loading ? (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      strokeLinecap="round"
+      className={`w:4 h:4 fs:0 ${transition ? "an:spin adu:700 atf:l aic:inf @prm:an:none" : ""}`}
+    >
+      <path d="M12 3a9 9 0 1 0 9 9" />
+    </svg>
+  ) : (
+    icon
+  );
 
   const classes = merge(
     outline,
@@ -163,12 +179,12 @@ export default function ButtonBase({
       {...props}
     >
       {iconOnlyActive ? (
-        icon
+        glyph
       ) : (
         <>
-          {iconPosition === "leading" && icon}
+          {!trailing && glyph}
           {children}
-          {iconPosition === "trailing" && icon}
+          {trailing && glyph}
         </>
       )}
     </Button>

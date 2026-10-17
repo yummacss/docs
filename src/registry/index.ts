@@ -140,6 +140,8 @@ export interface RegistryMeta {
   props: RegistryProp[];
   children?: string;
   childrenExample?: ChildExample[];
+  /** The Example view: the component in use, often several times over. */
+  scene?: ChildExample[];
 }
 
 /** One node of a demo's children: a registry component, a plain element, or text. */
@@ -277,6 +279,7 @@ export const registryConfig: Record<string, RegistryConfig> = {
   "accordion": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "in-out-cubic": "cubic-bezier(0.65, 0, 0.35, 1)", "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "alert-dialog": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },
   "autocomplete": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
+  "button": { states: {}, easings: {}, keyframes: { "spin": "to { rotate: 360deg; }" } },
   "checkbox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-back": "cubic-bezier(0.34, 1.56, 0.64, 1)" }, keyframes: {} },
   "combobox": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: { "spin": "to { rotate: 360deg; }" } },
   "context-menu": { states: { "opening": "[data-starting-style]", "closing": "[data-ending-style]" }, easings: { "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)" }, keyframes: {} },

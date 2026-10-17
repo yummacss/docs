@@ -424,6 +424,58 @@ export function buildConfig(config: {
   return identify(out);
 }
 
+/** The Example view's code: its imports, then the scene as JSX. */
+export function buildScene(scene: ChildExample[]): Token[] {
+  const nodes = flatChildren(scene);
+  const tokens: Draft[] = [];
+  const line = (names: string[], from: string, braces: boolean) => {
+    tokens.push(
+      { kind: "keyword", text: "import" },
+      { kind: "text", text: " " },
+    );
+    if (braces)
+      tokens.push({ kind: "brace", text: "{" }, { kind: "text", text: " " });
+    tokens.push({ kind: "tag", text: names.join(", ") });
+    if (braces)
+      tokens.push({ kind: "text", text: " " }, { kind: "brace", text: "}" });
+    tokens.push(
+      { kind: "text", text: " " },
+      { kind: "keyword", text: "from" },
+      { kind: "text", text: " " },
+      { kind: "string", text: `"${from}"` },
+      { kind: "punctuation", text: ";" },
+      { kind: "text", text: "\n" },
+    );
+  };
+
+  const components = [
+    ...new Set(
+      nodes
+        .map((node) => node.component)
+        .filter((name): name is string => Boolean(name)),
+    ),
+  ].sort();
+  for (const name of components)
+    line(
+      [name],
+      importPath(name.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()),
+      false,
+    );
+
+  const icons = [
+    ...new Set(nodes.flatMap((node) => markedIcons(node.props ?? {}))),
+  ].sort();
+  for (const style of ["bold-duotone", "outline"] as const) {
+    const named = icons
+      .filter((icon) => icon.startsWith(`${style}:`))
+      .map((icon) => icon.slice(style.length + 1));
+    if (named.length) line(named, `@solar-icons/react/${style}`, true);
+  }
+
+  for (const node of scene) tokens.push(...childTokens(node, 0));
+  return identify(tokens);
+}
+
 function flatChildren(nodes: ChildExample[] = []): ChildExample[] {
   return nodes.flatMap((node) => [
     node,
@@ -451,6 +503,7 @@ function childTokens(child: ChildExample, depth: number): Draft[] {
   }
   for (const [key, value] of Object.entries(child.props ?? {})) {
     out.push({ kind: "text", text: " " }, { kind: "attribute", text: key });
+    if (value === true) continue;
     out.push({ kind: "punctuation", text: "=" });
     const marker = iconMarker(value);
     if (marker) {
@@ -458,12 +511,29 @@ function childTokens(child: ChildExample, depth: number): Draft[] {
         { kind: "brace", text: "{" },
         { kind: "punctuation", text: "<" },
         { kind: "tag", text: marker.name },
+      );
+      if (marker.size)
+        out.push(
+          { kind: "text", text: " " },
+          { kind: "attribute", text: "className" },
+          { kind: "punctuation", text: "=" },
+          { kind: "string", text: JSON.stringify(marker.size) },
+        );
+      out.push(
         { kind: "punctuation", text: " />" },
         { kind: "brace", text: "}" },
       );
       continue;
     }
-    out.push({ kind: "string", text: JSON.stringify(String(value)) });
+    if (typeof value === "string") {
+      out.push({ kind: "string", text: JSON.stringify(value) });
+      continue;
+    }
+    out.push(
+      { kind: "brace", text: "{" },
+      { kind: "value", text: JSON.stringify(value) },
+      { kind: "brace", text: "}" },
+    );
   }
 
   const text =
