@@ -12,7 +12,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set.",
+      "example": "Letters, numbers and dashes. No spaces."
     },
     {
       "name": "error",
@@ -73,7 +74,7 @@
     {
       "name": "placeholder",
       "type": "string",
-      "example": "readme.md",
+      "example": "quarterly-report.pdf",
       "description": "Placeholder text."
     },
     {

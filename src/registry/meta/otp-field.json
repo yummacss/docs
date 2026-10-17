@@ -11,7 +11,7 @@
     {
       "name": "description",
       "type": "string",
-      "example": "The six-digit code from your authenticator app.",
+      "example": "Sent to your phone, ending in 42.",
       "description": "A line under the slots, for where the code comes from.",
       "optional": true
     },

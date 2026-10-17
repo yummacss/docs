@@ -7,16 +7,19 @@
       "typeName": "RadioOption[]",
       "example": [
         {
-          "value": "light",
-          "label": "Light"
+          "value": "keep",
+          "label": "Keep both",
+          "description": "Adds a number to the new one"
         },
         {
-          "value": "dark",
-          "label": "Dark"
+          "value": "replace",
+          "label": "Replace",
+          "description": "The old file moves to Trash"
         },
         {
-          "value": "system",
-          "label": "System"
+          "value": "skip",
+          "label": "Skip",
+          "description": "Leaves the old file as it is"
         }
       ],
       "description": "The choices. `value` and `label` are required; `description` and `icon` are optional per option. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the option body, not an API."
@@ -24,14 +27,14 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Theme",
+      "example": "When a file already exists",
       "description": "A caption above the group, correctly wired to it via `aria-labelledby`. Without one the group has no accessible name at all.",
       "optional": true
     },
     {
       "name": "defaultValue",
       "type": "string",
-      "example": "light",
+      "example": "keep",
       "description": "The option selected when you are not controlling the group. Pair `value` with `onValueChange` instead if you are."
     },
     {

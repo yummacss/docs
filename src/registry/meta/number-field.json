@@ -4,19 +4,20 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Quantity",
+      "example": "Keep deleted files for",
       "description": "Text above the control. Also a scrub area: drag left or right on it to change the value.",
       "optional": true
     },
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the control, for context on what the number means."
+      "description": "A line under the control, for context on what the number means.",
+      "example": "Days, then the files are deleted for good."
     },
     {
       "name": "defaultValue",
       "type": "number",
-      "example": 4,
+      "example": 30,
       "description": "Starting value when you are not controlling it. Pair `value` with `onValueChange` instead if you are.",
       "min": 0,
       "max": 20,

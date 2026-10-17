@@ -11,7 +11,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the label, for the consequence of turning it on."
+      "description": "A line under the label, for the consequence of turning it on.",
+      "example": "Every change, as you type"
     },
     {
       "name": "defaultChecked",

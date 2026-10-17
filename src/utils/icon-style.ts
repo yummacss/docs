@@ -2,6 +2,11 @@
 export type IconStyle = "outline" | "bold-duotone";
 
 export const EXAMPLE_ICON_STYLE: Record<string, IconStyle> = {
+  TabletIcon: "bold-duotone",
+  StarIcon: "bold-duotone",
+  SmartphoneIcon: "bold-duotone",
+  MonitorIcon: "bold-duotone",
+  LaptopIcon: "bold-duotone",
   AddIcon: "outline",
   ArchiveIcon: "bold-duotone",
   BellIcon: "bold-duotone",

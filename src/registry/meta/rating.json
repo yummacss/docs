@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Rating",
+      "example": "How useful was this search?",
       "description": "Text above the stars."
     },
     {
@@ -35,7 +35,7 @@
       "min": 0,
       "max": 10,
       "step": 1,
-      "example": 3
+      "example": 4
     },
     {
       "name": "value",

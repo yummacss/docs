@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "none",
-      "example": "Message",
+      "example": "Description",
       "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed.",
       "typeName": "string",
       "optional": true
@@ -12,7 +12,8 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set.",
+      "example": "Shown under the folder name and found by search."
     },
     {
       "name": "error",
@@ -27,7 +28,7 @@
     {
       "name": "maxLength",
       "type": "number",
-      "example": 0,
+      "example": 200,
       "description": "Caps the value and draws the counter under the field. Zero draws neither.",
       "min": 0,
       "max": 400,

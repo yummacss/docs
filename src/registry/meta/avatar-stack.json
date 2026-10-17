@@ -35,90 +35,44 @@
       "component": "Avatar",
       "props": {
         "size": "sm",
-        "name": "Adrian",
-        "fallback": "A",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=DAF0B9"
+        "name": "This laptop",
+        "fallback": {
+          "$icon": "LaptopIcon",
+          "size": "w:4 h:4"
+        }
       }
     },
     {
       "component": "Avatar",
       "props": {
         "size": "sm",
-        "name": "Jade",
-        "fallback": "J",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=C0AEDE"
+        "name": "Phone",
+        "fallback": {
+          "$icon": "SmartphoneIcon",
+          "size": "w:4 h:4"
+        }
       }
     },
     {
       "component": "Avatar",
       "props": {
         "size": "sm",
-        "name": "Mei",
-        "fallback": "M",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Mei&backgroundColor=B6E3F4"
+        "name": "Tablet",
+        "fallback": {
+          "$icon": "TabletIcon",
+          "size": "w:4 h:4"
+        }
       }
     },
     {
       "component": "Avatar",
       "props": {
         "size": "sm",
-        "name": "Sam",
-        "fallback": "S",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Sam&backgroundColor=FFD5DC"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Leo",
-        "fallback": "L",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Leo&backgroundColor=FFDFBF"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Noor",
-        "fallback": "N",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Noor&backgroundColor=D1D4F9"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Iris",
-        "fallback": "I",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Iris&backgroundColor=C0EBD9"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Kai",
-        "fallback": "K",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Kai&backgroundColor=FFE8A3"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Tomas",
-        "fallback": "T",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Tomas&backgroundColor=F5D0FE"
-      }
-    },
-    {
-      "component": "Avatar",
-      "props": {
-        "size": "sm",
-        "name": "Ana",
-        "fallback": "A",
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ana&backgroundColor=BDE0FE"
+        "name": "Desktop",
+        "fallback": {
+          "$icon": "MonitorIcon",
+          "size": "w:4 h:4"
+        }
       }
     }
   ]

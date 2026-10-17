@@ -4,7 +4,7 @@
     {
       "name": "value",
       "type": "number",
-      "example": 68,
+      "example": 63,
       "description": "The current value.",
       "min": 0,
       "max": 100,
@@ -32,13 +32,13 @@
       "name": "label",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Storage used",
+      "example": "Storage",
       "description": "Text above the track, correctly wired to it via Base UI's own Meter.Label."
     },
     {
       "name": "description",
       "type": "string",
-      "example": "3.2 GB of 10 GB",
+      "example": "12.7 of 20 GB",
       "description": "A line under the label. Only shown alongside `icon` - without one there is no header block for it to sit in."
     },
     {

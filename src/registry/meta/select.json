@@ -46,7 +46,8 @@
     {
       "name": "defaultValue",
       "type": "string",
-      "description": "The option selected when you are not controlling it. Pair `value` with `onValueChange` instead if you are."
+      "description": "The option selected when you are not controlling it. Pair `value` with `onValueChange` instead if you are.",
+      "example": "modified"
     },
     {
       "name": "value",
