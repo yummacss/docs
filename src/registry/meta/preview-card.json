@@ -68,8 +68,8 @@
         {
           "component": "Avatar",
           "props": {
-            "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
             "name": "Ada Lovelace",
+            "fallback": "AL",
             "size": "lg",
             "status": "online"
           }

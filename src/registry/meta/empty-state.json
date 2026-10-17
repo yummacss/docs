@@ -11,19 +11,19 @@
     {
       "name": "title",
       "type": "string",
-      "example": "No files yet",
+      "example": "This folder is empty",
       "description": "The heading."
     },
     {
       "name": "description",
       "type": "string",
-      "example": "Anything you add shows up here.",
+      "example": "Drop files here, or start a new document.",
       "description": "A line under the title."
     },
     {
       "name": "primaryLabel",
       "type": "string",
-      "example": "Add file",
+      "example": "New document",
       "description": "The filled button. Omit it for a state with nothing to do."
     },
     {
@@ -41,7 +41,7 @@
     {
       "name": "secondaryLabel",
       "type": "string",
-      "example": "Learn more",
+      "example": "Upload",
       "description": "The outlined button beside the primary one."
     },
     {

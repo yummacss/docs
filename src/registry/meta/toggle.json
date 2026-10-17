@@ -79,5 +79,44 @@
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
+  ],
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:f g:2",
+      "children": [
+        {
+          "component": "Toggle",
+          "props": {
+            "aria-label": "Favorite",
+            "icon": {
+              "$icon": "StarIcon",
+              "size": "w:5 h:5"
+            },
+            "defaultPressed": true
+          }
+        },
+        {
+          "component": "Toggle",
+          "props": {
+            "aria-label": "Pin to sidebar",
+            "icon": {
+              "$icon": "PinIcon",
+              "size": "w:5 h:5"
+            }
+          }
+        },
+        {
+          "component": "Toggle",
+          "props": {
+            "aria-label": "Keep offline",
+            "icon": {
+              "$icon": "CloudIcon",
+              "size": "w:5 h:5"
+            }
+          }
+        }
+      ]
+    }
   ]
 }

@@ -45,11 +45,16 @@ function readStyle(): { style?: string; radius?: string } {
   }
 }
 
+export type View = "example" | "playground";
+
 interface Playground {
   id: string;
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
+  /** `example` shows the meta's scene; a prop edit on the rail leaves it. */
+  view: View;
+  setView: (view: View) => void;
   accent: string;
   setAccent: (family: string) => void;
   style: string;
@@ -173,10 +178,30 @@ export function PlaygroundProvider({
     if (Object.keys(pending).length > 0) setQuery(pending);
   }, [seed.meta, setQuery]);
 
+  // an address that names a prop asks for the playground
+  const arrival = useMemo<View>(() => {
+    if (typeof window === "undefined") return "example";
+    const named = new URLSearchParams(window.location.search);
+    return Object.keys(keyMap).some((name) => named.has(name))
+      ? "playground"
+      : "example";
+  }, [keyMap]);
+  const [chosen, setChosen] = useState<{ id: string; view: View } | null>(null);
+  const view: View = !seed.meta?.scene
+    ? "playground"
+    : chosen?.id === id
+      ? chosen.view
+      : arrival;
+  const setView = useCallback(
+    (next: View) => setChosen({ id, view: next }),
+    [id],
+  );
+
   const setValue = useCallback(
     (name: string, value: unknown) => {
       const meta = seed.meta;
       if (!meta) return;
+      setView("playground");
 
       const next = { ...values, [name]: value };
 
@@ -199,7 +224,7 @@ export function PlaygroundProvider({
       writeCarried(next);
       setQuery(queryFor(meta, next));
     },
-    [seed.meta, values, setQuery],
+    [seed.meta, values, setQuery, setView],
   );
 
   const playground = useMemo(
@@ -208,6 +233,8 @@ export function PlaygroundProvider({
       meta: seed.meta,
       values,
       setValue,
+      view,
+      setView,
       accent,
       setAccent,
       style,
@@ -220,6 +247,8 @@ export function PlaygroundProvider({
       seed.meta,
       values,
       setValue,
+      view,
+      setView,
       accent,
       setAccent,
       style,
@@ -252,6 +281,8 @@ export function StaticPlayground({
       meta,
       values: meta ? seedValues(meta) : {},
       setValue: ignore,
+      view: (meta?.scene ? "example" : "playground") as View,
+      setView: ignore,
       accent: DEFAULT_ACCENT,
       setAccent: ignore,
       style: DEFAULT_STYLE,

@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Right-click here",
+      "example": "Right-click scan.png",
       "description": "The right-clickable area's label."
     },
     {
@@ -14,53 +14,31 @@
       "typeName": "ContextMenuItem[]",
       "example": [
         {
-          "label": "Edit",
+          "label": "Open",
           "icon": {
-            "$icon": "PenIcon",
+            "$icon": "GalleryIcon",
             "size": "w:4 h:4"
           }
         },
         {
-          "label": "Duplicate",
+          "label": "Get info",
           "icon": {
-            "$icon": "CopyIcon",
+            "$icon": "DocumentIcon",
             "size": "w:4 h:4"
-          }
-        },
-        {
-          "label": "Bookmark",
-          "icon": {
-            "$icon": "BookmarkIcon",
-            "size": "w:4 h:4"
-          }
-        },
-        {
-          "label": "Pin to top",
-          "icon": {
-            "$icon": "PinIcon",
-            "size": "w:4 h:4"
-          }
+          },
+          "shortcut": "Ctrl I"
         },
         {
           "type": "separator"
         },
         {
-          "label": "Archive",
-          "icon": {
-            "$icon": "ArchiveIcon",
-            "size": "w:4 h:4"
-          }
-        },
-        {
-          "type": "separator"
-        },
-        {
-          "label": "Delete",
-          "destructive": true,
+          "label": "Move to Trash",
           "icon": {
             "$icon": "TrashBinTrashIcon",
             "size": "w:4 h:4"
-          }
+          },
+          "shortcut": "Del",
+          "destructive": true
         }
       ],
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, items }` nests, recursively."

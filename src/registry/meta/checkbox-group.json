@@ -10,14 +10,14 @@
       "name": "parentLabel",
       "type": "ReactNode",
       "description": "Renders a checkbox above the group that checks and clears all of them, and is indeterminate while only some are checked. Needs `allValues`, and indents the group under it.",
-      "example": "Permissions",
+      "example": "Sync these folders",
       "optional": true
     },
     {
       "name": "allValues",
       "type": "string[]",
       "description": "Every value in the group. Without it the parent cannot tell all-checked from some-checked.",
-      "example": ["read", "write", "delete"]
+      "example": ["documents", "photos", "downloads"]
     },
     {
       "name": "value",
@@ -28,7 +28,7 @@
       "name": "defaultValue",
       "type": "string[]",
       "description": "The checked values on first render, uncontrolled.",
-      "example": ["read"]
+      "example": ["documents", "photos"]
     },
     {
       "name": "onValueChange",
@@ -56,22 +56,25 @@
     {
       "component": "Checkbox",
       "props": {
-        "value": "read",
-        "label": "Read"
+        "value": "documents",
+        "label": "Documents",
+        "description": "1.2 GB"
       }
     },
     {
       "component": "Checkbox",
       "props": {
-        "value": "write",
-        "label": "Write"
+        "value": "photos",
+        "label": "Photos",
+        "description": "8.4 GB"
       }
     },
     {
       "component": "Checkbox",
       "props": {
-        "value": "delete",
-        "label": "Delete"
+        "value": "downloads",
+        "label": "Downloads",
+        "description": "3.1 GB"
       }
     }
   ]
