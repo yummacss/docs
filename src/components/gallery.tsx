@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useState } from "react";
+import Scene from "@/components/playground/scene";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import { getRegistryMeta } from "@/registry";
 import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
@@ -16,6 +17,7 @@ import {
   getCachedRegistryComponent,
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
+import { DEFAULT_STYLE, STYLES } from "@/utils/styles.mjs";
 
 export interface GalleryItem {
   id: string;
@@ -75,14 +77,22 @@ function Live({
           className="h:100%"
           accentCss={accentCss(DEFAULT_ACCENT)}
         >
-          {Component && (
-            <Mounted
-              Component={Component}
-              props={resolveIcons(values) as DemoProps}
-              portals={meta.props.some((prop) => prop.name === "container")}
-            >
-              {exampleChildren(meta)}
-            </Mounted>
+          {meta.scene ? (
+            <Scene
+              scene={meta.scene}
+              style={DEFAULT_STYLE}
+              radius={STYLES[DEFAULT_STYLE].radius}
+            />
+          ) : (
+            Component && (
+              <Mounted
+                Component={Component}
+                props={resolveIcons(values) as DemoProps}
+                portals={meta.props.some((prop) => prop.name === "container")}
+              >
+                {exampleChildren(meta)}
+              </Mounted>
+            )
           )}
         </PreviewFrame>
       </div>
@@ -315,6 +325,40 @@ export function GalleryC6({ items }: { items: GalleryItem[] }) {
             </span>
           </Link>
         </div>
+      ))}
+    </div>
+  );
+}
+
+/** D: the mockup's grid. A white stage per group, three across, the name in a corner. */
+export function GalleryD({ items }: { items: GalleryItem[] }) {
+  const sections = [...new Set(items.map((item) => item.section))];
+  return (
+    <div className="d:f fd:c g:10">
+      {sections.map((section) => (
+        <section key={section} className="d:g g:3">
+          <h2 className="m:0 ff:display fw:400 fs:xxl c:ink">{section}</h2>
+          <div className="d:g gtc:1 gaf:d bw:1 bc:border bg:surface o:h @md:gtc:2 @xl:gtc:3">
+            {items
+              .filter((item) => item.section === section)
+              .map((item) => (
+                <div
+                  key={item.id}
+                  className={`p:r h:68 brw:1 bbw:1 bc:border ${
+                    WIDE.has(item.id) ? "@md:gc-s:2" : ""
+                  }`}
+                >
+                  <Live id={item.id} height={272} />
+                  <Link
+                    href={`/components/${item.id}`}
+                    className={`p:a l:3 b:2 fs:xs fw:500 ls:1 tt:u c:ink/50 h:c:ink ${LINK}`}
+                  >
+                    {item.title}
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </section>
       ))}
     </div>
   );

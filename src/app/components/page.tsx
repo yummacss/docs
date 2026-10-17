@@ -8,6 +8,7 @@ import {
   GalleryC4,
   GalleryC5,
   GalleryC6,
+  GalleryD,
   type GalleryItem,
 } from "@/components/gallery";
 import { sidebarConfig } from "@/config/sidebar";
@@ -31,7 +32,7 @@ export default async function Gallery({
 }: {
   searchParams: Promise<{ v?: string }>;
 }) {
-  const { v = "a" } = await searchParams;
+  const { v = "d" } = await searchParams;
   const View =
     {
       a: GalleryA,
@@ -42,6 +43,7 @@ export default async function Gallery({
       c4: GalleryC4,
       c5: GalleryC5,
       c6: GalleryC6,
+      d: GalleryD,
     }[v] ?? GalleryA;
 
   return (

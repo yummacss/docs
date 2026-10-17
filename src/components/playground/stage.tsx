@@ -6,6 +6,7 @@ import { ToggleGroup } from "@base-ui/react/toggle-group";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground, type View } from "@/components/playground/context";
+import Scene from "@/components/playground/scene";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import { Tabs, TabsPanel } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
@@ -18,9 +19,7 @@ import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
 import {
   type DemoProps,
   exampleChildren,
-  renderScene,
   resolveIcons,
-  sceneIds,
   seedValues,
 } from "@/utils/demo";
 import {
@@ -260,46 +259,6 @@ function ViewToggle({ value, children }: { value: View; children: ReactNode }) {
     >
       {children}
     </Toggle>
-  );
-}
-
-function loaded(ids: string[]) {
-  return Object.fromEntries(
-    ids.map((id) => [id, getCachedRegistryComponent(id)]),
-  ) as Record<string, ComponentType<DemoProps> | null>;
-}
-
-function Scene({
-  scene,
-  style,
-  radius,
-}: {
-  scene: NonNullable<RegistryMeta["scene"]>;
-  style: string;
-  radius: string;
-}) {
-  const container = usePreviewContainer();
-  const ids = useMemo(() => sceneIds(scene), [scene]);
-  const [components, setComponents] = useState(() => loaded(ids));
-
-  useEffect(() => {
-    let live = true;
-    Promise.all(ids.map((id) => loadRegistryComponent(id))).then(() => {
-      if (live) setComponents(loaded(ids));
-    });
-    return () => {
-      live = false;
-    };
-  }, [ids]);
-
-  // a scene draws whole or not at all, so nothing jumps in as it loads
-  if (ids.some((id) => !components[id])) return null;
-  return renderScene(
-    scene,
-    components as Record<string, ComponentType<DemoProps>>,
-    style,
-    radius,
-    container,
   );
 }
 
