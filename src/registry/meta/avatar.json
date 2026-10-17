@@ -63,5 +63,34 @@
       "default": "circle",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     }
+  ],
+  "scene": [
+    {
+      "tag": "div",
+      "className": "d:f ai:c g:3",
+      "children": [
+        {
+          "component": "Avatar",
+          "props": {
+            "name": "Ada Lovelace",
+            "status": "online"
+          }
+        },
+        {
+          "tag": "div",
+          "className": "d:g",
+          "children": [
+            {
+              "text": "Ada Lovelace",
+              "className": "fw:600"
+            },
+            {
+              "text": "Signed in on this Mac",
+              "className": "fs:sm c:slate-7"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

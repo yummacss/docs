@@ -2,12 +2,15 @@ import {
   ArchiveIcon,
   BellIcon,
   BookmarkIcon,
+  ClockCircleIcon,
+  CloudIcon,
   CopyIcon,
   DocumentAddIcon,
   DocumentIcon,
   FileLeftIcon,
   FileRightIcon,
   FolderIcon,
+  GalleryIcon,
   KeyboardIcon,
   LaptopIcon,
   ListIcon,
@@ -26,31 +29,36 @@ import {
   SunIcon,
   TabletIcon,
   TrashBinTrashIcon,
+  VideoFrameIcon,
 } from "@solar-icons/react/bold-duotone";
 import {
   AddIcon,
+  AltArrowDownIcon,
   CheckIcon,
   Columns3Icon,
+  DownloadIcon,
   Grid2x2Icon,
+  LinkIcon,
   MagnifierIcon,
   MenuDotsIcon,
   TextBoldIcon,
   TextItalicIcon,
   TextUnderlineIcon,
+  UndoLeftIcon,
+  UndoRightIcon,
 } from "@solar-icons/react/outline";
-import type { ComponentType, ReactNode } from "react";
+import { type ComponentType, Fragment, type ReactNode } from "react";
 import {
   type ChildExample,
   getRegistryMeta,
   type RegistryMeta,
 } from "@/registry";
 import Avatar from "@/registry/ui/avatar";
-import AvatarStackBase from "@/registry/ui/avatar-stack";
 import Button from "@/registry/ui/button";
 import Checkbox from "@/registry/ui/checkbox";
 import Toggle from "@/registry/ui/toggle";
 import { EXAMPLE_ICON_STYLE, type IconStyle } from "@/utils/icon-style";
-import { iconMarker } from "@/utils/snippet";
+import { componentId, iconMarker } from "@/utils/snippet";
 import { styleProps } from "@/utils/styles.mjs";
 
 export type DemoProps = Record<string, unknown>;
@@ -59,6 +67,10 @@ type IconComponent = ComponentType<{ className?: string }>;
 
 export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
   "bold-duotone": {
+    CloudIcon,
+    ClockCircleIcon,
+    GalleryIcon,
+    VideoFrameIcon,
     ArchiveIcon,
     BellIcon,
     BookmarkIcon,
@@ -88,6 +100,11 @@ export const EXAMPLE_ICONS: Record<IconStyle, Record<string, IconComponent>> = {
     MagnifierIcon: MagnifierDuotoneIcon,
   },
   outline: {
+    AltArrowDownIcon,
+    DownloadIcon,
+    LinkIcon,
+    UndoLeftIcon,
+    UndoRightIcon,
     AddIcon,
     CheckIcon,
     Columns3Icon,
@@ -148,12 +165,8 @@ export function resolveIcons(value: unknown): unknown {
   return value;
 }
 
-// its children are required, and a scene always passes them
-const AvatarStack = AvatarStackBase as unknown as ComponentType<DemoProps>;
-
 const CHILD_COMPONENTS: Record<string, ComponentType<DemoProps>> = {
   Avatar,
-  AvatarStack,
   Button,
   Checkbox,
   Toggle,
@@ -164,17 +177,29 @@ export function exampleChildren(meta: RegistryMeta): ReactNode {
   return meta.childrenExample.map((child, index) => renderChild(child, index));
 }
 
+/** The registry ids a scene names, so they can load before it renders. */
+export function sceneIds(scene: ChildExample[]): string[] {
+  const ids = new Set<string>();
+  const walk = (nodes: ChildExample[]) => {
+    for (const node of nodes) {
+      if (node.component) ids.add(componentId(node.component));
+      if (Array.isArray(node.children)) walk(node.children);
+    }
+  };
+  walk(scene);
+  return [...ids];
+}
+
 /** The Example view, with the rail's style & radius on every component in it. */
 export function renderScene(
   scene: ChildExample[],
+  components: Record<string, ComponentType<DemoProps>>,
   style: string,
   radius: string,
   container: unknown,
 ): ReactNode {
   const styled = (component: string) => {
-    const meta = getRegistryMeta(
-      component.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
-    );
+    const meta = getRegistryMeta(componentId(component));
     if (!meta) return {};
     const portals = meta.props.some((prop) => prop.name === "container");
     return {
@@ -182,7 +207,9 @@ export function renderScene(
       ...(portals ? { container } : {}),
     };
   };
-  return scene.map((child, index) => renderChild(child, index, styled));
+  return scene.map((child, index) =>
+    renderChild(child, index, styled, components),
+  );
 }
 
 // position is the identity of a demo's child, so it is the key
@@ -190,12 +217,20 @@ function renderChild(
   child: ChildExample,
   index: number,
   styled?: (component: string) => DemoProps,
+  components?: Record<string, ComponentType<DemoProps>>,
 ): ReactNode {
   const inner =
     typeof child.children === "string"
       ? child.children
-      : child.children?.map((node, at) => renderChild(node, at, styled));
+      : child.children?.map((node, at) =>
+          renderChild(node, at, styled, components),
+        );
 
+  if (child.icon !== undefined) {
+    return (
+      <Fragment key={index}>{resolveIcons(child.icon) as ReactNode}</Fragment>
+    );
+  }
   if (child.text !== undefined) {
     return (
       <span key={index} className={child.className}>
@@ -211,7 +246,10 @@ function renderChild(
       </Tag>
     );
   }
-  const Child = child.component ? CHILD_COMPONENTS[child.component] : null;
+  const Child = child.component
+    ? (components?.[componentId(child.component)] ??
+      CHILD_COMPONENTS[child.component])
+    : null;
   if (!Child) return null;
   return (
     <Child

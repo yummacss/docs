@@ -96,7 +96,7 @@ export interface AvatarProps {
    */
   fallback?: ReactNode;
   /**
-   * Recolours the fallback. It reaches the initials and the icon, never an
+   * Recolors the fallback. It reaches the initials and the icon, never an
    * image.
    */
   tint?: Tint;

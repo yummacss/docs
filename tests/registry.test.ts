@@ -243,6 +243,27 @@ describe("Yumma UI registry", () => {
         }
       };
       walk(meta.childrenExample ?? []);
+    }
+
+    expect(missing).toEqual([]);
+  });
+
+  it("names only registry components in a scene", () => {
+    const missing: string[] = [];
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      const walk = (nodes: { component?: string; children?: unknown }[]) => {
+        for (const child of nodes) {
+          const id = child.component
+            ?.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+            .toLowerCase();
+          if (id && !existsSync(join(rootDir, "src/registry/ui", `${id}.tsx`)))
+            missing.push(`${file}: ${child.component}`);
+          if (Array.isArray(child.children)) walk(child.children);
+        }
+      };
       walk(meta.scene ?? []);
     }
 
