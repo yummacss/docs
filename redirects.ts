@@ -264,11 +264,6 @@ const uiRedirects = [
     permanent: true,
   },
   {
-    source: "/components",
-    destination: "/components/installation",
-    permanent: true,
-  },
-  {
     source: "/ui",
     destination: "/components/installation",
     permanent: true,

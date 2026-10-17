@@ -36,6 +36,16 @@ export default function UIShell({
       ? slug
       : null;
 
+  // the gallery at /components takes the content and the rail's columns
+  if (slug === "/components" || slug === "") {
+    return (
+      <div className="d:g gtc:1 g:8 @lg:gtc:12">
+        {sidebar}
+        <div className="pt:12 @lg:gc-s:9">{children}</div>
+      </div>
+    );
+  }
+
   const grid = (
     <div className="d:g gtc:1 g:8 @lg:gtc:12">
       {sidebar}
