@@ -10,7 +10,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
 export interface SelectOption {
@@ -28,7 +27,7 @@ export interface SelectGroup {
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const TRIGGER =
-  "d:f ai:c jc:sb bw:1 bc:silver-3 bg:white c:slate-10 us:none c:p";
+  "d:f ai:c jc:sb bw:1 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 us:none c:p";
 
 const SIZES: Record<Size, string> = {
   sm: "h:8 w:56 px:3 fs:sm",
@@ -54,12 +53,6 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 function isGroupEntry(entry: SelectOption | SelectGroup): entry is SelectGroup {
   return "items" in entry;
 }
@@ -78,8 +71,10 @@ function renderOption(option: SelectOption, shape: Shape) {
       key={option.value}
       value={option.value}
       className={(state) =>
-        `d:f ai:c g:3 py:2 px:3 mx:1 ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p c:slate-10 ${
-          state.highlighted ? "bg:silver-2/50" : "bg:transparent"
+        `d:f ai:c g:3 py:2 px:3 mx:1 bw:1 bc:transparent ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p c:slate-10 ${
+          state.highlighted
+            ? "bg:slate-12 c:white btc:white/20"
+            : "bg:transparent"
         }`
       }
     >
@@ -153,11 +148,6 @@ export interface SelectProps {
    */
   shape?: Shape;
   /**
-   * Depth on the trigger. `inset` reads as a well, `outset` as a raised
-   * control.
-   */
-  shadow?: Shadow;
-  /**
    * A single icon fixed on the trigger, not per option. For the per-option
    * kind, give an option an `avatar` instead.
    */
@@ -201,7 +191,6 @@ export default function SelectBase({
   onValueChange,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   icon,
   iconPosition = "leading",
   disabled = false,
@@ -224,8 +213,7 @@ export default function SelectBase({
     TRIGGER,
     SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
-    open ? "bg:silver-2/50" : "bg:transparent",
+    open ? "bg:silver-1" : "",
     className,
   );
 
@@ -257,7 +245,7 @@ export default function SelectBase({
 
   const popup = (
     <Select.Popup
-      className={`o:h py:1 bg:white bc:silver-2 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
+      className={`o:h py:1 bg:white bc:black/10 bs-o:xl bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
     >
       <Select.List className="p:r o:auto">
         {options.map((entry) =>

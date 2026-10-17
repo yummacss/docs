@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
@@ -30,11 +29,6 @@ const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:xl",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
 };
 
 export interface ContextMenuAction {
@@ -109,8 +103,6 @@ export interface ContextMenuProps {
    * the popup & item radius up one and adds `corner-shape`.
    */
   shape?: Shape;
-  /** Depth on both the trigger and the popup. */
-  shadow?: Shadow;
   /**
    * Draws each action's icon. `false` drops them, so every row shows its label
    * alone.
@@ -150,7 +142,6 @@ export default function ContextMenuBase({
   trigger,
   items,
   shape = "rounded",
-  shadow = "none",
   icon = true,
   iconPosition = "leading",
   disabled = false,
@@ -174,9 +165,6 @@ export default function ContextMenuBase({
     onOpenChange?.(false);
   }, [disabled, open, onOpenChange]);
 
-  const shadowClass =
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
-
   const triggerClasses = merge(
     "d:f ai:c jc:c h:48 w:60 bg:white bs:d bw:1 fs:sm fw:500 us:none",
     TRIGGER_SHAPES[shape],
@@ -187,9 +175,8 @@ export default function ContextMenuBase({
   );
 
   const popupClasses = [
-    "py:1 w:52 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "py:1 w:52 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     POPUP_SHAPES[shape],
-    shadowClass,
   ]
     .filter(Boolean)
     .join(" ");
@@ -198,14 +185,14 @@ export default function ContextMenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm fw:500 us:none c:p mx:1 os:none",
+        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm fw:500 us:none c:p mx:1 os:none bw:1 bc:transparent",
         spread ? "jc:sb" : "",
         ITEM_SHAPES[shape],
         destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg:red-1/50"
-            : "bg:silver-2/50"
+            ? "bg:red c:white btc:red-5"
+            : "bg:slate-12 c:white btc:white/20"
           : "bg:transparent",
       ]
         .filter(Boolean)
@@ -248,7 +235,7 @@ export default function ContextMenuBase({
           >
             <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <ContextMenu.CheckboxItemIndicator>
-                <CheckIcon className="w:3 h:3 c:slate-12" />
+                <CheckIcon className="w:3 h:3" />
               </ContextMenu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -271,7 +258,7 @@ export default function ContextMenuBase({
               >
                 <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <ContextMenu.RadioItemIndicator>
-                    <span className="d:b w:2 h:2 br:9999 bg:current c:slate-12" />
+                    <span className="d:b w:2 h:2 br:9999 bg:current" />
                   </ContextMenu.RadioItemIndicator>
                 </span>
                 {option.label}

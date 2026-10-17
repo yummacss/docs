@@ -5,7 +5,6 @@ import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
@@ -13,11 +12,6 @@ const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
@@ -62,10 +56,6 @@ export interface PreviewCardProps {
    */
   shape?: Shape;
   /**
-   * Depth on the card. `inset` reads as a well, `outset` as a raised control.
-   */
-  shadow?: Shadow;
-  /**
    * The card's fade in/out. Turn it off for an instant appearance, or when the
    * user has asked for reduced motion.
    */
@@ -94,16 +84,14 @@ export default function PreviewCardBase({
   open,
   onOpenChange,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
   container,
 }: PreviewCardProps) {
   const popupClasses = [
-    "d:f fd:c g:3 w:64 p:3 bg:white bc:silver-2 bw:1 c:slate-10 fs:sm",
+    "d:f fd:c g:3 w:64 p:3 bg:white bc:black/10 bw:1 c:slate-10 fs:sm bs-o:xl",
     SHAPES[shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     arrow ? "p:r" : "",
   ]
     .filter(Boolean)

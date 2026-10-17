@@ -13,7 +13,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 type Status = "default" | "error" | "success";
 
@@ -31,12 +30,6 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 const ICON_PADDING: Record<IconSide, string> = {
   leading: "pl:10 pr:4",
   trailing: "pl:4 pr:10",
@@ -45,7 +38,8 @@ const ICON_PADDING: Record<IconSide, string> = {
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const STATUS_BORDER: Record<Status, string> = {
-  default: "bc:silver-3",
+  // recessed: the top edge darker than the bottom
+  default: "btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2",
   error: "bc:red-5",
   success: "bc:green-5",
 };
@@ -110,11 +104,6 @@ export interface FieldProps
    * square where that is unsupported.
    */
   shape?: Shape;
-  /**
-   * Depth on the control. `inset` reads as a well, `outset` as a raised
-   * control.
-   */
-  shadow?: Shadow;
 
   /**
    * Any icon. It is positioned over the control, so pass the glyph and nothing
@@ -163,7 +152,6 @@ export default function FieldBase({
   success,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   icon,
   iconPosition = "leading",
   iconInteractive = false,
@@ -216,7 +204,6 @@ export default function FieldBase({
     "bg:white c:slate-10 bw:1 fs:md",
     SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
     STATUS_BORDER[status],
     showDecorativeIcon || status !== "default"
       ? ICON_PADDING[activeSide]

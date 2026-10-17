@@ -107,19 +107,6 @@
       ]
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Wraps the whole list in a card. Only applies to the `default` variant.",
-      "conflictsWith": [
-        {
-          "prop": "variant",
-          "is": "ghost"
-        }
-      ]
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,

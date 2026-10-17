@@ -24,8 +24,11 @@ const SIZES: Record<Size, string> = {
 
 const DISABLED = "bw:1 bc:silver-2 bg:silver-1 c:slate-4";
 
-const PRESSED = "bg:slate-12 bc:slate-12 c:white";
-const UNPRESSED = "bg:white bc:silver-5 c:slate-12 h:bg:silver-1";
+// pressed sinks in: the one place an inset shadow belongs
+const PRESSED =
+  "bg:silver-1 bs-i:md btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-11";
+const UNPRESSED =
+  "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1";
 
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,

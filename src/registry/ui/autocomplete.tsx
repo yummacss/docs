@@ -7,7 +7,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
 export interface AutocompleteItem {
@@ -24,7 +23,8 @@ export interface AutocompleteGroup {
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
-const INPUT = "bg:white bc:silver-3 c:slate-10 bw:1 fs:md";
+const INPUT =
+  "bg:white btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 c:slate-10 bw:1 fs:md";
 
 const SIZES: Record<Size, string> = {
   sm: "h:8 w:56",
@@ -48,12 +48,6 @@ const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "br:0",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 const ICON_PADDING: Record<IconSide, string> = {
@@ -96,10 +90,6 @@ export interface AutocompleteProps {
    * `corner-shape`.
    */
   shape?: Shape;
-  /**
-   * Depth on the input. `inset` reads as a well, `outset` as a raised control.
-   */
-  shadow?: Shadow;
   /**
    * Any icon. It is positioned over the input and the text is padded around it,
    * so pass the glyph and nothing else.
@@ -159,8 +149,10 @@ function renderItem(item: AutocompleteItem, shape: Shape) {
       render={(props, state) => (
         <div
           {...props}
-          className={`d:f ai:c g:3 py:2 px:3 mx:1 c:slate-10 ${ITEM_SHAPES[shape]} fs:sm us:none c:p ${
-            state.highlighted ? "bg:silver-2/50" : "bg:transparent"
+          className={`d:f ai:c g:3 py:2 px:3 mx:1 bw:1 bc:transparent c:slate-10 ${ITEM_SHAPES[shape]} fs:sm us:none c:p ${
+            state.highlighted
+              ? "bg:slate-12 c:white btc:white/20"
+              : "bg:transparent"
           }`}
         >
           {item.icon ? (
@@ -204,7 +196,6 @@ export default function AutocompleteBase({
   placeholder = "Search",
   size = "md",
   shape = "rounded",
-  shadow = "none",
   icon,
   iconPosition = "leading",
   disabled = false,
@@ -232,14 +223,13 @@ export default function AutocompleteBase({
     INPUT,
     SIZES[size],
     SHAPES[shape],
-    SHADOWS[shadow],
     icon ? ICON_PADDING[iconPosition] : "pl:4",
     className,
   );
 
   const popup = (
     <Autocomplete.Popup
-      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
+      className={`o:h bg:white bc:black/10 bs-o:xl c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "tor:var(--transform-origin) tp:a tdu:200 ttf:out-quart opening:o:0 opening:s:95 closing:o:0 closing:s:95 closing:tdu:100 closing:ttf:eo @prm:tp:none" : ""}`}
     >
       {loading ? (
         <div

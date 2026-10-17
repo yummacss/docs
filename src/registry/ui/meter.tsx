@@ -2,8 +2,6 @@ import { Meter } from "@base-ui/react/meter";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
-type Shadow = "none" | "inset" | "outset";
-
 const INTENTS = {
   neutral: "bg:slate",
   info: "bg:blue",
@@ -13,11 +11,6 @@ const INTENTS = {
 } satisfies Record<string, string>;
 
 type Intent = keyof typeof INTENTS;
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
-};
 
 export interface MeterProps {
   /** The current value. */
@@ -48,11 +41,6 @@ export interface MeterProps {
    * follows.
    */
   intent?: Intent;
-  /**
-   * Wraps the meter in a padded card. `none` renders it bare, with no card at
-   * all.
-   */
-  shadow?: Shadow;
   /** The indicator's width transition as `value` changes. */
   animated?: boolean;
   /**
@@ -74,18 +62,14 @@ export default function MeterBase({
   description,
   icon,
   intent = "info",
-  shadow = "none",
   animated = true,
   className,
 }: MeterProps) {
-  const isCard = shadow !== "none";
   const hasHeader = Boolean(icon);
 
   const rootClasses = merge(
     "d:f fd:c w:64",
     hasHeader ? "g:3" : "g:2",
-    isCard ? "p:4 bg:white bc:silver-2 bw:1" : "",
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
 
@@ -118,7 +102,7 @@ export default function MeterBase({
         </div>
       )}
 
-      <Meter.Track className="o:h h:2 bg:silver-2">
+      <Meter.Track className="o:h h:2 bg:slate-2">
         <Meter.Indicator className={indicatorClasses} />
       </Meter.Track>
 

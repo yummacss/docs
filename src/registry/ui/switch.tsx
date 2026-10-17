@@ -120,13 +120,15 @@ export default function SwitchBase({
       ? "bw:1 bc:silver-2 bg:silver-1"
       : checked
         ? "bg:slate-12"
-        : "bg:silver-1",
+        : "bg:slate-2",
     disabled ? "" : "c:p",
     className,
   );
 
   const thumbClasses = [
-    disabled ? "bg:silver-3" : "bg:white",
+    disabled
+      ? "bg:silver-3"
+      : "bg:white bw:1 btc:black/5 blc:black/10 brc:black/10 bbc:black/20 bs-o:sm",
     thumb,
     SHAPES[shape],
   ]

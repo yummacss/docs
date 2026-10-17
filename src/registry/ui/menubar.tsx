@@ -12,7 +12,6 @@ import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const BAR_SHAPES: Record<Shape, string> = {
@@ -37,11 +36,6 @@ const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:xl",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 export interface MenubarAction {
@@ -117,11 +111,6 @@ export interface MenubarProps {
    */
   shape?: Shape;
   /**
-   * Depth on the bar and its popups. Not on the individual buttons inside the
-   * bar: they are transparent, so a shadow on each one reads as noise.
-   */
-  shadow?: Shadow;
-  /**
    * Draws each item's icon. `false` drops them, so every row shows its label
    * alone.
    */
@@ -150,27 +139,21 @@ export interface MenubarProps {
 export default function MenubarBase({
   menus,
   shape = "rounded",
-  shadow = "none",
   icon = true,
   iconPosition = "leading",
   animated = true,
   className,
   container,
 }: MenubarProps) {
-  const shadowClass =
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
-
   const barClasses = merge(
-    "d:f g:1 p:1 bg:white bc:silver-2 bw:1",
+    "d:f g:1 p:1 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1",
     BAR_SHAPES[shape],
-    shadowClass,
     className,
   );
 
   const popupClasses = [
-    "py:1 w:52 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "py:1 w:52 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     POPUP_SHAPES[shape],
-    shadowClass,
   ]
     .filter(Boolean)
     .join(" ");
@@ -180,7 +163,7 @@ export default function MenubarBase({
       "d:if ai:c h:8 px:3 py:0 fs:sm fw:500 us:none bw:0 bg:transparent",
       TRIGGER_SHAPES[shape],
       disabled ? "c:slate-4 o:60 c:na" : "c:slate-10 c:p h:bg:silver-1/50",
-      !disabled && state.open ? "bg:silver-2/50" : "",
+      !disabled && state.open ? "bg:silver-1" : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -189,14 +172,14 @@ export default function MenubarBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm us:none c:p mx:1 fw:500 os:none",
+        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm us:none c:p mx:1 fw:500 os:none bw:1 bc:transparent",
         spread ? "jc:sb" : "",
         ITEM_SHAPES[shape],
         destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg:red-1/50"
-            : "bg:silver-2/50"
+            ? "bg:red c:white btc:red-5"
+            : "bg:slate-12 c:white btc:white/20"
           : "bg:transparent",
       ]
         .filter(Boolean)
@@ -236,7 +219,7 @@ export default function MenubarBase({
           >
             <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <Menu.CheckboxItemIndicator>
-                <CheckIcon className="w:3 h:3 c:slate-12" />
+                <CheckIcon className="w:3 h:3" />
               </Menu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -259,7 +242,7 @@ export default function MenubarBase({
               >
                 <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <Menu.RadioItemIndicator>
-                    <span className="d:b w:2 h:2 br:9999 bg:current c:slate-12" />
+                    <span className="d:b w:2 h:2 br:9999 bg:current" />
                   </Menu.RadioItemIndicator>
                 </span>
                 {option.label}

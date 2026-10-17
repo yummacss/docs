@@ -6,8 +6,6 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
 
-type Shadow = "none" | "inset" | "outset";
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 export interface RatingIcon {
@@ -15,11 +13,6 @@ export interface RatingIcon {
   label: string;
   activeClassName?: string;
 }
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bg:white bc:silver-2 bw:1 bs-i:md",
-  outset: "bg:white bc:silver-2 bw:1 bs-o:sm",
-};
 
 export interface RatingProps {
   /** Text above the stars. */
@@ -32,7 +25,7 @@ export interface RatingProps {
   /**
    * A custom icon set, for a single-choice picker instead of N stars. When set,
    * `value`/`defaultValue` index into it (0-based, `-1` for none) rather than
-   * counting filled stars, and `count`/`shadow` are ignored.
+   * counting filled stars, and `count` is ignored.
    */
   icons?: RatingIcon[];
   /**
@@ -56,11 +49,6 @@ export interface RatingProps {
    * which dims, because it means "you could, but not now".
    */
   readOnly?: boolean;
-  /**
-   * Depth on each star, which becomes a bordered chip. There is no surrounding
-   * card, which is what both shadow demos did.
-   */
-  shadow?: Shadow;
   /**
    * The pop each mark makes as it fills, and the press-scale under the pointer.
    * Turn it off for static stars, or when the user has asked for reduced
@@ -109,7 +97,6 @@ export default function RatingBase({
   onValueChange,
   disabled = false,
   readOnly = false,
-  shadow = "none",
   animated = true,
   emptyHint = "Click to rate",
   score,
@@ -130,18 +117,14 @@ export default function RatingBase({
     onValueChange?.(next);
   };
 
-  const shadowClass =
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
-
   const starClasses = (pressed: boolean) =>
     merge(
       "d:f ai:c jc:c p:0 w:9 h:9 br:lg us:none",
-      shadowClass || "bw:0",
+      "bw:0 bg:transparent",
       disabled ? "c:na o:60" : "",
       !disabled && !readOnly ? `c:p ${outline}` : "",
       pressed ? "c:slate-11" : "c:slate-4",
       !disabled && !readOnly && !pressed ? "h:c:slate-6" : "",
-      shadowClass ? "" : "bg:transparent",
     );
 
   const iconClasses = (option: RatingIcon, active: boolean) =>

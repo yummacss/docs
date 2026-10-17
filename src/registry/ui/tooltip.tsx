@@ -7,7 +7,6 @@ import { merge } from "yummacss/merge";
 type Side = "top" | "right" | "bottom" | "left";
 type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
@@ -17,13 +16,8 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:3xl cs:s",
 };
 
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 const TONES: Record<Tone, string> = {
-  light: "bg:white bc:silver-2 c:slate-10 bw:1",
+  light: "bg:white bc:black/10 c:slate-10 bw:1",
   dark: "bg:slate-12 c:white",
   danger: "bg:red-7 c:white",
 };
@@ -98,8 +92,6 @@ export interface TooltipProps {
   delay?: number;
   /** Corner radius on the tooltip. */
   shape?: Shape;
-  /** Depth on the tooltip. */
-  shadow?: Shadow;
   /**
    * The tooltip's fade and rise. Turn it off for an instant tooltip, or when
    * the user has asked for reduced motion.
@@ -134,7 +126,6 @@ export default function TooltipBase({
   arrow = true,
   delay = 300,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
@@ -159,7 +150,7 @@ export default function TooltipBase({
     "px:3 py:2 fs:sm us:none",
     TONES[tone],
     SHAPES[shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    "bs-o:md",
     arrow ? "p:r" : "",
   ]
     .filter(Boolean)

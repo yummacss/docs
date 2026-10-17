@@ -8,7 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 // the group draws focus, so the outline wraps the input and both buttons
 const GROUP_FOCUS = "fw:os:s fw:ow:3 fw:oo:0 fw:oc:slate-4/60 fw:bc:slate-6";
@@ -40,12 +39,6 @@ const GROUP_SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 export interface NumberFieldProps
   extends Omit<ComponentProps<typeof NumberField.Root>, "className" | "id"> {
   /**
@@ -72,11 +65,6 @@ export interface NumberFieldProps
    * which degrades to a rounded square where that is unsupported.
    */
   shape?: Shape;
-  /**
-   * Depth across the buttons and the input. `inset` reads as a well, `outset`
-   * as a raised control.
-   */
-  shadow?: Shadow;
 
   /**
    * Extra classes. `merge` folds them in last, so one here replaces the
@@ -102,7 +90,6 @@ export default function NumberFieldBase({
   description,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   disabled = false,
   className,
   focus = true,
@@ -117,7 +104,6 @@ export default function NumberFieldBase({
   const inputClasses = merge(
     "os:none bg:white bc:transparent c:slate-10 bw:1 ta:l",
     INPUT_SIZES[size],
-    SHADOWS[shadow],
     className,
   );
 
@@ -139,7 +125,7 @@ export default function NumberFieldBase({
 
       <NumberField.Group
         className={merge(
-          "d:f o:h bc:silver-3 bw:1",
+          "d:f o:h btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2 bw:1",
           GROUP_SHAPES[shape],
           outline,
         )}

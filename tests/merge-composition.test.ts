@@ -209,6 +209,6 @@ describe("merge across a component's arguments", () => {
   });
 
   it("has combinations to merge", () => {
-    expect(combinations).toBeGreaterThan(3000);
+    expect(combinations).toBeGreaterThan(1500);
   });
 });

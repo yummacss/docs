@@ -1,5 +1,5 @@
 {
-  "summary": "A one-time code input, one slot per character, in three sizes, three shapes and three shadows.",
+  "summary": "A one-time code input, one slot per character, in three sizes and three shapes.",
   "props": [
     {
       "name": "label",
@@ -36,7 +36,11 @@
     {
       "name": "validationType",
       "type": "enum",
-      "values": ["numeric", "alpha", "alphanumeric"],
+      "values": [
+        "numeric",
+        "alpha",
+        "alphanumeric"
+      ],
       "default": "numeric",
       "description": "Which characters a slot accepts. Anything else is dropped as it is typed or pasted, and the mobile keyboard follows it."
     },
@@ -49,23 +53,24 @@
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Width, height and type size of every slot."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on each slot. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on each slot. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",

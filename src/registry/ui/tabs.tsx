@@ -145,7 +145,7 @@ export default function TabsBase({
   );
 
   const indicatorClasses = merge(
-    "p:a l:0 t:0 zi:0 bg:white",
+    "p:a l:0 t:0 zi:0 bg:white bw:1 btc:silver-2 blc:silver-2 brc:silver-2 bbc:silver-4 bs-o:xs",
     TAB_SHAPES[shape],
     animated && "tp:a tdu:300 ttf:out-quart @prm:tp:none",
   );

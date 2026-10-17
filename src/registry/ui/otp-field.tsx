@@ -8,7 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type ValidationType = "numeric" | "alpha" | "alphanumeric";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -25,12 +24,6 @@ const SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 export interface OTPFieldProps
@@ -65,10 +58,6 @@ export interface OTPFieldProps
    * to a rounded square where that is unsupported.
    */
   shape?: Shape;
-  /**
-   * Depth on each slot. `inset` reads as a well, `outset` as a raised control.
-   */
-  shadow?: Shadow;
   /** Blocks input and dims the whole field, label included. */
   disabled?: boolean;
   /**
@@ -102,7 +91,6 @@ export default function OTPFieldBase({
   mask = false,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   disabled = false,
   required = false,
   focus = true,
@@ -144,8 +132,9 @@ export default function OTPFieldBase({
                   SLOT,
                   SLOT_SIZES[size],
                   SHAPES[shape],
-                  SHADOWS[shadow],
-                  state.filled ? "bc:silver-5" : "bc:silver-3",
+                  state.filled
+                    ? "btc:slate-5 blc:slate-4 brc:slate-4 bbc:slate-3"
+                    : "btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2",
                   className,
                 )
               }

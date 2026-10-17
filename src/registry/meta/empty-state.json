@@ -65,13 +65,6 @@
       "description": "Corner radius on the badge."
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Wraps the whole block in a card. `none` renders it bare, with no card at all."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",

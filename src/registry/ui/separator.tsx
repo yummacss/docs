@@ -83,7 +83,7 @@ export default function SeparatorBase({
 
   const buttonClasses = merge(
     outline,
-    "d:if ai:c jc:c w:8 h:8 bg:white bc:silver-2 c:slate-10 bw:1 tp:c tdu:150 ttf:io us:none c:p h:bg:silver-1/50",
+    "d:if ai:c jc:c w:8 h:8 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 bw:1 tp:c tdu:150 ttf:io us:none c:p h:bg:silver-1/50",
     SHAPES[iconShape],
   );
 

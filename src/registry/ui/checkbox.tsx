@@ -8,7 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
@@ -44,14 +43,11 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
-const CHECKED = "bg:slate-12";
-const UNCHECKED = "bw:1 bc:silver-3 bg:transparent";
+// a ticked box is raised and bevelled, an empty one sits recessed
+const CHECKED =
+  "bw:1 bg:slate-12 btc:white/20 blc:black/40 brc:black/40 bbc:black/60";
+const UNCHECKED =
+  "bw:1 bg:white btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2";
 
 const DISABLED_BOX = "bw:1 bc:silver-2 bg:silver-1";
 
@@ -78,10 +74,6 @@ export interface CheckboxProps
    * square where that is unsupported.
    */
   shape?: Shape;
-  /**
-   * Depth on the box. `inset` reads as a well, `outset` as a raised control.
-   */
-  shadow?: Shadow;
   /**
    * The mark's transition when the box is ticked. Turn it off for a static
    * form, or when the user has asked for reduced motion.
@@ -111,7 +103,6 @@ export default function CheckboxBase({
   description,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   disabled = false,
   checked: controlledChecked,
   defaultChecked,
@@ -152,7 +143,6 @@ export default function CheckboxBase({
               BOX,
               SIZES[size],
               SHAPES[shape],
-              SHADOWS[shadow],
 
               disabled
                 ? DISABLED_BOX

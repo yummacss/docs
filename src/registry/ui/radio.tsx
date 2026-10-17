@@ -6,7 +6,6 @@ import { useId } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
-type Shadow = "none" | "inset" | "outset";
 
 export interface RadioOption {
   value: string;
@@ -38,12 +37,6 @@ const LABEL_SIZES: Record<Size, string> = {
 
 const ROUND = "br:9999";
 
-const SHADOWS: Record<Shadow, string> = {
-  none: "",
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 export interface RadioProps {
   /**
    * The choices. `value` and `label` are required; `description` and `icon` are
@@ -67,11 +60,6 @@ export interface RadioProps {
   onValueChange?: (value: string) => void;
   /** The circle, the dot and the label together. */
   size?: Size;
-  /**
-   * Depth on an unselected circle. A selected one is already a solid fill, so
-   * it does not carry the shadow: stacking one on top muddies the color.
-   */
-  shadow?: Shadow;
   /** Blocks interaction and dims every option. */
   disabled?: boolean;
   /**
@@ -105,7 +93,6 @@ export default function RadioBase({
   value,
   onValueChange,
   size = "md",
-  shadow = "none",
   disabled = false,
   animated = true,
   className,
@@ -117,7 +104,7 @@ export default function RadioBase({
 
   const dotClasses = (checked: boolean) =>
     checked
-      ? `${DOT_SIZES[size]} ${ROUND} bg:white ${animated ? "tp:t tdu:250 ttf:out-back @st:s:0 @prm:tp:none" : ""}`
+      ? `${DOT_SIZES[size]} ${ROUND} bg:white bs-o:xs ${animated ? "tp:t tdu:250 ttf:out-back @st:s:0 @prm:tp:none" : ""}`
       : "d:none";
 
   return (
@@ -144,8 +131,8 @@ export default function RadioBase({
               SIZES[size],
               ROUND,
               checked
-                ? "bg:slate-12"
-                : `bg:white bw:1 bc:silver-3 ${SHADOWS[shadow]}`,
+                ? "bw:1 bg:slate-12 btc:white/20 blc:black/40 brc:black/40 bbc:black/60"
+                : "bw:1 bg:white btc:slate-4 blc:slate-3 brc:slate-3 bbc:slate-2",
             );
 
           const indicator = (
