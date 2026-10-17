@@ -3,6 +3,11 @@ import {
   GalleryA,
   GalleryB,
   GalleryC,
+  GalleryC2,
+  GalleryC3,
+  GalleryC4,
+  GalleryC5,
+  GalleryC6,
   type GalleryItem,
 } from "@/components/gallery";
 import { sidebarConfig } from "@/config/sidebar";
@@ -27,15 +32,29 @@ export default async function Gallery({
   searchParams: Promise<{ v?: string }>;
 }) {
   const { v = "a" } = await searchParams;
-  const View = { a: GalleryA, b: GalleryB, c: GalleryC }[v] ?? GalleryA;
+  const View =
+    {
+      a: GalleryA,
+      b: GalleryB,
+      c: GalleryC,
+      c2: GalleryC2,
+      c3: GalleryC3,
+      c4: GalleryC4,
+      c5: GalleryC5,
+      c6: GalleryC6,
+    }[v] ?? GalleryA;
 
   return (
     <div className="pb:16">
-      <h1 className="m:0 ff:display fw:400 fs:4xl c:ink lh:1">Yumma UI</h1>
-      <p className="mt:3 mb:10 c:ink/70 max-w:xl">
-        Components styled with Yumma CSS and Base UI, each one installed as a
-        file you own.
-      </p>
+      <div className="my:8">
+        <h1 className="mb:2 ff:display min-w:0 c:ink fs:4xl fw:400 ow:bw">
+          Yumma UI
+        </h1>
+        <p className="c:ink/70 fs:lg">
+          Components styled with Yumma CSS and Base UI, each one installed as a
+          file you own.
+        </p>
+      </div>
       <View items={items} />
     </div>
   );

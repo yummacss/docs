@@ -203,3 +203,119 @@ export function GalleryC({ items }: { items: GalleryItem[] }) {
     </div>
   );
 }
+
+const LINK = "a:none fv:os:s fv:ow:2 fv:oo:2 fv:oc:accent";
+
+/** C2: no borders, white tiles on the page tint, the group under each name. */
+export function GalleryC2({ items }: { items: GalleryItem[] }) {
+  return (
+    <div className="d:g gtc:2 cg:4 rg:6 @md:gtc:3 @xl:gtc:4">
+      {items.map((item) => (
+        <div key={item.id} className="d:f fd:c g:2">
+          <div className="h:44 br:lg o:h bs-o:sm">
+            <Live id={item.id} height={176} scale={0.6} />
+          </div>
+          <Link href={`/components/${item.id}`} className={`as:fs ${LINK}`}>
+            <span className="d:b fs:sm c:ink h:td:u">{item.title}</span>
+            <span className="d:b fs:xs ff:m c:ink/50">{item.section}</span>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** C3: five across, square tiles, the name on a strip inside the tile. */
+export function GalleryC3({ items }: { items: GalleryItem[] }) {
+  return (
+    <div className="d:g gtc:2 g:3 @md:gtc:4 @xl:gtc:5">
+      {items.map((item) => (
+        <Link
+          key={item.id}
+          href={`/components/${item.id}`}
+          className={`p:r d:f fd:c h:48 bw:1 bc:border bg:surface o:h h:bc:ink/40 ${LINK}`}
+        >
+          <div className="f:1 min-h:0 pe:none">
+            <Live id={item.id} height={160} scale={0.55} />
+          </div>
+          <span className="px:3 py:2 btw:1 bc:border fs:xs c:ink/80">
+            {item.title}
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+/** C4: the index, grouped under the sidebar's own small labels. */
+export function GalleryC4({ items }: { items: GalleryItem[] }) {
+  const sections = [...new Set(items.map((item) => item.section))];
+  return (
+    <div className="d:f fd:c g:10">
+      {sections.map((section) => (
+        <section key={section}>
+          <h2 className="m:0 mb:4 fs:xs fw:600 ls:2 tt:u c:silver-8">
+            {section}
+          </h2>
+          <div className="d:g gtc:2 cg:4 rg:6 @md:gtc:3 @xl:gtc:4">
+            {items
+              .filter((item) => item.section === section)
+              .map((item) => (
+                <div key={item.id} className="d:f fd:c g:2">
+                  <div className="h:44 bw:1 bc:border bg:surface o:h">
+                    <Live id={item.id} height={176} scale={0.6} />
+                  </div>
+                  <Link
+                    href={`/components/${item.id}`}
+                    className={`as:fs fs:sm c:ink/80 h:c:ink h:td:u ${LINK}`}
+                  >
+                    {item.title}
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+/** C5: three across, larger tiles, the name in the corner of each tile. */
+export function GalleryC5({ items }: { items: GalleryItem[] }) {
+  return (
+    <div className="d:g gtc:1 g:4 @md:gtc:2 @xl:gtc:3">
+      {items.map((item) => (
+        <div key={item.id} className="p:r h:56 bw:1 bc:border bg:surface">
+          <Live id={item.id} height={224} scale={0.7} />
+          <Link
+            href={`/components/${item.id}`}
+            className={`p:a b:3 l:4 fs:sm fw:500 c:ink/70 h:c:ink h:td:u ${LINK}`}
+          >
+            {item.title}
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** C6: two columns of rows, a tile beside each name & description. */
+export function GalleryC6({ items }: { items: GalleryItem[] }) {
+  return (
+    <div className="d:g gtc:1 cg:8 rg:4 @xl:gtc:2">
+      {items.map((item) => (
+        <div key={item.id} className="d:f ai:c g:4">
+          <div className="fs:0 w:48 h:32 bw:1 bc:border bg:surface o:h">
+            <Live id={item.id} height={128} scale={0.5} />
+          </div>
+          <Link href={`/components/${item.id}`} className={`min-w:0 ${LINK}`}>
+            <span className="d:b fs:sm fw:600 c:ink h:td:u">{item.title}</span>
+            <span className="d:b mt:1 fs:xs c:ink/60 lh:2">
+              {item.description}
+            </span>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+}
