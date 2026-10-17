@@ -8,7 +8,6 @@ import { merge } from "yummacss/merge";
 
 type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 type TriggerVariant = "icon" | "label";
@@ -28,11 +27,6 @@ const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br:lg",
   square: "",
   squircle: "br:3xl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
@@ -110,8 +104,6 @@ export interface PopoverProps {
   showClose?: boolean;
   /** Corner radius on the trigger and the popup. */
   shape?: Shape;
-  /** Depth on the popup. */
-  shadow?: Shadow;
   /**
    * The popup's scale-in. Turn it off for an instant popup, or when the user
    * has asked for reduced motion.
@@ -152,7 +144,6 @@ export default function PopoverBase({
   onOpenChange,
   showClose = false,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
@@ -169,7 +160,7 @@ export default function PopoverBase({
 
   const triggerClasses = merge(
     outline,
-    "d:f ai:c jc:c bw:1 bc:silver-2 bg:white c:slate-10 us:none c:p h:bg:silver-1",
+    "d:f ai:c jc:c bw:1 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 us:none c:p h:bg:silver-1",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
     open ? "bg:silver-1" : "",
@@ -177,9 +168,8 @@ export default function PopoverBase({
   );
 
   const popupClasses = [
-    "px:4 py:3 w:56 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "px:4 py:3 w:56 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     POPUP_SHAPES[shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     arrow ? "p:r" : "",
   ]
     .filter(Boolean)

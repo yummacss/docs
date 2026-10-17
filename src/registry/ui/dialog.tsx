@@ -8,7 +8,6 @@ import { useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 type TriggerTone = "neutral" | "danger";
 type Size = "sm" | "md" | "lg";
@@ -32,29 +31,28 @@ const CLOSE_SHAPES: Record<Shape, string> = {
   squircle: "br:lg cs:s",
 };
 
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:3xl",
-  outset: "bs-o:sm",
-};
-
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
 
 const BUTTON_BASE = "bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
 
-const NEUTRAL_BUTTON = "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50";
+const NEUTRAL_BUTTON =
+  "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs c:slate-10 h:bg:silver-1";
 
-const PRIMARY_BUTTON = "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white";
+const PRIMARY_BUTTON =
+  "bg:slate-12 btc:white/20 blc:black/40 brc:black/40 bbc:black/60 bs-o:sm h:bg:slate-11 c:white";
 
 const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: NEUTRAL_BUTTON,
-  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
+  danger:
+    "bg:red h:bg:red-8 btc:red-5 blc:red-8 brc:red-8 bbc:red-9 c:white bs-o:sm",
 };
 
 const CONFIRM_TONES: Record<ConfirmTone, string> = {
   primary: PRIMARY_BUTTON,
-  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
+  danger:
+    "bg:red h:bg:red-8 btc:red-5 blc:red-8 brc:red-8 bbc:red-9 c:white bs-o:sm",
 };
 
 const SIZES: Record<Size, string> = {
@@ -122,8 +120,6 @@ export interface DialogProps {
   size?: Size;
   /** Corner radius on the popup and its buttons. */
   shape?: Shape;
-  /** Depth on the popup. */
-  shadow?: Shadow;
   /**
    * The backdrop's fade and the popup's scale-in. Turn it off for an instant
    * dialog, or when the user has asked for reduced motion.
@@ -165,7 +161,6 @@ export default function DialogBase({
   confirmTone = "primary",
   showClose = true,
   shape = "rounded",
-  shadow = "none",
   animated = true,
   className,
   focus = true,
@@ -191,9 +186,8 @@ export default function DialogBase({
   );
 
   const popupClasses = [
-    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "o:h p:r w:96 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     POPUP_SHAPES[shape],
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
     .filter(Boolean)
     .join(" ");

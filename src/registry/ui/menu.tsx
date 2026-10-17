@@ -12,7 +12,6 @@ import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -51,11 +50,6 @@ const ITEM_SHAPES: Record<Shape, string> = {
   rounded: "br:xl",
   square: "",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 export interface MenuAction {
@@ -137,8 +131,6 @@ export interface MenuProps {
    * the popup & item radius up one and adds `corner-shape`.
    */
   shape?: Shape;
-  /** Depth on both the trigger and the popup. */
-  shadow?: Shadow;
   /**
    * Draws each item's icon. `false` drops them, so every row shows its label
    * alone.
@@ -187,7 +179,6 @@ export default function MenuBase({
   items,
   size = "md",
   shape = "rounded",
-  shadow = "none",
   icon = true,
   iconPosition = "leading",
   disabled = false,
@@ -215,26 +206,21 @@ export default function MenuBase({
   }, [disabled, open, onOpenChange]);
 
   const spec = SIZES[size];
-  const shadowClass =
-    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
-
   const triggerClasses = merge(
     outline,
-    "d:f ai:c g:2 h:fc bg:white bc:silver-2 bw:1 fw:500 us:none",
+    "d:f ai:c g:2 h:fc bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1 fw:500 us:none",
     spec.trigger,
     spec.text,
     TRIGGER_SHAPES[shape],
-    shadowClass,
     animated ? "tp:c tdu:150 ttf:io" : "",
-    disabled ? "c:slate-4 o:60 c:na" : "c:slate-10 c:p h:bg:silver-1/50",
+    disabled ? "c:slate-4 o:60 c:na" : "c:slate-10 c:p h:bg:silver-1",
     className,
   );
 
   const popupClasses = [
-    "py:1 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
+    "py:1 bg:white bc:black/10 c:slate-10 bw:1 os:none bs-o:xl",
     spec.popup,
     POPUP_SHAPES[shape],
-    shadowClass,
   ]
     .filter(Boolean)
     .join(" ");
@@ -243,7 +229,7 @@ export default function MenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d:f ai:c g:2 us:none c:p mx:1 fw:500 os:none",
+        "d:f ai:c g:2 us:none c:p mx:1 fw:500 os:none bw:1 bc:transparent",
         spec.item,
         spec.text,
         spread ? "jc:sb" : "",
@@ -251,8 +237,8 @@ export default function MenuBase({
         destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg:red-1/50"
-            : "bg:silver-2/50"
+            ? "bg:red c:white btc:red-5"
+            : "bg:slate-12 c:white btc:white/20"
           : "bg:transparent",
       ]
         .filter(Boolean)
@@ -292,7 +278,7 @@ export default function MenuBase({
           >
             <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <Menu.CheckboxItemIndicator>
-                <CheckIcon className="w:3 h:3 c:slate-12" />
+                <CheckIcon className="w:3 h:3" />
               </Menu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -315,7 +301,7 @@ export default function MenuBase({
               >
                 <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <Menu.RadioItemIndicator>
-                    <span className="d:b w:2 h:2 br:9999 bg:current c:slate-12" />
+                    <span className="d:b w:2 h:2 br:9999 bg:current" />
                   </Menu.RadioItemIndicator>
                 </span>
                 {option.label}
@@ -365,7 +351,7 @@ export default function MenuBase({
           className={itemClasses(destructive, trailing)}
         >
           {icon && action.icon && iconPosition === "leading" && (
-            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+            <span className={`d:f fs:0 ${destructive ? "" : "c:slate-5"}`}>
               {action.icon}
             </span>
           )}
@@ -375,7 +361,7 @@ export default function MenuBase({
             action.label
           )}
           {icon && action.icon && iconPosition === "trailing" && (
-            <span className={`d:f fs:0 ${destructive ? "c:red" : "c:slate-5"}`}>
+            <span className={`d:f fs:0 ${destructive ? "" : "c:slate-5"}`}>
               {action.icon}
             </span>
           )}
@@ -383,7 +369,7 @@ export default function MenuBase({
             <span
               className={[
                 "d:f ai:c g:1 ml:4 fw:400 fs:xs",
-                destructive ? "c:red" : "c:slate-6",
+                destructive ? "" : "c:slate-6",
               ]
                 .filter(Boolean)
                 .join(" ")}

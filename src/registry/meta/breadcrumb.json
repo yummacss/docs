@@ -58,19 +58,6 @@
       ]
     },
     {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the card. Only visible when `bordered` is set.",
-      "conflictsWith": [
-        {
-          "prop": "bordered",
-          "set": false
-        }
-      ]
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",

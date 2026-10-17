@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
-type Shadow = "none" | "inset" | "outset";
 type Size = "sm" | "md" | "lg";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
@@ -27,11 +26,6 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br:xxl cs:s",
 };
 
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
-};
-
 export interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -51,8 +45,6 @@ export interface BreadcrumbProps {
   bordered?: boolean;
   /** Corner radius. Only visible when `bordered` is set. */
   shape?: Shape;
-  /** Depth on the card. Only visible when `bordered` is set. */
-  shadow?: Shadow;
   /** Text size of every item. */
   size?: Size;
   /** The mark between items. */
@@ -80,7 +72,6 @@ export default function BreadcrumbBase({
   items,
   bordered = false,
   shape = "rounded",
-  shadow = "none",
   size = "md",
   separator = "chevron",
   className,
@@ -90,9 +81,10 @@ export default function BreadcrumbBase({
 
   const navClasses = merge(
     "d:f ai:c g:2",
-    bordered ? "px:3 py:2 bg:white bc:silver-2 bw:1" : "",
+    bordered
+      ? "px:3 py:2 bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1"
+      : "",
     bordered ? SHAPES[shape] : "",
-    bordered && shadow !== "none" ? SHADOWS[shadow] : "",
     className,
   );
 

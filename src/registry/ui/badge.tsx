@@ -8,7 +8,6 @@ type Shape = "square" | "rounded" | "pill" | "squircle";
 type Size = "sm" | "md" | "lg";
 
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:slate-4/60 fv:bc:slate-6";
-type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const SHAPES: Record<Shape, string> = {
@@ -16,11 +15,6 @@ const SHAPES: Record<Shape, string> = {
   rounded: "br:sm",
   pill: "br:9999",
   squircle: "br:xxl cs:s",
-};
-
-const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i:md",
-  outset: "bs-o:sm",
 };
 
 const SIZES: Record<Size, { pad: string; text: string; icon: string }> = {
@@ -117,8 +111,6 @@ export interface BadgeProps {
   shape?: Shape;
   /** Padding, text size and icon size together. */
   size?: Size;
-  /** Depth on the badge. `inset` reads as a well, `outset` as a raised chip. */
-  shadow?: Shadow;
   /**
    * Any icon. The slot is sized to the badge and the color is inherited, but a
    * glyph that carries its own width and height keeps them, so pass it at the
@@ -168,7 +160,6 @@ export default function BadgeBase({
   intent = "neutral",
   shape = "rounded",
   size = "md",
-  shadow = "none",
   icon,
   iconPosition = "leading",
   dot = false,
@@ -185,9 +176,8 @@ export default function BadgeBase({
     "d:if ai:c g:1",
     pad,
     SHAPES[shape],
-    shadow !== "none" ? SHADOWS[shadow] : "",
     tone === "outline"
-      ? "bg:white bc:silver-2 bw:1"
+      ? "bg:white btc:slate-2 blc:slate-2 brc:slate-2 bbc:slate-4 bs-o:xs bw:1"
       : tone === "subtle"
         ? [INTENTS[intent].subtleBg, "bw:0"].join(" ")
         : [INTENTS[intent].solidBg, "bw:0"].join(" "),

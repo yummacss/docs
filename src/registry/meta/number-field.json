@@ -1,5 +1,5 @@
 {
-  "summary": "A number input with increment and decrement buttons, in three sizes, three shapes and three shadows.",
+  "summary": "A number input with increment and decrement buttons, in three sizes and three shapes.",
   "props": [
     {
       "name": "label",
@@ -55,13 +55,6 @@
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the group's outer edges. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth across the buttons and the input. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "disabled",
